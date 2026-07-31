@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Pokemon Generator - Free Team Builder for Nuzlocke &amp; Battles</title>
+  <meta name="description" content="Generate random Pokémon with powerful filters by type, generation, and rarity. Free tool for Nuzlocke challenges, draft leagues, and team building. No sign-up required." />
+  <meta name="keywords" content="random pokemon generator, pokemon team builder, nuzlocke generator, shiny pokemon generator" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://randompokemongenerator.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Random Pokemon Generator" />
+  <meta property="og:description" content="Generate random Pokémon teams instantly — free, no sign-up." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://randompokemongenerator.app/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Random Pokemon Generator" />
+  <meta name="twitter:description" content="Generate random Pokémon teams instantly — free, no sign-up." />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="stylesheet" href="styles.css?v=20260801d" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Random Pokemon Generator",
+    "description": "Generate random Pokémon teams with powerful filters",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this random Pokémon generator free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The generator is completely free, requires no sign-up, and runs entirely in your browser. No data is collected or tracked." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use it for Nuzlocke challenges?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Filter by generation, type, evolution stage, or rarity to roll legal encounters, replacement Pokémon after a death, or a full randomized starter team." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which Pokémon are included?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Every species from Generation 1 through Generation 9 — 1,025 Pokémon plus regional and special forms — with official artwork, base stats, abilities, and evolution data sourced from PokeAPI." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I share the exact Pokémon squad I rolled?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Copy Config Link button encodes both your filters and your current squad — shiny variants included — into one URL. Anyone opening it sees the identical Pokémon, and every entry in your Roll History has its own Share button too." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this random Pokémon generator save my rolls?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every squad you generate is stored locally in your browser's Roll History (up to 20 rolls) — hover any Pokémon to preview its details, click a roll to reload that exact team, or share it with a unique link. Nothing is uploaded or tracked." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the generator analyze my team?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every roll produces a Team Tactical Report: an S–D grade, an 18-type defensive coverage matrix, STAB offensive coverage, average base stats, per-Pokémon role tags (sweeper, wall, tank…), and warnings about shared weaknesses with actionable tips." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">⚡ Random Pokemon Generator</a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#generator" class="nav-link nav-link-active">Generator</a></li>
+          <li><a href="#how" class="nav-link">How It Works</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">Free · No sign-up · Gen 1–9</p>
+      <h1 id="page-title">Random Pokemon Generator</h1>
+      <p class="lede">Generate random Pokémon with powerful filters — free, no sign-up. Perfect for Nuzlocke, draft leagues, and team building.</p>
+    </section>
+
+    <!-- Generator -->
+    <section id="generator" class="container" aria-label="Pokémon generator">
+      <form class="panel cornered" id="generator-form" action="#generator" method="get">
+        <fieldset>
+          <legend>Generation</legend>
+          <div class="btn-row" id="gen-buttons" role="group" aria-label="Filter by generation"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Type (any of)</legend>
+          <div class="btn-row" id="type-buttons" role="group" aria-label="Filter by type"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Count: <output id="count-output" for="count-slider">6</output></legend>
+          <input type="range" id="count-slider" min="1" max="12" value="6" step="1" aria-label="Number of Pokémon to generate" />
+        </fieldset>
+
+        <details class="advanced" id="advanced-details" open>
+          <summary>▸ Advanced filters (shiny · rarity · form · stage · BST · color)</summary>
+          <div class="advanced-grid">
+            <fieldset>
+              <legend>Shiny</legend>
+              <div class="btn-row" id="shiny-buttons" role="group" aria-label="Shiny mode"></div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Rarity</legend>
+              <div class="select-row">
+                <label for="legendary-select">Legendary</label>
+                <select id="legendary-select">
+                  <option value="include">Include</option>
+                  <option value="exclude">Exclude</option>
+                  <option value="only">Only</option>
+                </select>
+              </div>
+              <div class="select-row">
+                <label for="mythical-select">Mythical</label>
+                <select id="mythical-select">
+                  <option value="include">Include</option>
+                  <option value="exclude">Exclude</option>
+                  <option value="only">Only</option>
+                </select>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Forms</legend>
+              <div class="btn-row" id="form-buttons" role="group" aria-label="Form filter"></div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Evolution stage</legend>
+              <div class="btn-row" id="stage-buttons" role="group" aria-label="Evolution stage filter"></div>
+            </fieldset>
+
+            <fieldset class="bst-fieldset">
+              <legend>Base stat total: <output id="bst-output">0 – 780</output></legend>
+              <div class="bst-sliders">
+                <label>Min <input type="range" id="bst-min" min="0" max="780" value="0" step="10" aria-label="Minimum base stat total" /></label>
+                <label>Max <input type="range" id="bst-max" min="0" max="780" value="780" step="10" aria-label="Maximum base stat total" /></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Pokédex color</legend>
+              <div class="color-row" id="color-buttons" role="group" aria-label="Filter by Pokédex color"></div>
+            </fieldset>
+          </div>
+        </details>
+
+        <div class="actions">
+          <button type="button" id="generate-btn" class="btn-slide cornered btn-primary">
+            <span>🎲 Generate Random Pokémon</span>
+          </button>
+          <button type="button" id="copy-btn" class="btn-slide btn-secondary">
+            <span id="copy-label">📋 Copy Config Link</span>
+          </button>
+          <button type="button" id="reset-btn" class="btn-text">Reset All</button>
+          <span class="pool-count" id="pool-count" aria-live="polite">1,025 in pool</span>
+        </div>
+      </form>
+
+      <div class="results" aria-live="polite">
+        <p class="results-hint">💡 Click any Pokémon card to view its full details — stats, abilities & evolution chain.</p>
+        <p class="results-empty cornered-dashed" id="results-empty">Press 🎲 Generate Random Pokémon to roll your squad — it stays put until you roll again.</p>
+        <ul class="results-grid" id="results-grid"></ul>
+        <p class="results-meta" id="results-meta"></p>
+      </div>
+
+      <section class="analysis cornered" id="analysis-panel" aria-labelledby="analysis-title" hidden>
+        <div class="analysis-head">
+          <h2 class="analysis-title" id="analysis-title">📊 Team Tactical Report</h2>
+          <span class="grade-badge" id="analysis-grade">–</span>
+        </div>
+        <p class="analysis-summary" id="analysis-summary"></p>
+        <details class="analysis-details" id="analysis-details">
+          <summary>▶ Tap here to expand the full report — defensive matrix, STAB coverage, stats, roles & tips</summary>
+          <div id="analysis-body"></div>
+        </details>
+      </section>
+
+      <div class="history cornered" id="history-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title">Roll History</h2>
+          <button type="button" id="history-clear" class="btn-text">Clear History</button>
+        </div>
+        <p class="history-hint">💡 Hover a Pokémon to preview · Click it for full stats & evolution details · Click the row to reload that squad</p>
+        <ol class="history-list" id="history-list"></ol>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how-title">A Random Pokémon Generator Built for Real Runs</h2>
+        <div class="how-grid">
+          <article>
+            <h3>Roll with real rules</h3>
+            <p>Every roll draws from all 1,025 species across Gen 1–9 with true random shuffling — no duplicates in a single team. Stack filters like a Nuzlocke ruleset: lock a generation, ban legendaries, limit evolution stages, or roll only shinies for a living-dex hunt.</p>
+          </article>
+          <article>
+            <h3>Filter down to the exact pool</h3>
+            <p>Ten-plus filter dimensions combine freely: 18 types, 9 generations, base-stat-total range, Pokédex color, regional forms, rarity, and evolution stage. The pool counter updates live, so you always know exactly how many Pokémon your next roll can produce.</p>
+          </article>
+          <article>
+            <h3>Share the exact squad</h3>
+            <p>Every filter — and your rolled team — lives in the URL. Copy the config link from this random Pokémon generator and friends, draft-league rivals, or stream chat see your exact squad, shinies included, then roll their own from the same rules. Every roll is saved to your history with its own share link.</p>
+          </article>
+          <article>
+            <h3>Instant tactical report</h3>
+            <p>Every squad gets an instant tactical breakdown: an S–D team grade, an 18-type defensive matrix, STAB offensive coverage, average base stats, per-Pokémon role tags, and shared-weakness warnings with actionable tips. This random Pokémon generator doesn't just pick your team — it grades it.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Frequently Asked Questions</h2>
+      <details class="faq-item cornered">
+        <summary>Is this random Pokémon generator free?</summary>
+        <p>Yes. The generator is completely free, requires no sign-up, and runs entirely in your browser. No data is collected or tracked.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I use it for Nuzlocke challenges?</summary>
+        <p>Absolutely. Filter by generation, type, evolution stage, or rarity to roll legal encounters, replacement Pokémon after a death, or a full randomized starter team.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Which Pokémon are included?</summary>
+        <p>Every species from Generation 1 through Generation 9 — 1,025 Pokémon plus regional and special forms — with official artwork, base stats, abilities, and evolution data sourced from PokeAPI.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I share the exact Pokémon squad I rolled?</summary>
+        <p>Yes. The Copy Config Link button encodes both your filters and your current squad — shiny variants included — into one URL. Anyone opening it sees the identical Pokémon, and every entry in your Roll History has its own Share button too.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Does this random Pokémon generator save my rolls?</summary>
+        <p>Yes. Every squad you generate is stored locally in your browser's Roll History (up to 20 rolls) — hover any Pokémon to preview its details, click a roll to reload that exact team, or share it with a unique link. Nothing is uploaded or tracked.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Does the generator analyze my team?</summary>
+        <p>Yes. Every roll produces a Team Tactical Report: an S–D grade, an 18-type defensive coverage matrix, STAB offensive coverage, average base stats, per-Pokémon role tags (sweeper, wall, tank…), and warnings about shared weaknesses with actionable tips.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav aria-label="Footer keyword links">
+        <ul class="footer-links">
+          <li><a href="#generator">Random Pokemon Generator</a></li>
+          <li><a href="#generator">Pokemon Team Builder</a></li>
+          <li><a href="#generator">Nuzlocke Generator</a></li>
+          <li><a href="#generator">Shiny Pokemon Generator</a></li>
+          <li><a href="#how">How It Works</a></li>
+        </ul>
+      </nav>
+      <p class="footer-note">© 2026 Random Pokemon Generator. Not affiliated with Nintendo / Game Freak.</p>
+      <p class="footer-note">Data sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </div>
+  </footer>
+
+  <!-- Detail modal -->
+  <div class="modal-overlay" id="modal" hidden>
+    <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="modal-name" id="modal-card">
+      <div class="modal-head">
+        <div>
+          <p class="modal-meta" id="modal-meta"></p>
+          <h3 id="modal-name"></h3>
+          <div class="chip-row" id="modal-types"></div>
+        </div>
+        <span class="modal-art"><span class="dex-aura" aria-hidden="true"></span><img id="modal-img" width="475" height="475" alt="" /></span>
+      </div>
+      <h4 class="modal-section">Base stats · total <strong id="modal-bst"></strong></h4>
+      <dl class="stats" id="modal-stats"></dl>
+      <h4 class="modal-section">Abilities</h4>
+      <ul class="ability-list" id="modal-abilities"></ul>
+      <h4 class="modal-section">Evolution chain</h4>
+      <div class="evo-chain" id="modal-evo"></div>
+      <button type="button" class="btn-slide btn-secondary modal-close" id="modal-close"><span>Close (ESC)</span></button>
+    </div>
+  </div>
+
+  <script src="data.js?v=20260801d"></script>
+  <script src="app.js?v=20260801d"></script>
+</body>
+</html>
