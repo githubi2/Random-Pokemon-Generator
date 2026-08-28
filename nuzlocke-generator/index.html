@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuzlocke Generator - Pokemon Team &amp; Encounter Roller</title>
+  <meta name="description" content="Nuzlocke generator: roll starter teams, first encounters &amp; death replacements under classic Nuzlocke rules. Lock a generation, ban legendaries, share runs." />
+  <meta name="keywords" content="nuzlocke generator, nuzlocke team builder, nuzlocke encounter generator, pokemon nuzlocke randomizer" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/nuzlocke-generator/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nuzlocke Generator - Pokemon Team &amp; Encounter Roller" />
+  <meta property="og:description" content="Roll starter teams, first encounters, and death replacements under classic Nuzlocke rules." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/nuzlocke-generator/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Nuzlocke Generator - Pokemon Team &amp; Encounter Roller" />
+  <meta name="twitter:description" content="Roll starter teams, first encounters, and death replacements under classic Nuzlocke rules." />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="stylesheet" href="../styles.css?v=20260801d" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Nuzlocke Generator",
+    "description": "Roll starter teams, first encounters, and death replacements for Pokemon Nuzlocke runs.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Random Pokemon Generator", "item": "https://www.random-pokemon-generator.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Nuzlocke Generator", "item": "https://www.random-pokemon-generator.co/nuzlocke-generator/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a Nuzlocke run?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A Nuzlocke is a self-imposed Pokemon challenge run: you can only catch the first Pokemon you see in each area, any Pokemon that faints is permanently lost (released or boxed), and you must nickname every catch. It turns the main story into a survival run where every encounter matters." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I start a Nuzlocke with this generator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Pick the Starter Team mode, choose your generation (Gen 1 for Kanto, Gen 9 for Paldea, and so on), keep Legendary/Mythical banned, and hit Roll. You get a six-Pokemon starter squad to begin the run." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the First Encounter mode?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Strict Nuzlocke rules allow only one catch per route. First Encounter mode rolls a single random Pokemon per click — use it when you enter a new route, and whatever the generator deals you is your one and only catch for that area." }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens when a Pokemon faints in my run?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Under Nuzlocke rules a fainted Pokemon is gone for good. Switch to Death Replacement mode, roll one replacement from the same generation pool, and keep the run going — same rules, fresh luck." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are legendaries and mythicals included?",
+        "acceptedAnswer": { "@type": "Answer", "text": "By default this Nuzlocke generator excludes legendaries and mythicals, matching most Nuzlocke rulesets. You can toggle either rule off, or roll Only mode for themed challenge runs." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I share my Nuzlocke rolls?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every roll produces a share link that encodes the mode, generation, rules, and the exact Pokemon rolled — post it in your Nuzlocke community or to friends so they can see (or re-roll) the same encounter." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">⚡ Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link">Generator</a></li>
+          <li><a href="index.html" class="nav-link nav-link-active">Nuzlocke Generator</a></li>
+          <li><a href="#how" class="nav-link">How It Works</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">Gen 1–9 · Nuzlocke Rules · One-Click Encounter Rolls</p>
+      <h1 id="page-title">Nuzlocke Generator</h1>
+      <p class="lede">Roll your starter team, your first encounter in every route, and your death replacements — all under classic Nuzlocke rules. Lock a generation, keep legendaries banned, and survive.</p>
+    </section>
+
+    <!-- Generator -->
+    <section id="generator" class="container" aria-label="Nuzlocke generator">
+      <form class="panel cornered" id="nuz-form" action="#generator" method="get">
+        <fieldset>
+          <legend>Mode</legend>
+          <div class="btn-row" id="mode-buttons" role="group" aria-label="Nuzlocke mode">
+            <button type="button" class="chip-btn" data-mode="team" aria-pressed="true">🎲 Starter Team (6)</button>
+            <button type="button" class="chip-btn" data-mode="encounter" aria-pressed="false">👣 First Encounter (1)</button>
+            <button type="button" class="chip-btn" data-mode="death" aria-pressed="false">💀 Death Replacement (1)</button>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Generation (your region)</legend>
+          <div class="btn-row" id="gen-buttons" role="group" aria-label="Filter by generation"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Nuzlocke rules</legend>
+          <div class="btn-row" id="rule-buttons" role="group" aria-label="Nuzlocke rule toggles">
+            <button type="button" class="chip-btn" data-rule="noLeg" aria-pressed="true">🚫 No Legendaries</button>
+            <button type="button" class="chip-btn" data-rule="noMyth" aria-pressed="true">🚫 No Mythicals</button>
+            <button type="button" class="chip-btn" data-rule="initialOnly" aria-pressed="false">🌱 Unevolved Only</button>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button type="button" id="roll-btn" class="btn-slide cornered btn-primary">
+            <span id="roll-label">🎲 Roll Nuzlocke Encounter</span>
+          </button>
+          <button type="button" id="copy-btn" class="btn-slide btn-secondary">
+            <span id="copy-label">🔗 Copy Share Link</span>
+          </button>
+          <button type="button" id="reset-btn" class="btn-text">Reset All</button>
+          <span class="pool-count" id="pool-count" aria-live="polite">1,025 in pool</span>
+        </div>
+      </form>
+
+      <div class="results" aria-live="polite">
+        <p class="results-hint">💡 Nuzlocke rule of thumb: one catch per route. Use First Encounter mode when you enter a new area.</p>
+        <p class="results-empty cornered-dashed" id="results-empty">Press 🎲 Roll to get your Nuzlocke pick — it stays put until you roll again.</p>
+        <ul class="results-grid" id="results-grid"></ul>
+        <p class="results-meta" id="results-meta"></p>
+      </div>
+
+      <section class="analysis cornered" id="analysis-panel" aria-labelledby="analysis-title" hidden>
+        <div class="analysis-head">
+          <h2 class="analysis-title" id="analysis-title">📊 Nuzlocke Squad Report</h2>
+          <span class="grade-badge" id="analysis-grade">–</span>
+        </div>
+        <p class="analysis-summary" id="analysis-summary"></p>
+        <details class="analysis-details" id="analysis-details">
+          <summary>▶ Tap here to expand the full report — defensive matrix, STAB coverage, stats, roles &amp; tips</summary>
+          <div id="analysis-body"></div>
+        </details>
+      </section>
+
+      <div class="history cornered" id="history-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title">Roll History</h2>
+          <button type="button" id="history-clear" class="btn-text">Clear History</button>
+        </div>
+        <p class="history-hint">💡 Hover a Pokémon to preview · Click the row to reload that roll · Share each roll with its own link</p>
+        <ol class="history-list" id="history-list"></ol>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how-title">How to Run a Nuzlocke with This Generator</h2>
+        <div class="how-grid">
+          <article>
+            <h3>The classic Nuzlocke rules</h3>
+            <p>A Nuzlocke run works because of three simple self-imposed rules: you may only catch the first Pokémon you see in each area, a fainted Pokémon is permanently gone, and every catch gets a nickname. That turns an ordinary playthrough into a survival run where one bad encounter can end a teammate for good. Many players add optional rules too — no items in battle, no switching, no healing outside Poké Centers — but the first-catch rule is the heart of it. This Nuzlocke generator runs on the same Gen 1–9 dataset as our main <a href="../index.html">random Pokemon generator</a>.</p>
+          </article>
+          <article>
+            <h3>Start with a six-Pokémon starter squad</h3>
+            <p>Pick Starter Team mode, choose the generation that matches your game, and roll. You get six random Pokémon from that generation — legendaries and mythicals are banned by default, so the squad is always a legal Nuzlocke team. Playing Kanto? Select Gen 1 and the pool becomes the original 151. Playing Paldea? Select Gen 9 and roll from the newest roster. Need extra dimensions like type filters, base stat ranges, or shiny mode? The full <a href="../index.html">Pokemon team builder</a> on our home page has them all.</p>
+          </article>
+          <article>
+            <h3>Roll one encounter per route</h3>
+            <p>The heart of a Nuzlocke is the first-encounter rule. Switch to First Encounter mode and roll once every time you enter a new route: whichever Pokémon appears is your one and only catch for that area. No rerolls, no exceptions — that is the rule. If you get a duplicate or a Pokémon you already have, stiff upper lip, that is part of the challenge.</p>
+          </article>
+          <article>
+            <h3>Replace the fallen</h3>
+            <p>When a member of your team faints, it is gone forever — but the run is not over. Switch to Death Replacement mode, roll a single replacement from the same generation pool, and carry on. The generator keeps the same region locked, so your replacement always fits the game you are playing. Some players roll a replacement that is one evolution stage lower on purpose, for the extra challenge.</p>
+          </article>
+          <article>
+            <h3>Tune the ruleset to your challenge</h3>
+            <p>Turn on Unevolved Only to force yourself to roll first-stage Pokémon and raise the difficulty, or use a Kaizo-style ruleset where legendaries are allowed but items are not. This Nuzlocke generator's rule toggles let you dial the challenge from casual to hardcore: keep legendaries banned for a classic run, allow them for a power fantasy, or roll Only-mythical for a themed challenge.</p>
+          </article>
+          <article>
+            <h3>Which generation should you Nuzlocke?</h3>
+            <p>Every generation offers a different Nuzlocke flavor. Gen 1 Kanto is the classic — 151 Pokémon, tight routes, and legendary difficulty spikes at the Elite Four. Gen 2 Johto adds two regions and the hardest gym lead in the series. Gen 4 Sinnoh is a legendary for hardcore rulesets, with brutal coverage checks and high-level wilds. Gen 5 Unova forces a fresh team on you after the story. Gen 9 Paldea is the friendliest starting point for a first Nuzlocke, with open-world routes full of easy catches. Whichever you pick, lock the matching generation here and the pool will always fit your region.</p>
+          </article>
+          <article>
+            <h3>Share your run as you go</h3>
+            <p>Every roll creates a share link that encodes the mode, generation, rules, and the exact Pokémon rolled — shinies included if you get lucky. Post it in your Nuzlocke community, on Discord, or to friends next to your badge progress. They can open the exact same encounter, or re-roll from your ruleset and compare runs side by side.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Nuzlocke Generator FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>What is a Nuzlocke run?</summary>
+        <p>A Nuzlocke is a self-imposed Pokemon challenge run: you can only catch the first Pokemon you see in each area, any Pokemon that faints is permanently lost (released or boxed), and you must nickname every catch. It turns the main story into a survival run where every encounter matters.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How do I start a Nuzlocke with this generator?</summary>
+        <p>Pick the Starter Team mode, choose your generation (Gen 1 for Kanto, Gen 9 for Paldea, and so on), keep Legendary/Mythical banned, and hit Roll. You get a six-Pokemon starter squad to begin the run.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What is the First Encounter mode?</summary>
+        <p>Strict Nuzlocke rules allow only one catch per route. First Encounter mode rolls a single random Pokemon per click — use it when you enter a new route, and whatever the generator deals you is your one and only catch for that area.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What happens when a Pokemon faints in my run?</summary>
+        <p>Under Nuzlocke rules a fainted Pokemon is gone for good. Switch to Death Replacement mode, roll one replacement from the same generation pool, and keep the run going — same rules, fresh luck.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Are legendaries and mythicals included?</summary>
+        <p>By default this Nuzlocke generator excludes legendaries and mythicals, matching most Nuzlocke rulesets. You can toggle either rule off, or roll Only mode for themed challenge runs.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I share my Nuzlocke rolls?</summary>
+        <p>Yes. Every roll produces a share link that encodes the mode, generation, rules, and the exact Pokemon rolled — post it in your Nuzlocke community or to friends so they can see (or re-roll) the same encounter.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav aria-label="Footer keyword links">
+        <ul class="footer-links">
+          <li><a href="../index.html">Random Pokemon Generator</a></li>
+          <li><a href="../index.html">Pokemon Team Builder</a></li>
+          <li><a href="#generator">Nuzlocke Generator</a></li>
+          <li><a href="#generator">Pokemon Nuzlocke Randomizer</a></li>
+          <li><a href="#generator">Nuzlocke Encounter Roller</a></li>
+          <li><a href="#how">How It Works</a></li>
+        </ul>
+      </nav>
+      <p class="footer-note">© 2026 Random Pokemon Generator. Not affiliated with Nintendo / Game Freak.</p>
+      <p class="footer-note">Data sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </div>
+  </footer>
+
+  <script src="../data.js?v=20260801d"></script>
+  <script src="../nav.js?v=20260801d"></script>
+  <script src="nuzlocke.js?v=20260801d"></script>
+</body>
+</html>

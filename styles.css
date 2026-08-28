@@ -91,6 +91,38 @@ body {
 .nav-link:hover { background: var(--poke-yellow); }
 .nav-link-active { background: var(--poke-yellow); }
 
+/* ---------- hamburger nav (mobile) ---------- */
+.nav-toggle {
+  display: none;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1;
+  padding: 7px 13px;
+  cursor: pointer;
+}
+@media (max-width: 760px) {
+  .header-inner { position: relative; }
+  .nav-toggle { display: inline-block; }
+  .nav-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 41;
+    flex-direction: column;
+    gap: 4px;
+    background: #fff;
+    border-bottom: 2px solid var(--ink);
+    padding: 10px 20px 16px;
+  }
+  #main-nav.nav-open .nav-list { display: flex; }
+  .nav-link { display: block; text-align: center; }
+}
+
 /* ---------- hero ---------- */
 .hero { padding: 56px 20px 28px; }
 .eyebrow {
@@ -108,6 +140,8 @@ h1 {
   line-height: 1.05;
 }
 .lede { margin-top: 14px; font-size: 17px; max-width: 560px; }
+.hero-cta { margin-top: 20px; }
+.hero-cta a { display: inline-block; }
 
 h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 900; letter-spacing: -0.03em; }
 h3 { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.01em; }
@@ -646,6 +680,14 @@ output { color: var(--poke-red); font-weight: 700; }
 .history-share:focus-visible {
   background: var(--poke-yellow);
   outline: none;
+}
+
+/* mobile: keep history compact — label on its own line, thumbs wrap */
+@media (max-width: 760px) {
+  .history-item { flex-wrap: wrap; gap: 8px; }
+  .history-thumbs img { width: 30px; height: 30px; }
+  .history-row { flex-wrap: wrap; }
+  .history-row .history-share { margin-left: auto; }
 }
 
 /* ---------- hover tooltip ---------- */

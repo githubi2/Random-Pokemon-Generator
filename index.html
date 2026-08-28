@@ -86,14 +86,16 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="/" class="logo">⚡ Random Pokemon Generator</a>
-      <nav aria-label="Main navigation">
+      <a href="index.html" class="logo">⚡ Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
         <ul class="nav-list">
           <li><a href="#generator" class="nav-link nav-link-active">Generator</a></li>
+          <li><a href="nuzlocke-generator/index.html" class="nav-link">Nuzlocke Generator</a></li>
           <li><a href="#how" class="nav-link">How It Works</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
         </ul>
       </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
     </div>
   </header>
 
@@ -103,6 +105,7 @@
       <p class="eyebrow">Gen 1–9 · 1,025 Pokémon · Powerful Filters</p>
       <h1 id="page-title">Random Pokemon Generator</h1>
       <p class="lede">Generate random Pokémon with powerful filters. Perfect for Nuzlocke, draft leagues, and team building.</p>
+      <p class="hero-cta"><a class="btn-slide cornered btn-primary" href="nuzlocke-generator/index.html"><span>👣 Try the Nuzlocke Generator</span></a></p>
     </section>
 
     <!-- Generator -->
@@ -227,7 +230,7 @@
           <article>
             <h3>Roll with real rules</h3>
             <p>Every roll draws from all 1,025 species across Gen 1–9 with true random shuffling — no duplicates in a single team. Stack filters like a Nuzlocke ruleset: lock a generation, ban legendaries, limit evolution stages, or roll only shinies for a living-dex hunt.</p>
-            <p>Put it to work for a Nuzlocke run in three clicks. Start a new challenge by locking the generation filter to the region you are playing — Gen 1 for Kanto, Gen 9 for Paldea — then hit Generate to roll your six starters. Strict Nuzlocke rulesets only allow one catch per route, so after a knockout, come back to the same filtered pool and roll a single replacement to keep the run legal. Set the evolution stage filter to Initial if you want unevolved encounters, or Final if you are building a post-game squad of fully evolved Pokémon.</p>
+            <p>Put it to work for a <a href="nuzlocke-generator/index.html">Nuzlocke run</a> in three clicks. Start a new challenge by locking the generation filter to the region you are playing — Gen 1 for Kanto, Gen 9 for Paldea — then hit Generate to roll your six starters. Strict Nuzlocke rulesets only allow one catch per route, so after a knockout, come back to the same filtered pool and roll a single replacement to keep the run legal. Set the evolution stage filter to Initial if you want unevolved encounters, or Final if you are building a post-game squad of fully evolved Pokémon.</p>
             <p>For casual random battles, skip the filters entirely: roll six Pokémon from the full 1,025-species pool and take whatever the random shuffle deals you. Or set a base stat total range — say 400 to 500 — to keep the fight balanced when you and a friend both roll squads and battle head-to-head.</p>
           </article>
           <article>
@@ -285,7 +288,7 @@
         <ul class="footer-links">
           <li><a href="#generator">Random Pokemon Generator</a></li>
           <li><a href="#generator">Pokemon Team Builder</a></li>
-          <li><a href="#generator">Nuzlocke Generator</a></li>
+          <li><a href="nuzlocke-generator/index.html">Nuzlocke Generator</a></li>
           <li><a href="#generator">Shiny Pokemon Generator</a></li>
           <li><a href="#how">How It Works</a></li>
         </ul>
@@ -317,6 +320,7 @@
   </div>
 
   <script src="data.js?v=20260801d"></script>
+  <script src="nav.js?v=20260801d"></script>
   <script src="app.js?v=20260801d"></script>
 </body>
 </html>
