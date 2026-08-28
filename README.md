@@ -1,6 +1,6 @@
 # Random Pokemon Generator
 
-An SEO-optimized random Pokémon team generator built with vanilla HTML/CSS/JS — zero dependencies, no build step.
+A free random Pokémon team generator built with vanilla HTML/CSS/JS — zero dependencies, no build step.
 
 **Live: [https://www.random-pokemon-generator.co/](https://www.random-pokemon-generator.co/)**
 
