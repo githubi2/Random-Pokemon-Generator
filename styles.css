@@ -67,12 +67,16 @@ body {
   flex-wrap: wrap;
 }
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 19px;
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--ink);
   text-decoration: none;
 }
+.logo-icon { width: 22px; height: 22px; display: block; }
 .nav-list { list-style: none; display: flex; gap: 8px; flex-wrap: wrap; }
 .nav-link {
   display: inline-block;
