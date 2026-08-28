@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://random-pokemon-generator.co/sitemap.xml
+Sitemap: https://www.random-pokemon-generator.co/sitemap.xml
