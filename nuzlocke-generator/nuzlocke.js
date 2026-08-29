@@ -778,39 +778,145 @@
     grid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
-  /* ---------------- manual search ---------------- */
-  var manualInput = $('manual-input'), manualSuggest = $('manual-suggest');
+  /* ---------------- add-pokemon modal ---------------- */
+  var addModal = $('add-modal'), addList = $('add-list'), addSearch = $('add-search');
+  var addFilters = { gens: [], types: [] };
+  var ADD_LIST_MAX = 150;
 
-  manualInput.addEventListener('input', function () {
-    var q = manualInput.value.trim().toLowerCase();
-    if (!q) { manualSuggest.hidden = true; manualSuggest.innerHTML = ''; return; }
-    var hits = POKEMON.filter(function (p) {
-      return p.n.indexOf(q) >= 0 || displayName(p.n).toLowerCase().indexOf(q) >= 0 ||
-        String(p.si).indexOf(q) >= 0;
-    }).slice(0, 8);
-    manualSuggest.innerHTML = '';
-    manualSuggest.hidden = hits.length === 0;
-    hits.forEach(function (p) {
+  function openAddModal() {
+    addModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    addSearch.value = '';
+    renderAddFilters();
+    renderAddList();
+    addSearch.focus();
+  }
+
+  function closeAddModal() {
+    addModal.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  function renderAddFilters() {
+    var gw = $('add-gen-filters');
+    gw.innerHTML = '';
+    GENERATIONS.forEach(function (g) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip-btn';
+      b.textContent = 'Gen ' + g;
+      b.setAttribute('aria-pressed', addFilters.gens.indexOf(g) >= 0 ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        var i = addFilters.gens.indexOf(g);
+        if (i >= 0) addFilters.gens.splice(i, 1); else addFilters.gens.push(g);
+        b.setAttribute('aria-pressed', addFilters.gens.indexOf(g) >= 0 ? 'true' : 'false');
+        renderAddList();
+      });
+      gw.appendChild(b);
+    });
+
+    var tw = $('add-type-filters');
+    tw.innerHTML = '';
+    TYPES.forEach(function (t) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip-btn type-chip';
+      b.style.setProperty('--chip', t.color);
+      b.style.setProperty('--chip-text', t.light ? '#fff' : '#121212');
+      b.textContent = t.label;
+      b.setAttribute('aria-pressed', addFilters.types.indexOf(t.slug) >= 0 ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        var i = addFilters.types.indexOf(t.slug);
+        if (i >= 0) addFilters.types.splice(i, 1); else addFilters.types.push(t.slug);
+        b.setAttribute('aria-pressed', addFilters.types.indexOf(t.slug) >= 0 ? 'true' : 'false');
+        renderAddList();
+      });
+      tw.appendChild(b);
+    });
+  }
+
+  function addPool() {
+    var q = addSearch.value.trim().toLowerCase();
+    return POKEMON.filter(function (p) {
+      if (addFilters.gens.length && addFilters.gens.indexOf(p.g) < 0) return false;
+      if (addFilters.types.length && !p.t.some(function (t) { return addFilters.types.indexOf(t) >= 0; })) return false;
+      if (q && p.n.indexOf(q) < 0 && displayName(p.n).toLowerCase().indexOf(q) < 0 &&
+        String(p.si).indexOf(q) < 0) return false;
+      return true;
+    });
+  }
+
+  function renderAddList() {
+    addList.innerHTML = '';
+    var pool = addPool();
+    var shown = pool.slice(0, ADD_LIST_MAX);
+    if (pool.length > ADD_LIST_MAX) {
+      var note = document.createElement('li');
+      note.className = 'add-note';
+      note.textContent = pool.length + ' match — showing first ' + ADD_LIST_MAX + ', refine filters to narrow down.';
+      addList.appendChild(note);
+    } else if (!pool.length) {
+      var empty = document.createElement('li');
+      empty.className = 'add-note';
+      empty.textContent = 'No Pokémon match these filters.';
+      addList.appendChild(empty);
+    }
+    shown.forEach(function (p) {
       var li = document.createElement('li');
       var b = document.createElement('button');
       b.type = 'button';
-      b.textContent = '#' + pad4(p.si) + ' · ' + displayName(p.n) +
-        ' · ' + (REGIONS[p.g] || '') + ' · BST ' + p.tt;
+      var inTeam = currentRoll.indexOf(p) >= 0;
+      b.className = 'add-row' + (inTeam ? ' added' : '');
+      b.disabled = inTeam;
+
+      var img = document.createElement('img');
+      img.src = p.sp;
+      img.alt = '';
+      img.loading = 'lazy';
+      img.onerror = function () {
+        var fb = img.src.replace('/other/official-artwork', '');
+        if (fb !== img.src) img.src = fb; else img.onerror = null;
+      };
+
+      var name = document.createElement('span');
+      name.className = 'ar-name';
+      name.textContent = displayName(p.n);
+
+      var meta = document.createElement('span');
+      meta.className = 'ar-meta';
+      meta.textContent = '#' + pad4(p.si) + ' · ' + (REGIONS[p.g] || '') + ' · BST ' + p.tt;
+
+      var chips = document.createElement('span');
+      chips.className = 'chip-row';
+      p.t.forEach(function (t) {
+        var m = TYPE_MAP[t];
+        var chip = document.createElement('span');
+        chip.className = 'type-tag';
+        chip.style.setProperty('--tag', m ? m.color : '#A8A878');
+        chip.style.setProperty('--tag-text', m && m.light ? '#fff' : '#121212');
+        chip.textContent = m ? m.label : t;
+        chips.appendChild(chip);
+      });
+
+      b.appendChild(img);
+      b.appendChild(name);
+      b.appendChild(meta);
+      b.appendChild(chips);
       b.addEventListener('click', function () {
-        manualInput.value = '';
-        manualSuggest.hidden = true;
-        manualSuggest.innerHTML = '';
         addToTeam(p);
+        renderAddList();
       });
       li.appendChild(b);
-      manualSuggest.appendChild(li);
+      addList.appendChild(li);
     });
-  });
+  }
 
-  document.addEventListener('click', function (e) {
-    if (!e.target.closest('.manual-add')) {
-      manualSuggest.hidden = true;
-    }
+  addSearch.addEventListener('input', renderAddList);
+  $('manual-btn').addEventListener('click', openAddModal);
+  $('add-modal-close').addEventListener('click', closeAddModal);
+  addModal.addEventListener('click', function (e) { if (e.target === addModal) closeAddModal(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !addModal.hidden) closeAddModal();
   });
 
   /* ---------------- showdown export ---------------- */
