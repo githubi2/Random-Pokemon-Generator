@@ -342,7 +342,7 @@ output { color: var(--poke-red); font-weight: 700; }
 }
 @media (min-width: 640px) { .results-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 1024px) { .results-grid { grid-template-columns: repeat(6, 1fr); } }
-.results-grid > li { height: 100%; }
+.results-grid > li { height: 100%; min-width: 0; }
 
 .results-empty {
   border: 2px dashed var(--ink);
@@ -696,22 +696,33 @@ output { color: var(--poke-red); font-weight: 700; }
 
 /* ---------- team editing (remove button / manual add) ---------- */
 #results-grid li { position: relative; }
+/* shared square icon-button look (card x + modal close) */
+.card-x-btn,
+.add-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+}
 .card-x-btn {
   position: absolute;
   top: 6px;
   right: 6px;
   z-index: 2;
-  width: 26px;
-  height: 26px;
-  border: 2px solid var(--ink);
-  border-radius: 50%;
-  background: #fff;
-  color: var(--ink);
-  font-size: 12px;
-  line-height: 1;
-  cursor: pointer;
 }
-.card-x-btn:hover { background: var(--poke-yellow); }
+.card-x-btn:hover,
+.add-close:hover { background: var(--poke-yellow); }
 
 .manual-add {
   position: relative;
@@ -766,20 +777,6 @@ output { color: var(--poke-red); font-weight: 700; }
 .manual-suggest button:hover { background: var(--poke-yellow); }
 
 /* ---------- add-pokemon modal ---------- */
-.add-close {
-  background: #fff;
-  border: 2px solid var(--ink);
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  font-size: 14px;
-  line-height: 1;
-  color: var(--ink);
-  cursor: pointer;
-  flex-shrink: 0;
-}
-.add-close:hover { background: var(--poke-yellow); }
-
 .add-filters {
   margin-top: 16px;
   display: grid;
