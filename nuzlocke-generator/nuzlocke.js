@@ -224,9 +224,7 @@
     x.setAttribute('aria-label', 'Remove ' + displayName(p.n) + ' from team');
     x.addEventListener('click', function (e) {
       e.stopPropagation();
-      var name = displayName(p.n);
-      var dead = window.confirm('Remove ' + name + ' from the team?\n\nOK = mark as fallen (graveyard)\nCancel = just remove');
-      removeFromTeam(p, dead);
+      showRemoveModal(p);
     });
     li.appendChild(x);
 
@@ -943,6 +941,38 @@
       setTimeout(function () { label.textContent = '📤 Export to Showdown'; }, 1800);
     });
   }
+
+  /* ---------------- remove confirm modal ---------------- */
+  var removeModal = $('remove-modal'), removeText = $('remove-modal-text');
+  var pendingRemove = null;
+
+  function showRemoveModal(p) {
+    pendingRemove = p;
+    removeText.textContent = displayName(p.n) + ' will leave the team. Mark it as fallen to keep a graveyard record, or just remove it.';
+    removeModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hideRemoveModal() {
+    removeModal.hidden = true;
+    document.body.style.overflow = '';
+    pendingRemove = null;
+  }
+
+  $('rm-fallen').addEventListener('click', function () {
+    if (pendingRemove) removeFromTeam(pendingRemove, true);
+    hideRemoveModal();
+  });
+  $('rm-only').addEventListener('click', function () {
+    if (pendingRemove) removeFromTeam(pendingRemove, false);
+    hideRemoveModal();
+  });
+  $('rm-cancel').addEventListener('click', hideRemoveModal);
+  $('remove-modal-close').addEventListener('click', hideRemoveModal);
+  removeModal.addEventListener('click', function (e) { if (e.target === removeModal) hideRemoveModal(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !removeModal.hidden) hideRemoveModal();
+  });
 
   /* ---------------- graveyard ---------------- */
   var graveyard = loadGraveyard();

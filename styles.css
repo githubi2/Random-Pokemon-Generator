@@ -836,6 +836,22 @@ output { color: var(--poke-red); font-weight: 700; }
 .add-row.added { opacity: 0.45; cursor: default; }
 .add-row.added:hover { background: #fff; }
 
+/* ---------- remove-confirm modal ---------- */
+.confirm-modal { max-width: 420px; }
+.confirm-text {
+  margin: 14px 0 0;
+  font-size: 15px;
+  line-height: 1.55;
+}
+.confirm-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 22px;
+}
+.confirm-actions .btn-text { margin-left: auto; }
+
 /* ---------- hover tooltip ---------- */
 .poke-tip {
   position: fixed;
