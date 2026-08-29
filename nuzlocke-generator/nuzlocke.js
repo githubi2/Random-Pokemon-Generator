@@ -1017,8 +1017,19 @@
   }
 
   function reviveFallen(idx) {
+    var entry = graveyard[idx];
+    var p = BY_ID[entry.i];
+    if (currentRoll.length >= TEAM_MAX) {
+      showInfoModal('Team is full — remove one first, then revive ' + displayName(p.n) + ' from the graveyard.');
+      return;
+    }
+    if (currentRoll.indexOf(p) < 0) currentRoll.push(p);
     graveyard.splice(idx, 1);
     saveGraveyard();
+    var pool = updatePool();
+    renderRoll(pool);
+    renderAnalysis(currentRoll);
+    syncStateToUrl();
     renderGraveyard();
   }
 
