@@ -15,7 +15,7 @@
 6. **锚文本**：链接锚文本必须用关键词变体（如 "Nuzlocke Team Builder" / "Pokemon team builder"），禁止 "click here" 类。
 7. **内链**：页面间双向内链（导航 + 正文语境内链）；新页面必须与首页互链。
 8. **sitemap.xml**：新页面必须加入（www URL + `lastmod` 当天）；禁止无 www 条目；robots.txt 的 `Sitemap:` 行保持指向 www sitemap。
-9. **链接形式**：站内链接一律相对路径 + 显式 `index.html`（如 `nuzlocke-generator/index.html`、`../index.html`），禁止 `href="/..."` 绝对路径（file:// 兼容）。
+9. **链接形式**：站内链接一律**目录形式**，**禁止在 href 中出现 `index.html`**（例：`nuzlocke-generator/`、`../`、`./`）——避免 Google 将 `xxx/index.html` 与 `xxx/` 视为两个 URL 造成重复页面。禁止 `href="/..."` 绝对路径。
 10. **敏感字样**：禁止出现 "SEO-optimized"、"free" 等自曝/合规敏感措辞（历史决策：曾全站移除）。标题/描述/正文都不允许。
 
 ## 2. 内容规则
