@@ -736,7 +736,7 @@
     }
     function fallbackPrompt() {
       try { window.prompt('Copy your share link:', url); }
-      catch (e) { window.alert(url); }
+      catch (e) { showInfoModal('Could not copy automatically. Your link:\n' + url); }
       done(false);
     }
     if (navigator.clipboard && navigator.clipboard.writeText) {
