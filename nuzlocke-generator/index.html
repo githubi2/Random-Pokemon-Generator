@@ -299,6 +299,23 @@
     </div>
   </footer>
 
+  <!-- Info notice modal -->
+  <div class="modal-overlay" id="info-modal" hidden>
+    <div class="modal cornered confirm-modal" role="alertdialog" aria-modal="true" aria-labelledby="info-modal-title" aria-describedby="info-modal-text">
+      <div class="modal-head">
+        <div>
+          <p class="modal-meta">Notice</p>
+          <h3 id="info-modal-title">Heads up</h3>
+        </div>
+        <button type="button" class="card-x-btn" id="info-modal-close" aria-label="Close">✕</button>
+      </div>
+      <p class="confirm-text" id="info-modal-text"></p>
+      <div class="confirm-actions">
+        <button type="button" class="btn-slide cornered btn-primary" id="info-ok"><span>OK</span></button>
+      </div>
+    </div>
+  </div>
+
   <!-- Remove confirm modal -->
   <div class="modal-overlay" id="remove-modal" hidden>
     <div class="modal cornered confirm-modal" role="alertdialog" aria-modal="true" aria-labelledby="remove-modal-title" aria-describedby="remove-modal-text">

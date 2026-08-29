@@ -761,11 +761,11 @@
 
   function addToTeam(p) {
     if (currentRoll.length >= TEAM_MAX) {
-      window.alert('Team is full (' + TEAM_MAX + ' Pokémon max). Remove one first.');
+      showInfoModal('Team is full (' + TEAM_MAX + ' Pokémon max). Remove one first.');
       return;
     }
     if (currentRoll.indexOf(p) >= 0) {
-      window.alert(displayName(p.n) + ' is already in your team.');
+      showInfoModal(displayName(p.n) + ' is already in your team.');
       return;
     }
     currentRoll.push(p);
@@ -941,6 +941,27 @@
       setTimeout(function () { label.textContent = '📤 Export to Showdown'; }, 1800);
     });
   }
+
+  /* ---------------- info notice modal ---------------- */
+  var infoModal = $('info-modal'), infoText = $('info-modal-text');
+
+  function showInfoModal(msg) {
+    infoText.textContent = msg;
+    infoModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hideInfoModal() {
+    infoModal.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  $('info-ok').addEventListener('click', hideInfoModal);
+  $('info-modal-close').addEventListener('click', hideInfoModal);
+  infoModal.addEventListener('click', function (e) { if (e.target === infoModal) hideInfoModal(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !infoModal.hidden) hideInfoModal();
+  });
 
   /* ---------------- remove confirm modal ---------------- */
   var removeModal = $('remove-modal'), removeText = $('remove-modal-text');
