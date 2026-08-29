@@ -12,14 +12,14 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nuzlocke Generator - Pokemon Team &amp; Encounter Roller</title>
+  <title>Nuzlocke Generator &amp; Team Builder – Random Pokémon for Nuzlocke Runs</title>
   <meta name="description" content="Nuzlocke generator: roll starter teams, first encounters &amp; death replacements under classic Nuzlocke rules. Lock a generation, ban legendaries, share runs." />
   <meta name="keywords" content="nuzlocke generator, nuzlocke team builder, nuzlocke encounter generator, pokemon nuzlocke randomizer" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.random-pokemon-generator.co/nuzlocke-generator/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Nuzlocke Generator - Pokemon Team &amp; Encounter Roller" />
+  <meta property="og:title" content="Nuzlocke Generator &amp; Team Builder – Random Pokémon for Nuzlocke Runs" />
   <meta property="og:description" content="Roll starter teams, first encounters, and death replacements under classic Nuzlocke rules." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.random-pokemon-generator.co/nuzlocke-generator/" />
@@ -27,7 +27,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Nuzlocke Generator - Pokemon Team &amp; Encounter Roller" />
+  <meta name="twitter:title" content="Nuzlocke Generator &amp; Team Builder – Random Pokémon for Nuzlocke Runs" />
   <meta name="twitter:description" content="Roll starter teams, first encounters, and death replacements under classic Nuzlocke rules." />
 
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
@@ -121,7 +121,7 @@
     <!-- Hero -->
     <section class="hero container" aria-labelledby="page-title">
       <p class="eyebrow">Gen 1–9 · Nuzlocke Rules · One-Click Encounter Rolls</p>
-      <h1 id="page-title">Nuzlocke Generator</h1>
+      <h1 id="page-title">Nuzlocke Generator &amp; Team Builder</h1>
       <p class="lede">Roll your starter team, your first encounter in every route, and your death replacements — all under classic Nuzlocke rules. Lock a generation, keep legendaries banned, and survive.</p>
     </section>
 
@@ -158,12 +158,20 @@
           <button type="button" id="copy-btn" class="btn-slide btn-secondary">
             <span id="copy-label">🔗 Copy Share Link</span>
           </button>
+          <button type="button" id="export-btn" class="btn-slide btn-secondary">
+            <span id="export-label">📤 Export to Showdown</span>
+          </button>
           <button type="button" id="reset-btn" class="btn-text">Reset All</button>
           <span class="pool-count" id="pool-count" aria-live="polite">1,025 in pool</span>
         </div>
       </form>
 
       <div class="results" aria-live="polite">
+        <div class="manual-add cornered">
+          <label for="manual-input">➕ Add manually:</label>
+          <input type="text" id="manual-input" placeholder="Search a Pokémon…" autocomplete="off" aria-label="Search Pokémon to add manually" />
+          <ul class="manual-suggest" id="manual-suggest" hidden></ul>
+        </div>
         <p class="results-hint">💡 Nuzlocke rule of thumb: one catch per route. Use First Encounter mode when you enter a new area.</p>
         <p class="results-empty cornered-dashed" id="results-empty">Press 🎲 Roll to get your Nuzlocke pick — it stays put until you roll again.</p>
         <ul class="results-grid" id="results-grid"></ul>
@@ -189,6 +197,15 @@
         </div>
         <p class="history-hint">💡 Hover a Pokémon to preview · Click the row to reload that roll · Share each roll with its own link</p>
         <ol class="history-list" id="history-list"></ol>
+      </div>
+
+      <div class="history cornered" id="graveyard-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title">💀 Fallen Team (Graveyard)</h2>
+          <button type="button" id="graveyard-clear" class="btn-text">Clear Graveyard</button>
+        </div>
+        <p class="history-hint">💡 Fallen Pokémon rest here — click ↩ to revive one, or clear the graveyard to start a new run</p>
+        <ol class="history-list" id="graveyard-list"></ol>
       </div>
     </section>
 
@@ -221,6 +238,10 @@
           <article>
             <h3>Which generation should you Nuzlocke?</h3>
             <p>Every generation offers a different Nuzlocke flavor. Gen 1 Kanto is the classic — 151 Pokémon, tight routes, and legendary difficulty spikes at the Elite Four. Gen 2 Johto adds two regions and the hardest gym lead in the series. Gen 4 Sinnoh is a legendary for hardcore rulesets, with brutal coverage checks and high-level wilds. Gen 5 Unova forces a fresh team on you after the story. Gen 9 Paldea is the friendliest starting point for a first Nuzlocke, with open-world routes full of easy catches. Whichever you pick, lock the matching generation here and the pool will always fit your region.</p>
+          </article>
+          <article>
+            <h3>Build, export, and remember every run</h3>
+            <p>Beyond random rolls, the generator works as a real Nuzlocke manager. Search any of the 1,025 Pokémon and add them to your team manually when you catch a new encounter by hand. Export your current squad to Pokémon Showdown format with one click — name, ability and level, ready to paste into any simulator or forum post. And when a teammate falls, mark it as fallen: the graveyard keeps an honest record of every Pokémon you lose, with a one-click revive if a Nuzlocke rule says your run continues. It is the full loop: roll, build, test, and mourn.</p>
           </article>
           <article>
             <h3>Share your run as you go</h3>

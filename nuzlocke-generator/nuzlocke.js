@@ -45,7 +45,9 @@
 
   var DEFAULTS = { mode: 'team', gens: [], noLeg: true, noMyth: true, initialOnly: false };
   var LS_HISTORY = 'rpg:nuz-history';
+  var LS_GRAVE = 'rpg:nuz-graveyard';
   var HISTORY_MAX = 20;
+  var TEAM_MAX = 12;
 
   /* ---------------- helpers ---------------- */
   function displayName(slug) {
@@ -212,6 +214,21 @@
     bst.className = 'bst-line';
     bst.innerHTML = 'BST <strong>' + p.tt + '</strong>';
     btn.appendChild(bst);
+
+    /* remove / mark-as-fallen button (sibling of the card, not nested) */
+    var x = document.createElement('button');
+    x.type = 'button';
+    x.className = 'card-x-btn';
+    x.textContent = '✕';
+    x.title = 'Remove from team — OK marks it as fallen';
+    x.setAttribute('aria-label', 'Remove ' + displayName(p.n) + ' from team');
+    x.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var name = displayName(p.n);
+      var dead = window.confirm('Remove ' + name + ' from the team?\n\nOK = mark as fallen (graveyard)\nCancel = just remove');
+      removeFromTeam(p, dead);
+    });
+    li.appendChild(x);
 
     li.appendChild(btn);
     return li;
@@ -732,6 +749,167 @@
     }
   }
 
+  /* ---------------- team editing (hand-roll + remove/fallen) ---------------- */
+  function removeFromTeam(p, markDead) {
+    var i = currentRoll.indexOf(p);
+    if (i < 0) return;
+    currentRoll.splice(i, 1);
+    if (markDead) registerFallen(p);
+    var pool = updatePool();
+    renderRoll(pool);
+    renderAnalysis(currentRoll);
+    syncStateToUrl();
+  }
+
+  function addToTeam(p) {
+    if (currentRoll.length >= TEAM_MAX) {
+      window.alert('Team is full (' + TEAM_MAX + ' Pokémon max). Remove one first.');
+      return;
+    }
+    if (currentRoll.indexOf(p) >= 0) {
+      window.alert(displayName(p.n) + ' is already in your team.');
+      return;
+    }
+    currentRoll.push(p);
+    var pool = updatePool();
+    renderRoll(pool);
+    renderAnalysis(currentRoll);
+    syncStateToUrl();
+    grid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  /* ---------------- manual search ---------------- */
+  var manualInput = $('manual-input'), manualSuggest = $('manual-suggest');
+
+  manualInput.addEventListener('input', function () {
+    var q = manualInput.value.trim().toLowerCase();
+    if (!q) { manualSuggest.hidden = true; manualSuggest.innerHTML = ''; return; }
+    var hits = POKEMON.filter(function (p) {
+      return p.n.indexOf(q) >= 0 || displayName(p.n).toLowerCase().indexOf(q) >= 0 ||
+        String(p.si).indexOf(q) >= 0;
+    }).slice(0, 8);
+    manualSuggest.innerHTML = '';
+    manualSuggest.hidden = hits.length === 0;
+    hits.forEach(function (p) {
+      var li = document.createElement('li');
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = '#' + pad4(p.si) + ' · ' + displayName(p.n) +
+        ' · ' + (REGIONS[p.g] || '') + ' · BST ' + p.tt;
+      b.addEventListener('click', function () {
+        manualInput.value = '';
+        manualSuggest.hidden = true;
+        manualSuggest.innerHTML = '';
+        addToTeam(p);
+      });
+      li.appendChild(b);
+      manualSuggest.appendChild(li);
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.manual-add')) {
+      manualSuggest.hidden = true;
+    }
+  });
+
+  /* ---------------- showdown export ---------------- */
+  function displayAbility(slug) {
+    return displayName(slug);
+  }
+
+  function buildShowdownText(rolls) {
+    return rolls.map(function (p) {
+      var ab = p.ab && p.ab.length ? displayAbility(p.ab[0]) : 'No Ability';
+      return displayName(p.n) + '\nAbility: ' + ab + '\nLevel: 50\n\n';
+    }).join('');
+  }
+
+  function exportToShowdown() {
+    var label = $('export-label');
+    if (!currentRoll.length) {
+      label.textContent = '📤 Roll first!';
+      setTimeout(function () { label.textContent = '📤 Export to Showdown'; }, 1800);
+      return;
+    }
+    copyToClipboard(buildShowdownText(currentRoll), function (ok) {
+      label.textContent = ok ? '✅ Exported!' : '📤 Copy failed';
+      setTimeout(function () { label.textContent = '📤 Export to Showdown'; }, 1800);
+    });
+  }
+
+  /* ---------------- graveyard ---------------- */
+  var graveyard = loadGraveyard();
+
+  function loadGraveyard() {
+    try {
+      var g = JSON.parse(localStorage.getItem(LS_GRAVE) || '[]');
+      if (!Array.isArray(g)) return [];
+      return g.filter(function (e) { return e && BY_ID[e.i]; });
+    } catch (e) { return []; }
+  }
+
+  function saveGraveyard() {
+    try { localStorage.setItem(LS_GRAVE, JSON.stringify(graveyard)); } catch (e) { /* ignore */ }
+  }
+
+  function registerFallen(p) {
+    graveyard.unshift({ i: p.i, ts: Date.now() });
+    saveGraveyard();
+    renderGraveyard();
+  }
+
+  function reviveFallen(idx) {
+    graveyard.splice(idx, 1);
+    saveGraveyard();
+    renderGraveyard();
+  }
+
+  function renderGraveyard() {
+    var panel = $('graveyard-panel'), list = $('graveyard-list');
+    list.innerHTML = '';
+    panel.hidden = graveyard.length === 0;
+    graveyard.forEach(function (entry, idx) {
+      var p = BY_ID[entry.i];
+      var li = document.createElement('li');
+      li.className = 'history-row';
+
+      var item = document.createElement('div');
+      item.className = 'history-item';
+      item.style.cursor = 'default';
+
+      var label = document.createElement('span');
+      label.className = 'history-label';
+      label.textContent = '💀 ' + displayName(p.n) + ' · ' + formatTime(entry.ts);
+      item.appendChild(label);
+
+      var thumbs = document.createElement('span');
+      thumbs.className = 'history-thumbs';
+      var img = document.createElement('img');
+      img.src = p.sp;
+      img.alt = displayName(p.n);
+      img.width = 40; img.height = 40;
+      img.loading = 'lazy';
+      img.onerror = function () {
+        var fb = img.src.replace('/other/official-artwork', '');
+        if (fb !== img.src) img.src = fb; else img.onerror = null;
+      };
+      thumbs.appendChild(img);
+      item.appendChild(thumbs);
+      li.appendChild(item);
+
+      var revive = document.createElement('button');
+      revive.type = 'button';
+      revive.className = 'history-share';
+      revive.textContent = '↩ Revive';
+      revive.setAttribute('aria-label', 'Revive ' + displayName(p.n));
+      revive.addEventListener('click', function () { reviveFallen(idx); });
+      li.appendChild(revive);
+
+      list.appendChild(li);
+    });
+  }
+
   /* ---------------- control events ---------------- */
   function roll() {
     var pool = updatePool();
@@ -785,6 +963,14 @@
     });
   });
 
+  $('export-btn').addEventListener('click', exportToShowdown);
+
+  $('graveyard-clear').addEventListener('click', function () {
+    graveyard = [];
+    saveGraveyard();
+    renderGraveyard();
+  });
+
   $('history-clear').addEventListener('click', function () {
     rollHistory = [];
     saveHistory();
@@ -799,6 +985,7 @@
   renderGenButtons();
   syncRange();
   renderHistory();
+  renderGraveyard();
   var pool = updatePool();
   if (sharedTeam.length) {
     currentRoll = sharedTeam;
