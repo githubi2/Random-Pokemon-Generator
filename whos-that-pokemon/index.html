@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Who's That Pokemon - Guess the Pokemon Game</title>
+  <meta name="description" content="Guess the Pokemon from silhouettes, pixel art, or cries in the Who's That Pokemon game. 4 difficulty modes, 3 tries, progressive hints, full Gen 1-9 roster." />
+  <meta name="keywords" content="whos that pokemon, who's that pokemon, guess the pokemon, pokemon guessing game, pokemon silhouette game" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/whos-that-pokemon/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Who's That Pokemon - Guess the Pokemon Game" />
+  <meta property="og:description" content="Guess the Pokemon from silhouettes, pixel art, or cries. 4 difficulty modes, 3 tries, hints, Gen 1-9." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/whos-that-pokemon/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/whos-that-pokemon/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Who's That Pokemon - Guess the Pokemon Game" />
+  <meta name="twitter:description" content="Guess the Pokemon from silhouettes, pixel art, or cries. 4 difficulty modes, 3 tries, hints, Gen 1-9." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/whos-that-pokemon/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260802d" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Who's That Pokemon",
+    "description": "Guess the Pokemon from silhouettes, pixel art, or cries. Four difficulty modes, three tries per round, progressive hints, and the full Gen 1-9 roster.",
+    "applicationCategory": "GameApplication",
+    "url": "https://www.random-pokemon-generator.co/whos-that-pokemon/",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Random Pokemon Generator", "item": "https://www.random-pokemon-generator.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Who's That Pokemon", "item": "https://www.random-pokemon-generator.co/whos-that-pokemon/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Who's That Pokemon?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Who's That Pokemon is a guessing game: a mystery Pokemon is hidden behind a silhouette, pixel art, or just its cry, and you type your guess. You have three attempts per round, with progressive hints after each wrong guess." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I play the Who's That Pokemon game?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A Pokemon appears hidden behind a visual clue. Type your guess into the search box or pick from the suggestions, then hit Guess. You have 3 attempts to name it right; wrong guesses unlock hints like the type, generation, and first letter." }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the difficulty modes?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Easy shows the full artwork, Normal hides the Pokemon behind a dark silhouette, Hard uses a blocky pixel silhouette with less detail, and Elite shows no image at all — only the Pokemon's cry plays." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I filter the puzzle by generation?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Open the Settings tab and pick any generation from Gen 1 to Gen 9, or keep All Gens to draw from the complete 1,025-species roster plus regional forms." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the game include Pokemon cries?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every round has a Play Cry button, and in Elite mode the cry is your only clue. Sound effects for correct and incorrect guesses can be toggled in Settings." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my stats saved?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — your stats (correct guesses, accuracy, average and fastest time, streak and best streak) and settings are saved automatically in your browser. Use Reset Stats to start over." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Random Pokemon Generator Wheel</a></li>
+              <li><a href="./" class="nav-link nav-link-active">Who's That Pokemon</a></li>
+            </ul>
+          </li>
+          <li><a href="#how" class="nav-link">How It Works</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">Silhouettes · Pixel Art · Cries · Gen 1–9</p>
+      <h1 id="page-title">Who's That Pokemon</h1>
+      <p class="lede">A mystery Pokemon hides behind a silhouette, a pixel sprite, or nothing but its cry — name it in three tries, and unlock hints as you go. Can you guess them all?</p>
+    </section>
+
+    <!-- Game -->
+    <section id="game" class="container" aria-label="Who's that Pokemon guessing game">
+      <div class="panel cornered">
+        <p class="tool-hint">How to play — the game deals a random Pokemon and hides it (silhouette / pixel art / cry). Type your guess and hit Guess! (3 tries). Wrong guesses unlock hints: type, generation, first letter. 💡</p>
+
+        <!-- Tab switcher: Play / Settings / Stats -->
+        <div class="btn-row" id="wtp-tabs" role="tablist" aria-label="Game panels">
+          <button type="button" class="btn-slide cornered btn-primary wtp-tab" id="tab-play" role="tab" aria-selected="true" aria-controls="panel-play" data-panel="play"><span>🎮 Play</span></button>
+          <button type="button" class="btn-slide cornered btn-secondary wtp-tab" id="tab-settings" role="tab" aria-selected="false" aria-controls="panel-settings" data-panel="settings"><span>⚙️ Settings</span></button>
+          <button type="button" class="btn-slide cornered btn-secondary wtp-tab" id="tab-stats" role="tab" aria-selected="false" aria-controls="panel-stats" data-panel="stats"><span>📊 Stats</span></button>
+        </div>
+        <div class="tool-note-group">
+          <p class="tool-note">🎮 Play — the guessing round: hidden Pokemon, 3 tries, hints</p>
+          <p class="tool-note">⚙️ Settings — difficulty, generation filter, sound toggle</p>
+          <p class="tool-note">📊 Stats — accuracy, times, streaks; saved automatically</p>
+        </div>
+
+        <!-- Play panel -->
+        <div id="panel-play" class="wtp-panel" role="tabpanel" aria-labelledby="tab-play">
+          <div class="wtp-stage" aria-live="polite">
+            <div class="wtp-mystery" id="wtp-mystery">
+              <!-- art area -->
+              <div class="wtp-art" id="wtp-art">
+                <img id="wtp-img" width="475" height="475" alt="Who's that Pokemon?" />
+                <div class="wtp-art-elite" id="wtp-elite" hidden>
+                  <div class="wtp-elite-icon" aria-hidden="true">🔊</div>
+                  <p>Listen to the cry!</p>
+                </div>
+                <div class="wtp-loader" id="wtp-loader" hidden>Loading…</div>
+              </div>
+              <button type="button" class="btn-slide cornered btn-secondary wtp-cry" id="wtp-cry" hidden><span>🔊 Play Cry</span></button>
+            </div>
+
+            <p class="wtp-wrong" id="wtp-wrong" hidden></p>
+            <div class="wtp-hints" id="wtp-hints" hidden>
+              <span class="wtp-hint-label">💡 Hints:</span>
+              <span id="wtp-hint-type"></span>
+              <span id="wtp-hint-gen" class="wtp-hint-sep"></span>
+            </div>
+
+            <div class="wtp-guess">
+              <input type="text" id="wtp-input" class="wtp-input" placeholder="Who's that Pokemon?" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="false" aria-controls="wtp-suggestions" aria-autocomplete="list" aria-label="Who's that Pokemon?" />
+              <ul class="wtp-suggestions" id="wtp-suggestions" role="listbox" hidden></ul>
+              <div class="wtp-buttons">
+                <button type="button" id="wtp-guess" class="btn-slide cornered btn-primary wtp-guess-btn" disabled><span>Guess! (3/3)</span></button>
+                <button type="button" id="wtp-giveup" class="btn-slide cornered btn-secondary" disabled><span>I don't know</span></button>
+              </div>
+            </div>
+
+            <div class="wtp-new">
+              <button type="button" id="wtp-new" class="btn-slide cornered btn-secondary"><span>🔀 New Pokemon</span></button>
+            </div>
+
+            <!-- result card -->
+            <div class="wtp-result cornered" id="wtp-result" hidden>
+              <div class="wtp-result-head">
+                <h3 id="wtp-result-title"></h3>
+                <p class="wtp-result-time" id="wtp-result-time"></p>
+              </div>
+              <p class="wtp-result-name" id="wtp-result-name"></p>
+              <div class="chip-row" id="wtp-result-types"></div>
+              <p class="wtp-result-desc" id="wtp-result-desc" hidden></p>
+              <div class="wtp-result-actions">
+                <button type="button" id="wtp-next" class="btn-slide cornered btn-primary"><span>Next Pokemon</span></button>
+                <button type="button" id="wtp-share-result" class="btn-slide cornered btn-secondary"><span>📣 Share</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Settings panel -->
+        <div id="panel-settings" class="wtp-panel" role="tabpanel" aria-labelledby="tab-settings" hidden>
+          <div class="wtp-settings">
+            <fieldset>
+              <legend>Difficulty</legend>
+              <p class="tool-note">Changes how the Pokemon is presented</p>
+              <div class="btn-row" id="wtp-difficulty" role="group" aria-label="Difficulty modes"></div>
+              <p class="tool-note" id="wtp-difficulty-desc"></p>
+            </fieldset>
+            <fieldset>
+              <legend>Generation</legend>
+              <div class="btn-row" id="wtp-generation" role="group" aria-label="Generation filter"></div>
+            </fieldset>
+            <fieldset>
+              <legend>Sound Effects</legend>
+              <p class="tool-note">Enable Pokemon cries and game sounds</p>
+              <label class="wtp-switch">
+                <input type="checkbox" id="wtp-sound" checked />
+                <span class="wtp-switch-track" aria-hidden="true"></span>
+                <span class="wtp-switch-label">On</span>
+              </label>
+            </fieldset>
+          </div>
+        </div>
+
+        <!-- Stats panel -->
+        <div id="panel-stats" class="wtp-panel" role="tabpanel" aria-labelledby="tab-stats" hidden>
+          <div class="wtp-stats">
+            <div class="wtp-stats-grid">
+              <div class="wtp-stat"><span class="wtp-stat-num" id="st-played">0</span><span class="wtp-stat-label">Played</span></div>
+              <div class="wtp-stat"><span class="wtp-stat-num" id="st-correct">0%</span><span class="wtp-stat-label">Correct</span></div>
+              <div class="wtp-stat"><span class="wtp-stat-num" id="st-avg">-</span><span class="wtp-stat-label">Avg Time</span></div>
+              <div class="wtp-stat"><span class="wtp-stat-num" id="st-fastest">-</span><span class="wtp-stat-label">Fastest</span></div>
+              <div class="wtp-stat"><span class="wtp-stat-num" id="st-streak">0</span><span class="wtp-stat-label">Current Streak</span></div>
+              <div class="wtp-stat"><span class="wtp-stat-num" id="st-best">0</span><span class="wtp-stat-label">Best Streak</span></div>
+            </div>
+            <div class="wtp-stats-actions">
+              <button type="button" id="wtp-share-stats" class="btn-slide cornered btn-secondary"><span>📣 Share My Stats</span></button>
+              <button type="button" id="wtp-reset-stats" class="btn-slide cornered btn-secondary"><span>🔄 Reset Stats</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how-title">How to Play Who's That Pokemon</h2>
+        <div class="how-grid">
+          <article>
+            <h3>The classic guess-the-pokemon game</h3>
+            <p>Who's That Pokemon is the guessing game every Pokemon fan grew up with: a mystery Pokemon appears, hidden behind a visual clue, and you try to name it. This version keeps the pure loop — one Pokemon, three tries, hints when you miss — and turns it into a fast little quiz you can play between rounds of the <a href="../">random Pokemon generator</a>, at a party, or as a quick knowledge check with friends.</p>
+          </article>
+          <article>
+            <h3>Play it in three steps</h3>
+            <p>Step one: the game deals a random Pokemon and hides it — as full artwork on Easy, a dark silhouette on Normal, a blocky pixel sprite on Hard, or nothing but a cry on Elite. Step two: type your guess into the box, or pick a suggestion if the autocomplete catches it. Step three: hit Guess, or tap I don't know to reveal the answer right away. You have 3 attempts per round, and the next Pokemon appears the moment you're done.</p>
+          </article>
+          <article>
+            <h3>Four difficulty modes, one mystery</h3>
+            <p><strong>Easy</strong> shows the Pokemon's full official artwork — a warm-up mode for kids and casual fans. <strong>Normal</strong> hides the Pokemon behind a black silhouette; the shape alone has to spark your memory. <strong>Hard</strong> uses a blocky pixel silhouette that strips away the outline detail, so you have to read the pose and proportions. <strong>Elite</strong> shows no image at all — only the Pokemon's cry plays, and your ears do the work. Switch difficulty any time in the Settings tab; the next round uses the new mode.</p>
+          </article>
+          <article>
+            <h3>Hints: learn to read the clues</h3>
+            <p>Every wrong guess unlocks a progressive hint. On Easy and Normal the first miss reveals the Pokemon's type badges; miss again and you get the generation and the first letter of the name. Hard mode holds the generation hint back longer, and Elite is stricter still — the type appears, but the first letter only shows up on your second miss. Use the hints the way speedrunners do: identify the types first, narrow the generation, then let the first letter seal it. The same reading skills make you faster at the <a href="../pokemon-smash-or-pass/">Pokemon smash or pass</a> verdicts.</p>
+          </article>
+          <article>
+            <h3>Play with the whole roster</h3>
+            <p>By default the quiz draws from the full Gen 1-9 roster — every region, every generation, regional forms included. Prefer a focused run? Open Settings and set the generation to Gen 1 for a Kanto-only round, or Gen 4 if you grew up with Sinnoh. The pool regenerates with each round, and the same Pokemon can appear twice in a session, so nothing runs out.</p>
+          </article>
+          <article>
+            <h3>Listen for the cry</h3>
+            <p>Every round has a Play Cry button, and it is more than a hint: Pokemon cries are distinctive, and an Elite run is a genuine listening challenge. Correct and incorrect guesses play a short sound effect too — toggle both in Settings if you are playing quietly. Whether you enjoy the <a href="../random-pokemon-generator-wheel/">random Pokemon generator wheel</a> or a heavy Nuzlocke challenge with the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a>, the cry is one of the quickest ways to recognize a Pokemon.</p>
+          </article>
+          <article>
+            <h3>Track your streak</h3>
+            <p>The Stats tab keeps a running record: rounds played, correct-guess percentage, average and fastest time per round, plus your current streak and best streak. Streaks reset on a wrong guess or a give-up, so a clean run is something to brag about. Everything saves automatically in your browser — close the tab, come back tomorrow, and your best streak is still there. Reset Stats wipes the record whenever you want a fresh start.</p>
+          </article>
+          <article>
+            <h3>Who's That Pokemon for streams and classrooms</h3>
+            <p>This game is built for quick rounds: three tries, snappy hints, no setup, runs in any browser. Streamers use it as a filler between matches — chat shouts guesses and the first correct call wins. Teachers use the silhouette and pixel modes as a warm-up that gets kids reading visual details. And because it needs no account and no install, a whole class can take turns on a single screen. Keep the same playful energy going with the smash or pass verdicts — the verdict buttons make it a fast party game too.</p>
+          </article>
+          <article>
+            <h3>Play it with friends: the race variant</h3>
+            <p>The quiz becomes a party game the moment two people share a screen. Run it as a race: deal a round, shout your guess, first correct call wins the point — the loser takes the next round as the host. Streamers turn it into a chat vote: viewers type their guess, and the correct viewer names get a shout-out. Classrooms use the same loop for a quick warm-up, letting one student at a time take the seat while everyone else whispers hints. Play a five-round set on Normal to warm up, then switch to Hard and let the pixels do the damage; the round timer turns every guess into a stake, since a slow answer is a wrong answer once the next player is waiting.</p>
+          </article>
+          <article>
+            <h3>What your score means</h3>
+            <p>Half the fun is comparing notes. A correct rate above 70% with an average time under 10 seconds usually means you are reading silhouettes by shape, not guessing. A slow and steady player often beats a fast one on Hard mode, where detail is stripped away. And if your best streak is double digits on Elite, you have officially memorized the cry library. Share the challenge: hand your phone to a friend, or open the <a href="../">random Pokemon generator</a> and quiz each other on the results it deals.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Who's That Pokemon FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>What is Who's That Pokemon?</summary>
+        <p>Who's That Pokemon is a guessing game: a mystery Pokemon is hidden behind a silhouette, pixel art, or just its cry, and you type your guess. You have three attempts per round, with progressive hints after each wrong guess.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How do I play the Who's That Pokemon game?</summary>
+        <p>A Pokemon appears hidden behind a visual clue. Type your guess into the search box or pick from the suggestions, then hit Guess. You have 3 attempts to name it right; wrong guesses unlock hints like the type, generation, and first letter.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What are the difficulty modes?</summary>
+        <p>Easy shows the full artwork, Normal hides the Pokemon behind a dark silhouette, Hard uses a blocky pixel silhouette with less detail, and Elite shows no image at all — only the Pokemon's cry plays.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I filter the puzzle by generation?</summary>
+        <p>Yes. Open the Settings tab and pick any generation from Gen 1 to Gen 9, or keep All Gens to draw from the complete 1,025-species roster plus regional forms.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Does the game include Pokemon cries?</summary>
+        <p>Yes. Every round has a Play Cry button, and in Elite mode the cry is your only clue. Sound effects for correct and incorrect guesses can be toggled in Settings.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Are my stats saved?</summary>
+        <p>Yes — your stats (correct guesses, accuracy, average and fastest time, streak and best streak) and settings are saved automatically in your browser. Use Reset Stats to start over.</p>
+      </details>
+    </section>
+  </main>
+
+  <!-- How to Play modal (first visit) -->
+  <div class="modal-overlay" id="howto-modal" hidden>
+    <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="howto-title" id="howto-card">
+      <div class="modal-head">
+        <div>
+          <p class="modal-meta">Who's That Pokemon</p>
+          <h3 id="howto-title">How to Play Who's That Pokemon</h3>
+        </div>
+      </div>
+      <div class="howto-body">
+        <p>Identify the Pokemon from its silhouette, pixels, or cry! A mystery Pokemon is hidden behind a visual clue. Type your guess into the search box or pick from the suggestions. You have <strong>3 attempts</strong> to get it right.</p>
+        <h4>Difficulty Modes</h4>
+        <ul>
+          <li><strong>Easy</strong> — full artwork is shown. Just name it!</li>
+          <li><strong>Normal</strong> — a dark silhouette hides the Pokemon. Identify it by shape.</li>
+          <li><strong>Hard</strong> — a blocky pixel silhouette with less detail. For true experts.</li>
+          <li><strong>Elite</strong> — no image at all! Only the Pokemon's cry plays. Listen carefully.</li>
+        </ul>
+        <h4>Hints</h4>
+        <p>Wrong guesses unlock progressive hints — type badges, generation, and the first letter of the name. Harder modes give fewer hints.</p>
+        <h4>Settings</h4>
+        <p>Use the Settings tab to change difficulty, filter by generation, or toggle sound. Your preferences are saved automatically.</p>
+      </div>
+      <button type="button" class="btn-slide btn-primary modal-close" id="howto-close"><span>Got it!</span></button>
+    </div>
+  </div>
+
+  <!-- Reset stats confirm modal -->
+  <div class="modal-overlay" id="reset-modal" hidden>
+    <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="reset-title" id="reset-card">
+      <div class="modal-head">
+        <div>
+          <p class="modal-meta">Who's That Pokemon</p>
+          <h3 id="reset-title">Reset All Statistics</h3>
+        </div>
+      </div>
+      <p class="howto-body">Are you sure you want to reset all your game statistics? This action cannot be undone.</p>
+      <div class="modal-actions">
+        <button type="button" class="btn-slide cornered btn-secondary modal-close" id="reset-cancel"><span>Cancel</span></button>
+        <button type="button" class="btn-slide cornered btn-primary" id="reset-confirm"><span>Reset All Stats</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Share modal (manual-copy fallback, site convention) -->
+  <div class="modal-overlay" id="share-modal" hidden>
+    <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="sm-title" id="share-card">
+      <p class="modal-meta">Auto-copy blocked by this browser — select and copy manually</p>
+      <h3 id="sm-title">Copy your share text</h3>
+      <textarea class="share-modal-text" id="share-modal-text" rows="6" readonly></textarea>
+      <button type="button" class="btn-slide btn-secondary modal-close" id="sm-close"><span>Close</span></button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav aria-label="Footer keyword links">
+        <ul class="footer-links">
+          <li><a href="../">Random Pokemon Generator</a></li>
+          <li><a href="../">Pokemon Team Builder</a></li>
+          <li><a href="../nuzlocke-generator/">Nuzlocke Team Builder</a></li>
+          <li><a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a></li>
+          <li><a href="../random-pokemon-generator-wheel/">Random Pokemon Generator Wheel</a></li>
+          <li><a href="./">Who's That Pokemon</a></li>
+        </ul>
+      </nav>
+      <p class="footer-note">© 2026 Random Pokemon Generator. Not affiliated with Nintendo / Game Freak.</p>
+      <p class="footer-note">Data sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </div>
+  </footer>
+
+  <script src="../data.js?v=20260802d"></script>
+  <script src="../crymap.js?v=20260802d"></script>
+  <script src="../nav.js?v=20260802d"></script>
+  <script src="whos-that-pokemon.js?v=20260802d"></script>
+</body>
+</html>

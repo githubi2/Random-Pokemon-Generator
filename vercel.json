@@ -16,6 +16,11 @@
       "permanent": true
     },
     {
+      "source": "/whos-that-pokemon/index.html",
+      "destination": "/whos-that-pokemon/",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true

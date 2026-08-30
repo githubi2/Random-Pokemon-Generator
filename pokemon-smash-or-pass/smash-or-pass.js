@@ -86,7 +86,7 @@
   }
 
   /* ---------------- state ---------------- */
-  var gens = [];
+  var settings = { mode: 'random', types: [], gens: [], regions: [], includeLegendary: true };
   var deck = [];
   var deckIdx = 0;
   var results = []; // { i, verdict: 'smash'|'pass', shiny }
@@ -100,38 +100,128 @@
   var imgEl = $('smash-img'), numEl = $('smash-num'), nameEl = $('smash-name');
   var statSmash = $('stat-smash'), statPass = $('stat-pass'), statRate = $('stat-rate'), statStreak = $('stat-streak');
   var historyPanel = $('history-panel'), historyList = $('history-list');
+  var cardEl = $('smash-card'), stampEl = $('swipe-stamp'), stampText = $('swipe-stamp-text'), swipeHint = $('smash-swipe-hint');
 
-  /* ---------------- generation chips ---------------- */
-  function renderGenButtons() {
-    var wrap = $('gen-buttons');
-    wrap.innerHTML = '';
-    GENERATIONS.forEach(function (g) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'chip-btn';
-      b.textContent = 'Gen ' + g;
-      b.setAttribute('aria-pressed', gens.indexOf(g) >= 0 ? 'true' : 'false');
-      b.addEventListener('click', function () {
-        var i = gens.indexOf(g);
-        if (i >= 0) gens.splice(i, 1); else gens.push(g);
-        b.setAttribute('aria-pressed', gens.indexOf(g) >= 0 ? 'true' : 'false');
+  /* ---------------- Game Settings (display mode / types / gens / regions / rarity) ---------------- */
+  var TYPE_ORDER = ['normal', 'fire', 'water', 'electric', 'grass', 'ice', 'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dragon', 'dark', 'steel', 'fairy'];
+
+  function makeChip(parent, label, pressed, onClick) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'chip-btn';
+    b.textContent = label;
+    b.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+    b.addEventListener('click', function () {
+      onClick();
+      /* parent may be re-rendered by resetGame? (it isn't, but keep current-state flip) */
+      b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+    });
+    parent.appendChild(b);
+    return b;
+  }
+
+  function toggleIn(arr, v) {
+    var i = arr.indexOf(v);
+    if (i >= 0) arr.splice(i, 1); else arr.push(v);
+  }
+
+  function renderSettings() {
+    /* Display Mode radios */
+    var radios = document.querySelectorAll('input[name="smash-mode"]');
+    for (var ri = 0; ri < radios.length; ri++) {
+      radios[ri].checked = radios[ri].value === settings.mode;
+    }
+
+    /* Types (multi-select) */
+    var tw = $('smash-types');
+    tw.innerHTML = '';
+    TYPE_ORDER.forEach(function (t) {
+      makeChip(tw, TYPE_MAP[t].label, settings.types.indexOf(t) >= 0, function () {
+        toggleIn(settings.types, t);
+        updateNotes();
         resetGame();
       });
-      wrap.appendChild(b);
     });
+
+    /* Generation (multi-select) */
+    var gw = $('gen-buttons');
+    gw.innerHTML = '';
+    GENERATIONS.forEach(function (g) {
+      makeChip(gw, 'Gen ' + g, settings.gens.indexOf(g) >= 0, function () {
+        toggleIn(settings.gens, g);
+        updateNotes();
+        resetGame();
+      });
+    });
+
+    /* Region (multi-select, region = generation index) */
+    var rw = $('region-buttons');
+    rw.innerHTML = '';
+    GENERATIONS.forEach(function (g) {
+      makeChip(rw, REGIONS[g], settings.regions.indexOf(g) >= 0, function () {
+        toggleIn(settings.regions, g);
+        updateNotes();
+        resetGame();
+      });
+    });
+
+    /* Legendary & Mythical switch */
+    $('smash-legendary').checked = settings.includeLegendary;
+    var lbl = $('smash-legendary-label');
+    if (lbl) lbl.textContent = settings.includeLegendary ? 'On' : 'Off';
+
+    updateNotes();
+  }
+
+  function updateNotes() {
+    $('smash-mode-note').textContent = settings.mode === 'pokedex'
+      ? 'Showing Pokémon in Pokédex order'
+      : 'Showing Pokémon in random order';
+    $('smash-types-note').textContent = settings.types.length
+      ? 'Showing Pokémon of ' + settings.types.length + ' type' + (settings.types.length > 1 ? 's' : '')
+      : 'Showing Pokémon of all types';
+    $('smash-gens-note').textContent = settings.gens.length
+      ? 'Showing Pokémon from ' + settings.gens.length + (settings.gens.length > 1 ? ' generations' : ' generation')
+      : 'Showing Pokémon from all generations';
+    $('smash-regions-note').textContent = settings.regions.length
+      ? 'Showing Pokémon from ' + settings.regions.map(function (g) { return REGIONS[g]; }).join(', ')
+      : 'Showing Pokémon from all regions';
   }
 
   /* ---------------- core game ---------------- */
-  function buildDeck() {
-    var pool = POKEMON.filter(function (p) {
-      return !gens.length || gens.indexOf(p.g) >= 0;
+  function poolFor() {
+    return POKEMON.filter(function (p) {
+      if (settings.types.length) {
+        var hit = false;
+        for (var i = 0; i < p.t.length; i++) {
+          if (settings.types.indexOf(p.t[i]) >= 0) { hit = true; break; }
+        }
+        if (!hit) return false;
+      }
+      if (settings.gens.length && settings.gens.indexOf(p.g) < 0) return false;
+      if (settings.regions.length && settings.regions.indexOf(p.g) < 0) return false;
+      if (!settings.includeLegendary && (p.lg || p.my)) return false;
+      return true;
     });
-    deck = shuffle(pool);
+  }
+
+  function buildDeck() {
+    var pool = poolFor();
+    if (settings.mode === 'pokedex') {
+      /* Pokédex order: low national № first, wraps around when finished */
+      deck = pool.slice().sort(function (a, b) { return a.si - b.si; });
+    } else {
+      deck = shuffle(pool);
+    }
     deckIdx = 0;
   }
 
   function nextPokemon() {
-    if (deckIdx >= deck.length) buildDeck(); // reshuffle when pool exhausted
+    if (!deck.length) buildDeck();
+    if (deckIdx >= deck.length) {
+      if (settings.mode === 'pokedex') deckIdx = 0; /* cycle back to the start */
+      else buildDeck();                             /* reshuffle when pool exhausted */
+    }
     var p = deck[deckIdx++];
     var shiny = secureRandom() < SHINY_ODDS;
     return { p: p, shiny: shiny };
@@ -321,7 +411,7 @@
   }
 
   function judge(verdict) {
-    if (!current) return;
+    if (!current || swipe.lock) return;
     results.push({ i: current.p.i, verdict: verdict, shiny: current.shiny });
     persist();
     current = nextPokemon();
@@ -329,6 +419,69 @@
     updateStats();
     renderHistory();
   }
+
+  /* ---------------- swipe (tinder-style: drag left = pass, right = smash) ---------------- */
+  var swipe = { active: false, lock: false, startX: 0, startY: 0, lastDx: 0 };
+
+  function swipeThreshold() {
+    return Math.max(70, cardEl.offsetWidth * 0.22);
+  }
+  function setStamp(verdict) {
+    if (!verdict) { stampEl.hidden = true; return; }
+    stampEl.hidden = false;
+    stampEl.className = 'swipe-stamp ' + verdict;
+    stampText.textContent = verdict === 'smash' ? 'SMASH' : 'PASS';
+  }
+  function swipeCancel() {
+    cardEl.style.transition = 'transform 0.25s ease';
+    cardEl.style.transform = '';
+    setTimeout(function () { cardEl.style.transition = ''; }, 260);
+    setStamp(null);
+  }
+  function swipeResolve(verdict) {
+    swipe.lock = true;
+    cardEl.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+    var outX = (verdict === 'smash' ? 1 : -1) * Math.max(window.innerWidth * 1.1, 640);
+    var rot = verdict === 'smash' ? 18 : -18;
+    cardEl.style.transform = 'translateX(' + outX + 'px) rotate(' + rot + 'deg)';
+    cardEl.style.opacity = '0';
+    setTimeout(function () {
+      swipe.lock = false;
+      judge(verdict);
+      cardEl.style.transition = '';
+      cardEl.style.transform = '';
+      cardEl.style.opacity = '';
+      setStamp(null);
+    }, 290);
+  }
+
+  cardEl.addEventListener('pointerdown', function (e) {
+    if (swipe.lock || !running || !current) return;
+    swipe.active = true;
+    swipe.startX = e.clientX;
+    swipe.startY = e.clientY;
+    swipe.lastDx = 0;
+    cardEl.style.transition = 'none';
+  });
+  document.addEventListener('pointermove', function (e) {
+    if (!swipe.active) return;
+    var dx = e.clientX - swipe.startX;
+    var dy = e.clientY - swipe.startY;
+    if (Math.abs(dx) < 6 || Math.abs(dx) < Math.abs(dy) * 1.4) return; /* vertical scroll wins */
+    swipe.lastDx = dx;
+    cardEl.style.transform = 'translateX(' + dx + 'px) rotate(' + (dx * 0.045) + 'deg)';
+    setStamp(dx > 0 ? 'smash' : 'pass');
+  });
+  function swipeEnd() {
+    if (!swipe.active) return;
+    swipe.active = false;
+    var th = swipeThreshold();
+    if (swipe.lastDx >= th) swipeResolve('smash');
+    else if (swipe.lastDx <= -th) swipeResolve('pass');
+    else swipeCancel();
+  }
+  document.addEventListener('pointerup', swipeEnd);
+  document.addEventListener('pointercancel', swipeEnd);
 
   function verdictSummary() {
     var smash = results.filter(function (r) { return r.verdict === 'smash'; }).length;
@@ -415,8 +568,12 @@
     current = nextPokemon();
     card.hidden = false;
     emptyEl.hidden = true;
-    verdictBtns.hidden = false;
     statsEl.hidden = false;
+    swipeHint.hidden = false;
+    verdictBtns.hidden = false;
+    cardEl.style.transform = '';
+    cardEl.style.opacity = '';
+    setStamp(null);
     renderCurrent();
     updateStats();
     renderHistory();
@@ -607,6 +764,24 @@
   $('smash-btn').addEventListener('click', function () { judge('smash'); });
   $('pass-btn').addEventListener('click', function () { judge('pass'); });
   $('share-btn').addEventListener('click', shareVerdicts);
+  /* Display Mode radios */
+  (function () {
+    var radios = document.querySelectorAll('input[name="smash-mode"]');
+    for (var i = 0; i < radios.length; i++) {
+      radios[i].addEventListener('change', function () {
+        settings.mode = this.value;
+        updateNotes();
+        resetGame();
+      });
+    }
+  })();
+  /* Legendary & Mythical switch */
+  $('smash-legendary').addEventListener('change', function () {
+    settings.includeLegendary = this.checked;
+    var lbl = $('smash-legendary-label');
+    if (lbl) lbl.textContent = this.checked ? 'On' : 'Off';
+    resetGame();
+  });
   $('history-clear').addEventListener('click', function () {
     results = [];
     persist();
@@ -624,7 +799,7 @@
   });
 
   /* ---------------- init ---------------- */
-  renderGenButtons();
+  renderSettings();
   /* restore persisted verdicts (survive refresh) */
   try { results = JSON.parse(localStorage.getItem(LS_RESULTS) || '[]'); }
   catch (e) { results = []; }

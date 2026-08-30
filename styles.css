@@ -1064,10 +1064,40 @@ output { color: var(--poke-red); font-weight: 700; }
 .dexdata-row .chip-row { margin: 0; justify-content: flex-start; }
 .smash-empty { padding: 40px 28px; text-align: center; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; }
 .smash-verdicts { display: flex; gap: 12px; }
+.smash-verdicts[hidden] { display: none; }
 .smash-stats { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
 .smash-stats .stat-smash { color: #1e7d32; }
 .smash-stats .stat-pass { color: #b3261e; }
 .smash-stats .stat-streak { color: #b45309; }
+
+/* ---------- swipe interactions (tinder-style) ---------- */
+.smash-swipe-hint {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #888;
+}
+.smash-row { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; }
+.smash-card-wrap { position: relative; flex: 1 1 auto; min-width: 0; display: flex; justify-content: center; }
+.smash-card { touch-action: none; user-select: none; -webkit-user-select: none; will-change: transform; }
+.swipe-stamp {
+  position: absolute;
+  top: 18px;
+  z-index: 3;
+  pointer-events: none;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 3px solid currentColor;
+  border-radius: 8px;
+  padding: 2px 12px;
+  opacity: 0.92;
+}
+.swipe-stamp.pass { left: 14px; color: #b3261e; transform: rotate(-12deg); }
+.swipe-stamp.smash { right: 14px; left: auto; color: #1e7d32; transform: rotate(12deg); }
 
 /* ---------- pokemon draw deck (gacha cards) ---------- */
 .wheel-wrap {
@@ -1486,4 +1516,165 @@ output { color: var(--poke-red); font-weight: 700; }
   .dexdata-row { gap: 8px; }
   .dexdata-row dt { flex: 0 0 84px; font-size: 9px; }
   .dexdata-row dd { font-size: 11px; }
+}
+
+/* ============================================================
+   Smash or Pass Game Settings (display mode / types / regions)
+   ============================================================ */
+.radio-row { display: flex; flex-wrap: wrap; gap: 18px; }
+.radio-opt {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+}
+.radio-opt input { accent-color: var(--poke-red); width: 16px; height: 16px; cursor: pointer; }
+.panel fieldset .tool-note { margin-top: 6px; }
+.panel fieldset .tool-note + .tool-note { margin-top: 2px; }
+
+/* ============================================================
+   Who's That Pokemon page (wtp-*) — same design language
+   ============================================================ */
+.wtp-tab { flex: 1 1 0; min-width: 0; }
+.wtp-panel { margin-top: 18px; }
+.wtp-stage { display: flex; flex-direction: column; gap: 10px; }
+.wtp-art {
+  position: relative;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fdf9ee;
+  border-radius: var(--radius);
+  padding: 10px;
+}
+.wtp-art img { max-width: 300px; max-height: 260px; width: auto; height: auto; }
+.wtp-elite { text-align: center; color: #555; }
+.wtp-elite-icon { font-size: 64px; line-height: 1; margin-bottom: 8px; }
+.wtp-loader { color: #777; font-size: 13px; }
+.wtp-cry { align-self: flex-end; }
+.wtp-cry-center { align-self: center; font-size: 16px; }
+.wtp-wrong { color: var(--poke-red); font-weight: 700; font-size: 13px; }
+.wtp-hints { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 13px; color: #444; }
+.wtp-hint-label { font-weight: 700; }
+.wtp-hint-sep { color: #bbb; }
+.wtp-guess { position: relative; }
+.wtp-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  padding: 11px 12px;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 14px;
+  background: #fff;
+  color: var(--ink);
+}
+.wtp-input:focus { outline: none; box-shadow: 0 0 0 3px rgba(246, 201, 14, 0.55); }
+.wtp-suggestions {
+  position: absolute;
+  z-index: 20;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  max-height: 200px;
+  overflow-y: auto;
+}
+.wtp-suggestion { padding: 9px 12px; cursor: pointer; font-size: 13px; }
+.wtp-suggestion:hover, .wtp-suggestion-selected { background: var(--poke-yellow); }
+.wtp-buttons { display: flex; gap: 8px; margin-top: 10px; }
+.wtp-guess-btn { flex: 1; }
+.wtp-new { text-align: center; margin-top: 12px; }
+.wtp-result {
+  border: 2px solid var(--ink);
+  background: #fff;
+  padding: 14px;
+  margin-top: 12px;
+}
+.wtp-result-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.wtp-result-head h3 { font-size: 22px; font-weight: 900; margin: 0 0 6px; }
+.wtp-result-time { font-size: 12px; color: #666; }
+.wtp-result-name { font-size: 19px; font-weight: 800; margin: 4px 0 8px; }
+.wtp-result-desc { font-size: 13px; color: #444; margin: 10px 0 12px; line-height: 1.5; }
+.wtp-result .chip-row { justify-content: flex-start; }
+.wtp-result .btn-slide { margin-top: 10px; }
+.wtp-result-actions { display: flex; gap: 8px; }
+.wtp-result-actions .btn-slide { flex: 1; margin-top: 0; }
+.wtp-stats-actions { display: flex; gap: 8px; }
+.wtp-stats-actions .btn-slide { flex: 1; margin-top: 0; }
+
+/* settings */
+.wtp-settings fieldset { border: 0; margin: 0 0 18px; padding: 0; }
+.wtp-settings legend {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-weight: 700;
+}
+.wtp-switch { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+.wtp-switch input { position: absolute; opacity: 0; width: 0; height: 0; }
+.wtp-switch-track {
+  width: 46px;
+  height: 26px;
+  border: 2px solid var(--ink);
+  border-radius: 13px;
+  background: #eee;
+  position: relative;
+  transition: background 0.2s;
+  display: inline-block;
+}
+.wtp-switch-track::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--ink);
+  transition: transform 0.2s;
+}
+.wtp-switch input:checked + .wtp-switch-track { background: var(--poke-yellow); }
+.wtp-switch input:checked + .wtp-switch-track::after { transform: translateX(20px); }
+.wtp-switch-label { font-size: 13px; font-weight: 700; }
+
+/* stats */
+.wtp-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.wtp-stat { display: flex; flex-direction: column; gap: 2px; }
+.wtp-stat-num { font-size: 26px; font-weight: 900; letter-spacing: -0.02em; }
+.wtp-stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #666; }
+.wtp-reset { width: 100%; }
+
+/* modals (page-scoped) */
+.modal-actions { display: flex; gap: 10px; margin-top: 14px; }
+.modal-actions .btn-slide { flex: 1; }
+.howto-body { font-size: 13px; line-height: 1.55; color: #333; margin: 0; }
+.howto-body h4 { font-size: 14px; margin: 14px 0 6px; }
+.howto-body ul { margin: 0 0 6px; padding-left: 18px; }
+.howto-body li { margin: 3px 0; }
+.howto-body strong { color: var(--ink); }
+#howto-modal .modal { max-width: 420px; }
+
+@media (max-width: 760px) {
+  .wtp-art img { max-width: 240px; max-height: 210px; }
+  .wtp-elite-icon { font-size: 48px; }
+  .wtp-stat-num { font-size: 21px; }
+  .wtp-result-head { flex-direction: column; gap: 0; }
 }
