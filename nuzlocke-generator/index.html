@@ -37,7 +37,7 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <link rel="stylesheet" href="../styles.css?v=20260802l" />
+  <link rel="stylesheet" href="../styles.css?v=20260802o" />
 
   <!-- Structured data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -153,6 +153,25 @@
         <fieldset>
           <legend>Generation (your region)</legend>
           <div class="btn-row" id="gen-buttons" role="group" aria-label="Filter by generation"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Type (any of)</legend>
+          <div class="btn-row" id="type-buttons" role="group" aria-label="Filter by type"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Habitat (living area)</legend>
+          <div class="btn-row" id="habit-buttons" role="group" aria-label="Filter by habitat"></div>
+          <p class="tool-note">Habitat data covers the classic dex; newer species carry no habitat tag.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Base stat total</legend>
+          <div class="bst-range">
+            <label>Min <input type="range" id="bst-min" min="0" max="780" value="0" step="10" aria-label="Minimum base stat total" /></label>
+            <label>Max <input type="range" id="bst-max" min="0" max="780" value="780" step="10" aria-label="Maximum base stat total" /></label>
+          </div>
         </fieldset>
 
         <fieldset>
@@ -406,8 +425,8 @@
     </div>
   </div>
 
-  <script src="../data.js?v=20260802l"></script>
-  <script src="../nav.js?v=20260802l"></script>
-  <script src="nuzlocke.js?v=20260802l"></script>
+  <script src="../data.js?v=20260802o"></script>
+  <script src="../nav.js?v=20260802o"></script>
+  <script src="nuzlocke.js?v=20260802o"></script>
 </body>
 </html>

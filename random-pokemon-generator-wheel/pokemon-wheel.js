@@ -72,7 +72,7 @@
   }
 
   /* ---------------- state ---------------- */
-  var gens = [], types = [];
+  var gens = [], types = [], habitats = [], stages = [], noLeg = false, noMyth = false, bstMin = 0, bstMax = 780;
   var deck = [];            // drawn cards (each item = Pokémon data)
   var focusIdx = 2;         // index of the centered/selected card
   var spinning = false;
@@ -112,6 +112,11 @@
     return POKEMON.filter(function (p) {
       if (gens.length && gens.indexOf(p.g) < 0) return false;
       if (types.length && !p.t.some(function (t) { return types.indexOf(t) >= 0; })) return false;
+      if (habitats.length && (p.h === null || p.h === undefined || habitats.indexOf(p.h) < 0)) return false;
+      if (stages.length && stages.indexOf(p.ev) < 0) return false;
+      if (noLeg && p.lg) return false;
+      if (noMyth && p.my) return false;
+      if (p.tt < bstMin || p.tt > bstMax) return false;
       return true;
     });
   }
@@ -943,6 +948,17 @@
   /* ---------------- init ---------------- */
   renderFilterRow('gen-buttons', GENERATIONS, gens, function (g) { return 'Gen ' + g; });
   renderFilterRow('type-buttons', Object.keys(TYPES), types, function (t) { return TYPE_MAP[t].label; });
+  var HABITATS = { cave: 'Cave', forest: 'Forest', grassland: 'Grassland', mountain: 'Mountain', rare: 'Rare', 'rough-terrain': 'Rough Terrain', sea: 'Sea', urban: 'Urban', 'waters-edge': 'Waters Edge' };
+  renderFilterRow('habit-buttons', Object.keys(HABITATS), habitats, function (h) { return HABITATS[h]; });
+  renderFilterRow('stage-buttons', ['initial', 'middle', 'final'], stages, function (s) { return s.charAt(0).toUpperCase() + s.slice(1); });
+  (function () {
+    var lg = $('noleg-chip'), my = $('nomyth-chip');
+    lg.addEventListener('click', function () { noLeg = !noLeg; lg.setAttribute('aria-pressed', noLeg ? 'true' : 'false'); rebuildDeck(); });
+    my.addEventListener('click', function () { noMyth = !noMyth; my.setAttribute('aria-pressed', noMyth ? 'true' : 'false'); rebuildDeck(); });
+    var lo = $('bst-min'), hi = $('bst-max');
+    lo.addEventListener('input', function () { bstMin = Math.min(Number(lo.value), bstMax); lo.value = bstMin; rebuildDeck(); });
+    hi.addEventListener('input', function () { bstMax = Math.max(Number(hi.value), bstMin); hi.value = bstMax; rebuildDeck(); });
+  })();
   rebuildDeck();
   /* restore persisted draws & history (survive refresh) — show only the latest draw */
   try {

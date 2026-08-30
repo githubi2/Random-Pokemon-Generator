@@ -86,7 +86,7 @@
   }
 
   /* ---------------- state ---------------- */
-  var settings = { mode: 'random', types: [], gens: [], regions: [], includeLegendary: true };
+  var settings = { mode: 'random', types: [], gens: [], regions: [], habitats: [], stages: [], colors: [], bstMin: 0, includeLegendary: true };
   var deck = [];
   var deckIdx = 0;
   var results = []; // { i, verdict: 'smash'|'pass', shiny }
@@ -104,6 +104,8 @@
 
   /* ---------------- Game Settings (display mode / types / gens / regions / rarity) ---------------- */
   var TYPE_ORDER = ['normal', 'fire', 'water', 'electric', 'grass', 'ice', 'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dragon', 'dark', 'steel', 'fairy'];
+  var HABITAT_MAP = { cave: 'Cave', forest: 'Forest', grassland: 'Grassland', mountain: 'Mountain', rare: 'Rare', 'rough-terrain': 'Rough Terrain', sea: 'Sea', urban: 'Urban', 'waters-edge': 'Waters Edge' };
+  var POKEDEX_COLORS = { red: 'Red', blue: 'Blue', yellow: 'Yellow', green: 'Green', black: 'Black', brown: 'Brown', purple: 'Purple', gray: 'Gray', white: 'White', pink: 'Pink' };
 
   function makeChip(parent, label, pressed, onClick) {
     var b = document.createElement('button');
@@ -165,6 +167,48 @@
       });
     });
 
+    /* Habitat (multi-select) */
+    var hw = $('smash-habitats');
+    hw.innerHTML = '';
+    Object.keys(HABITAT_MAP).forEach(function (h) {
+      makeChip(hw, HABITAT_MAP[h], settings.habitats.indexOf(h) >= 0, function () {
+        toggleIn(settings.habitats, h);
+        updateNotes();
+        resetGame();
+      });
+    });
+
+    /* Evolution stage (multi-select) */
+    var sw = $('smash-stages');
+    sw.innerHTML = '';
+    ['initial', 'middle', 'final'].forEach(function (s) {
+      makeChip(sw, s.charAt(0).toUpperCase() + s.slice(1), settings.stages.indexOf(s) >= 0, function () {
+        toggleIn(settings.stages, s);
+        updateNotes();
+        resetGame();
+      });
+    });
+
+    /* Pokédex color (multi-select) */
+    var cw = $('smash-colors');
+    cw.innerHTML = '';
+    Object.keys(POKEDEX_COLORS).forEach(function (c) {
+      makeChip(cw, POKEDEX_COLORS[c], settings.colors.indexOf(c) >= 0, function () {
+        toggleIn(settings.colors, c);
+        updateNotes();
+        resetGame();
+      });
+    });
+
+    /* Min BST slider */
+    var bst = $('smash-bst-min');
+    bst.value = settings.bstMin;
+    bst.addEventListener('input', function () {
+      settings.bstMin = Number(bst.value);
+      updateNotes();
+      resetGame();
+    });
+
     /* Legendary & Mythical switch */
     $('smash-legendary').checked = settings.includeLegendary;
     var lbl = $('smash-legendary-label');
@@ -186,6 +230,18 @@
     $('smash-regions-note').textContent = settings.regions.length
       ? 'Showing Pokémon from ' + settings.regions.map(function (g) { return REGIONS[g]; }).join(', ')
       : 'Showing Pokémon from all regions';
+    $('smash-habitats-note').textContent = settings.habitats.length
+      ? 'Showing Pokémon from ' + settings.habitats.map(function (h) { return HABITAT_MAP[h]; }).join(', ')
+      : 'Showing Pokémon from all habitats';
+    $('smash-stages-note').textContent = settings.stages.length
+      ? 'Showing ' + settings.stages.length + ' evolution stage' + (settings.stages.length > 1 ? 's' : '')
+      : 'Showing every evolution stage';
+    $('smash-colors-note').textContent = settings.colors.length
+      ? 'Showing ' + settings.colors.length + ' color' + (settings.colors.length > 1 ? 's' : '')
+      : 'Showing every color';
+    $('smash-bst-note').textContent = settings.bstMin > 0
+      ? 'BST ' + settings.bstMin + ' or higher'
+      : 'No BST minimum';
   }
 
   /* ---------------- core game ---------------- */
@@ -200,6 +256,10 @@
       }
       if (settings.gens.length && settings.gens.indexOf(p.g) < 0) return false;
       if (settings.regions.length && settings.regions.indexOf(p.g) < 0) return false;
+      if (settings.habitats.length && (p.h === null || p.h === undefined || settings.habitats.indexOf(p.h) < 0)) return false;
+      if (settings.stages.length && settings.stages.indexOf(p.ev) < 0) return false;
+      if (settings.colors.length && settings.colors.indexOf(p.c) < 0) return false;
+      if (settings.bstMin > 0 && p.tt < settings.bstMin) return false;
       if (!settings.includeLegendary && (p.lg || p.my)) return false;
       return true;
     });

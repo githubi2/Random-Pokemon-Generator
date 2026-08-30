@@ -45,6 +45,14 @@
     { slug: 'white', hex: '#F5F5F5' }, { slug: 'pink', hex: '#F4A7C3' }
   ];
 
+  var HABITATS = [
+    { slug: 'cave', label: 'Cave' }, { slug: 'forest', label: 'Forest' },
+    { slug: 'grassland', label: 'Grassland' }, { slug: 'mountain', label: 'Mountain' },
+    { slug: 'rare', label: 'Rare' }, { slug: 'rough-terrain', label: 'Rough Terrain' },
+    { slug: 'sea', label: 'Sea' }, { slug: 'urban', label: 'Urban' },
+    { slug: 'waters-edge', label: 'Waters Edge' }
+  ];
+
   var STAT_LABELS = ['HP', 'ATK', 'DEF', 'SPA', 'SPD', 'SPE'];
   var SHINY_RANDOM_ODDS = 0.08;
   var LS_CONFIG = 'rpg:config';
@@ -53,7 +61,7 @@
   var DEFAULTS = {
     gens: [], types: [], count: 6, shiny: 'normal',
     legendary: 'include', mythical: 'include',
-    form: 'default', stage: 'all', bstMin: 0, bstMax: 780, colors: []
+    form: 'default', stage: 'all', bstMin: 0, bstMax: 780, colors: [], habits: []
   };
 
   /* ---------------- helpers ---------------- */
@@ -103,6 +111,9 @@
     f.colors = parseList(params.get('colors')).filter(function (c) {
       return COLORS.some(function (m) { return m.slug === c; });
     });
+    f.habits = parseList(params.get('habits')).filter(function (h) {
+      return HABITATS.some(function (m) { return m.slug === h; });
+    });
     return f;
   }
 
@@ -118,6 +129,7 @@
     if (f.stage !== DEFAULTS.stage) q.set('stage', f.stage);
     if (f.bstMin !== 0 || f.bstMax !== 780) q.set('bst', f.bstMin + '-' + f.bstMax);
     if (f.colors.length) q.set('colors', f.colors.join(','));
+    if (f.habits.length) q.set('habits', f.habits.join(','));
     var s = q.toString();
     return s ? '?' + s : '';
   }
@@ -135,6 +147,7 @@
       if (f.stage !== 'all' && p.ev !== f.stage) return false;
       if (p.tt < f.bstMin || p.tt > f.bstMax) return false;
       if (f.colors.length && f.colors.indexOf(p.c) < 0) return false;
+      if (f.habits.length && (p.h === null || p.h === undefined || f.habits.indexOf(p.h) < 0)) return false;
       return true;
     });
   }
@@ -249,6 +262,25 @@
       b.addEventListener('click', function () {
         toggleInArray(filters.colors, c.slug);
         b.setAttribute('aria-pressed', filters.colors.indexOf(c.slug) >= 0 ? 'true' : 'false');
+        scheduleSync();
+      });
+      wrap.appendChild(b);
+    });
+    renderHabits();
+  }
+
+  function renderHabits() {
+    var wrap = $('habit-buttons');
+    wrap.innerHTML = '';
+    HABITATS.forEach(function (h) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip-btn';
+      b.textContent = h.label;
+      b.setAttribute('aria-pressed', filters.habits.indexOf(h.slug) >= 0 ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        toggleInArray(filters.habits, h.slug);
+        b.setAttribute('aria-pressed', filters.habits.indexOf(h.slug) >= 0 ? 'true' : 'false');
         scheduleSync();
       });
       wrap.appendChild(b);

@@ -609,7 +609,7 @@ output { color: var(--poke-red); font-weight: 700; }
 .stat-row dt { width: 34px; text-transform: uppercase; letter-spacing: 0.08em; }
 .stat-row dd { width: 32px; text-align: right; font-weight: 700; }
 .stat-track { flex: 1; height: 12px; border: 2px solid var(--ink); background: #fff; }
-.stat-fill { height: 100%; background: var(--aura, var(--poke-red)); }
+.stat-fill { height: 100%; background: var(--aura, var(--poke-red)); filter: saturate(1.35) brightness(0.72); }
 .ability-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
 .ability-list li {
   border: 2px solid var(--ink);

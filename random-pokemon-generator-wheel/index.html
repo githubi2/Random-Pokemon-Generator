@@ -37,7 +37,7 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <link rel="stylesheet" href="../styles.css?v=20260802l" />
+  <link rel="stylesheet" href="../styles.css?v=20260802o" />
 
   <!-- Structured data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -149,6 +149,29 @@
         <fieldset>
           <legend>Type</legend>
           <div class="btn-row" id="type-buttons" role="group" aria-label="Filter by type"></div>
+        </fieldset>
+        <fieldset>
+          <legend>Habitat (living area)</legend>
+          <div class="btn-row" id="habit-buttons" role="group" aria-label="Filter by habitat"></div>
+          <p class="tool-note">Habitat data covers the classic dex; newer species carry no habitat tag.</p>
+        </fieldset>
+        <fieldset>
+          <legend>Evolution stage</legend>
+          <div class="btn-row" id="stage-buttons" role="group" aria-label="Filter by evolution stage"></div>
+        </fieldset>
+        <fieldset>
+          <legend>Base stat total</legend>
+          <div class="bst-range">
+            <label>Min <input type="range" id="bst-min" min="0" max="780" value="0" step="10" aria-label="Minimum base stat total" /></label>
+            <label>Max <input type="range" id="bst-max" min="0" max="780" value="780" step="10" aria-label="Maximum base stat total" /></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Rarity</legend>
+          <div class="btn-row" id="rare-buttons" role="group" aria-label="Rarity toggles">
+            <button type="button" class="chip-btn" id="noleg-chip" aria-pressed="false">🚫 No Legendaries</button>
+            <button type="button" class="chip-btn" id="nomyth-chip" aria-pressed="false">🚫 No Mythicals</button>
+          </div>
         </fieldset>
       </div>
 
@@ -332,8 +355,8 @@
     </div>
   </footer>
 
-  <script src="../data.js?v=20260802l"></script>
-  <script src="../nav.js?v=20260802l"></script>
-  <script src="pokemon-wheel.js?v=20260802l"></script>
+  <script src="../data.js?v=20260802o"></script>
+  <script src="../nav.js?v=20260802o"></script>
+  <script src="pokemon-wheel.js?v=20260802o"></script>
 </body>
 </html>

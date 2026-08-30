@@ -35,6 +35,7 @@
 
   var GENERATIONS = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   var REGIONS = { 1: 'Kanto', 2: 'Johto', 3: 'Hoenn', 4: 'Sinnoh', 5: 'Unova', 6: 'Kalos', 7: 'Alola', 8: 'Galar', 9: 'Paldea' };
+  var HABITAT_MAP = { cave: 'Cave', forest: 'Forest', grassland: 'Grassland', mountain: 'Mountain', rare: 'Rare', 'rough-terrain': 'Rough Terrain', sea: 'Sea', urban: 'Urban', 'waters-edge': 'Waters Edge' };
   var STAT_LABELS = ['HP', 'ATK', 'DEF', 'SPA', 'SPD', 'SPE'];
 
   var MODES = {
@@ -43,7 +44,7 @@
     death:     { label: 'Death Replacement (1)', rollLabel: '🎲 Roll Death Replacement', count: 1 }
   };
 
-  var DEFAULTS = { mode: 'team', gens: [], noLeg: true, noMyth: true, initialOnly: false };
+  var DEFAULTS = { mode: 'team', gens: [], types: [], habitats: [], bstMin: 0, bstMax: 780, noLeg: true, noMyth: true, initialOnly: false };
   var LS_HISTORY = 'rpg:nuz-history';
   var LS_GRAVE = 'rpg:nuz-graveyard';
   var HISTORY_MAX = 20;
@@ -74,6 +75,15 @@
     var mode = params.get('mode');
     if (MODES[mode]) f.mode = mode;
     f.gens = parseList(params.get('gens')).map(Number).filter(function (g) { return GENERATIONS.indexOf(g) >= 0; });
+    f.types = parseList(params.get('types')).filter(function (t) { return TYPES[t]; });
+    f.habitats = parseList(params.get('habits')).filter(function (h) { return HABITAT_MAP[h]; });
+    var bst = params.get('bst');
+    if (bst) {
+      var bp = bst.split('-').map(Number);
+      if (isFinite(bp[0])) f.bstMin = Math.max(0, Math.min(780, bp[0]));
+      if (isFinite(bp[1])) f.bstMax = Math.max(0, Math.min(780, bp[1]));
+      if (f.bstMin > f.bstMax) { var t = f.bstMin; f.bstMin = f.bstMax; f.bstMax = t; }
+    }
     var rules = params.get('rules');
     if (rules !== null) {
       var rl = parseList(rules);
@@ -87,6 +97,9 @@
   function applyFilters(f) {
     return POKEMON.filter(function (p) {
       if (f.gens.length && f.gens.indexOf(p.g) < 0) return false;
+      if (f.types.length && !p.t.some(function (t) { return f.types.indexOf(t) >= 0; })) return false;
+      if (f.habitats.length && (p.h === null || p.h === undefined || f.habitats.indexOf(p.h) < 0)) return false;
+      if (p.tt < f.bstMin || p.tt > f.bstMax) return false;
       if (f.noLeg && p.lg) return false;
       if (f.noMyth && p.my) return false;
       if (f.initialOnly && p.ev !== 'initial') return false;
@@ -124,6 +137,59 @@
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
     rollLabel.textContent = MODES[state.mode].rollLabel;
+  }
+
+  function renderTypeButtons() {
+    var wrap = $('type-buttons');
+    wrap.innerHTML = '';
+    TYPES.forEach(function (t) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip-btn';
+      b.textContent = t.label;
+      b.setAttribute('aria-pressed', state.types.indexOf(t.slug) >= 0 ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        var i = state.types.indexOf(t.slug);
+        if (i >= 0) state.types.splice(i, 1); else state.types.push(t.slug);
+        b.setAttribute('aria-pressed', state.types.indexOf(t.slug) >= 0 ? 'true' : 'false');
+        updatePool();
+      });
+      wrap.appendChild(b);
+    });
+  }
+
+  function renderHabitButtons() {
+    var wrap = $('habit-buttons');
+    wrap.innerHTML = '';
+    Object.keys(HABITAT_MAP).forEach(function (slug) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip-btn';
+      b.textContent = HABITAT_MAP[slug];
+      b.setAttribute('aria-pressed', state.habitats.indexOf(slug) >= 0 ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        var i = state.habitats.indexOf(slug);
+        if (i >= 0) state.habitats.splice(i, 1); else state.habitats.push(slug);
+        b.setAttribute('aria-pressed', state.habitats.indexOf(slug) >= 0 ? 'true' : 'false');
+        updatePool();
+      });
+      wrap.appendChild(b);
+    });
+  }
+
+  function bindBst() {
+    var lo = $('bst-min'), hi = $('bst-max');
+    lo.value = state.bstMin; hi.value = state.bstMax;
+    lo.addEventListener('input', function () {
+      state.bstMin = Math.min(Number(lo.value), state.bstMax);
+      lo.value = state.bstMin;
+      updatePool();
+    });
+    hi.addEventListener('input', function () {
+      state.bstMax = Math.max(Number(hi.value), state.bstMin);
+      hi.value = state.bstMax;
+      updatePool();
+    });
   }
 
   function renderGenButtons() {
@@ -709,6 +775,9 @@
     var q = new URLSearchParams();
     q.set('mode', state.mode);
     if (state.gens.length) q.set('gens', state.gens.slice().sort(function (a, b) { return a - b; }).join(','));
+    if (state.types.length) q.set('types', state.types.join(','));
+    if (state.habitats.length) q.set('habits', state.habitats.join(','));
+    if (state.bstMin !== 0 || state.bstMax !== 780) q.set('bst', state.bstMin + '-' + state.bstMax);
     if (currentRoll.length) q.set('team', currentRoll.map(function (p) { return p.i; }).join(','));
     var rules = rulesToParam();
     if (rules) q.set('rules', rules);
@@ -754,6 +823,13 @@
     if (i < 0) return;
     currentRoll.splice(i, 1);
     if (markDead) registerFallen(p);
+    /* keep history in sync: drop this Pokemon from every entry, prune empty ones */
+    for (var h = rollHistory.length - 1; h >= 0; h--) {
+      rollHistory[h].team = rollHistory[h].team.filter(function (id) { return id !== p.i; });
+      if (rollHistory[h].team.length === 0) rollHistory.splice(h, 1);
+    }
+    saveHistory();
+    renderHistory();
     var pool = updatePool();
     renderRoll(pool);
     renderAnalysis(currentRoll);
@@ -770,6 +846,12 @@
       return;
     }
     currentRoll.push(p);
+    /* keep history in sync: add this Pokemon to the latest roll entry */
+    if (rollHistory.length) {
+      if (rollHistory[0].team.indexOf(p.i) < 0) rollHistory[0].team.push(p.i);
+      saveHistory();
+      renderHistory();
+    }
     var pool = updatePool();
     renderRoll(pool);
     renderAnalysis(currentRoll);
@@ -824,13 +906,13 @@
       var row = document.createElement('div');
       row.className = 'stat-row';
       row.innerHTML = '<dt>' + STAT_LABELS[i] + '</dt><dd>' + (hasRaw ? v : '—') + '</dd>' +
-        '<span class="stat-bar"><span class="stat-fill" style="width:' + Math.min(100, v / 2) + '%"></span></span>';
+        '<div class="stat-track"><div class="stat-fill" style="width:' + Math.min(100, (v / 255) * 100) + '%"></div></div>';
       st.appendChild(row);
     });
     /* total row */
     var tro = document.createElement('div');
     tro.className = 'stat-row stat-total';
-    tro.innerHTML = '<dt>Total</dt><dd>' + tt + '</dd><span class="stat-bar"></span>';
+    tro.innerHTML = '<dt>Total</dt><dd>' + tt + '</dd><div class="stat-track"><div class="stat-fill" style="width:' + Math.min(100, (tt / 780) * 100) + '%"></div></div>';
     st.appendChild(tro);
     $('modal-bst').textContent = tt;
 
@@ -883,7 +965,7 @@
       var pre = findBySlug(p.pre);
       if (pre) evoLink(evo, pre, '←');
     }
-    evoLink(evo, p, '•');
+    evoLink(evo, p, '•', true);
     if (p.evo) {
       var evo2 = findBySlug(p.evo);
       if (evo2) evoLink(evo, evo2, '→');
@@ -892,10 +974,10 @@
     document.body.style.overflow = 'hidden';
   }
 
-  function evoLink(container, p, arrow) {
+  function evoLink(container, p, arrow, isCurrent) {
     var a = document.createElement('a');
     a.href = '#';
-    a.className = 'evo-node';
+    a.className = isCurrent ? 'evo-current' : 'evo-link';
     a.textContent = arrow + ' ' + displayName(p.n);
     a.addEventListener('click', function (e) {
       e.preventDefault();
@@ -1300,6 +1382,10 @@
   var sharedIds = params.get('team');
   var sharedTeam = sharedIds ? parseList(sharedIds).map(function (id) { return BY_ID[Number(id)]; }).filter(Boolean).slice(0, 6) : [];
   renderGenButtons();
+  renderTypeButtons();
+  renderHabitButtons();
+  bindBst();
+
   syncRange();
   renderHistory();
   renderGraveyard();
