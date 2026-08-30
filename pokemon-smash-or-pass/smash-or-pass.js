@@ -292,7 +292,7 @@
       var ta = document.createElement('textarea');
       ta.value = text;
       ta.setAttribute('readonly', '');
-      ta.style.cssText = 'position:fixed;top:0;left:-9999px;opacity:0';
+      ta.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0';
       document.body.appendChild(ta);
       ta.focus();
       ta.select();
@@ -302,13 +302,44 @@
       document.body.removeChild(ta);
       return ok;
     }
+    /* last resort: manual-copy modal (app browsers block clipboard APIs) */
+    function showManual() {
+      var m = $('share-modal');
+      $('share-modal-text').value = text;
+      m.hidden = false;
+      document.body.style.overflow = 'hidden';
+      var ta = $('share-modal-text');
+      ta.focus();
+      ta.select();
+    }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(function () { done(true); })
-        .catch(function () { done(legacyCopy()); });
+        .catch(function () {
+          if (legacyCopy()) done(true);
+          else { done(false); showManual(); }
+        });
     } else {
-      done(legacyCopy());
+      if (legacyCopy()) done(true);
+      else { done(false); showManual(); }
     }
   }
+
+  $('sm-close').addEventListener('click', function () {
+    $('share-modal').hidden = true;
+    document.body.style.overflow = '';
+  });
+  $('share-modal').addEventListener('click', function (e) {
+    if (e.target === $('share-modal')) {
+      $('share-modal').hidden = true;
+      document.body.style.overflow = '';
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !$('share-modal').hidden) {
+      $('share-modal').hidden = true;
+      document.body.style.overflow = '';
+    }
+  });
 
   function startGame() {
     running = true;

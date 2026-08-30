@@ -644,6 +644,18 @@ output { color: var(--poke-red); font-weight: 700; }
 }
 .history-actions { display: flex; gap: 10px; align-items: center; }
 #history-modal-card { max-width: 860px; }
+.share-modal-text {
+  display: block;
+  width: 100%;
+  margin: 10px 0 14px;
+  padding: 10px 12px;
+  font: 500 12px/1.6 ui-monospace, Menlo, Consolas, monospace;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: #fff;
+  resize: vertical;
+}
 
 /* ---------- verdict cards modal ---------- */
 .verdict-cards {
