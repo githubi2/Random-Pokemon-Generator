@@ -37,7 +37,7 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <link rel="stylesheet" href="../styles.css?v=20260801q" />
+  <link rel="stylesheet" href="../styles.css?v=20260801r" />
 
   <!-- Structured data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -189,8 +189,10 @@
           <button type="button" id="manual-btn" class="btn-slide btn-secondary">
             <span>➕ Add Pokémon manually</span>
           </button>
+          <p class="tool-note">➕ Add Pokémon manually — search any of the 1,025 Pokémon and add a catch you found by hand</p>
         </div>
         <p class="results-hint">💡 Nuzlocke rule of thumb: one catch per route. Use First Encounter mode when you enter a new area.</p>
+        <p class="tool-note">💀 Mark as fallen on a card to move it to the graveyard — ↩ revives it back, ✕ removes it entirely</p>
         <p class="results-empty cornered-dashed" id="results-empty">Press 🎲 Roll to get your Nuzlocke pick — it stays put until you roll again.</p>
         <ul class="results-grid" id="results-grid"></ul>
         <p class="results-meta" id="results-meta"></p>
@@ -222,6 +224,7 @@
           <h2 class="history-title">💀 Fallen Team (Graveyard)</h2>
           <button type="button" id="graveyard-clear" class="btn-text">Clear Graveyard</button>
         </div>
+        <p class="tool-note">Clear Graveyard — permanently removes all fallen Pokémon from the record</p>
         <p class="history-hint">💡 Fallen Pokémon rest here — clicking ↩ revives one back into your team (undo a mistaken fallen mark)</p>
         <ol class="history-list" id="graveyard-list"></ol>
       </div>
@@ -374,8 +377,8 @@
     </div>
   </div>
 
-  <script src="../data.js?v=20260801q"></script>
-  <script src="../nav.js?v=20260801q"></script>
-  <script src="nuzlocke.js?v=20260801q"></script>
+  <script src="../data.js?v=20260801r"></script>
+  <script src="../nav.js?v=20260801r"></script>
+  <script src="nuzlocke.js?v=20260801r"></script>
 </body>
 </html>

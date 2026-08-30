@@ -484,7 +484,7 @@
     if (!results.length) return;
     var grid = $('hm-cards');
     grid.innerHTML = '';
-    $('hm-meta').textContent = results.length + ' verdicts';
+    $('hm-meta').textContent = results.length + ' verdicts — click a card for full details';
     results.slice().reverse().forEach(function (r) {
       var p = BY_ID[r.i];
       if (!p) return;

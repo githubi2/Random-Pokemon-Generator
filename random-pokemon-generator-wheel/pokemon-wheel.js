@@ -320,6 +320,7 @@
     var card = $('result-card');
     card.hidden = false;
     $('result-bar').hidden = false;
+    $('result-tip').hidden = false;
     var el = cardEl(p);
     el.classList.add('result-big');
     /* click a result card -> full dex details (home-style modal) */
@@ -344,6 +345,7 @@
     appendResultCard(p, true);
     renderHistory();
     updateAnalysis();
+    $('result-tip').hidden = false;
   }
 
   /* ---------------- dex details modal (home-style) ---------------- */
@@ -928,6 +930,7 @@
     $('result-card').innerHTML = '';
     $('result-card').hidden = true;
     $('result-bar').hidden = true;
+    $('result-tip').hidden = true;
     $('analysis-panel').hidden = true;
     renderHistory();
   }
