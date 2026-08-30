@@ -330,17 +330,16 @@
     for (var i = 0; i < card.children.length; i++) {
       card.children[i].classList.remove('selected');
     }
+    /* only keep the latest draw on screen — clear previous card(s) first */
+    while (card.children.length > 0) card.removeChild(card.children[0]);
     el.classList.add('selected');
     card.appendChild(el);
-    /* keep a sane cap — drop the oldest beyond 12 */
-    while (card.children.length > 12) card.removeChild(card.children[0]);
     if (isNew) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
   function showResult(p) {
     results.push(p.i);
-    draws.push(p.i);
-    while (draws.length > 12) draws.shift();
+    draws = [p.i];           /* keep only the latest draw (no accumulation) */
     persist();
     appendResultCard(p, true);
     renderHistory();
@@ -945,10 +944,11 @@
   renderFilterRow('gen-buttons', GENERATIONS, gens, function (g) { return 'Gen ' + g; });
   renderFilterRow('type-buttons', Object.keys(TYPES), types, function (t) { return TYPE_MAP[t].label; });
   rebuildDeck();
-  /* restore persisted draws & history (survive refresh) */
+  /* restore persisted draws & history (survive refresh) — show only the latest draw */
   try {
     results = JSON.parse(localStorage.getItem(LS_RESULTS) || '[]');
     draws = JSON.parse(localStorage.getItem(LS_DRAWS) || '[]');
+    draws = draws.slice(-1);   /* legacy data may hold many; keep the newest only */
   } catch (e) { results = []; draws = []; }
   renderHistory();
   draws.forEach(function (id) {
