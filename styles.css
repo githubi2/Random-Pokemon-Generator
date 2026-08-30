@@ -163,7 +163,7 @@ body {
   .nav-link { display: block; text-align: center; }
   /* dropdown inside hamburger: static drawer, click to toggle */
   .nav-group { position: static; }
-  .nav-group:hover .nav-menu { display: none; }
+  .nav-drop { width: 100%; }
   .nav-menu {
     position: static;
     width: 100%;
