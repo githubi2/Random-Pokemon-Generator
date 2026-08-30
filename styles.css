@@ -1601,7 +1601,7 @@ output { color: var(--poke-red); font-weight: 700; }
   margin-top: 12px;
 }
 .wtp-result-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-.wtp-result-head h3 { font-size: 22px; font-weight: 900; margin: 0 0 6px; }
+.wtp-result-title { font-size: 22px; font-weight: 900; margin: 0 0 6px; }
 .wtp-result-time { font-size: 12px; color: #666; }
 .wtp-result-name { font-size: 19px; font-weight: 800; margin: 4px 0 8px; }
 .wtp-result-desc { font-size: 13px; color: #444; margin: 10px 0 12px; line-height: 1.5; }
