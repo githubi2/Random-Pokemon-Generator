@@ -771,8 +771,7 @@
     for (var k in panels) {
       $('panel-' + k).hidden = (k !== name);
       $('tab-' + k).setAttribute('aria-selected', k === name ? 'true' : 'false');
-      $('tab-' + k).classList.toggle('btn-primary', k === name);
-      $('tab-' + k).classList.toggle('btn-secondary', k !== name);
+      $('tab-' + k).classList.toggle('wtp-tab-active', k === name);
     }
     if (name === 'stats') renderStats();
     if (name === 'settings') renderSettings();

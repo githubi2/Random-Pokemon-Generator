@@ -1538,7 +1538,20 @@ output { color: var(--poke-red); font-weight: 700; }
 /* ============================================================
    Who's That Pokemon page (wtp-*) — same design language
    ============================================================ */
-.wtp-tab { flex: 1 1 0; min-width: 0; }
+.wtp-tab { flex: 1 1 0; min-width: 0; text-align: center; }
+.wtp-tab > span {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.wtp-tab-ico { font-size: 14px; line-height: 1; flex: 0 0 auto; }
+.wtp-tab-active { background: var(--ink); border-color: var(--ink); }
+.wtp-tab-active > span { color: #fff; }
+.wtp-tab-active::after { display: none; }
 .wtp-panel { margin-top: 18px; }
 .wtp-stage { display: flex; flex-direction: column; gap: 10px; }
 .wtp-art {
@@ -1673,6 +1686,8 @@ output { color: var(--poke-red); font-weight: 700; }
 #howto-modal .modal { max-width: 420px; }
 
 @media (max-width: 760px) {
+  .wtp-tab { padding: 6px 8px; font-size: 13px; line-height: 1.2; }
+  .wtp-tab > span { font-size: 13px; line-height: 1.2; }
   .wtp-art img { max-width: 240px; max-height: 210px; }
   .wtp-elite-icon { font-size: 48px; }
   .wtp-stat-num { font-size: 21px; }
