@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Pokemon Generator Wheel - Pokemon Spinner</title>
+  <meta name="description" content="Spin the Pokemon wheel: a random Pokemon generator wheel with Gen 1-9 and type filters. Spin for Nuzlocke picks, stream challenges, and instant results." />
+  <meta name="keywords" content="pokemon wheel, random pokemon generator wheel, pokemon spinner, spin the wheel pokemon" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/random-pokemon-generator-wheel/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Random Pokemon Generator Wheel - Pokemon Spinner" />
+  <meta property="og:description" content="Spin the wheel and let fate pick your Pokemon — with generation and type filters." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/random-pokemon-generator-wheel/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/random-pokemon-generator-wheel/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Random Pokemon Generator Wheel - Pokemon Spinner" />
+  <meta name="twitter:description" content="Spin the wheel and let fate pick your Pokemon — with generation and type filters." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/random-pokemon-generator-wheel/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260801g" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Random Pokemon Generator Wheel",
+    "description": "A random Pokemon generator wheel with generation and type filters.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Random Pokemon Generator", "item": "https://www.random-pokemon-generator.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Random Pokemon Generator Wheel", "item": "https://www.random-pokemon-generator.co/random-pokemon-generator-wheel/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the Pokemon wheel generator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It is a spin-the-wheel tool that picks a random Pokemon from the full Gen 1-9 roster. Each spin loads a new wheel with eight Pokemon on the segments, and the pointer decides your result." }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the random Pokemon wheel work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Press Spin, the wheel turns with a smooth animation, and the segment under the pointer is your Pokemon. Results are added to your spin history and can be copied as a share message." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I limit the wheel to a generation or type?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Tap any generation or type chips before spinning — the wheel only draws from the filtered pool, so you can spin Kanto-only, Water-only, or any combination." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use the wheel for Nuzlocke runs?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Spin for first encounters, death replacements, or your starter team — the drama of the wheel makes a Nuzlocke run even more fun. Pair it with the Nuzlocke Team Builder on this site." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use the wheel on a stream?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — the wheel was made for streams. The spin animation is short enough for live pacing, and every result is shareable, so chat can see fate decide your team in real time." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the wheel include all 1,025 Pokemon?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The wheel draws from the same dataset as the main generator: all 1,025 Pokemon plus regional forms from Gen 1-9, with official artwork on every segment." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+              <li><a href="./" class="nav-link nav-link-active">Random Pokemon Generator Wheel</a></li>
+            </ul>
+          </li>
+          <li><a href="#how" class="nav-link">How It Works</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">Spin It · Let Fate Decide · Gen 1–9</p>
+      <h1 id="page-title">Random Pokemon Generator Wheel</h1>
+      <p class="lede">The random Pokémon generator wheel: spin, watch the pointer, and let the Pokémon wheel pick your next Pokémon. Filter by generation or type for Nuzlocke picks and stream challenges.</p>
+    </section>
+
+    <!-- Wheel game -->
+    <section id="game" class="container" aria-label="Pokemon wheel game">
+      <div class="panel cornered">
+        <fieldset>
+          <legend>Generation</legend>
+          <div class="btn-row" id="gen-buttons" role="group" aria-label="Filter by generation"></div>
+        </fieldset>
+        <fieldset>
+          <legend>Type</legend>
+          <div class="btn-row" id="type-buttons" role="group" aria-label="Filter by type"></div>
+        </fieldset>
+      </div>
+
+      <div class="wheel-wrap">
+        <div class="draw-view" id="wheel" role="img" aria-label="Pokemon draw deck"></div>
+        <div class="wheel-controls">
+          <button type="button" id="spin-btn" class="btn-slide cornered btn-primary"><span>🎡 Spin</span></button>
+          <button type="button" id="wheel-share-btn" class="btn-slide btn-secondary"><span id="wheel-share-label">📣 Share Result</span></button>
+        </div>
+      </div>
+
+      <div class="smash-stage" aria-live="polite">
+        <div class="result-bar" id="result-bar" hidden>
+          <span class="result-bar-label">Your draws</span>
+          <button type="button" class="result-clear" id="result-clear">🗑️ <span>Clear records</span></button>
+        </div>
+        <div class="result-wrap" id="result-card" hidden></div>
+      </div>
+
+      <section class="analysis cornered" id="analysis-panel" aria-labelledby="analysis-title" hidden>
+        <div class="analysis-head">
+          <h2 class="analysis-title" id="analysis-title">📊 Draw Tactical Report</h2>
+          <span class="grade-badge" id="analysis-grade">–</span>
+        </div>
+        <p class="analysis-summary" id="analysis-summary"></p>
+        <details class="analysis-details" id="analysis-details">
+          <summary>View full report</summary>
+          <div id="analysis-body"></div>
+        </details>
+      </section>
+
+      <div class="history cornered" id="history-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title">Spin History</h2>
+          <button type="button" id="history-clear" class="btn-text">Clear</button>
+        </div>
+        <ol class="history-list" id="history-list"></ol>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how-title">How the Random Pokemon Generator Wheel Works</h2>
+        <div class="how-grid">
+          <article>
+            <h3>Spin the wheel, take the result</h3>
+            <p>The Pokémon wheel is a spin-the-wheel picker with a full roster: eight Pokémon land on the wheel, the pointer spins, and fate decides which one you get. No rerolls, no second guesses — the spin is the rule. It is the fastest way to hand a decision to chance and enjoy the drama. Every segment shows official artwork, so you can build your own luck-based story around whatever the pointer lands on.</p>
+          </article>
+          <article>
+            <h3>Filter the wheel to your game</h3>
+            <p>Before you spin, tap any generation chips (Gen 1-9) or type chips to narrow the pool. Spin Kanto-only for a retro run, Water-only for a themed challenge, or leave it wide open and let the full 1,025 Pokémon roster fill the wheel. The pool counter updates live as you filter, and every spin reloads the wheel with a fresh set of eight — so no two spins ever look the same.</p>
+          </article>
+          <article>
+            <h3>The wheel for Nuzlocke runs</h3>
+            <p>Nuzlocke players love the wheel: spin for your first encounter in each route, spin for a death replacement, or spin once for your starter team to start a run. It pairs perfectly with the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a> on this site — roll the rules, then let the wheel make the picks.</p>
+          </article>
+          <article>
+            <h3>Made for streams and videos</h3>
+            <p>Nothing creates a moment like a spinning wheel. The animation is tuned for live pacing, the pointer lands with a satisfying stop, and every result is shareable — so chat can react to fate making your decisions in real time. Streamers use it for random battles, challenge tiers, and community picks, because a wheel spin is the easiest piece of content to react to on camera.</p>
+          </article>
+          <article>
+            <h3>Spin tournaments with friends</h3>
+            <p>Turn the wheel into a bracket: each player spins once, and the highest BST (or the coolest Pokémon) advances. With 1,025 Pokémon in the pool, every round stays unpredictable, and the spin history doubles as your bracket record. Groups on Discord love running whole tournaments this way — the wheel does the seeding, the players do the bragging.</p>
+          </article>
+          <article>
+            <h3>Import the result into a team</h3>
+            <p>Wheel results are not just for fun: after the pointer lands, copy the Pokémon's name into the <a href="../">random Pokemon generator</a> on our home page and let the tactical report grade your lucky pick. Spin five times and you have a whole fate-built squad with real combat analysis. It is the complete loop between chance and strategy.</p>
+          </article>
+          <article>
+            <h3>Every spin is shareable</h3>
+            <p>Hit Share Result after a spin and the generator copies a message like 'The Pokémon wheel decided my team: Charizard — spin yours!' with the link. Drop it in Discord, tweet it, or paste it in a stream chat. The wheel travels with the proof of your luck.</p>
+          </article>
+          <article>
+            <h3>One dataset, every tool</h3>
+            <p>The wheel runs on the same Gen 1-9 dataset as the rest of the site — 1,025 Pokémon plus regional forms with official artwork, type tags, and base stats. It is part of the Random Pokemon Generator family: build a team, run a Nuzlocke, judge a <a href="../pokemon-smash-or-pass/">Pokemon smash or pass</a>, or spin the wheel.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Random Pokemon Generator Wheel FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>What is the Pokemon wheel generator?</summary>
+        <p>It is a spin-the-wheel tool that picks a random Pokemon from the full Gen 1-9 roster. Each spin loads a new wheel with eight Pokemon on the segments, and the pointer decides your result.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How does the random Pokemon wheel work?</summary>
+        <p>Press Spin, the wheel turns with a smooth animation, and the segment under the pointer is your Pokemon. Results are added to your spin history and can be copied as a share message.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I limit the wheel to a generation or type?</summary>
+        <p>Yes. Tap any generation or type chips before spinning — the wheel only draws from the filtered pool, so you can spin Kanto-only, Water-only, or any combination.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I use the wheel for Nuzlocke runs?</summary>
+        <p>Absolutely. Spin for first encounters, death replacements, or your starter team — the drama of the wheel makes a Nuzlocke run even more fun. Pair it with the Nuzlocke Team Builder on this site.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I use the wheel on a stream?</summary>
+        <p>Yes — the wheel was made for streams. The spin animation is short enough for live pacing, and every result is shareable, so chat can see fate decide your team in real time.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Does the wheel include all 1,025 Pokemon?</summary>
+        <p>The wheel draws from the same dataset as the main generator: all 1,025 Pokemon plus regional forms from Gen 1-9, with official artwork on every segment.</p>
+      </details>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="modal" hidden>
+    <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="modal-name" id="modal-card">
+      <div class="modal-head">
+        <div>
+          <p class="modal-meta" id="modal-meta"></p>
+          <h3 id="modal-name"></h3>
+          <div class="chip-row" id="modal-types"></div>
+        </div>
+        <span class="modal-art"><span class="dex-aura" aria-hidden="true"></span><img id="modal-img" width="475" height="475" alt="" /></span>
+      </div>
+      <h4 class="modal-section">Base stats · total <strong id="modal-bst"></strong></h4>
+      <dl class="stats" id="modal-stats"></dl>
+      <h4 class="modal-section">Abilities</h4>
+      <ul class="ability-list" id="modal-abilities"></ul>
+      <h4 class="modal-section">Evolution chain</h4>
+      <div class="evo-chain" id="modal-evo"></div>
+      <button type="button" class="btn-slide btn-secondary modal-close" id="modal-close"><span>Close (ESC)</span></button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav aria-label="Footer keyword links">
+        <ul class="footer-links">
+          <li><a href="../">Random Pokemon Generator</a></li>
+          <li><a href="../">Pokemon Team Builder</a></li>
+          <li><a href="../nuzlocke-generator/">Nuzlocke Team Builder</a></li>
+          <li><a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a></li>
+          <li><a href="./">Random Pokemon Generator Wheel</a></li>
+          <li><a href="#how">How It Works</a></li>
+        </ul>
+      </nav>
+      <p class="footer-note">© 2026 Random Pokemon Generator. Not affiliated with Nintendo / Game Freak.</p>
+      <p class="footer-note">Data sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </div>
+  </footer>
+
+  <script src="../data.js?v=20260801g"></script>
+  <script src="../nav.js?v=20260801g"></script>
+  <script src="pokemon-wheel.js?v=20260801g"></script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokemon Smash or Pass - Random Pokemon Game</title>
+  <meta name="description" content="Play the Pokemon smash or pass game: judge random Pokemon, build your smash list, and share your verdicts. All Gen 1-9, free, no sign-up." />
+  <meta name="keywords" content="pokemon smash or pass, smash or pass pokemon, smash or pass game, smash or pass list" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/pokemon-smash-or-pass/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pokemon Smash or Pass - Random Pokemon Game" />
+  <meta property="og:description" content="Judge random Pokemon one by one, build your smash list, and share how picky you are." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/pokemon-smash-or-pass/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/pokemon-smash-or-pass/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pokemon Smash or Pass - Random Pokemon Game" />
+  <meta name="twitter:description" content="Judge random Pokemon, build your smash list, and share your verdicts." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/pokemon-smash-or-pass/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260801g" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Pokemon Smash or Pass",
+    "description": "Play the Pokemon smash or pass game: judge random Pokemon and share your verdicts.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Random Pokemon Generator", "item": "https://www.random-pokemon-generator.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Pokemon Smash or Pass", "item": "https://www.random-pokemon-generator.co/pokemon-smash-or-pass/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Pokemon smash or pass?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Smash or pass is a viral game where a random Pokemon appears and you decide: smash (you would take it) or pass (you would not). This generator turns it into a one-click game across all 1,025 Pokemon from Gen 1-9." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I play the smash or pass game?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Hit Start, read the Pokemon that appears, then tap Smash or Pass (or press S and P on your keyboard). The game rolls the next Pokemon instantly and counts your verdicts, streak, and smash rate." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I filter by generation?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Tap any generation chip (Gen 1 through Gen 9) before starting to judge only Pokemon from that region — Kanto only, Paldea only, or the full roster." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a list of all Pokemon?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — the game draws from the complete list of 1,025 Pokemon plus regional forms across Gen 1-9, with official artwork and type tags on every card." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I share my results?",
+        "acceptedAnswer": { "@type": "Answer", "text": "One tap. The Share button copies a verdict summary like 'I smashed 23/30 Pokemon on Random Pokemon Generator — how picky are you?' with the link, ready for Reddit, Discord, or social media." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do shinies appear?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sometimes. About 1 in 12 rolls can be a shiny Pokemon with sparkling artwork — smash it or pass it, your call." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+              <li><a href="./" class="nav-link nav-link-active">Pokemon Smash or Pass</a></li>
+              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Random Pokemon Generator Wheel</a></li>
+            </ul>
+          </li>
+          <li><a href="#how" class="nav-link">How It Works</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">Gen 1–9 · Instant Verdicts · Made for Sharing</p>
+      <h1 id="page-title">Pokemon Smash or Pass</h1>
+      <p class="lede">A random Pokémon appears. One verdict: 💖 smash or 🚫 pass. The game rolls every Gen 1–9 Pokémon until your smash list says it all — then share the score.</p>
+    </section>
+
+    <!-- Game -->
+    <section id="game" class="container" aria-label="Smash or pass game">
+      <div class="panel cornered">
+        <fieldset>
+          <legend>Generation</legend>
+          <div class="btn-row" id="gen-buttons" role="group" aria-label="Filter by generation"></div>
+        </fieldset>
+        <div class="actions">
+          <button type="button" id="start-btn" class="btn-slide cornered btn-primary"><span>🎲 Start</span></button>
+          <button type="button" id="share-btn" class="btn-slide btn-secondary"><span id="share-label">📣 Share My Verdicts</span></button>
+        </div>
+      </div>
+
+      <div class="smash-stage" aria-live="polite">
+        <div class="smash-card cornered" id="smash-card" hidden>
+          <span class="dex-num" id="smash-num"></span>
+          <div class="smash-split">
+            <span class="smash-art"><img id="smash-img" width="475" height="475" alt="" /></span>
+            <div class="smash-data">
+              <h3 class="smash-name" id="smash-name"></h3>
+              <dl class="dexdata" id="smash-data"></dl>
+            </div>
+          </div>
+        </div>
+        <div class="smash-empty cornered-dashed" id="smash-empty">Press 🎲 Start to judge your first Pokémon.</div>
+        <div class="smash-verdicts" id="smash-verdicts" hidden>
+          <button type="button" class="btn-slide cornered btn-primary" id="smash-btn"><span>💖 Smash</span></button>
+          <button type="button" class="btn-slide cornered btn-secondary" id="pass-btn"><span>🚫 Pass</span></button>
+        </div>
+        <div class="smash-stats" id="smash-stats" hidden>
+          <span class="stat-smash" id="stat-smash">💖 0</span>
+          <span class="stat-pass" id="stat-pass">🚫 0</span>
+          <span class="stat-rate" id="stat-rate">0% smash rate</span>
+          <span class="stat-streak" id="stat-streak">🔥 streak 0</span>
+        </div>
+      </div>
+
+      <div class="history cornered" id="history-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title">Verdict History</h2>
+          <div class="history-actions">
+            <button type="button" id="history-cards-btn" class="btn-text">📜 Cards</button>
+            <button type="button" id="history-clear" class="btn-text">Clear</button>
+          </div>
+        </div>
+        <ol class="history-list" id="history-list"></ol>
+      </div>
+
+      <div class="modal-overlay" id="history-modal" hidden>
+        <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="hm-title" id="history-modal-card">
+          <div class="modal-head">
+            <div>
+              <p class="modal-meta" id="hm-meta"></p>
+              <h3 id="hm-title">Verdict Cards</h3>
+            </div>
+          </div>
+          <div class="verdict-cards" id="hm-cards"></div>
+          <button type="button" class="btn-slide btn-secondary modal-close" id="hm-close"><span>Close (ESC)</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how-title">How to Play Pokemon Smash or Pass</h2>
+        <div class="how-grid">
+          <article>
+            <h3>The smash or pass game, explained</h3>
+            <p>Smash or pass is a viral judgment game that spread through streams and short videos: a Pokémon appears, and you decide in a second whether you would take it (smash) or skip it (pass). The fun is in the fast verdicts, the weird Pokémon you land on, and watching your own taste show up in the stats. This generator keeps the classic loop — one Pokémon, two buttons, next — and adds streak counting and a shareable verdict score.</p>
+          </article>
+          <article>
+            <h3>Play it in three taps</h3>
+            <p>Hit Start to roll the first Pokémon. Read its name, type tags, and Gen badge, then tap 💖 Smash or 🚫 Pass — or press S and P on your keyboard to play faster. The next Pokémon appears instantly, and the counter keeps your smash rate, your current streak, and a rolling history of every verdict. No account, no install, no limit: keep judging for as long as you want.</p>
+          </article>
+          <article>
+            <h3>Take the all-Pokémon challenge</h3>
+            <p>For the full experience, run an all-Pokémon smash-or-pass challenge: judge the complete list of 1,025 species plus regional forms from Gen 1 to Gen 9. Rerolling is automatic, and the game never repeats a Pokémon until you have seen the whole pool. Compare your final smash rate with friends, or limit the challenge to one region for a quicker run.</p>
+          </article>
+          <article>
+            <h3>Build your smash list</h3>
+            <p>Every smash is a vote for your favorite Pokémon — watch your list grow as you play. The Verdict History panel shows every judgment with its artwork, so you can review your taste at the end of a session. Fans use the list to argue with friends, prep tier-list videos, or settle the eternal how-picky-are-you debate once and for all.</p>
+          </article>
+          <article>
+            <h3>Made for streams and shorts</h3>
+            <p>Smash or pass is built for cameras. The keyboard shortcuts (S / P) let streamers keep the verdicts fast, the instant streak counter creates natural drama, and the rare shiny rolls (about 1 in 12) make for perfect clip moments. Play it live with chat voting, or record a session and post the reaction.</p>
+          </article>
+          <article>
+            <h3>House rules and style</h3>
+            <p>Part of the fun is inventing your own rules. Ban the starters, judge only <strong>unevolved</strong> Pokémon, require a 5-second timer per verdict, or make the whole chat vote before you tap. Nuzlocke players run it as a brutal filter: whichever Pokémon you smash must join your team — pair it with the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a> for the full ruleset. The verdict buttons and keyboard shortcuts keep the pace fast enough for any house rule.</p>
+          </article>
+          <article>
+            <h3>Play it anywhere</h3>
+            <p>Smash or pass runs in any browser with no sign-up, no install, and no loading screens — judge Pokémon on your phone during a break or on a big screen for a party. The random order and streak counter reset any time you tap Start again, so every session feels fresh. It is the fastest way to burn ten minutes arguing with friends about how picky you really are. Prefer building over judging? Use the <a href="../">random Pokemon generator</a> for full teams, or spin the <a href="../random-pokemon-generator-wheel/">random Pokemon generator wheel</a> and let fate pick for you.</p>
+          </article>
+          <article>
+            <h3>Share your verdict score</h3>
+            <p>When your session ends, hit Share My Verdicts. The generator copies a summary like 'I smashed 23/30 Pokémon on Random Pokemon Generator — how picky are you?' with a link your friends can open and play themselves. Post it in Discord, Reddit, or as a comment on a TikTok — the game travels with the score.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Pokemon Smash or Pass FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>What is Pokemon smash or pass?</summary>
+        <p>Smash or pass is a viral game where a random Pokemon appears and you decide: smash (you would take it) or pass (you would not). This generator turns it into a one-click game across all 1,025 Pokemon from Gen 1-9.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How do I play the smash or pass game?</summary>
+        <p>Hit Start, read the Pokemon that appears, then tap Smash or Pass (or press S and P on your keyboard). The game rolls the next Pokemon instantly and counts your verdicts, streak, and smash rate.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I filter by generation?</summary>
+        <p>Yes. Tap any generation chip (Gen 1 through Gen 9) before starting to judge only Pokemon from that region — Kanto only, Paldea only, or the full roster.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Is there a list of all Pokemon?</summary>
+        <p>Yes — the game draws from the complete list of 1,025 Pokemon plus regional forms across Gen 1-9, with official artwork and type tags on every card.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I share my results?</summary>
+        <p>One tap. The Share button copies a verdict summary like 'I smashed 23/30 Pokemon on Random Pokemon Generator — how picky are you?' with the link, ready for Reddit, Discord, or social media.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Do shinies appear?</summary>
+        <p>Sometimes. About 1 in 12 rolls can be a shiny Pokemon with sparkling artwork — smash it or pass it, your call.</p>
+      </details>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="modal" hidden>
+    <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="modal-name" id="modal-card">
+      <div class="modal-head">
+        <div>
+          <p class="modal-meta" id="modal-meta"></p>
+          <h3 id="modal-name"></h3>
+          <div class="chip-row" id="modal-types"></div>
+        </div>
+        <span class="modal-art"><span class="dex-aura" aria-hidden="true"></span><img id="modal-img" width="475" height="475" alt="" /></span>
+      </div>
+      <h4 class="modal-section">Base stats · total <strong id="modal-bst"></strong></h4>
+      <dl class="stats" id="modal-stats"></dl>
+      <h4 class="modal-section">Abilities</h4>
+      <ul class="ability-list" id="modal-abilities"></ul>
+      <h4 class="modal-section">Evolution chain</h4>
+      <div class="evo-chain" id="modal-evo"></div>
+      <button type="button" class="btn-slide btn-secondary modal-close" id="modal-close"><span>Close (ESC)</span></button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav aria-label="Footer keyword links">
+        <ul class="footer-links">
+          <li><a href="../">Random Pokemon Generator</a></li>
+          <li><a href="../">Pokemon Team Builder</a></li>
+          <li><a href="../nuzlocke-generator/">Nuzlocke Team Builder</a></li>
+          <li><a href="./">Pokemon Smash or Pass</a></li>
+          <li><a href="../random-pokemon-generator-wheel/">Random Pokemon Generator Wheel</a></li>
+          <li><a href="#how">How It Works</a></li>
+        </ul>
+      </nav>
+      <p class="footer-note">© 2026 Random Pokemon Generator. Not affiliated with Nintendo / Game Freak.</p>
+      <p class="footer-note">Data sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </div>
+  </footer>
+
+  <script src="../data.js?v=20260801g"></script>
+  <script src="../nav.js?v=20260801g"></script>
+  <script src="smash-or-pass.js?v=20260801g"></script>
+</body>
+</html>

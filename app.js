@@ -156,15 +156,12 @@
   /* ---------------- state ---------------- */
   var params = new URLSearchParams(location.search);
   var filters;
-  if ([].concat.apply([], ['gens', 'types', 'count', 'shiny', 'legendary', 'mythical', 'form', 'stage', 'bst', 'colors'].map(function (k) { return params.get(k) ? [1] : []; })).length > 0) {
+  if (params.get('team')) {
+    /* full share link (team replay): restore filters + team */
     filters = filtersFromParams(params);
   } else {
-    try {
-      var saved = JSON.parse(localStorage.getItem(LS_CONFIG) || 'null');
-      filters = saved ? Object.assign({}, DEFAULTS, saved) : Object.assign({}, DEFAULTS);
-    } catch (e) {
-      filters = Object.assign({}, DEFAULTS);
-    }
+    /* plain visit / refresh (or leftover filter-only URL): always defaults */
+    filters = Object.assign({}, DEFAULTS);
   }
 
   var debounceTimer = null;
@@ -177,14 +174,24 @@
   var bstMinEl = $('bst-min'), bstMaxEl = $('bst-max'), bstOut = $('bst-output');
 
   /* ---------------- render filter controls ---------------- */
-  function makeChip(parent, label, pressed, onClick, extraClass, style) {
+  function makeChip(parent, label, pressed, onClick, extraClass, style, single) {
     var b = document.createElement('button');
     b.type = 'button';
     b.className = 'chip-btn' + (extraClass ? ' ' + extraClass : '');
     b.textContent = label;
     b.setAttribute('aria-pressed', pressed ? 'true' : 'false');
     if (style) b.setAttribute('style', style);
-    b.addEventListener('click', onClick);
+    b.addEventListener('click', function () {
+      onClick();
+      /* keep the pressed state in sync (single = radio group) */
+      if (single) {
+        var sibs = parent.querySelectorAll('[aria-pressed="true"]');
+        for (var i = 0; i < sibs.length; i++) sibs[i].setAttribute('aria-pressed', 'false');
+        b.setAttribute('aria-pressed', 'true');
+      } else {
+        b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+      }
+    });
     parent.appendChild(b);
     return b;
   }
@@ -215,7 +222,7 @@
     var wrap = $(id);
     wrap.innerHTML = '';
     options.forEach(function (opt) {
-      makeChip(wrap, opt[1], current === opt[0], function () { onPick(opt[0]); });
+      makeChip(wrap, opt[1], current === opt[0], function () { onPick(opt[0]); }, null, null, true);
     });
   }
 
@@ -270,11 +277,11 @@
     return pool;
   }
 
-  /* Persist config (URL + localStorage) and pool count WITHOUT touching the current team */
+  /* Refresh should reset to defaults — no URL/localStorage persistence here.
+     Sharing still works: COPY CONFIG LINK builds a query string manually,
+     and opening such a link restores the filters via filtersFromParams. */
   function syncConfig() {
     updatePool();
-    history.replaceState(null, '', location.pathname + filtersToQuery(filters) + location.hash);
-    try { localStorage.setItem(LS_CONFIG, JSON.stringify(filters)); } catch (e) { /* ignore */ }
   }
 
   function scheduleSync() {

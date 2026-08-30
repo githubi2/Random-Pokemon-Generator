@@ -37,7 +37,7 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <link rel="stylesheet" href="../styles.css?v=20260801d" />
+  <link rel="stylesheet" href="../styles.css?v=20260801g" />
 
   <!-- Structured data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -112,7 +112,14 @@
       <nav aria-label="Main navigation" id="main-nav">
         <ul class="nav-list">
           <li><a href="../" class="nav-link">Generator</a></li>
-          <li><a href="./" class="nav-link nav-link-active">Nuzlocke Team Builder</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="./" class="nav-link nav-link-active">Nuzlocke Team Builder</a></li>
+              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Random Pokemon Generator Wheel</a></li>
+            </ul>
+          </li>
           <li><a href="#how" class="nav-link">How It Works</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
         </ul>
@@ -245,7 +252,7 @@
           </article>
           <article>
             <h3>Build, export, and remember every run</h3>
-            <p>Beyond random rolls, the generator works as a real Nuzlocke manager. Search any of the 1,025 Pokémon and add them to your team manually when you catch a new encounter by hand. Export your current squad to Pokémon Showdown format with one click — name, ability and level, ready to paste into any simulator or forum post. And when a teammate falls, mark it as fallen: the graveyard keeps an honest record of every Pokémon you lose, with a one-click revive if a Nuzlocke rule says your run continues. It is the full loop: roll, build, test, and mourn.</p>
+            <p>Beyond random rolls, the generator works as a real Nuzlocke manager. Search any of the 1,025 Pokémon and add them to your team manually when you catch a new encounter by hand. Export your current squad to Pokémon Showdown format with one click — name, ability and level, ready to paste into any simulator or forum post. And when a teammate falls, mark it as fallen: the graveyard keeps an honest record of every Pokémon you lose, with a one-click revive if a Nuzlocke rule says your run continues. It is the full loop: roll, build, test, and mourn. Between runs, judge the whole roster with the <a href="../pokemon-smash-or-pass/">Pokemon smash or pass game</a>, or spin the <a href="../random-pokemon-generator-wheel/">random Pokemon generator wheel</a> for a fate-picked starter.</p>
           </article>
           <article>
             <h3>Share your run as you go</h3>
@@ -293,6 +300,8 @@
           <li><a href="../">Random Pokemon Generator</a></li>
           <li><a href="../">Pokemon Team Builder</a></li>
           <li><a href="#generator">Nuzlocke Team Builder</a></li>
+          <li><a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a></li>
+          <li><a href="../random-pokemon-generator-wheel/">Random Pokemon Generator Wheel</a></li>
           <li><a href="#generator">Pokemon Nuzlocke Randomizer</a></li>
           <li><a href="#generator">Nuzlocke Encounter Roller</a></li>
           <li><a href="#how">How It Works</a></li>
@@ -358,8 +367,8 @@
     </div>
   </div>
 
-  <script src="../data.js?v=20260801d"></script>
-  <script src="../nav.js?v=20260801d"></script>
-  <script src="nuzlocke.js?v=20260801d"></script>
+  <script src="../data.js?v=20260801g"></script>
+  <script src="../nav.js?v=20260801g"></script>
+  <script src="nuzlocke.js?v=20260801g"></script>
 </body>
 </html>

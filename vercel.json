@@ -6,6 +6,16 @@
       "permanent": true
     },
     {
+      "source": "/pokemon-smash-or-pass/index.html",
+      "destination": "/pokemon-smash-or-pass/",
+      "permanent": true
+    },
+    {
+      "source": "/random-pokemon-generator-wheel/index.html",
+      "destination": "/random-pokemon-generator-wheel/",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true
