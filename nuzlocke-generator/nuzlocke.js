@@ -229,6 +229,7 @@
     li.appendChild(x);
 
     li.appendChild(btn);
+    btn.addEventListener('click', function () { openModal({ p: p, shiny: false }); });
     return li;
   }
 
@@ -775,6 +776,144 @@
     syncStateToUrl();
     grid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
+
+  /* ---------------- dex details modal (home-style + type coverage) ---------------- */
+  var modalEl = $('modal'), modalCard = $('modal-card');
+
+  function findBySlug(slug) {
+    for (var i = 0; i < POKEMON.length; i++) {
+      if (POKEMON[i].n === slug) return POKEMON[i];
+    }
+    return null;
+  }
+
+  function openModal(r) {
+    var p = r.p;
+    var aura = TYPE_MAP[p.t[0]] ? TYPE_MAP[p.t[0]].color : '#A8A878';
+    modalCard.style.setProperty('--aura', aura);
+
+    $('modal-meta').innerHTML = '<span class="mnum">#' + pad4(p.si) + '</span> · Gen ' + p.g + ' · ' +
+      (REGIONS[p.g] || '') + ' · ' + p.ev + (p.lg ? ' · Legendary' : '') + (p.my ? ' · Mythical' : '');
+    $('modal-name').textContent = displayName(p.n) + (r.shiny ? ' ✨' : '');
+
+    var mt = $('modal-types');
+    mt.innerHTML = '';
+    p.t.forEach(function (t) {
+      var meta = TYPE_MAP[t];
+      var chip = document.createElement('span');
+      chip.className = 'type-tag';
+      chip.style.setProperty('--tag', meta ? meta.color : '#A8A878');
+      chip.style.setProperty('--tag-text', meta && meta.light ? '#fff' : '#121212');
+      chip.textContent = meta ? meta.label : t;
+      mt.appendChild(chip);
+    });
+
+    var img = $('modal-img');
+    img.src = r.shiny ? p.sps : p.sp;
+    img.alt = displayName(p.n) + ' artwork';
+    img.onerror = function () {
+      var fb = img.src.replace('/other/official-artwork', '');
+      if (fb !== img.src) img.src = fb; else img.onerror = null;
+    };
+
+    var st = $('modal-stats');
+    st.innerHTML = '';
+    var tt = p.tt || p.st.reduce(function (a, b) { return a + b; }, 0);
+    var hasRaw = p.st && p.st.length === 6;
+    p.st.forEach(function (v, i) {
+      var row = document.createElement('div');
+      row.className = 'stat-row';
+      row.innerHTML = '<dt>' + STAT_LABELS[i] + '</dt><dd>' + (hasRaw ? v : '—') + '</dd>' +
+        '<span class="stat-bar"><span class="stat-fill" style="width:' + Math.min(100, v / 2) + '%"></span></span>';
+      st.appendChild(row);
+    });
+    /* total row */
+    var tro = document.createElement('div');
+    tro.className = 'stat-row stat-total';
+    tro.innerHTML = '<dt>Total</dt><dd>' + tt + '</dd><span class="stat-bar"></span>';
+    st.appendChild(tro);
+    $('modal-bst').textContent = tt;
+
+    var ab = $('modal-abilities');
+    ab.innerHTML = '';
+    p.ab.forEach(function (a) {
+      var li = document.createElement('li');
+      li.textContent = displayAbility(a);
+      ab.appendChild(li);
+    });
+
+    /* type coverage: weak to / resists / immune */
+    var cov = { weak: [], resist: [], immune: [] };
+    Object.keys(TYPE_CHART).forEach(function (atk) {
+      var e = effectiveness(atk, p.t);
+      if (e >= 2) cov.weak.push(atk);
+      else if (e === 0) cov.immune.push(atk);
+      else if (e < 1) cov.resist.push(atk);
+    });
+    var covEl = $('modal-cov');
+    covEl.innerHTML = '';
+    [['Weak to', cov.weak], ['Resists', cov.resist], ['Immune', cov.immune]].forEach(function (pair) {
+      var row = document.createElement('div');
+      row.className = 'cov-row';
+      var lab = document.createElement('span');
+      lab.className = 'cov-label';
+      lab.textContent = pair[0];
+      row.appendChild(lab);
+      if (!pair[1].length) {
+        var none = document.createElement('span');
+        none.className = 'cov-none';
+        none.textContent = '—';
+        row.appendChild(none);
+      } else {
+        pair[1].forEach(function (t) {
+          var tag = document.createElement('span');
+          tag.className = 'type-tag cov-tag';
+          tag.textContent = (TYPE_MAP[t] && TYPE_MAP[t].label ? TYPE_MAP[t].label : t).toUpperCase();
+          tag.style.background = TYPE_MAP[t] ? TYPE_MAP[t].color : '#888';
+          tag.style.color = TYPE_MAP[t] && TYPE_MAP[t].light ? '#121212' : '#fff';
+          row.appendChild(tag);
+        });
+      }
+      covEl.appendChild(row);
+    });
+
+    var evo = $('modal-evo');
+    evo.innerHTML = '';
+    if (p.pre) {
+      var pre = findBySlug(p.pre);
+      if (pre) evoLink(evo, pre, '←');
+    }
+    evoLink(evo, p, '•');
+    if (p.evo) {
+      var evo2 = findBySlug(p.evo);
+      if (evo2) evoLink(evo, evo2, '→');
+    }
+    modalEl.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function evoLink(container, p, arrow) {
+    var a = document.createElement('a');
+    a.href = '#';
+    a.className = 'evo-node';
+    a.textContent = arrow + ' ' + displayName(p.n);
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      openModal({ p: p, shiny: false });
+    });
+    container.appendChild(a);
+  }
+
+  function closeModal() {
+    modalEl.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  $('modal-close').addEventListener('click', closeModal);
+  modalEl.addEventListener('click', function (e) { if (e.target === modalEl) closeModal(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modalEl.hidden) closeModal();
+  });
 
   /* ---------------- add-pokemon modal ---------------- */
   var addModal = $('add-modal'), addList = $('add-list'), addSearch = $('add-search');

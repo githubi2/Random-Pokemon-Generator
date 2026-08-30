@@ -322,6 +322,29 @@
     </div>
   </footer>
 
+  <!-- Dex details modal (home-style, with type coverage) -->
+  <div class="modal-overlay" id="modal" hidden>
+    <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="modal-name" id="modal-card">
+      <div class="modal-head">
+        <div>
+          <p class="modal-meta" id="modal-meta"></p>
+          <h3 id="modal-name"></h3>
+          <div class="chip-row" id="modal-types"></div>
+        </div>
+        <span class="modal-art"><span class="dex-aura" aria-hidden="true"></span><img id="modal-img" width="475" height="475" alt="" /></span>
+      </div>
+      <h4 class="modal-section">Base stats · total <strong id="modal-bst"></strong></h4>
+      <dl class="stats" id="modal-stats"></dl>
+      <h4 class="modal-section">Abilities</h4>
+      <ul class="ability-list" id="modal-abilities"></ul>
+      <h4 class="modal-section">Type coverage</h4>
+      <div class="cov-wrap" id="modal-cov"></div>
+      <h4 class="modal-section">Evolution chain</h4>
+      <div class="evo-chain" id="modal-evo"></div>
+      <button type="button" class="btn-slide btn-secondary modal-close" id="modal-close"><span>Close (ESC)</span></button>
+    </div>
+  </div>
+
   <!-- Info notice modal -->
   <div class="modal-overlay" id="info-modal" hidden>
     <div class="modal cornered confirm-modal" role="alertdialog" aria-modal="true" aria-labelledby="info-modal-title" aria-describedby="info-modal-text">
