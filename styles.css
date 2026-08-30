@@ -799,6 +799,15 @@ output { color: var(--poke-red); font-weight: 700; }
   .history-thumbs img { width: 30px; height: 30px; }
   .history-row { flex-wrap: wrap; }
   .history-row .history-share { margin-left: auto; }
+  /* smash card: stack art above data on phones */
+  .smash-card { width: 100%; padding: 16px; }
+  .smash-split { flex-direction: column; gap: 6px; align-items: center; }
+  .smash-art { width: min(200px, 64vw); height: min(200px, 64vw); }
+  .smash-data { width: 100%; }
+  .smash-name { font-size: 24px; }
+  .dexdata-row dt { flex: 0 0 100px; }
+  #history-modal-card { max-width: 100%; }
+  .v-card { width: calc(50% - 8px); }
 }
 
 /* ---------- team editing (remove button / manual add) ---------- */
