@@ -22,6 +22,43 @@
   };
   var TYPE_MAP = TYPES;
 
+  /* type effectiveness chart (attacker -> defender multipliers) */
+  var TYPE_CHART = {
+    normal:   { rock: 0.5, ghost: 0, steel: 0.5 },
+    fire:     { fire: 0.5, water: 0.5, grass: 2, ice: 2, bug: 2, rock: 0.5, dragon: 0.5, steel: 2 },
+    water:    { fire: 2, water: 0.5, grass: 0.5, ground: 2, rock: 2, dragon: 0.5 },
+    electric: { water: 2, electric: 0.5, grass: 0.5, ground: 0, flying: 2, dragon: 0.5 },
+    grass:    { fire: 0.5, water: 2, grass: 0.5, poison: 0.5, ground: 2, flying: 0.5, bug: 0.5, rock: 2, dragon: 0.5, steel: 0.5 },
+    ice:      { fire: 0.5, water: 0.5, grass: 2, ice: 0.5, ground: 2, flying: 2, dragon: 2, steel: 0.5 },
+    fighting: { normal: 2, ice: 2, poison: 0.5, flying: 0.5, psychic: 0.5, bug: 0.5, rock: 2, ghost: 0, dark: 2, steel: 2, fairy: 0.5 },
+    poison:   { grass: 2, poison: 0.5, ground: 0.5, rock: 0.5, ghost: 0.5, steel: 0, fairy: 2 },
+    ground:   { fire: 2, electric: 2, grass: 0.5, poison: 2, flying: 0, bug: 0.5, rock: 2, steel: 2 },
+    flying:   { electric: 0.5, grass: 2, fighting: 2, bug: 2, rock: 0.5, steel: 0.5 },
+    psychic:  { fighting: 2, poison: 2, psychic: 0.5, dark: 0, steel: 0.5 },
+    bug:      { fire: 0.5, grass: 2, fighting: 0.5, poison: 0.5, flying: 0.5, psychic: 2, ghost: 0.5, dark: 2, steel: 0.5, fairy: 0.5 },
+    rock:     { fire: 2, ice: 2, fighting: 0.5, ground: 0.5, flying: 2, bug: 2, steel: 0.5 },
+    ghost:    { normal: 0, psychic: 2, ghost: 2, dark: 0.5 },
+    dragon:   { dragon: 2, steel: 0.5, fairy: 0 },
+    dark:     { fighting: 0.5, psychic: 2, ghost: 2, dark: 0.5, fairy: 0.5 },
+    steel:    { fire: 0.5, water: 0.5, electric: 0.5, ice: 2, rock: 2, steel: 0.5, fairy: 2 },
+    fairy:    { fire: 0.5, fighting: 2, poison: 0.5, dragon: 2, dark: 2, steel: 0.5 }
+  };
+
+  function typeCoverage(types) {
+    var weak = [], resist = [], immune = [];
+    Object.keys(TYPE_CHART).forEach(function (atk) {
+      var eff = 1;
+      types.forEach(function (t) {
+        var row = TYPE_CHART[atk];
+        if (row && row[t] != null) eff *= row[t];
+      });
+      if (eff >= 2) weak.push(atk);
+      else if (eff === 0) immune.push(atk);
+      else if (eff < 1) resist.push(atk);
+    });
+    return { weak: weak, resist: resist, immune: immune };
+  }
+
   var GENERATIONS = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   var REGIONS = { 1: 'Kanto', 2: 'Johto', 3: 'Hoenn', 4: 'Sinnoh', 5: 'Unova', 6: 'Kalos', 7: 'Alola', 8: 'Galar', 9: 'Paldea' };
   var SHINY_ODDS = 0.08;
@@ -201,6 +238,36 @@
         list.appendChild(li);
       });
       return list;
+    })()));
+    data.appendChild(dexRow('Type coverage', (function () {
+      var wrap = document.createElement('div');
+      wrap.className = 'cov-wrap';
+      var cov = typeCoverage(p.t);
+      [['Weak to', cov.weak], ['Resists', cov.resist], ['Immune', cov.immune]].forEach(function (pair) {
+        var row = document.createElement('div');
+        row.className = 'cov-row';
+        var lab = document.createElement('span');
+        lab.className = 'cov-label';
+        lab.textContent = pair[0];
+        row.appendChild(lab);
+        if (!pair[1].length) {
+          var none = document.createElement('span');
+          none.className = 'cov-none';
+          none.textContent = '—';
+          row.appendChild(none);
+        } else {
+          pair[1].forEach(function (t) {
+            var tag = document.createElement('span');
+            tag.className = 'type-tag cov-tag';
+            tag.textContent = TYPE_MAP[t].label.toUpperCase();
+            tag.style.background = TYPE_MAP[t].color;
+            tag.style.color = TYPE_MAP[t].light ? '#121212' : '#fff';
+            row.appendChild(tag);
+          });
+        }
+        wrap.appendChild(row);
+      });
+      return wrap;
     })()));
   }
 
