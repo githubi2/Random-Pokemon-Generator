@@ -688,6 +688,41 @@
       ab.appendChild(li);
     });
 
+    /* type coverage: weak to / resists / immune (reuses TYPE_CHART + effectiveness) */
+    var cov = { weak: [], resist: [], immune: [] };
+    Object.keys(TYPE_CHART).forEach(function (atk) {
+      var e = effectiveness(atk, p.t);
+      if (e >= 2) cov.weak.push(atk);
+      else if (e === 0) cov.immune.push(atk);
+      else if (e < 1) cov.resist.push(atk);
+    });
+    var covEl = $('modal-cov');
+    covEl.innerHTML = '';
+    [['Weak to', cov.weak], ['Resists', cov.resist], ['Immune', cov.immune]].forEach(function (pair) {
+      var row = document.createElement('div');
+      row.className = 'cov-row';
+      var lab = document.createElement('span');
+      lab.className = 'cov-label';
+      lab.textContent = pair[0];
+      row.appendChild(lab);
+      if (!pair[1].length) {
+        var none = document.createElement('span');
+        none.className = 'cov-none';
+        none.textContent = '—';
+        row.appendChild(none);
+      } else {
+        pair[1].forEach(function (t) {
+          var tag = document.createElement('span');
+          tag.className = 'type-tag cov-tag';
+          tag.textContent = (TYPE_MAP[t] && TYPE_MAP[t].label ? TYPE_MAP[t].label : t).toUpperCase();
+          tag.style.background = TYPE_MAP[t] ? TYPE_MAP[t].color : '#888';
+          tag.style.color = TYPE_MAP[t] && TYPE_MAP[t].light ? '#121212' : '#fff';
+          row.appendChild(tag);
+        });
+      }
+      covEl.appendChild(row);
+    });
+
     var evo = $('modal-evo');
     evo.innerHTML = '';
     if (p.pre) {
