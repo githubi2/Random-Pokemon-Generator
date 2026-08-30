@@ -45,6 +45,32 @@ body {
 
 .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
 
+/* how-to-play hint above tool forms + button purpose notes */
+.tool-hint {
+  margin: 0 0 18px;
+  padding: 10px 14px;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.7;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(18, 18, 18, 0.78);
+  border: 2px solid rgba(18, 18, 18, 0.25);
+  border-radius: 8px;
+  background: #fff;
+}
+.tool-note-group { margin: 12px 0 0; padding: 0; }
+.tool-note {
+  margin: 4px 0 0;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(18, 18, 18, 0.5);
+}
+
 .mono, .eyebrow, legend, .btn-text, .pool-count, .results-meta, .modal-section, .footer-links a, .dex-num, .dex-sub, .bst-line, .modal-meta, .stat-row, .ability-list li, .evo-chain, summary {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Courier New", monospace;
 }

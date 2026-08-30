@@ -37,7 +37,7 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <link rel="stylesheet" href="../styles.css?v=20260801p" />
+  <link rel="stylesheet" href="../styles.css?v=20260801q" />
 
   <!-- Structured data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -139,6 +139,7 @@
     <!-- Wheel game -->
     <section id="game" class="container" aria-label="Pokemon wheel game">
       <div class="panel cornered">
+        <p class="tool-hint">How to play — 🎡 spin the deck: cards cascade past the gold frame and the one that lands inside is your Pokémon. Filter by generation or type, then take the result — no rerolls, the spin is the rule.</p>
         <fieldset>
           <legend>Generation</legend>
           <div class="btn-row" id="gen-buttons" role="group" aria-label="Filter by generation"></div>
@@ -154,6 +155,11 @@
         <div class="wheel-controls">
           <button type="button" id="spin-btn" class="btn-slide cornered btn-primary"><span>🎡 Spin</span></button>
           <button type="button" id="wheel-share-btn" class="btn-slide btn-secondary"><span id="wheel-share-label">📣 Share Result</span></button>
+        </div>
+        <div class="tool-note-group">
+          <p class="tool-note">🎡 Spin — rolls the deck: cards cascade past the gold frame, the one landing inside is your Pokémon</p>
+          <p class="tool-note">📣 Share Result — copies the winning Pokémon + link to share</p>
+          <p class="tool-note">🗑️ Clear Records — wipes your draw history and accumulated results</p>
         </div>
       </div>
 
@@ -305,8 +311,8 @@
     </div>
   </footer>
 
-  <script src="../data.js?v=20260801p"></script>
-  <script src="../nav.js?v=20260801p"></script>
-  <script src="pokemon-wheel.js?v=20260801p"></script>
+  <script src="../data.js?v=20260801q"></script>
+  <script src="../nav.js?v=20260801q"></script>
+  <script src="pokemon-wheel.js?v=20260801q"></script>
 </body>
 </html>

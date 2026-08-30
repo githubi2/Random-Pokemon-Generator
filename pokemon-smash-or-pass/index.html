@@ -37,7 +37,7 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <link rel="stylesheet" href="../styles.css?v=20260801p" />
+  <link rel="stylesheet" href="../styles.css?v=20260801q" />
 
   <!-- Structured data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -139,6 +139,7 @@
     <!-- Game -->
     <section id="game" class="container" aria-label="Smash or pass game">
       <div class="panel cornered">
+        <p class="tool-hint">How to play — 🎲 start rolls a random Pokémon, then judge it: 💖 smash or 🚫 pass. Every verdict is saved — watch your smash rate, streak and history grow. No rerolls, no repeats until you've seen the whole pool.</p>
         <fieldset>
           <legend>Generation</legend>
           <div class="btn-row" id="gen-buttons" role="group" aria-label="Filter by generation"></div>
@@ -146,6 +147,11 @@
         <div class="actions">
           <button type="button" id="start-btn" class="btn-slide cornered btn-primary"><span>🎲 Start</span></button>
           <button type="button" id="share-btn" class="btn-slide btn-secondary"><span id="share-label">📣 Share My Verdicts</span></button>
+        </div>
+        <div class="tool-note-group">
+          <p class="tool-note">🎲 Start — begins the game: rolls the first Pokémon and starts your run</p>
+          <p class="tool-note">💖 Smash / 🚫 Pass — judge the Pokémon; the next one appears instantly</p>
+          <p class="tool-note">📣 Share My Verdicts — copies your smash rate + verdict summary to share</p>
         </div>
       </div>
 
@@ -317,8 +323,8 @@
     </div>
   </footer>
 
-  <script src="../data.js?v=20260801p"></script>
-  <script src="../nav.js?v=20260801p"></script>
-  <script src="smash-or-pass.js?v=20260801p"></script>
+  <script src="../data.js?v=20260801q"></script>
+  <script src="../nav.js?v=20260801q"></script>
+  <script src="smash-or-pass.js?v=20260801q"></script>
 </body>
 </html>
