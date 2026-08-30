@@ -918,14 +918,24 @@
   });
 
   /* ---------------- showdown export ---------------- */
+  /* Showdown ability names use spaces (Poison Point, Zero to Hero). */
   function displayAbility(slug) {
-    return displayName(slug);
+    return slug.split('-').map(function (w) {
+      return w.charAt(0).toUpperCase() + w.slice(1);
+    }).join(' ');
+  }
+
+  /* Showdown species names use hyphens (Charizard-Gmax, Pikachu-Rock-Star).
+     A few official forms keep dots/spaces (Mr. Mime, Mime Jr.). */
+  function showdownName(p) {
+    if (/mr-mime|mr-rime|mime-jr/.test(p.n)) return displayName(p.n);
+    return displayName(p.n).replace(/ /g, '-');
   }
 
   function buildShowdownText(rolls) {
     return rolls.map(function (p) {
       var ab = p.ab && p.ab.length ? displayAbility(p.ab[0]) : 'No Ability';
-      return displayName(p.n) + '\nAbility: ' + ab + '\nLevel: 50\n\n';
+      return showdownName(p) + '\nLevel: 50\nAbility: ' + ab + '\n\n';
     }).join('');
   }
 
