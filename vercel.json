@@ -21,6 +21,11 @@
       "permanent": true
     },
     {
+      "source": "/pokemon-team-picker/index.html",
+      "destination": "/pokemon-team-picker/",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true

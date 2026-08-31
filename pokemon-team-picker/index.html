@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokemon Team Picker - Build Your Best Team</title>
+  <meta name="description" content="Build a competitive Pokemon team picker squad: six slots, type matchups, nature, moves and items. Filter 1,025 Pokemon and export to Showdown." />
+  <meta name="keywords" content="pokemon team picker, pokemon team builder, competitive pokemon, pokemon team analyzer" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/pokemon-team-picker/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pokemon Team Picker - Build Your Best Team" />
+  <meta property="og:description" content="Pick six Pokemon, check defensive matchups, set natures, moves and items. Export or share your team instantly." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/pokemon-team-picker/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/pokemon-team-picker/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pokemon Team Picker - Build Your Best Team" />
+  <meta name="twitter:description" content="Pick six Pokemon, check defensive matchups, set natures, moves and items. Export or share your team instantly." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/pokemon-team-picker/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260802q" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Pokemon Team Picker",
+    "description": "Pick six Pokemon, check defensive matchups, set natures moves and items, and export teams to Showdown.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://www.random-pokemon-generator.co/pokemon-team-picker/"
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Random Pokemon Generator", "item": "https://www.random-pokemon-generator.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Pokemon Team Picker", "item": "https://www.random-pokemon-generator.co/pokemon-team-picker/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a Pokemon team picker?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A Pokemon team picker is a tool that lets you build a six-Pokemon squad by searching and filtering the full national dex, then fine-tune each member with nature, moves, held items and abilities. This one also maps the team's defensive matchups so you can spot weaknesses before you battle." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I pick Pokemon for my team?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Click a slot, then search or filter the Pokemon table by type, generation, move, ability, or Mega Evolution status. Click any row to place that Pokemon into the selected slot, then open the slot editor to set its nature, moves, item and ability." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export my team to Pokemon Showdown?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Share menu copies a Showdown-ready team paste: species, level, nature, ability, held item and up to four moves for every member. You can also export the whole team as JSON or copy a share link that restores the exact squad." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the team picker store my team?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your current team and any saved squads live in your browser's local storage, so refreshing keeps your work. Clearing the team is always explicit — nothing is deleted unless you choose to delete it." }
+      },
+      {
+        "@type": "Question",
+        "name": "How many Pokemon can a team hold?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Six. A standard team has six slots, but you can build with fewer — the defensive matchup matrix adapts to whatever members you have placed." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which Pokemon are included in the picker?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Every species from Generation 1 through Generation 9 — 1,025 Pokemon plus regional and special forms — with official artwork, base stats, abilities, and learnsets sourced from PokeAPI." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+              <li><a href="." class="nav-link">Pokemon Team Picker</a></li>
+            </ul>
+          </li>
+          <li><a href="#how" class="nav-link">How It Works</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">6 Slots · 18-Type Matchup Matrix · Showdown Export</p>
+      <h1 id="page-title">Pokemon Team Picker</h1>
+      <p class="lede">Pick six Pokemon for a competitive squad, tune each member, and check the team's defensive matchups before you battle.</p>
+    </section>
+
+    <!-- Tool -->
+    <section class="container tool-panel" aria-label="Pokemon team picker tool">
+      <div class="tp-team-bar">
+        <button type="button" class="btn btn-secondary" id="tp-new-btn">New / Import Team</button>
+        <label for="tp-team-name" class="tp-field-label">Team name</label>
+        <input type="text" id="tp-team-name" class="tp-input" value="My team" maxlength="40" />
+        <button type="button" class="btn btn-ghost" id="tp-name-clear" aria-label="Clear team name" title="Clear team name">✕</button>
+        <div class="tp-bar-right">
+          <span class="tp-status" id="tp-status" role="status"></span>
+          <button type="button" class="btn btn-secondary" id="tp-share-btn">Share</button>
+          <button type="button" class="btn btn-secondary" id="tp-export-showdown">Showdown</button>
+          <button type="button" class="btn btn-secondary" id="tp-export-json">JSON</button>
+        </div>
+      </div>
+
+      <div class="tp-slots-row" id="tp-slots"></div>
+
+      <div class="tp-work">
+        <!-- Filters -->
+        <aside class="tp-filters" aria-label="Pokemon filters">
+          <p class="tp-hint">Pick a slot, then filter the dex below. Click a Pokémon row to place it.</p>
+          <h3 class="tp-group-title">Regulation Set</h3>
+          <div class="tp-reg-wrap">
+            <select id="tp-reg-select" class="tp-select" aria-label="Filter by regulation set">
+              <option value="M-A">M-A</option>
+              <option value="M-B" selected>M-B</option>
+              <option value="all">All</option>
+            </select>
+          </div>
+          <h3 class="tp-group-title">Pokemon Type</h3>
+          <div class="tp-mode-row">
+            <span class="tp-mode-label">match</span>
+            <button type="button" class="chip-btn chip-mode tp-mode-chip" id="tp-type-mode" data-mode="or" aria-pressed="true">Or</button>
+            <span class="tp-mode-sep">|</span>
+            <button type="button" class="chip-btn chip-mode tp-mode-chip" data-mode="and" aria-pressed="false">And</button>
+          </div>
+          <div class="tp-chips" id="tp-type-chips"></div>
+          <h3 class="tp-group-title">Move</h3>
+          <div class="tp-mode-row">
+            <span class="tp-mode-label">match</span>
+            <button type="button" class="chip-btn chip-mode tp-mode-chip" id="tp-move-mode" data-mode="or" aria-pressed="true">Or</button>
+            <span class="tp-mode-sep">|</span>
+            <button type="button" class="chip-btn chip-mode tp-mode-chip" data-mode="and" aria-pressed="false">And</button>
+          </div>
+          <select id="tp-move-filter" class="tp-select" aria-label="Filter by move" multiple size="6"></select>
+          <h3 class="tp-group-title">Ability</h3>
+          <select id="tp-ability-filter" class="tp-select" aria-label="Filter by ability" multiple size="6"></select>
+          <h3 class="tp-group-title">Generation</h3>
+          <div class="tp-chips" id="tp-gen-chips"></div>
+          <h3 class="tp-group-title">Mega Evolution</h3>
+          <div class="tp-chips" id="tp-mega-chips"></div>
+          <p class="tool-note" id="tp-filter-note"></p>
+        </aside>
+
+        <!-- Table -->
+        <section class="tp-table-wrap" aria-label="Pokemon list">
+          <div class="tp-table-toolbar">
+            <input type="search" id="tp-search" class="tp-input" placeholder="Search Pokémon..." aria-label="Search Pokémon" />
+            <div class="tp-stat-tabs" role="tablist" aria-label="Stat display: Level 50 or base stats">
+              <button type="button" class="tp-stat-tab tp-stat-tab-active" id="tp-tab-lvl50" role="tab" aria-selected="true">Lvl 50</button>
+              <button type="button" class="tp-stat-tab" id="tp-tab-base" role="tab" aria-selected="false">Base</button>
+            </div>
+          </div>
+          <div class="tp-table-scroll">
+            <table class="tp-table" id="tp-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="tp-sortable" data-sort="dex">#</th>
+                  <th scope="col" class="tp-sortable" data-sort="name">Pokemon</th>
+                  <th scope="col" class="tp-sortable" data-sort="hp">HP</th>
+                  <th scope="col" class="tp-sortable" data-sort="atk">ATK</th>
+                  <th scope="col" class="tp-sortable" data-sort="def">DEF</th>
+                  <th scope="col" class="tp-sortable" data-sort="spa">SPA</th>
+                  <th scope="col" class="tp-sortable" data-sort="spd">SPD</th>
+                  <th scope="col" class="tp-sortable" data-sort="spe">SPE</th>
+                </tr>
+              </thead>
+              <tbody id="tp-table-body"></tbody>
+            </table>
+          </div>
+          <div class="tp-pager">
+            <button type="button" class="btn btn-ghost" id="tp-page-prev" aria-label="Previous page">‹</button>
+            <span class="tp-page-info" id="tp-page-info"></span>
+            <button type="button" class="btn btn-ghost" id="tp-page-next" aria-label="Next page">›</button>
+          </div>
+        </section>
+
+        <!-- Team defense -->
+        <aside class="tp-defense" aria-label="Team defensive matchups">
+          <h3 class="tp-group-title">Team defense</h3>
+          <div id="tp-defense-body"></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="container" id="how" aria-labelledby="how-title">
+      <h2 id="how-title">How the Pokemon Team Picker Works</h2>
+      <div class="how-grid">
+        <article class="how-col">
+          <h3>Pick six Pokemon for your squad</h3>
+          <p>A Pokemon team picker is a planning tool for competitive battles. Click any slot to select it, then use the search box or the filters on the left to narrow the 1,025-Pokemon national dex. Every row shows the Pokemon number, name and stat spread at level 50 or at base. When you click a row, that Pokemon joins the selected slot and the slot editor opens right away, so you can finish building the set before moving to the next one.</p>
+          <p>The filters work together: pick one or more types and switch the mode between Or and And, restrict the pool to a single generation, or find everything that learns a specific move. The move and ability dropdowns are multi-select, so you can stack several requirements in one pass. A Mega Evolution toggle narrows the list to forms that can Mega Evolve, which is handy when you want a physical Dragon Dance set or a special wall for the switch.</p>
+        </article>
+        <article class="how-col">
+          <h3>Fine-tune each member</h3>
+          <p>Each team slot has its own editor. Set a nature to raise one stat and lower another, pick the ability that fits the role, choose a held item such as Leftovers, a Choice item or a Focus Sash, and assign up to four moves from the Pokemon's learnset. The stat preview updates live, so you can see exactly what the spread looks like at level 50 with the nature applied. If the Pokemon can Mega Evolve, a switch appears next to the editor — enable it and the form's stats, types and ability replace the base ones.</p>
+          <p>You can nickname any member and save completed sets to your own Pokemon library. The library keeps them in the browser, ready to drop into any future team.</p>
+        </article>
+        <article class="how-col">
+          <h3>Build a balanced six-Pokemon squad</h3>
+          <p>A good team needs more than six strong Pokemon — it needs roles that cover each other. Use the table's sortable columns to find fast sweepers, bulky walls and strong physical or special attackers, then place them next to each other. The stat view switches between level 50 numbers and base stats, which is exactly what you want when a Pokemon sits on a borderline speed tier or when you are comparing a defensive clone against an offensive one.</p>
+          <p>Type balance matters just as much. Pair a Fire-type Pokemon with a Water-type partner to keep the ground and rock threats honest, or bring a Fairy-type in to answer Dragon and Dark sweepers. Since the picker shows every form from the national dex, you can also experiment with Alt formes, regional variants and hidden abilities that change how a Pokemon plays — a Lightning Rod user can turn your Electric weakness into an easy switch-in.</p>
+          <p>If you plan a challenge run instead, this picker pairs naturally with the <a href="../nuzlocke-generator/" class="body-link">Nuzlocke Team Builder</a>: use the Nuzlocke page to roll your encounters and the team picker to tune the survivors before a gym or Elite Four checkpoint.</p>
+        </article>
+        <article class="how-col">
+          <h3>Export, share and keep your squads</h3>
+          <p>Once your Pokemon team picker squad feels right, you have three ways to take it with you. The Showdown export copies a paste-ready team block: species, held item, level, nature, ability and every move, formatted the way Pokemon Showdown's teambuilder reads it. The JSON export keeps the full set data for your own records, and the Share button builds a link that anyone can open to see the identical team, name included.</p>
+          <p>Teams are saved in your browser automatically, so closing the tab never loses an afternoon of tuning. The import box accepts both raw Showdown team text and JSON, which makes trading squads with friends painless. And if you want a lighter way to pass the time between battles, the <a href="../pokemon-smash-or-pass/" class="body-link">Pokemon Smash or Pass</a> and <a href="../random-pokemon-generator-wheel/" class="body-link">Pokemon Wheel Spinner</a> pages turn opinions and random picks into quick games, and <a href="../whos-that-pokemon/" class="body-link">Who's That Pokemon</a> tests your species knowledge in three tries.</p>
+        </article>
+        <article class="how-col">
+          <h3>Check the defensive matchup matrix</h3>
+          <p>The real value of a team picker is seeing the team as a whole. The Team Defense panel builds one row per attacking type and one column per team member. Each cell shows the damage multiplier the team would take, colour-coded from red (super effective) to green (resisted or immune). The totals column counts every weakness and every resist for the whole squad, so a shared Electric or Ground weakness jumps out before you ever enter a battle. Try swapping a member and watch the matrix update.</p>
+          <p>When the team feels right, use the Share menu to export a Showdown-ready paste, copy a share link, or download the team as JSON. Import works the other way: paste a Showdown team text into New / Import Team and the picker rebuilds every slot for you. The whole flow — search, filter, slot, tune, check, export — is designed so a full six-Pokemon team takes minutes instead of spreadsheets.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="container" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Pokemon Team Picker FAQ</h2>
+      <details class="faq-item">
+        <summary>What is a Pokemon team picker?</summary>
+        <p>A Pokemon team picker is a tool that lets you build a six-Pokemon squad by searching and filtering the full national dex, then fine-tune each member with nature, moves, held items and abilities. This one also maps the team's defensive matchups so you can spot weaknesses before you battle.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I pick Pokemon for my team?</summary>
+        <p>Click a slot, then search or filter the Pokemon table by type, generation, move, ability, or Mega Evolution status. Click any row to place that Pokemon into the selected slot, then open the slot editor to set its nature, moves, item and ability.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I export my team to Pokemon Showdown?</summary>
+        <p>Yes. The Share menu copies a Showdown-ready team paste: species, level, nature, ability, held item and up to four moves for every member. You can also export the whole team as JSON or copy a share link that restores the exact squad.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does the team picker store my team?</summary>
+        <p>Yes. Your current team and any saved squads live in your browser's local storage, so refreshing keeps your work. Clearing the team is always explicit — nothing is deleted unless you choose to delete it.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How many Pokemon can a team hold?</summary>
+        <p>Six. A standard team has six slots, but you can build with fewer — the defensive matchup matrix adapts to whatever members you have placed.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Which Pokemon are included in the picker?</summary>
+        <p>Every species from Generation 1 through Generation 9 — 1,025 Pokemon plus regional and special forms — with official artwork, base stats, abilities, and learnsets sourced from PokeAPI.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+        <li><a href="../">Random Pokemon Generator</a></li>
+        <li><a href="../nuzlocke-generator/">Nuzlocke Team Builder</a></li>
+        <li><a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a></li>
+        <li><a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a></li>
+        <li><a href="../whos-that-pokemon/">Who's That Pokemon</a></li>
+        <li><a href=".">Pokemon Team Picker</a></li>
+      </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator. Not affiliated with Nintendo / Game Freak.</p>
+      <p class="footer-note">Data sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </div>
+  </footer>
+
+  <!-- Slot editor modal -->
+  <div class="modal-overlay" id="slot-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="slot-modal-title">
+      <h2 class="modal-title" id="slot-modal-title">Edit Team Slot</h2>
+      <div class="modal-body">
+        <div class="slot-editor-head">
+          <img id="slot-edit-art" class="slot-edit-art" src="" alt="" width="96" height="96" />
+          <div>
+            <div class="slot-edit-name" id="slot-edit-name"></div>
+            <div class="slot-edit-types" id="slot-edit-types"></div>
+            <div class="slot-edit-bst" id="slot-edit-bst"></div>
+          </div>
+        </div>
+        <div class="slot-edit-form">
+          <label for="slot-edit-nick">Nickname (optional)</label>
+          <input type="text" id="slot-edit-nick" class="tp-input" maxlength="20" />
+          <label for="slot-edit-nature">Nature</label>
+          <select id="slot-edit-nature" class="tp-select"></select>
+          <label for="slot-edit-ability">Ability</label>
+          <select id="slot-edit-ability" class="tp-select"></select>
+          <label>Moves (up to 4)</label>
+          <div id="slot-edit-moves" class="slot-edit-moves"></div>
+          <label for="slot-edit-item">Item</label>
+          <select id="slot-edit-item" class="tp-select"></select>
+          <div id="slot-edit-mega-wrap" hidden>
+            <label class="tp-switch-row">
+              <input type="checkbox" id="slot-edit-mega" />
+              <span>Mega Evolution</span>
+            </label>
+          </div>
+          <div class="slot-edit-stats" id="slot-edit-stats"></div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="slot-edit-save">Save</button>
+        <button type="button" class="btn btn-ghost" id="slot-edit-remove">Remove</button>
+        <button type="button" class="btn btn-ghost" id="slot-edit-library">Save to My Pokemon</button>
+        <button type="button" class="btn btn-ghost" id="slot-edit-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Share modal -->
+  <div class="modal-overlay" id="share-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="share-modal-title">
+      <h2 class="modal-title" id="share-modal-title">Copy manually</h2>
+      <div class="modal-body">
+        <p class="tool-note">Your browser blocked auto-copy — the text below is selected. Press Ctrl+C (or long-press) to copy it.</p>
+        <textarea class="share-modal-text" id="share-modal-text" readonly></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="share-modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Import modal -->
+  <div class="modal-overlay" id="import-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="import-modal-title">
+      <h2 class="modal-title" id="import-modal-title">New / Import Team</h2>
+      <div class="modal-body">
+        <button type="button" class="btn btn-secondary" id="import-new-btn">Start blank team</button>
+        <label for="import-text">Import from Showdown team text or team JSON</label>
+        <textarea id="import-text" class="share-modal-text" placeholder="Paste a Showdown team or JSON here..."></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="import-apply">Import</button>
+        <button type="button" class="btn btn-ghost" id="import-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../data.js?v=20260802q"></script>
+  <script src="../moveset.js?v=20260802q"></script>
+  <script src="../moves-data.js?v=20260802q"></script>
+  <script src="../nav.js?v=20260802q"></script>
+  <script src="team-picker.js?v=20260802q"></script>
+</body>
+</html>
