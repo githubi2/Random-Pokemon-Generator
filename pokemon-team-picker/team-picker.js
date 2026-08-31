@@ -545,7 +545,19 @@
     if (f.gens.length) bits.push('Gen ' + f.gens.join('-'));
     if (f.mega) bits.push(f.mega === 'yes' ? 'Mega-capable' : 'non-Mega');
     if (state.search) bits.push('“' + state.search + '”');
-    $('tp-filter-note').textContent = bits.length ? 'Showing: ' + bits.join(' · ') : 'Showing the full dex';
+    var note = bits.length ? 'Showing: ' + bits.join(' · ') : 'Showing the full dex';
+    $('tp-filter-note').textContent = note;
+    var inline = $('tp-filter-note-inline');
+    if (inline) inline.textContent = note;
+  }
+
+  /* ---------------- filters collapse ---------------- */
+  function setFiltersCollapsed(collapsed) {
+    var panel = document.querySelector('.tp-filters');
+    var btn = $('tp-filters-toggle');
+    if (!panel || !btn) return;
+    panel.classList.toggle('tp-collapsed', collapsed);
+    btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
   }
 
   /* ---------------- team defense ---------------- */
@@ -595,14 +607,14 @@
         if (mult > 1) weak++;
         if (mult < 1) resist++;
       });
-      rows += '<tr><th scope="row" class="tp-def-type">' + atk.charAt(0).toUpperCase() + atk.slice(1) + '</th>' + cells +
+      rows += '<tr><th scope="row" class="tp-def-type"><span class="tp-def-dot" style="background:var(--type-' + atk + ')"></span>' + atk.charAt(0).toUpperCase() + atk.slice(1) + '</th>' + cells +
         '<td class="tp-def-total ' + (weak > 0 ? 'tp-cell-weak' : '') + '">' + weak + '</td>' +
         '<td class="tp-def-total ' + (resist > 0 ? 'tp-cell-resist' : '') + '">' + resist + '</td>' +
         '<td class="tp-def-total">' + (resist - weak) + '</td></tr>';
     });
     var head = '<div class="tp-def-scroll"><table class="tp-def-table"><thead><tr>' +
       '<th scope="col">Type</th>' +
-      members.map(function (m) { return '<th scope="col" class="tp-def-member" title="' + m.name + '">' + m.name.replace(/\b\w/g, function (c) { return c.toUpperCase(); }).slice(0, 6) + '</th>'; }).join('') +
+      members.map(function (m) { return '<th scope="col" class="tp-def-member" title="' + m.name + '">' + m.name.replace(/\b\w/g, function (c) { return c.toUpperCase(); }).slice(0, 14) + '</th>'; }).join('') +
       '<th scope="col" class="tp-def-weak" title="Total Weak">W</th>' +
       '<th scope="col" class="tp-def-resist" title="Total Resist">R</th>' +
       '<th scope="col" class="tp-def-tot" title="Total (Resist − Weak)">T</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
@@ -939,6 +951,16 @@
     renderSlots();
     renderDefense();
     updateFilterNote();
+
+    /* filters collapse: folded by default on small screens */
+    var filtersToggle = $('tp-filters-toggle');
+    if (filtersToggle) {
+      filtersToggle.addEventListener('click', function () {
+        var panel = document.querySelector('.tp-filters');
+        setFiltersCollapsed(!(panel && panel.classList.contains('tp-collapsed')));
+      });
+      if (window.innerWidth <= 760) setFiltersCollapsed(true);
+    }
 
     /* events */
     if (teamNameEl) {

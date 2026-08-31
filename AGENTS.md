@@ -1,7 +1,9 @@
-# AGENTS.md — Random Pokemon Generator 项目规则
+# AGENTS.md — Random Pokemon Generator 项目规则（Kimi 版）
 
 > **本项目以 SEO 为核心目标。** 所有代码、内容、UI 改动必须围绕 SEO 展开；
-> 当任何直觉/便利与 SEO 冲突时，**SEO 优先**。此文件对所有 AI 工具（Hermes / Codex / Claude 等）生效。
+> 当任何直觉/便利与 SEO 冲突时，**SEO 优先**。
+> 此文件为 **Kimi（本 AI 助手）的项目规则**，由 Hermes 项目规则平移而来，内容完全继承；
+> 后续本项目所有开发工作（新页面、改动、上线）均由 Kimi 严格按照本规则执行。
 
 ---
 
@@ -35,7 +37,7 @@
 - **hero 区规范**：hero 只保留 eyebrow + H1 + lede，**不放 CTA 按钮**（工具入口在工具面板内，避免重复入口）；与既有页面视觉一致。
 - 移动端（≤760px）必须适配（汉堡导航、历史/列表紧凑布局；nav 6 项完整关键词在桌面可用、移动端折叠）。
 - **`vercel.json`**：新增页面目录后，必须在 `redirects` 加 `/{dir}/index.html → /{dir}/` 的 permanent 重定向。
-- 修改后必须验证：`node --check` JS、HTML 标签配对、canonical/词数/内链矩阵/JSON-LD 回归（用 `hermes-verify-` 前缀临时脚本，跑完即删）。
+- 修改后必须验证：`node --check` JS、HTML 标签配对、canonical/词数/内链矩阵/JSON-LD 回归（用 `kimi-verify-` 前缀临时脚本，跑完即删）。
 - 文件名/目录：子页面用目录形式（`pokemon-smash-or-pass/index.html` → URL `/pokemon-smash-or-pass/`）。
 
 ## 4. 上线流程（新页面清单）
