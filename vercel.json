@@ -26,6 +26,11 @@
       "permanent": true
     },
     {
+      "source": "/random-pokemon-name-generator/index.html",
+      "destination": "/random-pokemon-name-generator/",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true
