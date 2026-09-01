@@ -31,6 +31,11 @@
       "permanent": true
     },
     {
+      "source": "/random-mega-pokemon-generator/index.html",
+      "destination": "/random-mega-pokemon-generator/",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true

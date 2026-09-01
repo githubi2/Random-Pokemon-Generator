@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Mega Pokemon Generator - Mega Evolution Picker</title>
+  <meta name="description" content="Roll a random Mega Evolution Pokemon from the full Gen 1-9 mega pool — filter by generation and type, compare stat gains against the base form, and track every roll." />
+  <meta name="keywords" content="random mega pokemon generator, mega pokemon generator, mega evolution generator, random mega evolution, mega pokemon picker" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/random-mega-pokemon-generator/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Random Mega Pokemon Generator - Mega Evolution Picker" />
+  <meta property="og:description" content="One click rolls a random Mega Evolution — official artwork, shiny toggle, stat gains over the base form, abilities and full type coverage, with generation and type filters." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/random-mega-pokemon-generator/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/random-mega-pokemon-generator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Random Mega Pokemon Generator - Mega Evolution Picker" />
+  <meta name="twitter:description" content="One click rolls a random Mega Evolution — official artwork, shiny toggle, stat gains over the base form, abilities and full type coverage, with generation and type filters." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/random-mega-pokemon-generator/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260902a" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Random Mega Pokemon Generator",
+    "description": "Roll random Mega Evolution Pokemon from the full Gen 1-9 mega pool, with generation and type filters, stat gains over each base form, abilities and type coverage.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://www.random-pokemon-generator.co/random-mega-pokemon-generator/"
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Random Pokemon Generator", "item": "https://www.random-pokemon-generator.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Random Mega Pokemon Generator", "item": "https://www.random-pokemon-generator.co/random-mega-pokemon-generator/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a random mega pokemon generator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A random mega pokemon generator rolls only Mega Evolution forms. Instead of drawing from all 1,025 species, every result is a Mega Pokemon — Mega Charizard X, Mega Gengar, Mega Rayquaza and the rest of the mega roster. One click deals one mega by default, and the per-roll chips raise that to a full squad of six in a single click — every result a full card with artwork, types, stats, abilities and type matchups. It works as a quick ace picker, a challenge-run dealer or a way to rediscover megas you forgot about." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which Mega Evolutions are in the pool?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Every Mega Evolution from the games. Species with two mega forms — Charizard and Mewtwo with their X and Y versions — count as separate entries, so each variant can appear on its own. The pool also includes the newer Mega Evolutions introduced in Pokemon Legends: Z-A, from Mega Meganium to Mega Dragonite, with names, artwork, types, abilities and base stats sourced from PokeAPI." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do the filters and no-repeat mode work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Seven filters narrow the pool: generation, region, type, rarity, habitat, Pokédex color and a Min BST slider — they combine freely, and the per-roll chips decide whether each click deals one mega or a squad of up to six, always without duplicates inside the same roll. Flip the no-repeats switch and the tool deals the active pool like a deck: every Mega Evolution appears exactly once before anything can repeat, which keeps draft leagues and mega-only challenge runs fair. The Reset Filters button clears every filter at once." }
+      },
+      {
+        "@type": "Question",
+        "name": "What does the result card show?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Each roll shows official artwork over a type-tinted aura, the National dex number, type badges, generation and rarity, and the base species the mega evolves from. The stat block draws all six base stats as bars and compares the total against the base form — 534 becoming 634 on Mega Charizard X. The abilities row lists what the mega gains, and the coverage rows compute every weakness, resistance and immunity from the full 18-type chart." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I roll shiny Mega Pokemon?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every result card carries a shiny toggle that swaps the artwork between the regular and shiny version of the rolled mega, so you can check how Mega Rayquaza's black-and-gold look or Mega Charizard X's blue flames land before you commit to one." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the generator save my rolls?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — locally, in your own browser. Your filters, no-repeat setting, current card and the last 12 rolls are stored in local storage, so a refresh restores the exact session and the Roll History panel lets you reload any earlier mega with one click. Nothing is uploaded or tracked; clearing your browser data erases it." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+              <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+              <li><a href="./" class="nav-link nav-link-active">Random Mega Pokemon Generator</a></li>
+            </ul>
+          </li>
+          <li><a href="#how" class="nav-link">How It Works</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">Gen 1–9 · Every Mega Evolution · Stats &amp; Type Coverage</p>
+      <h1 id="page-title">Random Mega Pokemon Generator</h1>
+      <p class="lede">A random mega pokemon generator that deals only Mega Evolutions — one click rolls a mega, or a full squad of six, with official artwork, stat gains over the base form, abilities and full type matchups.</p>
+    </section>
+
+    <!-- Tool -->
+    <section class="container tool-panel" id="mega-tool" aria-label="Random mega pokemon generator tool">
+      <div class="panel cornered">
+        <p class="tool-hint">How it works — narrow the mega pool with the generation, region, type, rarity, habitat, color and Min BST filters, pick how many megas each roll deals (1–6), then hit 🎲 Generate Mega Pokemon. Flip No repeats to deal the pool like a deck: every mega appears once before anything repeats. ↺ Reset Filters clears every filter at once. The ⚙️ Filters bar collapses the whole filter panel when you just want to roll.</p>
+
+        <div class="mega-filters-bar">
+          <button type="button" class="mega-filters-toggle" id="mega-filters-toggle" aria-expanded="true" aria-controls="mega-filters">⚙️ Filters <span class="mega-filters-caret" id="mega-filters-caret" aria-hidden="true">▾</span></button>
+          <p class="tool-note mega-filters-summary" id="mega-filters-summary" hidden></p>
+        </div>
+
+        <div class="mega-filters" id="mega-filters">
+        <fieldset>
+          <legend>Generation</legend>
+          <div class="btn-row" id="mega-gen-chips" role="group" aria-label="Filter by generation"></div>
+          <p class="tool-note" id="mega-gens-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Region</legend>
+          <div class="btn-row" id="mega-region-chips" role="group" aria-label="Filter by region"></div>
+          <p class="tool-note" id="mega-regions-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Type (any of)</legend>
+          <div class="btn-row" id="mega-type-chips" role="group" aria-label="Filter by type"></div>
+          <p class="tool-note" id="mega-types-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Rarity</legend>
+          <div class="btn-row" id="mega-rarity-chips" role="group" aria-label="Filter by rarity"></div>
+          <p class="tool-note" id="mega-rarity-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Habitat</legend>
+          <div class="btn-row" id="mega-habitat-chips" role="group" aria-label="Filter by habitat"></div>
+          <p class="tool-note" id="mega-habitats-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Pokédex color</legend>
+          <div class="btn-row" id="mega-color-chips" role="group" aria-label="Filter by Pokédex color"></div>
+          <p class="tool-note" id="mega-colors-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Min BST</legend>
+          <label><input type="range" id="mega-bst-min" min="0" max="780" value="0" step="10" aria-label="Minimum base stat total" /></label>
+          <p class="tool-note" id="mega-bst-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Mega Pokemon per roll</legend>
+          <div class="btn-row" id="mega-count-chips" role="group" aria-label="How many Mega Pokemon per roll"></div>
+          <p class="tool-note" id="mega-count-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>No repeats until the pool runs out</legend>
+          <label class="wtp-switch">
+            <input type="checkbox" id="mega-norepeat" />
+            <span class="wtp-switch-track" aria-hidden="true"></span>
+            <span class="wtp-switch-label" id="mega-norepeat-label">Off</span>
+          </label>
+        </fieldset>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="mega-generate-btn" class="btn-slide cornered btn-primary"><span>🎲 Generate Mega Pokemon</span></button>
+          <button type="button" id="mega-copy-btn" class="btn-slide btn-secondary" disabled><span>📋 Copy Result</span></button>
+          <button type="button" id="mega-reset-btn" class="btn-slide btn-ghost"><span>↺ Reset Filters</span></button>
+        </div>
+        <div class="tool-note-group">
+          <p class="tool-note">🎲 Generate Mega Pokemon — rolls 1–6 random Mega Evolutions from the active pool, never a duplicate inside the same roll</p>
+          <p class="tool-note">📋 Copy Result — copies the current mega's name, types, stats and a link to share</p>
+          <p class="tool-note">✨ Shiny — the toggle on the card swaps between regular and shiny artwork</p>
+        </div>
+        <p class="pool-count" id="mega-pool-count"></p>
+      </div>
+
+      <div class="mega-stage" id="mega-stage" aria-live="polite">
+        <div class="mega-empty cornered-dashed" id="mega-empty">Press 🎲 Generate Mega Pokemon to roll your first Mega Evolution.</div>
+        <div class="mega-cards" id="mega-cards"></div>
+      </div>
+
+      <div class="history cornered" id="mega-history-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title">Roll History</h2>
+          <div class="history-actions">
+            <button type="button" id="mega-history-clear" class="btn-text">Clear</button>
+          </div>
+        </div>
+        <div class="tool-note-group">
+          <p class="tool-note">Click any roll to reload that exact Mega Evolution; Clear empties the history</p>
+          <p class="tool-note">📊 History Analysis — live stats across every roll below: pool coverage, type spread, average stats and your luckiest pulls</p>
+        </div>
+        <ol class="history-list" id="mega-history-list"></ol>
+        <div class="mega-analysis" id="mega-analysis" aria-label="Roll history analysis"></div>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how-title">How the Random Mega Pokemon Generator Works</h2>
+        <div class="how-grid">
+          <article>
+            <h3>One click, one Mega Evolution</h3>
+            <p>Most Pokemon generators treat Mega Evolution as a footnote — a checkbox buried somewhere in a settings panel. This random mega pokemon generator is built around it. Hit Generate and the tool draws from a pool that contains nothing but Mega Evolutions, so every single roll lands on a mega: Mega Charizard X, Mega Gengar, Mega Rayquaza, Mega Lucario and the rest of the roster. There is no setup to fight through. One click deals one mega by default, and the per-roll chips raise that to a full squad of six in a single click — never a duplicate inside the same roll. The default pool spans Gen 1 to Gen 9, which makes the page a fast way to rediscover megas you forgot existed — the Audinos and Banettes sitting in the shadow of the big names.</p>
+          </article>
+          <article>
+            <h3>Filter the pool before you roll</h3>
+            <p>Seven filters shape the pool without getting in the way. The generation and region rows limit rolls to megas whose base species comes from a specific era — pick Kanto for the classics, Hoenn for the largest mega roster, or Paldea for the newest additions. The type chips require at least one matching type per roll, the rarity chips can hide legendaries and mythicals or show only them, and the habitat and Pokédex color rows narrow things further for themed runs — a mountain-only ladder or an all-blue squad. The Min BST slider sets a power floor, so a 600+ roll deals only the heavy hitters. Everything combines freely, so a Gen 3 Water filter quietly becomes a Mega Swampert-or-Sharpedo machine, and a note under each row always tells you how many megas are left in the active pool.</p>
+            <p>For challenge runs, flip the no-repeats switch and the tool deals the pool like a deck — every Mega Evolution appears exactly once before anything can repeat. That is precisely what draft leagues and mega-only runs need, because nobody can argue about a reroll when the deck has not cycled yet.</p>
+          </article>
+          <article>
+            <h3>Read the result like a dex page</h3>
+            <p>Every roll produces a full card, not just a name. The artwork sits over a type-tinted aura with a shiny toggle beside it, and the data panel lists the National dex number, type badges, generation and rarity. A Mega Evolution of line names the base species, and the stat block shows what the transformation actually bought: all six base stats drawn as bars, with the total compared against the base form — 534 becoming 634 on Mega Charizard X, a clean +100.</p>
+            <p>The abilities row lists what the mega gains, and the coverage rows compute weaknesses, resistances and immunities from the full 18-type chart on the fly. A 4x weakness or a handy immunity is visible before you commit, which turns a fun roll into a usable piece of team planning. And under the Roll History, a live History Analysis reads your whole session back to you: how much of the mega pool you have seen, which types keep landing, your average base stat total and your rarest pulls.</p>
+          </article>
+          <article>
+            <h3>What Mega Evolution actually is</h3>
+            <p>Mega Evolution arrived in Generation VI as a temporary, in-battle transformation: a trainer holding a Key Stone and a Pokemon holding its matching Mega Stone trigger a form that lasts until the battle ends. The boost is real — most megas gain around 100 base stat total — and many change far more than numbers. Mega Charizard X picks up the Dragon type, Mega Pinsir turns its Normal moves into Flying ones, and Mega Sableye trades speed for a defensive wall that reflects status moves.</p>
+            <p>Some species earned two separate megas, an X and a Y, and each version sits in this pool as its own entry. Pokemon Legends: Z-A brought the mechanic back with a fresh batch of Mega Evolutions, and those are included here too, from Mega Meganium to Mega Dragonite.</p>
+          </article>
+          <article>
+            <h3>Ways to play with a mega roller</h3>
+            <p>The obvious use is picking an ace. Roll one mega here — or deal six at once for a full mega squad — then build around the result with the <a href="../pokemon-team-picker/">Pokemon Team Picker</a>: the mega sets the strategy and the other five slots cover its weaknesses. Streamers use single-mega rolls as a wheel substitute: chat predicts the next mega and the reveal is the content. Draft leagues lean on the no-repeat mode to deal megas fairly, one per player.</p>
+            <p>It also works as a challenge generator. A mega-only run — every encounter rolled here, every team slot a mega — is one of the hardest self-imposed formats around, because the pool is small enough that you will eventually be handed Mega Audino and told to make it work. Pair that with the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a> if you want the full ruleset on top.</p>
+          </article>
+          <article>
+            <h3>Part of a full Pokemon toolkit</h3>
+            <p>This page sits inside a complete set of random Pokemon tools. The main <a href="../">Random Pokemon Generator</a> rolls full squads with type, generation and rarity filters and grades every team it deals. The <a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a> turns a roll into a spinning-wheel draw, <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a> walks the dex one verdict at a time, and <a href="../whos-that-pokemon/">Who's That Pokemon</a> hides each species behind a silhouette.</p>
+            <p>For structured runs, the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a> handles encounters and rules, the <a href="../pokemon-team-picker/">Pokemon Team Picker</a> builds six-Pokemon squads with moves and natures, and the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> gives every catch an original nickname. Roll your mega here, then take it through the rest of the loop.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Random Mega Pokemon Generator FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>What is a random mega pokemon generator?</summary>
+        <p>A random mega pokemon generator rolls only Mega Evolution forms. Instead of drawing from all 1,025 species, every result is a Mega Pokemon — Mega Charizard X, Mega Gengar, Mega Rayquaza and the rest of the mega roster. One click deals one mega by default, and the per-roll chips raise that to a full squad of six in a single click — every result a full card with artwork, types, stats, abilities and type matchups. It works as a quick ace picker, a challenge-run dealer or a way to rediscover megas you forgot about.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Which Mega Evolutions are in the pool?</summary>
+        <p>Every Mega Evolution from the games. Species with two mega forms — Charizard and Mewtwo with their X and Y versions — count as separate entries, so each variant can appear on its own. The pool also includes the newer Mega Evolutions introduced in Pokemon Legends: Z-A, from Mega Meganium to Mega Dragonite, with names, artwork, types, abilities and base stats sourced from PokeAPI.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How do the filters and no-repeat mode work?</summary>
+        <p>Seven filters narrow the pool: generation, region, type, rarity, habitat, Pokédex color and a Min BST slider — they combine freely, and the per-roll chips decide whether each click deals one mega or a squad of up to six, always without duplicates inside the same roll. Flip the no-repeats switch and the tool deals the active pool like a deck: every Mega Evolution appears exactly once before anything can repeat, which keeps draft leagues and mega-only challenge runs fair. The Reset Filters button clears every filter at once.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What does the result card show?</summary>
+        <p>Each roll shows official artwork over a type-tinted aura, the National dex number, type badges, generation and rarity, and the base species the mega evolves from. The stat block draws all six base stats as bars and compares the total against the base form — 534 becoming 634 on Mega Charizard X. The abilities row lists what the mega gains, and the coverage rows compute every weakness, resistance and immunity from the full 18-type chart.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I roll shiny Mega Pokemon?</summary>
+        <p>Yes. Every result card carries a shiny toggle that swaps the artwork between the regular and shiny version of the rolled mega, so you can check how Mega Rayquaza's black-and-gold look or Mega Charizard X's blue flames land before you commit to one.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Does the generator save my rolls?</summary>
+        <p>Yes — locally, in your own browser. Your filters, no-repeat setting, current card and the last 12 rolls are stored in local storage, so a refresh restores the exact session and the Roll History panel lets you reload any earlier mega with one click. Nothing is uploaded or tracked; clearing your browser data erases it.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+        <li><a href="../">Random Pokemon Generator</a></li>
+        <li><a href="../nuzlocke-generator/">Nuzlocke Team Builder</a></li>
+        <li><a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a></li>
+        <li><a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a></li>
+        <li><a href="../whos-that-pokemon/">Who's That Pokemon</a></li>
+        <li><a href="../pokemon-team-picker/">Pokemon Team Picker</a></li>
+        <li><a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a></li>
+        <li><a href="./">Random Mega Pokemon Generator</a></li>
+      </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator. Not affiliated with Nintendo / Game Freak.</p>
+      <p class="footer-note">Data sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </div>
+  </footer>
+
+  <!-- Copy fallback modal -->
+  <div class="modal-overlay" id="mega-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mega-modal-title">
+      <h2 class="modal-title" id="mega-modal-title">Copy manually</h2>
+      <div class="modal-body">
+        <p class="tool-note">Your browser blocked auto-copy — the text below is selected. Press Ctrl+C (or long-press) to copy it.</p>
+        <textarea class="share-modal-text" id="mega-modal-text" readonly></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="mega-modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../data.js?v=20260802q"></script>
+  <script src="../nav.js?v=20260802q"></script>
+  <script src="mega-generator.js?v=20260902a"></script>
+</body>
+</html>
