@@ -2764,7 +2764,7 @@ output { color: var(--poke-red); font-weight: 700; }
 }
 .odds .tool-note { margin-top: 12px; }
 /* toolkit block nested inside the yellow game band */
-.toolkit-in-band { margin-top: 56px; }
+.toolkit-grid { margin-top: 56px; }
 /* shiny odds calculator output */
 .odds-result-grid {
   display: grid;
