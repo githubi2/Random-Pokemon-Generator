@@ -36,6 +36,11 @@
       "permanent": true
     },
     {
+      "source": "/random-shiny-pokemon-generator/index.html",
+      "destination": "/random-shiny-pokemon-generator/",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true

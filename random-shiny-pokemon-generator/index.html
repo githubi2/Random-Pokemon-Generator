@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Shiny Pokemon Generator - Shiny Pokemon Picker</title>
+  <meta name="description" content="Random shiny pokemon generator — roll shiny Pokemon from Gen 1–9 with generation, type, rarity and BST filters, shiny-vs-regular compare, roll history and sharing." />
+  <meta name="keywords" content="random shiny pokemon generator, shiny pokemon generator, shiny generator, random shiny pokemon, shiny pokemon picker, shiny odds" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/random-shiny-pokemon-generator/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Random Shiny Pokemon Generator - Shiny Pokemon Picker" />
+  <meta property="og:description" content="One click rolls a random shiny Pokemon — shiny artwork with a regular-art compare switch, full stats, abilities and type coverage, plus generation, type, rarity and BST filters." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/random-shiny-pokemon-generator/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/random-shiny-pokemon-generator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Random Shiny Pokemon Generator - Shiny Pokemon Picker" />
+  <meta name="twitter:description" content="One click rolls a random shiny Pokemon — shiny artwork with a regular-art compare switch, full stats, abilities and type coverage, plus generation, type, rarity and BST filters." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/random-shiny-pokemon-generator/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260902d" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Random Shiny Pokemon Generator",
+    "description": "Roll random shiny Pokemon from the full Gen 1-9 pool, with generation, region, type, rarity, evolution stage, habitat, color and BST filters, shiny-vs-regular artwork compare, roll history and share links.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://www.random-pokemon-generator.co/random-shiny-pokemon-generator/"
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Random Pokemon Generator", "item": "https://www.random-pokemon-generator.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Random Shiny Pokemon Generator", "item": "https://www.random-pokemon-generator.co/random-shiny-pokemon-generator/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a random shiny pokemon generator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A random shiny pokemon generator rolls Pokemon and shows only their shiny artwork — the rare alternate coloration that appears at odds of 1 in 4,096 in the modern games. Instead of hunting for hours, one click deals a shiny from the full Gen 1-9 pool, complete with type badges, base stats, abilities and type matchups, plus a compare switch that flips between the shiny and regular artwork so you can judge the recolor." }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the odds of a real shiny Pokemon?",
+        "acceptedAnswer": { "@type": "Answer", "text": "In the games, shinies were 1 in 8,192 from Gold and Silver through Black 2 and White 2, and 1 in 4,096 from X and Y onward. Items and methods raise those odds — the Shiny Charm roughly triples the rate to about 1 in 1,365, the Masuda breeding method reaches about 1 in 683, and stacking both approaches 1 in 512. This generator skips the grind: every roll is shiny." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which Pokemon are in the shiny pool?",
+        "acceptedAnswer": { "@type": "Answer", "text": "All 1,025 species from Generation 1 through 9, plus regional forms, Mega Evolutions and other variants — 1,351 shiny variants in total, with names, artwork, types, abilities and base stats sourced from PokeAPI. Species with famously dramatic shinies, like black Charizard and red Gyarados, sit in the same pool as the subtle ones like Gengar and Pikachu." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do the filters work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nine filters narrow the pool: generation, region, type, rarity, evolution stage, habitat, Pokédex color and a Min/Max BST range — they combine freely, and the per-roll chips decide whether each click deals one shiny or a squad of up to six with no duplicates inside a roll. Flip No repeats and the tool deals the pool like a deck: every shiny variant appears exactly once before anything repeats. Reset Filters clears everything at once." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the generator save my rolls?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — locally, in your own browser. Your filters, no-repeat setting, current roll and the last 12 rolls are stored in local storage, so a refresh restores the exact session and the Roll History panel reloads any earlier shiny with one click. Nothing is uploaded or tracked; clearing your browser data erases it." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I share a roll?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Two ways. Copy Result copies the rolled shinies — names, types, stats and a link — to your clipboard. The Share button builds a link that restores your exact filters and current roll for anyone who opens it, using your device's native share sheet when one is available." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+              <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+              <li><a href="./" class="nav-link nav-link-active">Random Shiny Pokemon Generator</a></li>
+            </ul>
+          </li>
+          <li><a href="#how" class="nav-link">How It Works</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">Gen 1–9 · Every Species &amp; Form · Shiny Artwork Only</p>
+      <h1 id="page-title">Random Shiny Pokemon Generator</h1>
+      <p class="lede">A random shiny pokemon generator that skips the 1-in-4,096 grind — one click rolls a shiny, or a full squad of six, with sparkling artwork, a regular-art compare switch, full stats, abilities and type matchups.</p>
+    </section>
+
+    <!-- Tool -->
+    <section class="container tool-panel" id="shiny-tool" aria-label="Random shiny pokemon generator tool">
+      <div class="panel cornered">
+        <p class="tool-hint">How it works — narrow the shiny pool with the generation, region, type, rarity, evolution stage, habitat, color and BST filters, pick how many shinies each roll deals (1–6), then hit 🎲 Generate Shiny Pokemon. Flip No repeats to deal the pool like a deck: every shiny appears once before anything repeats. ↺ Reset Filters clears every filter at once. The ⚙️ Filters bar collapses the whole filter panel when you just want to roll.</p>
+
+        <div class="mega-filters-bar">
+          <button type="button" class="mega-filters-toggle" id="shiny-filters-toggle" aria-expanded="true" aria-controls="shiny-filters">⚙️ Filters <span class="mega-filters-caret" id="shiny-filters-caret" aria-hidden="true">▾</span></button>
+          <p class="tool-note mega-filters-summary" id="shiny-filters-summary" hidden></p>
+        </div>
+
+        <div class="mega-filters" id="shiny-filters">
+        <fieldset>
+          <legend>Generation</legend>
+          <div class="btn-row" id="shiny-gen-chips" role="group" aria-label="Filter by generation"></div>
+          <p class="tool-note" id="shiny-gens-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Region</legend>
+          <div class="btn-row" id="shiny-region-chips" role="group" aria-label="Filter by region"></div>
+          <p class="tool-note" id="shiny-regions-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Type (any of)</legend>
+          <div class="btn-row" id="shiny-type-chips" role="group" aria-label="Filter by type"></div>
+          <p class="tool-note" id="shiny-types-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Rarity</legend>
+          <div class="btn-row" id="shiny-rarity-chips" role="group" aria-label="Filter by rarity"></div>
+          <p class="tool-note" id="shiny-rarity-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Evolution stage</legend>
+          <div class="btn-row" id="shiny-stage-chips" role="group" aria-label="Filter by evolution stage"></div>
+          <p class="tool-note" id="shiny-stages-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Habitat</legend>
+          <div class="btn-row" id="shiny-habitat-chips" role="group" aria-label="Filter by habitat"></div>
+          <p class="tool-note" id="shiny-habitats-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Pokédex color</legend>
+          <div class="btn-row" id="shiny-color-chips" role="group" aria-label="Filter by Pokédex color"></div>
+          <p class="tool-note" id="shiny-colors-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>BST range</legend>
+          <label>Min <input type="range" id="shiny-bst-min" min="0" max="780" value="0" step="10" aria-label="Minimum base stat total" /></label>
+          <label>Max <input type="range" id="shiny-bst-max" min="0" max="780" value="780" step="10" aria-label="Maximum base stat total" /></label>
+          <p class="tool-note" id="shiny-bst-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Shiny Pokemon per roll</legend>
+          <div class="btn-row" id="shiny-count-chips" role="group" aria-label="How many shiny Pokemon per roll"></div>
+          <p class="tool-note" id="shiny-count-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>No repeats until the pool runs out</legend>
+          <label class="wtp-switch">
+            <input type="checkbox" id="shiny-norepeat" />
+            <span class="wtp-switch-track" aria-hidden="true"></span>
+            <span class="wtp-switch-label" id="shiny-norepeat-label">Off</span>
+          </label>
+        </fieldset>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="shiny-generate-btn" class="btn-slide cornered btn-primary"><span>🎲 Generate Shiny Pokemon</span></button>
+          <button type="button" id="shiny-copy-btn" class="btn-slide btn-secondary" disabled><span>📋 Copy Result</span></button>
+          <button type="button" id="shiny-share-btn" class="btn-slide btn-secondary" disabled><span>🔗 Share</span></button>
+          <button type="button" id="shiny-reset-btn" class="btn-slide btn-ghost"><span>↺ Reset Filters</span></button>
+        </div>
+        <div class="tool-note-group">
+          <p class="tool-note">🎲 Generate Shiny Pokemon — rolls 1–6 random shinies from the active pool, never a duplicate inside the same roll</p>
+          <p class="tool-note">📋 Copy Result — copies the current shinies' names, types, stats and a link to your clipboard</p>
+          <p class="tool-note">🔗 Share — builds a link that restores your exact filters and current roll for anyone who opens it</p>
+          <p class="tool-note">✨ Compare — the switch on each card flips between shiny and regular artwork</p>
+        </div>
+        <p class="pool-count" id="shiny-pool-count"></p>
+      </div>
+
+      <div class="mega-stage" id="shiny-stage" aria-live="polite">
+        <div class="mega-empty cornered-dashed" id="shiny-empty">Press 🎲 Generate Shiny Pokemon to roll your first shiny.</div>
+        <div class="mega-cards" id="shiny-cards"></div>
+      </div>
+
+      <div class="history cornered" id="shiny-history-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title">Roll History</h2>
+          <div class="history-actions">
+            <button type="button" id="shiny-history-clear" class="btn-text">Clear</button>
+          </div>
+        </div>
+        <div class="tool-note-group">
+          <p class="tool-note">Click any roll to reload those exact shinies; Clear empties the history</p>
+          <p class="tool-note">📊 History Analysis — live stats across every roll below: pool coverage, type spread, average stats and your strongest pulls</p>
+        </div>
+        <ol class="history-list" id="shiny-history-list"></ol>
+        <div class="mega-analysis" id="shiny-analysis" aria-label="Roll history analysis"></div>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how-title">How the Random Shiny Pokemon Generator Works</h2>
+        <div class="how-grid">
+          <article>
+            <h3>One click, one shiny — no 4,096-roll grind</h3>
+            <p>Shiny hunting in the games is a patience contest: the modern odds sit at 1 in 4,096 per encounter, and before Generation VI they were a brutal 1 in 8,192. This random shiny pokemon generator skips all of that. Hit Generate and the tool draws from a pool of every species and form across Gen 1 to Gen 9 — 1,025 species plus regional forms, Mega Evolutions and other variants — and every result lands in its shiny coloration, sparkle included. There is no setup to fight through. One click deals one shiny by default, and the per-roll chips raise that to a full squad of six in a single click, never with a duplicate inside the same roll. It is the fastest way to browse shiny palettes you have never seen in person — the jet-black Charizard, the red Gyarados, the golden Ampharos — without a single soft reset.</p>
+          </article>
+          <article>
+            <h3>Nine filters shape the shiny pool</h3>
+            <p>The generation and region rows limit rolls to a specific era — pick Kanto for the classics, Galar for Gen 8, or Paldea for the newest dex. The type chips require at least one matching type per roll, the rarity chips can hide legendaries and mythicals or show only them, and the evolution stage row splits the pool into base forms, middle stages and final stages, which is perfect when you only want fully-evolved showpieces. The habitat and Pokédex color rows narrow things further for themed sessions — a sea-only shiny draft or an all-black squad — and the Min/Max BST sliders set a power floor and ceiling, so a 600+ roll deals only the heavy hitters while a 300–450 window keeps a draft balanced.</p>
+            <p>Everything combines freely, so a Gen 2 Water filter quietly becomes a shiny Gyarados-or-Feraligatr machine, and a note under each row always tells you what the active pool still contains. For drafts, flip the no-repeats switch and the tool deals the pool like a deck — every shiny variant appears exactly once before anything can repeat, so nobody can argue about a reroll when the deck has not cycled yet.</p>
+          </article>
+          <article>
+            <h3>Compare the shiny against the regular art</h3>
+            <p>Every roll produces a full card, not just a name. The shiny artwork sits over a type-tinted aura with an animated sparkle, and a compare switch beside it flips the art between the shiny and regular versions on the spot — the quickest way to judge whether a recolor is a masterpiece or a letdown, because some shinies transform completely while others barely shift a shade. The data panel lists the National dex number, type badges, generation, rarity, evolution stage, habitat and Pokédex color, and the stat block draws all six base stats as bars with the total beside them.</p>
+            <p>The abilities row lists what the species runs, and the coverage rows compute every weakness, resistance and immunity from the full 18-type chart on the fly. Each card also notes the real in-game odds — 1 in 4,096 in the modern games, 1 in 8,192 back in Gen 2 through 5 — so every roll doubles as a small reminder of how lucky you just got.</p>
+          </article>
+          <article>
+            <h3>What makes a Pokemon shiny</h3>
+            <p>Shiny Pokemon debuted in Gold and Silver, where every player met the same one: the red Gyarados rampaging at the Lake of Rage. A shiny is the same species with an alternate color palette, announced in battle by a burst of stars and a chime. Nothing about its stats or moves changes — the value is pure rarity and bragging rights. Generation VIII added a second, even rarer sparkle pattern, the square shiny, for hunters who wanted a deeper rabbit hole.</p>
+            <p>The recolors themselves range from legendary to infamous. Charizard trades orange for black, Gyarados swaps blue for red, and Metagross turns silver and gold — while Gengar and Pikachu shift so slightly that hunters check the sparkle before the palette. That gap between dramatic and subtle is exactly what the compare switch on every card here is built for.</p>
+          </article>
+          <article>
+            <h3>Ways to play with a shiny roller</h3>
+            <p>The classic use is picking a hunt target. Roll until the generator deals a shiny you love, then go hunt that species in your game of choice — rolling here first beats wandering the dex at random. Streamers use it as a prediction game: chat calls the next shiny before the reveal. Draft leagues lean on the no-repeat mode to deal shiny aces fairly, one per player, and a shiny-only challenge run — every encounter rolled here, every team slot a shiny — is a ruthless self-imposed format.</p>
+            <p>A rolled shiny also makes a great team centerpiece. Take the result into the <a href="../pokemon-team-picker/">Pokemon Team Picker</a> and build five slots around its weaknesses, or add the full Nuzlocke ruleset on top with the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a> for a shiny-clause run where every catch must sparkle.</p>
+          </article>
+          <article>
+            <h3>Part of a full Pokemon toolkit</h3>
+            <p>This page sits inside a complete set of random Pokemon tools. The main <a href="../">Random Pokemon Generator</a> rolls full squads with type, generation and rarity filters and grades every team it deals — shiny odds included as an option. The <a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a> turns a roll into a spinning-wheel draw, <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a> walks the dex one verdict at a time, and <a href="../whos-that-pokemon/">Who's That Pokemon</a> hides each species behind a silhouette.</p>
+            <p>For structured runs, the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a> handles encounters and rules, the <a href="../pokemon-team-picker/">Pokemon Team Picker</a> builds six-Pokemon squads with moves and natures, the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> gives every catch an original nickname, and the <a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a> rolls nothing but Mega Evolutions. Roll your shiny here, then take it through the rest of the loop.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Random Shiny Pokemon Generator FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>What is a random shiny pokemon generator?</summary>
+        <p>A random shiny pokemon generator rolls Pokemon and shows only their shiny artwork — the rare alternate coloration that appears at odds of 1 in 4,096 in the modern games. Instead of hunting for hours, one click deals a shiny from the full Gen 1-9 pool, complete with type badges, base stats, abilities and type matchups, plus a compare switch that flips between the shiny and regular artwork so you can judge the recolor.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What are the odds of a real shiny Pokemon?</summary>
+        <p>In the games, shinies were 1 in 8,192 from Gold and Silver through Black 2 and White 2, and 1 in 4,096 from X and Y onward. Items and methods raise those odds — the Shiny Charm roughly triples the rate to about 1 in 1,365, the Masuda breeding method reaches about 1 in 683, and stacking both approaches 1 in 512. This generator skips the grind: every roll is shiny.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Which Pokemon are in the shiny pool?</summary>
+        <p>All 1,025 species from Generation 1 through 9, plus regional forms, Mega Evolutions and other variants — 1,351 shiny variants in total, with names, artwork, types, abilities and base stats sourced from PokeAPI. Species with famously dramatic shinies, like black Charizard and red Gyarados, sit in the same pool as the subtle ones like Gengar and Pikachu.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How do the filters work?</summary>
+        <p>Nine filters narrow the pool: generation, region, type, rarity, evolution stage, habitat, Pokédex color and a Min/Max BST range — they combine freely, and the per-roll chips decide whether each click deals one shiny or a squad of up to six with no duplicates inside a roll. Flip No repeats and the tool deals the pool like a deck: every shiny variant appears exactly once before anything repeats. Reset Filters clears everything at once.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Does the generator save my rolls?</summary>
+        <p>Yes — locally, in your own browser. Your filters, no-repeat setting, current roll and the last 12 rolls are stored in local storage, so a refresh restores the exact session and the Roll History panel reloads any earlier shiny with one click. Nothing is uploaded or tracked; clearing your browser data erases it.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How do I share a roll?</summary>
+        <p>Two ways. Copy Result copies the rolled shinies — names, types, stats and a link — to your clipboard. The Share button builds a link that restores your exact filters and current roll for anyone who opens it, using your device's native share sheet when one is available.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+        <li><a href="../">Random Pokemon Generator</a></li>
+        <li><a href="../nuzlocke-generator/">Nuzlocke Team Builder</a></li>
+        <li><a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a></li>
+        <li><a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a></li>
+        <li><a href="../whos-that-pokemon/">Who's That Pokemon</a></li>
+        <li><a href="../pokemon-team-picker/">Pokemon Team Picker</a></li>
+        <li><a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a></li>
+        <li><a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a></li>
+        <li><a href="./">Random Shiny Pokemon Generator</a></li>
+      </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator. Not affiliated with Nintendo / Game Freak.</p>
+      <p class="footer-note">Data sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </div>
+  </footer>
+
+  <!-- Copy fallback modal -->
+  <div class="modal-overlay" id="shiny-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="shiny-modal-title">
+      <h2 class="modal-title" id="shiny-modal-title">Copy manually</h2>
+      <div class="modal-body">
+        <p class="tool-note" id="shiny-modal-note">Your browser blocked auto-copy — the text below is selected. Press Ctrl+C (or long-press) to copy it.</p>
+        <textarea class="share-modal-text" id="shiny-modal-text" readonly></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="shiny-modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty pool notice modal -->
+  <div class="modal-overlay" id="shiny-empty-modal" hidden>
+    <div class="modal shiny-empty-modal" role="dialog" aria-modal="true" aria-labelledby="shiny-empty-modal-title">
+      <div class="shiny-empty-icon" aria-hidden="true">✨</div>
+      <h2 class="modal-title" id="shiny-empty-modal-title">The shiny pool is empty</h2>
+      <div class="modal-body">
+        <p class="shiny-empty-lead">No Pokemon matches this filter combination — the active pool is <strong>0 of 1,351</strong> shiny variants.</p>
+        <p class="shiny-empty-tip">Rarity, habitat and color are the most restrictive filters. Loosen one of them, or reset everything and roll from the full pool.</p>
+      </div>
+      <div class="modal-actions shiny-empty-actions">
+        <button type="button" class="btn btn-primary" id="shiny-empty-reset">↺ Reset Filters &amp; Roll</button>
+        <button type="button" class="btn btn-secondary" id="shiny-empty-close">Keep my filters</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../data.js?v=20260802q"></script>
+  <script src="../nav.js?v=20260802q"></script>
+  <script src="shiny-generator.js?v=20260902d"></script>
+</body>
+</html>

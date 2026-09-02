@@ -2655,3 +2655,78 @@ output { color: var(--poke-red); font-weight: 700; }
 .mega-filters-caret { display: inline-block; margin-left: 2px; }
 .mega-filters[hidden] { display: none; }
 .mega-filters-summary { margin: 0; }
+
+/* ============================================================
+   Random Shiny Pokemon Generator — sparkles, odds pill, compare
+   ============================================================ */
+.shiny-art { position: relative; }
+.shiny-art-active {
+  box-shadow: 0 0 0 3px #f2c94c, 0 0 26px 6px rgba(242, 201, 76, 0.45);
+}
+.shiny-sparkles { position: absolute; inset: 0; pointer-events: none; }
+.shiny-sparkles i {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #f2c94c;
+  clip-path: polygon(50% 0%, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0% 50%, 38% 38%);
+  opacity: 0;
+  animation: shiny-twinkle 2.6s ease-in-out infinite;
+}
+.shiny-art:not(.shiny-art-active) .shiny-sparkles { display: none; }
+.shiny-sparkles i:nth-child(1) { top: 6%; left: 12%; animation-delay: 0s; }
+.shiny-sparkles i:nth-child(2) { top: 18%; right: 10%; width: 18px; height: 18px; animation-delay: 0.7s; }
+.shiny-sparkles i:nth-child(3) { bottom: 22%; left: 6%; width: 11px; height: 11px; animation-delay: 1.3s; }
+.shiny-sparkles i:nth-child(4) { bottom: 8%; right: 16%; animation-delay: 1.9s; }
+@keyframes shiny-twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.4) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(90deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shiny-sparkles i { animation: none; opacity: 0.85; }
+}
+.shiny-odds {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #7a5b00;
+  background: rgba(242, 201, 76, 0.25);
+  border: 2px solid #f2c94c;
+  border-radius: 4px;
+  padding: 3px 8px;
+  display: inline-block;
+}
+/* empty filter pool: warn instead of failing silently */
+.pool-count.pool-empty {
+  color: #c03028;
+  font-weight: 700;
+}
+/* empty-pool notice modal */
+.shiny-empty-modal { text-align: center; max-width: 440px; padding: 32px 28px 26px; }
+.shiny-empty-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  background: rgba(242, 201, 76, 0.22);
+  border: 2px solid #f2c94c;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px rgba(242, 201, 76, 0.12), 0 0 24px rgba(242, 201, 76, 0.35);
+}
+.shiny-empty-modal .modal-title { text-align: center; margin-bottom: 12px; }
+.shiny-empty-lead { font-size: 15px; font-weight: 600; margin: 0 0 10px; line-height: 1.55; }
+.shiny-empty-lead strong {
+  color: #c03028;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  white-space: nowrap;
+}
+.shiny-empty-tip {
+  font-size: 12px;
+  color: rgba(18, 18, 18, 0.6);
+  line-height: 1.6;
+  margin: 0;
+}
+.shiny-empty-actions { justify-content: center; gap: 10px; flex-wrap: wrap; }
