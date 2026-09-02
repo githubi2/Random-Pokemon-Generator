@@ -24,7 +24,6 @@
 
 ## 2. 内容规则
 
-- **全站纯英文项目**：所有写入页面的内容一律使用英文——UI 文案、标题、正文、按钮、弹窗、alt、JSON-LD、og 描述等无一例外。用户（所有者）用中文描述需求或提供素材时，必须先翻译/改写为地道英文再落进页面；中文只允许出现在与所有者的对话中，绝不出现在站点代码与文案里。
 - 正文自然覆盖目标长尾词 + 变体，不关键词堆砌；事实数字必须准确（1025 物种、326 形态、18 属性、Gen 1-9）。
 - 每个页面回答用户真实意图：工具功能、使用场景、玩法（Nuzlocke、smash or pass、wheel 转盘等）。
 - 新增内容段落后同步检查词数与 H2/H3 结构（标题性文字用完整关键词）。
@@ -48,12 +47,18 @@
 3. `vercel.json` 加 `/{dir}/index.html → /{dir}/` 永久重定向
 4. **全部既有页面**更新 nav + footer + 正文内链（新页关键词锚文本）
 5. JSON-LD ×3（SoftwareApplication / FAQPage 一致 / BreadcrumbList）
-6. `<title>`/`og:title`/`twitter:title` 三同步 + description 100-170 字符
-7. 正文 ≥800 词 + 内外链闭环
+6. `<title>`/`og:title`/`twitter:title` 三同步 + description **100-160 字符**（160 是 SERP 截断硬线，不是 170；mega 页与 name 页曾因 160+ 被点名。写法：完整关键词开头命中 + 只保留最核心差异化卖点，尾部功能罗列宁删勿超）
+7. 正文 ≥800 词 + 内外链闭环；**正文软上限 ~1800 词**（超过不致命但会稀释主题，写正文时控制在 900-1700 区间；宁可句句扎实，不为凑数注水）
 8. 移动端适配（汉堡导航、按钮触屏 ≥44px）
 9. 禁原生弹窗（modal 风格）
-10. 推送后验证：308 重定向 / og-image 200 / 页面 200 / GSC 提交
+10. 推送后验证：308 重定向 / **og-image 直接 curl 确认 200**（源码声明≠文件存在，分享封面 404 会白丢 Discord/Reddit/Twitter 的自然传播流量）/ 页面 200 / GSC 提交
 
 - 提交信息用英文、语义化；推送后 Vercel 自动部署。
 - 上线后验证线上：curl 检查 title/canonical/sitemap/重定向一致性。
 - GSC 操作（人工）：sitemap 变更后重新提交 `https://www.random-pokemon-generator.co/sitemap.xml`。
+- **FAQ 是金矿**：FAQ 里回答得扎实的"工具向搜索问题"（如 shiny 页的 "What are the odds of a real shiny Pokemon?" 覆盖 1/8192 → 1/4096 → Shiny Charm 1/1365 → Masuda 1/683 → 叠加 1/512）本身就是有搜索量的词。复盘时逐条审视 FAQ，凡能独立的都记入下方候选词清单。
+- **内链姿势（已验证有效，继续保持）**：How It Works 收尾段 + footer 用精确锚文本把全站工具串成闭环。
+
+## 5. 候选关键词池（复盘沉淀，未来可做独立页）
+
+- `pokemon shiny odds` / `shiny odds` —— 由 shiny 页 FAQ 沉淀；内容基础现成（各世代概率 + Shiny Charm/Masuda/孵蛋叠加表），可扩展为独立内容页。
