@@ -61,4 +61,6 @@
 
 ## 5. 候选关键词池（复盘沉淀，未来可做独立页）
 
-- `pokemon shiny odds` / `shiny odds` —— 由 shiny 页 FAQ 沉淀；内容基础现成（各世代概率 + Shiny Charm/Masuda/孵蛋叠加表），可扩展为独立内容页。
+> 全站已上线页面的关键词基线见 `SEO-KEYWORDS.md`；新词上线后从本池移出并补进基线表。
+
+- ~~`pokemon shiny odds` / `shiny odds`~~ —— ✅ 已上线：`/pokemon-shiny-odds/`（2026-09-03，内容页+交互计算器）。
