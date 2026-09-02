@@ -2763,6 +2763,8 @@ output { color: var(--poke-red); font-weight: 700; }
   color: #7a5b00;
 }
 .odds .tool-note { margin-top: 12px; }
+/* toolkit block nested inside the yellow game band */
+.toolkit-in-band { margin-top: 56px; }
 /* shiny odds calculator output */
 .odds-result-grid {
   display: grid;
