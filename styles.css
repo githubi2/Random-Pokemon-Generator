@@ -2739,6 +2739,9 @@ output { color: var(--poke-red); font-weight: 700; }
   overflow-x: auto;
   max-width: 760px;
 }
+/* cornered ::before sticks out 2px; inside an overflow container that becomes
+   scrollable overflow and spawns phantom h+v scrollbars — draw corners inside */
+.odds-table-wrap.cornered::before { inset: 0; }
 .odds-table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .odds-table th {
   text-align: left;
