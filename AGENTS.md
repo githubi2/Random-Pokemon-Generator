@@ -17,7 +17,7 @@
 6. **OG/Twitter**：每页必须有 `og:image`（1200×630 绝对 www URL，放页面同目录 `og-image.png`）+ `og:image:width/height` + `twitter:card: summary_large_image` + `twitter:image`；`og:url` 必须带 www。
 7. **URL slug 关键词化**：新页面目录名 = **完整目标关键词**（例：`pokemon-smash-or-pass/`、`random-pokemon-generator-wheel/`），**绝不省略关键词中的词**（`smash-or-pass/`、`pokemon-wheel/` ❌）。URL = Title 主词 = H1。
 8. **锚文本完整关键词化**：所有引用点（nav、footer、正文语境内链、JSON-LD name、Breadcrumb name）的锚文本必须用**完整关键词**；禁止短变体锚文本（`Pokemon Wheel` ❌ → `Random Pokemon Generator Wheel` ✅）。关键词变体（如中长形式）只允许在**正文叙述**中自然出现，不允许作为锚文本。
-9. **内链闭环**：**每个页面必须引用站内所有其他页面**（4×4 矩阵），三层引用：nav + footer + 正文语境内链（锚文本用关键词）。新增页面必须同步更新全部既有页面的 nav/footer/正文内链。
+9. **内链闭环**：**每个页面必须引用站内所有其他页面**，三层引用缺一不可：nav + footer + **正文语境内链**（锚文本用关键词）。正文互链的判定口径：在剔除 `<script>/<style>` 后的 `<main>` 可见内容里，必须存在指向**其余每一个页面**的至少 1 条语境内链（header logo、nav、footer 里的链接不计入正文层）。新增页面必须同步更新全部既有页面的 nav/footer/正文内链，并在提交前用脚本验证 N×N 正文矩阵无缺口。
 10. **sitemap.xml**：新页面必须加入（www URL + `lastmod` 当天，新增页用目录形式 URL）；禁止无 www 条目；robots.txt 的 `Sitemap:` 行保持指向 www sitemap。
 11. **链接形式**：站内链接一律**目录形式**，**禁止在 href 中出现 `index.html`**（例：`nuzlocke-generator/`、`../`、`./`）——避免 Google 将 `xxx/index.html` 与 `xxx/` 视为两个 URL 造成重复页面。禁止 `href="/..."` 绝对路径。
 12. **敏感字样**：禁止出现 "SEO-optimized"、"free" 等自曝/合规敏感措辞（历史决策：曾全站移除）。标题/描述/正文都不允许。
