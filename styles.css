@@ -2759,3 +2759,51 @@ output { color: var(--poke-red); font-weight: 700; }
   color: #7a5b00;
 }
 .odds .tool-note { margin-top: 12px; max-width: 760px; }
+/* shiny odds calculator output */
+.odds-result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 6px 0 18px;
+}
+.odds-result-card {
+  background: #fff;
+  border: 2px solid var(--ink);
+  padding: 18px 16px;
+  text-align: center;
+}
+.odds-result-num {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+}
+.odds-result-label {
+  margin-top: 6px;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(18, 18, 18, 0.55);
+}
+.odds-n-label { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 700; }
+.odds-n-label input {
+  font: inherit;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  border: 2px solid var(--ink);
+  padding: 8px 10px;
+  width: 130px;
+  background: #fff;
+  min-height: 44px;
+}
+.odds-n-result {
+  margin: 10px 0 0;
+  font-weight: 700;
+  font-size: 14px;
+}
+.odds-cta { display: inline-block; text-decoration: none; }
+@media (max-width: 760px) {
+  .odds-result-grid { grid-template-columns: 1fr; }
+  .odds-result-num { font-size: 22px; }
+}

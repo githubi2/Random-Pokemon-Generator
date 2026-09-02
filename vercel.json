@@ -41,6 +41,11 @@
       "permanent": true
     },
     {
+      "source": "/pokemon-shiny-odds/index.html",
+      "destination": "/pokemon-shiny-odds/",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true
