@@ -2731,13 +2731,14 @@ output { color: var(--poke-red); font-weight: 700; }
 }
 .shiny-empty-actions { justify-content: center; gap: 10px; flex-wrap: wrap; }
 /* shiny odds reference table */
-.odds { padding: 56px 0; }
-.odds-lede { max-width: 760px; line-height: 1.75; margin: 0 0 22px; }
+/* NOTE: only vertical padding here — a padding shorthand with 0 horizontal would
+   clobber .container's 0 20px side padding and misalign these sections */
+.odds { padding-top: 56px; padding-bottom: 56px; }
+.odds-lede { line-height: 1.75; margin: 0 0 22px; }
 .odds-table-wrap {
   background: #fff;
   border: 2px solid var(--ink);
   overflow-x: auto;
-  max-width: 760px;
 }
 /* cornered ::before sticks out 2px; inside an overflow container that becomes
    scrollable overflow and spawns phantom h+v scrollbars — draw corners inside */
@@ -2761,7 +2762,7 @@ output { color: var(--poke-red); font-weight: 700; }
   white-space: nowrap;
   color: #7a5b00;
 }
-.odds .tool-note { margin-top: 12px; max-width: 760px; }
+.odds .tool-note { margin-top: 12px; }
 /* shiny odds calculator output */
 .odds-result-grid {
   display: grid;
