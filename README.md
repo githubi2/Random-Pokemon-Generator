@@ -23,6 +23,8 @@ A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero de
 
 ## Shiny Odds Calculator
 
+**Production Site: [https://www.random-pokemon-generator.co/pokemon-shiny-odds/](https://www.random-pokemon-generator.co/pokemon-shiny-odds/)**
+
 The [shiny odds page](https://www.random-pokemon-generator.co/pokemon-shiny-odds/) covers every Pokémon game's shiny hunting mechanics:
 
 - **Base odds** across all generations (1/8192 → 1/4096)
