@@ -20,6 +20,7 @@ A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero de
 | 👥 Team Picker | [/pokemon-team-picker/](https://www.random-pokemon-generator.co/pokemon-team-picker/) | Pick a balanced Pokémon team with type coverage analysis |
 | 🔥 Smash or Pass | [/pokemon-smash-or-pass/](https://www.random-pokemon-generator.co/pokemon-smash-or-pass/) | Swipe through Pokémon and build your favorites list |
 | ❓ Who's That Pokemon | [/whos-that-pokemon/](https://www.random-pokemon-generator.co/whos-that-pokemon/) | Guess the Pokémon from its silhouette — classic mini-game |
+| 🔒 Privacy Policy | [/privacy-policy/](https://www.random-pokemon-generator.co/privacy-policy/) | Plain-language privacy policy: local-only storage, GA4 analytics, opt-out guide |
 
 ## Shiny Odds Calculator
 
@@ -121,6 +122,9 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 │   ├── index.html                    # guessing game page
 │   ├── whos-that-pokemon.js          # silhouette/pixel/cry game logic
 │   ├── correct.wav / incorrect.wav   # answer sounds
+│   └── og-image.png
+├── privacy-policy/
+│   ├── index.html                    # privacy policy page (local storage, GA4, opt-out)
 │   └── og-image.png
 ├── nav.js                            # hamburger nav toggle (shared)
 ├── data.js                           # Pokémon dataset (1,351 entries)
