@@ -186,6 +186,21 @@
       ', ' + STAT_NAMES[nat.down] + ' ' + downNeutral + ' → ' + Math.floor(downNeutral * 0.9) + '.';
   }
 
+  function findBySlug(slug) {
+    for (var i = 0; i < dex.length; i++) {
+      if (dex[i].n === slug) { return dex[i]; }
+    }
+    return null;
+  }
+
+  function saveLast(slug) {
+    try { window.localStorage.setItem('pnc-last-pokemon', slug); } catch (e) { /* private mode */ }
+  }
+
+  function loadLast() {
+    try { return window.localStorage.getItem('pnc-last-pokemon'); } catch (e) { return null; }
+  }
+
   function renderResult(p) {
     if (!resultBox) { return; }
     var recs = pickRecs(p);
@@ -236,6 +251,7 @@
         li.addEventListener('click', function () {
           searchInput.value = displayName(p.n);
           closeSuggest();
+          saveLast(p.n);
           renderResult(p);
         });
         suggestBox.appendChild(li);
@@ -268,12 +284,12 @@
     });
   }
 
-  /* Default pick so the finder is never empty on load */
+  /* On load restore the visitor's last lookup; fall back to Garchomp */
   if (dex.length) {
-    for (var d = 0; d < dex.length; d++) {
-      if (dex[d].n === 'garchomp') { current = dex[d]; break; }
-    }
-    if (!current) { current = dex[0]; }
+    var saved = loadLast();
+    if (saved) { current = findBySlug(saved); }
+    if (!current) { current = findBySlug('garchomp') || dex[0]; }
+    if (saved && current && searchInput) { searchInput.value = displayName(current.n); }
     renderResult(current);
   }
 })();
