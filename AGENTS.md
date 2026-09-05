@@ -65,3 +65,12 @@
 > 全站已上线页面的关键词基线见 `SEO-KEYWORDS.md`；新词上线后从本池移出并补进基线表。
 
 - ~~`pokemon shiny odds` / `shiny odds`~~ —— ✅ 已上线：`/pokemon-shiny-odds/`（2026-09-03，内容页+交互计算器）。
+
+### 2026-09-05 调研补充（SERP 实查，非工具估计）
+
+- **`birthday pokemon`** —— ⭐ 下一页首选。SERP 缺口型机会：WikiHow 2026-08 刚发专题指南（侧面验证需求真实且新），其余仅 2009 年论坛帖，**首页无任何交互工具站**。玩法 = MMDD→图鉴号，10/25 后日期用减半法 + 年中日序数法兜底。病毒传播属性强（"我的生日宝可梦"晒图），数据现成（data.js 全图鉴）。KD 低，建站成本极低。
+- `pokemon nature chart` / `pokemon natures` —— 备选。量大于 birthday pokemon，但 SERP 有 Bulbapedia + RankedBoost（已带 nature calculator）镇守；差异化需做"按宝可梦推荐性格"交互。可做但优先级次之。
+- `pokemon would you rather` —— 备选。SERP 仅论坛帖和 wordwall 转盘，无工具站；但需手写数百条题库，内容成本高、留存弱于计算器类。
+- `pokemon fusion generator` —— ❌ 放弃。Semrush 实测美区 8.1K/月，但融合立绘无合规素材来源，纯前端无法实现。
+- `pokemon type chart` / `full odds shiny` —— ❌ 放弃（KD 过高，pokemon.com / pokemondb / marriland 垄断，同 shiny odds 页备注结论）。
+- `pokemon randomizer` —— ❌ 放弃。量虽大但意图是 ROM 修改器下载，与网页工具错配，高跳出。

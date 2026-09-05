@@ -18,9 +18,9 @@
 |---|-----|-----------|--------------|-----|----------|---------|------|
 | 1 | `/` | random pokemon generator | Random Pokemon Generator - Team Builder (Gen 1-9)（49） | Random Pokemon Generator | 145 | 1598 | 工具 |
 | 2 | `/nuzlocke-generator/` | nuzlocke generator | Nuzlocke Generator - Pokemon Team Builder（41） | Nuzlocke Generator & Team Builder | 140 | 1620 | 工具 |
-| 3 | `/pokemon-smash-or-pass/` | pokemon smash or pass | Pokemon Smash or Pass - Random Pokemon Game（43） | Pokemon Smash or Pass | 131 | 1486 | 游戏 |
-| 4 | `/pokemon-team-picker/` | pokemon team picker | Pokemon Team Picker & Generator（31） | Pokemon Team Picker & Generator | 158 | 1363 | 工具 |
-| 5 | `/random-mega-pokemon-generator/` | random mega pokemon generator | Random Mega Pokemon Generator - Mega Evolution Picker（53） | Random Mega Pokemon Generator | 131 | 1679 | 工具 |
+| 3 | `/pokemon-smash-or-pass/` | pokemon smash or pass | Pokemon Smash or Pass – Judge 1,025 Pokémon & Share Your Score（62）⚠️ | Pokemon Smash or Pass | 156 | 1486 | 游戏 |
+| 4 | `/pokemon-team-picker/` | pokemon team picker | Pokemon Team Picker – Build a 6-Pokémon Squad with Type Matchups（64）⚠️ | Pokemon Team Picker | 133 | 1363 | 工具 |
+| 5 | `/random-mega-pokemon-generator/` | random mega pokemon generator | Random Mega Pokemon Generator – Every Mega Evolution, Stat Gains Included（73）⚠️ | Random Mega Pokemon Generator | 155 | 1679 | 工具 |
 | 6 | `/random-pokemon-generator-wheel/` | pokemon wheel spinner ⚠️ | Pokemon Wheel Spinner - Random Pokemon Generator Wheel（54） | Pokemon Wheel Spinner | 158 | 1417 | 工具 |
 | 7 | `/random-pokemon-name-generator/` | random pokemon name generator | Random Pokemon Name Generator - Pokemon Nickname Ideas（54） | Random Pokemon Name Generator | 141 | 1329 | 工具 |
 | 8 | `/random-shiny-pokemon-generator/` | random shiny pokemon generator | Random Shiny Pokemon Generator - Shiny Pokemon Picker（53） | Random Shiny Pokemon Generator | 144 | 1889 | 工具 |
@@ -30,11 +30,16 @@
 ## 备注
 
 - ⚠️ **#6 wheel 页**：URL slug（`random-pokemon-generator-wheel/`）与目标关键词（`pokemon wheel spinner`）不一致，是 commit `16a1f93` 的**有意重定向**——URL 已上线不能轻易改，关键词重定到搜索意图更好的 "pokemon wheel spinner"。属规则第 7 条的已知例外，勿"修复"回退。
+- ⚠️ **#3/#4/#5 Title 超 60 字符（62/64/73）**：2026-09-05 P0 CTR 改造实验（三页排名 7.7-9.7、CTR 0-1.7%），刻意用长标题塞卖点钩子，违反规则 2 的 ≤60 软线属**有意为之**。验证口径：改后 1 周 GSC 看 CTR（team-picker 0%→≥2%、smash 1.7%→≥3%、mega 首次点击）；无效则回退到 ≤60 版本。#4 team-picker 的 H1 同步去掉 "& Generator"。#5 mega 已备 60 字符回退版：`Random Mega Pokemon Generator – Every Mega Evolution + Stat Gains`（丢 "Included" 填充词，桌面端完整显示）——CTR 仍为 0% 时切换。
+- **首页 FAQ 区**（2026-09-05）：`<h2>` 前新增 `p.faq-intro` 段落覆盖 `pokemon random pokemon generator` / `random generator pokemon` 两个变体词（GSC 各 47-49 名），不改 Title。
 - **#10 shiny odds 页**：内容页 + 交互计算器混合体，承接 `pokemon shiny odds` / `shiny odds` / `chance of shiny pokemon` 意图；明确不做 `full odds shiny` 单页（KD 过高）。
 - 全部 10 页当前快照均达达标线（title/desc/词数/H1/JSON-LD/互链）。
 
 ## Description 存档（压缩改写留痕）
 
+- #3 smash-or-pass（2026-09-05 P0）：`Smash or pass every Pokémon from Gen 1-9. Build your verdict list, track your smash rate, and share your score — filter by type, Gen, or region. No sign-up.`（156）
+- #4 team-picker（2026-09-05 P0）：`Pick six Pokémon, check your team's defensive matchups, and export to Showdown. Search 1,025 Pokémon by type, Gen, move, and ability.`（133）—— 方案原文尾部 "— all free" 违反规则 12（禁 "free"），已剔除。
+- #5 mega（2026-09-05 P0）：`Roll any Mega Evolution — see stat gains over the base form, abilities, and full type matchups. Filter by Gen, type, or rarity. Shiny toggle on every card.`（155）
 - #4 team-picker：`Build a competitive squad with this Pokemon team picker and generator: six slots, type matchups, moves and items. Filter 1,025 Pokemon and export to Showdown.`（158）
 - #6 wheel：`Spin a Pokemon wheel spinner for a random pick: Gen 1-9 and type filters, instant draws, shareable results. Part of the Random Pokemon Generator Wheel family.`（158）
 - #8 shiny：`Random shiny pokemon generator — roll shiny Pokemon from Gen 1–9 with generation, type, rarity and BST filters, plus a shiny-vs-regular compare.`（144）
