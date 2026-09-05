@@ -37,6 +37,7 @@
 - **hero 区规范**：hero 只保留 eyebrow + H1 + lede，**不放 CTA 按钮**（工具入口在工具面板内，避免重复入口）；与既有页面视觉一致。
 - 移动端（≤760px）必须适配（汉堡导航、历史/列表紧凑布局；nav 6 项完整关键词在桌面可用、移动端折叠）。
 - **`vercel.json`**：新增页面目录后，必须在 `redirects` 加 `/{dir}/index.html → /{dir}/` 的 permanent 重定向。
+- **缓存策略（vercel.json `headers`，2026-09-05 起）**：CSS/JS 浏览器缓存 1 天 + SWR 7 天；图片/音频（png/ico/svg/wav）缓存 7 天 + SWR 30 天；HTML 保持 Vercel 默认 `must-revalidate`。改动 CSS/JS 后**必须 bump 引用处的 `?v=` 版本号**（既有约定），新页面的脚本/样式引用一律带版本号。
 - 修改后必须验证：`node --check` JS、HTML 标签配对、canonical/词数/内链矩阵/JSON-LD 回归（用 `kimi-verify-` 前缀临时脚本，跑完即删）。
 - 文件名/目录：子页面用目录形式（`pokemon-smash-or-pass/index.html` → URL `/pokemon-smash-or-pass/`）。
 
