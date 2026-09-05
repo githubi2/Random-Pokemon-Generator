@@ -21,6 +21,8 @@ A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero de
 | 🔥 Smash or Pass | [/pokemon-smash-or-pass/](https://www.random-pokemon-generator.co/pokemon-smash-or-pass/) | Swipe through Pokémon and build your favorites list |
 | ❓ Who's That Pokemon | [/whos-that-pokemon/](https://www.random-pokemon-generator.co/whos-that-pokemon/) | Guess the Pokémon from its silhouette — classic mini-game |
 | 🔒 Privacy Policy | [/privacy-policy/](https://www.random-pokemon-generator.co/privacy-policy/) | Plain-language privacy policy: local-only storage, GA4 analytics, opt-out guide |
+| 👋 About & Contact | [/about/](https://www.random-pokemon-generator.co/about/) | What the project is, how it's built, and how to report bugs or suggest tools |
+| 📜 Terms of Use | [/terms-of-use/](https://www.random-pokemon-generator.co/terms-of-use/) | Acceptable use, IP & trademark notices, disclaimers, liability |
 
 ## Shiny Odds Calculator
 
@@ -125,6 +127,12 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 │   └── og-image.png
 ├── privacy-policy/
 │   ├── index.html                    # privacy policy page (local storage, GA4, opt-out)
+│   └── og-image.png
+├── about/
+│   ├── index.html                    # about & contact page (project, contact via GitHub)
+│   └── og-image.png
+├── terms-of-use/
+│   ├── index.html                    # terms of use page (acceptable use, IP, disclaimers)
 │   └── og-image.png
 ├── nav.js                            # hamburger nav toggle (shared)
 ├── data.js                           # Pokémon dataset (1,351 entries)

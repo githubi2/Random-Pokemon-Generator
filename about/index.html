@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About &amp; Contact - Random Pokemon Generator</title>
+  <meta name="description" content="About Random Pokemon Generator: a fan-made suite of random Pokemon tools built with vanilla JS and PokeAPI data, plus how to report bugs and suggest tools." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/about/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="About &amp; Contact - Random Pokemon Generator" />
+  <meta property="og:description" content="What Random Pokemon Generator is, how it is built, and the fastest way to report a bug or suggest a new tool." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/about/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/about/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About &amp; Contact - Random Pokemon Generator" />
+  <meta name="twitter:description" content="What Random Pokemon Generator is, how it is built, and the fastest way to report a bug or suggest a new tool." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/about/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260905a" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Random Pokemon Generator",
+    "description": "A fan-made suite of random Pokemon tools — team generators, games, planners and odds calculators — built with vanilla JavaScript and open PokeAPI data.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://www.random-pokemon-generator.co/about/"
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Random Pokemon Generator", "item": "https://www.random-pokemon-generator.co/" },
+      { "@type": "ListItem", "position": 2, "name": "About & Contact", "item": "https://www.random-pokemon-generator.co/about/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Random Pokemon Generator an official Pokemon website?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. It is an independent fan project and is not affiliated with, endorsed by, or sponsored by Nintendo, Game Freak, or The Pokemon Company. Pokemon and all character names are trademarks of Nintendo." }
+      },
+      {
+        "@type": "Question",
+        "name": "Who runs this site?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The site is built and maintained by an independent developer and longtime Pokemon fan. It is a hobby project: every tool is hand-written in vanilla JavaScript, open source, and improved based on player feedback from the community." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I report a bug or incorrect data?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Open an issue on the public GitHub repository at github.com/githubi2/Random-Pokemon-Generator. Include the page URL, what you expected, and what actually happened. Data corrections (stats, types, odds) are especially welcome and usually ship in the next update." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I suggest a new tool or feature?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — feature suggestions arrive through the same GitHub issues page and several shipped tools started as player requests. Describe the use case (Nuzlocke run, stream segment, draft league) and the idea gets evaluated against the site's random-tools focus." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the site work on mobile?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every page is responsive, with hamburger navigation and touch-sized controls on small screens. All tools run in the browser, so they also work offline once the page has loaded, with no app install required." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+              <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+              <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+            </ul>
+          </li>
+          <li><a href="./" class="nav-link nav-link-active">About</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">Fan Project · Open Source · Community Driven</p>
+      <h1 id="page-title">About &amp; Contact - Random Pokemon Generator</h1>
+      <p class="lede">Random Pokemon Generator is an independent fan project: a growing suite of random Pokemon tools built for players, streamers, Nuzlockers, and draft leagues. Here is what it is, how it is built, and how to reach the maintainer.</p>
+    </section>
+
+    <!-- What this site is -->
+    <section class="band band-yellow" aria-labelledby="what-title">
+      <div class="container">
+        <p class="eyebrow">The project</p>
+        <h2 id="what-title">What This Site Is</h2>
+        <div class="how-grid">
+          <article>
+            <h3>Built by a fan, for fans</h3>
+            <p>Random Pokemon Generator started with a simple observation: rolling a random Pokemon should be instant, filterable, and honest about its randomness. The main <a href="../">Random Pokemon Generator</a> draws from all 1,025 species across Gen 1-9 with more than ten filter dimensions, a team tactical report, and shareable roll links — and it grew from there into a full toolkit. New tools and refinements ship regularly, driven by what players actually ask for, and every update keeps the same bar: fast to load, honest about its data, and useful within five seconds of opening the page.</p>
+          </article>
+          <article>
+            <h3>Every kind of random</h3>
+            <p>The suite now covers structured runs with the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a>, squad building with the <a href="../pokemon-team-picker/">Pokemon Team Picker</a>, single dramatic picks on the <a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a>, shiny hunting with the <a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a> and the <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a> calculator, and Mega Evolution rolls with the <a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a>.</p>
+          </article>
+          <article>
+            <h3>Games, not just generators</h3>
+            <p>Some pages are pure play: judge the whole dex in <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a>, name the silhouette in <a href="../whos-that-pokemon/">Who's That Pokemon</a>, or find the perfect nickname with the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a>. Each tool runs entirely in your browser with no accounts and no sign-up.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it's built -->
+    <section class="band" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">Under the hood</p>
+        <h2 id="how-title">How It Is Built</h2>
+        <div class="how-grid">
+          <article>
+            <h3>Boring technology, on purpose</h3>
+            <p>Every page is hand-written vanilla HTML, CSS, and JavaScript — no frameworks, no build step, no dependencies. That keeps the site fast on any device, easy to audit, and simple to maintain. The whole project is open source, so anyone can read exactly how every roll is computed.</p>
+          </article>
+          <article>
+            <h3>Open data, credited sources</h3>
+            <p>Species data, stats, and official artwork come from the community-run <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a> project. Shiny rates and game mechanics are compiled from in-game documentation and community research. Where a number is an estimate rather than a confirmed figure, the page says so.</p>
+          </article>
+          <article>
+            <h3>Your data stays yours</h3>
+            <p>Roll history, saved teams, and preferences live only in your browser's local storage — there are no accounts and nothing to breach. Anonymous traffic statistics come from Google Analytics 4, and every tool works identically with analytics blocked. The full details are in the <a href="../privacy-policy/">Privacy Policy</a>, and the rules of use are in the <a href="../terms-of-use/">Terms of Use</a>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="band band-yellow" aria-labelledby="contact-title">
+      <div class="container">
+        <p class="eyebrow">Get in touch</p>
+        <h2 id="contact-title">Contact</h2>
+        <div class="how-grid">
+          <article>
+            <h3>Bugs and data errors</h3>
+            <p>The fastest way to reach the maintainer is an issue on the public GitHub repository: <a href="https://github.com/githubi2/Random-Pokemon-Generator" rel="noopener noreferrer" target="_blank">github.com/githubi2/Random-Pokemon-Generator</a>. Include the page URL, what you expected, and what actually happened. Wrong stats, outdated mechanics, and broken filters are treated as top priority and usually fixed in the next update.</p>
+          </article>
+          <article>
+            <h3>Feature and tool suggestions</h3>
+            <p>Ideas are welcome through the same issues page — several shipped tools began as player suggestions. The most useful requests describe the scenario: a Nuzlocke rule set, a stream segment, a draft league format, a classroom activity. If it fits the site's random-tools focus and can be built with open data, it goes on the roadmap.</p>
+          </article>
+          <article>
+            <h3>What to expect</h3>
+            <p>This is a hobby project maintained alongside a day job, so replies are not instant — but every issue is read, and the public issue tracker means you can watch progress instead of wondering. For privacy-related questions, the <a href="../privacy-policy/">Privacy Policy</a> answers most of them in plain language.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">About &amp; Contact FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>Is Random Pokemon Generator an official Pokemon website?</summary>
+        <p>No. It is an independent fan project and is not affiliated with, endorsed by, or sponsored by Nintendo, Game Freak, or The Pokemon Company. Pokemon and all character names are trademarks of Nintendo.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Who runs this site?</summary>
+        <p>The site is built and maintained by an independent developer and longtime Pokemon fan. It is a hobby project: every tool is hand-written in vanilla JavaScript, open source, and improved based on player feedback from the community.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How do I report a bug or incorrect data?</summary>
+        <p>Open an issue on the public GitHub repository at github.com/githubi2/Random-Pokemon-Generator. Include the page URL, what you expected, and what actually happened. Data corrections (stats, types, odds) are especially welcome and usually ship in the next update.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I suggest a new tool or feature?</summary>
+        <p>Yes — feature suggestions arrive through the same GitHub issues page and several shipped tools started as player requests. Describe the use case (Nuzlocke run, stream segment, draft league) and the idea gets evaluated against the site's random-tools focus.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Does the site work on mobile?</summary>
+        <p>Yes. Every page is responsive, with hamburger navigation and touch-sized controls on small screens. All tools run in the browser, so they also work offline once the page has loaded, with no app install required.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+        <li><a href="../">Random Pokemon Generator</a></li>
+        <li><a href="../nuzlocke-generator/">Nuzlocke Team Builder</a></li>
+        <li><a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a></li>
+        <li><a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a></li>
+        <li><a href="../whos-that-pokemon/">Who's That Pokemon</a></li>
+        <li><a href="../pokemon-team-picker/">Pokemon Team Picker</a></li>
+        <li><a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a></li>
+        <li><a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a></li>
+        <li><a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a></li>
+        <li><a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a></li>
+        <li><a href="../privacy-policy/">Privacy Policy</a></li>
+        <li><a href="./">About &amp; Contact</a></li>
+        <li><a href="../terms-of-use/">Terms of Use</a></li>
+      </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator. Not affiliated with Nintendo / Game Freak.</p>
+      <p class="footer-note">Data sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </div>
+  </footer>
+
+  <script src="../nav.js?v=20260802q"></script>
+</body>
+</html>
