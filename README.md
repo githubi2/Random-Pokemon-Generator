@@ -1,6 +1,6 @@
 # Random Pokemon Generator
 
-A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero dependencies, no build step. Eleven pages: generators, games, planners, and reference tools.
+A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero dependencies, no build step. Eleven tools plus a blog: generators, games, planners, and reference tools.
 
 **Live: [https://www.random-pokemon-generator.co/](https://www.random-pokemon-generator.co/)**
 
@@ -13,6 +13,7 @@ A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero de
 | 🎲 Main Generator | [random-pokemon-generator.co](https://www.random-pokemon-generator.co/) | Random team builder (1–12 Pokémon) with 10+ filter dimensions |
 | ✨ Shiny Odds Calculator | [/pokemon-shiny-odds/](https://www.random-pokemon-generator.co/pokemon-shiny-odds/) | Complete shiny rates for every game & method — base odds, Shiny Charm, Masuda, PLA outbreaks, SV sandwiches |
 | 🌿 Nature Chart | [/pokemon-nature-chart/](https://www.random-pokemon-generator.co/pokemon-nature-chart/) | All 25 natures with stat boosts/drops + best-nature finder for every species |
+| 📝 Blog | [/blog/](https://www.random-pokemon-generator.co/blog/) | Guides on odds math, natures and strategy — first post: [Pokemon Shiny Odds Explained](https://www.random-pokemon-generator.co/blog/shiny-odds-explained/) |
 | 🌟 Shiny Generator | [/random-shiny-pokemon-generator/](https://www.random-pokemon-generator.co/random-shiny-pokemon-generator/) | Random shiny Pokémon generator with rarity simulation |
 | 💎 Mega Generator | [/random-mega-pokemon-generator/](https://www.random-pokemon-generator.co/random-mega-pokemon-generator/) | Random Mega Evolution Pokémon generator |
 | 📛 Name Generator | [/random-pokemon-name-generator/](https://www.random-pokemon-generator.co/random-pokemon-name-generator/) | Generate random Pokémon names from all 1,025 species |
@@ -111,6 +112,13 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 │   ├── index.html                    # nature chart + best-nature finder page
 │   ├── nature.js                     # chart filter/sort + base-stat nature recommender
 │   └── og-image.png
+├── blog/
+│   ├── index.html                    # blog list page
+│   ├── og-image.png
+│   └── shiny-odds-explained/
+│       ├── index.html                # blog post: shiny odds math 1/8192 → 1/512
+│       ├── shiny-odds-chart.png      # in-article odds chart
+│       └── og-image.png
 ├── random-shiny-pokemon-generator/
 │   ├── index.html                    # shiny generator page
 │   ├── shiny-generator.js            # shiny roller (filters, compare, history)

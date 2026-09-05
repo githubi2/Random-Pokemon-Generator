@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokemon Blog — Guides, Odds &amp; Strategy</title>
+  <meta name="description" content="Guides from the Random Pokemon Generator team: shiny odds math, nature strategy, team-building theory and challenge-run formats, explained in plain numbers." />
+  <meta name="keywords" content="pokemon blog, pokemon guides, shiny odds guide, pokemon strategy blog" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/blog/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pokemon Blog — Guides, Odds &amp; Strategy" />
+  <meta property="og:description" content="Guides from the Random Pokemon Generator team: shiny odds math, nature strategy, team-building theory and challenge-run formats, explained in plain numbers." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/blog/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/blog/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pokemon Blog — Guides, Odds &amp; Strategy" />
+  <meta name="twitter:description" content="Guides from the Random Pokemon Generator team: shiny odds math, nature strategy, team-building theory and challenge-run formats, explained in plain numbers." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/blog/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260905a" />
+
+  <!-- Structured data: Blog -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Random Pokemon Generator Blog",
+    "description": "Guides from the Random Pokemon Generator team: shiny odds math, nature strategy, team-building theory and challenge-run formats.",
+    "url": "https://www.random-pokemon-generator.co/blog/",
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Pokemon Shiny Odds Explained: 1/8192 to 1/512",
+        "url": "https://www.random-pokemon-generator.co/blog/shiny-odds-explained/",
+        "datePublished": "2026-09-06"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Random Pokemon Generator", "item": "https://www.random-pokemon-generator.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.random-pokemon-generator.co/blog/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+              <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+              <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+              <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+              <li><a href="./" class="nav-link nav-link-active">Blog</a></li>
+            </ul>
+          </li>
+          <li><a href="./" class="nav-link">Blog</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">Guides · Odds Math · Strategy</p>
+      <h1 id="page-title">Random Pokemon Generator Blog</h1>
+      <p class="lede">The mechanics behind the tools, explained in plain numbers. Every guide here is written to answer one real question a player actually types into a search box — how rare is a shiny, which nature should I run, how do I build a squad that survives a Nuzlocke — and every claim is checked against in-game data before it ships.</p>
+    </section>
+
+    <!-- Post list -->
+    <section class="container blog-list" aria-labelledby="latest-title">
+      <h2 id="latest-title" class="blog-section-title">Latest Guides</h2>
+      <article class="blog-card cornered">
+        <a href="shiny-odds-explained/" class="blog-card-thumb" aria-hidden="true" tabindex="-1">
+          <img src="shiny-odds-explained/og-image.png" alt="" width="1200" height="630" loading="lazy" />
+        </a>
+        <div class="blog-card-body">
+          <p class="blog-card-meta">September 6, 2026 · 7 min read</p>
+          <h3><a href="shiny-odds-explained/">Pokemon Shiny Odds Explained: 1/8192 to 1/512</a></h3>
+          <p>Where the famous shiny numbers actually come from: the 16-bit math behind full odds 1/8192, the one-time base-rate change in Gen 6, how the Masuda Method's extra rolls reach 1/683, and how stacking the Shiny Charm lands on exactly 1/512 — plus the dry-streak math every hunter should know before starting.</p>
+          <a href="shiny-odds-explained/" class="blog-card-link">Read the guide →</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- What we cover -->
+    <section class="container odds" aria-labelledby="cover-title">
+      <p class="eyebrow">Editorial scope</p>
+      <h2 id="cover-title">What This Blog Covers</h2>
+      <p class="odds-lede">This is the written companion to the tool suite. The tools answer questions instantly — roll a team, compute a rate, check a nature — and the blog explains the reasoning underneath, so you can sanity-check any tool against first principles instead of trusting a black box.</p>
+      <div class="how-grid">
+        <article>
+          <h3>Odds and probability</h3>
+          <p>Shiny rates, catch math, roll distributions and the statistics of long hunts. We show the formulas, not just the answers: where 1/8192 comes from, why independent rolls mean nothing is ever "due," and how to read cumulative probability when you plan a 1,000-encounter session. Our first guide, <a href="shiny-odds-explained/">Pokemon Shiny Odds Explained</a>, covers the full ladder from full odds to the Masuda-plus-Charm ceiling, and it pairs directly with the interactive <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a> calculator.</p>
+        </article>
+        <article>
+          <h3>Team-building strategy</h3>
+          <p>Natures, roles, speed tiers and defensive synergy — the thinking that turns six strong Pokemon into one strong team. Expect deep dives on the nature system (the <a href="../pokemon-nature-chart/">Pokemon Nature Chart</a> page is the interactive companion), type-coverage planning with the <a href="../pokemon-team-picker/">Pokemon Team Picker</a>, and squad construction theory you can apply whether you build by hand or start from a random roll.</p>
+        </article>
+        <article>
+          <h3>Challenge runs and formats</h3>
+          <p>Nuzlocke rulesets, mono-type runs, randomizer-style drafts and wheel-picked squads. We write about formats you can actually run with the tools on this site: roll encounters with the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a>, draft from the <a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a>, or let the <a href="../">Random Pokemon Generator</a> deal your fate, then read the strategy guides that make those runs winnable.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Recently added -->
+    <section class="container odds" aria-labelledby="recent-title">
+      <p class="eyebrow">New in the toolbox</p>
+      <h2 id="recent-title">Recently Added to the Site</h2>
+      <p class="odds-lede">The blog launches alongside two major additions to the tool suite. Both were built from search data — real questions players ask — and both pair naturally with the guides we publish here. If you have not tried them yet, they are the fastest way to put this blog's advice into practice.</p>
+      <div class="how-grid">
+        <article>
+          <h3>Pokemon Nature Chart</h3>
+          <p>Our newest reference tool answers the question every competitive player asks after a catch: which nature should this Pokemon run? The <a href="../pokemon-nature-chart/">Pokemon Nature Chart</a> lists all 25 natures with their stat boosts and drops in a filterable, sortable table, and its finder reads any species' base stats to recommend a nature — physical, special, wall or Trick Room — with the real level-50 numbers attached. A full strategy guide on natures and speed tiers is on the editorial calendar, and it will draw directly from this tool.</p>
+        </article>
+        <article>
+          <h3>Pokemon Shiny Odds</h3>
+          <p>The <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a> page is half reference, half calculator: every base rate from Gen 2 to Gen 9, every boost method from the Shiny Charm to Legends: Arceus outbreaks, and an interactive panel that converts your exact hunt conditions into a fraction, a percentage and an expected hunt length. This week's guide, <a href="shiny-odds-explained/">Pokemon Shiny Odds Explained</a>, is the narrative companion — read the guide for the why, then open the calculator for your own numbers.</p>
+        </article>
+        <article>
+          <h3>What comes next</h3>
+          <p>Upcoming guides go deeper into the systems behind the tools: nature selection worked examples for popular competitive Pokemon, a Nuzlocke survival playbook built around encounter math, and a team-coverage walkthrough using the defensive matrix in the <a href="../pokemon-team-picker/">Pokemon Team Picker</a>. Each one follows the same rule as everything on this site — verified numbers, plain language, and a tool you can use the moment you finish reading.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- How we write -->
+    <section class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">Our standard</p>
+        <h2 id="how-title">How These Guides Are Written</h2>
+        <div class="how-grid">
+          <article>
+            <h3>Numbers before narrative</h3>
+            <p>Every rate, base stat and mechanic we cite is verified against the game's actual systems — the same data that powers the tools on this site. When the community measures something empirically rather than reading it from the code, like Sword and Shield's battle-count bonus, we say so and label the confidence level. You will never find a recycled forum myth presented as fact here.</p>
+          </article>
+          <article>
+            <h3>Every guide pairs with a tool</h3>
+            <p>Reading about odds is useful; computing your own is better. Each article links the exact tool that puts its lesson into practice, whether that is the shiny calculator, the nature finder, or the squad builders. If you want the reverse path — tools first, theory later — start from the <a href="../">Random Pokemon Generator</a> homepage and come back when a number surprises you.</p>
+          </article>
+          <article>
+            <h3>Built for real questions</h3>
+            <p>Topics come from what players actually search and ask: shiny hunting math, nature picks for specific Pokemon, Nuzlocke survival strategy, and how to use generators for drafts and party games like <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a> and <a href="../whos-that-pokemon/">Who's That Pokemon</a>. Have a question worth a guide? Reach us through the <a href="../about/">About &amp; Contact</a> page — reader questions set the editorial calendar.</p>
+          </article>
+        </div>
+        <div class="how-grid toolkit-grid">
+          <article>
+            <h3>The full tool suite</h3>
+            <p>Beyond the guides: the <a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a> rolls shinies on demand, the <a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a> deals only Mega Evolutions, and the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> gives every catch an original nickname — eleven tools, one dataset of 1,025 species.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+        <li><a href="../">Random Pokemon Generator</a></li>
+        <li><a href="../nuzlocke-generator/">Nuzlocke Team Builder</a></li>
+        <li><a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a></li>
+        <li><a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a></li>
+        <li><a href="../whos-that-pokemon/">Who's That Pokemon</a></li>
+        <li><a href="../pokemon-team-picker/">Pokemon Team Picker</a></li>
+        <li><a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a></li>
+        <li><a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a></li>
+        <li><a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a></li>
+        <li><a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a></li>
+        <li><a href="../pokemon-nature-chart/">Pokemon Nature Chart</a></li>
+        <li><a href="./">Blog</a></li>
+        <li><a href="../privacy-policy/">Privacy Policy</a></li>
+        <li><a href="../about/">About &amp; Contact</a></li>
+        <li><a href="../terms-of-use/">Terms of Use</a></li>
+      </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator. Not affiliated with Nintendo / Game Freak.</p>
+      <p class="footer-note">Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </div>
+  </footer>
+
+  <script src="../nav.js?v=20260802q"></script>
+</body>
+</html>
