@@ -46,6 +46,11 @@
       "permanent": true
     },
     {
+      "source": "/pokemon-nature-chart/index.html",
+      "destination": "/pokemon-nature-chart/",
+      "permanent": true
+    },
+    {
       "source": "/privacy-policy/index.html",
       "destination": "/privacy-policy/",
       "permanent": true

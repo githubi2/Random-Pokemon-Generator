@@ -2817,3 +2817,88 @@ output { color: var(--poke-red); font-weight: 700; }
   .odds-result-grid { grid-template-columns: 1fr; }
   .odds-result-num { font-size: 22px; }
 }
+
+/* ---------------- Pokemon Nature Chart page ---------------- */
+.pnc-search-label { display: block; font-weight: 700; margin-bottom: 6px; }
+.pnc-search {
+  font: inherit;
+  border: 2px solid var(--ink);
+  padding: 10px 12px;
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  min-height: 44px;
+}
+.pnc-suggest {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  border: 2px solid var(--ink);
+  background: #fff;
+  max-width: 420px;
+  max-height: 240px;
+  overflow: auto;
+  display: none;
+}
+.pnc-suggest.pnc-open { display: block; }
+.pnc-suggest li {
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px solid rgba(18, 18, 18, 0.12);
+  min-height: 44px;
+  align-items: center;
+}
+.pnc-suggest li:last-child { border-bottom: 0; }
+.pnc-suggest li:hover { background: var(--poke-yellow); }
+.pnc-suggest-no { font-size: 12px; opacity: 0.6; }
+.pnc-result { margin-top: 18px; }
+.pnc-card {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  border: 2px solid var(--ink);
+  background: #fff;
+  padding: 20px;
+}
+@media (min-width: 760px) {
+  .pnc-card { grid-template-columns: 200px 1fr; }
+}
+.pnc-id { text-align: center; }
+.pnc-sprite { width: 180px; height: 180px; object-fit: contain; }
+.pnc-dexno { font-weight: 700; font-size: 13px; opacity: 0.6; margin: 4px 0 0; }
+.pnc-name { font-weight: 900; font-size: 24px; margin: 0 0 2px; }
+.pnc-types { font-size: 13px; opacity: 0.75; margin: 0 0 10px; }
+.pnc-stats { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.pnc-stat {
+  border: 1.5px solid var(--ink);
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  background: #fff;
+}
+.pnc-stat-up { background: #d9f2dd; }
+.pnc-stat-down { background: #fbdddd; }
+.pnc-rec { border-top: 2px solid rgba(18, 18, 18, 0.15); padding: 10px 0 4px; margin-top: 8px; }
+.pnc-rec-head { margin: 0 0 4px; font-size: 15px; }
+.pnc-rec-label {
+  display: inline-block;
+  background: var(--ink);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.pnc-up { color: #1a7f37; font-weight: 700; }
+.pnc-down { color: #c62828; font-weight: 700; }
+.pnc-rec-why { margin: 0 0 4px; font-size: 14px; }
+.pnc-rec-impact { margin: 0; font-size: 13px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+.odds-table th.pnc-sort { cursor: pointer; user-select: none; }
+tr.pnc-hide { display: none; }

@@ -1,6 +1,6 @@
 # Random Pokemon Generator
 
-A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero dependencies, no build step. Ten pages: generators, games, planners, and a shiny odds calculator.
+A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero dependencies, no build step. Eleven pages: generators, games, planners, and reference tools.
 
 **Live: [https://www.random-pokemon-generator.co/](https://www.random-pokemon-generator.co/)**
 
@@ -12,6 +12,7 @@ A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero de
 |---|---|---|
 | 🎲 Main Generator | [random-pokemon-generator.co](https://www.random-pokemon-generator.co/) | Random team builder (1–12 Pokémon) with 10+ filter dimensions |
 | ✨ Shiny Odds Calculator | [/pokemon-shiny-odds/](https://www.random-pokemon-generator.co/pokemon-shiny-odds/) | Complete shiny rates for every game & method — base odds, Shiny Charm, Masuda, PLA outbreaks, SV sandwiches |
+| 🌿 Nature Chart | [/pokemon-nature-chart/](https://www.random-pokemon-generator.co/pokemon-nature-chart/) | All 25 natures with stat boosts/drops + best-nature finder for every species |
 | 🌟 Shiny Generator | [/random-shiny-pokemon-generator/](https://www.random-pokemon-generator.co/random-shiny-pokemon-generator/) | Random shiny Pokémon generator with rarity simulation |
 | 💎 Mega Generator | [/random-mega-pokemon-generator/](https://www.random-pokemon-generator.co/random-mega-pokemon-generator/) | Random Mega Evolution Pokémon generator |
 | 📛 Name Generator | [/random-pokemon-name-generator/](https://www.random-pokemon-generator.co/random-pokemon-name-generator/) | Generate random Pokémon names from all 1,025 species |
@@ -39,6 +40,16 @@ The [shiny odds page](https://www.random-pokemon-generator.co/pokemon-shiny-odds
 - **Probability calculator**: enter encounter count → see cumulative shiny chance
 
 Data verified against Bulbapedia, Serebii, and community research.
+
+## Nature Chart
+
+**Production Site: [https://www.random-pokemon-generator.co/pokemon-nature-chart/](https://www.random-pokemon-generator.co/pokemon-nature-chart/)**
+
+The [nature chart page](https://www.random-pokemon-generator.co/pokemon-nature-chart/) covers all 25 Pokémon natures and their stat effects:
+
+- **Full 25-nature chart**: +10% / −10% for Attack, Defense, Sp. Atk, Sp. Def, Speed — filterable and sortable
+- **Best-nature finder**: pick any of the 1,025 species → recommended nature from its base stats (physical / special / mixed / wall / Trick Room), with level-50 impact numbers
+- **Guide + FAQ**: speed-vs-power tradeoffs, walls and Trick Room picks, mints & Everstone breeding, neutral natures
 
 ## Features
 
@@ -96,6 +107,10 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 │   ├── index.html                    # shiny odds reference + calculator page
 │   ├── odds.js                       # odds calculator (games, boosts, probability)
 │   └── og-image.png
+├── pokemon-nature-chart/
+│   ├── index.html                    # nature chart + best-nature finder page
+│   ├── nature.js                     # chart filter/sort + base-stat nature recommender
+│   └── og-image.png
 ├── random-shiny-pokemon-generator/
 │   ├── index.html                    # shiny generator page
 │   ├── shiny-generator.js            # shiny roller (filters, compare, history)
@@ -143,7 +158,7 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 ├── sitemap.xml                       # XML sitemap for search engines
 ├── robots.txt
 ├── vercel.json                       # index.html → directory URL redirects
-├── SEO-KEYWORDS.md                   # keyword baseline for all 10 pages
+├── SEO-KEYWORDS.md                   # keyword baseline for all 11 pages
 └── AGENTS.md                         # project rules (SEO-first workflow)
 ```
 

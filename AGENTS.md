@@ -68,9 +68,10 @@
 
 ### 2026-09-05 调研补充（SERP 实查，非工具估计）
 
-- **`birthday pokemon`** —— ⭐ 下一页首选。SERP 缺口型机会：WikiHow 2026-08 刚发专题指南（侧面验证需求真实且新），其余仅 2009 年论坛帖，**首页无任何交互工具站**。玩法 = MMDD→图鉴号，10/25 后日期用减半法 + 年中日序数法兜底。病毒传播属性强（"我的生日宝可梦"晒图），数据现成（data.js 全图鉴）。KD 低，建站成本极低。
-- `pokemon nature chart` / `pokemon natures` —— 备选。量大于 birthday pokemon，但 SERP 有 Bulbapedia + RankedBoost（已带 nature calculator）镇守；差异化需做"按宝可梦推荐性格"交互。可做但优先级次之。
-- `pokemon would you rather` —— 备选。SERP 仅论坛帖和 wordwall 转盘，无工具站；但需手写数百条题库，内容成本高、留存弱于计算器类。
-- `pokemon fusion generator` —— ❌ 放弃。Semrush 实测美区 8.1K/月，但融合立绘无合规素材来源，纯前端无法实现。
-- `pokemon type chart` / `full odds shiny` —— ❌ 放弃（KD 过高，pokemon.com / pokemondb / marriland 垄断，同 shiny odds 页备注结论）。
+- ~~`pokemon nature chart` / `pokemon natures`~~ —— ✅ 已上线：`/pokemon-nature-chart/`（2026-09-05，内容页+交互速查表+按宝可梦推荐性格）。上线依据（哥飞 KD 数据推翻原判断）：KD 25.5 容易、月搜 40.5K、前十有 crob.at DR 1 排 #2 / pokemoneros.com DR 2 排 #5，弱位可打。SERP 意图实查 = 性格（25 natures ±10%），**非属性克制**——属性克制内容刻意留给 type chart 页。
+- ~~`birthday pokemon`~~ —— ❌ 放弃（KD 数据实锤，2026-09-05）：EMD 品牌站 birthdaypokemon.com（DR 39）卡 #1 享品牌位保护；可竞争位最弱对手 dragonflycave.com DR 52，DR=0 新站需 50~110 引用域预算；搜索量 27.1K→12.1K 走低（不排除 Pokémon Day 季节性，但前两条已足够否决）。原"WikiHow 缺口"判断作废。
+- `pokemon type chart` —— 🥈 长线目标（非放弃）。月搜 201K、KD 37.2，但 #1 pokemondb DR 71 + #3 pkmn.help 强产品力镇守，201K 量级词 EEAT 门槛高。打法：先靠 nature chart 页攒流量外链把全站 DR 拉到 15~20，再做 `/pokemon-type-chart/`（18 属性克制矩阵 + 双属性计算器，内容与 nature 页零重叠）。
+- `pokemon would you rather` —— ❌ 放弃（2026-09-05 实查：月搜仅 260、KD 52.3，投入产出灾难级；原"内容成本高"判断不变）。
+- `pokemon fusion generator` —— ❌ 放弃。Semrush 实测美区 8.1K/月，但融合立绘无合规素材来源，纯前端无法实现。（KD 33、前十有 DR 2 弱站，数据上本可做，版权红线绕不过。）
+- `full odds shiny` —— ❌ 放弃（KD 过高，pokemon.com / pokemondb / marriland 垄断，同 shiny odds 页备注结论）。
 - `pokemon randomizer` —— ❌ 放弃。量虽大但意图是 ROM 修改器下载，与网页工具错配，高跳出。
