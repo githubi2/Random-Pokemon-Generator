@@ -1,7 +1,7 @@
 # SEO 关键词基线（Baseline）
 
 > 建站以来全部页面的目标关键词与 On-page 现状快照。用途：排名追踪基线、新页规划参照、回归检查对照表。
-> 快照日期：2026-09-06（站点共 13 页：11 工具页 + 博客列表 + 博客文章）。数据来源：各页面实际 HTML 提取，非记忆。
+> 快照日期：2026-09-06（站点共 15 页：11 工具页 + 博客列表 + 3 篇博客文章）。数据来源：各页面实际 HTML 提取，非记忆。
 
 ## 达标线（AGENTS.md）
 
@@ -28,7 +28,9 @@
 | 10 | `/pokemon-shiny-odds/` | pokemon shiny odds | Pokemon Shiny Odds: Complete Shiny Rates & Chances（54） | Pokemon Shiny Odds & Rates — Every Method Explained | 142 | 1745 | 内容+工具 |
 | 11 | `/pokemon-nature-chart/` | pokemon nature chart | Pokemon Nature Chart – All 25 Natures & Stat Effects（52） | Pokemon Nature Chart | 150 | 1518 | 内容+工具 |
 | 12 | `/blog/` | pokemon blog（枢纽页） | Pokemon Blog — Guides, Odds & Strategy（38） | Random Pokemon Generator Blog | 156 | 920 | 博客列表 |
-| 13 | `/blog/shiny-odds-explained/` | pokemon shiny odds explained | Pokemon Shiny Odds Explained: 1/8192 to 1/512（45） | Pokemon Shiny Odds Explained | 134 | 1215 | 博客文章 |
+| 13 | `/blog/shiny-odds-explained/` | pokemon shiny odds explained | Pokemon Shiny Odds Explained: 1/8192 to 1/512（45） | Pokemon Shiny Odds Explained | 134 | 1333 | 博客文章 |
+| 14 | `/blog/pokemon-smash-or-pass-tier-list/` | pokemon smash or pass tier list | Pokemon Smash or Pass Tier List: The Ultimate Ranking（53） | Pokemon Smash or Pass Tier List | 157 | 1295 | 博客文章 |
+| 15 | `/blog/what-is-a-nuzlocke-challenge/` | what is nuzlocke | What Is a Nuzlocke Challenge? Rules & Beginner Tips（55） | What Is a Nuzlocke Challenge? | 154 | 1253 | 博客文章 |
 
 ## 备注
 
@@ -37,8 +39,9 @@
 - **首页 FAQ 区**（2026-09-05）：`<h2>` 前新增 `p.faq-intro` 段落覆盖 `pokemon random pokemon generator` / `random generator pokemon` 两个变体词（GSC 各 47-49 名），不改 Title。
 - **#10 shiny odds 页**：内容页 + 交互计算器混合体，承接 `pokemon shiny odds` / `shiny odds` / `chance of shiny pokemon` 意图；明确不做 `full odds shiny` 单页（KD 过高）。
 - **#11 nature chart 页**（2026-09-05 上线）：SERP 实查确认 `pokemon nature chart` 意图 = 性格（25 natures ±10%），非属性克制——属性克制矩阵/双属性计算器**刻意不做进本页**，留给未来 `/pokemon-type-chart/` 避免自相残杀；本页差异化 = 可筛选/排序交互表 + 按宝可梦推荐性格（读 base stats，含 Trick Room 低速例外）。选型依据：KD 25.5 容易、月搜 40.5K、前十有 DR 1/DR 2 弱站（crob.at #2）。
-- 全部 13 页当前快照均达达标线（title/desc/词数/H1/JSON-LD/互链）。
+- 全部 15 页当前快照均达达标线（title/desc/词数/H1/JSON-LD/互链）。
 - **#12/#13 博客区**（2026-09-06 上线）：博客页 JSON-LD 用 `Blog`/`BlogPosting`（非 SoftwareApplication/FAQPage——文章页无 FAQ 区，按规则"FAQPage 必须与可见 FAQ 一致"自然不适用）；正文互链矩阵对博客页的口径 = 博客页正文链全部工具页+互链，工具页 nav/footer 链 `/blog/`、正文在相关页（首页/shiny-odds/shiny-generator）链到文章。用户原标题 71 字符超 60 硬线，落地为 45 字符版。
+- **#14/#15 博客 Week 2**（2026-09-06 上线）：#14 承接 GSC 主线 2（smash or pass 排名 7.1 但 CTR 低，导流补 CTR），#15 承接主线 3（nuzlocke 位置 18.3 有潜力，攻 "what is nuzlocke" 头部词）。两文按用户要求"去 AI 味"写作：第一人称、口语缩写、具体轶事、观点句，数字事实与工具页口径一致。同日 #13 shiny 文散文整体重写去 AI 味（head/JSON-LD/表格/图片未动，词数 1215→1333）。
 
 ## Description 存档（压缩改写留痕）
 

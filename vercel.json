@@ -75,6 +75,16 @@
       "permanent": true
     },
     {
+      "source": "/blog/pokemon-smash-or-pass-tier-list/index.html",
+      "destination": "/blog/pokemon-smash-or-pass-tier-list/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/what-is-a-nuzlocke-challenge/index.html",
+      "destination": "/blog/what-is-a-nuzlocke-challenge/",
+      "permanent": true
+    },
+    {
       "source": "/privacy-policy/index.html",
       "destination": "/privacy-policy/",
       "permanent": true
