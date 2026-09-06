@@ -11,14 +11,14 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pokemon Team Picker – Build a 6-Pokémon Squad with Type Matchups</title>
-  <meta name="description" content="Pick six Pokémon, check your team's defensive matchups, and export to Showdown. Search 1,025 Pokémon by type, Gen, move, and ability." />
+  <title>Pokemon Team Picker – Build a 6-Pokémon Squad</title>
+  <meta name="description" content="Pick six Pokémon with the Pokédex filter and type-matchup matrix — a Pokemon team picker for competitive squads." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Random Pokemon Generator" />
   <link rel="canonical" href="https://www.random-pokemon-generator.co/pokemon-team-picker/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Pokemon Team Picker – Build a 6-Pokémon Squad with Type Matchups" />
+  <meta property="og:title" content="Pokemon Team Picker – Build a 6-Pokémon Squad" />
   <meta property="og:description" content="Pick six Pokemon, check defensive matchups, set natures, moves and items. Export or share your team instantly." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.random-pokemon-generator.co/pokemon-team-picker/" />
@@ -29,7 +29,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pokemon Team Picker – Build a 6-Pokémon Squad with Type Matchups" />
+  <meta name="twitter:title" content="Pokemon Team Picker – Build a 6-Pokémon Squad" />
   <meta name="twitter:description" content="Pick six Pokemon, check defensive matchups, set natures, moves and items. Export or share your team instantly." />
   <meta name="twitter:image" content="https://www.random-pokemon-generator.co/pokemon-team-picker/og-image.png" />
 
@@ -184,7 +184,7 @@
           <p class="tp-hint">Pick a slot, then filter the dex below. Click a Pokémon row to place it.</p>
           <div class="tp-filters-grid">
           <div class="tp-filter-group">
-          <h3 class="tp-group-title">Regulation Set</h3>
+          <p class="tp-group-title">Regulation Set</p>
           <div class="tp-reg-wrap">
             <select id="tp-reg-select" class="tp-select" aria-label="Filter by regulation set">
               <option value="M-A">M-A</option>
@@ -192,13 +192,13 @@
               <option value="all">All</option>
             </select>
           </div>
-          <h3 class="tp-group-title">Generation</h3>
+          <p class="tp-group-title">Generation</p>
           <div class="tp-chips" id="tp-gen-chips"></div>
-          <h3 class="tp-group-title">Mega Evolution</h3>
+          <p class="tp-group-title">Mega Evolution</p>
           <div class="tp-chips" id="tp-mega-chips"></div>
           </div>
           <div class="tp-filter-group tp-filter-group-wide">
-          <h3 class="tp-group-title">Pokemon Type</h3>
+          <p class="tp-group-title">Pokemon Type</p>
           <div class="tp-mode-row">
             <span class="tp-mode-label">match</span>
             <button type="button" class="chip-btn chip-mode tp-mode-chip" id="tp-type-mode" data-mode="or" aria-pressed="true">Or</button>
@@ -208,7 +208,7 @@
           <div class="tp-chips" id="tp-type-chips"></div>
           </div>
           <div class="tp-filter-group">
-          <h3 class="tp-group-title">Move</h3>
+          <p class="tp-group-title">Move</p>
           <div class="tp-mode-row">
             <span class="tp-mode-label">match</span>
             <button type="button" class="chip-btn chip-mode tp-mode-chip" id="tp-move-mode" data-mode="or" aria-pressed="true">Or</button>
@@ -218,7 +218,7 @@
           <select id="tp-move-filter" class="tp-select" aria-label="Filter by move" multiple size="6"></select>
           </div>
           <div class="tp-filter-group">
-          <h3 class="tp-group-title">Ability</h3>
+          <p class="tp-group-title">Ability</p>
           <select id="tp-ability-filter" class="tp-select" aria-label="Filter by ability" multiple size="6"></select>
           </div>
           </div>
@@ -263,7 +263,7 @@
 
       <!-- Team defense -->
       <aside class="tp-defense" aria-label="Team defensive matchups">
-        <h3 class="tp-group-title">Team defense</h3>
+        <p class="tp-group-title">Team defense</p>
         <div id="tp-defense-body"></div>
       </aside>
     </section>
