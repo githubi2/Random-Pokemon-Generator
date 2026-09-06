@@ -56,3 +56,17 @@
 
 - GSC 里按页面分组监控各自主词的 impressions / clicks / 平均排名，每月对照本表。
 - 新页上线后追加到本表，并把目标词从 AGENTS.md §5 候选池移出标记为已做。
+
+## 锚文本轮换表（2026-09-07 P0，哥飞「内链锚文本带语义」）
+
+> 原则：锚文本带描述/动作语义，不做清一色产品名；与首页 title 的 "Team Builder" 拉开的区分度（警惕谷歌把 team builder/team picker 混为一谈、子页词被算到首页）。
+
+| 目标页 | 锚文本变体（轮换使用，禁全站同款） |
+|---|---|
+| pokemon-team-picker/ | Pokemon Team Picker / pokemon team builder / hand-pick a 6 Pokémon squad |
+| pokemon-smash-or-pass/ | Pokemon Smash or Pass / smash or pass game / judge each Pokémon |
+
+**当前落地（首页 How It Works 正文内链）**：
+- article #1「Roll with real rules」→ smash-or-pass：`judge every Pokémon one verdict at a time with the Pokemon smash or pass game`（动作语义锚文本，2026-09-07）
+- article #2「Filter down to the exact pool」→ team-picker：`hand-pick six Pokémon with the pokemon team picker`（动作语义锚文本，2026-09-07）
+- article #4「Instant tactical report」→ team-picker：`Pokemon Team Picker`（产品名变体，保留）
