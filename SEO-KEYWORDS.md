@@ -70,3 +70,11 @@
 - article #1「Roll with real rules」→ smash-or-pass：`judge every Pokémon one verdict at a time with the Pokemon smash or pass game`（动作语义锚文本，2026-09-07）
 - article #2「Filter down to the exact pool」→ team-picker：`hand-pick six Pokémon with the pokemon team picker`（动作语义锚文本，2026-09-07）
 - article #4「Instant tactical report」→ team-picker：`Pokemon Team Picker`（产品名变体，保留）
+
+## 2026-09-07 全站整改（P0/P1）
+
+- **P0 whos-that-pokemon**（27,100 + 65 分）：Title → `Who's That Pokemon Game - Guess The Pokemon`（43，去稀释词）；H1 完整命中；lede 补完整词组（前 100 词点题）；正文字段计数 9 次。
+- **P1 wheel**（95 分）：H1 → `Random Pokemon Generator Wheel`（完整词组）；lede + How It Works 正文补 `random pokemon wheel`（正文 2 次）。
+- **P1 mega**：Title → `Random Mega Pokemon Generator – Every Mega & Stats`（50，≤60 达标；原 73 超线）。
+- **P1 跳级**：实测全站 18 页无 h1→h3 跳级（严格口径 ascent≤1 全部通过；team-picker 上次已修）。体检「nuzlocke/wheel 等也跳级」与实测不符——未改动。
+- **P2**（未动，留档）：博客 3 篇 H2/H3 命中低（权重低可后置）；random-shiny 1998 词 / pokemon-shiny-odds 1848 词略超 1800（不致命，勿稀释）。
