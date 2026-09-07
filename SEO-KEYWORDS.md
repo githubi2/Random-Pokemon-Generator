@@ -78,3 +78,5 @@
 - **P1 mega**：Title → `Random Mega Pokemon Generator – Every Mega & Stats`（50，≤60 达标；原 73 超线）。
 - **P1 跳级**：实测全站 18 页无 h1→h3 跳级（严格口径 ascent≤1 全部通过；team-picker 上次已修）。体检「nuzlocke/wheel 等也跳级」与实测不符——未改动。
 - **P2**（未动，留档）：博客 3 篇 H2/H3 命中低（权重低可后置）；random-shiny 1998 词 / pokemon-shiny-odds 1848 词略超 1800（不致命，勿稀释）。
+
+- **#16 博客 Week 3**（2026-09-07）：`/blog/pokemon-natures-explained/` —— 承接 nature chart 工具页（#11），标题 "Pokemon Natures, Explained: The Full 25-Nature Chart and How to Actually Use It"（69 字符？实测 68，SERP 可能截断——主词 "Pokemon Natures" 前置，风险可控）；正文 8 段核心内容（10% 数值、drop-rule、Speed vs Power、Walls/Trick Room、Mints）；H2×5；站内链 nature-chart 工具页×3 + 全文工具页互链矩阵完整；域外权威链接 8 个（Bulbapedia Nature、PokemonDB mechanics/natures、Smogon Garchomp dex、r/stunfisk、Pokemon.com、Pokemon Showdown、Serebii natures、Pikalytics —— 全部实测 HTTP 200）。blog/index 卡片 + 正文 3 处链接；nature-chart 工具页 "Mints" 段补内链；sitemap/vercel.json/README 已同步。

@@ -85,6 +85,11 @@
       "permanent": true
     },
     {
+      "source": "/blog/pokemon-natures-explained/index.html",
+      "destination": "/blog/pokemon-natures-explained/",
+      "permanent": true
+    },
+    {
       "source": "/privacy-policy/index.html",
       "destination": "/privacy-policy/",
       "permanent": true
