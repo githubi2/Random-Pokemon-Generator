@@ -86,6 +86,31 @@
         "@type": "Question",
         "name": "Does search work for nicknames or abilities?",
         "acceptedAnswer": { "@type": "Answer", "text": "This page searches by species name only. For competitive study, open the Pokemon in the generator via the result link, then use the detail card to browse its abilities, stats, type coverage and evolution chain." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I search partial or misspelled names?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Any substring of the English species name matches, and the match ignores case. \"pika\" finds Pikachu and Raichu, and common misspellings such as \"charzard\" still resolve to Charizard because the partial match happens against the base slug." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does a result open the generator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Because the generator page already shows everything search cannot: abilities, base stats, type coverage, evolution chain and shiny artwork. Opening a result there gives you the complete profile of the Pokemon you searched for, no extra clicks." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does search include regional forms?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Variants in the dataset are searchable under their own names, so \"alolan raichu\" or \"galarian slowpoke\" resolve normally. The dex number shown in the row identifies the species, and the form appears in the name line." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the search instant?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. All 1,025 entries live in the browser, so results appear on the first keystroke without a network round trip. The same local dataset keeps every other tool snappy too, even on slow connections or offline once the page has loaded." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I bookmark a search result?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The URL keeps the query in the q parameter, so any address bar copy reloads the same results on a new visit. Share a direct link to a lookup the way you would share a tool page." }
       }
     ]
   }
@@ -192,10 +217,23 @@
             <p>Search is the door to the whole suite. From a result you can jump into the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a>, the <a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a>, or a <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a> verdict for that exact Pokemon. The <a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a> and <a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a> cover the flair picks, <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a> plans the real hunts, and the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> names the catch. Finished? Turn it into a card with the <a href="../pokemon-card-generator/">Pokemon Card Generator</a> and <a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a>, and read the deeper guides on the <a href="../blog/">Blog</a>.</p>
           </article>
           <article>
-            <h3>Why a local search beats a list</h3>
-            <p>The national dex is more than 1,000 entries long — a searchable index is the difference between finding a Pokemon in two seconds and scrolling forever. Because the same dataset powers every tool on this site, the Pokemon you find in search is the exact same Pokemon the generator rolls, the team picker slots, and the type chart evaluates. No drift between pages, no stale dex numbers: search is a window into one consistent database.</p>
-            <p>For competitive work the flow is even better. Search for Garchomp, open it in the generator, and the detail card lists its base stats, abilities and type coverage in one screen; the <a href="../random-pokemon-picker/">Random Pokemon Picker</a> and <a href="../pokemon-team-picker/">Pokemon Team Picker</a> pages rest on that same data for their random rolls and matchup maps. Learn the matchup from the <a href="../pokemon-type-chart/">Pokemon Type Chart</a>, verify the nature with the <a href="../pokemon-nature-chart/">Pokemon Nature Chart</a>, then test the result with the <a href="../pokemon-iv-calculator/">Pokemon IV Calculator</a> — every step references the same dex entry you found by name.</p>
-            <p>Search also quietly doubles as a dex browser while you play. Running a Nuzlocke and need to recall what a route's encounter can evolve into? Search the name, then roll the evolved form's matchups on the type chart. Drafting a league and comparing two candidates? Search each name, note their base stats side by side, and let the team picker decide. Hunters can pair search with <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a> for the exact rate, and collectors can flip any result into artwork with the <a href="../pokemon-card-generator/">Pokemon Card Generator</a>. The dex you are searching is the same dex every battle starts from.</p>
+            <h3>Search like a pro</h3>
+            <p>You rarely need the whole name. Type "pie" and Pikachu shows up; type "chomp" and Garchomp lands. Any substring of the species name matches, so a misspelling like "charzard" still finds Charizard. Search is case-insensitive and reruns as you type, which means most lookups finish before you press Enter.</p>
+            <p>The result rows pack a lot of information into little space: dex number, types, generation and base stat total. In fifty characters you know whether the Pokemon is a wall, a sweeper, or a swap-in at a glance. That beats opening three tabs of a wiki. When a result needs more detail, the open-in-generator link takes you to the full card with abilities, type coverage and evolution chain, all from the same data.</p>
+          </article>
+          <article>
+            <h3>Search from anywhere</h3>
+            <p>The search page is linked in the site-wide footer, and the WebSite structured data exposes it to Google as a site search target, so users can reach it straight from the results page. Search also works as a deep link: append ?q=name to the URL and the page performs the search on load, which makes it easy to bookmark or share specific lookups.</p>
+            <p>One habit saves a lot of time: keep search open in a second tab while you browse the tools. Find a Pokemon, open it in the generator, filter the squad around it with the team picker, and check the matchup on the type chart. The dex never changes between tabs, so what you searched is exactly what you build with.</p>
+          </article>
+          <article>
+            <h3>Search is privacy-friendly by design</h3>
+            <p>Nothing about your query leaves the device. The name you type stays in the URL and the browser, and search never sends keystrokes to a server or stores a history. The only network traffic on this page is the same artwork and analytics every other tool page uses, so a private browsing session keeps the lookups private too.</p>
+          </article>
+          <article>
+            <h3>What search does not do</h3>
+            <p>It does not search moves, abilities or held items, and it does not rank results by anything more clever than alphabetical order. If you are shopping for a Pokemon that learns a specific move, the Pokemon Team Picker handles that job with a move filter. If you need to compare two options head-to-head, searching both names and reading their BST rows side by side usually settles it faster than any comparison tool.</p>
+            <p>The database is the same 1,025-species list every tool here uses. That has one consequence worth knowing: search can only find what the dex contains. Regional forms live under their own names, so "alolan raichu" works, but a nickname or a fan-made form will not match.</p>
           </article>
         </div>
       </div>
@@ -216,6 +254,26 @@
       <details class="faq-item cornered">
         <summary>Does search work for nicknames or abilities?</summary>
         <p>This page searches by species name only. For competitive study, open the Pokemon in the generator via the result link, then use the detail card to browse its abilities, stats, type coverage and evolution chain.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I search partial or misspelled names?</summary>
+        <p>Yes. Any substring of the English species name matches, and the match ignores case. "pika" finds Pikachu and Raichu, and common misspellings such as "charzard" still resolve to Charizard because the partial match happens against the base slug.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Why does a result open the generator?</summary>
+        <p>Because the generator page already shows everything search cannot: abilities, base stats, type coverage, evolution chain and shiny artwork. Opening a result there gives you the complete profile of the Pokemon you searched for, no extra clicks.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Does search include regional forms?</summary>
+        <p>Yes. Variants in the dataset are searchable under their own names, so "alolan raichu" or "galarian slowpoke" resolve normally. The dex number shown in the row identifies the species, and the form appears in the name line.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Is the search instant?</summary>
+        <p>Yes. All 1,025 entries live in the browser, so results appear on the first keystroke without a network round trip. The same local dataset keeps every other tool snappy too, even on slow connections or offline once the page has loaded.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I bookmark a search result?</summary>
+        <p>Yes. The URL keeps the query in the q parameter, so any address bar copy reloads the same results on a new visit. Share a direct link to a lookup the way you would share a tool page.</p>
       </details>
     </section>
   </main>

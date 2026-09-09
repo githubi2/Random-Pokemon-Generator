@@ -101,6 +101,16 @@
         "@type": "Question",
         "name": "Which Pokemon are included in the picker?",
         "acceptedAnswer": { "@type": "Answer", "text": "Every species from Generation 1 through Generation 9 — 1,025 Pokemon plus regional and special forms — with official artwork, base stats, types and abilities sourced from PokeAPI. Generation and type filters apply to the base species list." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the pick truly random?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every draw uses the browser's Math.random against the filtered pool, with no weighting, no rarity bias and no repeats inside a single pick. Two people with the same filters will almost never get the same result, which is exactly what a fair draw should do." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use the picker on mobile?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The layout collapses to a single column and buttons stay tappable, the count slider and filter chips work with touch, and cries play through the device speaker if the sound toggle is on. The share link opens the same pick on any device." }
       }
     ]
   }
@@ -267,6 +277,11 @@
             <p>Once a pick lands, the rest of the suite takes over. Name the member with the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a>, check its best nature with the <a href="../pokemon-nature-chart/">Pokemon Nature Chart</a>, or put it on paper with the <a href="../pokemon-card-generator/">Pokemon Card Generator</a> — complete with a <a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a> card for the trainer. For a full hand-built squad around that pick, the <a href="../pokemon-team-picker/">Pokemon Team Picker</a> gives you every slot under manual control.</p>
           </article>
           <article>
+            <h3>Pick with a purpose</h3>
+            <p>Most people click Pick and stop looking. The picker rewards the other two percent. Roll with Gen 1 locked and you get a Kanto starter vibe. Roll with a single type selected and you learn that type's roster far faster than reading a wiki list, because the artwork and BST sit right next to the name. Add Exclude for Legendaries and the pool turns honest for a casual run.</p>
+            <p>The louder use case is game night. A pick is a fair dice: one draw, one Pokemon, nobody arguing over a favorite. Stream chat uses the pick link to let viewers vote on a reroll. Teachers use it for classroom games, and fans race each other in Nuzlocke-style challenges where the picker decides the starter and the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a> handles the rules from there.</p>
+          </article>
+          <article>
             <h3>Play around the pick</h3>
             <p>The picker also feeds the games. Test your memory with the <a href="../whos-that-pokemon/">Who's That Pokemon</a> guessing game, or judge every result one verdict at a time with <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a>. If you are hunting sparkles for real, <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a> computes your actual chances per method — and the <a href="../blog/">Blog</a> walks the math behind the odds, natures, and challenge runs in full. And the <a href="../pokemon-type-chart/">Pokemon Type Chart</a> plus <a href="../pokemon-iv-calculator/">Pokemon IV Calculator</a> finish the reference side — check your matchups and hidden IVs in two clicks. Need a specific Pokemon fast? The <a href="../search/">Pokemon Search</a> finds any species by name in the same dex.</p>
             <p>Everything runs in your browser: no accounts, no signup, nothing uploaded. Your picks stay on screen until you roll again, and Reset All returns every filter to defaults in one tap.</p>
@@ -302,6 +317,14 @@
       <details class="faq-item cornered">
         <summary>Which Pokemon are included in the picker?</summary>
         <p>Every species from Generation 1 through Generation 9 — 1,025 Pokemon plus regional and special forms — with official artwork, base stats, types and abilities sourced from PokeAPI. Generation and type filters apply to the base species list.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Is the pick truly random?</summary>
+        <p>Yes. Every draw uses the browser's Math.random against the filtered pool, with no weighting, no rarity bias and no repeats inside a single pick. Two people with the same filters will almost never get the same result, which is exactly what a fair draw should do.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I use the picker on mobile?</summary>
+        <p>Yes. The layout collapses to a single column and buttons stay tappable, the count slider and filter chips work with touch, and cries play through the device speaker if the sound toggle is on. The share link opens the same pick on any device.</p>
       </details>
     </section>
   </main>

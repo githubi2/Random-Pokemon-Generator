@@ -17,13 +17,13 @@
 | # | URL | 目标关键词 | Title（长度） | H1 | Desc 长度 | 正文词数 | 类型 |
 |---|-----|-----------|--------------|-----|----------|---------|------|
 | 1 | `/` | random pokemon generator | Random Pokemon Generator - Team Builder (Gen 1-9)（49） | Random Pokemon Generator | 145 | 1598 | 工具 |
-| 2 | `/nuzlocke-generator/` | nuzlocke generator | Nuzlocke Generator - Pokemon Team Builder（41） | Nuzlocke Generator & Team Builder | 140 | 1620 | 工具 |
+| 2 | `/nuzlocke-generator/` | nuzlocke generator | Nuzlocke Generator - Pokemon Team Builder（41） | Nuzlocke Generator & Team Builder | 140 | 1521 | 工具 |
 | 3 | `/pokemon-smash-or-pass/` | pokemon smash or pass | Pokemon Smash or Pass – Judge 1,025 Pokémon & Share Your Score（62）⚠️ | Pokemon Smash or Pass | 156 | 1486 | 游戏 |
-| 4 | `/pokemon-team-picker/` | pokemon team picker | Pokemon Team Picker – Build a 6-Pokémon Squad with Type Matchups（64）⚠️ | Pokemon Team Picker | 133 | 1363 | 工具 |
-| 5 | `/random-mega-pokemon-generator/` | random mega pokemon generator | Random Mega Pokemon Generator – Every Mega Evolution, Stat Gains Included（73）⚠️ | Random Mega Pokemon Generator | 155 | 1679 | 工具 |
-| 6 | `/random-pokemon-generator-wheel/` | pokemon wheel spinner ⚠️ | Pokemon Wheel Spinner - Random Pokemon Generator Wheel（54） | Pokemon Wheel Spinner | 158 | 1417 | 工具 |
-| 7 | `/random-pokemon-name-generator/` | random pokemon name generator | Random Pokemon Name Generator - Pokemon Nickname Ideas（54） | Random Pokemon Name Generator | 141 | 1329 | 工具 |
-| 8 | `/random-shiny-pokemon-generator/` | random shiny pokemon generator | Random Shiny Pokemon Generator - Shiny Pokemon Picker（53） | Random Shiny Pokemon Generator | 144 | 1889 | 工具 |
+| 4 | `/pokemon-team-picker/` | pokemon team picker | Pokemon Team Picker – Build a 6-Pokémon Squad with Type Matchups（64）⚠️ | Pokemon Team Picker | 133 | 1424 | 工具 |
+| 5 | `/random-mega-pokemon-generator/` | random mega pokemon generator | Random Mega Pokemon Generator – Every Mega Evolution, Stat Gains Included（73）⚠️ | Random Mega Pokemon Generator | 155 | 1719 | 工具 |
+| 6 | `/random-pokemon-generator-wheel/` | pokemon wheel spinner ⚠️ | Pokemon Wheel Spinner - Random Pokemon Generator Wheel（54） | Pokemon Wheel Spinner | 158 | 1406 | 工具 |
+| 7 | `/random-pokemon-name-generator/` | random pokemon name generator | Random Pokemon Name Generator - Pokemon Nickname Ideas（54） | Random Pokemon Name Generator | 141 | 1376 | 工具 |
+| 8 | `/random-shiny-pokemon-generator/` | random shiny pokemon generator | Random Shiny Pokemon Generator - Shiny Pokemon Picker（53） | Random Shiny Pokemon Generator | 144 | 1830 | 工具 |
 | 9 | `/whos-that-pokemon/` | who's that pokemon | Who's That Pokemon - Guess the Pokemon Game（43） | Who's That Pokemon | 156 | 1411 | 游戏 |
 | 10 | `/pokemon-shiny-odds/` | pokemon shiny odds | Pokemon Shiny Odds: Complete Shiny Rates & Chances（54） | Pokemon Shiny Odds & Rates — Every Method Explained | 142 | 1745 | 内容+工具 |
 | 11 | `/pokemon-nature-chart/` | pokemon nature chart | Pokemon Nature Chart – All 25 Natures & Stat Effects（52） | Pokemon Nature Chart | 150 | 1518 | 内容+工具 |
@@ -31,12 +31,12 @@
 | 13 | `/blog/shiny-odds-explained/` | pokemon shiny odds explained | Pokemon Shiny Odds Explained: 1/8192 to 1/512（45） | Pokemon Shiny Odds Explained | 134 | 1271 | 博客文章 |
 | 14 | `/blog/pokemon-smash-or-pass-tier-list/` | pokemon smash or pass tier list | Pokemon Smash or Pass Tier List: The Ultimate Ranking（53） | Pokemon Smash or Pass Tier List | 157 | 1216 | 博客文章 |
 | 15 | `/blog/what-is-a-nuzlocke-challenge/` | what is nuzlocke | What Is a Nuzlocke Challenge? Rules & Beginner Tips（55） | What Is a Nuzlocke Challenge? | 154 | 1298 | 博客文章 |
-| 16 | `/pokemon-card-generator/` | pokemon card generator | Pokemon Card Generator – Make Your Own Pokemon Cards（52） | Pokemon Card Generator | 160 | 1642 | 工具 |
-| 17 | `/pokemon-trainer-card-generator/` | pokemon trainer card generator | Pokemon Trainer Card Generator – Make Your Trainer Card（55） | Pokemon Trainer Card Generator | 159 | 1257 | 工具 |
-| 18 | `/random-pokemon-picker/` | random pokemon picker | Random Pokemon Picker - Pick a Pokemon Fast (Gen 1-9)（53） | Random Pokemon Picker | 158 | 1017 | 工具 |
-| 19 | `/pokemon-type-chart/` | pokemon type chart | Pokemon Type Chart - 18-Type Weaknesses &amp; Effectiveness（53） | Pokemon Type Chart | 157 | 928 | 工具 |
-| 20 | `/pokemon-iv-calculator/` | pokemon iv calculator | Pokemon IV Calculator - Find Hidden IVs (Gen 1-9)（54） | Pokemon IV Calculator | 154 | 902 | 工具 |
-| 21 | `/search/` | pokemon search | Pokemon Search - Find Any Pokemon (Gen 1-9)（45） | Pokemon Search | 132 | 805 | 工具 |
+| 16 | `/pokemon-card-generator/` | pokemon card generator | Pokemon Card Generator – Make Your Own Pokemon Cards（52） | Pokemon Card Generator | 160 | 1694 | 工具 |
+| 17 | `/pokemon-trainer-card-generator/` | pokemon trainer card generator | Pokemon Trainer Card Generator – Make Your Trainer Card（55） | Pokemon Trainer Card Generator | 159 | 1314 | 工具 |
+| 18 | `/random-pokemon-picker/` | random pokemon picker | Random Pokemon Picker - Pick a Pokemon Fast (Gen 1-9)（53） | Random Pokemon Picker | 158 | 1297 | 工具 |
+| 19 | `/pokemon-type-chart/` | pokemon type chart | Pokemon Type Chart - 18-Type Weaknesses &amp; Effectiveness（53） | Pokemon Type Chart | 157 | 1227 | 工具 |
+| 20 | `/pokemon-iv-calculator/` | pokemon iv calculator | Pokemon IV Calculator - Find Hidden IVs (Gen 1-9)（54） | Pokemon IV Calculator | 154 | 1216 | 工具 |
+| 21 | `/search/` | pokemon search | Pokemon Search - Find Any Pokemon (Gen 1-9)（45） | Pokemon Search | 132 | 1205 | 工具 |
 
 ## 备注
 

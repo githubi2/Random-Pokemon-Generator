@@ -101,6 +101,21 @@
         "@type": "Question",
         "name": "Which Pokemon are supported?",
         "acceptedAnswer": { "@type": "Answer", "text": "All 1,025 species from Generation 1 through 9, plus regional and special forms, with base stats sourced from PokeAPI. The nature list covers all 25 natures used in core games." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do mints change the calculation?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. A mint changes the effective nature immediately, so enter the nature the Pokemon currently behaves as, not the one it was caught with. The calculator reads the current nature setting, which is how the game applies the stat multiplier." }
+      },
+      {
+        "@type": "Question",
+        "name": "What if the calculator says a stat is impossible?",
+        "acceptedAnswer": { "@type": "Answer", "text": "That means the entered numbers do not match any IV for that species, level and nature combination. Check for three usual suspects: a wrong species selected, EVs learned after the stats were noted, or the wrong nature. Fix one of those and recalculate." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I check the IVs of a Pokemon I just hatched?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, though the range will be wide at low levels. A fresh egg is usually level 1 or 5, where many IVs produce the same stat line. Let a trainer raise it a few levels, or use the judge feature in the newer games, before trusting a narrow reading." }
       }
     ]
   }
@@ -246,6 +261,11 @@
             <p>Already planning a squad? The <a href="../pokemon-nature-chart/">Pokemon Nature Chart</a> recommends the best nature for any species first, this calculator verifies the IVs second, and the <a href="../pokemon-team-picker/">Pokemon Team Picker</a> assembles the final team with a defensive matchup matrix.</p>
           </article>
           <article>
+            <h3>IVs in the wild: trades, raids, and breeding</h3>
+            <p>Three situations send people to an IV calculator. The first is a trade: someone offers a shiny or a "good stat" Pokemon, and you want proof before you trade away something valuable. Check the IVs at the level it sits at, and the range tells you whether the offer is worth the swap. The second is a raid catch: a perfect raid boss can carry your team for a whole game, and a 31 in the right stat decides it. The third is breeding. Breeders check a parent's IVs before they start the grind to avoid wasting a whole box of eggs on a dud parent.</p>
+            <p>For all three, the rule is the same: test at the highest level you have, with as much EV information as you can enter. A level 5 Pokemon's range is nearly useless, while a level 100 test with EVs filled in usually returns a single IV per stat.</p>
+          </article>
+          <article>
             <h3>IVs across the whole toolset</h3>
             <p>IV checking slots into the rest of the site's workflow. Roll a candidate with the <a href="../random-pokemon-picker/">Random Pokemon Picker</a> or the <a href="../">Random Pokemon Generator</a>, check its matchups on the <a href="../pokemon-type-chart/">Pokemon Type Chart</a> while it levels up, then judge its natures and IVs before committing to a set. For catches worth chasing, <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a> plans the hunt: a shiny with good IVs is the real prize.</p>
             <p>The rest of the suite stays close: the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a> rolls ruleset-legal squads, the <a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a> and <a href="../whos-that-pokemon/">Who's That Pokemon</a> keep the games going, <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a> settles favorites, and the <a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a> plus <a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a> add flair picks. Name the winner with the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> and put it on a card with the <a href="../pokemon-card-generator/">Pokemon Card Generator</a> or <a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a>. Deep dives live on the <a href="../blog/">Blog</a>. Need a specific Pokemon fast? The <a href="../search/">Pokemon Search</a> finds any species by name in the same dex.</p>
@@ -281,6 +301,18 @@
       <details class="faq-item cornered">
         <summary>Which Pokemon are supported?</summary>
         <p>All 1,025 species from Generation 1 through 9, plus regional and special forms, with base stats sourced from PokeAPI. The nature list covers all 25 natures used in core games.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Do mints change the calculation?</summary>
+        <p>Yes. A mint changes the effective nature immediately, so enter the nature the Pokemon currently behaves as, not the one it was caught with. The calculator reads the current nature setting, which is how the game applies the stat multiplier.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What if the calculator says a stat is impossible?</summary>
+        <p>That means the entered numbers do not match any IV for that species, level and nature combination. Check for three usual suspects: a wrong species selected, EVs learned after the stats were noted, or the wrong nature. Fix one of those and recalculate.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I check the IVs of a Pokemon I just hatched?</summary>
+        <p>Yes, though the range will be wide at low levels. A fresh egg is usually level 1 or 5, where many IVs produce the same stat line. Let a trainer raise it a few levels, or use the judge feature in the newer games, before trusting a narrow reading.</p>
       </details>
     </section>
   </main>

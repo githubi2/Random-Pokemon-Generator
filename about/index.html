@@ -95,6 +95,21 @@
         "@type": "Question",
         "name": "Does the site work on mobile?",
         "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every page is responsive, with hamburger navigation and touch-sized controls on small screens. All tools run in the browser, so they also work offline once the page has loaded, with no app install required." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does it cost to use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nothing. There is no paywall, no subscription and no premium tier. The project is open source, hosted on public infrastructure, and run as a hobby; any badge or tool claiming a paid version is not part of this site." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use the tools commercially?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The source code is released under an open-source license included in the repository, so reuse is allowed for personal and commercial projects with attribution. Keep in mind Pokemon names and artwork remain trademarks of Nintendo, Game Freak and The Pokemon Company, so separate clearance applies to those." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the data updated for the latest games?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The dataset tracks the current national dex through Generation 9, and mechanics pages are revised when a new game changes a rule. If a value from an older title matters to you, each page names its source so you can pin down which version it describes." }
       }
     ]
   }
@@ -188,6 +203,11 @@
             <h3>Games, not just generators</h3>
             <p>Some pages are pure play: judge the whole dex in <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a>, name the silhouette in <a href="../whos-that-pokemon/">Who's That Pokemon</a>, or find the perfect nickname with the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a>. Each tool runs entirely in your browser with no accounts and no sign-up.</p>
           </article>
+          <article>
+            <h3>Reference pages and calculators</h3>
+            <p>Beyond the rollers, the site keeps its reference pages current. The <a href="../pokemon-type-chart/">Pokemon Type Chart</a> covers all 324 matchups with a dual-type calculator, the <a href="../pokemon-nature-chart/">Pokemon Nature Chart</a> lists all 25 natures with per-species recommendations, the <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a> calculator walks through every hunting method, and the <a href="../pokemon-iv-calculator/">Pokemon IV Calculator</a> reconstructs hidden IVs from the stats you actually see in-game.</p>
+            <p>Two more pages live outside the "random" theme on purpose. The <a href="../random-pokemon-picker/">Random Pokemon Picker</a> is the single-draw version of the main generator, and <a href="../search/">Pokemon Search</a> is the fastest way to pull any species by name. All of them read from the same dataset, so a Pokemon you search is the same Pokemon you can roll, tune, and print.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -205,6 +225,11 @@
           <article>
             <h3>Open data, credited sources</h3>
             <p>Species data, stats, and official artwork come from the community-run <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a> project. Shiny rates and game mechanics are compiled from in-game documentation and community research. Where a number is an estimate rather than a confirmed figure, the page says so.</p>
+            <p>Mechanics pages are the ones we audit hardest. The type chart uses the Generation 6 onward matchups, the nature chart follows the 10 percent multipliers, and the IV calculator runs the same formula the games use. When a new generation changes a rule, the affected page is updated in the same release, and the change is documented in the project's commit history.</p>
+          </article>
+          <article>
+            <h3>Verifiable, not vibes</h3>
+            <p>Every number on this site can be traced: each tool references the PokeAPI entry it came from, and the source code for the whole site is public. If a stat looks wrong, the issue tracker gets it fixed faster than a forum post. We would rather ship a page that admits "estimated" than one that guesses with confidence.</p>
           </article>
           <article>
             <h3>Your data stays yours</h3>
@@ -259,6 +284,18 @@
       <details class="faq-item cornered">
         <summary>Does the site work on mobile?</summary>
         <p>Yes. Every page is responsive, with hamburger navigation and touch-sized controls on small screens. All tools run in the browser, so they also work offline once the page has loaded, with no app install required.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How much does it cost to use?</summary>
+        <p>Nothing. There is no paywall, no subscription and no premium tier. The project is open source, hosted on public infrastructure, and run as a hobby; any badge or tool claiming a paid version is not part of this site.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I use the tools commercially?</summary>
+        <p>The source code is released under an open-source license included in the repository, so reuse is allowed for personal and commercial projects with attribution. Keep in mind Pokemon names and artwork remain trademarks of Nintendo, Game Freak and The Pokemon Company, so separate clearance applies to those.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Is the data updated for the latest games?</summary>
+        <p>Yes. The dataset tracks the current national dex through Generation 9, and mechanics pages are revised when a new game changes a rule. If a value from an older title matters to you, each page names its source so you can pin down which version it describes.</p>
       </details>
     </section>
   </main>
