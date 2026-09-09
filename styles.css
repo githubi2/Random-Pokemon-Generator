@@ -3009,6 +3009,8 @@ tr.pnc-hide { display: none; }
 }
 
 /* ===== pokedex species detail panel ===== */
+.panel.dex-panel { padding-bottom: 40px; }
+.dex-panel + .panel { margin-top: 32px; }
 .dex-detail-grid {
   display: flex;
   flex-direction: column;
