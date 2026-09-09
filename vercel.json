@@ -135,6 +135,11 @@
       "permanent": true
     },
     {
+      "source": "/pokemon/:name",
+      "destination": "/pokemon/:name/",
+      "permanent": true
+    },
+    {
       "source": "/terms-of-use/index.html",
       "destination": "/terms-of-use/",
       "permanent": true
