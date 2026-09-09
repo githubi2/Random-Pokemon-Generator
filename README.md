@@ -21,6 +21,7 @@ A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero de
 | 📛 Name Generator | [/random-pokemon-name-generator/](https://www.random-pokemon-generator.co/random-pokemon-name-generator/) | Generate random Pokémon names from all 1,025 species |
 | 👣 Nuzlocke Generator | [/nuzlocke-generator/](https://www.random-pokemon-generator.co/nuzlocke-generator/) | Nuzlocke-specific roller: starter teams, first encounters, death replacements |
 | 🎡 Generator Wheel | [/random-pokemon-generator-wheel/](https://www.random-pokemon-generator.co/random-pokemon-generator-wheel/) | Spin-the-wheel style random Pokémon picker |
+| 🎲 Pokemon Picker | [/random-pokemon-picker/](https://www.random-pokemon-generator.co/random-pokemon-picker/) | One-click random Pokemon draw (1–12) with generation/type/rarity filters, cries & share links |
 | 👥 Team Picker | [/pokemon-team-picker/](https://www.random-pokemon-generator.co/pokemon-team-picker/) | Pick a balanced Pokémon team with type coverage analysis |
 | 🔥 Smash or Pass | [/pokemon-smash-or-pass/](https://www.random-pokemon-generator.co/pokemon-smash-or-pass/) | Swipe through Pokémon and build your favorites list |
 | ❓ Who's That Pokemon | [/whos-that-pokemon/](https://www.random-pokemon-generator.co/whos-that-pokemon/) | Guess the Pokémon from its silhouette — classic mini-game |
@@ -79,6 +80,13 @@ The [nature chart page](https://www.random-pokemon-generator.co/pokemon-nature-c
 - 👥 Six-slot squad builder with type matchup matrix, moves/natures/items, Showdown import/export
 - 🔥 Dex-wide verdict game with shareable smash list
 - ❓ Silhouette, pixel-art and cry guessing with 4 difficulty modes and progressive hints
+
+### Random Pokemon Picker
+- 🎲 One-click draw of 1–12 Pokemon from all 1,025 species (Gen 1-9), no repeats per pick
+- 🔍 Lightweight filters: generation, type (any-of), Legendary/Mythical include/exclude/only
+- 🔊 Pokemon cry plays on every pick (Showdown audio, toggleable) — click a card to replay
+- 🔗 Copy Pick Link: filters + exact picks (shiny included) encoded in one URL, same param format as the main generator
+- ✨ Shiny mode: normal, 8% random, or always-shiny
 
 ### All pages
 - ⚡ Zero-dependency static site: one `index.html` + one page script per tool, shared `styles.css` / `data.js` / `nav.js`
@@ -150,6 +158,10 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 ├── random-pokemon-name-generator/
 │   ├── index.html                    # name generator page
 │   ├── name-generator.js             # nickname engine (7 categories)
+│   └── og-image.png
+├── random-pokemon-picker/
+│   ├── index.html                    # random pokemon picker page (target: "random pokemon picker")
+│   ├── picker.js                     # quick pick engine (filters, cries, share links)
 │   └── og-image.png
 ├── random-pokemon-generator-wheel/
 │   ├── index.html                    # wheel spinner page

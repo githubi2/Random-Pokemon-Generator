@@ -122,6 +122,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://www.random-pokemon-generator.co/random-pokemon-picker/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.random-pokemon-generator.co/terms-of-use/</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>yearly</changefreq>

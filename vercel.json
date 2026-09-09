@@ -115,6 +115,11 @@
       "permanent": true
     },
     {
+      "source": "/random-pokemon-picker/index.html",
+      "destination": "/random-pokemon-picker/",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true
