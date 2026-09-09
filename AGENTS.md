@@ -13,7 +13,7 @@
 2. **Title**：每页唯一、**主词前置**、尽量 ≤60 字符；`og:title` / `twitter:title` 必须与 `<title>` 完全同步。标题可用完整关键词 + 简短副标题（例：`Random Pokemon Generator Wheel - Pokemon Spinner`）。
 3. **H1**：每页**恰好 1 个**，必须用**完整目标关键词**（如 `Random Pokemon Generator Wheel`，禁止写 `Pokemon Wheel`）；标题层级 h1→h2→h3 不跳级。所有标题性元素（FAQ H2、How It Works H2）同样用完整关键词。
 4. **词数**：每页正文 **≥1200 词**（目标 1200-1800）；新页必须达标后才可提交。
-5. **JSON-LD**：每页必须有 `SoftwareApplication` + `FAQPage`（FAQPage 必须与页面可见 FAQ **逐条一致**）；子页另加 `BreadcrumbList`。JSON-LD 的 `name` 必须与完整关键词一致（*不是*短变体）。所有 JSON-LD 必须可解析。
+5. **JSON-LD**：**工具页**必须有 `SoftwareApplication` + `FAQPage`（FAQPage 必须与页面可见 FAQ **逐条一致**）+ `BreadcrumbList` + `Organization`；**内容页/物种页/枢纽页（2026-09-09 起）** = `WebPage` + `FAQPage` + `BreadcrumbList` + `Organization` + `WebSite/SearchAction`（**不套 SoftwareApplication**，物种页不是工具）。JSON-LD 的 `name` 必须与完整关键词一致（*不是*短变体）。所有 JSON-LD 必须可解析。
 6. **OG/Twitter**：每页必须有 `og:image`（1200×630 绝对 www URL，放页面同目录 `og-image.png`）+ `og:image:width/height` + `twitter:card: summary_large_image` + `twitter:image`；`og:url` 必须带 www。
 7. **URL slug 关键词化**：新页面目录名 = **完整目标关键词**（例：`pokemon-smash-or-pass/`、`random-pokemon-generator-wheel/`），**绝不省略关键词中的词**（`smash-or-pass/`、`pokemon-wheel/` ❌）。URL = Title 主词 = H1。
 8. **锚文本完整关键词化**：所有引用点（nav、footer、正文语境内链、JSON-LD name、Breadcrumb name）的锚文本必须用**完整关键词**；禁止短变体锚文本（`Pokemon Wheel` ❌ → `Random Pokemon Generator Wheel` ✅）。关键词变体（如中长形式）只允许在**正文叙述**中自然出现，不允许作为锚文本。
@@ -47,7 +47,7 @@
 2. `sitemap.xml` 加新 URL（www + lastmod 当天）
 3. `vercel.json` 加 `/{dir}/index.html → /{dir}/` 永久重定向
 4. **全部既有页面**更新 nav + footer + 正文内链（新页关键词锚文本）
-5. JSON-LD ×3（SoftwareApplication / FAQPage 一致 / BreadcrumbList）
+5. JSON-LD：工具页 = SoftwareApplication / FAQPage 一致 / BreadcrumbList / Organization；**内容页（枢纽/物种页）= WebPage / FAQPage 一致 / BreadcrumbList / Organization / WebSite（无 SoftwareApplication）**
 6. `<title>`/`og:title`/`twitter:title` 三同步 + description **100-160 字符**（160 是 SERP 截断硬线，不是 170；mega 页与 name 页曾因 160+ 被点名。写法：完整关键词开头命中 + 只保留最核心差异化卖点，尾部功能罗列宁删勿超）
 7. 正文 **≥1200 词**（目标 1200-1800）+ 内外链闭环；**正文软上限 ~1800 词**（超过不致命但会稀释主题，写正文时控制在 1200-1700 区间；宁可句句扎实，不为凑数注水）
 8. 移动端适配（汉堡导航、按钮触屏 ≥44px）
@@ -133,7 +133,7 @@
 
 ### 6.6 内容质量（R6）
 - R6.1 页面字符量 ≥800 —— 工具页+内容页都适用。【已有：规则 4 词数 ≥800】
-- R6.2 核心词密度 3%~5% —— 围绕核心关键词的密度控制。【新增：正文主词出现次数 ≈ 词数×(3%~5%)；与规则 8 锚文本不冲突】
+- R6.2 核心词密度 3%~5% —— 围绕核心关键词的密度控制。【校准口径（2026-09-09，打样页体检后）：**不追裸词密度百分比**——Google 官方确认密度非排名因素，堆到 3-5% 反而触发堆砌信号 + 低质污染（R6.10）。执行方式改为「组合词结构位落位」：`X evolution / X stats / X abilities / X weakness` 必须自然出现在 H3 标题、开头段、FAQ 等结构位（每页 4-8 处），裸名次数保持自然（参考：27-36 次/1200+ 词）。详见第 7.3 节】
 - R6.3 结构化数据 JSON-LD —— 放 head。品牌 Organization 必标，面包屑 BreadcrumbList 必标。FAQPage 富媒体 2026-05-07 下线但内容模块保留。【已有：规则 5；✅ 已整改 2026-09-06：18 页全部含 Organization JSON-LD】
 - R6.4 OpenGraph+TwitterCard —— 全页统加社交分享元标签。【已有：规则 6】
 - R6.5 内容真实有效 —— 功能服务和内容真实有效→谷歌收录给排名。不造假。【理念；与 R6.9 联动】
@@ -152,7 +152,7 @@
 ### 6.8 GSC 监控（R8）
 - R8.1 哥飞网站权重公式 —— 权重分 =（有曝光点击页数 ÷ 爬虫发现总页数）× 10000。及格 ≥100。【新增：GSC 周度指标】
 - R8.2 每日关注未索引量 —— 持续上升=生成策略有问题，立刻停手。【新增】
-- R8.3 先试探再放量 —— 网页 <1 万时试探谷歌→确认策略有效→再放大。【新增：本站页面 <100，每批 ≤5 页试探】
+- R8.3 先试探再放量 —— 网页 <1 万时试探谷歌→确认策略有效→再放大。【新增：本站页面 <100，节奏见第 7.5 节（哥飞式：3 页打样 → GSC 2 周 → 收录率 ≥80% 逐波放量）】
 
 ### 6.9 多语言国际化（R9）
 - R9.1 Hreflang 设置 —— 每语言页互设 hreflang + self-referencing canonical。英文放 / 根目录。【新增：当前英文单语站暂不适用；若加语言必守】
@@ -210,3 +210,57 @@
 2. 任何页面上线即满足：R2.1 无 keywords 标签 / R2.8 图均带 alt / R6.3 Organization+BreadcrumbList / R12.2 CWV 达标。
 3. 【🔧】条目为现状待整改项：逐项落账整改，完成一项在本节勾掉一项（不改编号，括号内标注 ✅）。
 4. R17.3 关键词挖掘循环法 = 第 5 节关键词池的日常运行机制：竞对 → Semrush 出词 → 分析页面 → 循环。
+
+---
+
+## 7. Pokedex 单宝可梦页矩阵（P0-1 · 2026-09-09 确立）
+
+> 对标竞品 randompokemonpicker.com（sitemap 1306 URL，1276 个 /know-your-pokemon/xxx 单宝可梦页，排 #2）。我方用 data.js 全量数据（1025 物种 + 326 形态）程序化建站网。**全部页面按第 1 节硬性规则 + 本节执行。**
+
+### 7.1 已拍板决策（勿再推翻）
+
+1. **词数**：A 方案（≥1200 严格执行，见规则 4）。
+2. **JSON-LD**：物种页/枢纽页 = WebPage + FAQPage + BreadcrumbList + Organization + WebSite（**不套 SoftwareApplication**，见规则 5）。
+3. **枢纽页**：`/pokemon/` 名 **Pokemon Pokedex**，nav Tools 下拉**最底部** + footer（全站 25 页已注入；新页随 nav 模板自动带）。
+4. **放量节奏**：哥飞方法论（新站四条红线全命中：域名 <12 月/DR≈0/收录排名页 <100）——**3 页手工打样 → GSC 观察 ≥2 周 → 逐波放量**，禁一次性 151/60 页。
+
+### 7.2 页面结构（顺序固定，从上到下）
+
+1. **Hero**：eyebrow `#001 · Grass / Poison · Seed Pokemon · Gen 1` + H1=物种名 + lede（首段带组合词）
+2. **数据卡** `.panel.dex-panel`：官图（PokeAPI `official-artwork/{id}.png`，340px 居中 + `--aura` 色光晕）→ 类型 chips（居中）→ **H3「X Base Stats」** → BST → 6 条 `.stat-bars` 进度条 → abilities 行
+   - 进度条规范：label 72px 左 / track 圆角 12px 底 `#e9e5de` / fill = **stat÷255** / 数值 36px 右对齐
+   - **固定色板**（PokeAPI 官方 stats 色，勿改）：HP `#FF5959` · Atk `#F5AC78` · Def `#FAE078` · SpA `#9DB7F5` · SpD `#A7DB8D` · Spe `#FA92B2`
+3. **Type Matchups 卡**：H3 格式 **「X Weakness (2x)」「X Resistances (0.5x)」「X Immunity (0x)」**（带词；禁止裸 `Weak to (2x)`），数据由 18-type 图计算
+4. **More in the Pokemon Pokedex**（3 张 rec-card：其余打样页 + Pokedex home）——**必须放黄 band 之前**（2026-09-09 用户指定）
+5. **How It Works**（黄 band）：4-5 个 article；≥2 个小标题带组合词，可留 1-2 个叙事标题保人味（如 `Pikachu beyond the games`；禁止全模板化）
+6. **FAQ** ≥5 条：至少 1 条 `X evolution chart` 类 + 1 条 `X abilities` 类真问题；可见与 JSON-LD 逐条一致
+
+### 7.3 写作铁律（打样页校准，勿回退）
+
+- **组合词落位 = 意图对齐**：`X evolution / X stats / X abilities / X weakness` 自然出现在 H3 标题、开头段、FAQ 等结构位（每页 4-8 处），不是堆裸名。
+- **禁追裸词密度 3%-5%**（R6.2 校准口径）：Google 官方：密度非排名因素；堆砌触发 spam 信号 + R6.10 污染。裸名自然范围参考：27-36 次/1200+ 词。
+- 开头段首句 = 物种叙事 + 组合词（如 `Its evolution into Ivysaur at level 16...`）。
+- 每页至少 1 句「从数据算出来的论断」（针对 st 数组的读法），禁止换名复制。
+- 禁 AI 味词（unlock/free/journey 等，kimi-verify 自动查）。
+
+### 7.4 路径/接线（血泪教训）
+
+- URL：`/pokemon/{name}/`；vercel.json 通配 `"/pokemon/:name/index.html" → "/pokemon/:name/"`（已加）。
+- **相对路径坑**：物种页（深度 2）指向物种页/工具必须 `../../` 前缀；裸 `charizard/` 会解析为 `/pokemon/bulbasaur/charizard/` = **404**（2026-09-09 实测踩过并修复）。hub 页（深度 1）用 `../`。
+- sitemap：hub priority 0.8 / 物种页 0.7，changefreq monthly，lastmod 当天。
+- 新物种页上线流程：页面+og-image → sitemap → （通配已覆盖 vercel）→ 既有页 More 卡/进化链互链（用完整 ../../ 前缀）→ 验收 → push。
+
+### 7.5 放量节奏哥飞式（量化门槛）
+
+- **打样期**：3 页手工精做（bulbasaur/charizard/pikachu，已上线）→ GSC 观察 ≥2 周 → 合格 = 3/3 已索引 + 均 ≥10 曝光 + ≥1 页点击 + 本地闸门全绿。
+- **每波放量条件**：上一波收录率 **≥80%**、无整站曝光异常下跌、有新页获点击；**任一波收录率 <60% → 停发归因**（R7.1/R8.2）。
+- 波次路线：+7（10）→ +20（40）→ +40（80）→ +80（160）→ +160（320）→ +320（640）→ +385（1025）；每波 1-2 天生成 + 1-2 周观察；全量预计 6-9 个月。
+- 每波生成纪律（build-pokedex.py 未来）：1-2 页精调样板 → **句式变体库 4-6 种/段**（防雷同）→ 真实数据注入 → 自动验收（词数/title 唯一/desc 100-160/H1 唯一/FAQ 可见=LD/矩阵闭环/禁词/AI 词）→ **任一页不达标整批重生成** → 抽查 10 页人工读 → GSC（每波 5-10 页手动 request indexing + sitemap 重提交，用户操作）。
+- GSC 体检判定表（首批 2 周后）：收录率 ≥80% 合格进下一波；「已抓取未索引」>15% 查模板；曝光异常下跌 → 回滚。
+- 形态页（326 个 Mega/区域形态）：二期按需评估，基础 1025 收尾后再动。
+
+### 7.6 已上线资产与体检记录
+
+- `/pokemon/`（hub）：体检 99 分，**不动**（唯一黄标密度 5.56% 略高，再动更糟）。
+- 3 打样页：体检 93-94 分（A 级/聚焦 100%），已按 7.2/7.3 校准组合词落位。
+- 体检工具（on-page audit）密度榜仅为诊断参考，**不作为放量门槛**（以 GSC 实际收录/点击为准——用户核心原则：真实数据为准，禁止捏造）。
