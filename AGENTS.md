@@ -12,7 +12,7 @@
 1. **canonical**：一律指向 `https://www.random-pokemon-generator.co/...`（带 www 前缀；子页为 `/nuzlocke-generator/`）。禁止无 www 版本。
 2. **Title**：每页唯一、**主词前置**、尽量 ≤60 字符；`og:title` / `twitter:title` 必须与 `<title>` 完全同步。标题可用完整关键词 + 简短副标题（例：`Random Pokemon Generator Wheel - Pokemon Spinner`）。
 3. **H1**：每页**恰好 1 个**，必须用**完整目标关键词**（如 `Random Pokemon Generator Wheel`，禁止写 `Pokemon Wheel`）；标题层级 h1→h2→h3 不跳级。所有标题性元素（FAQ H2、How It Works H2）同样用完整关键词。
-4. **词数**：每页正文 ≥800 词（目标 900-1200）；新页必须达标后才可提交。
+4. **词数**：每页正文 **≥1200 词**（目标 1200-1800）；新页必须达标后才可提交。
 5. **JSON-LD**：每页必须有 `SoftwareApplication` + `FAQPage`（FAQPage 必须与页面可见 FAQ **逐条一致**）；子页另加 `BreadcrumbList`。JSON-LD 的 `name` 必须与完整关键词一致（*不是*短变体）。所有 JSON-LD 必须可解析。
 6. **OG/Twitter**：每页必须有 `og:image`（1200×630 绝对 www URL，放页面同目录 `og-image.png`）+ `og:image:width/height` + `twitter:card: summary_large_image` + `twitter:image`；`og:url` 必须带 www。
 7. **URL slug 关键词化**：新页面目录名 = **完整目标关键词**（例：`pokemon-smash-or-pass/`、`random-pokemon-generator-wheel/`），**绝不省略关键词中的词**（`smash-or-pass/`、`pokemon-wheel/` ❌）。URL = Title 主词 = H1。
