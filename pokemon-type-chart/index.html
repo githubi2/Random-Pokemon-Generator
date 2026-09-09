@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokemon Type Chart - 18-Type Weaknesses &amp; Effectiveness</title>
+  <meta name="description" content="Pokemon Type Chart: full 18-type effectiveness grid with a dual-type damage calculator — weaknesses, resistances and immunities in one table." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/pokemon-type-chart/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pokemon Type Chart - 18-Type Weaknesses &amp; Effectiveness" />
+  <meta property="og:description" content="Full 18-type effectiveness grid with a dual-type damage calculator — weaknesses, resistances and immunities in one table." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/pokemon-type-chart/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/pokemon-type-chart/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pokemon Type Chart - 18-Type Weaknesses &amp; Effectiveness" />
+  <meta name="twitter:description" content="Full 18-type effectiveness grid with a dual-type damage calculator — weaknesses, resistances and immunities in one table." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/pokemon-type-chart/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260909a" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Pokemon Type Chart",
+    "description": "Interactive 18-type Pokemon effectiveness chart with a dual-type damage calculator and per-type weakness lists.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://www.random-pokemon-generator.co/pokemon-type-chart/"
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Random Pokemon Generator", "item": "https://www.random-pokemon-generator.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Pokemon Type Chart", "item": "https://www.random-pokemon-generator.co/pokemon-type-chart/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a Pokemon type chart?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A Pokemon type chart is the reference table that maps every attacking type against every defending type, showing the damage multiplier that results: 2x super-effective, 1x neutral, 0.5x not very effective, and 0x immune. It is the ruleset behind every battle in the games." }
+      },
+      {
+        "@type": "Question",
+        "name": "How many Pokemon types are there?",
+        "acceptedAnswer": { "@type": "Answer", "text": "18 types: Normal, Fire, Water, Electric, Grass, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel and Fairy. The Stellar Tera type added in Generation 9 is a Tera-crystal property, not a regular type on the chart." }
+      },
+      {
+        "@type": "Question",
+        "name": "How does dual-type damage work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Multiply the two multipliers together. A Flying/Dragon target takes 4x from Ice (2x x 2x), a Water/Steel target takes 0.25x from Fire (0.5x x 0.5x), and any immunity zeroes the result — an Electric move on a Water/Ground Pokemon is 0x even though Water would be 2x." }
+      },
+      {
+        "@type": "Question",
+        "name": "What does STAB mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Same-Type Attack Bonus: a move matching the user's own type deals 1.5x damage on top of the type chart multiplier. A Water-type Pokemon using Surf deals 2x (chart) plus STAB, which is why same-type moves are usually the best coverage choice." }
+      },
+      {
+        "@type": "Question",
+        "name": "Has the type chart changed over the generations?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Generation 2 added Dark and Steel, with Ghost and Steel rebalanced; Generation 6 introduced Fairy and changed Ghost and Dark to neutral against Steel. Abilities like Levitate, Wonder Guard and Soundproof also override certain matchups." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I use this chart?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Hover or tap any cell in the grid to see the matchup written out, use the calculator to test any attacking type against one or two defending types, or open a type card below the grid to scan its weaknesses, resistances and immunities at a glance." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+  }
+  </script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+              <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+              <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+              <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+              <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+              <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+              <li><a href="../pokemon-iv-calculator/" class="nav-link">Pokemon IV Calculator</a></li>
+              <li><a href="../pokemon-card-generator/" class="nav-link">Pokemon Card Generator</a></li>
+              <li><a href="../pokemon-trainer-card-generator/" class="nav-link">Pokemon Trainer Card Generator</a></li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">Blog</a></li>
+          <li><a href="#how" class="nav-link">How It Works</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">18 Types · 324 Matchups · Dual-Type Calculator</p>
+      <h1 id="page-title">Pokemon Type Chart</h1>
+      <p class="lede">Every Pokemon type matchup on one grid: what beats what, what resists what, and what ignores it entirely. Hover any cell, use the dual-type damage calculator, or scan each type's weaknesses at a glance.</p>
+    </section>
+
+    <!-- Chart -->
+    <section class="container" aria-label="Pokemon type chart">
+      <div class="panel cornered tc-panel">
+        <div class="tc-scroll" aria-label="Type effectiveness grid">
+          <table class="tc-table" id="tc-table">
+            <caption class="visually-hidden">Pokemon type effectiveness chart, attacking types as rows and defending types as columns</caption>
+          </table>
+        </div>
+        <p class="tc-readout" id="tc-readout" aria-live="polite">Hover or tap any cell to read that matchup.</p>
+      </div>
+
+      <div class="panel cornered tc-calc">
+        <h2 class="tc-calc-title">Dual-Type Damage Calculator</h2>
+        <div class="tc-calc-row">
+          <label for="tc-atk">Attacking type</label>
+          <select id="tc-atk" class="tc-select"></select>
+          <label for="tc-def1">Defending type 1</label>
+          <select id="tc-def1" class="tc-select"></select>
+          <label for="tc-def2">Defending type 2</label>
+          <select id="tc-def2" class="tc-select"></select>
+        </div>
+        <p class="tc-result" id="tc-result" aria-live="polite"></p>
+        <p class="tool-note">Test any attack against one or two defending types. The calculator multiplies the two matchups, immunity always wins, and the same math powers the grid above.</p>
+      </div>
+
+      <div class="container tc-details" id="tc-details" aria-label="Per-type details"></div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how-title">How the Pokemon Type Chart Works</h2>
+        <div class="how-grid">
+          <article>
+            <h3>Read the matchup grid in one line</h3>
+            <p>The Pokemon type chart is a 18-by-18 grid: attacking types run down the left, defending types across the top, and each cell holds the damage multiplier that results when the two meet. Values are always one of four: 2x (super effective), 1x (neutral), ½x (not very effective), or 0x (immune). Hover or tap any cell and the matchup is written out beneath the table, so you never have to decode the symbols.</p>
+            <p>Because the chart only stores the non-neutral matchups internally, the grid stays honest — every cell is computed from the same ruleset, which means the table can never drift from the calculator below it.</p>
+          </article>
+          <article>
+            <h3>Find any type's weaknesses in seconds</h3>
+            <p>Each of the 18 type cards under the grid lists three things: what the type is weak to, what it resists, and what it is immune to. Steel resists ten types and ignores Poison; Ground is immune to Electric; Ghost never touches Normal. That single card answers "what hits this type hard?" instantly — which is exactly what you want before a raid, a gym fight, or a competitive match.</p>
+            <p>Pair the type cards with the <a href="../pokemon-nature-chart/">Pokemon Nature Chart</a> and the <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a> pages to turn a good match-up into a well-built Pokemon: the nature chart picks the stat spread, the odds page plans the hunt, and this chart checks the damage math on every member of the squad.</p>
+          </article>
+          <article>
+            <h3>Dual-type damage, computed exactly</h3>
+            <p>Most Pokemon have two types, so the calculator is the part that actually matters. Pick an attacking type and one or two defending types — the result multiplies the individual matchups together. Fire vs Water/Steel is ½x × ½x = ¼x, Ice vs Dragon/Flying is 2x × 2x = 4x, and Electric vs Water/Ground is 0x: immunity beats every other rule. A 4x or ¼x result almost always decides a battle, so checking before you commit a move is habit-worthy.</p>
+            <p>Want to build a team that covers these holes? The <a href="../pokemon-team-picker/">Pokemon Team Picker</a> maps your whole squad's defensive coverage, and the <a href="../">Random Pokemon Generator</a> rolls one with a tactical report attached — grade, coverage matrix, and weakness warnings.</p>
+          </article>
+          <article>
+            <h3>From chart to gameplay</h3>
+            <p>Type knowledge powers every other tool on this site. Roll a random squad with the <a href="../random-pokemon-picker/">Random Pokemon Picker</a>, spin a <a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a> for a dramatic pick, or start a ruleset run with the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a> — then come back here when you need to know what your team actually carries. The <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a> and <a href="../whos-that-pokemon/">Who's That Pokemon</a> games turn the same matchups into quick fun, the <a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a> rolls Mega Evolutions, and the <a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a> rolls shiny forms.</p>
+            <p>When you want to take a single Pokemon deeper, the <a href="../pokemon-iv-calculator/">Pokemon IV Calculator</a> reconstructs the hidden values behind its stats, the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> gives it a nickname, and the <a href="../pokemon-card-generator/">Pokemon Card Generator</a> with the <a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a> put it on a printable card. More guides and math live on the <a href="../blog/">Blog</a>. Need a specific Pokemon fast? The <a href="../search/">Pokemon Search</a> finds any species by name in the same dex.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Pokemon Type Chart FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>What is a Pokemon type chart?</summary>
+        <p>A Pokemon type chart is the reference table that maps every attacking type against every defending type, showing the damage multiplier that results: 2x super-effective, 1x neutral, 0.5x not very effective, and 0x immune. It is the ruleset behind every battle in the games.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How many Pokemon types are there?</summary>
+        <p>18 types: Normal, Fire, Water, Electric, Grass, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel and Fairy. The Stellar Tera type added in Generation 9 is a Tera-crystal property, not a regular type on the chart.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How does dual-type damage work?</summary>
+        <p>Multiply the two multipliers together. A Flying/Dragon target takes 4x from Ice (2x x 2x), a Water/Steel target takes 0.25x from Fire (0.5x x 0.5x), and any immunity zeroes the result — an Electric move on a Water/Ground Pokemon is 0x even though Water would be 2x.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What does STAB mean?</summary>
+        <p>Same-Type Attack Bonus: a move matching the user's own type deals 1.5x damage on top of the type chart multiplier. A Water-type Pokemon using Surf deals 2x (chart) plus STAB, which is why same-type moves are usually the best coverage choice.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Has the type chart changed over the generations?</summary>
+        <p>Yes. Generation 2 added Dark and Steel, with Ghost and Steel rebalanced; Generation 6 introduced Fairy and changed Ghost and Dark to neutral against Steel. Abilities like Levitate, Wonder Guard and Soundproof also override certain matchups.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How do I use this chart?</summary>
+        <p>Hover or tap any cell in the grid to see the matchup written out, use the calculator to test any attacking type against one or two defending types, or open a type card below the grid to scan its weaknesses, resistances and immunities at a glance.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+        <li><a href="../">Random Pokemon Generator</a></li>
+        <li><a href="../nuzlocke-generator/">Nuzlocke Team Builder</a></li>
+        <li><a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a></li>
+        <li><a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a></li>
+        <li><a href="../whos-that-pokemon/">Who's That Pokemon</a></li>
+        <li><a href="../pokemon-team-picker/">Pokemon Team Picker</a></li>
+        <li><a href="../random-pokemon-picker/">Random Pokemon Picker</a></li>
+        <li><a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a></li>
+        <li><a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a></li>
+        <li><a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a></li>
+        <li><a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a></li>
+        <li><a href="../pokemon-nature-chart/">Pokemon Nature Chart</a></li>
+        <li><a href="../pokemon-type-chart/">Pokemon Type Chart</a></li>
+        <li><a href="../pokemon-iv-calculator/">Pokemon IV Calculator</a></li>
+        <li><a href="../pokemon-card-generator/">Pokemon Card Generator</a></li>
+        <li><a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../search/">Search</a></li>
+        <li><a href="../privacy-policy/">Privacy Policy</a></li>
+        <li><a href="../about/">About &amp; Contact</a></li>
+        <li><a href="../terms-of-use/">Terms of Use</a></li>
+      </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator. Not affiliated with Nintendo / Game Freak.</p>
+      <p class="footer-note">Data sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </div>
+  </footer>
+
+  <script src="../data.js?v=20260802q"></script>
+  <script src="../nav.js?v=20260802q"></script>
+  <script src="type-chart.js?v=20260909b"></script>
+</body>
+</html>

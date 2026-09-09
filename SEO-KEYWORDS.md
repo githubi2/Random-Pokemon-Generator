@@ -1,7 +1,7 @@
 # SEO 关键词基线（Baseline）
 
 > 建站以来全部页面的目标关键词与 On-page 现状快照。用途：排名追踪基线、新页规划参照、回归检查对照表。
-> 快照日期：2026-09-09（站点共 22 页：13 工具页 + 博客列表 + 5 篇博客 + 3 个信息页）。数据来源：各页面实际 HTML 提取，非记忆。
+> 快照日期：2026-09-09（站点共 25 页：15 工具页 + 搜索页 + 博客列表 + 5 篇博客 + 3 个信息页）。数据来源：各页面实际 HTML 提取，非记忆。
 
 ## 达标线（AGENTS.md）
 
@@ -34,6 +34,9 @@
 | 16 | `/pokemon-card-generator/` | pokemon card generator | Pokemon Card Generator – Make Your Own Pokemon Cards（52） | Pokemon Card Generator | 160 | 1642 | 工具 |
 | 17 | `/pokemon-trainer-card-generator/` | pokemon trainer card generator | Pokemon Trainer Card Generator – Make Your Trainer Card（55） | Pokemon Trainer Card Generator | 159 | 1257 | 工具 |
 | 18 | `/random-pokemon-picker/` | random pokemon picker | Random Pokemon Picker - Pick a Pokemon Fast (Gen 1-9)（53） | Random Pokemon Picker | 158 | 1017 | 工具 |
+| 19 | `/pokemon-type-chart/` | pokemon type chart | Pokemon Type Chart - 18-Type Weaknesses &amp; Effectiveness（53） | Pokemon Type Chart | 157 | 928 | 工具 |
+| 20 | `/pokemon-iv-calculator/` | pokemon iv calculator | Pokemon IV Calculator - Find Hidden IVs (Gen 1-9)（54） | Pokemon IV Calculator | 154 | 902 | 工具 |
+| 21 | `/search/` | pokemon search | Pokemon Search - Find Any Pokemon (Gen 1-9)（45） | Pokemon Search | 132 | 805 | 工具 |
 
 ## 备注
 

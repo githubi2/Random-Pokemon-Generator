@@ -110,6 +110,21 @@
       "permanent": true
     },
     {
+      "source": "/pokemon-type-chart/index.html",
+      "destination": "/pokemon-type-chart/",
+      "permanent": true
+    },
+    {
+      "source": "/pokemon-iv-calculator/index.html",
+      "destination": "/pokemon-iv-calculator/",
+      "permanent": true
+    },
+    {
+      "source": "/search/index.html",
+      "destination": "/search/",
+      "permanent": true
+    },
+    {
       "source": "/terms-of-use/index.html",
       "destination": "/terms-of-use/",
       "permanent": true

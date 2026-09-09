@@ -116,6 +116,20 @@
     "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
   }
   </script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -254,7 +268,7 @@
           </article>
           <article>
             <h3>Play around the pick</h3>
-            <p>The picker also feeds the games. Test your memory with the <a href="../whos-that-pokemon/">Who's That Pokemon</a> guessing game, or judge every result one verdict at a time with <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a>. If you are hunting sparkles for real, <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a> computes your actual chances per method — and the <a href="../blog/">Blog</a> walks the math behind the odds, natures, and challenge runs in full.</p>
+            <p>The picker also feeds the games. Test your memory with the <a href="../whos-that-pokemon/">Who's That Pokemon</a> guessing game, or judge every result one verdict at a time with <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a>. If you are hunting sparkles for real, <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a> computes your actual chances per method — and the <a href="../blog/">Blog</a> walks the math behind the odds, natures, and challenge runs in full. And the <a href="../pokemon-type-chart/">Pokemon Type Chart</a> plus <a href="../pokemon-iv-calculator/">Pokemon IV Calculator</a> finish the reference side — check your matchups and hidden IVs in two clicks. Need a specific Pokemon fast? The <a href="../search/">Pokemon Search</a> finds any species by name in the same dex.</p>
             <p>Everything runs in your browser: no accounts, no signup, nothing uploaded. Your picks stay on screen until you roll again, and Reset All returns every filter to defaults in one tap.</p>
           </article>
         </div>

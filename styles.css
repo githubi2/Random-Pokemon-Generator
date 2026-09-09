@@ -2935,3 +2935,75 @@ tr.pnc-hide { display: none; }
 .blog-figure img { display: block; width: 100%; height: auto; border: 2px solid var(--ink); }
 .blog-figure figcaption { font-size: 12.5px; opacity: 0.7; margin-top: 8px; }
 .blog-post .odds-table-wrap { margin: 18px 0 20px; }
+
+
+/* ============================================================
+   2026-09-09 additions: Pokemon Type Chart / IV Calculator / Search / Home recs
+   ============================================================ */
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---- Type chart ---- */
+.tc-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tc-table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 11px; text-align: center; }
+.tc-table th, .tc-table td { border: 1px solid rgba(18,18,18,0.14); padding: 6px 4px; }
+.tc-corner { background: rgba(18,18,18,0.06); font-weight: 700; font-size: 10px; text-align: left; padding: 6px 8px !important; }
+.tc-col, .tc-row { background: #fff; font-weight: 800; white-space: nowrap; }
+.tc-col { font-size: 10px; }
+.tc-cell { background: #fff; }
+.tc-sup { background: #7FE5AE; color: #0B4A26; font-weight: 800; }
+.tc-weak { background: #FFD6D6; color: #7A1F1F; font-weight: 700; }
+.tc-zero { background: #121212; color: #fff; font-weight: 800; }
+.tc-neut { color: rgba(18,18,18,0.35); }
+.tc-hl { outline: 2px solid var(--poke-red); outline-offset: -2px; }
+.tc-readout { margin: 12px 2px 2px; font-weight: 600; min-height: 1.4em; }
+.tc-calc { margin-top: 24px; }
+.tc-calc-title { font-size: 20px; margin-bottom: 12px; }
+.tc-calc-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.tc-calc-row label { font-weight: 700; font-size: 13px; }
+.tc-select { padding: 8px 10px; border: 2px solid var(--ink); background: #fff; border-radius: 6px; font-size: 14px; }
+.tc-result { margin: 14px 0 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 15px; }
+.tc-mult { font-size: 18px; color: var(--ink); }
+.tc-details { margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+.tc-type-card { padding: 14px 16px; background: #fff; border: 2px solid var(--ink); }
+.tc-type-card h3 { margin: 0 0 8px; font-size: 15px; }
+.tc-type-row { margin: 4px 0; font-size: 12px; }
+.tc-type-row strong { display: block; margin-bottom: 3px; }
+.tc-type-row .type-tag { display: inline-block; margin: 0 3px 3px 0; }
+
+/* ---- IV calculator ---- */
+.ivc-form { display: grid; gap: 12px; }
+.ivc-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+.ivc-field label { display: block; font-size: 12px; font-weight: 800; margin-bottom: 4px; }
+.ivc-input { width: 100%; padding: 8px 10px; border: 2px solid var(--ink); border-radius: 6px; font-size: 14px; background: #fff; }
+.ivc-species { width: 100%; max-width: none; }
+.ivc-result-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13px; }
+.ivc-result-table th, .ivc-result-table td { border: 1px solid rgba(18,18,18,0.14); padding: 7px 8px; text-align: center; }
+.ivc-result-table th { background: rgba(18,18,18,0.06); font-weight: 800; }
+.ivc-pick { font-weight: 800; }
+.ivc-range { font-variant-numeric: tabular-nums; }
+
+/* ---- Search page ---- */
+.srch-form { display: flex; gap: 10px; flex-wrap: wrap; }
+.srch-input { flex: 1; min-width: 220px; padding: 12px 14px; border: 2px solid var(--ink); border-radius: 6px; font-size: 16px; }
+.srch-count { margin-top: 10px; font-weight: 700; }
+.srch-results { margin-top: 12px; }
+.srch-row { display: flex; align-items: center; gap: 12px; padding: 10px 4px; border-bottom: 1px dashed rgba(18,18,18,0.18); }
+.srch-row img { width: 56px; height: 56px; }
+.srch-name { font-weight: 800; font-size: 15px; }
+
+/* ---- Home tool recommendations ---- */
+.rec-section { margin: 48px auto 0; }
+.rec-title { font-size: 20px; margin-bottom: 4px; }
+.rec-sub { color: rgba(18,18,18,0.6); margin-bottom: 16px; }
+.rec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.rec-card { display: block; padding: 16px 18px; background: #fff; border: 2px solid var(--ink); text-decoration: none; color: inherit; transition: transform .12s ease, box-shadow .12s ease; }
+.rec-card:hover { transform: translateY(-2px); box-shadow: 4px 4px 0 rgba(18,18,18,0.18); }
+.rec-emoji { font-size: 22px; }
+.rec-name { display: block; font-weight: 800; font-size: 15px; margin: 6px 0 4px; }
+.rec-desc { font-size: 13px; color: rgba(18,18,18,0.65); }
+
+@media (max-width: 760px) {
+  .tc-table { min-width: 560px; }
+  .tc-calc-row { flex-direction: column; align-items: stretch; }
+  .tc-calc-row .tc-select { width: 100%; }
+}

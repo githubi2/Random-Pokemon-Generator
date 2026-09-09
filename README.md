@@ -13,6 +13,8 @@ A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero de
 | 🎲 Main Generator | [random-pokemon-generator.co](https://www.random-pokemon-generator.co/) | Random team builder (1–12 Pokémon) with 10+ filter dimensions |
 | ✨ Shiny Odds Calculator | [/pokemon-shiny-odds/](https://www.random-pokemon-generator.co/pokemon-shiny-odds/) | Complete shiny rates for every game & method — base odds, Shiny Charm, Masuda, PLA outbreaks, SV sandwiches |
 | 🌿 Nature Chart | [/pokemon-nature-chart/](https://www.random-pokemon-generator.co/pokemon-nature-chart/) | All 25 natures with stat boosts/drops + best-nature finder for every species |
+| ⚔️ Type Chart | [/pokemon-type-chart/](https://www.random-pokemon-generator.co/pokemon-type-chart/) | 18-type effectiveness grid + dual-type damage calculator, per-type weaknesses at a glance |
+| 🎯 IV Calculator | [/pokemon-iv-calculator/](https://www.random-pokemon-generator.co/pokemon-iv-calculator/) | Reverse-engineer hidden IVs (0-31) from level, nature, EVs and shown stats — all 1,025 species |
 | 🃏 Card Generator | [/pokemon-card-generator/](https://www.random-pokemon-generator.co/pokemon-card-generator/) | Make your own Pokemon card: photo upload, Classic/Modern/TCG Pocket templates, rarity finishes, PNG download |
 | 🎫 Trainer Card Generator | [/pokemon-trainer-card-generator/](https://www.random-pokemon-generator.co/pokemon-trainer-card-generator/) | Design a Pokemon trainer card: Classic/Modern styles, badges, partner Pokemon, battle stats, PNG download |
 | 📝 Blog | [/blog/](https://www.random-pokemon-generator.co/blog/) | Guides on odds math, natures and strategy — [Pokemon Natures, Explained](https://www.random-pokemon-generator.co/blog/pokemon-natures-explained/), [Pokemon Shiny Odds Explained](https://www.random-pokemon-generator.co/blog/shiny-odds-explained/), [Smash or Pass Tier List](https://www.random-pokemon-generator.co/blog/pokemon-smash-or-pass-tier-list/), [What Is a Nuzlocke Challenge?](https://www.random-pokemon-generator.co/blog/what-is-a-nuzlocke-challenge/) |
@@ -88,6 +90,11 @@ The [nature chart page](https://www.random-pokemon-generator.co/pokemon-nature-c
 - 🔗 Copy Pick Link: filters + exact picks (shiny included) encoded in one URL, same param format as the main generator
 - ✨ Shiny mode: normal, 8% random, or always-shiny
 
+### Type Chart & IV Calculator
+- ⚔️ 18×18 type effectiveness grid (hover any cell), dual-type damage calculator (0.25×–4×), per-type weakness/resist/immunity cards
+- 🎯 IV calculator: brute-forces every IV 0–31 against the standard formula, supports all 25 natures and optional EVs, reports exact ranges per stat
+- 🔍 Pokemon Search (`/search/`) powers the SearchAction JSON-LD on every page — search any of 1,025 species and jump into the generator
+
 ### All pages
 - ⚡ Zero-dependency static site: one `index.html` + one page script per tool, shared `styles.css` / `data.js` / `nav.js`
 - 📱 Responsive: hamburger navigation and compact mobile layouts
@@ -162,6 +169,18 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 ├── random-pokemon-picker/
 │   ├── index.html                    # random pokemon picker page (target: "random pokemon picker")
 │   ├── picker.js                     # quick pick engine (filters, cries, share links)
+│   └── og-image.png
+├── pokemon-type-chart/
+│   ├── index.html                    # 18-type effectiveness grid + dual-type calculator
+│   ├── type-chart.js                 # matrix render + calculator + per-type cards
+│   └── og-image.png
+├── pokemon-iv-calculator/
+│   ├── index.html                    # IV reverse-engineering calculator
+│   ├── iv-calculator.js              # stat formula + brute-force IV search
+│   └── og-image.png
+├── search/
+│   ├── index.html                    # Pokemon name search (SearchAction target)
+│   ├── search.js                     # live dex filter + generator jump links
 │   └── og-image.png
 ├── random-pokemon-generator-wheel/
 │   ├── index.html                    # wheel spinner page

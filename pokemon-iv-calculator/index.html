@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokemon IV Calculator - Find Hidden IVs (Gen 1-9)</title>
+  <meta name="description" content="Pokemon IV Calculator: enter a species, level, nature and its stats to see the exact IV range behind each one — from 0 to 31, perfect is 31." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/pokemon-iv-calculator/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pokemon IV Calculator - Find Hidden IVs (Gen 1-9)" />
+  <meta property="og:description" content="Enter a species, level, nature and its stats to see the exact IV range behind each stat — from 0 to 31, perfect is 31." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/pokemon-iv-calculator/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/pokemon-iv-calculator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pokemon IV Calculator - Find Hidden IVs (Gen 1-9)" />
+  <meta name="twitter:description" content="Enter a species, level, nature and its stats to see the exact IV range behind each stat — from 0 to 31, perfect is 31." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/pokemon-iv-calculator/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260909b" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Pokemon IV Calculator",
+    "description": "Reverse-engineer a Pokemon's hidden individual values (IVs) from its level, nature and shown stats — supports all 1,025 species.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://www.random-pokemon-generator.co/pokemon-iv-calculator/"
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Random Pokemon Generator", "item": "https://www.random-pokemon-generator.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Pokemon IV Calculator", "item": "https://www.random-pokemon-generator.co/pokemon-iv-calculator/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a Pokemon IV calculator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A Pokemon IV calculator is a tool that works backwards from a Pokemon's level, nature, Effort Values and displayed stats to reveal its hidden Individual Values — the 0 to 31 numbers that decide how strong each stat really is." }
+      },
+      {
+        "@type": "Question",
+        "name": "What are IVs?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Individual Values (IVs) are hidden numbers from 0 to 31 that are assigned when a Pokemon is caught or hatched. A 31 IV (perfect) adds roughly 31 points to that stat at level 100. They cannot be changed in-game after capture, which is why players test them early." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I use this calculator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Type the Pokemon's name, set its current level and nature, and enter the six stats exactly as shown in the game (mint items already apply their nature change). Optionally add trained EVs. Press Calculate and the tool checks every possible IV from 0 to 31 to report the range that matches." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is my IV range wide?",
+        "acceptedAnswer": { "@type": "Answer", "text": "At low levels many IVs produce the same stat, so the range spans several values. Raise the Pokemon, train EVs, or use a judge function in newer games to narrow it down. Level 50 and above usually pin the range to one or two values." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a perfect IV?",
+        "acceptedAnswer": { "@type": "Answer", "text": "31. A Pokemon with 31 in every stat is called 6IV. Bottle Caps can hyper-train stats to 31 at level 100, and breeding with a Destiny Knot passes five IVs from the parents — the shortcut used for competitive breeding." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which Pokemon are supported?",
+        "acceptedAnswer": { "@type": "Answer", "text": "All 1,025 species from Generation 1 through 9, plus regional and special forms, with base stats sourced from PokeAPI. The nature list covers all 25 natures used in core games." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+  }
+  </script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+              <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+              <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+              <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+              <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+              <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+              <li><a href="." class="nav-link">Pokemon IV Calculator</a></li>
+              <li><a href="../pokemon-card-generator/" class="nav-link">Pokemon Card Generator</a></li>
+              <li><a href="../pokemon-trainer-card-generator/" class="nav-link">Pokemon Trainer Card Generator</a></li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">Blog</a></li>
+          <li><a href="#how" class="nav-link">How It Works</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">All 1,025 Species · 25 Natures · Lv 1-100</p>
+      <h1 id="page-title">Pokemon IV Calculator</h1>
+      <p class="lede">A Pokemon IV calculator that works backwards: enter the Pokemon's level, nature, EVs and current stats — it reveals the hidden Individual Value range behind each stat, from 0 to 31.</p>
+    </section>
+
+    <!-- Calculator -->
+    <section class="container panel cornered" aria-label="Pokemon IV calculator">
+      <form class="ivc-form" id="ivc-form" action="#ivc" method="get">
+        <div class="ivc-field">
+          <label for="ivc-species">Pokemon</label>
+          <input type="text" id="ivc-species" class="ivc-input ivc-species" list="ivc-datalist" placeholder="Type a Pokemon name — e.g. Charizard" autocomplete="off" />
+          <datalist id="ivc-datalist"></datalist>
+          <p class="tool-note" id="ivc-meta">Type a Pokemon name to select it.</p>
+        </div>
+
+        <div class="ivc-row">
+          <div class="ivc-field">
+            <label for="ivc-level">Level (1-100)</label>
+            <input type="number" id="ivc-level" class="ivc-input" min="1" max="100" value="50" />
+          </div>
+          <div class="ivc-field">
+            <label for="ivc-nature">Nature</label>
+            <select id="ivc-nature" class="ivc-input"></select>
+          </div>
+        </div>
+
+        <div class="ivc-row">
+          <div class="ivc-field"><label for="ivc-hp">Current HP</label><input type="number" id="ivc-hp" class="ivc-input" min="1" step="1" /></div>
+          <div class="ivc-field"><label for="ivc-atk">Current Attack</label><input type="number" id="ivc-atk" class="ivc-input" min="1" step="1" /></div>
+          <div class="ivc-field"><label for="ivc-def">Current Defense</label><input type="number" id="ivc-def" class="ivc-input" min="1" step="1" /></div>
+          <div class="ivc-field"><label for="ivc-spa">Current Sp. Atk</label><input type="number" id="ivc-spa" class="ivc-input" min="1" step="1" /></div>
+          <div class="ivc-field"><label for="ivc-spd">Current Sp. Def</label><input type="number" id="ivc-spd" class="ivc-input" min="1" step="1" /></div>
+          <div class="ivc-field"><label for="ivc-spe">Current Speed</label><input type="number" id="ivc-spe" class="ivc-input" min="1" step="1" /></div>
+        </div>
+
+        <details class="advanced" id="ivc-ev" open>
+          <summary>▸ Trained Effort Values (optional — leave 0 for untrained)</summary>
+          <div class="ivc-row">
+            <div class="ivc-field"><label for="ivc-ev-hp">HP EVs</label><input type="number" id="ivc-ev-hp" class="ivc-input" min="0" max="252" step="4" value="0" /></div>
+            <div class="ivc-field"><label for="ivc-ev-atk">ATK EVs</label><input type="number" id="ivc-ev-atk" class="ivc-input" min="0" max="252" step="4" value="0" /></div>
+            <div class="ivc-field"><label for="ivc-ev-def">DEF EVs</label><input type="number" id="ivc-ev-def" class="ivc-input" min="0" max="252" step="4" value="0" /></div>
+            <div class="ivc-field"><label for="ivc-ev-spa">SPA EVs</label><input type="number" id="ivc-ev-spa" class="ivc-input" min="0" max="252" step="4" value="0" /></div>
+            <div class="ivc-field"><label for="ivc-ev-spd">SPD EVs</label><input type="number" id="ivc-ev-spd" class="ivc-input" min="0" max="252" step="4" value="0" /></div>
+            <div class="ivc-field"><label for="ivc-ev-spe">SPE EVs</label><input type="number" id="ivc-ev-spe" class="ivc-input" min="0" max="252" step="4" value="0" /></div>
+          </div>
+        </details>
+
+        <div class="actions">
+          <button type="button" id="ivc-calc-btn" class="btn-slide cornered btn-primary"><span>Calculate IVs</span></button>
+        </div>
+        <div id="ivc-out" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how-title">How the Pokemon IV Calculator Works</h2>
+        <div class="how-grid">
+          <article>
+            <h3>Turn shown stats into hidden values</h3>
+            <p>Every Pokemon carries six hidden Individual Values, one per stat, each from 0 to 31. They never show up in-game; the game only displays the final stat, which is the formula result of base stats, IVs, EVs, level and nature mixed together. This Pokemon IV calculator runs that formula backwards: pick the species, enter its level, nature and the six stats you see on screen, and it checks every IV from 0 to 31 to find which ones actually produce those numbers.</p>
+            <p>Because the game uses integer rounding, several IVs can land on the same stat at low levels — the calculator reports the full matching range rather than guessing a single number. Raise the Pokemon or train EVs and the same tool narrows the range down to one or two values, exactly the way in-game judges would.</p>
+          </article>
+          <article>
+            <h3>Higher stats start with a base</h3>
+            <p>At level 100, a single IV point is worth exactly one stat point on a neutral nature, and a perfect 31 means the Pokemon is running at its natural maximum. That gap decides speed ties, HP thresholds and defensive breakpoints in competitive play — the difference between a 0.5x Garchomp and a 31x one. Hyper Training or breeding with a Destiny Knot is how trainers force those numbers, and this calculator verifies whether the effort worked before you spend the Bottle Caps.</p>
+            <p>The calculator supports all 1,025 species from Generation 1 through 9 with base stats from PokeAPI, so a day-one catch in Paldea and a traded Gen 3 relic are checked with the same math.</p>
+          </article>
+          <article>
+            <h3>Natures and EVs included</h3>
+            <p>Natures multiply two non-HP stats: +10% to one, -10% to another (or neutral for Hardy, Docile, Bashful, Quirky and Serious). Enter the nature the Pokemon currently holds — mints apply their effect instantly, so account for them — and EVs are optional: leave them at 0 for an untrained Pokemon or enter trained totals so the IV range tightens. The result table shows one row per stat with its matching IV range, so you can spot the dud stat in a four-line scan.</p>
+            <p>Already planning a squad? The <a href="../pokemon-nature-chart/">Pokemon Nature Chart</a> recommends the best nature for any species first, this calculator verifies the IVs second, and the <a href="../pokemon-team-picker/">Pokemon Team Picker</a> assembles the final team with a defensive matchup matrix.</p>
+          </article>
+          <article>
+            <h3>IVs across the whole toolset</h3>
+            <p>IV checking slots into the rest of the site's workflow. Roll a candidate with the <a href="../random-pokemon-picker/">Random Pokemon Picker</a> or the <a href="../">Random Pokemon Generator</a>, check its matchups on the <a href="../pokemon-type-chart/">Pokemon Type Chart</a> while it levels up, then judge its natures and IVs before committing to a set. For catches worth chasing, <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a> plans the hunt: a shiny with good IVs is the real prize.</p>
+            <p>The rest of the suite stays close: the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a> rolls ruleset-legal squads, the <a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a> and <a href="../whos-that-pokemon/">Who's That Pokemon</a> keep the games going, <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a> settles favorites, and the <a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a> plus <a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a> add flair picks. Name the winner with the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> and put it on a card with the <a href="../pokemon-card-generator/">Pokemon Card Generator</a> or <a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a>. Deep dives live on the <a href="../blog/">Blog</a>. Need a specific Pokemon fast? The <a href="../search/">Pokemon Search</a> finds any species by name in the same dex.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Pokemon IV Calculator FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>What is a Pokemon IV calculator?</summary>
+        <p>A Pokemon IV calculator is a tool that works backwards from a Pokemon's level, nature, Effort Values and displayed stats to reveal its hidden Individual Values — the 0 to 31 numbers that decide how strong each stat really is.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What are IVs?</summary>
+        <p>Individual Values (IVs) are hidden numbers from 0 to 31 that are assigned when a Pokemon is caught or hatched. A 31 IV (perfect) adds roughly 31 points to that stat at level 100. They cannot be changed in-game after capture, which is why players test them early.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How do I use this calculator?</summary>
+        <p>Type the Pokemon's name, set its current level and nature, and enter the six stats exactly as shown in the game (mint items already apply their nature change). Optionally add trained EVs. Press Calculate and the tool checks every possible IV from 0 to 31 to report the range that matches.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Why is my IV range wide?</summary>
+        <p>At low levels many IVs produce the same stat, so the range spans several values. Raise the Pokemon, train EVs, or use a judge function in newer games to narrow it down. Level 50 and above usually pin the range to one or two values.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What is a perfect IV?</summary>
+        <p>31. A Pokemon with 31 in every stat is called 6IV. Bottle Caps can hyper-train stats to 31 at level 100, and breeding with a Destiny Knot passes five IVs from the parents — the shortcut used for competitive breeding.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Which Pokemon are supported?</summary>
+        <p>All 1,025 species from Generation 1 through 9, plus regional and special forms, with base stats sourced from PokeAPI. The nature list covers all 25 natures used in core games.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+        <li><a href="../">Random Pokemon Generator</a></li>
+        <li><a href="../nuzlocke-generator/">Nuzlocke Team Builder</a></li>
+        <li><a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a></li>
+        <li><a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a></li>
+        <li><a href="../whos-that-pokemon/">Who's That Pokemon</a></li>
+        <li><a href="../pokemon-team-picker/">Pokemon Team Picker</a></li>
+        <li><a href="../random-pokemon-picker/">Random Pokemon Picker</a></li>
+        <li><a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a></li>
+        <li><a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a></li>
+        <li><a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a></li>
+        <li><a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a></li>
+        <li><a href="../pokemon-nature-chart/">Pokemon Nature Chart</a></li>
+        <li><a href="../pokemon-type-chart/">Pokemon Type Chart</a></li>
+        <li><a href=".">Pokemon IV Calculator</a></li>
+        <li><a href="../pokemon-card-generator/">Pokemon Card Generator</a></li>
+        <li><a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../search/">Search</a></li>
+        <li><a href="../privacy-policy/">Privacy Policy</a></li>
+        <li><a href="../about/">About &amp; Contact</a></li>
+        <li><a href="../terms-of-use/">Terms of Use</a></li>
+      </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator. Not affiliated with Nintendo / Game Freak.</p>
+      <p class="footer-note">Data sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </div>
+  </footer>
+
+  <script src="../data.js?v=20260802q"></script>
+  <script src="../nav.js?v=20260802q"></script>
+  <script src="iv-calculator.js?v=20260909b"></script>
+</body>
+</html>
