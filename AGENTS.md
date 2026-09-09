@@ -227,7 +227,7 @@
 ### 7.2 页面结构（顺序固定，从上到下）
 
 1. **Hero**：eyebrow `#001 · Grass / Poison · Seed Pokemon · Gen 1` + H1=物种名 + lede（首段带组合词）
-2. **数据卡** `.panel.dex-panel`：官图（PokeAPI `official-artwork/{id}.png`，340px 居中 + `--aura` 色光晕）→ 类型 chips（居中）→ **H3「X Base Stats」** → BST → 6 条 `.stat-bars` 进度条 → abilities 行
+2. **数据卡** `.panel.dex-panel`：官图（PokeAPI `official-artwork/{id}.png`，340px 居中 + `--aura` 色光晕）→ 类型 chips（居中）→ **H2「X Base Stats」** → BST → 6 条 `.stat-bars` 进度条 → abilities 行
    - 进度条规范：label 72px 左 / track 圆角 12px 底 `#e9e5de` / fill = **stat÷255** / 数值 36px 右对齐
    - **固定色板**（PokeAPI 官方 stats 色，勿改）：HP `#FF5959` · Atk `#F5AC78` · Def `#FAE078` · SpA `#9DB7F5` · SpD `#A7DB8D` · Spe `#FA92B2`
 3. **Type Matchups 卡**：H3 格式 **「X Weakness (2x)」「X Resistances (0.5x)」「X Immunity (0x)」**（带词；禁止裸 `Weak to (2x)`），数据由 18-type 图计算
@@ -237,6 +237,7 @@
 
 ### 7.3 写作铁律（打样页校准，勿回退）
 
+- **标题层级禁跳级**（规则 3 执行口径，2026-09-10 体检点名）：H1 与首个 H2 之间**禁止出现 H3**（曾因数据区 Base Stats 用 H3 被点名；必须 H2）。每页标题序列须为 h1→h2→h3 递进（相邻级别差 ≤1），写页后跑标题序列检查。
 - **组合词落位 = 意图对齐**：`X evolution / X stats / X abilities / X weakness` 自然出现在 H3 标题、开头段、FAQ 等结构位（每页 4-8 处），不是堆裸名。
 - **禁追裸词密度 3%-5%**（R6.2 校准口径）：Google 官方：密度非排名因素；堆砌触发 spam 信号 + R6.10 污染。裸名自然范围参考：27-36 次/1200+ 词。
 - 开头段首句 = 物种叙事 + 组合词（如 `Its evolution into Ivysaur at level 16...`）。
