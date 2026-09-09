@@ -1,6 +1,6 @@
 # Random Pokemon Generator
 
-A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero dependencies, no build step. Eleven tools plus a blog: generators, games, planners, and reference tools.
+A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero dependencies, no build step. Thirteen tools plus a blog: generators, games, planners, reference tools, and card makers.
 
 **Live: [https://www.random-pokemon-generator.co/](https://www.random-pokemon-generator.co/)**
 
@@ -13,6 +13,8 @@ A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero de
 | 🎲 Main Generator | [random-pokemon-generator.co](https://www.random-pokemon-generator.co/) | Random team builder (1–12 Pokémon) with 10+ filter dimensions |
 | ✨ Shiny Odds Calculator | [/pokemon-shiny-odds/](https://www.random-pokemon-generator.co/pokemon-shiny-odds/) | Complete shiny rates for every game & method — base odds, Shiny Charm, Masuda, PLA outbreaks, SV sandwiches |
 | 🌿 Nature Chart | [/pokemon-nature-chart/](https://www.random-pokemon-generator.co/pokemon-nature-chart/) | All 25 natures with stat boosts/drops + best-nature finder for every species |
+| 🃏 Card Generator | [/pokemon-card-generator/](https://www.random-pokemon-generator.co/pokemon-card-generator/) | Make your own Pokemon card: photo upload, Classic/Modern/TCG Pocket templates, rarity finishes, PNG download |
+| 🎫 Trainer Card Generator | [/pokemon-trainer-card-generator/](https://www.random-pokemon-generator.co/pokemon-trainer-card-generator/) | Design a Pokemon trainer card: Classic/Modern styles, badges, partner Pokemon, battle stats, PNG download |
 | 📝 Blog | [/blog/](https://www.random-pokemon-generator.co/blog/) | Guides on odds math, natures and strategy — [Pokemon Natures, Explained](https://www.random-pokemon-generator.co/blog/pokemon-natures-explained/), [Pokemon Shiny Odds Explained](https://www.random-pokemon-generator.co/blog/shiny-odds-explained/), [Smash or Pass Tier List](https://www.random-pokemon-generator.co/blog/pokemon-smash-or-pass-tier-list/), [What Is a Nuzlocke Challenge?](https://www.random-pokemon-generator.co/blog/what-is-a-nuzlocke-challenge/) |
 | 🌟 Shiny Generator | [/random-shiny-pokemon-generator/](https://www.random-pokemon-generator.co/random-shiny-pokemon-generator/) | Random shiny Pokémon generator with rarity simulation |
 | 💎 Mega Generator | [/random-mega-pokemon-generator/](https://www.random-pokemon-generator.co/random-mega-pokemon-generator/) | Random Mega Evolution Pokémon generator |
@@ -111,6 +113,14 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 ├── pokemon-nature-chart/
 │   ├── index.html                    # nature chart + best-nature finder page
 │   ├── nature.js                     # chart filter/sort + base-stat nature recommender
+│   └── og-image.png
+├── pokemon-card-generator/
+│   ├── index.html                    # pokemon card generator page
+│   ├── card-generator.js             # canvas card renderer (templates, rarity, upload, PNG)
+│   └── og-image.png
+├── pokemon-trainer-card-generator/
+│   ├── index.html                    # trainer card generator page
+│   ├── trainer-generator.js          # sample-card + canvas trainer renderer
 │   └── og-image.png
 ├── blog/
 │   ├── index.html                    # blog list page

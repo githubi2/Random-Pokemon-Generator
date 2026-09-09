@@ -68,6 +68,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.random-pokemon-generator.co/pokemon-card-generator/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.random-pokemon-generator.co/pokemon-trainer-card-generator/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.random-pokemon-generator.co/blog/</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>

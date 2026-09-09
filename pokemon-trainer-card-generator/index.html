@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokemon Trainer Card Generator – Make Your Trainer Card</title>
+  <meta name="description" content="Design a Pokemon trainer card: pick Classic or Modern style, set name, badges, partner Pokemon and battle stats, then download as PNG. No sign-up." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/pokemon-trainer-card-generator/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pokemon Trainer Card Generator – Make Your Trainer Card" />
+  <meta property="og:description" content="Create a custom Pokemon trainer card with Classic or Modern styling: name plate, badge row, three partner Pokemon and battle stats, with a live preview and PNG download." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/pokemon-trainer-card-generator/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/pokemon-trainer-card-generator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pokemon Trainer Card Generator – Make Your Trainer Card" />
+  <meta name="twitter:description" content="Create a custom Pokemon trainer card with Classic or Modern styling: name plate, badge row, three partner Pokemon and battle stats, with a live preview and PNG download." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/pokemon-trainer-card-generator/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260903e" />
+
+  <style>
+    /* ============ Pokemon Trainer Card Generator — page-specific ============ */
+    .tg-layout { display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 24px; align-items: start; }
+    .tg-form { min-width: 0; }
+    .tg-preview { position: sticky; top: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .tg-preview canvas { width: 100%; height: auto; display: block; background: #fff; border-radius: 14px; }
+    .tg-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; width: 100%; }
+    .tg-upload { border: 2px dashed var(--muted-text, #9a9a9a); border-radius: 12px; padding: 14px 12px; text-align: center; cursor: pointer; background: var(--page, #fff7e0); }
+    .tg-upload:hover, .tg-upload.dragover { border-color: var(--poke-red, #e3350d); background: #fff2c9; }
+    .tg-upload input[type="file"] { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
+    .tg-upload .tg-upload-title { font-weight: 900; margin: 0 0 4px; }
+    .tg-upload .tg-upload-note { font-size: 12.5px; margin: 0; color: var(--muted-text, #6b6b6b); }
+    .tg-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .tg-input label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .tg-input input[type="text"], .tg-input input[type="number"] { width: 100%; padding: 9px 10px; border: 1px solid #d6cfc0; border-radius: 8px; font-size: 14px; background: #fff; box-sizing: border-box; }
+    .tg-input input:focus { outline: 2px solid var(--poke-yellow, #fbd743); outline-offset: 0; }
+    .tg-partner { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .tg-partner .pnk { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .tg-partner canvas { border: 1px solid #ddd; border-radius: 10px; background: #fff; }
+    .tg-partner .btn-text { font-size: 12.5px; }
+    @media (max-width: 960px) {
+      .tg-layout { grid-template-columns: 1fr; }
+      .tg-preview { position: static; order: -1; }
+      .tg-preview canvas { max-width: 460px; }
+    }
+  </style>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Pokemon Trainer Card Generator",
+    "description": "Create custom Pokemon trainer cards online in Classic or Modern style: a name plate, badge row, three partner Pokemon and battle stats, with a live preview and a print-ready PNG download. No sign-up.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://www.random-pokemon-generator.co/pokemon-trainer-card-generator/"
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Random Pokemon Generator", "item": "https://www.random-pokemon-generator.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Pokemon Trainer Card Generator", "item": "https://www.random-pokemon-generator.co/pokemon-trainer-card-generator/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a Pokemon trainer card?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A Pokemon trainer card is a profile card that looks like it came from a Pokemon game: your name on a plate, a badge row, a portrait or avatar, your partner Pokemon and a line of battle stats. Fans traded them in forums back in the day; now they double as a Discord profile, a stream overlay or a keepsake." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I make my own trainer card with this generator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The card starts as a random sample: random name, partner team, badge count and background. Edit anything you like. Type your name and title, pick the background, choose a badge count, swap the three partner Pokemon (reroll under each one), upload a portrait, and type the battle stats. The preview redraws after every change, and Download PNG saves the finished card." }
+      },
+      {
+        "@type": "Question",
+        "name": "What styles can I choose for my trainer card?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Two styles. Classic is the blue framed, high-contrast look of the original trainer card; Modern is a rounded card with a soft gradient frame. The four backgrounds (Cinder, Ocean, Meadow and Night) recolor the theme on top of either style." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use my own photo on the trainer card?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Upload a portrait and it gets cropped into the trainer avatar window. No photo? The generator draws a silhouette avatar, so the card still looks finished." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I pick which Pokemon appear on the card?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The card holds three partner Pokemon, each with its own reroll button that deals a random Pokemon from the full Gen 1-9 roster. Reroll until your actual team shows up. The artwork is official sprites rendered in your browser." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I download my trainer card?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Hit Download PNG. The card exports at 900 x 720, crisp for Discord, forum signatures, stream overlays or printing. The Copy Card Text button copies a description with a link to this page." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this an official Pokemon product?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. This site is an unofficial fan project. It is not affiliated with, endorsed by or associated with Nintendo, Game Freak, Creatures Inc. or The Pokemon Company. Pokemon and Pokemon character names are trademarks of their respective owners." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I make a regular Pokemon card too?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Pokemon Card Generator on this site makes attack-and-HP Pokemon cards with Classic, Modern and TCG Pocket templates, plus energy cards. The two pages link to each other, so you can design a matching set." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+              <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+              <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+              <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+              <li><a href="../pokemon-card-generator/" class="nav-link">Pokemon Card Generator</a></li>
+              <li><a href="./" class="nav-link nav-link-active">Pokemon Trainer Card Generator</a></li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">Blog</a></li>
+          <li><a href="#how" class="nav-link">How It Works</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">Classic · Modern Styles · Random Sample Card · PNG Download</p>
+      <h1 id="page-title">Pokemon Trainer Card Generator</h1>
+      <p class="lede">This Pokemon trainer card generator deals a random sample card first, then hands you the editor: name plate, badge row, three partner Pokemon and battle stats, all rendered live and downloadable as a PNG.</p>
+    </section>
+
+    <!-- Tool -->
+    <section class="container tool-panel" id="card-tool" aria-label="Pokemon trainer card generator tool">
+      <div class="panel cornered tg-layout">
+        <!-- ============ Form ============ -->
+        <div class="tg-form">
+          <p class="tool-hint">The card on the right starts as a random sample: random trainer name, random partner Pokemon, random badge count and background. Edit anything below and the preview redraws as you go. Hit 🎲 New Sample Card whenever you want a fresh random card.</p>
+
+          <fieldset>
+            <legend>1. Style &amp; background</legend>
+            <p class="tool-note">Style</p>
+            <div class="btn-row" id="tg-style-chips" role="group" aria-label="Trainer card style">
+              <button type="button" class="chip-btn" data-value="classic" aria-pressed="true">Classic</button>
+              <button type="button" class="chip-btn" data-value="modern" aria-pressed="false">Modern</button>
+            </div>
+            <p class="tool-note">Background</p>
+            <div class="btn-row" id="tg-bg-chips" role="group" aria-label="Trainer card background">
+              <button type="button" class="chip-btn" data-value="ocean" aria-pressed="true">🌊 Ocean</button>
+              <button type="button" class="chip-btn" data-value="meadow" aria-pressed="false">🌿 Meadow</button>
+              <button type="button" class="chip-btn" data-value="cinder" aria-pressed="false">🔥 Cinder</button>
+              <button type="button" class="chip-btn" data-value="night" aria-pressed="false">🌙 Night</button>
+            </div>
+            <p class="tool-note" id="tg-style-note"></p>
+          </fieldset>
+
+          <fieldset>
+            <legend>2. Trainer profile</legend>
+            <div class="tg-pair">
+              <div class="tg-input">
+                <label for="tg-name">Trainer name</label>
+                <input type="text" id="tg-name" maxlength="18" autocomplete="off" />
+              </div>
+              <div class="tg-input">
+                <label for="tg-title">Title</label>
+                <input type="text" id="tg-title" maxlength="26" placeholder="e.g. Aspiring Champion" autocomplete="off" />
+              </div>
+            </div>
+            <p class="tool-note" style="margin-top:12px">Portrait</p>
+            <div class="tg-upload" id="tg-upload" role="button" tabindex="0" aria-label="Upload a portrait for your trainer card">
+              <p class="tg-upload-title">📷 Upload a portrait</p>
+              <p class="tg-upload-note">PNG / JPEG · cropped automatically · skip to keep the silhouette avatar</p>
+              <input type="file" id="tg-file" accept="image/png,image/jpeg,image/webp" />
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>3. Badges earned</legend>
+            <p class="tool-note" id="tg-badge-note"></p>
+            <div class="btn-row" id="tg-badge-chips" role="group" aria-label="Badge count"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>4. Partner Pokemon (up to 3)</legend>
+            <div class="tg-partner" id="tg-parts"></div>
+            <p class="tool-note">Reroll each slot, or leave it as the random sample dealt.</p>
+          </fieldset>
+
+          <fieldset>
+            <legend>5. Battle stats</legend>
+            <div class="tg-pair">
+              <div class="tg-input">
+                <label for="tg-battles">Battles won</label>
+                <input type="number" id="tg-battles" min="0" max="99999" />
+              </div>
+              <div class="tg-input">
+                <label for="tg-caught">Pokemon caught</label>
+                <input type="number" id="tg-caught" min="0" max="99999" />
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- ============ Preview ============ -->
+        <div class="tg-preview">
+          <canvas id="tg-canvas" width="900" height="720" aria-label="Live Pokemon trainer card preview" role="img"></canvas>
+          <div class="tg-actions">
+            <button type="button" id="tg-rand" class="btn-slide cornered btn-primary"><span>🎲 New Sample Card</span></button>
+            <button type="button" id="tg-download" class="btn-slide btn-secondary"><span>⬇ Download PNG</span></button>
+            <button type="button" id="tg-copy" class="btn-slide btn-ghost"><span>📋 Copy Card Text</span></button>
+          </div>
+          <p class="tool-note">Exports at 900 x 720 — crisp for Discord, forum signatures, stream overlays or printing.</p>
+          <p class="tool-note" id="tg-saved-note"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how-title">How to Make Your Own Pokemon Trainer Card</h2>
+        <div class="how-grid">
+          <article>
+            <h3>Make your own Pokemon trainer card in five steps</h3>
+            <p>Step one, look at the sample card the generator dealt you. The tool starts with a finished card instead of a blank form, so you can see what a trainer card looks like before you build your own. Step two, type your trainer name and title over the sample, and pick a background. Step three, set the badge count: zero badges for a fresh run, all eight for a champion. Step four, reroll each partner Pokemon slot until your real team shows up, and upload a portrait if you want your face on the card. Step five, type the battle stats, check the preview, and hit Download PNG.</p>
+          </article>
+          <article>
+            <h3>Classic vs Modern trainer card style</h3>
+            <p>The Classic style goes for the original trainer card: a strong blue frame, a straight name plate, and a chunky half-cut avatar like a game menu. Modern is softer: rounded corners, a gradient frame in the background's color, and more space between the badge row and the partner Pokemon. Both share the same layout. Name plate up top, portrait and badges in the middle, partner team and battle stats below. The backgrounds recolor the whole card: Ocean is a water route, Meadow a starter lawn, Cinder a volcano, Night a moonlit route.</p>
+          </article>
+          <article>
+            <h3>What goes on a Pokemon trainer card</h3>
+            <p>A trainer card is a profile, not a battleground. The name plate carries your trainer name and a title: Aspiring Champion, Shiny Hunter, Catch Them All. The badge row shows how far your journey has gone, from zero to a full eight. The partner Pokemon are the three companions that define you: a starter, a lead, a sentimental favorite. And the battle stats tell the story in numbers: battles won, Pokemon caught. Put it together and you get a trading-card version of a save file.</p>
+          </article>
+          <article>
+            <h3>Why the random sample card matters</h3>
+            <p>Blank forms kill momentum, and the sample card is the fix. It appears instantly: random name, random team, random badge count, random background. You either start a small edit or hit New Sample Card for fun, and neither takes as long as staring at an empty form. That is why this Pokemon trainer card generator deals a random card on load: the first thing you see is a finished card. From there the editing is trivial: type your name, swap a partner, done.</p>
+          </article>
+          <article>
+            <h3>Where your trainer card goes</h3>
+            <p>The classic use is still the forum signature: a trainer card at the bottom of every post, showing badges you actually earned. Streamers put trainer cards in channel overlays and hand them out as giveaway prizes. Friends make matching cards, one per trainer, and share them on Discord. And fans design trainer cards for their own characters, the gym leader they invented, the rival, the champion. It is the fastest way to make yourself exist inside the Pokemon world.</p>
+          </article>
+          <article>
+            <h3>Part of a full Pokemon toolkit</h3>
+            <p>This Pokemon trainer card generator pairs with the <a href="../pokemon-card-generator/">Pokemon Card Generator</a>: build the Pokemon cards for your partner team, then the trainer card for the trainer who runs them. The <a href="../pokemon-team-picker/">Pokemon Team Picker</a> handles the actual team building, and the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> names your partners for the card stories.</p>
+            <p>The site's other tools still work behind the card. The <a href="../">Random Pokemon Generator</a> rolls a full team when you do not know who your partners are yet, the <a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a> deals a shiny-only squad if the card should flex, and the <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a> page tells you how lucky that flex really is. Finish the set with the <a href="../pokemon-nature-chart/">Pokemon Nature Chart</a> for the natures behind the stats.</p>
+            <p>For the rest of the kit: the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a> writes the challenge rules for the run behind the card, the <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a> is the verdict game to play between cards, the <a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a> picks your next partner by spin, <a href="../whos-that-pokemon/">Who's That Pokemon</a> quizzes the silhouettes, and the <a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a> deals a mega when the card needs a bigger headline.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Pokemon Trainer Card Generator FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>What is a Pokemon trainer card?</summary>
+        <p>A Pokemon trainer card is a profile card that looks like it came from a Pokemon game: your name on a plate, a badge row, a portrait or avatar, your partner Pokemon and a line of battle stats. Fans traded them in forums back in the day; now they double as a Discord profile, a stream overlay or a keepsake.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How do I make my own trainer card with this generator?</summary>
+        <p>The card starts as a random sample: random name, partner team, badge count and background. Edit anything you like. Type your name and title, pick the background, choose a badge count, swap the three partner Pokemon (reroll under each one), upload a portrait, and type the battle stats. The preview redraws after every change, and Download PNG saves the finished card.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What styles can I choose for my trainer card?</summary>
+        <p>Two styles. Classic is the blue framed, high-contrast look of the original trainer card; Modern is a rounded card with a soft gradient frame. The four backgrounds (Cinder, Ocean, Meadow and Night) recolor the theme on top of either style.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I use my own photo on the trainer card?</summary>
+        <p>Yes. Upload a portrait and it gets cropped into the trainer avatar window. No photo? The generator draws a silhouette avatar, so the card still looks finished.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I pick which Pokemon appear on the card?</summary>
+        <p>Yes. The card holds three partner Pokemon, each with its own reroll button that deals a random Pokemon from the full Gen 1-9 roster. Reroll until your actual team shows up. The artwork is official sprites rendered in your browser.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How do I download my trainer card?</summary>
+        <p>Hit Download PNG. The card exports at 900 x 720, crisp for Discord, forum signatures, stream overlays or printing. The Copy Card Text button copies a description with a link to this page.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Is this an official Pokemon product?</summary>
+        <p>No. This site is an unofficial fan project. It is not affiliated with, endorsed by or associated with Nintendo, Game Freak, Creatures Inc. or The Pokemon Company. Pokemon and Pokemon character names are trademarks of their respective owners.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I make a regular Pokemon card too?</summary>
+        <p>Yes. The Pokemon Card Generator on this site makes attack-and-HP Pokemon cards with Classic, Modern and TCG Pocket templates, plus energy cards. The two pages link to each other, so you can design a matching set.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+        <li><a href="../">Random Pokemon Generator</a></li>
+        <li><a href="../nuzlocke-generator/">Nuzlocke Team Builder</a></li>
+        <li><a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a></li>
+        <li><a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a></li>
+        <li><a href="../whos-that-pokemon/">Who's That Pokemon</a></li>
+        <li><a href="../pokemon-team-picker/">Pokemon Team Picker</a></li>
+        <li><a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a></li>
+        <li><a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a></li>
+        <li><a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a></li>
+        <li><a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a></li>
+        <li><a href="../pokemon-nature-chart/">Pokemon Nature Chart</a></li>
+        <li><a href="../pokemon-card-generator/">Pokemon Card Generator</a></li>
+        <li><a href="./">Pokemon Trainer Card Generator</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../privacy-policy/">Privacy Policy</a></li>
+        <li><a href="../about/">About &amp; Contact</a></li>
+        <li><a href="../terms-of-use/">Terms of Use</a></li>
+      </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator. Not affiliated with Nintendo / Game Freak / The Pokemon Company. Unofficial fan project — cards are for personal, educational and fan use only.</p>
+      <p class="footer-note">Data sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </div>
+  </footer>
+
+  <!-- Copy fallback modal -->
+  <div class="modal-overlay" id="tg-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="tg-modal-title">
+      <h2 class="modal-title" id="tg-modal-title">Copy manually</h2>
+      <div class="modal-body">
+        <p class="tool-note">Your browser blocked auto-copy — the text below is selected. Press Ctrl+C (or long-press) to copy it.</p>
+        <textarea class="share-modal-text" id="tg-modal-text" readonly></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="tg-modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../data.js?v=20260802q"></script>
+  <script src="../nav.js?v=20260802q"></script>
+  <script src="trainer-generator.js?v=20260909a"></script>
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokemon Card Generator – Make Your Own Pokemon Cards</title>
+  <meta name="description" content="Create your own Pokemon card: pick a template, upload a photo, set name, HP, moves and rarity, preview live, then download a print-ready PNG. No sign-up." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/pokemon-card-generator/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pokemon Card Generator – Make Your Own Pokemon Cards" />
+  <meta property="og:description" content="Design a custom Pokemon card in your browser: choose a template, upload your own photo, set name, HP, type, moves and rarity, then download a print-ready PNG." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/pokemon-card-generator/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/pokemon-card-generator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pokemon Card Generator – Make Your Own Pokemon Cards" />
+  <meta name="twitter:description" content="Design a custom Pokemon card in your browser: choose a template, upload your own photo, set name, HP, type, moves and rarity, then download a print-ready PNG." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/pokemon-card-generator/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260903e" />
+
+  <style>
+    /* ============ Pokemon Card Generator — page-specific ============ */
+    .cg-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 24px; align-items: start; }
+    .cg-form { min-width: 0; }
+    .cg-preview { position: sticky; top: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .cg-preview canvas { width: 100%; height: auto; display: block; background: #fff; border-radius: 14px; }
+    .cg-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; width: 100%; }
+    .cg-upload { border: 2px dashed var(--muted-text, #9a9a9a); border-radius: 12px; padding: 18px 14px; text-align: center; cursor: pointer; background: var(--page, #fff7e0); transition: border-color 0.15s ease, background 0.15s ease; }
+    .cg-upload:hover, .cg-upload.dragover { border-color: var(--poke-red, #e3350d); background: #fff2c9; }
+    .cg-upload input[type="file"] { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
+    .cg-upload .cg-upload-title { font-weight: 900; margin: 0 0 6px; }
+    .cg-upload .cg-upload-note { font-size: 13px; margin: 0; color: var(--muted-text, #6b6b6b); }
+    .cg-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .cg-input label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .cg-input input[type="text"], .cg-input input[type="number"], .cg-input select { width: 100%; padding: 9px 10px; border: 1px solid #d6cfc0; border-radius: 8px; font-size: 14px; background: #fff; box-sizing: border-box; }
+    .cg-input input:focus, .cg-input select:focus { outline: 2px solid var(--poke-yellow, #fbd743); outline-offset: 0; }
+    .cg-hint { font-size: 12.5px; color: var(--muted-text, #6b6b6b); margin: 4px 0 0; }
+    .cg-swap { margin-top: 12px; }
+    @media (max-width: 960px) {
+      .cg-layout { grid-template-columns: 1fr; }
+      .cg-preview { position: static; order: -1; }
+      .cg-preview canvas { max-width: 320px; }
+    }
+  </style>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Pokemon Card Generator",
+    "description": "Design custom Pokemon cards online: choose a Classic, Modern or TCG Pocket style template, upload your own photo or roll a random Pokemon, set name, HP, type, attacks, weakness and rarity, preview the card live and download it as a print-ready PNG. Works on desktop and mobile, no sign-up.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://www.random-pokemon-generator.co/pokemon-card-generator/"
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Random Pokemon Generator", "item": "https://www.random-pokemon-generator.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Pokemon Card Generator", "item": "https://www.random-pokemon-generator.co/pokemon-card-generator/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does the Pokemon Card Generator cost anything?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nothing to pay. There is no sign-up, no account and no watermark, and the template switcher, photo upload, live preview and PNG download are all part of the tool. Your photo stays on your device unless you choose to save or share the card." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I upload my own picture on a Pokemon card?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sure. Upload any image: a selfie, a pet photo, a drawing, a logo or a meme. The editor crops it to fit the card art area automatically. You can also roll a random Pokemon for official artwork, or leave the art window empty and fill it in later." }
+      },
+      {
+        "@type": "Question",
+        "name": "What card styles and templates are available?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Three templates: Classic with the yellow base-set look, Modern with the deep Scarlet & Violet-era border, and TCG Pocket with the clean rounded app style. Four rarity finishes sit on top: Common, Rare with a silver edge, Holo with a rainbow edge, and Full Art, where the artwork fills the whole card." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I make a Trainer Card with this tool?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No, and that is deliberate. Trainer cards use a different layout: name plate, badge row and partner Pokemon instead of HP and attacks. They live on their own page, the Pokemon Trainer Card Generator, and you can jump there right from the card type row. The Trainer page links back here, so a matching set stays a half-hour job." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I make an Energy Card?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Choose Energy in the card type row and the generator switches to the energy layout: a full-color card in your chosen type, with the energy symbol centered and the type label underneath. Quickest way to give a custom deck matching energy." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I download my custom Pokemon card?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Hit Download PNG. The card saves at 630 x 880, crisp enough for social media, Discord or a print shop. The Copy Card Text button grabs a card description together with a link to this page." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I print the card I make?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The download is a print-ready PNG at the standard 63 x 88 mm trading-card ratio, so print it at home on card stock or send it to a print shop. The tool is for personal, educational and fan use; selling printed copies is not covered." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the generator save my work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Automatically, in your own browser. Template, rarity, card text and your uploaded photo all sit in local storage, so a refresh or a return visit restores the card exactly as you left it. Nothing is uploaded anywhere, and clearing your browser data removes it." }
+      },
+      {
+        "@type": "Question",
+        "name": "What image formats can I upload?",
+        "acceptedAnswer": { "@type": "Answer", "text": "PNG, JPEG, WebP and GIF stills, from anywhere: camera roll, camera, Google Drive, Dropbox, Pinterest, or a photo of a print. Images are resized on your device to fit the card art window, so even a huge photo stays smooth." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the Pokemon Card Generator work on mobile?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The form stacks and the preview sits on top on small screens, with touch-sized buttons. Build a card on your phone and finish it on a desktop later; the state follows you through local storage." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this an official Pokemon product?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. This site is an unofficial fan project. It is not affiliated with, endorsed by or associated with Nintendo, Game Freak, Creatures Inc. or The Pokemon Company. Pokemon and Pokemon character names are trademarks of their respective owners." }
+      },
+      {
+        "@type": "Question",
+        "name": "What can I use my custom Pokemon card for?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Anything personal: a birthday gift with a friend's photo, a meme card for a group chat, an anniversary keepsake, a classroom reward card, a fan-made character or a mockup for a custom deck. Personal and educational use is what it is for; commercial use is not covered." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+              <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+              <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+              <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+              <li><a href="./" class="nav-link nav-link-active">Pokemon Card Generator</a></li>
+              <li><a href="../pokemon-trainer-card-generator/" class="nav-link">Pokemon Trainer Card Generator</a></li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">Blog</a></li>
+          <li><a href="#how" class="nav-link">How It Works</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">Classic · Modern · TCG Pocket Templates · Photo Upload · PNG Download</p>
+      <h1 id="page-title">Pokemon Card Generator</h1>
+      <p class="lede">This Pokemon card generator runs entirely in your browser. Pick a template, upload a photo of anything, set the name, HP, type, moves and rarity, and the card redraws live as you type. When it looks right, download the finished PNG at print-ready quality.</p>
+    </section>
+
+    <!-- Tool -->
+    <section class="container tool-panel" id="card-tool" aria-label="Pokemon card generator tool">
+      <div class="panel cornered cg-layout">
+        <!-- ============ Form ============ -->
+        <div class="cg-form">
+          <p class="tool-hint">Pick a template and a rarity, then a card type, and fill out the fields. Upload a photo (click the dashed box or drop one on it) or hit 🎲 Random Pokemon to fill the art window for you. The preview on the right redraws as you type; when it looks right, download it as PNG.</p>
+
+          <fieldset>
+            <legend>1. Template</legend>
+            <div class="btn-row" id="cg-template-chips" role="group" aria-label="Card template">
+              <button type="button" class="chip-btn" data-value="classic" aria-pressed="true">Classic</button>
+              <button type="button" class="chip-btn" data-value="modern" aria-pressed="false">Modern</button>
+              <button type="button" class="chip-btn" data-value="pocket" aria-pressed="false">TCG Pocket</button>
+            </div>
+            <p class="tool-note" id="cg-template-note"></p>
+          </fieldset>
+
+          <fieldset>
+            <legend>2. Rarity</legend>
+            <div class="btn-row" id="cg-rarity-chips" role="group" aria-label="Card rarity">
+              <button type="button" class="chip-btn" data-value="common" aria-pressed="true">Common</button>
+              <button type="button" class="chip-btn" data-value="rare" aria-pressed="false">Rare</button>
+              <button type="button" class="chip-btn" data-value="holo" aria-pressed="false">Holo</button>
+              <button type="button" class="chip-btn" data-value="fullart" aria-pressed="false">Full Art</button>
+            </div>
+            <p class="tool-note" id="cg-rarity-note"></p>
+          </fieldset>
+
+          <fieldset>
+            <legend>3. Card type</legend>
+            <div class="btn-row" id="cg-cardtype-chips" role="group" aria-label="Card type">
+              <button type="button" class="chip-btn" data-value="pokemon" aria-pressed="true">Pokemon</button>
+              <button type="button" class="chip-btn" data-value="trainer" aria-pressed="false">Trainer</button>
+              <button type="button" class="chip-btn" data-value="energy" aria-pressed="false">Energy</button>
+            </div>
+            <p class="tool-note custom-note" id="cg-cardtype-note"></p>
+          </fieldset>
+
+          <fieldset>
+            <legend>4. Card art</legend>
+            <div class="cg-upload" id="cg-upload" role="button" tabindex="0" aria-label="Upload an image for your Pokemon card">
+              <p class="cg-upload-title">📷 Click here or drop an image</p>
+              <p class="cg-upload-note">PNG / JPEG / WebP · cropped automatically to the art window</p>
+              <input type="file" id="cg-file" accept="image/png,image/jpeg,image/webp,image/gif" />
+            </div>
+            <div class="btn-row cg-swap">
+              <button type="button" class="btn-slide btn-secondary" id="cg-rand-art"><span>🎲 Random Pokemon</span></button>
+            </div>
+            <p class="tool-note" id="cg-art-note"></p>
+          </fieldset>
+
+          <div id="cg-pokemon-fields">
+            <fieldset>
+              <legend>5. Card details</legend>
+              <div class="cg-pair">
+                <div class="cg-input">
+                  <label for="cg-name">Pokemon name</label>
+                  <input type="text" id="cg-name" maxlength="22" placeholder="e.g. Charizard" autocomplete="off" />
+                </div>
+                <div class="cg-input">
+                  <label for="cg-hp">HP</label>
+                  <input type="number" id="cg-hp" min="1" max="999" value="60" />
+                </div>
+              </div>
+              <div class="cg-pair cg-swap">
+                <div class="cg-input">
+                  <label for="cg-type">Type</label>
+                  <select id="cg-type"></select>
+                </div>
+                <div class="cg-input">
+                  <label for="cg-weakness">Weakness</label>
+                  <select id="cg-weakness"></select>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>6. Attacks</legend>
+              <div class="cg-pair">
+                <div class="cg-input">
+                  <label for="cg-atk1-name">Attack 1 name</label>
+                  <input type="text" id="cg-atk1-name" maxlength="26" placeholder="e.g. Flamethrower" autocomplete="off" />
+                </div>
+                <div class="cg-input">
+                  <label for="cg-atk1-dmg">Attack 1 damage</label>
+                  <input type="number" id="cg-atk1-dmg" min="0" max="999" value="40" />
+                </div>
+              </div>
+              <div class="cg-pair cg-swap">
+                <div class="cg-input">
+                  <label for="cg-atk2-name">Attack 2 name</label>
+                  <input type="text" id="cg-atk2-name" maxlength="26" placeholder="e.g. Fire Spin (optional)" autocomplete="off" />
+                </div>
+                <div class="cg-input">
+                  <label for="cg-atk2-dmg">Attack 2 damage</label>
+                  <input type="number" id="cg-atk2-dmg" min="0" max="999" value="0" />
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>7. Flavor &amp; artist</legend>
+              <div class="cg-pair">
+                <div class="cg-input">
+                  <label for="cg-flavor">Flavor text</label>
+                  <input type="text" id="cg-flavor" maxlength="90" placeholder="A short dex-style line…" autocomplete="off" />
+                </div>
+                <div class="cg-input">
+                  <label for="cg-illustrator">Illustrator</label>
+                  <input type="text" id="cg-illustrator" maxlength="24" placeholder="Your name / tag" autocomplete="off" />
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div id="cg-energy-fields" hidden>
+            <fieldset>
+              <legend>5. Energy card color</legend>
+              <p class="tool-note">Pick the energy type — the whole card takes its color.</p>
+              <div class="select-row">
+                <label for="cg-energy-type">Energy type</label>
+                <select id="cg-energy-type"></select>
+              </div>
+            </fieldset>
+          </div>
+
+          <div id="cg-trainer-banner" hidden>
+            <fieldset>
+              <legend>Trainer cards</legend>
+              <p class="tool-note">Trainer cards live on their own page — name plate, badge row and partner Pokemon instead of HP and attacks. <a href="../pokemon-trainer-card-generator/" style="display:inline-block;margin-top:8px;font-weight:800;color:var(--poke-red,#e3350d);text-decoration:underline">Open the Pokemon Trainer Card Generator →</a></p>
+            </fieldset>
+          </div>
+        </div>
+
+        <!-- ============ Preview ============ -->
+        <div class="cg-preview">
+          <canvas id="cg-canvas" width="630" height="880" aria-label="Live Pokemon card preview" role="img"></canvas>
+          <div class="cg-actions">
+            <button type="button" id="cg-download" class="btn-slide cornered btn-primary"><span>⬇ Download PNG</span></button>
+            <button type="button" id="cg-copy" class="btn-slide btn-secondary"><span>📋 Copy Card Text</span></button>
+          </div>
+          <p class="tool-note">Printed at the standard trading-card ratio (63 x 88 mm) — upload the PNG to a print service or print at home on card stock.</p>
+          <p class="tool-note" id="cg-saved-note"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how-title">How to Make Your Own Pokemon Card with the Pokemon Card Generator</h2>
+        <div class="how-grid">
+          <article>
+            <h3>Make your own Pokemon card in six steps</h3>
+            <p>Step one, pick a template. Classic is the yellow base-set look from 1999, Modern follows the deep Scarlet &amp; Violet border style, and TCG Pocket is the rounded style of the mobile game. Step two, choose a rarity finish: Common, Rare, Holo or Full Art. Step three, pick the card type: Pokemon, Trainer or Energy. Step four, set the art. Upload a photo and the card crops it into the art window on its own. Roll a random Pokemon and the tool fills the window with official artwork, plus the name, HP and type it knows belong together.</p>
+            <p>Step five, fill the details. The name goes under the HP bar, the type select sets the card's color theme, and the weakness select drives the little strength row at the bottom. Type the attack names and damage numbers, then a flavor line and an illustrator credit. Step six, the preview redraws with every keystroke. When it looks right, hit Download PNG and the card saves at 630 x 880, which is the 63 x 88 mm ratio print services expect. Nothing gets sent to a server, so iterate as long as you like.</p>
+          </article>
+          <article>
+            <h3>Why use a Pokemon card maker instead of a template image?</h3>
+            <p>The obvious alternative to a tool like this is a blank template image you nudge around in an editor. Two things go wrong with that. A Pokemon card has a fixed layout: name plate, HP, art window, two attack rows, weakness row and a flavor line. A static template does not reflow when your attack text wraps or the name runs long, so you end up pushing text boxes around for an hour. This maker redraws the card with every keystroke, and the layout problem never shows up.</p>
+            <p>The second thing is file quality. Pulling a template back out of an image editor is hit or miss. Here, the download is 630 x 880 at the exact 63 x 88 mm ratio, straight off the canvas. Edits are cheap as well. Change your mind about the type, flip the rarity, swap the second attack for a joke: the card rebuilds, no paint-overs. And because the state lives in your browser, the card is still there when you come back tomorrow.</p>
+          </article>
+          <article>
+            <h3>Pokemon card generator templates: Classic, Modern and TCG Pocket</h3>
+            <p>Classic is the warm yellow frame and dark name plate of the 1999 cards. Modern is a deep border in your type's color, with a bigger art window and a quieter stat zone. TCG Pocket takes the app's soft rounded frame and its white space. All three are drawn fresh in the browser; no official card layout gets copied.</p>
+            <p>Rarity stacks on top. Common keeps the plain frame, Rare adds a silver edge, Holo adds a rainbow edge, and Full Art runs the artwork edge to edge with the text floating over it. Three templates times four rarities is twelve distinct looks, and you get all of them by touching two rows of buttons.</p>
+          </article>
+          <article>
+            <h3>Who makes custom Pokemon cards</h3>
+            <p>Pokemon fans make cards of their dream teams, their OCs and their fan characters. Content creators turn a screenshot or a meme into a card in seconds, then drop it into a Discord thread or a TikTok. Teachers and parents build reward cards and class rosters on the Classic template; a kid's name on a Pokemon card outdoes a sticker chart every time. Game designers mock up card concepts and art directions before paying for final art. What those groups have in common is that they want the idea on a card quickly, without making an account first.</p>
+          </article>
+          <article>
+            <h3>Where your custom Pokemon card goes</h3>
+            <p>A custom card does not have to be about Pokemon at all. Put your friend's face on one with an inside-joke attack and it becomes a birthday present that stays on their desk. A hyper-specific parody card outlives the joke in any group chat, and the copy button packages it with a link to this page. Anniversary cards, classroom reward cards, Discord giveaway winners: a physical card lands better than a screenshot in all of them.</p>
+          </article>
+          <article>
+            <h3>Part of a full Pokemon toolkit</h3>
+            <p>This Pokemon card generator sits alongside the rest of the tools on the site. The main <a href="../">Random Pokemon Generator</a> rolls full teams, and the <a href="../pokemon-team-picker/">Pokemon Team Picker</a> builds six-Pokemon squads with moves and natures, so you can make a card for one of the Pokemon it deals. The <a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a> deals only Mega Evolutions if you want a mega on your card.</p>
+            <p>For random inspiration, use the <a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a> to draw your card's subject, or let <a href="../whos-that-pokemon/">Who's That Pokemon</a> pick a silhouette to guess first. If the card belongs to a challenge run, the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a> sets the rules, and the <a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a> deals a shiny-only squad when only sparkle will do. And when the card is a meme, it pairs well with a verdict shot from the <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a> page.</p>
+            <p>For flavor, the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> finds a name for your custom creature, and the <a href="../pokemon-nature-chart/">Pokemon Nature Chart</a> tells you which nature the stats deserve. The <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a> page has the real odds if you want "shiny" in the flavor text. And for the other kind of card, the <a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a> makes the trainer card that matches this Pokemon card, so you can build the whole box.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Pokemon Card Generator FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>Does the Pokemon Card Generator cost anything?</summary>
+        <p>Nothing to pay. There is no sign-up, no account and no watermark, and the template switcher, photo upload, live preview and PNG download are all part of the tool. Your photo stays on your device unless you choose to save or share the card.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I upload my own picture on a Pokemon card?</summary>
+        <p>Sure. Upload any image: a selfie, a pet photo, a drawing, a logo or a meme. The editor crops it to fit the card art area automatically. You can also roll a random Pokemon for official artwork, or leave the art window empty and fill it in later.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What card styles and templates are available?</summary>
+        <p>Three templates: Classic with the yellow base-set look, Modern with the deep Scarlet &amp; Violet-era border, and TCG Pocket with the clean rounded app style. Four rarity finishes sit on top: Common, Rare with a silver edge, Holo with a rainbow edge, and Full Art, where the artwork fills the whole card.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I make a Trainer Card with this tool?</summary>
+        <p>No, and that is deliberate. Trainer cards use a different layout: name plate, badge row and partner Pokemon instead of HP and attacks. They live on their own page, the Pokemon Trainer Card Generator, and you can jump there right from the card type row. The Trainer page links back here, so a matching set stays a half-hour job.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I make an Energy Card?</summary>
+        <p>Yes. Choose Energy in the card type row and the generator switches to the energy layout: a full-color card in your chosen type, with the energy symbol centered and the type label underneath. Quickest way to give a custom deck matching energy.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How do I download my custom Pokemon card?</summary>
+        <p>Hit Download PNG. The card saves at 630 x 880, crisp enough for social media, Discord or a print shop. The Copy Card Text button grabs a card description together with a link to this page.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I print the card I make?</summary>
+        <p>Yes. The download is a print-ready PNG at the standard 63 x 88 mm trading-card ratio, so print it at home on card stock or send it to a print shop. The tool is for personal, educational and fan use; selling printed copies is not covered.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Does the generator save my work?</summary>
+        <p>Automatically, in your own browser. Template, rarity, card text and your uploaded photo all sit in local storage, so a refresh or a return visit restores the card exactly as you left it. Nothing is uploaded anywhere, and clearing your browser data removes it.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What image formats can I upload?</summary>
+        <p>PNG, JPEG, WebP and GIF stills, from anywhere: camera roll, camera, Google Drive, Dropbox, Pinterest, or a photo of a print. Images are resized on your device to fit the card art window, so even a huge photo stays smooth.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Does the Pokemon Card Generator work on mobile?</summary>
+        <p>Yes. The form stacks and the preview sits on top on small screens, with touch-sized buttons. Build a card on your phone and finish it on a desktop later; the state follows you through local storage.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Is this an official Pokemon product?</summary>
+        <p>No. This site is an unofficial fan project. It is not affiliated with, endorsed by or associated with Nintendo, Game Freak, Creatures Inc. or The Pokemon Company. Pokemon and Pokemon character names are trademarks of their respective owners.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What can I use my custom Pokemon card for?</summary>
+        <p>Anything personal: a birthday gift with a friend's photo, a meme card for a group chat, an anniversary keepsake, a classroom reward card, a fan-made character or a mockup for a custom deck. Personal and educational use is what it is for; commercial use is not covered.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+        <li><a href="../">Random Pokemon Generator</a></li>
+        <li><a href="../nuzlocke-generator/">Nuzlocke Team Builder</a></li>
+        <li><a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a></li>
+        <li><a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a></li>
+        <li><a href="../whos-that-pokemon/">Who's That Pokemon</a></li>
+        <li><a href="../pokemon-team-picker/">Pokemon Team Picker</a></li>
+        <li><a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a></li>
+        <li><a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a></li>
+        <li><a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a></li>
+        <li><a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a></li>
+        <li><a href="../pokemon-nature-chart/">Pokemon Nature Chart</a></li>
+        <li><a href="./">Pokemon Card Generator</a></li>
+        <li><a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../privacy-policy/">Privacy Policy</a></li>
+        <li><a href="../about/">About &amp; Contact</a></li>
+        <li><a href="../terms-of-use/">Terms of Use</a></li>
+      </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator. Not affiliated with Nintendo / Game Freak / The Pokemon Company. Unofficial fan project — cards are for personal, educational and fan use only.</p>
+      <p class="footer-note">Data sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </div>
+  </footer>
+
+  <!-- Copy fallback modal -->
+  <div class="modal-overlay" id="cg-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="cg-modal-title">
+      <h2 class="modal-title" id="cg-modal-title">Copy manually</h2>
+      <div class="modal-body">
+        <p class="tool-note">Your browser blocked auto-copy — the text below is selected. Press Ctrl+C (or long-press) to copy it.</p>
+        <textarea class="share-modal-text" id="cg-modal-text" readonly></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="cg-modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../data.js?v=20260802q"></script>
+  <script src="../nav.js?v=20260802q"></script>
+  <script src="card-generator.js?v=20260909a"></script>
+</body>
+</html>
