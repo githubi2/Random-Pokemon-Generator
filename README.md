@@ -15,6 +15,7 @@ A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero de
 | 🌿 Nature Chart | [/pokemon-nature-chart/](https://www.random-pokemon-generator.co/pokemon-nature-chart/) | All 25 natures with stat boosts/drops + best-nature finder for every species |
 | ⚔️ Type Chart | [/pokemon-type-chart/](https://www.random-pokemon-generator.co/pokemon-type-chart/) | 18-type effectiveness grid + dual-type damage calculator, per-type weaknesses at a glance |
 | 🎯 IV Calculator | [/pokemon-iv-calculator/](https://www.random-pokemon-generator.co/pokemon-iv-calculator/) | Reverse-engineer hidden IVs (0-31) from level, nature, EVs and shown stats — all 1,025 species |
+| 📖 Pokemon Pokedex | [/pokemon/](https://www.random-pokemon-generator.co/pokemon/) | Growing encyclopedia of Pokemon stats, matchups, abilities & evolution lines (Gen 1-9) |
 | 🃏 Card Generator | [/pokemon-card-generator/](https://www.random-pokemon-generator.co/pokemon-card-generator/) | Make your own Pokemon card: photo upload, Classic/Modern/TCG Pocket templates, rarity finishes, PNG download |
 | 🎫 Trainer Card Generator | [/pokemon-trainer-card-generator/](https://www.random-pokemon-generator.co/pokemon-trainer-card-generator/) | Design a Pokemon trainer card: Classic/Modern styles, badges, partner Pokemon, battle stats, PNG download |
 | 📝 Blog | [/blog/](https://www.random-pokemon-generator.co/blog/) | Guides on odds math, natures and strategy — [Pokemon Natures, Explained](https://www.random-pokemon-generator.co/blog/pokemon-natures-explained/), [Pokemon Shiny Odds Explained](https://www.random-pokemon-generator.co/blog/shiny-odds-explained/), [Smash or Pass Tier List](https://www.random-pokemon-generator.co/blog/pokemon-smash-or-pass-tier-list/), [What Is a Nuzlocke Challenge?](https://www.random-pokemon-generator.co/blog/what-is-a-nuzlocke-challenge/) |
@@ -182,6 +183,11 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 │   ├── index.html                    # Pokemon name search (SearchAction target)
 │   ├── search.js                     # live dex filter + generator jump links
 │   └── og-image.png
+├── pokemon/
+│   ├── index.html                    # pokedex hub — list of species pages
+│   ├── bulbasaur/                    # species page (stats, matchups, abilities, FAQ)
+│   ├── charizard/
+│   └── pikachu/
 ├── random-pokemon-generator-wheel/
 │   ├── index.html                    # wheel spinner page
 │   ├── pokemon-wheel.js              # wheel draw logic

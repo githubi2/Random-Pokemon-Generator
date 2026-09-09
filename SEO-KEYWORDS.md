@@ -37,6 +37,10 @@
 | 19 | `/pokemon-type-chart/` | pokemon type chart | Pokemon Type Chart - 18-Type Weaknesses &amp; Effectiveness（53） | Pokemon Type Chart | 157 | 1227 | 工具 |
 | 20 | `/pokemon-iv-calculator/` | pokemon iv calculator | Pokemon IV Calculator - Find Hidden IVs (Gen 1-9)（54） | Pokemon IV Calculator | 154 | 1216 | 工具 |
 | 21 | `/search/` | pokemon search | Pokemon Search - Find Any Pokemon (Gen 1-9)（45） | Pokemon Search | 132 | 1205 | 工具 |
+| 22 | `/pokemon/` | pokemon pokedex | Pokemon Pokedex - Stats, Types &amp; Abilities (Gen 1-9)（56） | Pokemon Pokedex | 140 | 1200 | 内容枢纽 |
+| 23 | `/pokemon/bulbasaur/` | bulbasaur pokemon | Bulbasaur Pokemon - Stats, Types, Abilities &amp; Evolution（59） | Bulbasaur Pokemon stats: Grass/Poison type with BST 318, weak to Fire, Ice, Flying and Psychic. Abilities Overgrow and Chlorophyll, line and battle tips. | 153 | 1236 | 物种页（打样 1） |
+| 24 | `/pokemon/charizard/` | charizard pokemon | Charizard Pokemon - Stats, Types, Abilities &amp; Evolution（59） | Charizard Pokemon stats: Fire/Flying with BST 534, weak to Water, Electric and Rock, immune to Ground. Blaze and Solar Power builds, Mega X and Y. | 146 | 1216 | 物种页（打样 2） |
+| 25 | `/pokemon/pikachu/` | pikachu pokemon | Pikachu Pokemon - Stats, Types, Abilities &amp; Evolution（57） | Pikachu Pokemon stats: Electric type with BST 320, weak to Ground. Static and Lightning Rod, Light Ball build, evolution line and battle tips. | 149 | 1222 | 物种页（打样 3） |
 
 ## 备注
 
