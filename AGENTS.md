@@ -40,6 +40,7 @@
 - **缓存策略（vercel.json `headers`，2026-09-05 起）**：CSS/JS 浏览器缓存 1 天 + SWR 7 天；图片/音频（png/ico/svg/wav）缓存 7 天 + SWR 30 天；HTML 保持 Vercel 默认 `must-revalidate`。改动 CSS/JS 后**必须 bump 引用处的 `?v=` 版本号**（既有约定），新页面的脚本/样式引用一律带版本号。
 - 修改后必须验证：`node --check` JS、HTML 标签配对、canonical/词数/内链矩阵/JSON-LD 回归（用 `kimi-verify-` 前缀临时脚本，跑完即删）。
 - 文件名/目录：子页面用目录形式（`pokemon-smash-or-pass/index.html` → URL `/pokemon-smash-or-pass/`）。
+- **区块标题结构（全站统一）**：`小标签 → 大标题(H2) → 段落`——说明/SEO 段落一律放在 H2 **下方**、左对齐、默认正文样式（16px、墨色）；**禁止把段落插在 eyebrow 与 H2 之间**，禁止给正文段落加居中/max-width/灰字这类自定义内联样式（2026-09-12 首页 FAQ 区「乱」的成因，勿再犯）。
 
 ## 4. 上线流程（新页面清单）
 
