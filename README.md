@@ -232,7 +232,14 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 │   ├── index.html                    # pokedex hub — list of species pages
 │   ├── bulbasaur/                    # species page (stats, matchups, abilities, FAQ)
 │   ├── charizard/
-│   └── pikachu/
+│   ├── pikachu/
+│   ├── charmander/
+│   ├── squirtle/
+│   ├── eevee/
+│   ├── gengar/
+│   ├── mewtwo/
+│   ├── lucario/
+│   └── greninja/
 ├── random-pokemon-generator-wheel/
 │   ├── index.html                    # wheel spinner page
 │   ├── pokemon-wheel.js              # wheel draw logic
