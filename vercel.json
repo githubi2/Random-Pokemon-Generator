@@ -75,6 +75,16 @@
       "destination": "/pokemon-trainer-card-generator/",
       "permanent": true
     },
+        {
+      "source": "/random-pokemon-type-generator/index.html",
+      "destination": "/random-pokemon-type-generator/",
+      "permanent": true
+    },
+        {
+      "source": "/random-legendary-pokemon-generator/index.html",
+      "destination": "/random-legendary-pokemon-generator/",
+      "permanent": true
+    },
     {
       "source": "/blog/index.html",
       "destination": "/blog/",

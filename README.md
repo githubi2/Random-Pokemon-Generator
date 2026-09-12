@@ -18,6 +18,8 @@ A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero de
 | 📖 Pokemon Pokedex | [/pokemon/](https://www.random-pokemon-generator.co/pokemon/) | Growing encyclopedia of Pokemon stats, matchups, abilities & evolution lines (Gen 1-9) |
 | 🃏 Card Generator | [/pokemon-card-generator/](https://www.random-pokemon-generator.co/pokemon-card-generator/) | Make your own Pokemon card: photo upload, Classic/Modern/TCG Pocket templates, rarity finishes, PNG download |
 | 🎫 Trainer Card Generator | [/pokemon-trainer-card-generator/](https://www.random-pokemon-generator.co/pokemon-trainer-card-generator/) | Design a Pokemon trainer card: Classic/Modern styles, badges, partner Pokemon, battle stats, PNG download |
+| 🎡 Type Generator | [/random-pokemon-type-generator/](https://www.random-pokemon-generator.co/random-pokemon-type-generator/) | Random type roller with a spinning 18-type wheel — singles, dual combos, matchup summaries and rare-combo counts |
+| 🌟 Legendary Generator | [/random-legendary-pokemon-generator/](https://www.random-pokemon-generator.co/random-legendary-pokemon-generator/) | Random legendary / mythical / pseudo-legendary draws with stats, abilities and shiny forms |
 | 📝 Blog | [/blog/](https://www.random-pokemon-generator.co/blog/) | Guides on odds math, natures and strategy — [Pokemon Natures, Explained](https://www.random-pokemon-generator.co/blog/pokemon-natures-explained/), [Pokemon Shiny Odds Explained](https://www.random-pokemon-generator.co/blog/shiny-odds-explained/), [Smash or Pass Tier List](https://www.random-pokemon-generator.co/blog/pokemon-smash-or-pass-tier-list/), [What Is a Nuzlocke Challenge?](https://www.random-pokemon-generator.co/blog/what-is-a-nuzlocke-challenge/) |
 | 🌟 Shiny Generator | [/random-shiny-pokemon-generator/](https://www.random-pokemon-generator.co/random-shiny-pokemon-generator/) | Random shiny Pokémon generator with rarity simulation |
 | 💎 Mega Generator | [/random-mega-pokemon-generator/](https://www.random-pokemon-generator.co/random-mega-pokemon-generator/) | Random Mega Evolution Pokémon generator |
@@ -137,6 +139,14 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 ├── pokemon-trainer-card-generator/
 │   ├── index.html                    # trainer card generator page
 │   ├── trainer-generator.js          # sample-card + canvas trainer renderer
+│   └── og-image.png
+├── random-pokemon-type-generator/
+│   ├── index.html                    # random type generator page (18-type spinner wheel)
+│   ├── type-generator.js             # wheel builder + matchup and rarity renderer
+│   └── og-image.png
+├── random-legendary-pokemon-generator/
+│   ├── index.html                    # legendary generator page (legendary/mythical/pseudo)
+│   ├── legendary-generator.js        # pool filter + draw card renderer
 │   └── og-image.png
 ├── blog/
 │   ├── index.html                    # blog list page

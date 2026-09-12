@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Legendary Pokemon Generator - Mythical &amp; Shiny</title>
+  <meta name="description" content="Roll a random legendary Pokemon from every generation — legendaries, mythicals and pseudo-legendaries, with stats, abilities and shiny forms, in one click." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/random-legendary-pokemon-generator/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Random Legendary Pokemon Generator - Mythical &amp; Shiny" />
+  <meta property="og:description" content="Roll a legendary, mythical or pseudo-legendary Pokemon at random — stats, abilities and shiny forms on every card." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/random-legendary-pokemon-generator/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/random-legendary-pokemon-generator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Random Legendary Pokemon Generator - Mythical &amp; Shiny" />
+  <meta name="twitter:description" content="Roll a legendary, mythical or pseudo-legendary Pokemon at random — stats, abilities and shiny forms on every card." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/random-legendary-pokemon-generator/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260903e" />
+
+  <style>
+    /* page-scoped layout for the legendary generator card */
+    .lgx-card { margin: 16px auto 0; max-width: 760px; background: #fff; border: 2px solid var(--ink); border-radius: var(--radius); padding: 20px; display: flex; flex-wrap: wrap; gap: 20px; text-align: left; animation: lgx-pop 0.3s ease; }
+    @keyframes lgx-pop { from { opacity: 0; transform: translateY(10px) scale(0.985); } to { opacity: 1; transform: none; } }
+    .lgx-art { flex: 0 0 auto; width: 236px; max-width: 100%; border: 2px solid var(--ink); border-radius: var(--radius); background: radial-gradient(circle at 50% 42%, var(--aura, #f8f8f6) 0%, #fff 72%); display: flex; align-items: center; justify-content: center; padding: 12px; }
+    .lgx-art img { width: 200px; height: 200px; display: block; }
+    .lgx-info { flex: 1 1 300px; min-width: 250px; }
+    .lgx-meta { margin: 0 0 6px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(18, 18, 18, 0.72); }
+    .lgx-badge { display: inline-block; background: var(--ink); color: #fff; padding: 2px 8px; border-radius: 4px; }
+    .lgx-name { font-size: 27px; font-weight: 900; letter-spacing: -0.01em; margin: 4px 0 10px; }
+    .lgx-types { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .lgx-card .type-chip { display: inline-block; padding: 5px 12px; border-radius: 6px; border: 2px solid var(--ink); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; background: var(--chip, #fff); color: var(--chip-text, #121212); }
+    .lgx-stats { list-style: none; margin: 0 0 14px; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .lgx-stats li { border: 2px solid var(--ink); border-radius: 7px; padding: 6px 4px; text-align: center; }
+    .lgx-stats span { display: block; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(18, 18, 18, 0.62); margin-bottom: 2px; }
+    .lgx-stats b { font-size: 15px; font-weight: 900; }
+    .lgx-stats .lgx-bst { background: #fff7d6; }
+    .lgx-abilities { margin: 0 0 14px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(18, 18, 18, 0.82); }
+    .tw-actions { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center; }
+    .lgx-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .lgx-hitem img { width: 40px; height: 40px; display: block; }
+    .lgx-hitem .lgx-hname { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+    .lgx-hitem .lgx-hmeta { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; color: rgba(18, 18, 18, 0.6); margin-left: auto; }
+  </style>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Random Legendary Pokemon Generator",
+    "description": "A random legendary Pokemon generator that draws legendaries, mythicals and pseudo-legendaries from every generation, with stats, abilities and shiny forms.",
+    "applicationCategory": "GameApplication",
+    "url": "https://www.random-pokemon-generator.co/random-legendary-pokemon-generator/",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Random Pokemon Generator", "item": "https://www.random-pokemon-generator.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Random Legendary Pokemon Generator", "item": "https://www.random-pokemon-generator.co/random-legendary-pokemon-generator/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a random legendary Pokemon generator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It draws one legendary-class Pokemon at random — a legendary, a mythical or a pseudo-legendary — and shows its full card: artwork, types, base stats, abilities and dex number. Press roll again for another draw, and use the shiny toggle to see the rare recolour. Every result is shareable." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between legendary and mythical Pokemon?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Legendary Pokemon are the powerhouses tied to a region's story — Mewtwo, Lugia, Rayquaza, Koraidon — usually obtainable once per game. Mythical Pokemon are the event exclusives — Mew, Celebi, Jirachi — originally distributed through special events rather than found in the story. This generator covers both pools and labels every roll with its category." }
+      },
+      {
+        "@type": "Question",
+        "name": "What counts as a pseudo-legendary Pokemon?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A pseudo-legendary is a non-legendary Pokemon that reaches a base stat total of 600 at its final evolution — the ten classics from Dragonite to Baxcalibur. They are stronger than regular Pokemon but sit outside legendary rules, which makes them interesting picks for challenge runs and drafts." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which generations are covered?",
+        "acceptedAnswer": { "@type": "Answer", "text": "All nine — from Kanto's birds and Mewtwo through to Paldea's treasures. The pool draws from the same full Gen 1-9 dataset that runs every tool on this site, so no generation is left out and nothing is weighted." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I see shiny legendary artwork?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — the shiny toggle on the result card swaps the artwork to the shiny recolour of the same Pokemon. It is a visual switch, not a drop-rate simulation: the real odds depend on your game and method, and the Pokemon Shiny Odds page on this site breaks every rate down." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I roll for one category only?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — pick Legendary, Mythical or Pseudo-legendary in the pool chips before rolling, or keep All special selected to draw from every category. Rolling a few times builds a random draft pool for themed runs, trades or art sessions." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+  }
+  </script>
+
+  <!-- Structured data: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+              <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+              <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+              <li><a href="../pokemon-iv-calculator/" class="nav-link">Pokemon IV Calculator</a></li>
+              <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+              <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+              <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+              <li><a href="../pokemon-card-generator/" class="nav-link">Pokemon Card Generator</a></li>
+              <li><a href="../pokemon-trainer-card-generator/" class="nav-link">Pokemon Trainer Card Generator</a></li>
+              <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
+              <li><a href="./" class="nav-link nav-link-active">Random Legendary Pokemon Generator</a></li>
+              <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">Blog</a></li>
+          <li><a href="#how" class="nav-link">How It Works</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">Legendary · Mythical · Pseudo · Shiny Forms</p>
+      <h1 id="page-title">Random Legendary Pokemon Generator</h1>
+      <p class="lede">Roll a legendary Pokemon from every generation — legendaries, mythicals and pseudo-legendaries, each drawn at random and shown on a full card with stats, abilities and its shiny form.</p>
+    </section>
+
+    <!-- Legendary generator game -->
+    <section id="game" class="container" aria-label="Random legendary Pokemon generator tool">
+      <div class="panel cornered">
+        <p class="tool-hint">How it works — pick a pool and roll: the generator draws one random legendary-class Pokemon and shows its card. Toggle the shiny form, roll again, or share the result.</p>
+        <fieldset>
+          <legend>Pool</legend>
+          <div class="btn-row" id="pool-buttons" role="group" aria-label="Choose the roll pool">
+            <button type="button" class="chip-btn" data-pool="all" aria-pressed="true">All special</button>
+            <button type="button" class="chip-btn" data-pool="legendary" aria-pressed="false">Legendary</button>
+            <button type="button" class="chip-btn" data-pool="mythical" aria-pressed="false">Mythical</button>
+            <button type="button" class="chip-btn" data-pool="pseudo" aria-pressed="false">Pseudo-legendary</button>
+          </div>
+          <p class="tool-note" id="pool-note">Rolling from the full legendary-class pool across Gen 1-9.</p>
+        </fieldset>
+
+        <div class="tw-actions">
+          <button type="button" id="lg-roll" class="btn-slide cornered btn-primary"><span>🎲 Roll a Legendary</span></button>
+          <button type="button" id="lg-share" class="btn-slide btn-secondary"><span id="lg-share-label">📣 Share Result</span></button>
+        </div>
+
+        <div class="tool-note-group">
+          <p class="tool-note">🎲 Roll — draws one legendary-class Pokemon and shows its card</p>
+          <p class="tool-note">✨ Shiny form — swaps the artwork to the rare recolour</p>
+          <p class="tool-note">📣 Share Result — copies your roll plus the link</p>
+        </div>
+      </div>
+
+      <div class="smash-stage" aria-live="polite">
+        <div class="result-bar" id="result-bar" hidden>
+          <span class="result-bar-label">Your roll</span>
+        </div>
+        <div class="result-wrap" id="lg-result" hidden></div>
+      </div>
+
+      <div class="history cornered" id="history-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title">Roll History</h2>
+          <button type="button" id="history-clear" class="btn-text">Clear</button>
+        </div>
+        <p class="tool-note">Clear — wipes this session's rolls</p>
+        <ol class="history-list" id="history-list"></ol>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how-title">How the Random Legendary Pokemon Generator Works</h2>
+        <div class="how-grid">
+          <article>
+            <h3>Roll one legendary, any era</h3>
+            <p>Some Pokemon are not teammates — they are events. This generator draws one legendary-class Pokemon at random and lays out its full card: artwork, types, base stats, abilities and dex number, ready to use. One click rolls it, another rolls something else, and there is no limit on how many times you can spin. Use it to pick an ace for a themed run, to seed a drawing session, or simply to see which legend today hands you. Fate does not care about tier lists.</p>
+          </article>
+          <article>
+            <h3>Legendary, mythical, pseudo-legendary</h3>
+            <p>The pool has three tiers. Legendary Pokemon are the story-bound powerhouses of each region — Mewtwo, Lugia, Rayquaza, Koraidon — usually found once per playthrough and wrapped in lore. Mythical Pokemon are the event exclusives — Mew, Celebi, Jirachi — handed out at distributions rather than caught in the story. Pseudo-legendaries are the ten non-legendary monsters with a base stat total of 600, from Dragonite to Baxcalibur. Every roll is labelled with its tier, so you always know what kind of power you drew.</p>
+          </article>
+          <article>
+            <h3>Every generation in one pool</h3>
+            <p>The generator draws from all nine generations — Kanto's birds, Johto's beasts, Hoenn's weather trio, Sinnoh's creation dragons, Unova's tao trio, Kalos's auras, Alola's guardians, Galar's heroes and Paldea's treasures. Because the whole site runs on the same dataset, the legendary pool is always complete: if a legendary exists in the dex, it can show up in a roll. No generation is favoured and none is skipped — the draw is uniform across the entire pool.</p>
+          </article>
+          <article>
+            <h3>See the shiny form</h3>
+            <p>Every result card has a shiny toggle: one press swaps the artwork to the recolour a shiny hunter would grind for. It is a visual what-if, not a drop simulation — real shiny odds depend on the game and the method, and the <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a> page breaks down every rate. For the generator's purpose the toggle does one thing: it shows how different some of these legends look in their rarest colours. Some barely change; others are night and day.</p>
+          </article>
+          <article>
+            <h3>Legends for challenge runs</h3>
+            <p>Rolling a legendary is a fast way to spice up a challenge: a legend-only draft, a boss battle against a random box legend, or a themed run where fate picks your ace. It also settles friend-group arguments — the roll is the referee. If the run needs structure, the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a> handles the rules, and the <a href="../pokemon-team-picker/">Pokemon Team Picker</a> can build a full six around the legend you drew. One roll, one restriction, zero negotiation.</p>
+          </article>
+          <article>
+            <h3>Art prompts and design fuel</h3>
+            <p>For artists, a legendary roll is a brief: a shape, a palette, an aura to redraw. Drawing a random legend from memory is its own challenge; drawing a reimagined version — different region, different era — is another. The artwork on the card works as a reference point, or skip it and design purely from the name and types. Every generation's design language is different, which is exactly why rolling across all nine makes for better practice than sticking to one.</p>
+          </article>
+          <article>
+            <h3>Party mode and streams</h3>
+            <p>With a screen and a few friends, the generator becomes a party tool: everyone rolls once and argues about whose legendary wins a battle, or the roll decides teams for a showdown night. It is quick enough for live streams — one click, one result, one reaction — and every roll is shareable, so chat can see exactly what fate dealt. House rules are easy: one roll each, no re-rolls, best legend wins.</p>
+          </article>
+          <article>
+            <h3>From a legend to a full squad</h3>
+            <p>A legendary alone does not win a league. Take the roll further: build a team around it with the <a href="../pokemon-team-picker/">Pokemon Team Picker</a> or the <a href="../">random Pokemon generator</a>, name it with the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a>, then print the card that shows it off with the <a href="../pokemon-card-generator/">Pokemon Card Generator</a>. Hunting the shiny version for real? The rates live in <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a>, and the <a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a> rolls nothing but recolours.</p>
+          </article>
+          <article>
+            <h3>How the pool is built</h3>
+            <p>The legendary pool is built from the same dataset as every other tool on this site — species-level entries, each drawn with its own official artwork, no duplicate forms padding the list. Legendaries and mythicals come from the dex flags the games already use, and the ten pseudo-legendaries are the standard set from Dragonite to Baxcalibur. When the dex grows, the pool grows with it; a roll today and a roll next year come from the same, growing deck.</p>
+          </article>
+          <article>
+            <h3>Keep rolling across the site</h3>
+            <p>Rolled your legend? The rest of the suite keeps the momentum: build the squad with the <a href="../pokemon-team-picker/">Pokemon Team Picker</a>, or let the <a href="../">random Pokemon generator</a> fill a whole roster in one click. Single picks are the <a href="../random-pokemon-picker/">Random Pokemon Picker</a>'s job, and runs get rules with the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a>. When the legend needs a face, the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> names it and the <a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a> spins for it. Roll types instead in the <a href="../random-pokemon-type-generator/">Random Pokemon Type Generator</a>, shine differently with the <a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a>, and take training decisions to the <a href="../pokemon-nature-chart/">Pokemon Nature Chart</a> and the <a href="../pokemon-iv-calculator/">Pokemon IV Calculator</a>. The full <a href="../pokemon-type-chart/">Pokemon Type Chart</a> explains every matchup, the <a href="../pokemon/">Pokemon Pokedex</a> holds every species, and the <a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a> makes the trainer card that introduces them. Arguments go to <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a>, guessing games to <a href="../whos-that-pokemon/">Who's That Pokemon</a>, and anything else to site <a href="../search/">Search</a> or the <a href="../blog/">blog</a>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Random Legendary Pokemon Generator FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>What is a random legendary Pokemon generator?</summary>
+        <p>It draws one legendary-class Pokemon at random — a legendary, a mythical or a pseudo-legendary — and shows its full card: artwork, types, base stats, abilities and dex number. Press roll again for another draw, and use the shiny toggle to see the rare recolour. Every result is shareable.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What is the difference between legendary and mythical Pokemon?</summary>
+        <p>Legendary Pokemon are the powerhouses tied to a region's story — Mewtwo, Lugia, Rayquaza, Koraidon — usually obtainable once per game. Mythical Pokemon are the event exclusives — Mew, Celebi, Jirachi — originally distributed through special events rather than found in the story. This generator covers both pools and labels every roll with its category.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What counts as a pseudo-legendary Pokemon?</summary>
+        <p>A pseudo-legendary is a non-legendary Pokemon that reaches a base stat total of 600 at its final evolution — the ten classics from Dragonite to Baxcalibur. They are stronger than regular Pokemon but sit outside legendary rules, which makes them interesting picks for challenge runs and drafts.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Which generations are covered?</summary>
+        <p>All nine — from Kanto's birds and Mewtwo through to Paldea's treasures. The pool draws from the same full Gen 1-9 dataset that runs every tool on this site, so no generation is left out and nothing is weighted.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I see shiny legendary artwork?</summary>
+        <p>Yes — the shiny toggle on the result card swaps the artwork to the shiny recolour of the same Pokemon. It is a visual switch, not a drop-rate simulation: the real odds depend on your game and method, and the Pokemon Shiny Odds page on this site breaks every rate down.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I roll for one category only?</summary>
+        <p>Yes — pick Legendary, Mythical or Pseudo-legendary in the pool chips before rolling, or keep All special selected to draw from every category. Rolling a few times builds a random draft pool for themed runs, trades or art sessions.</p>
+      </details>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav aria-label="Footer keyword links">
+        <ul class="footer-links">
+          <li><a href="../">Random Pokemon Generator</a></li>
+          <li><a href="../nuzlocke-generator/">Nuzlocke Team Builder</a></li>
+          <li><a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a></li>
+          <li><a href="../whos-that-pokemon/">Who's That Pokemon</a></li>
+          <li><a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="../pokemon-team-picker/">Pokemon Team Picker</a></li>
+          <li><a href="../random-pokemon-picker/">Random Pokemon Picker</a></li>
+          <li><a href="../pokemon-type-chart/">Pokemon Type Chart</a></li>
+          <li><a href="../pokemon-iv-calculator/">Pokemon IV Calculator</a></li>
+          <li><a href="../search/">Search</a></li>
+          <li><a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a></li>
+          <li><a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a></li>
+          <li><a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a></li>
+          <li><a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a></li>
+          <li><a href="../pokemon-nature-chart/">Pokemon Nature Chart</a></li>
+          <li><a href="../pokemon-card-generator/">Pokemon Card Generator</a></li>
+          <li><a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a></li>
+          <li><a href="../random-pokemon-type-generator/">Random Pokemon Type Generator</a></li>
+          <li><a href="./">Random Legendary Pokemon Generator</a></li>
+          <li><a href="../pokemon/">Pokemon Pokedex</a></li>
+          <li><a href="../blog/">Blog</a></li>
+          <li><a href="../privacy-policy/">Privacy Policy</a></li>
+          <li><a href="../about/">About &amp; Contact</a></li>
+          <li><a href="../terms-of-use/">Terms of Use</a></li>
+        </ul>
+      </nav>
+      <p class="footer-note">© 2026 Random Pokemon Generator. Not affiliated with Nintendo / Game Freak.</p>
+      <p class="footer-note">Data sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="share-modal" hidden>
+    <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="sm-title" id="share-modal-card">
+      <p class="modal-meta">Auto-copy blocked by this browser — select and copy manually</p>
+      <h3 id="sm-title">Copy your share text</h3>
+      <textarea class="share-modal-text" id="share-modal-text" rows="6" readonly></textarea>
+      <button type="button" class="btn-slide btn-secondary modal-close" id="sm-close"><span>Close</span></button>
+    </div>
+  </div>
+
+  <script src="../data.js?v=20260802q"></script>
+  <script src="../nav.js?v=20260802q"></script>
+  <script src="legendary-generator.js?v=20260912a"></script>
+</body>
+</html>

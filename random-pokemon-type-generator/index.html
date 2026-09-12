@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Pokemon Type Generator - Type Wheel &amp; Spinner</title>
+  <meta name="description" content="Roll a random Pokemon type — singles or dual combinations — or spin the 18-type wheel. See matchups, rare combos, and example Pokemon of every type." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/random-pokemon-type-generator/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Random Pokemon Type Generator - Type Wheel &amp; Spinner" />
+  <meta property="og:description" content="Spin the type wheel or roll a combination — all 18 types with matchups, rare combos and example Pokemon." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/random-pokemon-type-generator/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/random-pokemon-type-generator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Random Pokemon Type Generator - Type Wheel &amp; Spinner" />
+  <meta name="twitter:description" content="Spin the type wheel or roll a combination — all 18 types with matchups, rare combos and example Pokemon." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/random-pokemon-type-generator/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260903e" />
+
+  <style>
+    /* page-scoped layout for the type wheel tool */
+    .tw-stage { position: relative; margin: 26px auto 6px; width: min(340px, 86vw); aspect-ratio: 1 / 1; }
+    .tw-rotor { position: absolute; inset: 0; transition: transform 4.2s cubic-bezier(0.15, 0.85, 0.25, 1); will-change: transform; }
+    .tw-rotor svg { width: 100%; height: 100%; display: block; }
+    .tw-pointer { position: absolute; top: -6px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 13px solid transparent; border-right: 13px solid transparent; border-top: 22px solid var(--ink); z-index: 3; filter: drop-shadow(0 2px 0 rgba(255, 255, 255, 0.85)); }
+    .tw-hub { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 92px; height: 92px; border-radius: 50%; border: 4px solid var(--ink); background: var(--poke-red); color: #fff; font-family: inherit; font-weight: 900; font-size: 15px; letter-spacing: 0.04em; cursor: pointer; z-index: 2; box-shadow: 0 4px 0 rgba(18, 18, 18, 0.3); }
+    .tw-hub:hover { background: var(--ink); }
+    .tw-hub:active { transform: translate(-50%, -50%) scale(0.96); }
+    .tw-hub[disabled] { opacity: 0.55; cursor: default; }
+    .tw-actions { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center; }
+    .tw-card { margin: 16px auto 0; max-width: 760px; background: #fff; border: 2px solid var(--ink); border-radius: var(--radius); padding: 20px; text-align: left; animation: tw-pop 0.3s ease; }
+    @keyframes tw-pop { from { opacity: 0; transform: translateY(10px) scale(0.985); } to { opacity: 1; transform: none; } }
+    .tw-card-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .tw-card .type-chip { display: inline-block; padding: 5px 12px; border-radius: 6px; border: 2px solid var(--ink); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; background: var(--chip, #fff); color: var(--chip-text, #121212); }
+    .tw-rarity { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(18, 18, 18, 0.72); }
+    .tw-rows { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+    .tw-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
+    .tw-row-label { flex: 0 0 74px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(18, 18, 18, 0.72); }
+    .tw-mults { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tw-mult { display: inline-block; padding: 3px 8px; border-radius: 5px; border: 2px solid var(--ink); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; background: var(--c, #fff); color: var(--tc, #121212); }
+    .tw-examples { display: flex; flex-wrap: wrap; gap: 10px; border-top: 2px solid rgba(18, 18, 18, 0.12); padding-top: 14px; }
+    .tw-ex { margin: 0; width: 84px; text-align: center; }
+    .tw-ex img { width: 72px; height: 72px; display: block; margin: 0 auto 4px; }
+    .tw-ex figcaption { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: rgba(18, 18, 18, 0.8); line-height: 1.35; }
+    .tw-hdot { flex: 0 0 auto; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--ink); background: var(--c, #fff); }
+    .tw-hdot + .tw-hdot { margin-left: -8px; }
+    .history-item .tw-hname { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+    .tw-win path { stroke: #f6c90e; stroke-width: 3; }
+  </style>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Random Pokemon Type Generator",
+    "description": "A random Pokemon type generator with a spinning 18-type wheel, single and dual type rolls, and matchup summaries for every result.",
+    "applicationCategory": "GameApplication",
+    "url": "https://www.random-pokemon-generator.co/random-pokemon-type-generator/",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Random Pokemon Generator", "item": "https://www.random-pokemon-generator.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Random Pokemon Type Generator", "item": "https://www.random-pokemon-generator.co/random-pokemon-type-generator/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a random Pokemon type generator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It is a tool that rolls a random Pokemon type for you — one of the 18 types, or in dual mode a random pairing of two. Every result shows the type's weaknesses, resistances, immunities and a handful of Pokemon that share it, so the roll is immediately usable in a challenge, a team plan or a fan-art prompt." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do single and dual type rolls work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Single mode spins the 18-type wheel and locks whichever type the pointer lands on. Dual mode lands a first type on the wheel, then draws a second one to form a combination like Fire/Flying or Steel/Fairy. Dual rolls also show how many Pokemon actually share the pairing, so you know instantly how rare the result is." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a Pokemon type wheel to spin?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — the generator is built around one. The wheel is divided into 18 colored segments, one per type, using the same type colors as the rest of this site. Press Spin and it rotates; the segment under the pointer is your type. The spin is a real random draw — there is no re-spin hiding behind the animation." }
+      },
+      {
+        "@type": "Question",
+        "name": "How rare are the rarest type combinations?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Some pairings belong to a single species: Rock/Dark is Tyranitar's alone, Bug/Ghost only Shedinja, Steel/Water just Empoleon, and Ice/Ghost fits only Froslass. Others are shared by a handful of Pokemon. The result card counts exactly how many species carry your combination, so every roll tells you how rare it was." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use the type generator for a monotype run?",
+        "acceptedAnswer": { "@type": "Answer", "text": "That is one of its best uses: roll once and lock your whole playthrough to that type — a monotype challenge, a type-themed draft, or a themed team build. For deeper planning, carry the type into the Pokemon Team Picker, and use the Nuzlocke Team Builder when the run needs rules." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I share my type roll?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — Share Result copies a short message with your type or combination and a link back to the generator. If the browser blocks clipboard access, a copy box opens so you can grab the text by hand." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+  }
+  </script>
+
+  <!-- Structured data: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+              <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+              <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+              <li><a href="../pokemon-iv-calculator/" class="nav-link">Pokemon IV Calculator</a></li>
+              <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+              <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+              <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+              <li><a href="../pokemon-card-generator/" class="nav-link">Pokemon Card Generator</a></li>
+              <li><a href="../pokemon-trainer-card-generator/" class="nav-link">Pokemon Trainer Card Generator</a></li>
+              <li><a href="./" class="nav-link nav-link-active">Random Pokemon Type Generator</a></li>
+              <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
+              <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">Blog</a></li>
+          <li><a href="#how" class="nav-link">How It Works</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">18 Types · Singles &amp; Combos · Let Fate Pick</p>
+      <h1 id="page-title">Random Pokemon Type Generator</h1>
+      <p class="lede">Roll a random Pokemon type and let fate pick your element — one of the 18 types, or a dual combination from all 153 pairs. Every result comes with its matchups, its rarity, and the Pokemon that carry it.</p>
+    </section>
+
+    <!-- Type wheel game -->
+    <section id="game" class="container" aria-label="Random Pokemon type generator tool">
+      <div class="panel cornered">
+        <p class="tool-hint">How it works — choose a mode, then roll: Single spins one type from the 18-segment wheel; Dual lands a first type on the wheel and draws a second to form a combination. Every roll shows matchups, rarity and examples.</p>
+        <fieldset>
+          <legend>Mode</legend>
+          <div class="btn-row" id="mode-buttons" role="group" aria-label="Roll mode">
+            <button type="button" class="chip-btn" data-mode="single" aria-pressed="true">Single type</button>
+            <button type="button" class="chip-btn" data-mode="dual" aria-pressed="false">Dual combo</button>
+          </div>
+        </fieldset>
+
+        <div class="tw-stage">
+          <div class="tw-rotor" id="tw-rotor" aria-hidden="true"></div>
+          <div class="tw-pointer" aria-hidden="true"></div>
+          <button type="button" id="tw-hub" class="tw-hub" aria-label="Spin the type wheel">SPIN</button>
+        </div>
+
+        <div class="tw-actions">
+          <button type="button" id="tw-spin" class="btn-slide cornered btn-primary"><span>🎡 Spin the Wheel</span></button>
+          <button type="button" id="tw-share" class="btn-slide btn-secondary"><span id="tw-share-label">📣 Share Result</span></button>
+        </div>
+
+        <div class="tool-note-group">
+          <p class="tool-note">🎡 Spin — the wheel turns and the pointer picks your type</p>
+          <p class="tool-note">📣 Share Result — copies your roll plus the link</p>
+          <p class="tool-note">🖱️ Space bar — spins the wheel too</p>
+        </div>
+      </div>
+
+      <div class="smash-stage" aria-live="polite">
+        <div class="result-bar" id="result-bar" hidden>
+          <span class="result-bar-label">Your roll</span>
+        </div>
+        <div class="result-wrap" id="tw-result" hidden></div>
+      </div>
+
+      <div class="history cornered" id="history-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title">Roll History</h2>
+          <button type="button" id="history-clear" class="btn-text">Clear</button>
+        </div>
+        <p class="tool-note">Clear — wipes this session's rolls</p>
+        <ol class="history-list" id="history-list"></ol>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how-title">How the Random Pokemon Type Generator Works</h2>
+        <div class="how-grid">
+          <article>
+            <h3>One click, a random type</h3>
+            <p>Type is the first decision in almost every Pokemon challenge: pick the type, and everything else follows from the matchup chart. This generator makes that decision in one click — spin the wheel and all 18 types are in play, from Normal to Fairy. Use it to start a new run, to settle an argument, or to give yourself a starting point when you cannot choose. The roll is genuinely random every time; there is no weighting and no way to steer it. Take what the wheel gives you — that is the point.</p>
+          </article>
+          <article>
+            <h3>Single types and dual combinations</h3>
+            <p>Single mode rolls one of the 18 types. Dual mode rolls a pairing: 18 singles plus 153 two-type combinations make 171 possible outcomes, and the famous pairs — Fire/Flying, Water/Ground, Dragon/Ghost — come up exactly as often as the math says. Dual rolls show you how many Pokemon actually carry the combination, so landing on Rock/Dark feels very different from Flying/Normal, which more than twenty species share. Every roll is a clean slate: the same type can come up twice in a row.</p>
+          </article>
+          <article>
+            <h3>The spinning type wheel</h3>
+            <p>The wheel is the heart of the tool: 18 colored segments, one per type, using the same colors as the rest of this site. Press Spin and it rotates with a real deceleration curve — the segment under the pointer is your type. There is no re-spin hiding behind the animation and no way to influence the outcome. Both the center hub and the button below the wheel trigger the spin, so it plays the same on a phone and on a desktop, and the winning segment gets a gold outline so everyone can see where it stopped.</p>
+          </article>
+          <article>
+            <h3>Read the matchup box</h3>
+            <p>Every roll reports what the type or pair is weak to, what it resists, and what it is immune to, using standard multipliers. A dual roll combines both halves — Fire/Flying, for example, takes quadruple damage from Rock, while Ground drops to zero. That little box turns a random pick into a strategy: a roll is not just a name, it is a full defensive profile you can plan around before the first battle. Keep the <a href="../pokemon-type-chart/">Pokemon Type Chart</a> nearby if you want the complete 18-by-18 picture behind it.</p>
+          </article>
+          <article>
+            <h3>Rare combinations worth hunting</h3>
+            <p>Some pairs are nearly untouched: Rock/Dark belongs to Tyranitar alone, Bug/Ghost only to Shedinja, Steel/Water just Empoleon, and Ice/Ghost fits only Froslass. Rolling into one of these is the type equivalent of a shiny — you can build a run or a fakemon around it, and nobody else in the lobby has it. The result card counts exactly how many species share your combination, so you always know whether you rolled something common or almost unique. Rare hunts are a good excuse to keep spinning: every roll is independent, and the thin combinations stay satisfying.</p>
+          </article>
+          <article>
+            <h3>Monotype runs and challenge locks</h3>
+            <p>A type roll is a ready-made rule for a challenge run: lock your whole team to whatever the wheel lands on and see how far the game bends. Players spin once for a run theme, once for a draft, or once for a starter type in a random-locke. If the run needs rules, pair the type with the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a>; if you want to plan the full squad before you start, the <a href="../pokemon-team-picker/">Pokemon Team Picker</a> builds six-slot teams with natures, moves and items around the type you rolled.</p>
+          </article>
+          <article>
+            <h3>Type rolls as art prompts</h3>
+            <p>For artists, a rolled type is a prompt: one spin gives you the element, and in dual mode a second gives you the combination — suddenly you have a fakemon brief. A Ground/Fairy design, an Ice/Ghost gimmick, an Electric/Poison mascot: the harder the pairing, the more room there is, because nobody is expecting an original take on the one Pokemon that carries it. The example sprites on the result card work as reference points, or you can ignore the Pokemon entirely and design from the type alone. It removes the blank page, which is the only hard part.</p>
+          </article>
+          <article>
+            <h3>From one type to a full team</h3>
+            <p>A single roll can drive an entire session. Spin a type, then open the <a href="../">random Pokemon generator</a> to fill a roster from the pool. Need one Pokemon instead of a team? The <a href="../random-pokemon-picker/">Random Pokemon Picker</a> deals singles. Once the team exists, the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> names every member and the <a href="../pokemon-card-generator/">Pokemon Card Generator</a> prints the highlights. One type roll, one full lineup — and everything stays consistent because every tool on this site draws from the same dataset.</p>
+          </article>
+          <article>
+            <h3>Play it as a party game</h3>
+            <p>The most fun way to use a type generator is with other people: everyone takes the same spin and builds a team around what it landed on, best battle round decides the winner. Or spin once per player and let the types decide who faces whom. Because the spin is short and the rules are obvious, it works live — on a stream, in a voice call, or around a table with one phone passed around. Set your own house rules; the only rule this site enforces is the truth of the spin.</p>
+          </article>
+          <article>
+            <h3>Keep rolling across the site</h3>
+            <p>Rolled your type? The rest of the suite takes over from here: build the squad with the <a href="../pokemon-team-picker/">Pokemon Team Picker</a>, or let the <a href="../">random Pokemon generator</a> fill a whole roster in one click. Single picks are the <a href="../random-pokemon-picker/">Random Pokemon Picker</a>'s job, and runs get rules with the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a>. When the type needs a face, the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> names it and the <a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a> spins for it. For rare variants there is the <a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a> and the <a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a>, with the math behind both in <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a>. Training decisions move to the <a href="../pokemon-nature-chart/">Pokemon Nature Chart</a> and the <a href="../pokemon-iv-calculator/">Pokemon IV Calculator</a>; before all that, study the full <a href="../pokemon-type-chart/">Pokemon Type Chart</a> this wheel is built from, roll a legend in the <a href="../random-legendary-pokemon-generator/">Random Legendary Pokemon Generator</a>, and browse every species in the <a href="../pokemon/">Pokemon Pokedex</a>. Cards and keepsakes come from the <a href="../pokemon-card-generator/">Pokemon Card Generator</a> and the <a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a>; arguments come from <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a>, and guessing games from <a href="../whos-that-pokemon/">Who's That Pokemon</a>. Looking for something specific? Site <a href="../search/">Search</a> finds any page, and the <a href="../blog/">blog</a> goes deeper on odds and strategies.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Random Pokemon Type Generator FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>What is a random Pokemon type generator?</summary>
+        <p>It is a tool that rolls a random Pokemon type for you — one of the 18 types, or in dual mode a random pairing of two. Every result shows the type's weaknesses, resistances, immunities and a handful of Pokemon that share it, so the roll is immediately usable in a challenge, a team plan or a fan-art prompt.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How do single and dual type rolls work?</summary>
+        <p>Single mode spins the 18-type wheel and locks whichever type the pointer lands on. Dual mode lands a first type on the wheel, then draws a second one to form a combination like Fire/Flying or Steel/Fairy. Dual rolls also show how many Pokemon actually share the pairing, so you know instantly how rare the result is.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Is there a Pokemon type wheel to spin?</summary>
+        <p>Yes — the generator is built around one. The wheel is divided into 18 colored segments, one per type, using the same type colors as the rest of this site. Press Spin and it rotates; the segment under the pointer is your type. The spin is a real random draw — there is no re-spin hiding behind the animation.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How rare are the rarest type combinations?</summary>
+        <p>Some pairings belong to a single species: Rock/Dark is Tyranitar's alone, Bug/Ghost only Shedinja, Steel/Water just Empoleon, and Ice/Ghost fits only Froslass. Others are shared by a handful of Pokemon. The result card counts exactly how many species carry your combination, so every roll tells you how rare it was.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I use the type generator for a monotype run?</summary>
+        <p>That is one of its best uses: roll once and lock your whole playthrough to that type — a monotype challenge, a type-themed draft, or a themed team build. For deeper planning, carry the type into the Pokemon Team Picker, and use the Nuzlocke Team Builder when the run needs rules.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I share my type roll?</summary>
+        <p>Yes — Share Result copies a short message with your type or combination and a link back to the generator. If the browser blocks clipboard access, a copy box opens so you can grab the text by hand.</p>
+      </details>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav aria-label="Footer keyword links">
+        <ul class="footer-links">
+          <li><a href="../">Random Pokemon Generator</a></li>
+          <li><a href="../nuzlocke-generator/">Nuzlocke Team Builder</a></li>
+          <li><a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a></li>
+          <li><a href="../whos-that-pokemon/">Who's That Pokemon</a></li>
+          <li><a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="../pokemon-team-picker/">Pokemon Team Picker</a></li>
+          <li><a href="../random-pokemon-picker/">Random Pokemon Picker</a></li>
+          <li><a href="../pokemon-type-chart/">Pokemon Type Chart</a></li>
+          <li><a href="../pokemon-iv-calculator/">Pokemon IV Calculator</a></li>
+          <li><a href="../search/">Search</a></li>
+          <li><a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a></li>
+          <li><a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a></li>
+          <li><a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a></li>
+          <li><a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a></li>
+          <li><a href="../pokemon-nature-chart/">Pokemon Nature Chart</a></li>
+          <li><a href="../pokemon-card-generator/">Pokemon Card Generator</a></li>
+          <li><a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a></li>
+          <li><a href="./">Random Pokemon Type Generator</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">Random Legendary Pokemon Generator</a></li>
+          <li><a href="../pokemon/">Pokemon Pokedex</a></li>
+          <li><a href="../blog/">Blog</a></li>
+          <li><a href="../privacy-policy/">Privacy Policy</a></li>
+          <li><a href="../about/">About &amp; Contact</a></li>
+          <li><a href="../terms-of-use/">Terms of Use</a></li>
+        </ul>
+      </nav>
+      <p class="footer-note">© 2026 Random Pokemon Generator. Not affiliated with Nintendo / Game Freak.</p>
+      <p class="footer-note">Data sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="share-modal" hidden>
+    <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="sm-title" id="share-modal-card">
+      <p class="modal-meta">Auto-copy blocked by this browser — select and copy manually</p>
+      <h3 id="sm-title">Copy your share text</h3>
+      <textarea class="share-modal-text" id="share-modal-text" rows="6" readonly></textarea>
+      <button type="button" class="btn-slide btn-secondary modal-close" id="sm-close"><span>Close</span></button>
+    </div>
+  </div>
+
+  <script src="../data.js?v=20260802q"></script>
+  <script src="../nav.js?v=20260802q"></script>
+  <script src="type-generator.js?v=20260912a"></script>
+</body>
+</html>

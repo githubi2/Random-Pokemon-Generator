@@ -41,6 +41,8 @@
 | 23 | `/pokemon/bulbasaur/` | bulbasaur pokemon | Bulbasaur Pokemon - Stats, Types, Abilities &amp; Evolution（59） | Bulbasaur Pokemon stats: Grass/Poison type with BST 318, weak to Fire, Ice, Flying and Psychic. Abilities Overgrow and Chlorophyll, line and battle tips. | 153 | 1236 | 物种页（打样 1） |
 | 24 | `/pokemon/charizard/` | charizard pokemon | Charizard Pokemon - Stats, Types, Abilities &amp; Evolution（59） | Charizard Pokemon stats: Fire/Flying with BST 534, weak to Water, Electric and Rock, immune to Ground. Blaze and Solar Power builds, Mega X and Y. | 146 | 1216 | 物种页（打样 2） |
 | 25 | `/pokemon/pikachu/` | pikachu pokemon | Pikachu Pokemon - Stats, Types, Abilities &amp; Evolution（57） | Pikachu Pokemon stats: Electric type with BST 320, weak to Ground. Static and Lightning Rod, Light Ball build, evolution line and battle tips. | 149 | 1222 | 物种页（打样 3） |
+| 26 | `/random-pokemon-type-generator/` | random pokemon type generator | Random Pokemon Type Generator - Type Wheel &amp; Spinner（56） | Random Pokemon Type Generator | 148 | 1589 | 工具 |
+| 27 | `/random-legendary-pokemon-generator/` | random legendary pokemon generator | Random Legendary Pokemon Generator - Mythical &amp; Shiny（57） | Random Legendary Pokemon Generator | 155 | 1387 | 工具 |
 
 ## 备注
 
