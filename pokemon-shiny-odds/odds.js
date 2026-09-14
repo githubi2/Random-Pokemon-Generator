@@ -18,7 +18,10 @@
     combo:    { label: 'Catch Combo 31+', note: 'same-species chain' },
     lure:     { label: 'Lure', note: 'lure item active' },
     sandwich: { label: 'Sparkling Power Lv. 3', note: 'Herba Mystica sandwich' },
-    outbreak60: { label: 'Outbreak 60+ defeated', note: 'mass outbreak cleared' }
+    outbreak60: { label: 'Outbreak 60+ defeated', note: 'mass outbreak cleared' },
+    sparkling1: { label: 'Sparkling Power Lv. 1', note: 'Sparkling Power donut' },
+    sparkling2: { label: 'Sparkling Power Lv. 2', note: 'Sparkling Power donut' },
+    sparkling3: { label: 'Sparkling Power Lv. 3', note: 'Sparkling Power donut' }
   };
 
   var GAMES = {
@@ -29,6 +32,17 @@
       boosts: [
         { id: 'charm', adds: 2 },
         { id: 'masuda', adds: 5 }
+      ]
+    },
+    za: {
+      label: 'Legends: Z-A',
+      base: 4096,
+      note: 'Base 1 in 4,096 (community datamine). The Shiny Charm adds three rolls here, and Sparkling Power donuts stack on top — a full stack reaches about 1 in 585.',
+      boosts: [
+        { id: 'charm', adds: 3, note: 'Z-A charm adds three rolls' },
+        { id: 'sparkling1', adds: 1, group: 'sparkling' },
+        { id: 'sparkling2', adds: 2, group: 'sparkling' },
+        { id: 'sparkling3', adds: 3, group: 'sparkling' }
       ]
     },
     gen25: {
@@ -73,12 +87,13 @@
       ]
     }
   };
-  var GAME_ORDER = ['gen6', 'gen25', 'arceus', 'letsgo', 'sv'];
+  var GAME_ORDER = ['gen6', 'za', 'gen25', 'arceus', 'letsgo', 'sv'];
 
   /* ---------------- state ---------------- */
   var game = 'gen6';
   var active = {};      /* boost id -> true */
   var encounters = 1000;
+  var ratePerHour = 60;
   var LS_KEY = 'rpg:odds-settings';
 
   /* ---------------- DOM refs ---------------- */
@@ -87,6 +102,8 @@
   var gameNote = $('odds-game-note'), boostNote = $('odds-boost-note');
   var fractionEl = $('odds-fraction'), percentEl = $('odds-percent'), expectedEl = $('odds-expected');
   var nInput = $('odds-n-input'), nResult = $('odds-n-result');
+  var rateInput = $('odds-rate-input');
+  var medianEl = $('odds-median'), milestonesEl = $('odds-milestones');
 
   /* ---------------- math ---------------- */
   function totalRolls() {
@@ -116,6 +133,24 @@
     if (v >= 10) return v.toFixed(1) + '%';
     if (v >= 1) return v.toFixed(2) + '%';
     return v.toFixed(4).replace(/0+$/, '').replace(/\.$/, '') + '%';
+  }
+
+  function medianEncounters(p) {
+    return Math.ceil(Math.log(0.5) / Math.log(1 - p));
+  }
+
+  function encountersFor(target, p) {
+    return Math.ceil(Math.log(1 - target) / Math.log(1 - p));
+  }
+
+  function fmtDuration(hours) {
+    var mins = Math.round(hours * 60);
+    if (mins < 1) return 'under a minute';
+    var h = Math.floor(mins / 60);
+    var m = mins % 60;
+    if (h >= 48) return Math.floor(h / 24) + 'd ' + (h % 24) + 'h';
+    if (h >= 1) return h + 'h ' + m + 'm';
+    return m + 'm';
   }
 
   function compute() {
@@ -149,6 +184,16 @@
     var pAny = 1 - pNone;
     nResult.textContent = 'In ' + fmtInt(n) + ' encounters at 1 in ' + fmtInt(r.oneIn) + ': '
       + fmtPct(pAny) + ' chance of at least one shiny · ' + fmtPct(pNone) + ' chance of none.';
+
+    var rate = Math.max(1, ratePerHour);
+    var median = medianEncounters(r.p);
+    medianEl.textContent = 'Median hunt (50%): ' + fmtInt(median) + ' encounters — about '
+      + fmtDuration(median / rate) + ' at ' + fmtInt(rate) + ' encounters per hour.';
+    milestonesEl.textContent = 'Chance milestones: 25% by ' + fmtInt(encountersFor(0.25, r.p))
+      + ' · 50% by ' + fmtInt(median)
+      + ' · 75% by ' + fmtInt(encountersFor(0.75, r.p))
+      + ' · 90% by ' + fmtInt(encountersFor(0.9, r.p))
+      + ' · 99% by ' + fmtInt(encountersFor(0.99, r.p)) + ' encounters.';
   }
 
   /* ---------------- chips ---------------- */
@@ -209,7 +254,8 @@
       localStorage.setItem(LS_KEY, JSON.stringify({
         game: game,
         active: Object.keys(active),
-        encounters: encounters
+        encounters: encounters,
+        rate: ratePerHour
       }));
     } catch (e) { /* ignore */ }
   }
@@ -229,6 +275,9 @@
         if (typeof parsed.encounters === 'number' && parsed.encounters >= 1) {
           encounters = Math.min(1000000, Math.round(parsed.encounters));
         }
+        if (typeof parsed.rate === 'number' && parsed.rate >= 1) {
+          ratePerHour = Math.min(100000, Math.round(parsed.rate));
+        }
       }
     } catch (e) { /* corrupted storage -> defaults */ }
   }
@@ -243,10 +292,20 @@
     }
   });
 
+  rateInput.addEventListener('input', function () {
+    var v = Number(rateInput.value);
+    if (isFinite(v) && v >= 1) {
+      ratePerHour = Math.min(100000, Math.round(v));
+      render();
+      persist();
+    }
+  });
+
   /* ---------------- init ---------------- */
   restore();
   renderGameChips();
   renderBoostChips();
   nInput.value = String(encounters);
+  rateInput.value = String(ratePerHour);
   render();
 })();

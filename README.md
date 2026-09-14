@@ -11,7 +11,7 @@ A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero de
 | Page | URL | Purpose |
 |---|---|---|
 | 🎲 Main Generator | [random-pokemon-generator.co](https://www.random-pokemon-generator.co/) | Random team builder (1–12 Pokémon) with 10+ filter dimensions |
-| ✨ Shiny Odds Calculator | [/pokemon-shiny-odds/](https://www.random-pokemon-generator.co/pokemon-shiny-odds/) | Complete shiny rates for every game & method — base odds, Shiny Charm, Masuda, PLA outbreaks, SV sandwiches |
+| ✨ Shiny Odds Calculator | [/pokemon-shiny-odds/](https://www.random-pokemon-generator.co/pokemon-shiny-odds/) | Complete shiny rates for every game & method — base odds, Shiny Charm, Masuda, Z-A donuts, PLA outbreaks, SV sandwiches |
 | 🌿 Nature Chart | [/pokemon-nature-chart/](https://www.random-pokemon-generator.co/pokemon-nature-chart/) | All 25 natures with stat boosts/drops + best-nature finder for every species |
 | ⚔️ Type Chart | [/pokemon-type-chart/](https://www.random-pokemon-generator.co/pokemon-type-chart/) | 18-type effectiveness grid + dual-type damage calculator, per-type weaknesses at a glance |
 | 🎯 IV Calculator | [/pokemon-iv-calculator/](https://www.random-pokemon-generator.co/pokemon-iv-calculator/) | Reverse-engineer hidden IVs (0-31) from level, nature, EVs and shown stats — all 1,025 species |
@@ -46,7 +46,8 @@ The [shiny odds page](https://www.random-pokemon-generator.co/pokemon-shiny-odds
 - **PLA-specific**: Mass Outbreaks (1/158), Massive Mass Outbreaks (1/128), perfect research bonuses
 - **Let's Go**: Catch combo + lure stacking (up to 1/273)
 - **SV**: Sandwich powers + outbreak stacking
-- **Probability calculator**: enter encounter count → see cumulative shiny chance
+- **Legends: Z-A**: Shiny Charm +3 rolls, Sparkling Power donuts, full stack ~1/585
+- **Odds calculator**: pick a game and boosts → odds per encounter, median hunt, 50/90/99% milestones and a time estimate from your encounters per hour
 
 Data verified against Bulbapedia, Serebii, and community research.
 

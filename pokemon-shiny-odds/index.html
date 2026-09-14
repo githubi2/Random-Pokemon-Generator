@@ -12,7 +12,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pokemon Shiny Odds: Complete Shiny Rates &amp; Chances</title>
-  <meta name="description" content="Pokemon shiny odds explained — every method from full odds 1/8192 to Shiny Charm and Masuda Method 1/512, with an interactive odds calculator." />
+  <meta name="description" content="Pokemon shiny odds and chances — full odds 1 in 4,096, every boost method down to 1 in 512, per-game rates and a shiny odds calculator for your exact hunt." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Random Pokemon Generator" />
   <link rel="canonical" href="https://www.random-pokemon-generator.co/pokemon-shiny-odds/" />
@@ -38,13 +38,18 @@
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
   <link rel="stylesheet" href="../styles.css?v=20260903e" />
 
+  <style>
+    /* page-scoped: stacked input rows inside the odds calculator panel */
+    .odds-n-label + .odds-n-label { margin-top: 12px; }
+  </style>
+
   <!-- Structured data: SoftwareApplication -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Pokemon Shiny Odds",
-    "description": "Interactive shiny odds calculator and reference: base shiny rates by generation, every boost method from Shiny Charm to Masuda Method, and per-game odds tables for Legends Arceus, Let's Go, Scarlet and Violet and more.",
+    "description": "Interactive shiny odds calculator and reference: base shiny rates by generation, every boost method from Shiny Charm to Masuda Method, and per-game odds tables for Legends: Z-A, Legends Arceus, Let's Go, Scarlet and Violet and more.",
     "applicationCategory": "GameApplication",
     "operatingSystem": "All",
     "browserRequirements": "Requires JavaScript",
@@ -73,9 +78,9 @@
     "name": "How to calculate your shiny odds",
     "description": "Use the interactive calculator to work out your exact shiny odds for any game and boost combination.",
     "step": [
-      { "@type": "HowToStep", "name": "Pick your game", "text": "Choose your game from the row — Gen 6 and later, Gen 2-5, Legends Arceus, Let's Go or Scarlet and Violet. The base rate updates instantly." },
+      { "@type": "HowToStep", "name": "Pick your game", "text": "Choose your game from the row — Gen 6 and later, Legends: Z-A, Gen 2-5, Legends Arceus, Let's Go or Scarlet and Violet. The base rate updates instantly." },
       { "@type": "HowToStep", "name": "Toggle your boosts", "text": "Switch on the methods you are using: Shiny Charm, Masuda Method, research bonuses, outbreaks, catch combos, sandwiches or lures. Only boosts that exist in the chosen game stay available." },
-      { "@type": "HowToStep", "name": "Read your odds", "text": "The card shows your rate as a fraction (1 in 512), a percentage (0.195%) and the average encounters per shiny." },
+      { "@type": "HowToStep", "name": "Read your odds", "text": "The card shows your rate as a fraction (1 in 512), a percentage (0.195%) and the average encounters per shiny, with median and milestone numbers underneath." },
       { "@type": "HowToStep", "name": "Enter your encounter count", "text": "Type how many encounters you are planning and the calculator shows the chance of seeing at least one shiny — and the chance of seeing none." }
     ]
   }
@@ -90,37 +95,47 @@
       {
         "@type": "Question",
         "name": "What are the odds of finding a shiny Pokemon?",
-        "acceptedAnswer": { "@type": "Answer", "text": "It depends on the game. From Gold and Silver through Black 2 and White 2 (Gen 2-5) the base rate was 1 in 8,192 — about 0.0122%. From X and Y onward (Gen 6+) the base rate doubled to 1 in 4,096, about 0.0244%. Boosts like the Shiny Charm, Masuda Method, outbreaks and catch combos can push the modern rate as far as 1 in 512, and Legends Arceus tops out at 1 in 128 with everything stacked." }
+        "acceptedAnswer": { "@type": "Answer", "text": "The shiny chance depends on the game. From Gold and Silver through Black 2 and White 2 (Gen 2-5) the base rate was 1 in 8,192; from X and Y onward (Gen 6+) it doubled to 1 in 4,096. Boosts like the Shiny Charm, Masuda Method, outbreaks and catch combos push the modern rate as far as 1 in 512, and Legends Arceus tops out at 1 in 128 with everything stacked." }
       },
       {
         "@type": "Question",
         "name": "What is full odds shiny hunting?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Full odds means hunting with no boosts at all — every encounter rolls the plain base rate. That is 1 in 4,096 in modern games and 1 in 8,192 in Gen 2-5. Full-odds hunts are the purist format: no Shiny Charm, no sandwiches, no combos, just raw probability. A full-odds shiny is considered the most prestigious kind because nothing tilted the rate in the hunter's favor." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Full odds means hunting with no boosts — every encounter rolls the plain base rate: 1 in 4,096 in modern games and 1 in 8,192 in Gen 2-5. No Shiny Charm, no sandwiches, no combos, just raw probability. Full-odds shinies are the most prestigious kind because nothing tilted the rate in the hunter's favor." }
       },
       {
         "@type": "Question",
         "name": "How much does the Shiny Charm increase odds?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The Shiny Charm roughly triples your odds. In Gen 6 and later it takes the base rate from 1 in 4,096 to about 1 in 1,365, and in Black 2 and White 2, where it debuted, it improves 1 in 8,192 to about 1 in 2,731. You earn it by completing the regional or national Pokedex, and it stacks with almost every other boost — Masuda breeding with the Charm reaches about 1 in 512." }
+        "acceptedAnswer": { "@type": "Answer", "text": "The Shiny Charm roughly triples your odds: in Gen 6 and later it takes the 1 in 4,096 base to about 1 in 1,365, and in Black 2 and White 2 it improves 1 in 8,192 to about 1 in 2,731. It stacks with almost every other boost — Masuda breeding with the Charm reaches about 1 in 512." }
       },
       {
         "@type": "Question",
         "name": "What is the Masuda Method and what are its odds?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The Masuda Method is breeding two Pokemon from games of different real-world languages — say an English Ditto with a Japanese Garchomp. Eggs produced that way get extra shiny rolls: about 1 in 683 in Gen 6 and later (from 1 in 4,096), or about 1 in 1,639 in Gen 4 and 5. Add the Shiny Charm and the modern rate improves to roughly 1 in 512, the best widely available odds in the mainline games." }
+        "acceptedAnswer": { "@type": "Answer", "text": "The Masuda Method is breeding two Pokemon from games of different languages — an English Ditto with a Japanese Garchomp, for example. Eggs get extra shiny rolls: about 1 in 683 in Gen 6 and later, or 1 in 1,639 in Gen 4 and 5. With the Shiny Charm the modern rate improves to roughly 1 in 512, the best widely available odds in the mainline games." }
       },
       {
         "@type": "Question",
         "name": "Are shiny odds independent each encounter?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every encounter is its own independent roll — the game does not track how long you have been hunting, and there is no pity counter or hidden guarantee. At 1 in 4,096, your ten-thousandth encounter has exactly the same chance as your first. That is why long dry streaks are normal: going 4,096 encounters without a shiny at full odds happens to about 36.8% of hunters." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every encounter is its own independent roll — no pity counter, no hidden guarantee. At 1 in 4,096, your ten-thousandth encounter has exactly the same chance as your first. Long dry streaks are normal: going 4,096 encounters at full odds without a shiny happens to about 36.8% of hunters." }
       },
       {
         "@type": "Question",
         "name": "What are the odds of NOT finding a shiny in 1,000 encounters?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Multiply the failure chance across all 1,000 rolls. At full modern odds (1 in 4,096), the chance of zero shinies in 1,000 encounters is about 78.3% — so only around 21.7% of hunts succeed that early. At the best stacked rate of 1 in 512, the chance of a dry 1,000-encounter stretch drops to about 14.2%. The calculator above computes this for any odds and any encounter count." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Multiply the failure chance across all 1,000 rolls. At full modern odds (1 in 4,096), the chance of zero shinies in 1,000 encounters is about 78.3% — so only around 21.7% of hunts succeed that early. At the best stacked rate of 1 in 512, the chance of a dry 1,000-encounter stretch drops to about 14.2%. The calculator covers any odds and any count." }
       },
       {
         "@type": "Question",
         "name": "Do shiny odds change between generations?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The base rate only changed once in series history. Gen 2 through Gen 5 (including the Gen 3 games, from Ruby/Sapphire to FireRed and LeafGreen) roll at 1 in 8,192; X and Y doubled it to 1 in 4,096, and every generation since — Gen 7, Gen 8, Gen 9 — keeps that same base. The Shiny Charm odds improve it to about 1 in 1,365 from Gen 6 onward." }
+        "acceptedAnswer": { "@type": "Answer", "text": "The base rate only changed once in series history. Gen 2 through Gen 5 (including the Gen 3 games) roll at 1 in 8,192; X and Y doubled it to 1 in 4,096, and every generation since keeps that same base. The Shiny Charm improves it to about 1 in 1,365 from Gen 6 onward." }
+      },
+      {
+        "@type": "Question",
+        "name": "How many encounters does it take to get a shiny Pokemon?",
+        "acceptedAnswer": { "@type": "Answer", "text": "At full modern odds, half of all hunters find a shiny within 2,839 encounters, and 99% within 18,861 — the 50% and 99% points of the same 1 in 4,096 roll. Every encounter is independent, so your ten-thousandth try is exactly as likely as your first. The calculator above turns your odds into median and milestone numbers, plus a time estimate." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which Pokemon are shiny locked?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Shiny locks fall on Pokemon that are handed to you rather than found in the wild: gifts, in-game trades, cover legendaries and cutscene encounters. The list changes every game — Scarlet and Violet lock every headline legendary, Sword and Shield let you hunt most legendaries in Dynamax Adventures, and in Legends: Z-A only wild spawns and fossils can shine. If a Pokemon is given to you instead of encountered, assume it is locked." }
       }
     ]
   }
@@ -195,13 +210,13 @@
     <section class="hero container" aria-labelledby="page-title">
       <p class="eyebrow">Every Game · Every Method · Full Odds 1/8192 → Best 1/128</p>
       <h1 id="page-title">Pokemon Shiny Odds &amp; Rates — Every Method Explained</h1>
-      <p class="lede">The complete pokemon shiny odds reference: base rates by generation, every boost method from the Shiny Charm to the Masuda Method, per-game breakdowns for Legends Arceus, Let's Go, and Scarlet &amp; Violet — plus an interactive calculator for your exact hunt.</p>
+      <p class="lede">The complete pokemon shiny odds reference: base shiny rates by generation, every boost method from the Shiny Charm to the Masuda Method, per-game breakdowns for Legends: Z-A, Legends Arceus, Let's Go, and Scarlet &amp; Violet — plus an interactive calculator for your exact hunt.</p>
     </section>
 
     <!-- Calculator -->
     <section class="container tool-panel" id="calculator" aria-label="Shiny odds calculator">
       <div class="panel cornered">
-        <p class="tool-hint">How it works — pick your game, switch on every boost you are using, and the card shows your exact shiny odds as a fraction, a percentage and an average hunt length. Then type how many encounters you are planning to see your real chance of success. Only boosts that exist in the chosen game stay available.</p>
+        <p class="tool-hint">How it works — pick your game, switch on every boost you are using, and the card shows your exact shiny odds as a fraction, a percentage and an average hunt length. Planned encounters give your success chance; encounters per hour give the median hunt and time estimate. Only boosts that exist in the chosen game stay available.</p>
 
         <fieldset>
           <legend>Game</legend>
@@ -234,6 +249,9 @@
           <legend>Your hunt length</legend>
           <label class="odds-n-label">Encounters planned: <input type="number" id="odds-n-input" min="1" max="1000000" value="1000" step="50" aria-label="Number of encounters planned" /></label>
           <p class="odds-n-result" id="odds-n-result"></p>
+          <label class="odds-n-label">Encounters per hour: <input type="number" id="odds-rate-input" min="1" max="100000" value="60" step="10" aria-label="Encounters per hour" /></label>
+          <p class="odds-n-result" id="odds-median"></p>
+          <p class="tool-note" id="odds-milestones"></p>
         </fieldset>
 
         <div class="actions">
@@ -247,7 +265,7 @@
     <section id="base-odds" class="container odds" aria-labelledby="base-title">
       <p class="eyebrow">Reference</p>
       <h2 id="base-title">Base Shiny Odds by Generation</h2>
-      <p class="odds-lede">Shiny Pokemon debuted in Generation II, and the base rate only changed once in series history. Gold, Silver, and every game through Black 2 and White 2 rolled 1 in 8,192; X and Y doubled the rate to 1 in 4,096, and every mainline game since — including Legends Arceus, Let's Go, and Scarlet &amp; Violet — starts from that same 1 in 4,096 base before boosts.</p>
+      <p class="odds-lede">Shiny Pokemon debuted in Generation II, and the base shiny rate only changed once in series history. Gold, Silver, and every game through Black 2 and White 2 rolled 1 in 8,192; X and Y doubled the rate to 1 in 4,096, and every mainline game since starts from that same base before boosts. Because each encounter is an independent roll, the full-odds shiny chance never moves.</p>
       <div class="odds-table-wrap cornered">
         <table class="odds-table">
           <thead>
@@ -266,7 +284,7 @@
     <section id="boosts" class="container odds" aria-labelledby="boosts-title">
       <p class="eyebrow">Stack your luck</p>
       <h2 id="boosts-title">Shiny Odds Boost Methods</h2>
-      <p class="odds-lede">Every boost in the series works the same way: the game rolls the shiny check extra times per encounter and keeps the best result. More rolls, better odds. Here is what each method does, what it costs, and how far it moves the rate in the modern games.</p>
+      <p class="odds-lede">Every boost works the same way: the game rolls the shiny check extra times per encounter and keeps the best result — more rolls, better odds. Here is what each method does and how far it moves the shiny rate in the modern games.</p>
       <div class="odds-table-wrap cornered">
         <table class="odds-table">
           <thead>
@@ -282,10 +300,30 @@
             <tr><td>Charm + sandwich + outbreak</td><td>Everything stacked in Scarlet/Violet</td><td>1 in 512</td></tr>
             <tr><td>Mass Outbreak + Charm + Perfect dex</td><td>Legends: Arceus, fully stacked</td><td>1 in 128</td></tr>
             <tr><td>Catch Combo 31+ + Charm + Lure</td><td>Let's Go, fully stacked</td><td>1 in 273</td></tr>
+            <tr><td>Dynamax Adventures</td><td>Sword/Shield Crown Tundra</td><td>1 in 300 (1 in 100 with Charm)</td></tr>
+            <tr><td>SOS Chain (31+)</td><td>Sun/Moon ally chains</td><td>1 in 315 (1 in 273 with Charm)</td></tr>
+            <tr><td>Chain Fishing (20+)</td><td>XY/ORAS consecutive reels</td><td>1 in 100 (1 in 96 with Charm)</td></tr>
+            <tr><td>Poke Radar (chain 40)</td><td>DPPt and BDSP radar chains</td><td>1 in 200 per patch (1 in 99 in BDSP)</td></tr>
+            <tr><td>Friend Safari</td><td>XY safaris</td><td>1 in 819</td></tr>
+            <tr><td>Hordes (per horde)</td><td>XY/ORAS horde battles</td><td>1 in 819 (1 in 273 with Charm)</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="tool-note">Odds are averages, not guarantees — every encounter is an independent roll, so a 1-in-512 hunt can still run dry for thousands of tries.</p>
+      <p class="tool-note">Odds are averages, not guarantees — a 1-in-512 hunt can still run dry for thousands of tries.</p>
+    </section>
+
+    <!-- Shiny Charm guide -->
+    <section id="charm" class="container odds" aria-labelledby="charm-title">
+      <p class="eyebrow">Boost guide</p>
+      <h2 id="charm-title">How to Get the Shiny Charm</h2>
+      <p class="odds-lede">The Shiny Charm is a key item that adds extra shiny rolls to almost every hunt. It debuted in Black 2 and White 2, lifting the classic 1 in 8,192 rate to roughly 1 in 2,731, and in most modern games it adds two rolls — about 1 in 1,365 from the Gen 6+ base. Legends: Arceus and Legends: Z-A grant three instead. It stacks with Masuda breeding, sandwiches, outbreaks and chains, and you earn it by finishing your Pokedex; the milestone varies from a complete regional dex to research progress in the Legends games. Two exceptions: it does not affect Poke Radar shiny patches in BDSP, and no charm exists before Black 2 and White 2.</p>
+    </section>
+
+    <!-- Shiny locked -->
+    <section id="shiny-locked" class="container odds" aria-labelledby="locked-title">
+      <p class="eyebrow">Rarity</p>
+      <h2 id="locked-title">Shiny-Locked Pokemon</h2>
+      <p class="odds-lede">A shiny-locked Pokemon can never appear shiny, no matter how many encounters or resets you spend. The lock covers gift Pokemon, in-game trades, cover legendaries and story encounters that begin with a cutscene. It varies by game: Scarlet and Violet lock every headline legendary, Sword and Shield let you hunt most legendaries through Dynamax Adventures, and in Legends: Z-A only wild spawns and fossils can shine. Rule of thumb: if a Pokemon is handed to you rather than found in the wild, assume it is locked.</p>
     </section>
 
     <!-- Per-game odds -->
@@ -293,22 +331,46 @@
       <div class="container">
         <p class="eyebrow">Game by game</p>
         <h2 id="games-title">Shiny Odds by Game</h2>
+        <p class="odds-lede">Every game keeps the same core rules — one shiny check per encounter, extra rolls for boosts — but the numbers have moved over the years. Here is the base shiny chance and best boosted rate for each game, with the full breakdown below.</p>
+        <div class="odds-table-wrap cornered">
+          <table class="odds-table">
+            <thead>
+              <tr><th>Game</th><th>Base shiny rate</th><th>Best boosted rate</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Gen 2–5 (Gold/Silver – Black 2/White 2)</td><td>1 in 8,192</td><td>1 in 1,024 (Masuda + Charm)</td></tr>
+              <tr><td>X &amp; Y, Omega Ruby/Alpha Sapphire</td><td>1 in 4,096</td><td>1 in 96 (chain fishing + Charm)</td></tr>
+              <tr><td>Sun/Moon, Ultra Sun/Ultra Moon</td><td>1 in 4,096</td><td>1 in 273 (SOS chain 31+ + Charm)</td></tr>
+              <tr><td>Let's Go, Pikachu/Eevee</td><td>1 in 4,096</td><td>1 in 273 (combo 31+ + Charm + Lure)</td></tr>
+              <tr><td>Sword &amp; Shield</td><td>1 in 4,096</td><td>1 in 100 (Dynamax Adventures + Charm)</td></tr>
+              <tr><td>Brilliant Diamond &amp; Shining Pearl</td><td>1 in 4,096</td><td>1 in 99 (Poke Radar chain 40)</td></tr>
+              <tr><td>Legends: Arceus</td><td>1 in 4,096</td><td>1 in 128 (perfect dex + Charm + outbreak)</td></tr>
+              <tr><td>Scarlet &amp; Violet</td><td>1 in 4,096</td><td>1 in 512 (Charm + Lv. 3 sandwich + outbreak)</td></tr>
+              <tr><td>Legends: Z-A</td><td>1 in 4,096</td><td>1 in 585 (Charm + Lv. 3 donut)</td></tr>
+              <tr><td>Pokemon GO</td><td>1 in 500 (most species)</td><td>1 in 20 (legendary raids)</td></tr>
+            </tbody>
+          </table>
+        </div>
         <div class="how-grid">
           <article>
+            <h3>Pokemon Legends: Z-A shiny odds</h3>
+            <p>Legends: Z-A keeps the modern 1 in 4,096 base, and its Shiny Charm adds three rolls instead of the usual two — wild encounters drop to about 1 in 1,024. Sparkling Power donuts stack on top at +1, +2 or +3 rolls by level, and the full stack (Charm plus a Lv. 3 donut) lands near 1 in 585, the best repeatable rate in the game. Only wild spawns and fossils can shine: fossil restorations stay at the plain 1 in 4,096, while static encounters, gifts, trades and scripted battles cannot be shiny. These fractions come from the community datamine of the Mega Dimension update, not an official table.</p>
+          </article>
+          <article>
             <h3>Pokemon Legends: Arceus shiny odds</h3>
-            <p>Legends Arceus starts at the modern 1 in 4,096 base, then layers research bonuses on top: raising a species' Pokedex research to level 10 moves it to 1 in 2,048, and a perfect research page improves that to 1 in 1,024. The Shiny Charm — earned by reaching research level 10 on every species — adds three more rolls on its own, and all of it stacks. Mass outbreaks are where the rate gets really good: an outbreak alone jumps to roughly 1 in 158, and a perfect-dex outbreak with the Charm active reaches 32 rolls per spawn, the famous 1 in 128 — the best odds any mainline game has ever offered. The rarer massive mass outbreaks trade rate for volume at about 1 in 315 base, covering a whole map at once.</p>
+            <p>Legends Arceus starts at the modern 1 in 4,096 base, then layers research bonuses on top: raising a species' Pokedex research to level 10 moves it to 1 in 2,048, and a perfect research page improves that to 1 in 1,024. The Shiny Charm adds three rolls on its own, and everything stacks. Mass outbreaks push it further: an outbreak alone jumps to roughly 1 in 158, and a perfect-dex outbreak with the Charm active reaches 32 rolls per spawn — 1 in 128, the best odds any mainline game has ever offered. The rarer massive mass outbreaks trade rate for volume at about 1 in 315 base, covering a whole map at once.</p>
           </article>
           <article>
             <h3>Pokemon Let's Go shiny odds</h3>
-            <p>Let's Go Pikachu and Eevee run on the catch combo system. The base rate is 1 in 4,096, and chaining catches of the same species is everything: at a 31+ combo the odds hit 1 in 341, with the Shiny Charm they reach 1 in 273, and adding a Lure on top squeezes out 1 in 256. The combo only counts consecutive catches of one species — run from everything else and never let the chain break. Because shinies appear in the overworld before you touch them, a combo hunt is mostly patience and route planning.</p>
+            <p>Let's Go Pikachu and Eevee run on the catch combo system. At a 31+ combo the odds hit 1 in 341, the Shiny Charm pulls that to 1 in 293, and adding a Lure on top squeezes out 1 in 273 — the best rate in the game. The combo only counts consecutive catches of one species, so never let the chain break. Shinies appear in the overworld, so a combo hunt is mostly patience and route planning.</p>
           </article>
           <article>
             <h3>Scarlet &amp; Violet shiny odds</h3>
-            <p>Scarlet and Violet keep the 1 in 4,096 base and offer three stackable boosts. The Shiny Charm (complete the Paldea dex) triples the rate to 1 in 1,365, a Sparkling Power level 3 sandwich gives 1 in 1,024 for thirty minutes, and clearing 60 or more Pokemon in a mass outbreak lifts that outbreak to 1 in 1,365. All three together reach 1 in 512 — the ceiling for modern mainline games outside Legends Arceus. Note that sandwiches do not affect eggs; breeding hunts use the Masuda Method instead.</p>
+            <p>Scarlet and Violet keep the 1 in 4,096 base and offer three stackable boosts. The Shiny Charm (complete the Paldea dex) triples the rate to 1 in 1,365, a Sparkling Power level 3 sandwich gives 1 in 1,024 for thirty minutes, and clearing 60 or more Pokemon in a mass outbreak lifts that outbreak to 1 in 1,365. All three together reach 1 in 512, the modern ceiling outside Legends Arceus. Note that sandwiches do not affect eggs; breeding hunts use the Masuda Method instead.</p>
           </article>
           <article>
             <h3>Sword &amp; Shield shiny odds</h3>
-            <p>Sword and Shield use the standard 1 in 4,096 base with the Shiny Charm at 1 in 1,365. The games also track how many times you have battled each species — hitting 500 battles with one species adds extra rolls, and combined with the Charm the community-measured rate lands around 1 in 455. Gen 8 also introduced square shinies, a rarer sparkle variant: in the wild, a shiny has a 1-in-16 chance of the square animation, which makes a full-odds square shiny effectively a 1-in-65,536 event.</p>
+            <p>Sword and Shield use the standard 1 in 4,096 base with the Shiny Charm at 1 in 1,365. The games also track battles per species: 500 battles adds extra rolls, and with the Charm the community-measured rate lands around 1 in 455. Gen 8 also introduced square shinies, a rarer sparkle variant: in the wild, a shiny has a 1-in-16 chance of the square animation, which makes a full-odds square shiny effectively a 1-in-65,536 event.</p>
           </article>
           <article>
             <h3>Brilliant Diamond &amp; Shining Pearl shiny odds</h3>
@@ -316,7 +378,7 @@
           </article>
           <article>
             <h3>Pokemon GO shiny odds</h3>
-            <p>Pokemon GO plays by its own rules. Most wild species sit at roughly 1 in 500, permanently boosted species like Onix and Sneasel sit closer to 1 in 64, and legendary raid shinies are around 1 in 20. Community Days push a featured species to roughly 1 in 25 for a few hours. There is no charm or chaining — rates are set per species and per event, which is why GO hunters live and die by the event calendar.</p>
+            <p>Pokemon GO plays by its own rules. Most wild species sit at roughly 1 in 500, permanently boosted species like Onix and Sneasel sit closer to 1 in 64, and legendary raid shinies are around 1 in 20. Community Days push a featured species to roughly 1 in 25 for a few hours. There is no charm or chaining — rates are set per species and per event.</p>
           </article>
         </div>
 
@@ -328,7 +390,7 @@
           </article>
           <article>
             <h3>Games and planners</h3>
-            <p>Spin the <a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a> for a dramatic single pick, judge the dex one verdict at a time in <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a>, or name the silhouette in <a href="../whos-that-pokemon/">Who's That Pokemon</a>. For structured runs, the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a> handles encounters and rules, the <a href="../pokemon-team-picker/">Pokemon Team Picker</a> builds six-Pokemon squads with moves and natures, and the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> gives every catch an original nickname. For the final competitive touch, the <a href="../pokemon-nature-chart/">Pokemon Nature Chart</a> page picks the best nature for any species from its base stats. New on the blog: <a href="../blog/shiny-odds-explained/">Pokemon Shiny Odds Explained</a> tells the story behind every rate on this page.    And once the odds deliver, the <a href="../pokemon-card-generator/">Pokemon Card Generator</a> puts the pull on a custom Pokemon card, with the <a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a> card for the trainer who got it. If you only need one Pokemon settled in a click, the <a href="../random-pokemon-picker/">Random Pokemon Picker</a> draws a single pick from the full 1,025-species pool. And the <a href="../pokemon-type-chart/">Pokemon Type Chart</a> plus <a href="../pokemon-iv-calculator/">Pokemon IV Calculator</a> finish the reference side — check your matchups and hidden IVs in two clicks. Need a specific Pokemon fast? The <a href="../search/">Pokemon Search</a> finds any species by name in the same dex.</p>
+            <p>Spin the <a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a> for a dramatic single pick, judge the dex one verdict at a time in <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a>, or name the silhouette in <a href="../whos-that-pokemon/">Who's That Pokemon</a>. For structured runs, the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a> handles encounters and rules, the <a href="../pokemon-team-picker/">Pokemon Team Picker</a> builds six-Pokemon squads, and the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> nicknames every catch. For the final competitive touch, the <a href="../pokemon-nature-chart/">Pokemon Nature Chart</a> page picks the best nature for any species from its base stats. New on the blog: <a href="../blog/shiny-odds-explained/">Pokemon Shiny Odds Explained</a> tells the story behind every rate on this page.    Once the odds deliver, the <a href="../pokemon-card-generator/">Pokemon Card Generator</a> puts the pull on a card, and the <a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a> makes one for the trainer who got it. Need one Pokemon settled in a click? The <a href="../random-pokemon-picker/">Random Pokemon Picker</a> draws from the full 1,025-species pool. And the <a href="../pokemon-type-chart/">Pokemon Type Chart</a> plus <a href="../pokemon-iv-calculator/">Pokemon IV Calculator</a> finish the reference side — check your matchups and hidden IVs in two clicks. Need a specific Pokemon fast? The <a href="../search/">Pokemon Search</a> finds any species by name in the same dex.</p>
           </article>
         </div>
       </div>
@@ -340,31 +402,39 @@
       <h2 id="faq-title">Pokemon Shiny Odds FAQ</h2>
       <details class="faq-item cornered">
         <summary>What are the odds of finding a shiny Pokemon?</summary>
-        <p>It depends on the game. From Gold and Silver through Black 2 and White 2 (Gen 2-5) the base rate was 1 in 8,192 — about 0.0122%. From X and Y onward (Gen 6+) the base rate doubled to 1 in 4,096, about 0.0244%. Boosts like the Shiny Charm, Masuda Method, outbreaks and catch combos can push the modern rate as far as 1 in 512, and Legends Arceus tops out at 1 in 128 with everything stacked.</p>
+        <p>The shiny chance depends on the game. From Gold and Silver through Black 2 and White 2 (Gen 2-5) the base rate was 1 in 8,192; from X and Y onward (Gen 6+) it doubled to 1 in 4,096. Boosts like the Shiny Charm, Masuda Method, outbreaks and catch combos push the modern rate as far as 1 in 512, and Legends Arceus tops out at 1 in 128 with everything stacked.</p>
       </details>
       <details class="faq-item cornered">
         <summary>What is full odds shiny hunting?</summary>
-        <p>Full odds means hunting with no boosts at all — every encounter rolls the plain base rate. That is 1 in 4,096 in modern games and 1 in 8,192 in Gen 2-5. Full-odds hunts are the purist format: no Shiny Charm, no sandwiches, no combos, just raw probability. A full-odds shiny is considered the most prestigious kind because nothing tilted the rate in the hunter's favor.</p>
+        <p>Full odds means hunting with no boosts — every encounter rolls the plain base rate: 1 in 4,096 in modern games and 1 in 8,192 in Gen 2-5. No Shiny Charm, no sandwiches, no combos, just raw probability. Full-odds shinies are the most prestigious kind because nothing tilted the rate in the hunter's favor.</p>
       </details>
       <details class="faq-item cornered">
         <summary>How much does the Shiny Charm increase odds?</summary>
-        <p>The Shiny Charm roughly triples your odds. In Gen 6 and later it takes the base rate from 1 in 4,096 to about 1 in 1,365, and in Black 2 and White 2, where it debuted, it improves 1 in 8,192 to about 1 in 2,731. You earn it by completing the regional or national Pokedex, and it stacks with almost every other boost — Masuda breeding with the Charm reaches about 1 in 512.</p>
+        <p>The Shiny Charm roughly triples your odds: in Gen 6 and later it takes the 1 in 4,096 base to about 1 in 1,365, and in Black 2 and White 2 it improves 1 in 8,192 to about 1 in 2,731. It stacks with almost every other boost — Masuda breeding with the Charm reaches about 1 in 512.</p>
       </details>
       <details class="faq-item cornered">
         <summary>What is the Masuda Method and what are its odds?</summary>
-        <p>The Masuda Method is breeding two Pokemon from games of different real-world languages — say an English Ditto with a Japanese Garchomp. Eggs produced that way get extra shiny rolls: about 1 in 683 in Gen 6 and later (from 1 in 4,096), or about 1 in 1,639 in Gen 4 and 5. Add the Shiny Charm and the modern rate improves to roughly 1 in 512, the best widely available odds in the mainline games.</p>
+        <p>The Masuda Method is breeding two Pokemon from games of different languages — an English Ditto with a Japanese Garchomp, for example. Eggs get extra shiny rolls: about 1 in 683 in Gen 6 and later, or 1 in 1,639 in Gen 4 and 5. With the Shiny Charm the modern rate improves to roughly 1 in 512, the best widely available odds in the mainline games.</p>
       </details>
       <details class="faq-item cornered">
         <summary>Are shiny odds independent each encounter?</summary>
-        <p>Yes. Every encounter is its own independent roll — the game does not track how long you have been hunting, and there is no pity counter or hidden guarantee. At 1 in 4,096, your ten-thousandth encounter has exactly the same chance as your first. That is why long dry streaks are normal: going 4,096 encounters without a shiny at full odds happens to about 36.8% of hunters.</p>
+        <p>Yes. Every encounter is its own independent roll — no pity counter, no hidden guarantee. At 1 in 4,096, your ten-thousandth encounter has exactly the same chance as your first. Long dry streaks are normal: going 4,096 encounters at full odds without a shiny happens to about 36.8% of hunters.</p>
       </details>
       <details class="faq-item cornered">
         <summary>What are the odds of NOT finding a shiny in 1,000 encounters?</summary>
-        <p>Multiply the failure chance across all 1,000 rolls. At full modern odds (1 in 4,096), the chance of zero shinies in 1,000 encounters is about 78.3% — so only around 21.7% of hunts succeed that early. At the best stacked rate of 1 in 512, the chance of a dry 1,000-encounter stretch drops to about 14.2%. The calculator above computes this for any odds and any encounter count.</p>
+        <p>Multiply the failure chance across all 1,000 rolls. At full modern odds (1 in 4,096), the chance of zero shinies in 1,000 encounters is about 78.3% — so only around 21.7% of hunts succeed that early. At the best stacked rate of 1 in 512, the chance of a dry 1,000-encounter stretch drops to about 14.2%. The calculator covers any odds and any count.</p>
       </details>
       <details class="faq-item cornered">
         <summary>Do shiny odds change between generations?</summary>
-        <p>The base rate only changed once in series history. Gen 2 through Gen 5 (including the Gen 3 games, from Ruby/Sapphire to FireRed and LeafGreen) roll at 1 in 8,192; X and Y doubled it to 1 in 4,096, and every generation since — Gen 7, Gen 8, Gen 9 — keeps that same base. The Shiny Charm odds improve it to about 1 in 1,365 from Gen 6 onward.</p>
+        <p>The base rate only changed once in series history. Gen 2 through Gen 5 (including the Gen 3 games) roll at 1 in 8,192; X and Y doubled it to 1 in 4,096, and every generation since keeps that same base. The Shiny Charm improves it to about 1 in 1,365 from Gen 6 onward.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How many encounters does it take to get a shiny Pokemon?</summary>
+        <p>At full modern odds, half of all hunters find a shiny within 2,839 encounters, and 99% within 18,861 — the 50% and 99% points of the same 1 in 4,096 roll. Every encounter is independent, so your ten-thousandth try is exactly as likely as your first. The calculator above turns your odds into median and milestone numbers, plus a time estimate.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Which Pokemon are shiny locked?</summary>
+        <p>Shiny locks fall on Pokemon that are handed to you rather than found in the wild: gifts, in-game trades, cover legendaries and cutscene encounters. The list changes every game — Scarlet and Violet lock every headline legendary, Sword and Shield let you hunt most legendaries in Dynamax Adventures, and in Legends: Z-A only wild spawns and fossils can shine. If a Pokemon is given to you instead of encountered, assume it is locked.</p>
       </details>
     </section>
   </main>
@@ -403,6 +473,6 @@
   </footer>
 
   <script src="../nav.js?v=20260802q"></script>
-  <script src="odds.js?v=20260903a"></script>
+  <script src="odds.js?v=20260914a"></script>
 </body>
 </html>
