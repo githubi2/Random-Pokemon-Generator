@@ -39,7 +39,7 @@
 - **hero 区规范**：hero 只保留 eyebrow + H1 + lede，**不放 CTA 按钮**（工具入口在工具面板内，避免重复入口）；与既有页面视觉一致。
 - 移动端（≤760px）必须适配（汉堡导航、历史/列表紧凑布局；nav 6 项完整关键词在桌面可用、移动端折叠）。
 - **`vercel.json`**：新增页面目录后，必须在 `redirects` 加 `/{dir}/index.html → /{dir}/` 的 permanent 重定向。**顶层 `"trailingSlash": true` 已启用（2026-09-10）**：所有无尾斜杠路径自动 308 到带斜杠版——**禁止删除/关闭**（它消除了全站「目录双 URL」重复页，是 pokemon 页「无法编入索引」修复的关键）；静态资源（带扩展名）不受影响。
-- **缓存策略（vercel.json `headers`，2026-09-05 起）**：CSS/JS 浏览器缓存 1 天 + SWR 7 天；图片/音频（png/ico/svg/wav）缓存 7 天 + SWR 30 天；HTML 保持 Vercel 默认 `must-revalidate`。改动 CSS/JS 后**必须 bump 引用处的 `?v=` 版本号**（既有约定），新页面的脚本/样式引用一律带版本号。
+- **缓存策略（vercel.json `headers`，2026-09-05 起）**：CSS/JS 浏览器缓存 1 天 + SWR 7 天；图片/音频（png/ico/svg/wav）缓存 7 天 + SWR 30 天；HTML 保持 Vercel 默认 `must-revalidate`。改动 CSS/JS 后**必须 bump 全站所有引用处**的 `?v=` 版本号、一次到位——**同一文件只留一个版本段**；新页面的脚本/样式引用一律带版本号，新建/复制模板时必须逐项核对版本值。（2026-09-15 整改：styles.css 曾漂移出 5 个版本段，全站已统一 `20260910a`。）
 - 修改后必须验证：`node --check` JS、HTML 标签配对、canonical/词数/内链抽检/JSON-LD 回归（用 `kimi-verify-` 前缀临时脚本，跑完即删）。
 - 文件名/目录：子页面用目录形式（`pokemon-smash-or-pass/index.html` → URL `/pokemon-smash-or-pass/`）。
 - **区块标题结构（全站统一）**：`小标签 → 大标题(H2) → 段落`——说明/SEO 段落一律放在 H2 **下方**、左对齐、默认正文样式（16px、墨色）；**禁止把段落插在 eyebrow 与 H2 之间**，禁止给正文段落加居中/max-width/灰字这类自定义内联样式（2026-09-12 首页 FAQ 区「乱」的成因，勿再犯）。
