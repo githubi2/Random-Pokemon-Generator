@@ -68,6 +68,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.random-pokemon-generator.co/eevee-evolutions/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.random-pokemon-generator.co/pokemon-card-generator/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>

@@ -13,6 +13,7 @@ A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero de
 | 🎲 Main Generator | [random-pokemon-generator.co](https://www.random-pokemon-generator.co/) | Random team builder (1–12 Pokémon) with 10+ filter dimensions |
 | ✨ Shiny Odds Calculator | [/pokemon-shiny-odds/](https://www.random-pokemon-generator.co/pokemon-shiny-odds/) | Complete shiny rates for every game & method — base odds, Shiny Charm, Masuda, Z-A donuts, PLA outbreaks, SV sandwiches |
 | 🌿 Nature Chart | [/pokemon-nature-chart/](https://www.random-pokemon-generator.co/pokemon-nature-chart/) | All 25 natures with stat boosts/drops + best-nature finder for every species |
+| 🧬 Eevee Evolutions | [/eevee-evolutions/](https://www.random-pokemon-generator.co/eevee-evolutions/) | All 8 Eevee evolutions compared: types, stats, evolution methods and team roles |
 | ⚔️ Type Chart | [/pokemon-type-chart/](https://www.random-pokemon-generator.co/pokemon-type-chart/) | 18-type effectiveness grid + dual-type damage calculator, per-type weaknesses at a glance |
 | 🎯 IV Calculator | [/pokemon-iv-calculator/](https://www.random-pokemon-generator.co/pokemon-iv-calculator/) | Reverse-engineer hidden IVs (0-31) from level, nature, EVs and shown stats — all 1,025 species |
 | 📖 Pokemon Pokedex | [/pokemon/](https://www.random-pokemon-generator.co/pokemon/) | Growing encyclopedia of Pokemon stats, matchups, abilities & evolution lines (Gen 1-9) |
@@ -132,6 +133,9 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 ├── pokemon-nature-chart/
 │   ├── index.html                    # nature chart + best-nature finder page
 │   ├── nature.js                     # chart filter/sort + base-stat nature recommender
+│   └── og-image.png
+├── eevee-evolutions/
+│   ├── index.html                    # all 8 Eevee evolutions compared (types, stats, methods)
 │   └── og-image.png
 ├── pokemon-card-generator/
 │   ├── index.html                    # pokemon card generator page

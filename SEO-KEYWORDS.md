@@ -43,6 +43,7 @@
 | 25 | `/pokemon/pikachu/` | pikachu pokemon | Pikachu Pokemon - Stats, Types, Abilities &amp; Evolution（57） | Pikachu Pokemon stats: Electric type with BST 320, weak to Ground. Static and Lightning Rod, Light Ball build, evolution line and battle tips. | 149 | 1222 | 物种页（打样 3） |
 | 26 | `/random-pokemon-type-generator/` | random pokemon type generator | Random Pokemon Type Generator - Spin the 18-Type Wheel（54） | Random Pokemon Type Generator | 148 | 1589 | 工具 |
 | 27 | `/random-legendary-pokemon-generator/` | random legendary pokemon generator | Random Legendary Pokemon Generator - Mythical &amp; Shiny（57） | Random Legendary Pokemon Generator | 155 | 1387 | 工具 |
+| 28 | `/eevee-evolutions/` | eevee evolutions | Eevee Evolutions: All 8 Forms, Stats & How to Evolve（52） | Eevee Evolutions | 139 | 1356 | 内容 |
 
 ## 备注
 

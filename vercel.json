@@ -61,6 +61,11 @@
       "permanent": true
     },
     {
+      "source": "/eevee-evolutions/index.html",
+      "destination": "/eevee-evolutions/",
+      "permanent": true
+    },
+    {
       "source": "/pokemon-nature-chart/index.html",
       "destination": "/pokemon-nature-chart/",
       "permanent": true

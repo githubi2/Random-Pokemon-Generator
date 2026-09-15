@@ -4,7 +4,8 @@ import re, io, glob, os, json, xml.etree.ElementTree as ET
 
 root = os.path.abspath('.')
 errors = []
-NEW = [('pokemon', 'hub'), ('pokemon/bulbasaur', 'bulbasaur'), ('pokemon/charizard', 'charizard'), ('pokemon/pikachu', 'pikachu')]
+NEW = [('pokemon', 'hub'), ('pokemon/bulbasaur', 'bulbasaur'), ('pokemon/charizard', 'charizard'), ('pokemon/pikachu', 'pikachu'),
+    ('eevee-evolutions', 'eevee-evolutions')]
 
 def read(p):
     return io.open(p, encoding='utf-8').read()
@@ -45,8 +46,9 @@ for rel, label in NEW:
     if len(title) > 60: errors.append('[%s] title %d' % (label, len(title))); ok = False
     if not (100 <= len(desc) <= 160): errors.append('[%s] desc %d' % (label, len(desc))); ok = False
     if len(h1s) != 1: errors.append('[%s] H1!=1' % label); ok = False
-    if 'www.' not in canon or ('/pokemon/' not in canon if label != 'hub' else '/pokemon/' not in canon):
-        errors.append('[%s] canonical %s' % (label, canon)); ok = False
+    expect = 'https://www.random-pokemon-generator.co/' + rel.strip('/') + ('/' if rel else '/')
+    if canon != expect:
+        errors.append('[%s] canonical %s (expect %s)' % (label, canon, expect)); ok = False
     if words < 1200: errors.append('[%s] words %d' % (label, words)); ok = False
     lds = re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)
     types = []
