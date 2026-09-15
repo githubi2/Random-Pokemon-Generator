@@ -44,6 +44,7 @@
 | 26 | `/random-pokemon-type-generator/` | random pokemon type generator | Random Pokemon Type Generator - Spin the 18-Type Wheel（54） | Random Pokemon Type Generator | 148 | 1589 | 工具 |
 | 27 | `/random-legendary-pokemon-generator/` | random legendary pokemon generator | Random Legendary Pokemon Generator - Mythical &amp; Shiny（57） | Random Legendary Pokemon Generator | 155 | 1387 | 工具 |
 | 28 | `/eevee-evolutions/` | eevee evolutions | Eevee Evolutions: All 8 Forms, Stats & How to Evolve（52） | Eevee Evolutions | 139 | 1356 | 内容 |
+| 29 | `/blog/nuzlocke-survival-playbook/` | nuzlocke rules | Nuzlocke Survival Playbook: Encounter Math（42） | Nuzlocke Survival Playbook: Encounter Math | 153 | 1697 | 博客文章 |
 
 ## 备注
 

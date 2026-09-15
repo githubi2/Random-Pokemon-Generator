@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuzlocke Survival Playbook: Encounter Math</title>
+  <meta name="description" content="Nuzlocke survival math: what each catch adds to your coverage, why route dupes happen, and what a random replacement brings. Computed over 1,025 species." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/blog/nuzlocke-survival-playbook/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nuzlocke Survival Playbook: Encounter Math" />
+  <meta property="og:description" content="The coverage curve for a run: what each catch adds to your team, why route dupes happen so often, and what a random replacement really brings." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/blog/nuzlocke-survival-playbook/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/blog/nuzlocke-survival-playbook/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="What Is a Nuzlocke Challenge? Rules &amp; Beginner Tips" />
+  <meta name="twitter:description" content="The coverage curve for a run: what each catch adds to your team, why route dupes happen so often, and what a random replacement really brings." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/blog/what-is-a-nuzlocke-challenge/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20260910a" />
+
+  <!-- Structured data: BlogPosting -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Nuzlocke Survival Playbook: Encounter Math",
+    "description": "The coverage curve for a run: what each catch adds to your team, why route dupes happen so often, and what a random replacement really brings.",
+    "datePublished": "2026-09-15",
+    "dateModified": "2026-09-15",
+    "author": { "@type": "Organization", "name": "Random Pokemon Generator" },
+    "publisher": { "@type": "Organization", "name": "Random Pokemon Generator" },
+    "image": "https://www.random-pokemon-generator.co/blog/nuzlocke-survival-playbook/og-image.png",
+    "mainEntityOfPage": "https://www.random-pokemon-generator.co/blog/nuzlocke-survival-playbook/"
+  }
+  </script>
+
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is encounter math in a Nuzlocke?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It is the probability side of the run: what random encounters do to your team's type coverage, how often duplicates appear, and what replacements actually add. The numbers on this page come from simulated runs over the 1,025-species dataset used across this site — uniform draws, measured coverage, no route-specific tables."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many catches does it take to cover all 18 types?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "About a coin flip at twenty catches, and roughly one run in five by catch twelve. The realistic target for a playthrough is not full coverage — it is the first six catches, which carry a team from about 4 types covered to around 13."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do early routes duplicate so often?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because route tables are small. From a twelve-species table, three catches include a duplicate 24% of the time and six catches do 78% of the time; an eight-species early cave runs to 34% and 92%. The National Dex comparison — 0.44% after six catches — shows how much table size matters."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are these the real in-game encounter odds?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, and they are not meant to be. Real games deal from route-specific tables with varying sizes and weights. The simulations here describe the shape of uniform randomness over the site's full dataset — a baseline for what variety usually looks like before any game-specific math."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I take the replacement roll or pick from the box?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The data says replacements add about one new covered type on average and nothing at all 42.5% of the time. If the box already holds a solution to your actual hole, take it; if it does not, the roll costs you nothing but time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the dupes clause make a run easier?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It mostly restores novelty. On a twelve-species route the sixth catch is a duplicate three times in four, so the clause usually swaps a repeat of the same species for a genuinely new option — a pacing fix more than a difficulty setting."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Random Pokemon Generator", "item": "https://www.random-pokemon-generator.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.random-pokemon-generator.co/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Nuzlocke Survival Playbook: Encounter Math", "item": "https://www.random-pokemon-generator.co/blog/nuzlocke-survival-playbook/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="../../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+              <li><a href="../../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+              <li><a href="../../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+              <li><a href="../../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+              <li><a href="../../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+              <li><a href="../../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+              <li><a href="../../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+              <li><a href="../../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+              <li><a href="../../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+              <li><a href="../../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
+              <li><a href="../../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
+              <li><a href="../../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+            </ul>
+          </li>
+          <li><a href="../" class="nav-link nav-link-active">Blog</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">Blog · September 15, 2026 · 9 min read</p>
+      <h1 id="page-title">Nuzlocke Survival Playbook: Encounter Math</h1>
+      <p class="lede">A Nuzlocke run is a conversation with randomness: the game deals, and you either build around what it gives you or lose someone trying. This playbook runs real numbers on what those deals are worth — how much type coverage each catch actually adds, why duplicates keep showing up, and what to expect from the Pokemon that replaces a fallen teammate.</p>
+    </section>
+
+    <!-- Article -->
+    <article class="container blog-post">
+      <p>Ask anyone who has lost a long Nuzlocke how the run ended and you will hear about a hole. Four members weak to Ice. Three that fall to Rock. The run does not usually die to one bad fight — it dies to a weakness nobody counted until it got counted twice. Encounters are the other half of that story, because what the game hands you decides how many holes you can patch. This guide measures both halves, using simulated runs over the same 1,025-species dataset that powers the tools on this site.</p>
+
+      <h2>What Encounter Math Actually Measures</h2>
+      <p>The method first, so the rest of the numbers can be trusted. These simulations draw Pokemon uniformly from the full dataset — 1,025 species plus their alternate forms — and track one thing: what each draw does to a team's type coverage. Coverage here means exactly one thing, how many of the 18 types your team's STABs can hit for double damage or better. It says nothing about stats, movesets, or level curves, and it is not a route-tuned encounter table, which turns out to matter enormously.</p>
+      <p>One limitation deserves to be stated up front: uniform draws over the whole dex are far kinder than any real route. Real games deal from small local tables, and that smallness — not bad luck — creates most of the duplicate pain players actually feel. So read the first set of numbers as the best case, what National-Dex-level variety would buy you, and the duplicate section as the correction that reality applies.</p>
+
+      <h2>The Coverage Curve: What Each Catch Adds</h2>
+      <p>Start with the ceiling: no single Pokemon covers more than 9 of the 18 types by itself. Fighting/Ice (Crabominable) and Ice/Ground (the Mamoswine line) tie for the widest offensive reach in the entire dex, and everything below them falls off quickly. A lone random catch averages about 4 covered types — enough to matter, not enough to lean on. The interesting part starts when catches stack.</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>Catches</th><th>Types covered (average)</th><th>Added by the latest catch</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>4.1</td><td>—</td></tr>
+            <tr><td>2</td><td>7.0</td><td>+2.9</td></tr>
+            <tr><td>3</td><td>9.3</td><td>+2.3</td></tr>
+            <tr><td>4</td><td>11.0</td><td>+1.7</td></tr>
+            <tr><td>6</td><td>13.4</td><td>+1.1</td></tr>
+            <tr><td>9</td><td>15.4</td><td>+0.6</td></tr>
+            <tr><td>12</td><td>16.4</td><td>+0.3</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The curve bends in a way that rewards front-loading: your first three catches drag coverage past half the type chart (9.3 of 18), and by catch six the squad sits around 13-14 — the point where most accidental holes have names. After that, every new member buys less than one new type. Catch twelve adds about a third of a type on average, and the last two blank spots are stubborn in a way worth understanding.</p>
+      <p>Which spots stay stubborn says something about how the type chart was built. Simulated teams of twelve still lack Electric coverage 41% of the time and Normal coverage 35% of the time, because hitting Electric for double damage requires a Ground attack and hitting Normal requires Fighting — and reliable Ground and Fighting STABs are not exactly everywhere. If your run has been rolling for ten routes and those two holes are still open, that is not your luck failing. That is the chart being the chart.</p>
+      <p>Full coverage also stays rare — rarer than most players assume. Only about one simulated twelve in five covers all 18 types (18%), and it takes twenty catches before full coverage becomes a coin flip (53%). Chasing the missing two types with encounters is a losing campaign after the early game. The curve says the war is won or lost in the first six catches.</p>
+      <p>A slower way to read the same table: coverage arrives lumpy. Four of the eighteen types come in with the average first catch, and the last two can take a dozen more catches to show up. The classic early-game spine of Fire, Water and Grass exists because it buys the steep part of this curve on purpose — three broad attackers, half the chart, before the first gym.</p>
+
+      <h2>Dupe Clause Economics</h2>
+      <p>The dupes clause — you may skip an encounter that is a species you have already caught — is the most argued-about house rule in the format, and the math explains why both sides feel right. At National Dex scale, duplicates are basically impossible: after six catches, a uniformly random seventh encounter repeats a species only 0.44% of the time. One in two hundred. If routes worked like that, nobody would ever need the clause.</p>
+      <p>But routes do not deal from the National Dex. They deal from small local tables — call a mid-game route ten to twelve options, older games often fewer. From a twelve-option route, the chance that your first three catches include a duplicate is already 24%, and by your sixth catch it is 78%. From an eight-option route (think of a small early-game cave), it is 34% by the third and 92% by the sixth. The clause exists because route tables are tiny, not because the dice are cruel.</p>
+      <p>Two practical reads from that. First, write your dupes rule down before Route 1, not in the moment it first bites, because with those numbers it will bite. Second, the clause is worth the most exactly where it feels the most annoying: a small table is a pool that can genuinely run dry, and replacing a repeat with a fresh option is a pacing fix, not a difficulty setting.</p>
+      <p>The clause has a second-order benefit too: it protects the curve. A repeat that eats an encounter slot adds nothing new by definition — same species, same types — so skipping it converts a dead slot into a fresh roll, which is exactly what the curve wants in its steep early stretch.</p>
+
+      <h2>The Replacement Roll</h2>
+      <p>When a teammate falls, the replacement roll feels like a fresh start. The math says temper that feeling. Simulate twenty thousand squads — take five random members, add a random sixth, then measure what actually changed. On average the newcomer adds 1.03 new covered types. About one. And in 42.5% of cases it adds none at all: two replacements in five change nothing about the team's offensive shape.</p>
+      <p>The defensive side is blunter still. In 78.5% of simulations, the new arrival is weak to a type that at least two of the existing five already share a weakness to. Random replacements do not patch holes; they tend to join the crowd around the nearest one. The distribution of what they add says the same thing: 27% of replacements contribute exactly one new type, 19% add two, and the 10.6% that add three or more are the ones worth building around when they land.</p>
+      <p>None of this argues against taking the roll. It argues for aiming it. Decide which hole you need filled before you go catch the replacement, and if the roll misses, the box is one deeper and the run continues. To feel out combinations before committing a run to them, the <a href="../../nuzlocke-generator/">Nuzlocke Team Builder</a> deals squads and prints the same coverage report this math is built on.</p>
+
+      <h2>Five Rules the Math Supports</h2>
+      <p>Distilled to decisions you make mid-run:</p>
+      <ol>
+        <li>Front-load your coverage. The first three catches do more for your chart than the next nine combined. Treat early routes as the foundation of the team, not its filler.</li>
+        <li>Stop chasing eighteen. Full coverage is a coin flip at twenty catches. The twelfth catch is usually better spent on bulk, utility, or a type you are actually afraid of.</li>
+        <li>Write the dupes clause down early. On a typical mid-game route, six catches without a repeat is a one-in-five event. Plan for the repeat before it arrives.</li>
+        <li>Aim replacements at holes. Two in five random replacements add zero coverage, and four in five join an existing shared weakness. Pick for the gap or expect to shrug.</li>
+        <li>Count shared weaknesses like a resource. An average six shares a double-weakness pattern on 7.5 of the 18 attacking types — every new member either narrows that number or feeds it.</li>
+      </ol>
+    </article>
+
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Nuzlocke Encounter Math FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>What is encounter math in a Nuzlocke?</summary>
+        <p>It is the probability side of the run: what random encounters do to your team's type coverage, how often duplicates appear, and what replacements actually add. The numbers on this page come from simulated runs over the 1,025-species dataset used across this site — uniform draws, measured coverage, no route-specific tables.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How many catches does it take to cover all 18 types?</summary>
+        <p>About a coin flip at twenty catches, and roughly one run in five by catch twelve. The realistic target for a playthrough is not full coverage — it is the first six catches, which carry a team from about 4 types covered to around 13.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Why do early routes duplicate so often?</summary>
+        <p>Because route tables are small. From a twelve-species table, three catches include a duplicate 24% of the time and six catches do 78% of the time; an eight-species early cave runs to 34% and 92%. The National Dex comparison — 0.44% after six catches — shows how much table size matters.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Are these the real in-game encounter odds?</summary>
+        <p>No, and they are not meant to be. Real games deal from route-specific tables with varying sizes and weights. The simulations here describe the shape of uniform randomness over the site's full dataset — a baseline for what variety usually looks like before any game-specific math.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Should I take the replacement roll or pick from the box?</summary>
+        <p>The data says replacements add about one new covered type on average and nothing at all 42.5% of the time. If the box already holds a solution to your actual hole, take it; if it does not, the roll costs you nothing but time.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Does the dupes clause make a run easier?</summary>
+        <p>It mostly restores novelty. On a twelve-species route the sixth catch is a duplicate three times in four, so the clause usually swaps a repeat of the same species for a genuinely new option — a pacing fix more than a difficulty setting.</p>
+      </details>
+    </section>
+
+    <!-- Keep exploring -->
+    <section class="band band-yellow" aria-labelledby="explore-title">
+      <div class="container">
+        <p class="eyebrow">Keep exploring</p>
+        <h2 id="explore-title">More Pokemon Tools and Guides</h2>
+        <div class="how-grid">
+          <article>
+            <h3>Make every encounter a decision</h3>
+            <p>When you want the run itself to decide, the <a href="../../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a> draws one result at a time, and the <a href="../../random-pokemon-name-generator/">Random Pokemon Name Generator</a> covers the nickname rule for every catch you keep.</p>
+          </article>
+          <article>
+            <h3>New to the format?</h3>
+            <p>Start with <a href="../what-is-a-nuzlocke-challenge/">What Is a Nuzlocke Challenge?</a> for the core rules and the clauses everyone argues about, then browse the <a href="../">blog</a> for the odds and strategy guides behind every tool on this site.</p>
+          </article>
+          <article>
+            <h3>Playing along from a stream or classroom?</h3>
+            <p>The <a href="../../random-pokemon-picker/">Random Pokemon Picker</a> hands out one Pokemon at a time for draft nights, watch-alongs, and any format where the audience should sweat the roll along with you.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../../whos-that-pokemon/">Who's That Pokemon</a></li>
+          <li><a href="../../pokemon-team-picker/">Pokemon Team Picker</a></li>
+          <li><a href="../../pokemon-type-chart/">Pokemon Type Chart</a></li>
+          <li><a href="../../pokemon-shiny-odds/">Pokemon Shiny Odds</a></li>
+          <li><a href="../../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a></li>
+          <li><a href="../../random-pokemon-type-generator/">Random Pokemon Type Generator</a></li>
+          <li><a href="../../random-legendary-pokemon-generator/">Random Legendary Pokemon Generator</a></li>
+          <li><a href="../../pokemon/">Pokemon Pokedex</a></li>
+          <li><a href="../../blog/">Blog</a></li>
+          <li><a href="../../privacy-policy/">Privacy Policy</a></li>
+          <li><a href="../../about/">About &amp; Contact</a></li>
+          <li><a href="../../terms-of-use/">Terms of Use</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator, an unofficial fan project. Not affiliated with Nintendo, Game Freak, Creatures Inc., or The Pokémon Company.</p>
+      <p class="footer-note">Pokémon and Pokémon character names are trademarks of their respective owners. Data and images sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <script src="../../nav.js?v=20260802q"></script>
+</body>
+</html>
