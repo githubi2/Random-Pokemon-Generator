@@ -158,6 +158,37 @@ for w, c in hits.items():
             break
 
 print()
+print('=== 6. nav 自指项（2026-09-15 规则 14：href="."=0 + 自指条目 ./+高亮 恰 1 个） ===')
+NAV_SELF_PAGES = [
+    'index.html', 'nuzlocke-generator/index.html', 'pokemon-smash-or-pass/index.html',
+    'random-pokemon-generator-wheel/index.html', 'whos-that-pokemon/index.html',
+    'pokemon-team-picker/index.html', 'random-pokemon-picker/index.html',
+    'pokemon-type-chart/index.html', 'random-mega-pokemon-generator/index.html',
+    'pokemon-shiny-odds/index.html', 'random-pokemon-type-generator/index.html',
+    'random-legendary-pokemon-generator/index.html', 'pokemon/index.html',
+    'blog/index.html', 'about/index.html', 'privacy-policy/index.html', 'terms-of-use/index.html',
+]
+dot_pages = []
+for path in sorted(glob.glob(os.path.join(root, '**', 'index.html'), recursive=True)):
+    if 'href="."' in read(path):
+        dot_pages.append(os.path.relpath(path, root).replace(os.sep, '/'))
+if dot_pages:
+    errors.append('[nav] href="." 残留: %s' % ', '.join(dot_pages))
+    print('  [差] href="." 残留:', ', '.join(dot_pages))
+else:
+    print('  href="." 全站 = 0')
+for rel in NAV_SELF_PAGES:
+    fp = os.path.join(root, rel)
+    frag = '<a href="#generator" class="nav-link nav-link-active">' if rel == 'index.html' else '<a href="./" class="nav-link nav-link-active">'
+    html = read(fp)
+    n = html.count('nav-link-active')
+    if frag in html and n == 1:
+        print('  [OK] %s' % rel)
+    else:
+        errors.append('[nav] %s 自指条目异常 (active=%d)' % (rel, n))
+        print('  [差] %-44s active=%d' % (rel, n))
+
+print()
 print('==== RESULT ====')
 if errors:
     print('ERRORS (%d):' % len(errors))

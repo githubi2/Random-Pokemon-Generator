@@ -18,10 +18,11 @@
 7. **URL slug 关键词化**：新页面目录名 = **完整目标关键词**（例：`pokemon-smash-or-pass/`、`random-pokemon-generator-wheel/`），**绝不省略关键词中的词**（`smash-or-pass/`、`pokemon-wheel/` ❌）。URL = Title 主词 = H1。
 8. **锚文本完整关键词化**：所有引用点（nav、footer、正文语境内链、JSON-LD name、Breadcrumb name）的锚文本必须用**完整关键词**；禁止短变体锚文本（`Pokemon Wheel` ❌ → `Random Pokemon Generator Wheel` ✅）。关键词变体（如中长形式）只允许在**正文叙述**中自然出现，不允许作为锚文本。
 9. **内链结构（分层模型，2026-09-15 AdSense 整改后定稿）**：① nav + footer：全站所有页面互达（保持 12+12）；② 正文语境内链：每页 3–8 条**语义相关**链接（同主题簇优先、跨簇桥接 1–2 条；锚文本=完整关键词；同一目标至多 1 次；单段 ≤5；枢纽页 ≤12）；③ 枢纽页（Pokemon Pokedex / Blog）承接子页列表。**新增页面**：nav/footer 模板全站注入 + 在 3–5 个最相关页面正文补链即可，**不再做 N×N 全站回填**。修订原因：N×N 全互联在 AdSense 站点评审（ADS-CONTENT-08）中被识别为门页指征（2026-09-15 整改）。
-10. **sitemap.xml**：新页面必须加入（www URL + `lastmod` 当天，新增页用目录形式 URL）；禁止无 www 条目；robots.txt 的 `Sitemap:` 行保持指向 www sitemap。
+10. **sitemap.xml**：新页面必须加入（www URL + `lastmod` 当天，新增页用目录形式 URL）；禁止无 www 条目；robots.txt 的 `Sitemap:` 行保持指向 www sitemap。 **lastmod 纪律（2026-09-15）**：只随实际发生改动的页面刷新——只改个别页就只动那几个；改到全站模板（nav/footer/声明句等）时全站同日刷新才是对的（全站无差别同刷会让 Google 忽略该字段）。
 11. **链接形式**：站内链接一律**目录形式**，**禁止在 href 中出现 `index.html`**（例：`nuzlocke-generator/`、`../`、`./`）——避免 Google 将 `xxx/index.html` 与 `xxx/` 视为两个 URL 造成重复页面。禁止 `href="/..."` 绝对路径。
-12. **敏感字样**：禁止出现 "SEO-optimized" 等自曝敏感措辞（历史决策：曾全站移除）。标题/描述/正文都不允许。
+12. **敏感字样**：禁止出现 "SEO-optimized" 等自曝敏感措辞（历史决策：曾全站移除）。标题/描述/正文都不允许。 **同类禁止（2026-09-15）**：随广告/统计上线会变假的绝对化表述也不行（"anonymous statistics"、"no advertising network" 两类已在广告披露批次全站清除，勿再引入）。
 13. **封存批次的自动检查（运维约定）**：任何「已封存、等待条件发布」的批次（当前：Pokedex wave-1 七页、P1 shiny 子页）必须保持一个定时检查任务——条件达标 → 通知用户（附判断依据），发布与否由用户决定；发现新的封存等待需求时主动创建检查任务（创建前须经用户确认），不等用户提醒。
+14. **nav 自指项（2026-09-15 修复沉淀）**：页面自身在 nav 中的条目固定为 `<a href="./" class="nav-link nav-link-active">完整关键词</a>`（`./` 与 `nav-link-active` 缺一不可；此前 4 页踩过 `href="."`/漏高亮）。新增页面或手改 nav 后必须全站断言：`href="."` = 0、各 nav 页自指条目齐全（`kimi-verify-pokedex.py` 第 6 节已覆盖）。
 
 ## 2. 内容规则
 
