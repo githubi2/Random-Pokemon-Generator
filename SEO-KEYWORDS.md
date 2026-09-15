@@ -18,8 +18,8 @@
 |---|-----|-----------|--------------|-----|----------|---------|------|
 | 1 | `/` | random pokemon generator | Random Pokemon Generator - Team Builder (Gen 1-9)（49） | Random Pokemon Generator | 145 | 1598 | 工具 |
 | 2 | `/nuzlocke-generator/` | nuzlocke generator | Nuzlocke Generator - Pokemon Team Builder（41） | Nuzlocke Generator & Team Builder | 140 | 1521 | 工具 |
-| 3 | `/pokemon-smash-or-pass/` | pokemon smash or pass | Pokemon Smash or Pass – Judge 1,025 Pokémon & Share Your Score（62）⚠️ | Pokemon Smash or Pass | 156 | 1486 | 游戏 |
-| 4 | `/pokemon-team-picker/` | pokemon team picker | Pokemon Team Picker – Build a 6-Pokémon Squad with Type Matchups（64）⚠️ | Pokemon Team Picker | 133 | 1424 | 工具 |
+| 3 | `/pokemon-smash-or-pass/` | pokemon smash or pass | Pokemon Smash or Pass – Play the Free Game（42） | Pokemon Smash or Pass | 159 | 1486 | 游戏 |
+| 4 | `/pokemon-team-picker/` | pokemon team picker | Pokemon Team Picker – Free 6-Pokémon Squad Builder（50） | Pokemon Team Picker | 151 | 1424 | 工具 |
 | 5 | `/random-mega-pokemon-generator/` | random mega pokemon generator | Random Mega Pokemon Generator – Every Mega Evolution, Stat Gains Included（73）⚠️ | Random Mega Pokemon Generator | 155 | 1719 | 工具 |
 | 6 | `/random-pokemon-generator-wheel/` | pokemon wheel spinner ⚠️ | Pokemon Wheel Spinner - Random Pokemon Generator Wheel（54） | Pokemon Wheel Spinner | 158 | 1406 | 工具 |
 | 7 | `/random-pokemon-name-generator/` | random pokemon name generator | Random Pokemon Name Generator - 120 Nickname Ideas（50） | Random Pokemon Name Generator | 141 | 1376 | 工具 |
@@ -49,7 +49,8 @@
 
 - ⚠️ **#6 wheel 页**：URL slug（`random-pokemon-generator-wheel/`）与目标关键词（`pokemon wheel spinner`）不一致，是 commit `16a1f93` 的**有意重定向**——URL 已上线不能轻易改，关键词重定到搜索意图更好的 "pokemon wheel spinner"。属规则第 7 条的已知例外，勿"修复"回退。
 - ⚠️ **#3/#4/#5 Title 超 60 字符（62/64/73）**：2026-09-05 P0 CTR 改造实验（三页排名 7.7-9.7、CTR 0-1.7%），刻意用长标题塞卖点钩子，违反规则 2 的 ≤60 软线属**有意为之**。验证口径：改后 1 周 GSC 看 CTR（team-picker 0%→≥2%、smash 1.7%→≥3%、mega 首次点击）；无效则回退到 ≤60 版本。#4 team-picker 的 H1 同步去掉 "& Generator"。#5 mega 已备 60 字符回退版：`Random Mega Pokemon Generator – Every Mega Evolution + Stat Gains`（丢 "Included" 填充词，桌面端完整显示）——CTR 仍为 0% 时切换。
-- **首页 FAQ 区**（2026-09-05）：`<h2>` 前新增 `p.faq-intro` 段落覆盖 `pokemon random pokemon generator` / `random generator pokemon` 两个变体词（GSC 各 47-49 名），不改 Title。
+
+- **TD 实验（2026-09-15，team-picker / smash）**：title/desc 更新——#4 → `Pokemon Team Picker – Free 6-Pokémon Squad Builder`（50）/ desc 151；#3 → `Pokemon Smash or Pass – Play the Free Game`（42）/ desc 159。假设：动作钩子（Free / Play the Game）提 CTR；**基线（28d 2026-08-17..09-13，页面维度）：team-picker 158 曝光/4 点击/2.53%/8.2 位；smash 286/6/2.10%/6.9 位**；复查 2026-10-06 前后同口径；无效回退（旧值在 git `td-experiment` 分支 diff）。- **首页 FAQ 区**（2026-09-05）：`<h2>` 前新增 `p.faq-intro` 段落覆盖 `pokemon random pokemon generator` / `random generator pokemon` 两个变体词（GSC 各 47-49 名），不改 Title。
 - **#10 shiny odds 页**：内容页 + 交互计算器混合体，承接 `pokemon shiny odds` / `shiny odds` / `chance of shiny pokemon` 意图；明确不做 `full odds shiny` 单页（KD 过高）。
 - **#11 nature chart 页**（2026-09-05 上线）：SERP 实查确认 `pokemon nature chart` 意图 = 性格（25 natures ±10%），非属性克制——属性克制矩阵/双属性计算器**刻意不做进本页**，留给未来 `/pokemon-type-chart/` 避免自相残杀；本页差异化 = 可筛选/排序交互表 + 按宝可梦推荐性格（读 base stats，含 Trick Room 低速例外）。选型依据：KD 25.5 容易、月搜 40.5K、前十有 DR 1/DR 2 弱站（crob.at #2）。
 - 全部 15 页当前快照均达达标线（title/desc/词数/H1/JSON-LD/互链）。
