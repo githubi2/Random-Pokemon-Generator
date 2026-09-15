@@ -238,6 +238,10 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 └── AGENTS.md                         # project rules (SEO-first workflow)
 ```
 
+## Roadmap
+
+The Pokedex grows in waves. Wave 1 (the hub plus Bulbasaur, Charizard and Pikachu) is live. Wave 2 is built and ships after Wave 1 settles in Search: Charmander, Squirtle, Eevee, Gengar, Mewtwo, Lucario and Greninja. Later waves follow the same pattern, and data corrections reported through issues land in the wave after they are verified.
+
 ## License
 
 Open source — see repository for details.
