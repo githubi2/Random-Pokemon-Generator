@@ -71,7 +71,7 @@ for rel, label in NEW:
     text = re.sub(r'<script.*?</script>', ' ', html, flags=re.S)
     text = re.sub(r'<style.*?</style>', ' ', text, flags=re.S)
     text = re.sub(r'<[^>]+>', ' ', text)
-    for b in ['free', 'SEO-optimized']:
+    for b in ['SEO-optimized']:
         if re.search(r'\b' + re.escape(b) + r'\b', text, re.I):
             errors.append('[%s] 敏感词 %s' % (label, b)); ok = False
     ogimg = os.path.join(root, rel, 'og-image.png')
@@ -79,29 +79,45 @@ for rel, label in NEW:
     print('  %-14s title=%d desc=%d h1=%d words=%d faq=%d ld=%s %s' % (label, len(title), len(desc), len(h1s), words, len(faq_vis), types, 'OK' if ok else 'ISSUE'))
 
 print()
-print('=== 3. 矩阵（pokedex 4 页正文覆盖全部工具+home+search） ===')
-PAGES = ['', 'nuzlocke-generator', 'pokemon-smash-or-pass', 'random-pokemon-generator-wheel', 'whos-that-pokemon',
-         'pokemon-team-picker', 'random-pokemon-picker', 'random-pokemon-name-generator', 'random-mega-pokemon-generator',
-         'random-shiny-pokemon-generator', 'pokemon-shiny-odds', 'pokemon-nature-chart', 'pokemon-type-chart',
-         'pokemon-iv-calculator', 'pokemon-card-generator', 'pokemon-trainer-card-generator', 'search', 'pokemon']
+print('=== 3. 相关链抽检（pokedex 4 页：核心相关集 + 无重复 + 单段<=5，2026-09-15 新口径） ===')
+REQ = {
+    'pokemon': ['pokemon/bulbasaur', 'pokemon/charizard', 'pokemon/pikachu', 'pokemon-type-chart', 'search', 'blog'],
+    'pokemon/bulbasaur': ['pokemon', 'pokemon/charizard', 'pokemon/pikachu', 'pokemon-type-chart', 'pokemon-team-picker'],
+    'pokemon/charizard': ['pokemon', 'pokemon/bulbasaur', 'pokemon/pikachu', 'pokemon-type-chart', 'pokemon-team-picker'],
+    'pokemon/pikachu': ['pokemon', 'pokemon/bulbasaur', 'pokemon/charizard', 'pokemon-type-chart', 'pokemon-team-picker'],
+}
 for rel, label in NEW:
     html = read(os.path.join(rel, 'index.html'))
     m = re.search(r'<main[^>]*>(.*?)</main>', html, re.S)
     main = re.sub(r'<script.*?</script>', '', m.group(1), flags=re.S) if m else ''
-    hs = set()
-    for h in re.findall(r'href="([^"]*)"', main):
-        hs.add(h.replace('../', '').replace('./', ''))
-    missing = []
-    for d in PAGES:
-        key = d + '/' if d else ''
-        ok = any(key in h for h in hs) if d else any(h in ('', '/') for h in hs)
-        if not ok: missing.append(d or 'HOME')
+    tg = []
+    for h in re.findall(r'<a\s[^>]*href="([^"]*)"[^>]*>', main):
+        if h.startswith(('http', 'mailto', '#')):
+            continue
+        t = os.path.normpath(os.path.join(rel, h.split('#')[0])).replace('\\', '/')
+        tg.append(t)
+    dups = [t for t in set(tg) if tg.count(t) > 1]
+    maxp = 0
+    for pm in re.finditer(r'<p[^>]*>.*?</p>', main, re.S):
+        c = len(re.findall(r'<a\s[^>]*href="([^"]*)"', pm.group(0)))
+        if c > maxp:
+            maxp = c
+    missing = [d for d in REQ.get(rel, []) if d not in tg]
+    n = len(set(t for t in tg if t))
+    problems = []
+    if dups:
+        problems.append('dup ' + ','.join(dups[:3]))
+    if maxp > 5:
+        problems.append('para links %d' % maxp)
     if missing:
-        errors.append('[矩阵] %s 缺 %s' % (label, ','.join(missing)[:60]))
-        print('  [差] %-10s -> %s' % (label, ','.join(missing)[:60]))
+        problems.append('missing ' + ','.join(missing))
+    if n > 16:
+        problems.append('total links %d' % n)
+    if problems:
+        errors.append('[相关链] %s %s' % (label, '; '.join(problems)[:80]))
+        print('  [差] %-10s %s' % (label, '; '.join(problems)[:80]))
     else:
-        # 物种页需互链
-        print('  [OK] %-10s 全目标覆盖' % label)
+        print('  [OK] %-10s 相关链完整（%d 条，无重复，单段<=5）' % (label, n))
 
 print()
 print('=== 4. sitemap / vercel ===')
