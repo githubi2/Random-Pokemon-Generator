@@ -22,8 +22,8 @@
 | 4 | `/pokemon-team-picker/` | pokemon team picker | Pokemon Team Picker – Build a 6-Pokémon Squad with Type Matchups（64）⚠️ | Pokemon Team Picker | 133 | 1424 | 工具 |
 | 5 | `/random-mega-pokemon-generator/` | random mega pokemon generator | Random Mega Pokemon Generator – Every Mega Evolution, Stat Gains Included（73）⚠️ | Random Mega Pokemon Generator | 155 | 1719 | 工具 |
 | 6 | `/random-pokemon-generator-wheel/` | pokemon wheel spinner ⚠️ | Pokemon Wheel Spinner - Random Pokemon Generator Wheel（54） | Pokemon Wheel Spinner | 158 | 1406 | 工具 |
-| 7 | `/random-pokemon-name-generator/` | random pokemon name generator | Random Pokemon Name Generator - Pokemon Nickname Ideas（54） | Random Pokemon Name Generator | 141 | 1376 | 工具 |
-| 8 | `/random-shiny-pokemon-generator/` | random shiny pokemon generator | Random Shiny Pokemon Generator - Shiny Pokemon Rolls（52） | Random Shiny Pokemon Generator | 144 | 1830 | 工具 |
+| 7 | `/random-pokemon-name-generator/` | random pokemon name generator | Random Pokemon Name Generator - 120 Nickname Ideas（50） | Random Pokemon Name Generator | 141 | 1376 | 工具 |
+| 8 | `/random-shiny-pokemon-generator/` | random shiny pokemon generator | Random Shiny Pokemon Generator - Roll & Compare Shinies（55） | Random Shiny Pokemon Generator | 144 | 1830 | 工具 |
 | 9 | `/whos-that-pokemon/` | who's that pokemon | Who's That Pokemon - Guess the Pokemon Game（43） | Who's That Pokemon | 156 | 1411 | 游戏 |
 | 10 | `/pokemon-shiny-odds/` | pokemon shiny odds | Pokemon Shiny Odds: Complete Shiny Rates & Chances（54） | Pokemon Shiny Odds & Rates — Every Method Explained | 142 | 1745 | 内容+工具 |
 | 11 | `/pokemon-nature-chart/` | pokemon nature chart | Pokemon Nature Chart – All 25 Natures & Stat Effects（52） | Pokemon Nature Chart | 150 | 1518 | 内容+工具 |
@@ -41,7 +41,7 @@
 | 23 | `/pokemon/bulbasaur/` | bulbasaur pokemon | Bulbasaur Pokemon - Stats, Types, Abilities &amp; Evolution（59） | Bulbasaur Pokemon stats: Grass/Poison type with BST 318, weak to Fire, Ice, Flying and Psychic. Abilities Overgrow and Chlorophyll, line and battle tips. | 153 | 1236 | 物种页（打样 1） |
 | 24 | `/pokemon/charizard/` | charizard pokemon | Charizard Pokemon - Stats, Types, Abilities &amp; Evolution（59） | Charizard Pokemon stats: Fire/Flying with BST 534, weak to Water, Electric and Rock, immune to Ground. Blaze and Solar Power builds, Mega X and Y. | 146 | 1216 | 物种页（打样 2） |
 | 25 | `/pokemon/pikachu/` | pikachu pokemon | Pikachu Pokemon - Stats, Types, Abilities &amp; Evolution（57） | Pikachu Pokemon stats: Electric type with BST 320, weak to Ground. Static and Lightning Rod, Light Ball build, evolution line and battle tips. | 149 | 1222 | 物种页（打样 3） |
-| 26 | `/random-pokemon-type-generator/` | random pokemon type generator | Random Pokemon Type Generator - Type Wheel &amp; Spinner（56） | Random Pokemon Type Generator | 148 | 1589 | 工具 |
+| 26 | `/random-pokemon-type-generator/` | random pokemon type generator | Random Pokemon Type Generator - Spin the 18-Type Wheel（54） | Random Pokemon Type Generator | 148 | 1589 | 工具 |
 | 27 | `/random-legendary-pokemon-generator/` | random legendary pokemon generator | Random Legendary Pokemon Generator - Mythical &amp; Shiny（57） | Random Legendary Pokemon Generator | 155 | 1387 | 工具 |
 
 ## 备注

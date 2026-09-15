@@ -84,7 +84,7 @@
       {
         "@type": "Question",
         "name": "What cookies does this site use?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The site itself sets no cookies. Google Analytics 4, our anonymous usage statistics tool, sets first-party cookies such as _ga to distinguish visitors. You can block these cookies in your browser settings or with Google's opt-out add-on without breaking any tool." }
+        "acceptedAnswer": { "@type": "Answer", "text": "The site itself sets no cookies. Google Analytics 4, our usage statistics tool, sets first-party cookies such as _ga to distinguish visitors. When advertising is displayed, Google and its partners may also set cookies for ad delivery and measurement. You can block cookies in your browser settings, manage ad personalization in Google Ads Settings, or use a content blocker — every tool on the site works identically." }
       },
       {
         "@type": "Question",
@@ -94,7 +94,7 @@
       {
         "@type": "Question",
         "name": "Does this site share data with third parties?",
-        "acceptedAnswer": { "@type": "Answer", "text": "We do not sell, rent, or share any user data. Two third parties process limited technical data as part of serving the site: Google (anonymous analytics) and Vercel (hosting logs). Pokemon data and artwork are loaded from the public PokeAPI project, which sees only a standard resource request." }
+        "acceptedAnswer": { "@type": "Answer", "text": "We do not sell, rent, or share any user data. Google (analytics, and advertising when ads are displayed) and Vercel (hosting logs) process limited technical data as part of serving the site. Pokemon data and artwork are loaded from the public PokeAPI project, which sees only a standard resource request." }
       }
     ]
   }
@@ -163,7 +163,7 @@
     <section class="hero container" aria-labelledby="page-title">
       <p class="eyebrow">Plain Language · No Accounts · Your Data Stays on Your Device</p>
       <h1 id="page-title">Privacy Policy - Random Pokemon Generator</h1>
-      <p class="lede">Last updated: September 5, 2026. This policy explains exactly what Random Pokemon Generator does — and does not do — with your information, in plain language. The short version: we collect almost nothing, and everything you generate stays on your own device.</p>
+      <p class="lede">Last updated: September 15, 2026. This policy explains exactly what Random Pokemon Generator does — and does not do — with your information, in plain language. The short version: we collect almost nothing, and everything you generate stays on your own device.</p>
     </section>
 
     <!-- The short version -->
@@ -174,7 +174,7 @@
         <div class="how-grid">
           <article>
             <h3>We collect no personal information</h3>
-            <p>Random Pokemon Generator has no accounts, no registration, no newsletters, and no contact forms. We never ask for your name, email address, age, location, or any other personal detail. You can use every tool on the site — the main <a href="../">Random Pokemon Generator</a>, the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a>, and every other page — completely anonymously.</p>
+            <p>Random Pokemon Generator has no accounts, no registration, no newsletters, and no contact forms. We never ask for your name, email address, age, location, or any other personal detail. You can use every tool on the site — the main <a href="../">Random Pokemon Generator</a>, the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a>, and every other page — without an account.</p>
           </article>
           <article>
             <h3>Your rolls live in your browser</h3>
@@ -204,7 +204,7 @@
           </article>
           <article>
             <h3>No payments, no tracking pixels</h3>
-            <p>The site has no checkout, no advertising network, no affiliate tracking pixels, and no social media trackers. There is nothing to monetize your behavior with, and no third-party ad company ever sees your visit.</p>
+            <p>The site has no checkout, no affiliate tracking pixels, and no social media trackers. We do not sell or rent personal information, and there is no account database to expose.</p>
           </article>
         </div>
       </div>
@@ -218,7 +218,7 @@
         <div class="how-grid">
           <article>
             <h3>What is stored, and why</h3>
-            <p>Several tools remember your recent activity so you can pick up where you left off. The <a href="../">Random Pokemon Generator</a> keeps your last 20 rolls in its Roll History; the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a> stores rolled squads with replay links; the <a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a> and <a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a> keep their own roll histories; the <a href="../pokemon-team-picker/">Pokemon Team Picker</a> remembers your squad; the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> keeps nickname preferences; and <a href="../whos-that-pokemon/">Who's That Pokemon</a> stores game progress and scores.</p>
+            <p>Several tools remember your recent activity so you can pick up where you left off. The main Random Pokemon Generator keeps your last 20 rolls in its Roll History; the Nuzlocke Team Builder stores rolled squads with replay links; the generator pages keep their own roll histories; the Pokemon Team Picker remembers your squad; and <a href="../whos-that-pokemon/">Who's That Pokemon</a> stores game progress and scores.</p>
           </article>
           <article>
             <h3>Where it goes (nowhere)</h3>
@@ -240,7 +240,7 @@
         <div class="how-grid">
           <article>
             <h3>What it collects</h3>
-            <p>We use Google Analytics 4 (GA4) to measure aggregate, anonymous usage: page views, approximate geographic region (country/city level), device and browser type, and how visitors move between pages. GA4 sets first-party cookies (such as <code>_ga</code>) to distinguish returning visitors from new ones. We do not use it to identify you personally, and we do not combine it with any other dataset.</p>
+            <p>We use Google Analytics 4 (GA4) to measure aggregate usage: page views, approximate geographic region (country/city level), device and browser type, and how visitors move between pages. GA4 sets first-party cookies (such as <code>_ga</code>) to distinguish returning visitors from new ones. We do not use it to identify you personally, and we do not combine it with any other dataset.</p>
           </article>
           <article>
             <h3>Who processes it</h3>
@@ -259,6 +259,7 @@
       <div class="container">
         <p class="eyebrow">Infrastructure</p>
         <h2 id="third-party-title">Third-Party Services &amp; Content</h2>
+        <p>The site relies on a small set of third parties: PokeAPI for Pokemon data and artwork, Vercel for hosting, Google Analytics 4 for usage statistics, Google and other advertising vendors when ads are displayed, and directory badge providers on the homepage.</p>
         <div class="how-grid">
           <article>
             <h3>PokeAPI (Pokemon data and artwork)</h3>
@@ -298,16 +299,56 @@
       </div>
     </section>
 
-    <!-- Children + changes + contact -->
+    <!-- Advertising -->
+    <section class="band band-yellow" aria-labelledby="ads-title">
+      <div class="container">
+        <p class="eyebrow">How the site is funded</p>
+        <h2 id="ads-title">Advertising</h2>
+        <div class="how-grid">
+          <article>
+            <h3>How ads keep this site free</h3>
+            <p>Random Pokemon Generator is free to use, and advertising is what keeps it that way. When ads are displayed, they are delivered by third-party vendors, including Google. These vendors may use cookies and similar technologies to serve ads based on your visits to this and other websites. Google explains how it uses data from partner sites at <a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer" target="_blank">policies.google.com/technologies/partner-sites</a>.</p>
+          </article>
+          <article>
+            <h3>Personalized and non-personalized ads</h3>
+            <p>Some ads are personalized, chosen using your browsing history; others are non-personalized and matched to the page you are viewing. You can switch off personalized advertising in Google Ads Settings (google.com/settings/ads), and opt out of many participating vendors at aboutads.info or youronlinechoices.eu. The consent mechanisms for personalized advertising are provided by our advertising partners, and personalized ads are shown only where permitted.</p>
+          </article>
+          <article>
+            <h3>No ads aimed at children</h3>
+            <p>Ad targeting here is not directed at children — see Children's Privacy below.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Children's Privacy -->
+    <section class="band" aria-labelledby="children-title">
+      <div class="container">
+        <p class="eyebrow">Age &amp; audience</p>
+        <h2 id="children-title">Children's Privacy</h2>
+        <div class="how-grid">
+          <article>
+            <h3>A general-audience site for ages 13 and up</h3>
+            <p>Random Pokemon Generator is a fan project built for Pokemon players aged 13 and older. It is not directed at children under 13 — the age threshold in COPPA, the U.S. children's privacy law — and it is not designed or marketed for them.</p>
+          </article>
+          <article>
+            <h3>No personal information from anyone</h3>
+            <p>The site has no accounts, no registration, and no profile fields, so there is nowhere for a child — or anyone else — to submit personal details. Roll history and saved teams stay in the visitor's own browser storage and are never sent to us.</p>
+          </article>
+          <article>
+            <h3>No interest-based ads for children</h3>
+            <p>We do not use interest-based advertising or remarketing to target children under 13.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Changes + contact -->
     <section class="band band-yellow" aria-labelledby="misc-title">
       <div class="container">
         <p class="eyebrow">The fine print</p>
-        <h2 id="misc-title">Children, Changes &amp; Contact</h2>
+        <h2 id="misc-title">Changes &amp; Contact</h2>
         <div class="how-grid">
-          <article>
-            <h3>Children's privacy</h3>
-            <p>The site is a general-audience fan tool and does not knowingly collect personal information from anyone, including children under 13. Since there are no accounts or forms, no personal information is gathered from any visitor regardless of age.</p>
-          </article>
           <article>
             <h3>Changes to this policy</h3>
             <p>If we change how the site handles data — for example by adding a new analytics or hosting provider — we will update this page and revise the "Last updated" date at the top. Significant changes will be summarized in the page's commit history on our public repository.</p>
@@ -315,6 +356,10 @@
           <article>
             <h3>Contact</h3>
             <p>Questions about this policy? Open an issue on our public GitHub repository at <a href="https://github.com/githubi2/Random-Pokemon-Generator" rel="noopener noreferrer" target="_blank">github.com/githubi2/Random-Pokemon-Generator</a> — it is the fastest way to reach the maintainers. Random Pokemon Generator is a fan project and is not affiliated with Nintendo, Game Freak, or The Pokemon Company.</p>
+          </article>
+          <article>
+            <h3>Parents &amp; guardians</h3>
+            <p>If you are a parent or guardian and believe your child has sent us personal information — for example, in a GitHub issue — let us know on our public repository and we will look into it and remove any personal details we find. Nothing is stored on our servers, so there are no other records to check.</p>
           </article>
         </div>
       </div>
@@ -334,7 +379,7 @@
       </details>
       <details class="faq-item cornered">
         <summary>What cookies does this site use?</summary>
-        <p>The site itself sets no cookies. Google Analytics 4, our anonymous usage statistics tool, sets first-party cookies such as _ga to distinguish visitors. You can block these cookies in your browser settings or with Google's opt-out add-on without breaking any tool.</p>
+        <p>The site itself sets no cookies. Google Analytics 4, our usage statistics tool, sets first-party cookies such as _ga to distinguish visitors. When advertising is displayed, Google and its partners may also set cookies for ad delivery and measurement. You can block cookies in your browser settings, manage ad personalization in Google Ads Settings, or use a content blocker — every tool on the site works identically.</p>
       </details>
       <details class="faq-item cornered">
         <summary>How do I opt out of analytics tracking?</summary>
@@ -342,7 +387,7 @@
       </details>
       <details class="faq-item cornered">
         <summary>Does this site share data with third parties?</summary>
-        <p>We do not sell, rent, or share any user data. Two third parties process limited technical data as part of serving the site: Google (anonymous analytics) and Vercel (hosting logs). Pokemon data and artwork are loaded from the public PokeAPI project, which sees only a standard resource request.</p>
+        <p>We do not sell, rent, or share any user data. Google (analytics, and advertising when ads are displayed) and Vercel (hosting logs) process limited technical data as part of serving the site. Pokemon data and artwork are loaded from the public PokeAPI project, which sees only a standard resource request.</p>
       </details>
     </section>
   </main>
