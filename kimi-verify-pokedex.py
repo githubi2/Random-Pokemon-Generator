@@ -278,6 +278,33 @@ if _warn8:
         print('     %-46s #%d lcs=%d' % (rel8, i8, lw2))
 
 print()
+print('=== 9. 图片本地化（2026-09-15：sprite 不再直连 raw.githubusercontent） ===')
+_ext9 = []
+_miss9 = []
+for path in sorted(glob.glob(os.path.join(root, '**', 'index.html'), recursive=True)):
+    html = read(path)
+    rel9 = os.path.relpath(path, root).replace(os.sep, '/')
+    for m in re.finditer(r'<img[^>]+src="([^"]+)"', html):
+        src = m.group(1)
+        if src.startswith('http'):
+            _host9 = src.split('/')[2] if '//' in src else ''
+            if any(h in _host9 for h in ('stork.ai', 'startupinspire.com', 'productwatch.io')):
+                continue  # 目录验证徽章（第三方动态 SVG，有意保留）
+            _ext9.append((rel9, src[:90]))
+        elif not src.startswith('data:'):
+            if not os.path.exists(os.path.join(os.path.dirname(path), src)):
+                _miss9.append((rel9, src))
+if _ext9 or _miss9:
+    for rel9, src in _ext9:
+        errors.append('[ext-img] %s %s' % (rel9, src))
+        print('  [外链图] %-46s %s' % (rel9, src))
+    for rel9, src in _miss9:
+        errors.append('[missing-img] %s %s' % (rel9, src))
+        print('  [缺文件] %-46s %s' % (rel9, src))
+else:
+    print('  全站 img 全部本地且存在 = OK')
+
+print()
 print('==== RESULT ====')
 if errors:
     print('ERRORS (%d):' % len(errors))
