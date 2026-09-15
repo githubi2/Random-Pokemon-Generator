@@ -231,13 +231,28 @@
             <h3>Read the matchup grid in one line</h3>
             <p>The Pokemon type chart is a 18-by-18 grid: attacking types run down the left, defending types across the top, and each cell holds the damage multiplier that results when the two meet. Values are always one of four: 2x (super effective), 1x (neutral), ½x (not very effective), or 0x (immune). Hover or tap any cell and the matchup is written out beneath the table, so you never have to decode the symbols.</p>
             <p>Because the chart only stores the non-neutral matchups internally, the grid stays honest — every cell is computed from the same ruleset, which means the table can never drift from the calculator below it.</p>
-          </article>
+          </article>
+
           <article>
+            <h3>The type chart, measured</h3>
+            <p>Ask which type is the best attacker and the grid gives a flat answer: Fighting and Ground tie at the top, each hitting five types for double damage, with Rock, Fire and Ice next at four apiece. The catch is what those big hitters miss. Ghost types walk straight through Fighting, Flying types ignore Ground, and between those two blind spots sit some of the most common defensive pairings in the game. No serious squad leans on a single attacking type for coverage.</p>
+            <p>The defensive column is where the gaps show. Ice is the thinnest armor in the game: four types hit it hard and it resists exactly one, itself. Rock and Grass are tied for the worst at five weaknesses each. On the other end, Steel shrugs off ten of the eighteen types and ignores Poison outright, and Ghost fears only Ghost and Dark while treating Normal and Fighting as free switch-ins.</p>
+            <p>Read both columns before you call a type strong. The <a href="../pokemon-team-picker/">Pokemon Team Picker</a> applies that check across all six slots; a five-target attacker that one immunity blanks is a coverage problem, not a coverage solution.</p>
+          </article>
+          <article>
             <h3>Find any type's weaknesses in seconds</h3>
             <p>The 18 type cards under the grid turn the page into a quick Pokemon weakness chart: each card lists what the type is weak to, what it resists, and what it is immune to. Steel resists ten types and ignores Poison; Ground is immune to Electric; Ghost never touches Normal. That single card answers "what hits this type hard?" instantly — which is exactly what you want before a raid, a gym fight, or a competitive match.</p>
             <p>Pair the type cards with the <a href="../pokemon-nature-chart/">Pokemon Nature Chart</a> and the <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a> pages to turn a good match-up into a well-built Pokemon: the nature chart picks the stat spread, the odds page plans the hunt, and this chart checks the damage math on every member of the squad.</p>
-          </article>
+          </article>
+
           <article>
+            <h3>Double weaknesses, counted across the dex</h3>
+            <p>Run every form in the National Dex through the grid and one number falls out: of the 1,351 forms in this dataset, 267 carry at least one double weakness that takes 4x damage. That is one in five.</p>
+            <p>Ice is the biggest source of double damage on the site: 44 forms take 4x from it, from the Dragonite and Garchomp families to Torterra and Gligar. Ground follows with 40, Rock with 33.</p>
+            <p>At the pairing level, Bug/Flying is the most punished combination in the game: fifteen forms share it, from Butterfree to Scyther to Vivillon, and every one of them takes 4x from Rock. Water/Rock, Dragon/Ground and Water/Ground each trap ten or more.</p>
+            <p>Some Mega Evolutions change type on the way up. Mega Aggron drops Rock completely, and the grid redraws with it. The <a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a> deals every one of those forms.</p>
+          </article>
+          <article>
             <h3>Dual-type damage, computed exactly</h3>
             <p>Most Pokemon have two types, so the calculator is the part that actually matters. Pick an attacking type and one or two defending types — the result multiplies the individual matchups together. Fire vs Water/Steel is ½x × ½x = ¼x, Ice vs Dragon/Flying is 2x × 2x = 4x, and Electric vs Water/Ground is 0x: immunity beats every other rule. A 4x or ¼x result almost always decides a battle, so checking before you commit a move is habit-worthy.</p>
             <p>Want to build a team that covers these holes? The <a href="../pokemon-team-picker/">Pokemon Team Picker</a> maps your whole squad's defensive coverage, and the <a href="../">Random Pokemon Generator</a> rolls one with a tactical report attached — grade, coverage matrix, and weakness warnings.</p>
@@ -246,11 +261,19 @@
             <h3>Learn the chart without memorizing it</h3>
             <p>Nobody memorizes 324 cells, and you do not have to. Three rules cover most of it. First, water beats fire, fire beats grass, grass beats water: the starter triangle is the skeleton of the whole chart. Second, three attacking types play offense against most of the dex: Ground, Fighting and Rock. Third, the weird ones are worth learning on purpose: Normal cannot touch Ghost, Electric cannot touch Ground, and Fairy swallows Dragon entirely.</p>
             <p>When a matchup still surprises you, that is what the grid is for. Ten seconds of scrolling beats a minute of guessing, and after a few matches the patterns stick. Generations of players have played with partial knowledge; the ones who improve are the ones who check the chart after a surprising result instead of shrugging it off.</p>
-          </article>
+          </article>
+
           <article>
+            <h3>Three matchups worth memorizing</h3>
+            <p>Guides explain the chart; a few matchups burn it in. These three are worth knowing cold.</p>
+            <p>Garchomp against Ice. Dragon takes double from Ice, Ground takes double from Ice, and the grid multiplies both: 4x. An Ice Beam aimed at a Garchomp is not a scare tactic; it is a countdown. When both halves of a dual type share one weakness, the damage doubles again. Hunting one? The shiny odds are on the <a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a> page, and telling it apart from a regular Garchomp is a problem this chart cannot solve.</p>
+            <p>Skarmory against Ground. Steel is weak to Ground, and Skarmory is famously unbothered by it, because Flying is immune. Zero times two is still zero. The immunity simply erases the weakness, and "what does it resist" starts to matter as much as "what does it fear".</p>
+            <p>A Ghost type against Normal and Fighting. Two of the most common attacking types in the game deal literally nothing to Ghost, which makes Ghost the safest switch-in on a predicted Body Slam or Close Combat. The escape hatch is just as clean: Dark and Ghost moves never miss their mark. When a Ghost walls your Close Combat, the follow-up question writes itself: what is it afraid of?</p>
+          </article>
+          <article>
             <h3>From chart to gameplay</h3>
             <p>Type knowledge powers every other tool on this site. Roll a random squad with the <a href="../random-pokemon-picker/">Random Pokemon Picker</a>, spin a <a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a> for a dramatic pick, or start a ruleset run with the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a> — then come back here when you need to know what your team actually carries. The <a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a> and <a href="../whos-that-pokemon/">Who's That Pokemon</a> games turn the same matchups into quick fun, the <a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a> rolls Mega Evolutions, and the <a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a> rolls shiny forms.</p>
-            <p>When you want to take a single Pokemon deeper, the <a href="../pokemon-iv-calculator/">Pokemon IV Calculator</a> reconstructs the hidden values behind its stats, the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> gives it a nickname, and the <a href="../pokemon-card-generator/">Pokemon Card Generator</a> with the <a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a> put it on a printable card. More guides and math live on the <a href="../blog/">Blog</a>. Need a specific Pokemon fast? The <a href="../search/">Pokemon Search</a> finds any species by name in the same dex. Not sure which type to build around? Let the <a href="../random-pokemon-type-generator/">random Pokemon type generator</a> spin the type wheel for you.</p>
+            <p>When you want to take a single Pokemon deeper, the <a href="../pokemon-iv-calculator/">Pokemon IV Calculator</a> reconstructs the hidden values behind its stats, the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> gives it a nickname, and the <a href="../pokemon-card-generator/">Pokemon Card Generator</a> with the <a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a> put it on a printable card. More guides and math live on the <a href="../blog/">Blog</a>. Looking for one species in particular? The <a href="../search/">Pokemon Search</a> finds it by name in the same dex. Not sure which type to build around? Let the <a href="../random-pokemon-type-generator/">random Pokemon type generator</a> spin the type wheel for you.</p>
           </article>
         </div>
       </div>
@@ -302,33 +325,24 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <ul class="footer-links">
-        <li><a href="../">Random Pokemon Generator</a></li>
-        <li><a href="../nuzlocke-generator/">Nuzlocke Team Builder</a></li>
-        <li><a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a></li>
-        <li><a href="../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a></li>
-        <li><a href="../whos-that-pokemon/">Who's That Pokemon</a></li>
-        <li><a href="../pokemon-team-picker/">Pokemon Team Picker</a></li>
-        <li><a href="../random-pokemon-picker/">Random Pokemon Picker</a></li>
-        <li><a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a></li>
-        <li><a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a></li>
-        <li><a href="../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a></li>
-        <li><a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a></li>
-        <li><a href="../pokemon-nature-chart/">Pokemon Nature Chart</a></li>
-        <li><a href="../pokemon-type-chart/">Pokemon Type Chart</a></li>
-        <li><a href="../pokemon-iv-calculator/">Pokemon IV Calculator</a></li>
-        <li><a href="../pokemon-card-generator/">Pokemon Card Generator</a></li>
-        <li><a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a></li>
-        <li><a href="../random-pokemon-type-generator/">Random Pokemon Type Generator</a></li>
-        <li><a href="../random-legendary-pokemon-generator/">Random Legendary Pokemon Generator</a></li>
-        <li><a href="../pokemon/">Pokemon Pokedex</a></li>
-        <li><a href="../blog/">Blog</a></li>
-        <li><a href="../search/">Search</a></li>
-        <li><a href="../privacy-policy/">Privacy Policy</a></li>
-        <li><a href="../about/">About &amp; Contact</a></li>
-        <li><a href="../terms-of-use/">Terms of Use</a></li>
-      </ul>
-      <p class="footer-note">© 2026 Random Pokemon Generator. Not affiliated with Nintendo / Game Freak.</p>
-      <p class="footer-note">Data sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+          <li><a href="../">Random Pokemon Generator</a></li>
+          <li><a href="../whos-that-pokemon/">Who's That Pokemon</a></li>
+          <li><a href="../pokemon-team-picker/">Pokemon Team Picker</a></li>
+          <li><a href="../pokemon-type-chart/">Pokemon Type Chart</a></li>
+          <li><a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a></li>
+          <li><a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a></li>
+          <li><a href="../pokemon-trainer-card-generator/">Pokemon Trainer Card Generator</a></li>
+          <li><a href="../random-pokemon-type-generator/">Random Pokemon Type Generator</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">Random Legendary Pokemon Generator</a></li>
+          <li><a href="../pokemon/">Pokemon Pokedex</a></li>
+          <li><a href="../blog/">Blog</a></li>
+          <li><a href="../search/">Search</a></li>
+          <li><a href="../privacy-policy/">Privacy Policy</a></li>
+          <li><a href="../about/">About &amp; Contact</a></li>
+          <li><a href="../terms-of-use/">Terms of Use</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator, an unofficial fan project. Not affiliated with Nintendo, Game Freak, or The Pokémon Company.</p>
+      <p class="footer-note">Pokémon and Pokémon character names are trademarks of their respective owners. Data and images sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
     </div>
   </footer>
 
