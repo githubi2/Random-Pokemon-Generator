@@ -189,6 +189,28 @@ for rel in NAV_SELF_PAGES:
         print('  [差] %-44s active=%d' % (rel, n))
 
 print()
+print('=== 7. FAQ details nesting（2026-09-15 修复沉淀：物种页第 6 条曾嵌在第 5 条内） ===')
+nest_bad = []
+for path in sorted(glob.glob(os.path.join(root, '**', 'index.html'), recursive=True)):
+    html = read(path)
+    depth = 0; issues = 0
+    for m in re.finditer(r'<details\b|</details>', html):
+        if not m.group(0).startswith('</'):
+            depth += 1
+            if depth > 1: issues += 1
+        else:
+            depth -= 1
+            if depth < 0: issues += 1
+    if depth != 0 or issues:
+        nest_bad.append((os.path.relpath(path, root).replace(os.sep, '/'), depth, issues))
+if nest_bad:
+    for rel2, d2, i2 in nest_bad:
+        errors.append('[details] %s depth=%d issues=%d' % (rel2, d2, i2))
+        print('  [差] %-44s depth=%d issues=%d' % (rel2, d2, i2))
+else:
+    print('  全站 details 嵌套 = OK (%d pages)' % len(glob.glob(os.path.join(root, '**', 'index.html'), recursive=True)))
+
+print()
 print('==== RESULT ====')
 if errors:
     print('ERRORS (%d):' % len(errors))
