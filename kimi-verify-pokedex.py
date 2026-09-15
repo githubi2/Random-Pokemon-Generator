@@ -211,6 +211,73 @@ else:
     print('  全站 details 嵌套 = OK (%d pages)' % len(glob.glob(os.path.join(root, '**', 'index.html'), recursive=True)))
 
 print()
+print('=== 8. FAQ 重复度（2026-09-15 沉淀：pikachu/bulbasaur 第 4~6 条曾同页事实重复） ===')
+# 严格规则（errors，三信号经新旧版回测校准）：
+#   A) 答案 Jaccard >= 0.40（同答重复，如 bulbasaur 旧 0.56）
+#   B) 答案间最长逐字连续段 >= 10 词
+#   C) 问句词集 Jaccard >= 0.6 且答案 Jaccard >= 0.25（近同问重复，如 pikachu 旧 0.67/0.30）
+# 另有 [FAQ vs 正文] >= 12 词逐字段：仅打印复核清单（不阻断；存量项待内容批清理）
+STOP8 = set('the a an is it and or of to in for with that this its as on at by be are was from you your what does do how why which who when where'.split())
+def _st8(s):
+    out = set()
+    for w in re.findall(r"[a-z]+", s.lower()):
+        if len(w) < 3 or w in STOP8: continue
+        if w.endswith('ies'): w = w[:-3] + 'y'
+        elif w.endswith('s') and len(w) > 3: w = w[:-1]
+        out.add(w)
+    return out
+def _jac8(a, b):
+    A, B = _st8(a), _st8(b)
+    return len(A & B) / max(1, len(A | B))
+def _lcs8(a, b, capB=2400):
+    A = re.findall(r"[a-z']+", a.lower())[:240]
+    B = re.findall(r"[a-z']+", b.lower())[:capB]
+    best = 0; prev = [0] * (len(B) + 1)
+    for i in range(1, len(A) + 1):
+        cur = [0] * (len(B) + 1)
+        for j in range(1, len(B) + 1):
+            if A[i-1] == B[j-1]:
+                cur[j] = prev[j-1] + 1
+                if cur[j] > best: best = cur[j]
+        prev = cur
+    return best
+_dup8 = []; _warn8 = []
+for path in sorted(glob.glob(os.path.join(root, '**', 'index.html'), recursive=True)):
+    html = read(path)
+    rel8 = os.path.relpath(path, root).replace(os.sep, '/')
+    sec8 = re.search(r'<section id="faq"[^>]*>(.*?)</section>', html, re.S)
+    if not sec8: continue
+    items8 = [(re.sub(r'<[^>]+>', ' ', q).strip(), re.sub(r'<[^>]+>', ' ', a).strip())
+              for q, a in re.findall(r'<summary>(.*?)</summary>\s*<p>(.*?)</p>', sec8.group(1), re.S)]
+    for i in range(len(items8)):
+        for j in range(i + 1, len(items8)):
+            q1, a1 = items8[i]; q2, a2 = items8[j]
+            qj = _jac8(q1, q2); aj = _jac8(a1, a2); lw = _lcs8(a1, a2)
+            if aj >= 0.40 or lw >= 10 or (qj >= 0.6 and aj >= 0.25):
+                _dup8.append((rel8, '%d~%d' % (i + 1, j + 1), round(qj, 2), round(aj, 2), lw))
+    body8 = re.sub(r'<script[\s\S]*?</script>', ' ', html)
+    body8 = re.sub(r'<style[\s\S]*?</style>', ' ', body8)
+    body8 = re.sub(r'<details[\s\S]*?</details>', ' ', body8)
+    bo8 = re.findall(r"[a-z']+", re.sub(r'<[^>]+>', ' ', body8).lower())
+    g8 = set(tuple(bo8[k:k + 8]) for k in range(max(0, len(bo8) - 7)))
+    for i8, (q1, a1) in enumerate(items8, 1):
+        wa = re.findall(r"[a-z']+", a1.lower())
+        if any(tuple(wa[k:k + 8]) in g8 for k in range(max(0, len(wa) - 7))):
+            lw2 = _lcs8(a1, ' '.join(bo8))
+            if lw2 >= 12:
+                _warn8.append((rel8, i8, lw2))
+if _dup8:
+    for rel8, pj, qj, aj2, lw in _dup8:
+        errors.append('[faq-dup] %s %s qj=%.2f aj=%.2f lcs=%d' % (rel8, pj, qj, aj2, lw))
+        print('  [重复] %-46s %-16s qj=%.2f aj=%.2f lcs=%d' % (rel8, pj, qj, aj2, lw))
+else:
+    print('  全站 FAQ 重复度 = OK')
+if _warn8:
+    print('  [FAQ vs 正文 ≥12 词逐字段：复核清单（不阻断）] %d 处' % len(_warn8))
+    for rel8, i8, lw2 in _warn8[:30]:
+        print('     %-46s #%d lcs=%d' % (rel8, i8, lw2))
+
+print()
 print('==== RESULT ====')
 if errors:
     print('ERRORS (%d):' % len(errors))
