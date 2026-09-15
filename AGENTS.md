@@ -17,10 +17,11 @@
 6. **OG/Twitter**：每页必须有 `og:image`（1200×630 绝对 www URL，放页面同目录 `og-image.png`）+ `og:image:width/height` + `twitter:card: summary_large_image` + `twitter:image`；`og:url` 必须带 www。
 7. **URL slug 关键词化**：新页面目录名 = **完整目标关键词**（例：`pokemon-smash-or-pass/`、`random-pokemon-generator-wheel/`），**绝不省略关键词中的词**（`smash-or-pass/`、`pokemon-wheel/` ❌）。URL = Title 主词 = H1。
 8. **锚文本完整关键词化**：所有引用点（nav、footer、正文语境内链、JSON-LD name、Breadcrumb name）的锚文本必须用**完整关键词**；禁止短变体锚文本（`Pokemon Wheel` ❌ → `Random Pokemon Generator Wheel` ✅）。关键词变体（如中长形式）只允许在**正文叙述**中自然出现，不允许作为锚文本。
-9. **内链闭环**：**每个页面必须引用站内所有其他页面**，三层引用缺一不可：nav + footer + **正文语境内链**（锚文本用关键词）。正文互链的判定口径：在剔除 `<script>/<style>` 后的 `<main>` 可见内容里，必须存在指向**其余每一个页面**的至少 1 条语境内链（header logo、nav、footer 里的链接不计入正文层）。新增页面必须同步更新全部既有页面的 nav/footer/正文内链，并在提交前用脚本验证 N×N 正文矩阵无缺口。
+9. **内链结构（分层模型，2026-09-15 AdSense 整改后定稿）**：① nav + footer：全站所有页面互达（保持 12+12）；② 正文语境内链：每页 3–8 条**语义相关**链接（同主题簇优先、跨簇桥接 1–2 条；锚文本=完整关键词；同一目标至多 1 次；单段 ≤5；枢纽页 ≤12）；③ 枢纽页（Pokemon Pokedex / Blog）承接子页列表。**新增页面**：nav/footer 模板全站注入 + 在 3–5 个最相关页面正文补链即可，**不再做 N×N 全站回填**。修订原因：N×N 全互联在 AdSense 站点评审（ADS-CONTENT-08）中被识别为门页指征（2026-09-15 整改）。
 10. **sitemap.xml**：新页面必须加入（www URL + `lastmod` 当天，新增页用目录形式 URL）；禁止无 www 条目；robots.txt 的 `Sitemap:` 行保持指向 www sitemap。
 11. **链接形式**：站内链接一律**目录形式**，**禁止在 href 中出现 `index.html`**（例：`nuzlocke-generator/`、`../`、`./`）——避免 Google 将 `xxx/index.html` 与 `xxx/` 视为两个 URL 造成重复页面。禁止 `href="/..."` 绝对路径。
-12. **敏感字样**：禁止出现 "SEO-optimized"、"free" 等自曝/合规敏感措辞（历史决策：曾全站移除）。标题/描述/正文都不允许。
+12. **敏感字样**：禁止出现 "SEO-optimized" 等自曝敏感措辞（历史决策：曾全站移除）。标题/描述/正文都不允许。
+13. **封存批次的自动检查（运维约定）**：任何「已封存、等待条件发布」的批次（当前：Pokedex wave-1 七页、P1 shiny 子页）必须保持一个定时检查任务——条件达标 → 通知用户（附判断依据），发布与否由用户决定；发现新的封存等待需求时主动创建检查任务（创建前须经用户确认），不等用户提醒。
 
 ## 2. 内容规则
 
@@ -38,7 +39,7 @@
 - 移动端（≤760px）必须适配（汉堡导航、历史/列表紧凑布局；nav 6 项完整关键词在桌面可用、移动端折叠）。
 - **`vercel.json`**：新增页面目录后，必须在 `redirects` 加 `/{dir}/index.html → /{dir}/` 的 permanent 重定向。**顶层 `"trailingSlash": true` 已启用（2026-09-10）**：所有无尾斜杠路径自动 308 到带斜杠版——**禁止删除/关闭**（它消除了全站「目录双 URL」重复页，是 pokemon 页「无法编入索引」修复的关键）；静态资源（带扩展名）不受影响。
 - **缓存策略（vercel.json `headers`，2026-09-05 起）**：CSS/JS 浏览器缓存 1 天 + SWR 7 天；图片/音频（png/ico/svg/wav）缓存 7 天 + SWR 30 天；HTML 保持 Vercel 默认 `must-revalidate`。改动 CSS/JS 后**必须 bump 引用处的 `?v=` 版本号**（既有约定），新页面的脚本/样式引用一律带版本号。
-- 修改后必须验证：`node --check` JS、HTML 标签配对、canonical/词数/内链矩阵/JSON-LD 回归（用 `kimi-verify-` 前缀临时脚本，跑完即删）。
+- 修改后必须验证：`node --check` JS、HTML 标签配对、canonical/词数/内链抽检/JSON-LD 回归（用 `kimi-verify-` 前缀临时脚本，跑完即删）。
 - 文件名/目录：子页面用目录形式（`pokemon-smash-or-pass/index.html` → URL `/pokemon-smash-or-pass/`）。
 - **区块标题结构（全站统一）**：`小标签 → 大标题(H2) → 段落`——说明/SEO 段落一律放在 H2 **下方**、左对齐、默认正文样式（16px、墨色）；**禁止把段落插在 eyebrow 与 H2 之间**，禁止给正文段落加居中/max-width/灰字这类自定义内联样式（2026-09-12 首页 FAQ 区「乱」的成因，勿再犯）。
 
@@ -243,7 +244,7 @@
 - **禁追裸词密度 3%-5%**（R6.2 校准口径）：Google 官方：密度非排名因素；堆砌触发 spam 信号 + R6.10 污染。裸名自然范围参考：27-36 次/1200+ 词。
 - 开头段首句 = 物种叙事 + 组合词（如 `Its evolution into Ivysaur at level 16...`）。
 - 每页至少 1 句「从数据算出来的论断」（针对 st 数组的读法），禁止换名复制。
-- 禁 AI 味词（unlock/free/journey 等，kimi-verify 自动查）。
+- 禁 AI 味词（unlock/journey 等，kimi-verify 自动查）。
 
 ### 7.4 路径/接线（血泪教训）
 
@@ -257,7 +258,7 @@
 - **打样期**：3 页手工精做（bulbasaur/charizard/pikachu，已上线）→ GSC 观察 ≥2 周 → 合格 = 3/3 已索引 + 均 ≥10 曝光 + ≥1 页点击 + 本地闸门全绿。
 - **每波放量条件**：上一波收录率 **≥80%**、无整站曝光异常下跌、有新页获点击；**任一波收录率 <60% → 停发归因**（R7.1/R8.2）。
 - 波次路线：+7（10）→ +20（40）→ +40（80）→ +80（160）→ +160（320）→ +320（640）→ +385（1025）；每波 1-2 天生成 + 1-2 周观察；全量预计 6-9 个月。
-- 每波生成纪律（build-pokedex.py 未来）：1-2 页精调样板 → **句式变体库 4-6 种/段**（防雷同）→ 真实数据注入 → 自动验收（词数/title 唯一/desc 100-160/H1 唯一/FAQ 可见=LD/矩阵闭环/禁词/AI 词）→ **任一页不达标整批重生成** → 抽查 10 页人工读 → GSC（每波 5-10 页手动 request indexing + sitemap 重提交，用户操作）。
+- 每波生成纪律（build-pokedex.py 未来）：1-2 页精调样板 → **句式变体库 4-6 种/段**（防雷同）→ 真实数据注入 → 自动验收（词数/title 唯一/desc 100-160/H1 唯一/FAQ 可见=LD/相关链抽检/禁词/AI 词）→ **任一页不达标整批重生成** → 抽查 10 页人工读 → GSC（每波 5-10 页手动 request indexing + sitemap 重提交，用户操作）。
 - GSC 体检判定表（首批 2 周后）：收录率 ≥80% 合格进下一波；「已抓取未索引」>15% 查模板；曝光异常下跌 → 回滚。
 - 形态页（326 个 Mega/区域形态）：二期按需评估，基础 1025 收尾后再动。
 

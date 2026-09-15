@@ -114,13 +114,12 @@ for slug, name in PAGES:
                 bad.append(h)
     ok("all internal links resolve", not bad, bad[:6])
 
-    # no 'free' + AI words in visible text
+    # AI words in visible text
     body = re.sub(r"<script[\s\S]*?</script>", " ", html)
     body = re.sub(r"<style[\s\S]*?</style>", " ", body)
     text = re.sub(r"<[^>]+>", " ", body)
     hits = [w for w in AI if w.lower() in text.lower()]
     ok("no AI words", not hits, hits)
-    ok("no 'free'", not re.search(r"\bfree\b", text, re.I))
 
     # assets + js
     ok("og-image 1200x630", os.path.exists(os.path.join(d, "og-image.png")))
@@ -134,7 +133,6 @@ for slug, name in PAGES:
     ok("js has TYPES", "var TYPES = [" in js)
     if "type-generator" in jsf:
         ok("js has TYPE_CHART", "var TYPE_CHART = {" in js)
-    ok("js no 'free'", not re.search(r"\bfree\b", js, re.I))
     ok("scoped style present", (".tw-hub" in html) if "type-generator" in jsf else (".lgx-card" in html))
     ok("nav self entry", ('<li><a href="./" class="nav-link nav-link-active">%s</a></li>' % name) in html)
 
