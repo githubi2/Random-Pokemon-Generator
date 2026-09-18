@@ -59,6 +59,8 @@
 - **#12/#13 博客区**（2026-09-06 上线）：博客页 JSON-LD 用 `Blog`/`BlogPosting`（非 SoftwareApplication/FAQPage——文章页无 FAQ 区，按规则"FAQPage 必须与可见 FAQ 一致"自然不适用）；正文互链矩阵对博客页的口径 = 博客页正文链全部工具页+互链，工具页 nav/footer 链 `/blog/`、正文在相关页（首页/shiny-odds/shiny-generator）链到文章。用户原标题 71 字符超 60 硬线，落地为 45 字符版。
 - **#14/#15 博客 Week 2**（2026-09-06 上线）：#14 承接 GSC 主线 2（smash or pass 排名 7.1 但 CTR 低，导流补 CTR），#15 承接主线 3（nuzlocke 位置 18.3 有潜力，攻 "what is nuzlocke" 头部词）。同日 #13/#14/#15 三篇按外部评审意见二次去 AI 味：删伪造第一人称经历、过渡短语每篇 ≤1、金句每篇 ≤2、段落长短交错、CTA 每篇只留 1 个且融入正文（#13 的 "Calculate Your Own" 独立节已并入 Shiny Charm 节尾，generator 二次推广删除）、数据加来源感（Bulbapedia / 游戏代码 / 社区实测标注）。新增数学事实已用脚本复核（50%@5,678 / 90%@18,862 / at-N 63.2%）。
 
+- **#28 eevee 页增强（2026-09-18，4d2ad4f）**：正文补 Sylveon 仙招陷阱 + FAQ 2 条（What level…/Any new…，vis=LD 同步）→ 接住已上排词族（all eevee evolutions 26@14.3、eevee evolution level @10）；标题描述不动；观察两词位置。
+
 ## Description 存档（压缩改写留痕）
 
 - #16 卡牌页（2026-09-09 三轮）：`Create your own Pokemon card: pick a template...`（无主词）→ `...with this Pokemon card generator: ... download a PNG`（含主词，缺意图词）→ 当前：`Create your own Pokemon cards with this Pokemon card generator: pick a template, upload a photo, set name, HP, moves, rarity, get a print-ready PNG. No sign-up.`（160）。用户原始文案含 "free" 因规则 12 剔除；"print-ready" 为 SERP 实查补入（见下方意图词清单）。
@@ -70,6 +72,7 @@
 - #4 team-picker：`Build a competitive squad with this Pokemon team picker and generator: six slots, type matchups, moves and items. Filter 1,025 Pokemon and export to Showdown.`（158）
 - #6 wheel：`Spin a Pokemon wheel spinner for a random pick: Gen 1-9 and type filters, instant draws, shareable results. Part of the Random Pokemon Generator Wheel family.`（158）
 - #8 shiny：`Random shiny pokemon generator — roll shiny Pokemon from Gen 1–9 with generation, type, rarity and BST filters, plus a shiny-vs-regular compare.`（144）
+- #7 name-gen（2026-09-17）：`Random pokemon name generator — pick any of 1,025 Pokemon and roll 120 original nickname ideas built from its type, color, habitat and stats.` → 当前：`Free random Pokemon name generator — pick any of 1,025 Pokemon and roll 120 original nickname ideas built from its type, color, habitat and stats.`（146；free 意图词对齐，f2b4d04）
 
 ## 追踪建议
 
