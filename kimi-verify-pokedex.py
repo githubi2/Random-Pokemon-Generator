@@ -113,8 +113,8 @@ for rel, label in NEW:
         problems.append('para links %d' % maxp)
     if missing:
         problems.append('missing ' + ','.join(missing))
-    if n > 16:
-        problems.append('total links %d' % n)
+    if n > 23:
+        problems.append('total links %d' % n)  # hub cap bumped with wave-1 (10 species cards + tools; bump per wave)
     if problems:
         errors.append('[相关链] %s %s' % (label, '; '.join(problems)[:80]))
         print('  [差] %-10s %s' % (label, '; '.join(problems)[:80]))

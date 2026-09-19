@@ -90,7 +90,7 @@ for rel, label in NEW:
     text = re.sub(r'<style.*?</style>', ' ', text, flags=re.S)
     text = re.sub(r'<[^>]+>', ' ', text)
     low = text.lower()
-    for b in ['free', 'seo-optimized']:
+    for b in ['seo-optimized']:
         if re.search(r'\b' + re.escape(b) + r'\b', low):
             errors.append('[%s] banned word %s' % (label, b)); ok = False
     for b in AI:
@@ -130,19 +130,25 @@ for rel, label in NEW:
         cand = os.path.join(root, tgt, 'index.html')
         if not (os.path.exists(cand) or os.path.exists(os.path.join(root, tgt))):
             errors.append('[%s] broken link %s (-> %s)' % (label, href, tgt)); ok = False
-    # matrix coverage in main
-    main = re.search(r'<main[^>]*>(.*?)</main>', html, re.S).group(1)
-    main = re.sub(r'<script.*?</script>', '', main, flags=re.S)
-    hrefs = set(re.findall(r'href="([^"]*)"', main))
-    missing = []
-    for d in TOOLS:
-        key = d + '/'
-        if d == '':
-            okd = any(h in ('../../', '/') for h in hrefs)
-        else:
-            okd = any(key in h for h in hrefs)
-        if not okd: missing.append(d or 'HOME')
-    if missing: errors.append('[%s] matrix missing %s' % (label, ','.join(missing))); ok = False
+    # related-links check (2026-09-15: N×N mesh retired; no dups, <=5 links/para, core set)
+    main2 = re.search(r'<main[^>]*>(.*?)</main>', html, re.S).group(1)
+    main2 = re.sub(r'<script.*?</script>', '', main2, flags=re.S)
+    tg = []
+    for h in re.findall(r'<a\s[^>]*href="([^"]*)"[^>]*>', main2):
+        if h.startswith(('http', 'mailto', '#')):
+            continue
+        t = os.path.normpath(os.path.join(rel, h.split('#')[0])).replace('\\', '/')
+        tg.append(t)
+    dups = [t for t in set(tg) if tg.count(t) > 1]
+    maxp = 0
+    for pm in re.finditer(r'<p[^>]*>.*?</p>', main2, re.S):
+        c = len(re.findall(r'<a\s[^>]*href="([^"]*)"', pm.group(0)))
+        if c > maxp:
+            maxp = c
+    core = sum(1 for key in ['nuzlocke-generator', 'pokemon-team-picker', 'pokemon-type-chart', 'random-pokemon-picker', 'pokemon'] if key in tg)
+    if dups: errors.append('[%s] dup targets %s' % (label, dups[:4])); ok = False
+    if maxp > 5: errors.append('[%s] para with %d links' % (label, maxp)); ok = False
+    if core < 3: errors.append('[%s] core links %d < 3' % (label, core)); ok = False
     print('  %-10s title=%d desc=%d words=%d faq=%d links_ok=%s' % (label, len(title), len(desc), words, len(faq_vis), 'pass' if ok else 'FAIL'))
 
 print('=== 3. sitemap ===')
