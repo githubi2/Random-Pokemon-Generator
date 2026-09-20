@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokemon Champions Team Builder – Free M-C Squad Planner</title>
+  <meta name="description" content="A free Pokemon Champions team builder: pick six from the current M-C roster, run the defensive matchup matrix, set moves and items, and export to Showdown." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/pokemon-champions-team-builder/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pokemon Champions Team Builder – Free M-C Squad Planner" />
+  <meta property="og:description" content="Pick six from the M-C roster, check defensive matchups, set natures, moves and items — then export your Champions squad to Showdown." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/pokemon-champions-team-builder/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/pokemon-champions-team-builder/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pokemon Champions Team Builder – Free M-C Squad Planner" />
+  <meta name="twitter:description" content="Pick six from the M-C roster, check defensive matchups, set natures, moves and items — then export your Champions squad to Showdown." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/pokemon-champions-team-builder/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260910a" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Pokemon Champions Team Builder",
+    "description": "Pick six from the Pokemon Champions M-C roster, check defensive matchups, set natures, moves and items, and export teams to Showdown.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "url": "https://www.random-pokemon-generator.co/pokemon-champions-team-builder/"
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Random Pokemon Generator",
+        "item": "https://www.random-pokemon-generator.co/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Pokemon Champions Team Builder",
+        "item": "https://www.random-pokemon-generator.co/pokemon-champions-team-builder/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Pokemon Champions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A battle-focused Pokemon game built around seasons and regulation sets. You assemble a squad of six and battle in singles or doubles — singles brings three of your six into a match, doubles brings four."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which Pokemon can I use in the builder?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The builder draws only from Regular Roster M-C, the regulation set that is legal through December 2, 2026. It runs on fully evolved species with a few deliberate exceptions, includes Mega Evolutions, and leaves legendaries and mythicals out."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does Regular Roster M-C mean?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Competitive play rotates through regulation sets over time. M-C is the current one, marked as valid through December 2, 2026 (UTC). When a new set replaces it, the roster in this tool updates to match."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Mega Evolutions in my team?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Mega-capable species carry an M flag in the table. Open the slot editor, flip the Mega Evolution switch, and the form's stats, types and ability replace the base species. Where the matching stone is in the item list, the editor selects it for you."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many Pokemon do I bring to a battle?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Six make the squad; singles calls three of them into a match and doubles calls four. The formation toggle marks which members are on deck as you build."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export my team to Pokemon Showdown?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The Showdown button copies a paste-ready block with species, item, level, nature, ability and moves. There is also a JSON export and a share link, and the import box reads Showdown text or JSON back."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the tool free, and does it need an account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It is free and runs entirely in your browser — no account, no sign-in. Your current team and saved sets live in local storage on your device."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is this different from the Team Picker?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Team Picker works from the full national dex when you want to build outside a specific game's rules. This page is scoped to Pokemon Champions: the roster, the regulation and the singles and doubles formations all match what the game currently allows."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+  }
+  </script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <style>
+    /* page-specific additions (Team Picker engine reuse) */
+    .tp-format { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .tp-format-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #9a9a9a; }
+    .tp-reg-static { font-size: 12px; font-weight: 800; letter-spacing: 0.02em; }
+    .tp-slot-battle { box-shadow: inset 0 0 0 2px var(--poke-red); }
+    .tp-slot-battle-tag { position: absolute; top: -9px; left: -7px; background: var(--poke-red); color: #fff; font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; padding: 2px 5px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+              <li><a href="./" class="nav-link nav-link-active">Pokemon Team Picker</a></li>
+              <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+              <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+              <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
+              <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
+              <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">Blog</a></li>
+          <li><a href="#how" class="nav-link">How It Works</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">Regular Roster M-C · 6 Slots · Matchup Matrix · Showdown Export</p>
+      <h1 id="page-title">Pokemon Champions Team Builder</h1>
+      <p class="lede">Pokemon Champions runs on regulation sets, and the one in play now — Regular Roster M-C — stays legal through December 2, 2026. This builder works only from that roster: pick your six, tune every set down to the held item, and check the matchup math before you lock the squad in.</p>
+    </section>
+
+    <!-- Tool -->
+    <section class="container tool-panel" aria-label="Pokemon Champions team builder tool">
+      <div class="tp-team-bar">
+        <button type="button" class="btn btn-secondary" id="tp-new-btn">New / Import Team</button>
+        <label for="tp-team-name" class="tp-field-label">Team name</label>
+        <input type="text" id="tp-team-name" class="tp-input" value="My team" maxlength="40" />
+        <button type="button" class="btn btn-ghost" id="tp-name-clear" aria-label="Clear team name" title="Clear team name">✕</button>
+        <div class="tp-format" role="group" aria-label="Battle formation">
+          <span class="tp-format-label">Formation</span>
+          <button type="button" class="tp-stat-tab tp-stat-tab-active" id="tp-format-singles" aria-selected="true">Singles · bring 3</button>
+          <button type="button" class="tp-stat-tab" id="tp-format-doubles" aria-selected="false">Doubles · bring 4</button>
+        </div>
+        <div class="tp-bar-right">
+          <span class="tp-status" id="tp-status" role="status"></span>
+          <button type="button" class="btn btn-secondary" id="tp-share-btn">Share</button>
+          <button type="button" class="btn btn-secondary" id="tp-export-showdown">Showdown</button>
+          <button type="button" class="btn btn-secondary" id="tp-export-json">JSON</button>
+        </div>
+      </div>
+
+      <div class="tp-slots-row" id="tp-slots"></div>
+
+      <div class="tp-work">
+        <!-- Filters (collapsible) -->
+        <aside class="tp-filters" aria-label="Pokemon filters">
+          <button type="button" class="tp-filters-toggle" id="tp-filters-toggle" aria-expanded="true" aria-controls="tp-filters-body">
+            <span class="tp-filters-toggle-label">Filters</span>
+            <span class="tp-filters-toggle-note" id="tp-filter-note-inline"></span>
+            <span class="tp-filters-caret" aria-hidden="true">▾</span>
+          </button>
+          <div class="tp-filters-body" id="tp-filters-body">
+          <p class="tp-hint">Pick a slot, then filter the roster below. Click a Pokémon row to place it.</p>
+          <div class="tp-filters-grid">
+          <div class="tp-filter-group">
+          <p class="tp-group-title">Regulation Set</p>
+          <div class="tp-reg-wrap">
+            <span class="tp-reg-static">Regular Roster M-C · valid through December 2, 2026</span>
+          </div>
+          <p class="tp-group-title">Generation</p>
+          <div class="tp-chips" id="tp-gen-chips"></div>
+          <p class="tp-group-title">Mega Evolution</p>
+          <div class="tp-chips" id="tp-mega-chips"></div>
+          </div>
+          <div class="tp-filter-group tp-filter-group-wide">
+          <p class="tp-group-title">Pokemon Type</p>
+          <div class="tp-mode-row">
+            <span class="tp-mode-label">match</span>
+            <button type="button" class="chip-btn chip-mode tp-mode-chip" id="tp-type-mode" data-mode="or" aria-pressed="true">Or</button>
+            <span class="tp-mode-sep">|</span>
+            <button type="button" class="chip-btn chip-mode tp-mode-chip" data-mode="and" aria-pressed="false">And</button>
+          </div>
+          <div class="tp-chips" id="tp-type-chips"></div>
+          </div>
+          <div class="tp-filter-group">
+          <p class="tp-group-title">Move</p>
+          <div class="tp-mode-row">
+            <span class="tp-mode-label">match</span>
+            <button type="button" class="chip-btn chip-mode tp-mode-chip" id="tp-move-mode" data-mode="or" aria-pressed="true">Or</button>
+            <span class="tp-mode-sep">|</span>
+            <button type="button" class="chip-btn chip-mode tp-mode-chip" data-mode="and" aria-pressed="false">And</button>
+          </div>
+          <select id="tp-move-filter" class="tp-select" aria-label="Filter by move" multiple size="6"></select>
+          </div>
+          <div class="tp-filter-group">
+          <p class="tp-group-title">Ability</p>
+          <select id="tp-ability-filter" class="tp-select" aria-label="Filter by ability" multiple size="6"></select>
+          </div>
+          </div>
+          <p class="tool-note" id="tp-filter-note"></p>
+          </div>
+        </aside>
+
+        <!-- Table -->
+        <section class="tp-table-wrap" aria-label="Pokemon list">
+          <div class="tp-table-toolbar">
+            <input type="search" id="tp-search" class="tp-input" placeholder="Search Pokémon..." aria-label="Search Pokémon" />
+            <div class="tp-stat-tabs" role="tablist" aria-label="Stat display: Level 50 or base stats">
+              <button type="button" class="tp-stat-tab tp-stat-tab-active" id="tp-tab-lvl50" role="tab" aria-selected="true">Lvl 50</button>
+              <button type="button" class="tp-stat-tab" id="tp-tab-base" role="tab" aria-selected="false">Base</button>
+            </div>
+          </div>
+          <div class="tp-table-scroll">
+            <table class="tp-table" id="tp-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="tp-sortable" data-sort="dex">#</th>
+                  <th scope="col" class="tp-sortable" data-sort="name">Pokemon</th>
+                  <th scope="col" class="tp-sortable" data-sort="hp">HP</th>
+                  <th scope="col" class="tp-sortable" data-sort="atk">ATK</th>
+                  <th scope="col" class="tp-sortable" data-sort="def">DEF</th>
+                  <th scope="col" class="tp-sortable" data-sort="spa">SPA</th>
+                  <th scope="col" class="tp-sortable" data-sort="spd">SPD</th>
+                  <th scope="col" class="tp-sortable" data-sort="spe">SPE</th>
+                </tr>
+              </thead>
+              <tbody id="tp-table-body"></tbody>
+            </table>
+          </div>
+          <div class="tp-pager">
+            <button type="button" class="btn btn-ghost" id="tp-page-prev" aria-label="Previous page">‹</button>
+            <span class="tp-page-info" id="tp-page-info"></span>
+            <button type="button" class="btn btn-ghost" id="tp-page-next" aria-label="Next page">›</button>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Team defense -->
+      <aside class="tp-defense" aria-label="Team defensive matchups">
+        <p class="tp-group-title">Team defense</p>
+        <div id="tp-defense-body"></div>
+      </aside>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how-title">How the Pokemon Champions Team Builder Works</h2>
+        <div class="how-grid">
+          <article>
+            <h3>Start from the live roster</h3>
+            <p>Pokemon Champions fights through regulation sets, and each set carries its own roster. Regular Roster M-C is the one in play right now, and it stays valid through December 2, 2026 (UTC). Every row in the table below comes from that roster and nothing else, so a squad you finish here is a squad the game will accept — no discovering mid-way through a build that a pick is off-list.</p>
+            <p>The roster runs on fully evolved species with a few deliberate exceptions, and it skips legendaries and mythicals entirely. Mega Evolutions are in, and every Mega-capable species carries a flag in the table. If you want the same engine pointed at the full national dex instead, the <a href="../pokemon-team-picker/">Pokemon Team Picker</a> does exactly that.</p>
+          </article>
+          <article>
+            <h3>Pick six, bring three or four</h3>
+            <p>Every Champions squad starts as six. In singles, three of those six step into the match; in doubles, four do. The formation toggle at the top of the builder marks the members that are on deck: fill your slots, switch between Singles and Doubles, and drag members around until the right trio — or quartet — is the one highlighted.</p>
+            <p>A build order that works: lock the two or three roles you already know the team needs (a fast cleaner, a physical wall, something with priority or a pivot move), then fill the rest with type coverage. Role-first building survives contact with real battles better than six strong picks that share a speed tier and little else.</p>
+            <p>Doubles rewards a different shape than singles does. Redirection, spread damage and speed control all earn their slots, and the four you bring rarely match the three you would bring in singles. Build one squad, then read it twice — once under Singles, once under Doubles — and let the highlight move when the format does.</p>
+          </article>
+          <article>
+            <h3>Tune every set before it matters</h3>
+            <p>Click a filled slot and the editor opens with the whole set in one place: nickname, nature, ability, held item and up to four moves from the species' learnset. The stat preview updates as you adjust, so a nature choice shows its cost immediately — a Modest pick on a base 80 Special Attack stat is a decision you can see, not guess at.</p>
+            <p>Items decide about as much as natures do. The list carries the M-C holds, from choice items and berries through the terrain seeds to the Mega stones. If a spread has you stuck between two natures, the <a href="../pokemon-nature-chart/">Pokemon Nature Chart</a> maps every nature to the stats it raises and lowers.</p>
+          </article>
+          <article>
+            <h3>Mega Evolution, stones included</h3>
+            <p>Species that can Mega Evolve show an M in the roster table. Flip the Mega switch in the slot editor and the form takes over: its stats, typing and ability replace the base species, and the stat preview re-reads on the spot. You can compare a Mega wall against its base form without leaving the editor.</p>
+            <p>Stones are half the battle. Where the matching Mega stone is in the item list, the editor selects it the moment the switch flips; prefer a different hold, set it back by hand and the Mega form stays. If you just want to roll a random Mega for fun, the <a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a> is the companion page.</p>
+          </article>
+          <article>
+            <h3>Read the matchup matrix like a scout</h3>
+            <p>The Team Defense panel turns your six into a grid: one row per attacking type, one column per member, and each cell showing the multiplier that type's moves hit for — red where you take extra damage, green where you shrug it off. The W, R and T columns total the weaknesses and resists across the whole squad, which is how a shared Electric or Ground hole shows up before a battle does.</p>
+            <p>Swap one member and the grid re-reads instantly. Treat the matrix as the last checkpoint of a build: if two members share a crippling weakness, decide whether the coverage elsewhere pays for it. For the full table behind the cells, the <a href="../pokemon-type-chart/">Pokemon Type Chart</a> shows every interaction in one place.</p>
+            <p>Singles and doubles read the same grid differently. In singles, a member that resists half the likely attacks is worth its slot on that alone. In doubles, what matters just as much is the pair standing next to each other — cover both sides of the field, or the matrix will show you the turn the opponent wins.</p>
+          </article>
+          <article>
+            <h3>Export, share and keep your squads</h3>
+            <p>Three exits, each one click. Showdown copies a paste-ready team block that the Pokemon Showdown teambuilder reads straight back. JSON keeps the full set data for your own records. The share button builds a link that restores the exact squad — nicknames included — on any device.</p>
+            <p>Teams save to your browser automatically, and the import box takes both Showdown text and JSON, so passing a squad to a friend is a copy and a paste. Nothing leaves your machine. When you want to study an individual member beyond the roster view, the <a href="../pokemon/">Pokemon Pokedex</a> has a full page for every species.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Pokemon Champions Team Builder FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>What is Pokemon Champions?</summary>
+        <p>A battle-focused Pokemon game built around seasons and regulation sets. You assemble a squad of six and battle in singles or doubles — singles brings three of your six into a match, doubles brings four.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Which Pokemon can I use in the builder?</summary>
+        <p>The builder draws only from Regular Roster M-C, the regulation set that is legal through December 2, 2026. It runs on fully evolved species with a few deliberate exceptions, includes Mega Evolutions, and leaves legendaries and mythicals out.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What does Regular Roster M-C mean?</summary>
+        <p>Competitive play rotates through regulation sets over time. M-C is the current one, marked as valid through December 2, 2026 (UTC). When a new set replaces it, the roster in this tool updates to match.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I use Mega Evolutions in my team?</summary>
+        <p>Yes. Mega-capable species carry an M flag in the table. Open the slot editor, flip the Mega Evolution switch, and the form's stats, types and ability replace the base species. Where the matching stone is in the item list, the editor selects it for you.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How many Pokemon do I bring to a battle?</summary>
+        <p>Six make the squad; singles calls three of them into a match and doubles calls four. The formation toggle marks which members are on deck as you build.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I export my team to Pokemon Showdown?</summary>
+        <p>Yes. The Showdown button copies a paste-ready block with species, item, level, nature, ability and moves. There is also a JSON export and a share link, and the import box reads Showdown text or JSON back.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Is the tool free, and does it need an account?</summary>
+        <p>It is free and runs entirely in your browser — no account, no sign-in. Your current team and saved sets live in local storage on your device.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How is this different from the Team Picker?</summary>
+        <p>The Team Picker works from the full national dex when you want to build outside a specific game's rules. This page is scoped to Pokemon Champions: the roster, the regulation and the singles and doubles formations all match what the game currently allows.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">Who's That Pokemon</a></li>
+          <li><a href="../pokemon-team-picker/">Pokemon Team Picker</a></li>
+          <li><a href="../pokemon-type-chart/">Pokemon Type Chart</a></li>
+          <li><a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a></li>
+          <li><a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a></li>
+          <li><a href="../random-pokemon-type-generator/">Random Pokemon Type Generator</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">Random Legendary Pokemon Generator</a></li>
+          <li><a href="../pokemon/">Pokemon Pokedex</a></li>
+          <li><a href="../blog/">Blog</a></li>
+          <li><a href="../privacy-policy/">Privacy Policy</a></li>
+          <li><a href="../about/">About &amp; Contact</a></li>
+          <li><a href="../terms-of-use/">Terms of Use</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator, an unofficial fan project. Not affiliated with Nintendo, Game Freak, Creatures Inc., or The Pokémon Company.</p>
+      <p class="footer-note">Pokémon and Pokémon character names are trademarks of their respective owners. Data and images sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Slot editor modal -->
+  <div class="modal-overlay" id="slot-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="slot-modal-title">
+      <h2 class="modal-title" id="slot-modal-title">Edit Team Slot</h2>
+      <div class="modal-body">
+        <div class="slot-editor-head">
+          <img id="slot-edit-art" class="slot-edit-art" src="" alt="" width="96" height="96" />
+          <div>
+            <div class="slot-edit-name" id="slot-edit-name"></div>
+            <div class="slot-edit-types" id="slot-edit-types"></div>
+            <div class="slot-edit-bst" id="slot-edit-bst"></div>
+          </div>
+        </div>
+        <div class="slot-edit-form">
+          <label for="slot-edit-nick">Nickname (optional)</label>
+          <input type="text" id="slot-edit-nick" class="tp-input" maxlength="20" />
+          <label for="slot-edit-nature">Nature</label>
+          <select id="slot-edit-nature" class="tp-select"></select>
+          <label for="slot-edit-ability">Ability</label>
+          <select id="slot-edit-ability" class="tp-select"></select>
+          <label>Moves (up to 4)</label>
+          <div id="slot-edit-moves" class="slot-edit-moves"></div>
+          <label for="slot-edit-item">Item</label>
+          <select id="slot-edit-item" class="tp-select"></select>
+          <div id="slot-edit-mega-wrap" hidden>
+            <label class="tp-switch-row">
+              <input type="checkbox" id="slot-edit-mega" />
+              <span>Mega Evolution</span>
+            </label>
+            <select id="slot-edit-mega-pick" class="tp-select" hidden aria-label="Mega form"></select>
+          </div>
+          <div class="slot-edit-stats" id="slot-edit-stats"></div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="slot-edit-save">Save</button>
+        <button type="button" class="btn btn-ghost" id="slot-edit-remove">Remove</button>
+        <button type="button" class="btn btn-ghost" id="slot-edit-library">Save to My Pokemon</button>
+        <button type="button" class="btn btn-ghost" id="slot-edit-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Share modal -->
+  <div class="modal-overlay" id="share-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="share-modal-title">
+      <h2 class="modal-title" id="share-modal-title">Copy manually</h2>
+      <div class="modal-body">
+        <p class="tool-note">Your browser blocked auto-copy — the text below is selected. Press Ctrl+C (or long-press) to copy it.</p>
+        <textarea class="share-modal-text" id="share-modal-text" readonly></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="share-modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Import modal -->
+  <div class="modal-overlay" id="import-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="import-modal-title">
+      <h2 class="modal-title" id="import-modal-title">New / Import Team</h2>
+      <div class="modal-body">
+        <button type="button" class="btn btn-secondary" id="import-new-btn">Start blank team</button>
+        <label for="import-text">Import from Showdown team text or team JSON</label>
+        <textarea id="import-text" class="share-modal-text" placeholder="Paste a Showdown team or JSON here..."></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="import-apply">Import</button>
+        <button type="button" class="btn btn-ghost" id="import-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="champions-data.js?v=20260920a"></script>
+  <script src="../moveset.js?v=20260802q"></script>
+  <script src="../moves-data.js?v=20260802q"></script>
+  <script src="../nav.js?v=20260802q"></script>
+  <script src="champions-team-builder.js?v=20260920a"></script>
+</body>
+</html>
