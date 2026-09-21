@@ -60,6 +60,7 @@
 - **#14/#15 博客 Week 2**（2026-09-06 上线）：#14 承接 GSC 主线 2（smash or pass 排名 7.1 但 CTR 低，导流补 CTR），#15 承接主线 3（nuzlocke 位置 18.3 有潜力，攻 "what is nuzlocke" 头部词）。同日 #13/#14/#15 三篇按外部评审意见二次去 AI 味：删伪造第一人称经历、过渡短语每篇 ≤1、金句每篇 ≤2、段落长短交错、CTA 每篇只留 1 个且融入正文（#13 的 "Calculate Your Own" 独立节已并入 Shiny Charm 节尾，generator 二次推广删除）、数据加来源感（Bulbapedia / 游戏代码 / 社区实测标注）。新增数学事实已用脚本复核（50%@5,678 / 90%@18,862 / at-N 63.2%）。
 
 - **#28 eevee 页增强（2026-09-18，4d2ad4f）**：正文补 Sylveon 仙招陷阱 + FAQ 2 条（What level…/Any new…，vis=LD 同步）→ 接住已上排词族（all eevee evolutions 26@14.3、eevee evolution level @10）；标题描述不动；观察两词位置。
+- **#28 eevee 再补问答（2026-09-21）**：FAQ 9→12 条（How many…／What order…／跨世代条件差异，vis=LD 同步）——依据 Round12–13 顾问共识：第 3 问由 line/tree/chart 调整为条件方向（level 已有 09-18 问答承接）；标题/描述不动；10/06 观察位置与 CTR。
 
 ## Description 存档（压缩改写留痕）
 
