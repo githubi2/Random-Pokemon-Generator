@@ -12,14 +12,14 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pokemon Release Dates 2026: Every TCG Set &amp; What's Next</title>
+  <title>Pokemon Release Dates 2026: Every TCG Set &amp; Release Calendar</title>
   <meta name="description" content="Pokemon release dates for every set: the next one, the full 2025-2026 set list in order, and a release calendar checked monthly against official announcements." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Random Pokemon Generator" />
   <link rel="canonical" href="https://www.random-pokemon-generator.co/pokemon-release-dates/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Pokemon Release Dates 2026: Every TCG Set &amp; What's Next" />
+  <meta property="og:title" content="Pokemon Release Dates 2026: Every TCG Set &amp; Release Calendar" />
   <meta property="og:description" content="Pokemon release dates for every set: the next one, the full 2025-2026 set list in order, and a release calendar checked monthly against official announcements." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.random-pokemon-generator.co/pokemon-release-dates/" />
@@ -30,7 +30,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pokemon Release Dates 2026: Every TCG Set &amp; What's Next" />
+  <meta name="twitter:title" content="Pokemon Release Dates 2026: Every TCG Set &amp; Release Calendar" />
   <meta name="twitter:description" content="Pokemon release dates for every set: the next one, the full 2025-2026 set list in order, and a release calendar checked monthly against official announcements." />
   <meta name="twitter:image" content="https://www.random-pokemon-generator.co/pokemon-release-dates/og-image.png" />
 
@@ -53,6 +53,7 @@
     .rd-cal .rd-mo { flex: 0 0 150px; font-weight: 700; }
     .rd-cal .rd-quiet { color: rgba(18, 18, 18, 0.55); }
     .rd-status-upcoming { font-weight: 800; }
+    .rd-cal li[data-focus] { background: rgba(255, 224, 68, 0.35); border-radius: 6px; }
   </style>
 
   <!-- Structured data: WebPage -->
@@ -156,10 +157,26 @@
       },
       {
         "@type": "Question",
-        "name": "What set comes after Delta Reign?",
+        "name": "What Pokemon set is after Delta Reign?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Nothing is announced yet — 2027's calendar is still empty, and this page only lists officially announced sets. When the next one is confirmed it gets added here with its date."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What Pokemon sets are released in 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "2026's slate: four main expansions — Perfect Order (March 27), Chaos Rising (May 22), Pitch Black (July 17) and Delta Reign (November 6) — plus two special sets, Ascended Heroes (January 30) and 30th Celebration (September 16)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often is this page updated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The calendar is checked against official announcements at least once a month, and every confirmed change is recorded in the update history at the bottom of this page."
         }
       }
     ]
@@ -236,29 +253,29 @@
     <!-- Next set answer box -->
     <section class="container tool-panel" id="next" aria-label="The next Pokemon TCG set">
       <div class="panel cornered">
-        <p class="tool-hint">The short answer: the next Pokemon TCG set is Mega Evolution—Delta Reign, releasing November 6, 2026. The newest set already out is 30th Celebration, from September 16, 2026.</p>
+        <p class="tool-hint" id="rd-hint">The short answer: the next Pokemon TCG set is Mega Evolution—Delta Reign, releasing November 6, 2026. The newest set already out is 30th Celebration, from September 16, 2026.</p>
 
         <div class="odds-result-grid" aria-live="polite">
           <div class="odds-result-card cornered">
-            <div class="odds-result-num">Delta Reign</div>
-            <div class="odds-result-label">The next set</div>
+            <div class="odds-result-num" id="rd-next-num">Delta Reign</div>
+            <div class="odds-result-label" id="rd-next-label">The next set</div>
           </div>
           <div class="odds-result-card cornered">
-            <div class="odds-result-num">Nov 6, 2026</div>
-            <div class="odds-result-label">Release date</div>
+            <div class="odds-result-num" id="rd-date-num">Nov 6, 2026</div>
+            <div class="odds-result-label" id="rd-date-label">Release date</div>
           </div>
           <div class="odds-result-card cornered">
             <div class="odds-result-num" id="rd-countdown">—</div>
-            <div class="odds-result-label">Countdown to release</div>
+            <div class="odds-result-label" id="rd-countdown-label">Countdown to release</div>
           </div>
         </div>
 
         <div class="actions">
-          <a class="btn-slide cornered" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Mega%20Evolution%E2%80%94Delta%20Reign%20releases&amp;dates=20261106/20261107&amp;details=Pokemon%20TCG%3A%20Delta%20Reign%20releases%20November%206%2C%202026.%20Release%20calendar%20tracked%20at%20random-pokemon-generator.co" target="_blank" rel="noopener noreferrer"><span>📅 Add the release date to your calendar</span></a>
+          <a class="btn-slide cornered" id="rd-cal-link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Mega%20Evolution%E2%80%94Delta%20Reign%20releases&amp;dates=20261106/20261107&amp;details=Pokemon%20TCG%3A%20Delta%20Reign%20releases%20November%206%2C%202026.%20Release%20calendar%20tracked%20at%20random-pokemon-generator.co" target="_blank" rel="noopener noreferrer"><span>📅 Add the release date to your calendar</span></a>
           <a class="btn-slide cornered" href="#sets"><span>See the full set list ↓</span></a>
         </div>
 
-        <p class="tool-note" id="rd-updated">Last checked against official announcements: September 2026. This page is reviewed monthly — the answer above changes when The Pokemon Company announces a new set or shifts one.</p>
+        <p class="tool-note" id="rd-updated">Last checked against official announcements: September 2026. Next scheduled update: November 2026. This page is reviewed monthly — the answer above changes when The Pokemon Company announces a new set or shifts one.</p>
       </div>
     </section>
 
@@ -280,14 +297,14 @@
             <tr><th>Got it</th><th>Set</th><th>Release date</th><th>Status</th><th>Notes</th></tr>
           </thead>
           <tbody>
-            <tr class="rd-row" data-year="2026" data-status="upcoming"><td><input type="checkbox" class="rd-got" data-set="delta-reign" aria-label="Mark Delta Reign as collected" /></td><td>Delta Reign</td><td>November 6, 2026</td><td class="rd-status-upcoming">Upcoming</td><td>Next main expansion · Mega Rayquaza ex; based on Japan's Storm Emeralda (July 31).</td></tr>
-            <tr class="rd-row" data-year="2026" data-status="released"><td><input type="checkbox" class="rd-got" data-set="30th-celebration" aria-label="Mark 30th Celebration as collected" /></td><td>30th Celebration</td><td>September 16, 2026</td><td>Released</td><td>Anniversary special set · first Pokemon TCG launch to go worldwide on one day.</td></tr>
-            <tr class="rd-row" data-year="2026" data-status="released"><td><input type="checkbox" class="rd-got" data-set="pitch-black" aria-label="Mark Pitch Black as collected" /></td><td>Pitch Black</td><td>July 17, 2026</td><td>Released</td><td>115+ cards · Mega Darkrai ex; based on Japan's Abyss Eye.</td></tr>
-            <tr class="rd-row" data-year="2026" data-status="released"><td><input type="checkbox" class="rd-got" data-set="chaos-rising" aria-label="Mark Chaos Rising as collected" /></td><td>Chaos Rising</td><td>May 22, 2026</td><td>Released</td><td>120+ cards · Mega Greninja ex; pre-release events ran May 9-17.</td></tr>
-            <tr class="rd-row" data-year="2026" data-status="released"><td><input type="checkbox" class="rd-got" data-set="perfect-order" aria-label="Mark Perfect Order as collected" /></td><td>Perfect Order</td><td>March 27, 2026</td><td>Released</td><td>120+ cards · Mega Zygarde ex headlines.</td></tr>
-            <tr class="rd-row" data-year="2026" data-status="released"><td><input type="checkbox" class="rd-got" data-set="ascended-heroes" aria-label="Mark Ascended Heroes as collected" /></td><td>Ascended Heroes</td><td>January 30, 2026</td><td>Released</td><td>295 cards · special set, the era's biggest checklist.</td></tr>
-            <tr class="rd-row" data-year="2025" data-status="released"><td><input type="checkbox" class="rd-got" data-set="phantasmal-flames" aria-label="Mark Phantasmal Flames as collected" /></td><td>Phantasmal Flames</td><td>November 14, 2025</td><td>Released</td><td>120+ cards · second main expansion of the era.</td></tr>
-            <tr class="rd-row" data-year="2025" data-status="released"><td><input type="checkbox" class="rd-got" data-set="mega-evolution" aria-label="Mark Mega Evolution as collected" /></td><td>Mega Evolution</td><td>September 26, 2025</td><td>Released</td><td>188 cards · opened the era with Mega Lucario ex.</td></tr>
+            <tr class="rd-row" data-year="2026" data-status="upcoming"><td><input type="checkbox" class="rd-got" data-set="delta-reign" aria-label="Mark Delta Reign as collected" /></td><td>Delta Reign</td><td><time datetime="2026-11-06">November 6, 2026</time></td><td class="rd-status-upcoming">Upcoming</td><td>Next main expansion · Mega Rayquaza ex; based on Japan's Storm Emeralda (July 31).</td></tr>
+            <tr class="rd-row" data-year="2026" data-status="released"><td><input type="checkbox" class="rd-got" data-set="30th-celebration" aria-label="Mark 30th Celebration as collected" /></td><td>30th Celebration</td><td><time datetime="2026-09-16">September 16, 2026</time></td><td>Released</td><td>Anniversary special set · first Pokemon TCG launch to go worldwide on one day.</td></tr>
+            <tr class="rd-row" data-year="2026" data-status="released"><td><input type="checkbox" class="rd-got" data-set="pitch-black" aria-label="Mark Pitch Black as collected" /></td><td>Pitch Black</td><td><time datetime="2026-07-17">July 17, 2026</time></td><td>Released</td><td>115+ cards · Mega Darkrai ex; based on Japan's Abyss Eye.</td></tr>
+            <tr class="rd-row" data-year="2026" data-status="released"><td><input type="checkbox" class="rd-got" data-set="chaos-rising" aria-label="Mark Chaos Rising as collected" /></td><td>Chaos Rising</td><td><time datetime="2026-05-22">May 22, 2026</time></td><td>Released</td><td>120+ cards · Mega Greninja ex; pre-release events ran May 9-17.</td></tr>
+            <tr class="rd-row" data-year="2026" data-status="released"><td><input type="checkbox" class="rd-got" data-set="perfect-order" aria-label="Mark Perfect Order as collected" /></td><td>Perfect Order</td><td><time datetime="2026-03-27">March 27, 2026</time></td><td>Released</td><td>120+ cards · Mega Zygarde ex headlines.</td></tr>
+            <tr class="rd-row" data-year="2026" data-status="released"><td><input type="checkbox" class="rd-got" data-set="ascended-heroes" aria-label="Mark Ascended Heroes as collected" /></td><td>Ascended Heroes</td><td><time datetime="2026-01-30">January 30, 2026</time></td><td>Released</td><td>295 cards · special set, the era's biggest checklist.</td></tr>
+            <tr class="rd-row" data-year="2025" data-status="released"><td><input type="checkbox" class="rd-got" data-set="phantasmal-flames" aria-label="Mark Phantasmal Flames as collected" /></td><td>Phantasmal Flames</td><td><time datetime="2025-11-14">November 14, 2025</time></td><td>Released</td><td>120+ cards · second main expansion of the era.</td></tr>
+            <tr class="rd-row" data-year="2025" data-status="released"><td><input type="checkbox" class="rd-got" data-set="mega-evolution" aria-label="Mark Mega Evolution as collected" /></td><td>Mega Evolution</td><td><time datetime="2025-09-26">September 26, 2025</time></td><td>Released</td><td>188 cards · opened the era with Mega Lucario ex.</td></tr>
           </tbody>
         </table>
       </div>
@@ -300,6 +317,14 @@
       <h2 id="upcoming-title">Upcoming Pokemon Sets: What Is on the Calendar</h2>
       <p class="odds-lede">One set stands between now and 2027: Mega Evolution—Delta Reign, on November 6, 2026. It is the sixth main expansion of the era, built around Mega Rayquaza ex, and the international release of Japan's Storm Emeralda. Expect the usual product wave on day one — Elite Trainer Boxes, booster displays and bundles — with Build &amp; Battle events in the run-up.</p>
       <p class="odds-lede">And then? Nothing, officially. No Pokemon TCG release dates for 2027 have been announced yet — anything you read about next year's sets is speculation, not a date. When The Pokemon Company names the next one (announcements typically land two to three months before release), it gets added here with the rest of the calendar.</p>
+    </section>
+
+    <!-- Card release dates -->
+    <section id="card-dates" class="container odds" aria-labelledby="card-dates-title">
+      <p class="eyebrow">Card level</p>
+      <h2 id="card-dates-title">Pokemon Card Release Dates: When Cards Actually Hit Shelves</h2>
+      <p class="odds-lede">A set's release date is really a week, not a day. Most expansions open with pre-release events at local game stores about two weeks before the official date — Chaos Rising ran its pre-releases May 9-17 before arriving on May 22 — and then the main wave lands everywhere at once: booster boxes, Elite Trainer Boxes and booster bundles all ship on the same day.</p>
+      <p class="odds-lede">Special sets do it differently. Ascended Heroes and 30th Celebration arrived through collection products rather than a standard booster box, and their supporting products can spread over the following weeks instead of landing on one day. Promo cards run on their own schedules too — store promos are handed out at play events, not sold on release day. So when you are planning a purchase, the date in the table above tells you when the main wave hits; the notes flag anything unusual about a specific set.</p>
     </section>
 
     <!-- In order -->
@@ -325,23 +350,29 @@
       <p class="eyebrow">Calendar</p>
       <h2 id="calendar-title">Pokemon TCG Release Calendar: Month by Month</h2>
       <p class="odds-lede">A month-level view of the same schedule — handy when you are planning a purchase window. Only headline set releases are listed; announcement and product waves land in between.</p>
+      <div class="btn-row rd-controls" id="rd-month-chips" role="group" aria-label="Focus a month">
+        <button type="button" class="chip-btn rd-month-chip" data-offset="-1" aria-pressed="false">Last month</button>
+        <button type="button" class="chip-btn rd-month-chip" data-offset="0" aria-pressed="false">This month</button>
+        <button type="button" class="chip-btn rd-month-chip" data-offset="1" aria-pressed="false">Next month</button>
+      </div>
+      <p class="rd-filter-note" id="rd-month-note" aria-live="polite">Pick a month — or read the full list below.</p>
       <ul class="rd-cal">
-        <li><span class="rd-mo">Sep 2025</span><span>Mega Evolution (Sep 26)</span></li>
-        <li><span class="rd-mo">Oct 2025</span><span class="rd-quiet">EMEA got Mega Evolution late (Oct 10) after a delivery delay</span></li>
-        <li><span class="rd-mo">Nov 2025</span><span>Phantasmal Flames (Nov 14)</span></li>
-        <li><span class="rd-mo">Dec 2025</span><span class="rd-quiet">No new set</span></li>
-        <li><span class="rd-mo">Jan 2026</span><span>Ascended Heroes (Jan 30)</span></li>
-        <li><span class="rd-mo">Feb 2026</span><span class="rd-quiet">No new set</span></li>
-        <li><span class="rd-mo">Mar 2026</span><span>Perfect Order (Mar 27)</span></li>
-        <li><span class="rd-mo">Apr 2026</span><span class="rd-quiet">No new set</span></li>
-        <li><span class="rd-mo">May 2026</span><span>Chaos Rising (May 22)</span></li>
-        <li><span class="rd-mo">Jun 2026</span><span class="rd-quiet">No new set</span></li>
-        <li><span class="rd-mo">Jul 2026</span><span>Pitch Black (Jul 17)</span></li>
-        <li><span class="rd-mo">Aug 2026</span><span class="rd-quiet">No new set</span></li>
-        <li><span class="rd-mo">Sep 2026</span><span>30th Celebration (Sep 16)</span></li>
-        <li><span class="rd-mo">Oct 2026</span><span class="rd-quiet">Quiet before the era's last 2026 set</span></li>
-        <li><span class="rd-mo">Nov 2026</span><span>Delta Reign (Nov 6) — the next release</span></li>
-        <li><span class="rd-mo">Dec 2026</span><span class="rd-quiet">Nothing announced; 2027 dates would land next</span></li>
+        <li data-month="2025-09"><span class="rd-mo">Sep 2025</span><span>Mega Evolution (Sep 26)</span></li>
+        <li data-month="2025-10"><span class="rd-mo">Oct 2025</span><span class="rd-quiet">EMEA got Mega Evolution late (Oct 10) after a delivery delay</span></li>
+        <li data-month="2025-11"><span class="rd-mo">Nov 2025</span><span>Phantasmal Flames (Nov 14)</span></li>
+        <li data-month="2025-12"><span class="rd-mo">Dec 2025</span><span class="rd-quiet">No new set</span></li>
+        <li data-month="2026-01"><span class="rd-mo">Jan 2026</span><span>Ascended Heroes (Jan 30)</span></li>
+        <li data-month="2026-02"><span class="rd-mo">Feb 2026</span><span class="rd-quiet">No new set</span></li>
+        <li data-month="2026-03"><span class="rd-mo">Mar 2026</span><span>Perfect Order (Mar 27)</span></li>
+        <li data-month="2026-04"><span class="rd-mo">Apr 2026</span><span class="rd-quiet">No new set</span></li>
+        <li data-month="2026-05"><span class="rd-mo">May 2026</span><span>Chaos Rising (May 22)</span></li>
+        <li data-month="2026-06"><span class="rd-mo">Jun 2026</span><span class="rd-quiet">No new set</span></li>
+        <li data-month="2026-07"><span class="rd-mo">Jul 2026</span><span>Pitch Black (Jul 17)</span></li>
+        <li data-month="2026-08"><span class="rd-mo">Aug 2026</span><span class="rd-quiet">No new set</span></li>
+        <li data-month="2026-09"><span class="rd-mo">Sep 2026</span><span>30th Celebration (Sep 16)</span></li>
+        <li data-month="2026-10"><span class="rd-mo">Oct 2026</span><span class="rd-quiet">Quiet before the era's last 2026 set</span></li>
+        <li data-month="2026-11"><span class="rd-mo">Nov 2026</span><span>Delta Reign (Nov 6) — the next release</span></li>
+        <li data-month="2026-12"><span class="rd-mo">Dec 2026</span><span class="rd-quiet">Nothing announced; 2027 dates would land next</span></li>
       </ul>
     </section>
 
@@ -349,7 +380,7 @@
     <section id="rhythm" class="band band-yellow" aria-labelledby="rhythm-title">
       <div class="container">
         <p class="eyebrow">How it works</p>
-        <h2 id="rhythm-title">How Pokemon Set Releases Actually Work</h2>
+        <h2 id="rhythm-title">How Pokemon TCG Expansions and Set Releases Work</h2>
         <p class="odds-lede">Three things explain almost every date on this page: the era's eight-week heart, the Japan-to-English lag, and the small print that lets dates move.</p>
         <div class="how-grid">
           <article>
@@ -413,9 +444,27 @@
         <p>A set that sits outside the numbered main expansions, usually with a different product build. Ascended Heroes (295 cards) and 30th Celebration are the two special sets of this era; everything else in the table is a main expansion.</p>
       </details>
       <details class="faq-item cornered">
-        <summary>What set comes after Delta Reign?</summary>
+        <summary>What Pokemon set is after Delta Reign?</summary>
         <p>Nothing is announced yet — 2027's calendar is still empty, and this page only lists officially announced sets. When the next one is confirmed it gets added here with its date.</p>
       </details>
+      <details class="faq-item cornered">
+        <summary>What Pokemon sets are released in 2026?</summary>
+        <p>2026's slate: four main expansions — Perfect Order (March 27), Chaos Rising (May 22), Pitch Black (July 17) and Delta Reign (November 6) — plus two special sets, Ascended Heroes (January 30) and 30th Celebration (September 16).</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How often is this page updated?</summary>
+        <p>The calendar is checked against official announcements at least once a month, and every confirmed change is recorded in the update history at the bottom of this page.</p>
+      </details>
+    </section>
+
+    <!-- Update history -->
+    <section id="updates" class="container odds" aria-labelledby="updates-title">
+      <p class="eyebrow">Updates</p>
+      <h2 id="updates-title">Update History</h2>
+      <p class="odds-lede">Every change to this calendar is logged here with its date — the fastest way to check how fresh it is.</p>
+      <ul class="rd-cal rd-log">
+        <li><span class="rd-mo">October 2026</span><span>Page launched: the full Mega Evolution era calendar (2025-2026), with every date checked against official announcements.</span></li>
+      </ul>
     </section>
 
   </main>
