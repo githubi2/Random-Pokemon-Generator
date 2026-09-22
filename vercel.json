@@ -61,6 +61,36 @@
       "permanent": true
     },
     {
+      "source": "/pokemon-legends-z-a-shiny-odds/index.html",
+      "destination": "/pokemon-legends-z-a-shiny-odds/",
+      "permanent": true
+    },
+    {
+      "source": "/pokemon-scarlet-violet-shiny-odds/index.html",
+      "destination": "/pokemon-scarlet-violet-shiny-odds/",
+      "permanent": true
+    },
+    {
+      "source": "/pokemon-sword-shield-shiny-odds/index.html",
+      "destination": "/pokemon-sword-shield-shiny-odds/",
+      "permanent": true
+    },
+    {
+      "source": "/pokemon-legends-arceus-shiny-odds/index.html",
+      "destination": "/pokemon-legends-arceus-shiny-odds/",
+      "permanent": true
+    },
+    {
+      "source": "/pokemon-brilliant-diamond-shining-pearl-shiny-odds/index.html",
+      "destination": "/pokemon-brilliant-diamond-shining-pearl-shiny-odds/",
+      "permanent": true
+    },
+    {
+      "source": "/pokemon-lets-go-shiny-odds/index.html",
+      "destination": "/pokemon-lets-go-shiny-odds/",
+      "permanent": true
+    },
+    {
       "source": "/eevee-evolutions/index.html",
       "destination": "/eevee-evolutions/",
       "permanent": true

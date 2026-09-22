@@ -51,13 +51,13 @@
   </url>
   <url>
     <loc>https://www.random-pokemon-generator.co/random-shiny-pokemon-generator/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.random-pokemon-generator.co/pokemon-shiny-odds/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -105,7 +105,7 @@
   </url>
   <url>
     <loc>https://www.random-pokemon-generator.co/blog/shiny-odds-explained/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -198,5 +198,41 @@
     <lastmod>2026-09-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.random-pokemon-generator.co/pokemon-legends-z-a-shiny-odds/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.random-pokemon-generator.co/pokemon-scarlet-violet-shiny-odds/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.random-pokemon-generator.co/pokemon-sword-shield-shiny-odds/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.random-pokemon-generator.co/pokemon-legends-arceus-shiny-odds/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.random-pokemon-generator.co/pokemon-brilliant-diamond-shining-pearl-shiny-odds/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.random-pokemon-generator.co/pokemon-lets-go-shiny-odds/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

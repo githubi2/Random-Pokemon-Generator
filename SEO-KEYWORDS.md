@@ -45,6 +45,12 @@
 | 27 | `/random-legendary-pokemon-generator/` | random legendary pokemon generator | Random Legendary Pokemon Generator - Mythical &amp; Shiny（57） | Random Legendary Pokemon Generator | 155 | 1387 | 工具 |
 | 28 | `/eevee-evolutions/` | eevee evolutions | Eevee Evolutions: All 8 Forms, Stats & How to Evolve（52） | Eevee Evolutions | 139 | 1356 | 内容 |
 | 29 | `/blog/nuzlocke-survival-playbook/` | nuzlocke rules | Nuzlocke Survival Playbook: Encounter Math（42） | Nuzlocke Survival Playbook: Encounter Math | 153 | 1697 | 博客文章 |
+| 30 | `/pokemon-legends-z-a-shiny-odds/` | pokemon legends z-a shiny odds | Pokemon Legends: Z-A Shiny Odds: Rates & Every Method（57） | Pokemon Legends: Z-A Shiny Odds | 157 | 1361 | 内容+工具 |
+| 31 | `/pokemon-scarlet-violet-shiny-odds/` | pokemon scarlet and violet shiny odds | Pokemon Scarlet and Violet Shiny Odds: Rates & Methods（58） | Pokemon Scarlet and Violet Shiny Odds | 159 | 1370 | 内容+工具 |
+| 32 | `/pokemon-sword-shield-shiny-odds/` | pokemon sword and shield shiny odds | Pokemon Sword and Shield Shiny Odds: Rates & Methods（56） | Pokemon Sword and Shield Shiny Odds | 158 | 1493 | 内容+工具 |
+| 33 | `/pokemon-legends-arceus-shiny-odds/` | pokemon legends arceus shiny odds | Pokemon Legends: Arceus Shiny Odds: Full Rates & Methods（60） | Pokemon Legends: Arceus Shiny Odds | 158 | 1340 | 内容+工具 |
+| 34 | `/pokemon-brilliant-diamond-shining-pearl-shiny-odds/` | pokemon brilliant diamond shining pearl shiny odds | Pokemon Brilliant Diamond & Shining Pearl Shiny Odds（56） | Pokemon Brilliant Diamond & Shining Pearl Shiny Odds | 157 | 1508 | 内容+工具 |
+| 35 | `/pokemon-lets-go-shiny-odds/` | pokemon lets go shiny odds | Pokemon Let's Go Shiny Odds: Combo Rates & Methods（54） | Pokemon Let's Go Shiny Odds | 151 | 1328 | 内容+工具 |
 
 ## 备注
 
