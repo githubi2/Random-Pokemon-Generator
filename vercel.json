@@ -16,6 +16,11 @@
   ],
   "redirects": [
     {
+      "source": "/links/index.html",
+      "destination": "/links/",
+      "permanent": true
+    },
+    {
       "source": "/nuzlocke-generator/index.html",
       "destination": "/nuzlocke-generator/",
       "permanent": true

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /links/
 
 Sitemap: https://www.random-pokemon-generator.co/sitemap.xml
