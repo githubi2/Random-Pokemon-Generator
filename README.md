@@ -22,6 +22,7 @@ A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero de
 | 🧬 Eevee Evolutions | [/eevee-evolutions/](https://www.random-pokemon-generator.co/eevee-evolutions/) | All 8 Eevee evolutions compared: types, stats, evolution methods and team roles |
 | ⚔️ Type Chart | [/pokemon-type-chart/](https://www.random-pokemon-generator.co/pokemon-type-chart/) | 18-type effectiveness grid + dual-type damage calculator, per-type weaknesses at a glance |
 | 🎯 IV Calculator | [/pokemon-iv-calculator/](https://www.random-pokemon-generator.co/pokemon-iv-calculator/) | Reverse-engineer hidden IVs (0-31) from level, nature, EVs and shown stats — all 1,025 species |
+| 📅 Release Dates | [/pokemon-release-dates/](https://www.random-pokemon-generator.co/pokemon-release-dates/) | Every Pokemon TCG release date — the next set, the 2025-2026 set list in order, and a month-by-month calendar |
 | 📖 Pokemon Pokedex | [/pokemon/](https://www.random-pokemon-generator.co/pokemon/) | Growing encyclopedia of Pokemon stats, matchups, abilities & evolution lines (Gen 1-9) |
 | 🌱 Bulbasaur | [/pokemon/bulbasaur/](https://www.random-pokemon-generator.co/pokemon/bulbasaur/) | Species page: stats, weaknesses, abilities and evolution for the Kanto grass starter |
 | 🐉 Charizard | [/pokemon/charizard/](https://www.random-pokemon-generator.co/pokemon/charizard/) | Species page: stats, type matchups, abilities and Mega forms for the Kanto fire starter |
@@ -176,6 +177,10 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 │   └── og-image.png
 ├── eevee-evolutions/
 │   ├── index.html                    # all 8 Eevee evolutions compared (types, stats, methods)
+│   └── og-image.png
+├── pokemon-release-dates/
+│   ├── index.html                    # TCG release dates + set list + calendar page
+│   ├── release-dates.js              # set filter, release countdown, collected checklist
 │   └── og-image.png
 ├── pokemon-card-generator/
 │   ├── index.html                    # pokemon card generator page

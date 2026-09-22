@@ -201,6 +201,11 @@
       "permanent": true
     },
     {
+      "source": "/pokemon-release-dates/index.html",
+      "destination": "/pokemon-release-dates/",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true
