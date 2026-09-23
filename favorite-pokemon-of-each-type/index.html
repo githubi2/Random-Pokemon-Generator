@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favorite Pokemon of Each Type – Pick All 18 &amp; Download</title>
+  <meta name="description" content="Favorite Pokemon of Each Type: pick one favorite for all 18 types, add your trainer name, and download the finished grid as a PNG. All 1,025 species, Gen 1-9." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/favorite-pokemon-of-each-type/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Favorite Pokemon of Each Type – Pick All 18 &amp; Download" />
+  <meta property="og:description" content="Favorite Pokemon of Each Type: pick one favorite for all 18 types, add your trainer name, and download the finished grid as a PNG. All 1,025 species, Gen 1-9." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/favorite-pokemon-of-each-type/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/favorite-pokemon-of-each-type/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Favorite Pokemon of Each Type – Pick All 18 &amp; Download" />
+  <meta name="twitter:description" content="Favorite Pokemon of Each Type: pick one favorite for all 18 types, add your trainer name, and download the finished grid as a PNG. All 1,025 species, Gen 1-9." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/favorite-pokemon-of-each-type/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260910a" />
+
+  <style>
+    /* page-scoped: 18-slot grid, picker pool, trainer name row */
+    .fet-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 16px 0 4px; }
+    .fet-slot { position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 10px 8px 8px; min-height: 148px; background: #fff; border: 2px dashed rgba(18, 18, 18, 0.28); border-radius: 12px; cursor: pointer; font: inherit; color: inherit; text-align: center; }
+    .fet-slot:hover { border-color: var(--ink); }
+    .fet-slot.filled { border-style: solid; border-color: var(--ink); }
+    .fet-slot .fet-tag { font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #121212; border-radius: 999px; padding: 3px 10px; }
+    .fet-slot img { width: 76px; height: 76px; object-fit: contain; }
+    .fet-slot .fet-name { font-size: 12.5px; font-weight: 700; line-height: 1.25; }
+    .fet-slot .fet-empty { font-size: 12.5px; color: rgba(18, 18, 18, 0.5); margin-top: 20px; }
+    .fet-slot.active { outline: 3px solid var(--ink); outline-offset: 2px; }
+    .fet-name-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .fet-name-row label { font-size: 13.5px; font-weight: 700; }
+    .fet-name-row input { flex: 1 1 200px; max-width: 320px; }
+    .fet-pool { display: grid; grid-template-columns: repeat(auto-fill, minmax(98px, 1fr)); gap: 8px; max-height: 52vh; overflow: auto; padding: 4px 2px; margin-top: 10px; }
+    .fet-item { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 4px; background: #fff; border: 1px solid rgba(18, 18, 18, 0.18); border-radius: 10px; cursor: pointer; font: inherit; color: inherit; }
+    .fet-item:hover { border-color: var(--ink); }
+    .fet-item img { width: 64px; height: 64px; object-fit: contain; }
+    .fet-item .fet-item-name { font-size: 11.5px; font-weight: 700; line-height: 1.2; text-align: center; word-break: break-word; }
+    .fet-item.current { border: 2px solid var(--ink); }
+    .fet-item.used { opacity: 0.55; }
+    #fet-modal .modal-title, #share-modal .modal-title { font-size: 22px; font-weight: 900; margin: 6px 0 10px; }
+    #fet-modal .tp-input { width: 100%; }
+    @media (max-width: 980px) { .fet-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+    @media (max-width: 620px) { .fet-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .fet-slot { min-height: 132px; } }
+  </style>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Favorite Pokemon of Each Type",
+    "description": "An 18-slot grid for picking one favorite Pokemon per type, with a downloadable 1080 x 1080 PNG grid and share links.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://www.random-pokemon-generator.co/favorite-pokemon-of-each-type/"
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Random Pokemon Generator", "item": "https://www.random-pokemon-generator.co/" },
+      { "@type": "ListItem", "position": 2, "name": "Favorite Pokemon of Each Type", "item": "https://www.random-pokemon-generator.co/favorite-pokemon-of-each-type/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a favorite Pokemon of each type list?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It is one pick for every type on the chart — the single Pokemon you would keep if each type could send only one. Eighteen answers work as a trainer signature: they say more about your taste than a top ten ever could." }
+      },
+      {
+        "@type": "Question",
+        "name": "How many Pokemon do I have to pick?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Eighteen, one per slot. A dual-type Pokemon can answer for both of its types if it is your top choice in each one, so a finished grid sometimes shows the same species twice — that is the rule, not a bug." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I have to fill all 18 types?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. The grid saves with whatever you have filled, and empty slots render as dashed outlines with the type name, so a partial chart still looks deliberate. Stuck on a type you never use? The random fill completes the gaps from that type's own pool." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I change a pick after selecting it?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Any time. Open the slot again and choose differently — the old pick steps aside, the rest of the grid is untouched, and nothing is locked in until you download." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I download my favorite Pokemon of each type as an image?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Press Download PNG. The grid is drawn at 1080 x 1080 — square, so it posts to X, Instagram or a Discord thread without cropping — and the file is generated on your device. Nothing is uploaded, and no account is involved." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I share my 18 favorites with someone?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Press Copy My Favorites and you get a link that rebuilds your exact picks, trainer name included, on any device. Friends can open it to see your grid or clear it and start their own." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this tool free? Do I need an account?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Free, and no account. The grid, the PNG download and the share links all run in your browser, which is also why your picks stay on your device until you send the link or save the image." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this an official Pokemon site?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. This is an unofficial fan project with no connection to Nintendo, Game Freak, Creatures Inc. or The Pokemon Company. Pokemon and Pokemon character names are trademarks of their respective owners." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+  }
+  </script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+              <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+              <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+              <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
+              <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
+              <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">Blog</a></li>
+          <li><a href="#how" class="nav-link">How It Works</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">18 Types · 1,025 Pokemon · PNG Grid · No Sign-Up</p>
+      <h1 id="page-title">Favorite Pokemon of Each Type</h1>
+      <p class="lede">Eighteen slots, one question each: which Pokemon is your favorite of each type? Claim your all-timer for Fire, Water, Ghost and every other type on the chart, add a trainer name if you want one on the card, and download the finished grid as a single PNG. No account and no upload — your picks live in this browser until you take them somewhere else.</p>
+    </section>
+
+    <!-- Tool -->
+    <section class="container tool-panel" id="tool" aria-label="Favorite Pokemon of Each Type grid tool">
+      <div class="panel cornered">
+        <p class="tool-hint">Tap a type slot, choose one favorite for that type, and the grid keeps count. Fill what you like — the empty slots can wait, or let the random fill close the gaps for you.</p>
+
+        <div class="fet-grid" id="fet-grid" role="group" aria-label="18 type slots"></div>
+
+        <div class="actions">
+          <button type="button" id="fet-fill" class="btn-slide cornered btn-secondary">
+            <span>🎲 Fill Remaining at Random</span>
+          </button>
+          <button type="button" id="fet-download" class="btn-slide cornered btn-primary">
+            <span>⬇ Download PNG</span>
+          </button>
+          <button type="button" id="fet-copy" class="btn-slide cornered btn-secondary">
+            <span>📋 Copy My Favorites</span>
+          </button>
+          <button type="button" id="fet-reset" class="btn-text">Reset All</button>
+          <span class="pool-count" id="fet-count" aria-live="polite">Picked 0 / 18</span>
+        </div>
+
+        <div class="fet-name-row">
+          <label for="fet-name">Trainer name (optional — it appears on the grid)</label>
+          <input type="text" id="fet-name" class="tp-input" maxlength="24" placeholder="e.g. Red" autocomplete="off" />
+        </div>
+
+        <div class="tool-note-group">
+          <p class="tool-note">🎲 Fill Remaining at Random — completes every empty slot from that type's own pool.</p>
+          <p class="tool-note">⬇ Download PNG — saves the whole grid as one 1080 x 1080 image, ready for posts and chats.</p>
+          <p class="tool-note">📋 Copy My Favorites — copies a link that restores all 18 picks, trainer name included.</p>
+        </div>
+        <p class="tool-note" id="fet-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2 id="how-title">How to Pick Your Favorite Pokemon of Each Type</h2>
+        <p class="odds-lede">The rules are short: one favorite per type, eighteen slots, no wrong answers. Here is the whole walkthrough — picking, filling, downloading, and where a list like this travels once it leaves the browser.</p>
+        <div class="how-grid">
+          <article>
+            <h3>One pick per type, eighteen in total</h3>
+            <p>Start wherever the answer comes fastest. Tap a slot — Water, Fire, whatever you are sure about — and the picker opens that type's full roster: every Pokemon in the dex that carries the type, from the famous names to the ones only you remember. Choose one and the slot locks in with its artwork, while the counter next to the buttons keeps score of what is left. The pools are honest to the type, too: Water is the deepest list at 192 entries, Ice the shortest at 69, and alternate forms like Megas and regional variants count where they belong.</p>
+            <p>Everything you tap is saved in your browser immediately, so a refresh never costs you a decision. No login, no timer — the grid waits, and you can leave a hard type empty and come back to it tomorrow.</p>
+          </article>
+          <article>
+            <h3>Why a grid beats a screenshot</h3>
+            <p>The usual way to answer this question is to type eighteen names into a post and hope the formatting survives. Screenshots of a text list go blurry in a phone thread, retyping invites typos, and a typo in a favorites list is exactly how arguments start. This page hands you a finished image instead: a 1080 x 1080 PNG arranged in type order, with your trainer name across the top if you added one.</p>
+            <p>It is the same format people already paste into group chats and social feeds — except it starts clean, stays legible at any size, and never loses a slot to a line break. Download it once and it is yours to post, print, or keep as a bookmark of your taste.</p>
+          </article>
+          <article>
+            <h3>How dual-type favorites work</h3>
+            <p>Plenty of Pokemon hold two types at once, and the grid is built around that fact rather than against it. Every slot's list shows everything that carries the type, whether it is the Pokemon's first type or its second, so a Fire shortlist naturally includes Fire/Ground, Fire/Flying and everything in between. If the same Pokemon is genuinely your favorite in both of its types, let it take both slots — the chart still reads as one favorite per type, and a species is allowed to be the answer wherever it belongs.</p>
+            <p>That matches how the site's other tools treat types: the Random Pokemon Picker's "Type (any of)" filter reads a dual-type the same way, so the two pages never contradict each other.</p>
+          </article>
+          <article>
+            <h3>Where your 18 favorites can go</h3>
+            <p>A list like this is made to be shown. It works as a profile image, a pinned post, a greeting in a Discord server, or the opening move in a debate about which Water type actually deserves the slot. Add your trainer name before downloading and the grid carries your signature the way a card does.</p>
+            <p>And if someone asks how you made it, the share link rebuilds your exact eighteen picks on their screen — they can start from yours, argue with one slot, or clear it and build their own list from scratch.</p>
+          </article>
+          <article>
+            <h3>Keep building from your favorites</h3>
+            <p>Your grid is a snapshot of taste, and a fine starting point for the rest of the site's tools. Turn any pick into a printable card with the <a href="../pokemon-card-generator/">Pokemon Card Generator</a>, or line all eighteen up and see which six actually hold together in the <a href="../pokemon-team-picker/">Pokemon Team Picker</a>. If you would rather let luck answer the slot, the <a href="../random-pokemon-picker/">Random Pokemon Picker</a> draws for you in one tap.</p>
+            <p>Two more stops for the type-curious: the <a href="../pokemon-type-chart/">Pokemon Type Chart</a> lays out the full 18-type matchup matrix, and the <a href="../pokemon/">Pokemon Pokedex</a> has a page for every species — useful when two candidates are tied and the stats have to settle it.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Favorite Pokemon of Each Type FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>What is a favorite Pokemon of each type list?</summary>
+        <p>It is one pick for every type on the chart — the single Pokemon you would keep if each type could send only one. Eighteen answers work as a trainer signature: they say more about your taste than a top ten ever could.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How many Pokemon do I have to pick?</summary>
+        <p>Eighteen, one per slot. A dual-type Pokemon can answer for both of its types if it is your top choice in each one, so a finished grid sometimes shows the same species twice — that is the rule, not a bug.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Do I have to fill all 18 types?</summary>
+        <p>No. The grid saves with whatever you have filled, and empty slots render as dashed outlines with the type name, so a partial chart still looks deliberate. Stuck on a type you never use? The random fill completes the gaps from that type's own pool.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I change a pick after selecting it?</summary>
+        <p>Any time. Open the slot again and choose differently — the old pick steps aside, the rest of the grid is untouched, and nothing is locked in until you download.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How do I download my favorite Pokemon of each type as an image?</summary>
+        <p>Press Download PNG. The grid is drawn at 1080 x 1080 — square, so it posts to X, Instagram or a Discord thread without cropping — and the file is generated on your device. Nothing is uploaded, and no account is involved.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I share my 18 favorites with someone?</summary>
+        <p>Press Copy My Favorites and you get a link that rebuilds your exact picks, trainer name included, on any device. Friends can open it to see your grid or clear it and start their own.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Is this tool free? Do I need an account?</summary>
+        <p>Free, and no account. The grid, the PNG download and the share links all run in your browser, which is also why your picks stay on your device until you send the link or save the image.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Is this an official Pokemon site?</summary>
+        <p>No. This is an unofficial fan project with no connection to Nintendo, Game Freak, Creatures Inc. or The Pokemon Company. Pokemon and Pokemon character names are trademarks of their respective owners.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">Who's That Pokemon</a></li>
+          <li><a href="../pokemon-team-picker/">Pokemon Team Picker</a></li>
+          <li><a href="../pokemon-type-chart/">Pokemon Type Chart</a></li>
+          <li><a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a></li>
+          <li><a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a></li>
+          <li><a href="../random-pokemon-type-generator/">Random Pokemon Type Generator</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">Random Legendary Pokemon Generator</a></li>
+          <li><a href="../pokemon/">Pokemon Pokedex</a></li>
+          <li><a href="../blog/">Blog</a></li>
+          <li><a href="../privacy-policy/">Privacy Policy</a></li>
+          <li><a href="../about/">About &amp; Contact</a></li>
+          <li><a href="../terms-of-use/">Terms of Use</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator, an unofficial fan project. Not affiliated with Nintendo, Game Freak, Creatures Inc., or The Pokémon Company.</p>
+      <p class="footer-note">Pokémon and Pokémon character names are trademarks of their respective owners. Data and images sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Slot picker modal -->
+  <div class="modal-overlay" id="fet-modal" hidden>
+    <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="fet-modal-title">
+      <p class="eyebrow">Pick your favorite</p>
+      <h2 class="modal-title" id="fet-modal-title">Choose a Pokemon</h2>
+      <div class="modal-body">
+        <input type="search" id="fet-search" class="tp-input" placeholder="Search this type's list..." aria-label="Search the type pool" autocomplete="off" />
+        <div class="fet-pool" id="fet-pool"></div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-slide btn-secondary" id="fet-clear"><span>Clear this slot</span></button>
+        <button type="button" class="btn-slide btn-secondary" id="fet-close"><span>Close</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copy-manually fallback modal -->
+  <div class="modal-overlay" id="share-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="share-modal-title">
+      <h2 class="modal-title" id="share-modal-title">Copy manually</h2>
+      <div class="modal-body">
+        <p class="tool-note">Your browser blocked auto-copy — the text below is selected. Press Ctrl+C (or long-press) to copy it.</p>
+        <textarea class="share-modal-text" id="share-modal-text" readonly></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-slide btn-secondary" id="share-modal-close"><span>Close</span></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../data.js?v=20260802q"></script>
+  <script src="../nav.js?v=20260802q"></script>
+  <script src="favorite-each-type.js?v=20260924a"></script>
+</body>
+</html>
