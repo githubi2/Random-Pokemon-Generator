@@ -34,6 +34,8 @@ print('=== 1. full-site words ===')
 n_pages = 0
 for path in sorted(glob.glob(os.path.join(root, '**', 'index.html'), recursive=True)):
     rel = os.path.relpath(path, root).replace(os.sep, '/')
+    if rel.startswith('links/'):
+        continue  # noindex partner page (exempt)
     w = word_count(read(path))
     n_pages += 1
     if w < 1200:

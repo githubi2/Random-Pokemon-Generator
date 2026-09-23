@@ -25,6 +25,8 @@ words_map = {}
 bad = []
 for path in sorted(glob.glob(os.path.join(root, '**', 'index.html'), recursive=True)):
     rel = os.path.relpath(path, root).replace(os.sep, '/')
+    if rel.startswith('links/'):
+        continue  # noindex partner page: link list, not search-facing content (exempt)
     w = word_count(read(path))
     words_map[rel] = w
     if w < 1200:

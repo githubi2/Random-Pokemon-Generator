@@ -142,10 +142,12 @@ pages = []
 for dirpath, dirnames, filenames in os.walk(ROOT):
     if "index.html" in filenames and not os.path.relpath(dirpath, ROOT).startswith("_"):
         pages.append(os.path.join(dirpath, "index.html"))
-ok("page count 40", len(pages) == 40, len(pages))
+ok("page count 47", len(pages) == 47, len(pages))  # wave-1 released: 40 + 7 species pages
 
 missing_nav = []
 for hp in pages:
+    if os.path.relpath(hp, ROOT).replace(os.sep, "/").startswith("links/"):
+        continue  # noindex partner page: no site nav by design (exempt)
     s = io.open(hp, encoding="utf-8").read()
     c1 = s.count(">Random Pokemon Type Generator</a>")
     c2 = s.count(">Random Legendary Pokemon Generator</a>")
@@ -156,7 +158,7 @@ ok("every page has both new tools (>=2)", not missing_nav, missing_nav[:8])
 # sitemap
 sp = io.open(os.path.join(ROOT, "sitemap.xml"), encoding="utf-8").read()
 locs = re.findall(r"<loc>(.*?)</loc>", sp)
-ok("sitemap 40 urls", len(locs) == 40, len(locs))
+ok("sitemap 46 urls", len(locs) == 46, len(locs))  # wave-1: 39 live + 7 new
 ok("sitemap new urls", "random-pokemon-type-generator/" in sp and "random-legendary-pokemon-generator/" in sp)
 unresolved = []
 for l in locs:
