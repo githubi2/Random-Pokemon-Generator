@@ -1,6 +1,6 @@
 /* ============================================================
    Favorite Pokemon of Each Type — 18-slot grid engine
-   Flow: tap a type slot -> pick from that type's pool -> the grid
+   Flow: click a type slot -> pick from that type's pool -> the grid
    fills up -> download a 1080 x 1080 PNG or copy a share link.
    Data: window.POKEMON_DATA (data.js). Artwork: PokeAPI sprites on
    raw.githubusercontent (CORS-ok: sends ACAO:*, so the export uses
@@ -355,7 +355,7 @@
         if (art) ctx.drawImage(art, ax, ay, aw, aw);
         var dn = displayName(p.n);
         var maxw = w - 18;
-        var fs = 24;
+        var fs = 24, lines = [dn];
         ctx.font = 'bold ' + fs + 'px Arial, sans-serif';
         ctx.fillStyle = '#121212';
         while (ctx.measureText(dn).width > maxw && fs > 15) {
@@ -363,10 +363,31 @@
           ctx.font = 'bold ' + fs + 'px Arial, sans-serif';
         }
         if (ctx.measureText(dn).width > maxw) {
-          while (dn.length > 1 && ctx.measureText(dn + '\u2026').width > maxw) dn = dn.slice(0, -1);
-          dn = dn + '\u2026';
+          /* long form names go to two lines (e.g. "Tauros Paldea" / "Aqua Breed") */
+          var words = dn.split(' ');
+          var wrap = null;
+          for (var f2 = 24; f2 >= 15 && !wrap; f2 -= 2) {
+            ctx.font = 'bold ' + f2 + 'px Arial, sans-serif';
+            for (var k = 1; k < words.length; k++) {
+              var l1 = words.slice(0, k).join(' ');
+              var l2 = words.slice(k).join(' ');
+              if (ctx.measureText(l1).width <= maxw && ctx.measureText(l2).width <= maxw) { wrap = [l1, l2]; fs = f2; break; }
+            }
+          }
+          if (wrap) {
+            lines = wrap;
+          } else {
+            while (dn.length > 1 && ctx.measureText(dn + '\u2026').width > maxw) dn = dn.slice(0, -1);
+            lines = [dn + '\u2026'];
+            ctx.font = 'bold 15px Arial, sans-serif';
+          }
         }
-        ctx.fillText(dn, x + w / 2, ay + aw + 26);
+        if (lines.length === 2) {
+          ctx.fillText(lines[0], x + w / 2, ay + aw + 16);
+          ctx.fillText(lines[1], x + w / 2, ay + aw + 40);
+        } else {
+          ctx.fillText(lines[0], x + w / 2, ay + aw + 26);
+        }
       }
     });
   }
@@ -395,7 +416,8 @@
         var data = canvas.toDataURL('image/png');
         var a = document.createElement('a');
         a.href = data;
-        a.download = 'favorite-pokemon-of-each-type.png';
+        var fname = (state.name || '').trim().toLowerCase().split(' ').join('-');
+        a.download = (fname || 'favorite') + '-pokemon-of-each-type.png';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
