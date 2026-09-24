@@ -194,6 +194,25 @@ for rel, label in NEW:
     else:
         print('  %-10s desc %d-tail OK | 3-place OK | weakness set %s (n=%s) OK' % (label, len(d), sorted(card_set), faq_n))
 
+print('=== 2c. no-evolution-line page checks (mewtwo) ===')
+m2 = read(os.path.join(root, 'pokemon/mewtwo/index.html'))
+fields = re.findall(r'<meta (?:name|property)="(?:description|og:description|twitter:description)" content="([^"]*)"', m2)
+wp_desc = None
+for ld in re.findall(r'<script type="application/ld\+json">(.*?)</script>', m2, re.S):
+    try:
+        jj = json.loads(ld)
+    except Exception:
+        continue
+    if isinstance(jj, dict) and jj.get('@type') == 'WebPage':
+        wp_desc = jj.get('description')
+bad_fields = [f for f in (fields + [wp_desc]) if f and 'evolution line' in f.lower()]
+if bad_fields:
+    errors.append('[mewtwo] no-evolution-line: desc fields still mention evolution line (%d)' % len(bad_fields))
+if 'Evolution stage: none' not in m2:
+    errors.append('[mewtwo] tool-note is not "Evolution stage: none"')
+if not bad_fields and 'Evolution stage: none' in m2:
+    print('  mewtwo: 4 desc fields clean | tool-note = none | OK (正文 "no evolution line" 为正确用法，保留)')
+
 print('=== 3. sitemap ===')
 try:
     tree = ET.parse(os.path.join(root, 'sitemap.xml'))
