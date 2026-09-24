@@ -284,9 +284,7 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 ├── og-image.png                      # social card (homepage)
 ├── sitemap.xml                       # XML sitemap for search engines
 ├── robots.txt
-├── vercel.json                       # index.html → directory URL redirects
-├── SEO-KEYWORDS.md                   # keyword baseline for all live pages
-└── AGENTS.md                         # project rules (SEO-first workflow)
+└── vercel.json\1
 ```
 
 ## Roadmap
