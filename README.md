@@ -1,6 +1,6 @@
 # Random Pokemon Generator
 
-A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero dependencies, no build step. Thirteen tools plus a blog: generators, games, planners, reference tools, and card makers.
+A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero dependencies, no build step. Generators, games, planners, reference tools, card makers, a blog, and a growing Pokedex.
 
 **Live: [https://www.random-pokemon-generator.co/](https://www.random-pokemon-generator.co/)**
 
@@ -23,6 +23,16 @@ A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero de
 | ⚔️ Type Chart | [/pokemon-type-chart/](https://www.random-pokemon-generator.co/pokemon-type-chart/) | 18-type effectiveness grid + dual-type damage calculator, per-type weaknesses at a glance |
 | 🎯 IV Calculator | [/pokemon-iv-calculator/](https://www.random-pokemon-generator.co/pokemon-iv-calculator/) | Reverse-engineer hidden IVs (0-31) from level, nature, EVs and shown stats — all 1,025 species |
 | 📖 Pokemon Pokedex | [/pokemon/](https://www.random-pokemon-generator.co/pokemon/) | Growing encyclopedia of Pokemon stats, matchups, abilities & evolution lines (Gen 1-9) |
+| 🌱 Bulbasaur | [/pokemon/bulbasaur/](https://www.random-pokemon-generator.co/pokemon/bulbasaur/) | Species page: stats, weaknesses, abilities and evolution for the Kanto grass starter |
+| 🐉 Charizard | [/pokemon/charizard/](https://www.random-pokemon-generator.co/pokemon/charizard/) | Species page: stats, type matchups, abilities and Mega forms for the Kanto fire starter |
+| ⚡ Pikachu | [/pokemon/pikachu/](https://www.random-pokemon-generator.co/pokemon/pikachu/) | Species page: stats, type matchups, abilities and evolution for the franchise mascot |
+| 🔥 Charmander | [/pokemon/charmander/](https://www.random-pokemon-generator.co/pokemon/charmander/) | Species page: stats, weaknesses, abilities and evolution for the Kanto fire starter |
+| 💧 Squirtle | [/pokemon/squirtle/](https://www.random-pokemon-generator.co/pokemon/squirtle/) | Species page: stats, weaknesses, abilities and evolution for the classic Kanto water starter |
+| 🦊 Eevee | [/pokemon/eevee/](https://www.random-pokemon-generator.co/pokemon/eevee/) | Species page: stats, abilities and the eight-way evolution fan for Eevee |
+| 👻 Gengar | [/pokemon/gengar/](https://www.random-pokemon-generator.co/pokemon/gengar/) | Species page: stats, immunities and battle tips for the Ghost/Poison shadow |
+| 🌀 Mewtwo | [/pokemon/mewtwo/](https://www.random-pokemon-generator.co/pokemon/mewtwo/) | Species page: stats, matchups and battle tips for the Psychic-type legendary |
+| 👊 Lucario | [/pokemon/lucario/](https://www.random-pokemon-generator.co/pokemon/lucario/) | Species page: stats, weaknesses and the Riolu friendship evolution for the Aura Pokemon |
+| 🥷 Greninja | [/pokemon/greninja/](https://www.random-pokemon-generator.co/pokemon/greninja/) | Species page: stats, weaknesses and the Froakie evolution line for the ninja starter |
 | 🃏 Card Generator | [/pokemon-card-generator/](https://www.random-pokemon-generator.co/pokemon-card-generator/) | Make your own Pokemon card: photo upload, Classic/Modern/TCG Pocket templates, rarity finishes, PNG download |
 | 🎫 Trainer Card Generator | [/pokemon-trainer-card-generator/](https://www.random-pokemon-generator.co/pokemon-trainer-card-generator/) | Design a Pokemon trainer card: Classic/Modern styles, badges, partner Pokemon, battle stats, PNG download |
 | 🎡 Type Generator | [/random-pokemon-type-generator/](https://www.random-pokemon-generator.co/random-pokemon-type-generator/) | Random type roller with a spinning 18-type wheel — singles, dual combos, matchup summaries and rare-combo counts |
@@ -275,13 +285,13 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 ├── sitemap.xml                       # XML sitemap for search engines
 ├── robots.txt
 ├── vercel.json                       # index.html → directory URL redirects
-├── SEO-KEYWORDS.md                   # keyword baseline for all 11 pages
+├── SEO-KEYWORDS.md                   # keyword baseline for all live pages
 └── AGENTS.md                         # project rules (SEO-first workflow)
 ```
 
 ## Roadmap
 
-The Pokedex grows in waves. Wave 1 (the hub plus Bulbasaur, Charizard and Pikachu) is live. Wave 2 is built and ships after Wave 1 settles in Search: Charmander, Squirtle, Eevee, Gengar, Mewtwo, Lucario and Greninja. Later waves follow the same pattern, and data corrections reported through issues land in the wave after they are verified.
+The Pokedex grows in waves. Ten species pages plus the hub are live: Bulbasaur, Charizard, Pikachu, Charmander, Squirtle, Eevee, Gengar, Mewtwo, Lucario and Greninja. Later waves follow the same pattern, and data corrections reported through issues land in the wave after they are verified.
 
 ## License
 
