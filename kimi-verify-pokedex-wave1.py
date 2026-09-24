@@ -153,6 +153,47 @@ for rel, label in NEW:
     if core < 3: errors.append('[%s] core links %d < 3' % (label, core)); ok = False
     print('  %-10s title=%d desc=%d words=%d faq=%d links_ok=%s' % (label, len(title), len(desc), words, len(faq_vis), 'pass' if ok else 'FAIL'))
 
+print('=== 2b. desc & weakness assertions (2026-09-24 fix batch) ===')
+# 断言 ④（定形）：弱点三方一致性 = 集合相等 + 计数互证（写死，不留自由发挥）：
+#   desc_set = set(description "weak to ..." 列出的类型)
+#   card_set = set(弱点卡类型 chips)
+#   faq_n    = 全页文本扫描 "n weaknesses" 中的整数 n（不得只扫 FAQ 区块）
+#   断言：desc_set == card_set 且 len(card_set) == faq_n
+TYPES18 = ['Normal', 'Fire', 'Water', 'Electric', 'Grass', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying',
+           'Psychic', 'Bug', 'Rock', 'Ghost', 'Dragon', 'Dark', 'Steel', 'Fairy']
+NUMWORD = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9}
+STOPTAIL = ('and', 'the', 'of', 'with', 'to', 'for', 'a', 'but', 'or')
+for rel, label in NEW:
+    html = read(os.path.join(root, rel, 'index.html'))
+    descs = re.findall(r'<meta (?:name|property)="(?:description|og:description|twitter:description)" content="([^"]*)"', html)
+    if not descs:
+        errors.append('[%s] desc missing' % label)
+        continue
+    d = descs[0]
+    tail = re.sub(r'[."]+$', '', d).split()[-1].lower() if d.split() else ''
+    if not d.endswith('.') or tail in STOPTAIL:
+        errors.append('[%s] desc tail suspicious: ...%s' % (label, d[-30:]))
+    if len(descs) != 3 or len(set(descs)) != 1:
+        errors.append('[%s] desc three-place mismatch (%d, %d unique)' % (label, len(descs), len(set(descs))))
+    if not (120 <= len(d) <= 160):
+        errors.append('[%s] desc len %d not in [120,160]' % (label, len(d)))
+    ms = re.search(r'weak to ([^.]+)\.', d)
+    desc_set = set(x.strip() for x in re.split(r',\s*|\s+and\s+', ms.group(1))) if ms else set()
+    i = html.find('Weakness (2x)')
+    j = html.find('</article>', i) if i >= 0 else -1
+    seg = html[i:j] if (i >= 0 and j > i) else ''
+    card_set = set(x for x in TYPES18 if re.search(r'>\s*' + x + r'\s*<', seg))
+    faq_n = None
+    for w in re.findall(r'\b([A-Za-z]+|\d+) weaknesses\b', html, re.I):
+        v = NUMWORD.get(w.lower()) or (int(w) if w.isdigit() else None)
+        if v:
+            faq_n = v
+            break
+    if desc_set != card_set or (faq_n is not None and faq_n != len(card_set)):
+        errors.append('[%s] weakness tri-check: desc=%s card=%s faq_n=%s' % (label, sorted(desc_set), sorted(card_set), faq_n))
+    else:
+        print('  %-10s desc %d-tail OK | 3-place OK | weakness set %s (n=%s) OK' % (label, len(d), sorted(card_set), faq_n))
+
 print('=== 3. sitemap ===')
 try:
     tree = ET.parse(os.path.join(root, 'sitemap.xml'))
