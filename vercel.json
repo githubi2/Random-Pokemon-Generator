@@ -206,6 +206,11 @@
       "permanent": true
     },
     {
+      "source": "/favorite-pokemon-of-each-type/index.html",
+      "destination": "/favorite-pokemon-of-each-type/",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true
