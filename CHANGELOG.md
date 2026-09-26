@@ -4,6 +4,7 @@ Site updates, newest first.
 
 ## September 2026
 
+- **09-26** — Wording updates on the Favorite Pokemon of Each Type and Champions Team Builder pages.
 - **09-26** — New page: Pokemon Release Dates — every TCG set date for 2025-2026 on one calendar, with a countdown to the next set.
 - **09-26** — New tool: Favorite Pokemon of Each Type — pick one favorite per type on an 18-slot grid, then export all eighteen as a single image.
 - **09-26** — New tool: Pokemon Champions Team Builder — Regulation M-C roster squad builder with items, Mega stones and Showdown export.
