@@ -24,6 +24,7 @@ A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero de
 | 🎯 IV Calculator | [/pokemon-iv-calculator/](https://www.random-pokemon-generator.co/pokemon-iv-calculator/) | Reverse-engineer hidden IVs (0-31) from level, nature, EVs and shown stats — all 1,025 species |
 | 📅 Release Dates | [/pokemon-release-dates/](https://www.random-pokemon-generator.co/pokemon-release-dates/) | Every Pokemon TCG release date — the next set, the 2025-2026 set list in order, and a month-by-month calendar |
 | ⭐ Favorite by Type | [/favorite-pokemon-of-each-type/](https://www.random-pokemon-generator.co/favorite-pokemon-of-each-type/) | One favorite per type on an 18-slot grid — export all eighteen picks as a single downloadable PNG |
+| 🏆 Champions Builder | [/pokemon-champions-team-builder/](https://www.random-pokemon-generator.co/pokemon-champions-team-builder/) | Regulation M-C roster team builder — legal names, Mega stones, singles/doubles picks, Showdown export |
 | 📖 Pokemon Pokedex | [/pokemon/](https://www.random-pokemon-generator.co/pokemon/) | Growing encyclopedia of Pokemon stats, matchups, abilities & evolution lines (Gen 1-9) |
 | 🌱 Bulbasaur | [/pokemon/bulbasaur/](https://www.random-pokemon-generator.co/pokemon/bulbasaur/) | Species page: stats, weaknesses, abilities and evolution for the Kanto grass starter |
 | 🐉 Charizard | [/pokemon/charizard/](https://www.random-pokemon-generator.co/pokemon/charizard/) | Species page: stats, type matchups, abilities and Mega forms for the Kanto fire starter |
@@ -186,6 +187,11 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 ├── favorite-pokemon-of-each-type/
 │   ├── index.html                    # 18-slot favorite-per-type grid + PNG export + share links
 │   ├── favorite-each-type.js         # slot grid, type pools, canvas export, share encoding
+│   └── og-image.png
+├── pokemon-champions-team-builder/
+│   ├── index.html                    # Champions M-C roster team builder page
+│   ├── champions-team-builder.js     # squad engine (six slots, type matrix, Mega stones, Showdown I/O)
+│   ├── champions-data.js             # M-C roster dataset (247 names + 81 Mega)
 │   └── og-image.png
 ├── pokemon-card-generator/
 │   ├── index.html                    # pokemon card generator page

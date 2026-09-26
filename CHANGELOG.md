@@ -6,6 +6,7 @@ Site updates, newest first.
 
 - **09-26** — New page: Pokemon Release Dates — every TCG set date for 2025-2026 on one calendar, with a countdown to the next set.
 - **09-26** — New tool: Favorite Pokemon of Each Type — pick one favorite per type on an 18-slot grid, then export all eighteen as a single image.
+- **09-26** — New tool: Pokemon Champions Team Builder — Regulation M-C roster squad builder with items, Mega stones and Showdown export.
 - **09-24** — Description, cross-link and FAQ wording updates on the new species pages.
 - **09-24** — Seven new species pages join the Pokedex — Charmander, Squirtle, Eevee, Gengar, Mewtwo, Lucario and Greninja; the hub now covers ten species.
 - **09-24** — Trainer Card and IV Calculator pages updated.

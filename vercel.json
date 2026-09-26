@@ -211,6 +211,11 @@
       "permanent": true
     },
     {
+      "source": "/pokemon-champions-team-builder/index.html",
+      "destination": "/pokemon-champions-team-builder/",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true
