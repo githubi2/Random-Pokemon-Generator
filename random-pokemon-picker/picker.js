@@ -74,6 +74,7 @@
 
   /* ---------------- UI construction ---------------- */
   function buildToggleButtons(container, items, current, onToggle) {
+    container.innerHTML = '';   /* clear first: the chips are already in the HTML (fast first paint, no layout shift) */
     items.forEach(function (item) {
       var b = document.createElement('button');
       b.type = 'button';
@@ -92,6 +93,7 @@
   }
 
   function buildRadioButtons(container, items, value, onPick) {
+    container.innerHTML = '';   /* clear first: the chips are already in the HTML (fast first paint, no layout shift) */
     items.forEach(function (item) {
       var b = document.createElement('button');
       b.type = 'button';

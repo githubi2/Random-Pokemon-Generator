@@ -48,6 +48,14 @@
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
   <link rel="stylesheet" href="../styles.css?v=20260910a" />
 
+  <style>
+    /* Reserve the art box: the silhouette image is injected by script, so hold its final size up
+       front. Without it the box grows when the image lands and pushes the rest of the page down. */
+    .wtp-art { min-height: 280px; }
+    .wtp-mystery { min-height: 325px; }
+    @media (max-width: 760px) { .wtp-art { min-height: 230px; } .wtp-mystery { min-height: 275px; } }
+  </style>
+
   <!-- Structured data: SoftwareApplication -->
   <script type="application/ld+json">
   {
@@ -257,12 +265,12 @@
             <fieldset>
               <legend>Difficulty</legend>
               <p class="tool-note">Changes how the Pokemon is presented</p>
-              <div class="btn-row" id="wtp-difficulty" role="group" aria-label="Difficulty modes"></div>
+              <div class="btn-row" id="wtp-difficulty" role="group" aria-label="Difficulty modes"><button type="button" class="chip-btn" aria-pressed="false">Easy</button><button type="button" class="chip-btn" aria-pressed="true">Normal</button><button type="button" class="chip-btn" aria-pressed="false">Hard</button><button type="button" class="chip-btn" aria-pressed="false">Elite</button></div>
               <p class="tool-note" id="wtp-difficulty-desc"></p>
             </fieldset>
             <fieldset>
               <legend>Generation</legend>
-              <div class="btn-row" id="wtp-generation" role="group" aria-label="Generation filter"></div>
+              <div class="btn-row" id="wtp-generation" role="group" aria-label="Generation filter"><button type="button" class="chip-btn" aria-pressed="true">All Gens</button><button type="button" class="chip-btn" aria-pressed="false">Gen 1</button><button type="button" class="chip-btn" aria-pressed="false">Gen 2</button><button type="button" class="chip-btn" aria-pressed="false">Gen 3</button><button type="button" class="chip-btn" aria-pressed="false">Gen 4</button><button type="button" class="chip-btn" aria-pressed="false">Gen 5</button><button type="button" class="chip-btn" aria-pressed="false">Gen 6</button><button type="button" class="chip-btn" aria-pressed="false">Gen 7</button><button type="button" class="chip-btn" aria-pressed="false">Gen 8</button><button type="button" class="chip-btn" aria-pressed="false">Gen 9</button></div>
             </fieldset>
             <fieldset>
               <legend>Sound Effects</legend>

@@ -256,6 +256,9 @@
 
   var genChipEls = {}, typeChipEls = {}, stageChipEls = {}, rarityChipEls = [];
 
+  /* clear first: the chips are already in the HTML (fast first paint, no layout shift) */
+  genWrap.innerHTML = ''; typeWrap.innerHTML = ''; stageWrap.innerHTML = ''; rarityWrap.innerHTML = '';
+
   GENERATIONS.forEach(function (g) {
     var chip = makeChip('Gen ' + g, function (on) {
       var i = gens.indexOf(g);

@@ -170,12 +170,12 @@
       <form class="panel cornered" id="generator-form" action="#generator" method="get">
         <fieldset>
           <legend>Generation</legend>
-          <div class="btn-row" id="gen-buttons" role="group" aria-label="Filter by generation"></div>
+          <div class="btn-row" id="gen-buttons" role="group" aria-label="Filter by generation"><button type="button" class="chip-btn" aria-pressed="false">Gen 1</button><button type="button" class="chip-btn" aria-pressed="false">Gen 2</button><button type="button" class="chip-btn" aria-pressed="false">Gen 3</button><button type="button" class="chip-btn" aria-pressed="false">Gen 4</button><button type="button" class="chip-btn" aria-pressed="false">Gen 5</button><button type="button" class="chip-btn" aria-pressed="false">Gen 6</button><button type="button" class="chip-btn" aria-pressed="false">Gen 7</button><button type="button" class="chip-btn" aria-pressed="false">Gen 8</button><button type="button" class="chip-btn" aria-pressed="false">Gen 9</button></div>
         </fieldset>
 
         <fieldset>
           <legend>Type (any of)</legend>
-          <div class="btn-row" id="type-buttons" role="group" aria-label="Filter by type"></div>
+          <div class="btn-row" id="type-buttons" role="group" aria-label="Filter by type"><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#FF9D55;--chip-text:#121212">Fire</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#6890F0;--chip-text:#fff">Water</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#78C850;--chip-text:#121212">Grass</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#F8D030;--chip-text:#121212">Electric</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#98D8D8;--chip-text:#121212">Ice</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#C03028;--chip-text:#fff">Fighting</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#A040A0;--chip-text:#fff">Poison</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#E0C068;--chip-text:#121212">Ground</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#A890F0;--chip-text:#fff">Flying</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#F85888;--chip-text:#fff">Psychic</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#A8B820;--chip-text:#121212">Bug</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#B8A038;--chip-text:#fff">Rock</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#705898;--chip-text:#fff">Ghost</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#705848;--chip-text:#fff">Dark</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#7038F8;--chip-text:#fff">Dragon</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#B8B8D0;--chip-text:#121212">Steel</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#EE99AC;--chip-text:#121212">Fairy</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#A8A878;--chip-text:#121212">Normal</button></div>
         </fieldset>
 
         <fieldset>
@@ -188,7 +188,7 @@
           <div class="advanced-grid">
             <fieldset>
               <legend>Shiny</legend>
-              <div class="btn-row" id="shiny-buttons" role="group" aria-label="Shiny mode"></div>
+              <div class="btn-row" id="shiny-buttons" role="group" aria-label="Shiny mode"><button type="button" class="chip-btn" aria-pressed="true">Normal</button><button type="button" class="chip-btn" aria-pressed="false">Shiny</button><button type="button" class="chip-btn" aria-pressed="false">Random</button></div>
             </fieldset>
 
             <fieldset>
@@ -213,12 +213,12 @@
 
             <fieldset>
               <legend>Forms</legend>
-              <div class="btn-row" id="form-buttons" role="group" aria-label="Form filter"></div>
+              <div class="btn-row" id="form-buttons" role="group" aria-label="Form filter"><button type="button" class="chip-btn" aria-pressed="true">Default</button><button type="button" class="chip-btn" aria-pressed="false">Regional</button><button type="button" class="chip-btn" aria-pressed="false">All forms</button></div>
             </fieldset>
 
             <fieldset>
               <legend>Evolution stage</legend>
-              <div class="btn-row" id="stage-buttons" role="group" aria-label="Evolution stage filter"></div>
+              <div class="btn-row" id="stage-buttons" role="group" aria-label="Evolution stage filter"><button type="button" class="chip-btn" aria-pressed="true">All</button><button type="button" class="chip-btn" aria-pressed="false">Initial</button><button type="button" class="chip-btn" aria-pressed="false">Middle</button><button type="button" class="chip-btn" aria-pressed="false">Final</button></div>
             </fieldset>
 
             <fieldset class="bst-fieldset">
@@ -231,13 +231,13 @@
 
             <fieldset>
               <legend>Habitat (living area)</legend>
-              <div class="btn-row" id="habit-buttons" role="group" aria-label="Filter by habitat"></div>
+              <div class="btn-row" id="habit-buttons" role="group" aria-label="Filter by habitat"><button type="button" class="chip-btn" aria-pressed="false">Cave</button><button type="button" class="chip-btn" aria-pressed="false">Forest</button><button type="button" class="chip-btn" aria-pressed="false">Grassland</button><button type="button" class="chip-btn" aria-pressed="false">Mountain</button><button type="button" class="chip-btn" aria-pressed="false">Rare</button><button type="button" class="chip-btn" aria-pressed="false">Rough Terrain</button><button type="button" class="chip-btn" aria-pressed="false">Sea</button><button type="button" class="chip-btn" aria-pressed="false">Urban</button><button type="button" class="chip-btn" aria-pressed="false">Waters Edge</button></div>
               <p class="tool-note">Habitat data covers the classic dex (Gen 1-2 widely); picking a habitat narrows the pool to species tagged with one.</p>
             </fieldset>
 
             <fieldset>
               <legend>Pokédex color</legend>
-              <div class="color-row" id="color-buttons" role="group" aria-label="Filter by Pokédex color"></div>
+              <div class="color-row" id="color-buttons" role="group" aria-label="Filter by Pokédex color"><button type="button" class="color-dot" title="red" aria-label="Filter color red" aria-pressed="false" style="background: rgb(227, 53, 13);"></button><button type="button" class="color-dot" title="blue" aria-label="Filter color blue" aria-pressed="false" style="background: rgb(42, 117, 187);"></button><button type="button" class="color-dot" title="yellow" aria-label="Filter color yellow" aria-pressed="false" style="background: rgb(255, 203, 5);"></button><button type="button" class="color-dot" title="green" aria-label="Filter color green" aria-pressed="false" style="background: rgb(79, 157, 79);"></button><button type="button" class="color-dot" title="black" aria-label="Filter color black" aria-pressed="false" style="background: rgb(18, 18, 18);"></button><button type="button" class="color-dot" title="brown" aria-label="Filter color brown" aria-pressed="false" style="background: rgb(139, 90, 43);"></button><button type="button" class="color-dot" title="purple" aria-label="Filter color purple" aria-pressed="false" style="background: rgb(142, 68, 173);"></button><button type="button" class="color-dot" title="gray" aria-label="Filter color gray" aria-pressed="false" style="background: rgb(154, 160, 166);"></button><button type="button" class="color-dot" title="white" aria-label="Filter color white" aria-pressed="false" style="background: rgb(245, 245, 245);"></button><button type="button" class="color-dot" title="pink" aria-label="Filter color pink" aria-pressed="false" style="background: rgb(244, 167, 195);"></button></div>
             </fieldset>
           </div>
         </details>
