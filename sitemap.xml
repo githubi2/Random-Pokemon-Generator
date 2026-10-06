@@ -236,6 +236,36 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.random-pokemon-generator.co/pokemon/mew/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.random-pokemon-generator.co/pokemon/arceus/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.random-pokemon-generator.co/pokemon/umbreon/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.random-pokemon-generator.co/pokemon/dragonite/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.random-pokemon-generator.co/pokemon/rayquaza/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.random-pokemon-generator.co/terms-of-use/</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>yearly</changefreq>
