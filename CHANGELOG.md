@@ -2,6 +2,10 @@
 
 Site updates, newest first.
 
+## October 2026
+
+- **10-07** — Who's That Pokemon page: FAQ additions on the names the game goes by, and where the name comes from.
+
 ## September 2026
 
 - **09-29** — Analytics update: Microsoft Clarity added across the site; privacy policy, about page and terms of use updated to cover it.
