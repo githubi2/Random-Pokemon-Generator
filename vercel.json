@@ -16,6 +16,11 @@
   ],
   "redirects": [
     {
+      "source": "/pokemon-radical-red-shiny-odds/index.html",
+      "destination": "/pokemon-radical-red-shiny-odds/",
+      "permanent": true
+    },
+    {
       "source": "/links/index.html",
       "destination": "/links/",
       "permanent": true

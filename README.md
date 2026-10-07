@@ -18,6 +18,7 @@ A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero de
 | 🏹 Legends: Arceus Shiny Odds | [/pokemon-legends-arceus-shiny-odds/](https://www.random-pokemon-generator.co/pokemon-legends-arceus-shiny-odds/) | The research and outbreak chart, up to the series-best 1/128 |
 | 💠 BDSP Shiny Odds | [/pokemon-brilliant-diamond-shining-pearl-shiny-odds/](https://www.random-pokemon-generator.co/pokemon-brilliant-diamond-shining-pearl-shiny-odds/) | Poke Radar chain table 0 to 40 (1/99) plus egg and underground rates |
 | 🎒 Let's Go Shiny Odds | [/pokemon-lets-go-shiny-odds/](https://www.random-pokemon-generator.co/pokemon-lets-go-shiny-odds/) | Catch-combo tiers with Lure and Charm stacking, down to 1/273 |
+| 🟥 Radical Red Shiny Odds | [/pokemon-radical-red-shiny-odds/](https://www.random-pokemon-generator.co/pokemon-radical-red-shiny-odds/) | ROM hack rates from the v4.1 changelog — base 1/2048, Charm 1/683, DexNav explained honestly |
 | 🌿 Nature Chart | [/pokemon-nature-chart/](https://www.random-pokemon-generator.co/pokemon-nature-chart/) | All 25 natures with stat boosts/drops + best-nature finder for every species |
 | 🧬 Eevee Evolutions | [/eevee-evolutions/](https://www.random-pokemon-generator.co/eevee-evolutions/) | All 8 Eevee evolutions compared: types, stats, evolution methods and team roles |
 | ⚔️ Type Chart | [/pokemon-type-chart/](https://www.random-pokemon-generator.co/pokemon-type-chart/) | 18-type effectiveness grid + dual-type damage calculator, per-type weaknesses at a glance |
