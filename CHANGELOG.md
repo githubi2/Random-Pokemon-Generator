@@ -4,6 +4,7 @@ Site updates, newest first.
 
 ## October 2026
 
+- **10-20** — Ten more species pages complete the wave-2 batch — Raichu, Zygarde, Espeon, Gyarados, Venusaur, Darkrai, Magikarp, Meowth, Onix and Psyduck; the hub now covers thirty species.
 - **10-20** — Five more species pages join the Pokedex — Snorlax, Sylveon, Gardevoir, Blastoise and Garchomp; the hub now covers twenty species.
 - **10-07** — Five new species pages join the Pokedex — Mew, Arceus, Umbreon, Dragonite and Rayquaza; the hub now covers fifteen species.
 - **10-07** — Who's That Pokemon page: FAQ additions on the names the game goes by, and where the name comes from.
