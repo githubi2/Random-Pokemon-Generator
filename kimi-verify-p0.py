@@ -142,7 +142,7 @@ pages = []
 for dirpath, dirnames, filenames in os.walk(ROOT):
     if "index.html" in filenames and not os.path.relpath(dirpath, ROOT).startswith("_"):
         pages.append(os.path.join(dirpath, "index.html"))
-ok("page count 47", len(pages) == 47, len(pages))  # wave-1 released: 40 + 7 species pages
+ok("page count 71", len(pages) == 71, len(pages))  # wave-2 全发：64 + 第 3/4 轮 10 页后 71
 
 missing_nav = []
 for hp in pages:
@@ -158,7 +158,7 @@ ok("every page has both new tools (>=2)", not missing_nav, missing_nav[:8])
 # sitemap
 sp = io.open(os.path.join(ROOT, "sitemap.xml"), encoding="utf-8").read()
 locs = re.findall(r"<loc>(.*?)</loc>", sp)
-ok("sitemap 46 urls", len(locs) == 46, len(locs))  # wave-1: 39 live + 7 new
+ok("sitemap 70 urls", len(locs) == 70, len(locs))  # wave-2 全发后 70 条
 ok("sitemap new urls", "random-pokemon-type-generator/" in sp and "random-legendary-pokemon-generator/" in sp)
 unresolved = []
 for l in locs:
