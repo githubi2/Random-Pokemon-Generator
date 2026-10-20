@@ -115,8 +115,8 @@ for rel, label in NEW:
         problems.append('para links %d' % maxp)
     if missing:
         problems.append('missing ' + ','.join(missing))
-    if n > 23:
-        problems.append('total links %d' % n)  # hub cap bumped with wave-1 (10 species cards + tools; bump per wave)
+    if n > 45:
+        problems.append('total links %d' % n)  # 2026-10-20 wave-2 r2：20 张物种卡 → 33 条，上限随波次上调（wave-2 内不再触发；wave-3 起再校）
     if problems:
         errors.append('[相关链] %s %s' % (label, '; '.join(problems)[:80]))
         print('  [差] %-10s %s' % (label, '; '.join(problems)[:80]))
@@ -294,6 +294,8 @@ for path in sorted(glob.glob(os.path.join(root, '**', 'index.html'), recursive=T
             _host9 = src.split('/')[2] if '//' in src else ''
             if any(h in _host9 for h in ('stork.ai', 'startupinspire.com', 'productwatch.io')):
                 continue  # 目录验证徽章（第三方动态 SVG，有意保留）
+            if rel9 == 'links/index.html':
+                continue  # 合作站互链页（noindex,nofollow，不入 sitemap）：对端徽章是有意保留
             _ext9.append((rel9, src[:90]))
         elif not src.startswith('data:'):
             if not os.path.exists(os.path.join(os.path.dirname(path), src)):
