@@ -188,8 +188,8 @@
     btn.type = 'button';
     btn.className = 'dex-card cornered';
     btn.style.setProperty('--aura', aura);
-    btn.setAttribute('aria-label', 'Play cry for ' + displayName(p.n) + (r.shiny ? ' (shiny)' : ''));
-    btn.addEventListener('click', function () { if (filters.cries) playCry(p.n); });
+    btn.setAttribute('aria-label', 'View details for ' + displayName(p.n) + (r.shiny ? ' (shiny)' : ''));
+    btn.addEventListener('click', function () { openModal(r); });
 
     var top = document.createElement('span');
     top.className = 'dex-top';
@@ -199,7 +199,7 @@
     top.appendChild(num);
     if (r.shiny) {
       var s = document.createElement('span');
-      s.textContent = '✨';
+      s.textContent = '';
       s.title = 'Shiny';
       top.appendChild(s);
     } else {
@@ -365,8 +365,8 @@
       { value: 'shiny', label: 'Shiny' }
     ], filters.shiny, function (v) { filters.shiny = v; syncRadioButtons(); updatePool(); });
     buildRadioButtons($('cry-buttons'), [
-      { value: 'on', label: '🔊 Cries' },
-      { value: 'off', label: '🔇 Muted' }
+      { value: 'on', label: 'Cries' },
+      { value: 'off', label: 'Muted' }
     ], filters.cries ? 'on' : 'off', function (v) { filters.cries = v === 'on'; syncRadioButtons(); });
     syncRadioButtons();
 
@@ -386,8 +386,8 @@
     $('copy-btn').addEventListener('click', function () {
       copyToClipboard(buildShareUrl(filters, picks), function (ok) {
         var label = $('copy-label');
-        label.textContent = ok ? '✅ Link copied' : '📋 Link ready';
-        setTimeout(function () { label.textContent = '📋 Copy Pick Link'; }, 1800);
+        label.textContent = ok ? 'Link copied' : 'Link ready';
+        setTimeout(function () { label.textContent = 'Copy Pick Link'; }, 1800);
       });
     });
     $('reset-btn').addEventListener('click', function () {
@@ -403,7 +403,7 @@
       $('mythical-select').value = 'include';
       $('results-grid').innerHTML = '';
       $('results-empty').hidden = false;
-      $('results-empty').textContent = 'Press 🎲 Pick Random Pokemon to make your pick — it stays put until you pick again.';
+      $('results-empty').textContent = 'Press Pick Random Pokemon to make your pick — it stays put until you pick again.';
       picks = [];
       syncToggleButtons();
       syncRadioButtons();
@@ -411,19 +411,113 @@
     });
 
     updatePool();
+    bindModal();
 
     var sharedTeam = teamFromParams(params);
     if (sharedTeam.length) {
       picks = sharedTeam;
       renderPicks(sharedTeam);
-      $('results-meta').textContent = 'Loaded from share link — press 🎲 Pick Random Pokemon to pick again';
+      $('results-meta').textContent = 'Loaded from share link — press Pick Random Pokemon to pick again';
     }
   }
 
   function updatePool() {
     var pool = applyFilters(filters);
     $('pool-count').textContent = pool.length.toLocaleString('en-US') + ' in pool (' + DATA.length + ' total)';
-    $('results-empty').textContent = 'Press 🎲 Pick Random Pokemon to make your pick — ' + pool.length + ' Pokemon eligible.';
+    $('results-empty').textContent = 'Press Pick Random Pokemon to make your pick — ' + pool.length + ' Pokemon eligible.';
+  }
+
+  /* ---------------- detail modal ---------------- */
+  var modal = $('pk-modal');
+  var modalCard = $('pk-modal-card');
+  var currentRoll = null;
+  var STAT_NAMES = ['HP', 'Attack', 'Defense', 'Sp. Atk', 'Sp. Def', 'Speed'];
+
+  function prettyAbility(slug) {
+    return String(slug).split('-').map(function (w) {
+      return w.charAt(0).toUpperCase() + w.slice(1);
+    }).join(' ');
+  }
+
+  function openModal(r) {
+    var p = r.p;
+    currentRoll = r;
+    var aura = TYPE_MAP[p.t[0]] ? TYPE_MAP[p.t[0]].color : '#A8A878';
+    modalCard.style.setProperty('--aura', aura);
+
+    $('pk-modal-meta').innerHTML = '<span class="mnum">#' + pad4(p.si) + '</span> · Gen ' + p.g +
+      ' · ' + (REGIONS[p.g] || '') + ' · ' + p.ev +
+      (p.lg ? ' · Legendary' : '') + (p.my ? ' · Mythical' : '');
+    $('pk-modal-name').textContent = displayName(p.n);
+
+    var mt = $('pk-modal-types');
+    mt.innerHTML = '';
+    p.t.forEach(function (t) {
+      var meta = TYPE_MAP[t];
+      var chip = document.createElement('span');
+      chip.className = 'type-tag';
+      chip.style.setProperty('--tag', meta ? meta.color : '#A8A878');
+      chip.textContent = meta ? meta.label : t;
+      mt.appendChild(chip);
+    });
+
+    var img = $('pk-modal-img');
+    img.src = r.shiny ? p.sps : p.sp;
+    img.alt = displayName(p.n) + ' artwork';
+    img.onerror = function () {
+      var fb = img.src.replace('/other/official-artwork', '');
+      if (fb !== img.src) img.src = fb; else img.onerror = null;
+    };
+
+    $('pk-modal-bst').textContent = p.tt;
+    var stats = $('pk-modal-stats');
+    stats.innerHTML = '';
+    p.st.forEach(function (v, idx) {
+      var row = document.createElement('div');
+      row.className = 'stat-row';
+      var dt = document.createElement('dt');
+      dt.textContent = STAT_NAMES[idx];
+      var dd = document.createElement('dd');
+      dd.textContent = v;
+      var track = document.createElement('div');
+      track.className = 'stat-track';
+      var fill = document.createElement('div');
+      fill.className = 'stat-fill';
+      fill.style.width = Math.min(100, (v / 255) * 100) + '%';
+      track.appendChild(fill);
+      row.appendChild(dt);
+      row.appendChild(dd);
+      row.appendChild(track);
+      stats.appendChild(row);
+    });
+
+    var ab = $('pk-modal-abilities');
+    ab.innerHTML = '';
+    (p.ab || []).forEach(function (a) {
+      var li = document.createElement('li');
+      li.textContent = prettyAbility(a);
+      ab.appendChild(li);
+    });
+
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    $('pk-modal-close').focus();
+  }
+
+  function closeModal() {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  function bindModal() {
+    modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+    $('pk-modal-close').addEventListener('click', closeModal);
+    $('pk-modal-cry').addEventListener('click', function () {
+      if (currentRoll) playCry(currentRoll.p.n);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !modal.hidden) closeModal();
+    });
   }
 
   if (document.readyState === 'loading') {

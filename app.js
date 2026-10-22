@@ -435,14 +435,14 @@
       var share = document.createElement('button');
       share.type = 'button';
       share.className = 'history-share';
-      share.textContent = '🔗 Share';
+      share.textContent = 'Share';
       share.setAttribute('aria-label', 'Copy share link for squad ' + num);
       share.addEventListener('click', function () {
         hideTip();
         var url = buildShareUrl(entry.f || filters, entryRolls(entry));
         copyToClipboard(url, function (ok) {
-          share.textContent = ok ? '✅ Copied' : '🔗 Link ready';
-          setTimeout(function () { share.textContent = '🔗 Share'; }, 1800);
+          share.textContent = ok ? 'Copied' : 'Link ready';
+          setTimeout(function () { share.textContent = 'Share'; }, 1800);
         });
       });
 
@@ -457,7 +457,7 @@
     currentRolls = rolls;
     renderTeam(rolls);
     renderAnalysis(rolls);
-    metaEl.textContent = 'Loaded from Roll History — press 🎲 Generate to roll a new squad';
+    metaEl.textContent = 'Loaded from Roll History — press Generate to roll a new squad';
     grid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
@@ -532,7 +532,7 @@
 
     var name = document.createElement('span');
     name.className = 'poke-tip-name';
-    name.textContent = displayName(p.n) + (shiny ? ' ✨' : '');
+    name.textContent = displayName(p.n);
     tip.appendChild(name);
 
     var meta = document.createElement('span');
@@ -597,7 +597,7 @@
     top.appendChild(num);
     if (r.shiny) {
       var s = document.createElement('span');
-      s.textContent = '✨';
+      s.textContent = '';
       s.title = 'Shiny';
       top.appendChild(s);
     } else {
@@ -670,7 +670,7 @@
 
     $('modal-meta').innerHTML = '<span class="mnum">#' + pad4(p.si) + '</span> · Gen ' + p.g + ' · ' +
       (REGIONS[p.g] || '') + ' · ' + p.ev + (p.lg ? ' · Legendary' : '') + (p.my ? ' · Mythical' : '');
-    $('modal-name').textContent = displayName(p.n) + (r.shiny ? ' ✨' : '');
+    $('modal-name').textContent = displayName(p.n);
 
     var mt = $('modal-types');
     mt.innerHTML = '';
@@ -746,7 +746,7 @@
         pair[1].forEach(function (t) {
           var tag = document.createElement('span');
           tag.className = 'type-tag cov-tag';
-          tag.textContent = (TYPE_MAP[t] && TYPE_MAP[t].label ? TYPE_MAP[t].label : t).toUpperCase();
+          tag.textContent = (TYPE_MAP[t] && TYPE_MAP[t].label ? TYPE_MAP[t].label : t);
           tag.style.background = TYPE_MAP[t] ? TYPE_MAP[t].color : '#888';
           tag.style.color = TYPE_MAP[t] && TYPE_MAP[t].light ? '#121212' : '#fff';
           row.appendChild(tag);
@@ -994,7 +994,7 @@
     body.innerHTML = '';
 
     /* 1 — defensive matrix */
-    var defSec = analysisSection('🛡 Defensive Coverage');
+    var defSec = analysisSection('Defensive Coverage');
     var table = document.createElement('table');
     table.className = 'def-matrix';
     var thead = document.createElement('thead');
@@ -1028,7 +1028,7 @@
     body.appendChild(defSec);
 
     /* 2 — STAB offensive coverage */
-    var offSec = analysisSection('⚔ STAB Offensive Coverage · ' + a.coveredCount + '/18');
+    var offSec = analysisSection('STAB Offensive Coverage · ' + a.coveredCount + '/18');
     var offGrid = document.createElement('div');
     offGrid.className = 'off-grid';
     a.offense.forEach(function (o) {
@@ -1045,7 +1045,7 @@
     body.appendChild(offSec);
 
     /* 3 — stats & roles */
-    var statSec = analysisSection('📈 Stats & Roles · avg BST ' + a.avgBst);
+    var statSec = analysisSection('Stats & Roles · avg BST ' + a.avgBst);
     var dl = document.createElement('dl');
     dl.className = 'stats analysis-stats';
     a.avg.forEach(function (v, i) {
@@ -1086,7 +1086,7 @@
 
       var nm = document.createElement('span');
       nm.className = 'role-name';
-      nm.textContent = displayName(p.n) + (r.shiny ? ' ✨' : '');
+      nm.textContent = displayName(p.n);
       li.appendChild(nm);
 
       var role = document.createElement('span');
@@ -1124,7 +1124,7 @@
     if (!a.warnings.length) {
       var ok = document.createElement('li');
       ok.className = 'warn-item warn-ok';
-      ok.textContent = '✅ No major weaknesses detected — solid, well-balanced squad!';
+      ok.textContent = 'No major weaknesses detected — solid, well-balanced squad!';
       warnList.appendChild(ok);
     }
     a.warnings.forEach(function (w) {
@@ -1171,8 +1171,8 @@
     var url = buildShareUrl(filters, currentRolls);
     var label = $('copy-label');
     copyToClipboard(url, function (ok) {
-      label.textContent = ok ? '✅ Copied!' : '🔗 Link ready';
-      setTimeout(function () { label.textContent = '📋 Copy Config Link'; }, 1800);
+      label.textContent = ok ? 'Copied!' : 'Link ready';
+      setTimeout(function () { label.textContent = 'Copy Config Link'; }, 1800);
     });
   });
 
@@ -1203,6 +1203,6 @@
     currentRolls = sharedTeam;
     renderTeam(sharedTeam);
     renderAnalysis(sharedTeam);
-    metaEl.textContent = 'Shared squad — these exact Pokémon were rolled with this link. Press 🎲 Generate to roll your own!';
+    metaEl.textContent = 'Shared squad — these exact Pokémon were rolled with this link. Press Generate to roll your own!';
   }
 })();

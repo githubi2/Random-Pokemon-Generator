@@ -663,7 +663,7 @@
     body.innerHTML = '';
 
     /* 1 — defensive matrix */
-    var defSec = analysisSection('🛡 Defensive Coverage');
+    var defSec = analysisSection('Defensive Coverage');
     var table = document.createElement('table');
     table.className = 'def-matrix';
     var thead = document.createElement('thead');
@@ -697,7 +697,7 @@
     body.appendChild(defSec);
 
     /* 2 — STAB offensive coverage */
-    var offSec = analysisSection('⚔ STAB Offensive Coverage · ' + a.coveredCount + '/18');
+    var offSec = analysisSection('STAB Offensive Coverage · ' + a.coveredCount + '/18');
     var offGrid = document.createElement('div');
     offGrid.className = 'off-grid';
     a.offense.forEach(function (o) {
@@ -714,7 +714,7 @@
     body.appendChild(offSec);
 
     /* 3 — stats & roles */
-    var statSec = analysisSection('📈 Stats & Roles · avg BST ' + a.avgBst);
+    var statSec = analysisSection('Stats & Roles · avg BST ' + a.avgBst);
     var dl = document.createElement('dl');
     dl.className = 'stats analysis-stats';
     a.avg.forEach(function (v, i) {
@@ -794,7 +794,7 @@
     if (!a.warnings.length) {
       var ok = document.createElement('li');
       ok.className = 'warn-item warn-ok';
-      ok.textContent = '✅ No major weaknesses detected — solid, well-balanced squad!';
+      ok.textContent = 'No major weaknesses detected — solid, well-balanced squad!';
       warnList.appendChild(ok);
     }
     a.warnings.forEach(function (w) {
@@ -839,7 +839,7 @@
       btn.style.cursor = 'default';
       var label = document.createElement('span');
       label.className = 'history-label';
-      label.textContent = '🎡 ' + displayName(p.n);
+      label.textContent = '' + displayName(p.n);
       btn.appendChild(label);
       var thumbs = document.createElement('span');
       thumbs.className = 'history-thumbs';
@@ -915,14 +915,14 @@
   function shareResult() {
     var label = $('wheel-share-label');
     if (!lastResult) {
-      label.textContent = '🎡 Spin first!';
-      setTimeout(function () { label.textContent = '📣 Share Result'; }, 1800);
+      label.textContent = 'Spin first!';
+      setTimeout(function () { label.textContent = 'Share Result'; }, 1800);
       return;
     }
     var text = 'The Pokémon wheel decided: ' + displayName(lastResult.n) + '! Spin yours: ' + location.origin + location.pathname;
     copyToClipboard(text, function (ok) {
-      label.textContent = ok ? '✅ Copied!' : '🔗 Link ready';
-      setTimeout(function () { label.textContent = '📣 Share Result'; }, 1800);
+      label.textContent = ok ? 'Copied!' : 'Link ready';
+      setTimeout(function () { label.textContent = 'Share Result'; }, 1800);
     });
   }
 

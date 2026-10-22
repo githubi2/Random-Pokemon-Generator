@@ -310,7 +310,7 @@
       if (imgEl.src !== siUrl) imgEl.src = siUrl;
       else imgEl.onerror = null;
     };
-    numEl.textContent = '#' + pad4(p.si) + (current.shiny ? ' · ✨ SHINY' : '');
+    numEl.textContent = '#' + pad4(p.si) + (current.shiny ? ' · SHINY' : '');
     nameEl.textContent = displayName(p.n);
     /* type-tinted aura behind the artwork (home-card style) */
     var artWrap = imgEl.parentNode;
@@ -427,10 +427,10 @@
     var rate = results.length ? Math.round((smash / results.length) * 100) : 0;
     var streak = 0;
     for (var i = results.length - 1; i >= 0 && results[i].verdict === 'smash'; i--) streak++;
-    statSmash.textContent = '💖 ' + smash;
-    statPass.textContent = '🚫 ' + pass;
+    statSmash.textContent = '' + smash;
+    statPass.textContent = '' + pass;
     statRate.textContent = rate + '% smash rate';
-    statStreak.textContent = '🔥 streak ' + streak;
+    statStreak.textContent = 'streak ' + streak;
   }
 
   function persist() {
@@ -451,7 +451,7 @@
       btn.style.cursor = 'default';
       var label = document.createElement('span');
       label.className = 'history-label';
-      label.textContent = (r.verdict === 'smash' ? '💖 Smash' : '🚫 Pass');
+      label.textContent = (r.verdict === 'smash' ? 'Smash' : 'Pass');
       btn.appendChild(label);
       var thumbs = document.createElement('span');
       thumbs.className = 'history-thumbs';
@@ -556,14 +556,14 @@
   function shareVerdicts() {
     var label = $('share-label');
     if (!results.length) {
-      label.textContent = '📣 Judge some first!';
-      setTimeout(function () { label.textContent = '📣 Share My Verdicts'; }, 1800);
+      label.textContent = 'Judge some first!';
+      setTimeout(function () { label.textContent = 'Share My Verdicts'; }, 1800);
       return;
     }
     var s = verdictSummary();
     copyToClipboard(s.text, function (ok) {
-      label.textContent = ok ? '✅ Copied!' : '🔗 Link ready';
-      setTimeout(function () { label.textContent = '📣 Share My Verdicts'; }, 1800);
+      label.textContent = ok ? 'Copied!' : 'Link ready';
+      setTimeout(function () { label.textContent = 'Share My Verdicts'; }, 1800);
     });
   }
 
@@ -779,7 +779,7 @@
       card.addEventListener('click', function () { openModal(p); });
       var v = document.createElement('span');
       v.className = 'v-verdict ' + r.verdict;
-      v.textContent = r.verdict === 'smash' ? '💖 Smash' : '🚫 Pass';
+      v.textContent = r.verdict === 'smash' ? 'Smash' : 'Pass';
       card.appendChild(v);
       var img = document.createElement('img');
       img.src = r.shiny ? p.sps : p.sp;

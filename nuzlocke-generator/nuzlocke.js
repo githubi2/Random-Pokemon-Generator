@@ -39,9 +39,9 @@
   var STAT_LABELS = ['HP', 'ATK', 'DEF', 'SPA', 'SPD', 'SPE'];
 
   var MODES = {
-    team:      { label: 'Starter Team (6)',      rollLabel: '🎲 Roll Starter Team',      count: 6 },
-    encounter: { label: 'First Encounter (1)',   rollLabel: '🎲 Roll First Encounter',   count: 1 },
-    death:     { label: 'Death Replacement (1)', rollLabel: '🎲 Roll Death Replacement', count: 1 }
+    team:      { label: 'Starter Team (6)',      rollLabel: 'Roll Starter Team',      count: 6 },
+    encounter: { label: 'First Encounter (1)',   rollLabel: 'Roll First Encounter',   count: 1 },
+    death:     { label: 'Death Replacement (1)', rollLabel: 'Roll Death Replacement', count: 1 }
   };
 
   var DEFAULTS = { mode: 'team', gens: [], types: [], habitats: [], bstMin: 0, bstMax: 780, noLeg: true, noMyth: true, initialOnly: false };
@@ -491,7 +491,7 @@
     var body = $('analysis-body');
     body.innerHTML = '';
 
-    var defSec = analysisSection('🛡 Defensive Coverage');
+    var defSec = analysisSection('Defensive Coverage');
     var table = document.createElement('table');
     table.className = 'def-matrix';
     var thead = document.createElement('thead');
@@ -524,7 +524,7 @@
     defSec.appendChild(table);
     body.appendChild(defSec);
 
-    var offSec = analysisSection('⚔ STAB Offensive Coverage · ' + a.coveredCount + '/18');
+    var offSec = analysisSection('STAB Offensive Coverage · ' + a.coveredCount + '/18');
     var offGrid = document.createElement('div');
     offGrid.className = 'off-grid';
     a.offense.forEach(function (o) {
@@ -540,7 +540,7 @@
     offSec.appendChild(offNote);
     body.appendChild(offSec);
 
-    var statSec = analysisSection('📈 Stats & Roles · avg BST ' + a.avgBst);
+    var statSec = analysisSection('Stats & Roles · avg BST ' + a.avgBst);
     var dl = document.createElement('dl');
     dl.className = 'stats analysis-stats';
     a.avg.forEach(function (v, i) {
@@ -612,7 +612,7 @@
     if (!a.warnings.length) {
       var ok = document.createElement('li');
       ok.className = 'warn-item warn-ok';
-      ok.textContent = '✅ No major weaknesses detected — solid, well-balanced squad!';
+      ok.textContent = 'No major weaknesses detected — solid, well-balanced squad!';
       warnList.appendChild(ok);
     }
     a.warnings.forEach(function (w) {
@@ -712,13 +712,13 @@
       var share = document.createElement('button');
       share.type = 'button';
       share.className = 'history-share';
-      share.textContent = '🔗 Share';
+      share.textContent = 'Share';
       share.setAttribute('aria-label', 'Copy share link for roll ' + num);
       share.addEventListener('click', function () {
         var url = entryShareUrl(entry);
         copyToClipboard(url, function (ok) {
-          share.textContent = ok ? '✅ Copied' : '🔗 Link ready';
-          setTimeout(function () { share.textContent = '🔗 Share'; }, 1800);
+          share.textContent = ok ? 'Copied' : 'Link ready';
+          setTimeout(function () { share.textContent = 'Share'; }, 1800);
         });
       });
 
@@ -876,7 +876,7 @@
 
     $('modal-meta').innerHTML = '<span class="mnum">#' + pad4(p.si) + '</span> · Gen ' + p.g + ' · ' +
       (REGIONS[p.g] || '') + ' · ' + p.ev + (p.lg ? ' · Legendary' : '') + (p.my ? ' · Mythical' : '');
-    $('modal-name').textContent = displayName(p.n) + (r.shiny ? ' ✨' : '');
+    $('modal-name').textContent = displayName(p.n);
 
     var mt = $('modal-types');
     mt.innerHTML = '';
@@ -950,7 +950,7 @@
         pair[1].forEach(function (t) {
           var tag = document.createElement('span');
           tag.className = 'type-tag cov-tag';
-          tag.textContent = (TYPE_MAP[t] && TYPE_MAP[t].label ? TYPE_MAP[t].label : t).toUpperCase();
+          tag.textContent = (TYPE_MAP[t] && TYPE_MAP[t].label ? TYPE_MAP[t].label : t);
           tag.style.background = TYPE_MAP[t] ? TYPE_MAP[t].color : '#888';
           tag.style.color = TYPE_MAP[t] && TYPE_MAP[t].light ? '#121212' : '#fff';
           row.appendChild(tag);
@@ -1163,13 +1163,13 @@
   function exportToShowdown() {
     var label = $('export-label');
     if (!currentRoll.length) {
-      label.textContent = '📤 Roll first!';
-      setTimeout(function () { label.textContent = '📤 Export to Showdown'; }, 1800);
+      label.textContent = 'Roll first!';
+      setTimeout(function () { label.textContent = 'Export to Showdown'; }, 1800);
       return;
     }
     copyToClipboard(buildShowdownText(currentRoll), function (ok) {
-      label.textContent = ok ? '✅ Exported!' : '📤 Copy failed';
-      setTimeout(function () { label.textContent = '📤 Export to Showdown'; }, 1800);
+      label.textContent = ok ? 'Exported!' : 'Copy failed';
+      setTimeout(function () { label.textContent = 'Export to Showdown'; }, 1800);
     });
   }
 
@@ -1279,7 +1279,7 @@
 
       var label = document.createElement('span');
       label.className = 'history-label';
-      label.textContent = '💀 ' + displayName(p.n) + ' · ' + formatTime(entry.ts);
+      label.textContent = '' + displayName(p.n) + ' · ' + formatTime(entry.ts);
       item.appendChild(label);
 
       var thumbs = document.createElement('span');
@@ -1357,8 +1357,8 @@
   $('copy-btn').addEventListener('click', function () {
     var label = $('copy-label');
     copyToClipboard(buildShareUrl(), function (ok) {
-      label.textContent = ok ? '✅ Copied!' : '🔗 Link ready';
-      setTimeout(function () { label.textContent = '🔗 Copy Share Link'; }, 1800);
+      label.textContent = ok ? 'Copied!' : 'Link ready';
+      setTimeout(function () { label.textContent = 'Copy Share Link'; }, 1800);
     });
   });
 
@@ -1394,7 +1394,7 @@
     currentRoll = sharedTeam;
     renderRoll(pool);
     renderAnalysis(currentRoll);
-    metaEl.textContent = 'Shared Nuzlocke roll — these exact Pokémon came with this link. Press 🎲 Roll to roll your own!';
+    metaEl.textContent = 'Shared Nuzlocke roll — these exact Pokémon came with this link. Press Roll to roll your own!';
   } else {
     renderRoll(pool);
   }

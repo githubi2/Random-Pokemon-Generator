@@ -47,7 +47,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-64.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="stylesheet" href="styles.css?v=20260910a" />
+  <link rel="stylesheet" href="styles.css?v=20261022k" />
 
   <!-- Structured data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -134,18 +134,52 @@
           <li class="nav-group">
             <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
             <ul class="nav-menu" id="tools-menu">
-              <li><a href="nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
-              <li><a href="pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
-              <li><a href="random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
-              <li><a href="whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
-              <li><a href="pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
-              <li><a href="random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
-              <li><a href="pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
-              <li><a href="random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
-              <li><a href="pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
-              <li><a href="random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
-              <li><a href="random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
-              <li><a href="pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Generators</span>
+                <ul class="nav-menu-list">
+                  <li><a href="./" class="nav-link nav-link-active">Random Pokemon Generator</a></li>
+                  <li><a href="random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+                  <li><a href="random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+                  <li><a href="random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
+                  <li><a href="random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+                  <li><a href="random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
+                  <li><a href="random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Teams and Battles</span>
+                <ul class="nav-menu-list">
+                  <li><a href="pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+                  <li><a href="pokemon-champions-team-builder/" class="nav-link">Pokemon Champions Team Builder</a></li>
+                  <li><a href="nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+                  <li><a href="pokemon-iv-calculator/" class="nav-link">Pokemon IV Calculator</a></li>
+                  <li><a href="pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+                  <li><a href="pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Games</span>
+                <ul class="nav-menu-list">
+                  <li><a href="pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+                  <li><a href="random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+                  <li><a href="whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+                </ul>
+                <span class="nav-menu-label">Cards</span>
+                <ul class="nav-menu-list">
+                  <li><a href="pokemon-card-generator/" class="nav-link">Pokemon Card Generator</a></li>
+                  <li><a href="pokemon-trainer-card-generator/" class="nav-link">Pokemon Trainer Card Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Reference</span>
+                <ul class="nav-menu-list">
+                  <li><a href="pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+                  <li><a href="pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+                  <li><a href="pokemon-release-dates/" class="nav-link">Pokemon Release Dates</a></li>
+                  <li><a href="favorite-pokemon-of-each-type/" class="nav-link">Favorite Pokemon of Each Type</a></li>
+                  <li><a href="eevee-evolutions/" class="nav-link">Eevee Evolutions</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
           <li><a href="blog/" class="nav-link">Blog</a></li>
@@ -183,7 +217,7 @@
           <input type="range" id="count-slider" min="1" max="12" value="6" step="1" aria-label="Number of Pokémon to generate" />
         </fieldset>
 
-        <details class="advanced" id="advanced-details" open>
+        <details class="advanced" id="advanced-details">
           <summary>▸ Advanced filters (shiny · rarity · form · stage · BST · color)</summary>
           <div class="advanced-grid">
             <fieldset>
@@ -244,31 +278,31 @@
 
         <div class="actions">
           <button type="button" id="generate-btn" class="btn-slide cornered btn-primary">
-            <span>🎲 Generate Random Pokémon</span>
+            <span><i class="ico ico-dice-5" aria-hidden="true"></i> Generate Random Pokémon</span>
           </button>
           <button type="button" id="copy-btn" class="btn-slide btn-secondary">
-            <span id="copy-label">📋 Copy Config Link</span>
+            <span id="copy-label"><i class="ico ico-clipboard" aria-hidden="true"></i> Copy Config Link</span>
           </button>
           <button type="button" id="reset-btn" class="btn-text">Reset All</button>
           <span class="pool-count" id="pool-count" aria-live="polite">1,025 in pool</span>
         </div>
         <div class="tool-note-group">
-          <p class="tool-note">🎲 Generate — rolls a random team from the current pool (6 by default, adjust with the slider)</p>
-          <p class="tool-note">📋 Copy Config Link — copies a link that opens your exact filters and team for friends</p>
+          <p class="tool-note"><i class="ico ico-dice-5" aria-hidden="true"></i> Generate — rolls a random team from the current pool (6 by default, adjust with the slider)</p>
+          <p class="tool-note"><i class="ico ico-clipboard" aria-hidden="true"></i> Copy Config Link — copies a link that opens your exact filters and team for friends</p>
           <p class="tool-note">Reset All — returns every filter to defaults</p>
         </div>
       </form>
 
       <div class="results" aria-live="polite">
-        <p class="results-hint">💡 Click any Pokémon card to view its full details — stats, abilities & evolution chain.</p>
-        <p class="results-empty cornered-dashed" id="results-empty">Press 🎲 Generate Random Pokémon to roll your squad — it stays put until you roll again.</p>
+        <p class="results-hint"><i class="ico ico-lightbulb" aria-hidden="true"></i> Click any Pokémon card to view its full details — stats, abilities & evolution chain.</p>
+        <p class="results-empty cornered-dashed" id="results-empty">Press <i class="ico ico-dice-5" aria-hidden="true"></i> Generate Random Pokémon to roll your squad — it stays put until you roll again.</p>
         <ul class="results-grid" id="results-grid"></ul>
         <p class="results-meta" id="results-meta"></p>
       </div>
 
       <section class="analysis cornered" id="analysis-panel" aria-labelledby="analysis-title" hidden>
         <div class="analysis-head">
-          <h2 class="analysis-title" id="analysis-title">📊 Team Tactical Report</h2>
+          <h2 class="analysis-title" id="analysis-title"><i class="ico ico-chart-column" aria-hidden="true"></i> Team Tactical Report</h2>
           <span class="grade-badge" id="analysis-grade">–</span>
         </div>
         <p class="analysis-summary" id="analysis-summary"></p>
@@ -283,7 +317,7 @@
           <h2 class="history-title">Roll History</h2>
           <button type="button" id="history-clear" class="btn-text">Clear History</button>
         </div>
-        <p class="history-hint">💡 Hover a Pokémon to preview · Click it for full stats & evolution details · Click the row to reload that squad</p>
+        <p class="history-hint"><i class="ico ico-lightbulb" aria-hidden="true"></i> Hover a Pokémon to preview · Click it for full stats & evolution details · Click the row to reload that squad</p>
         <ol class="history-list" id="history-list"></ol>
       </div>
     </section>
@@ -294,27 +328,27 @@
       <p class="rec-sub">More Pokemon tools from the same 1,025-species dex — one click away.</p>
       <div class="rec-grid">
         <a href="pokemon-type-chart/" class="rec-card cornered">
-          <span class="rec-emoji">⚔️</span>
+          <span class="rec-emoji"><i class="ico ico-swords" aria-hidden="true"></i></span>
           <span class="rec-name">Pokemon Type Chart</span>
           <span class="rec-desc">18-type effectiveness grid + dual-type damage calculator</span>
         </a>
         <a href="random-pokemon-type-generator/" class="rec-card cornered">
-          <span class="rec-emoji">🎡</span>
+          <span class="rec-emoji"><i class="ico ico-ferris-wheel" aria-hidden="true"></i></span>
           <span class="rec-name">Random Pokemon Type Generator</span>
           <span class="rec-desc">Spin the 18-type wheel or roll a dual combo — matchups and rare-combo counts</span>
         </a>
         <a href="pokemon-iv-calculator/" class="rec-card cornered">
-          <span class="rec-emoji">🎯</span>
+          <span class="rec-emoji"><i class="ico ico-target" aria-hidden="true"></i></span>
           <span class="rec-name">Pokemon IV Calculator</span>
           <span class="rec-desc">Reveal the hidden IV range behind any stat</span>
         </a>
         <a href="pokemon-team-picker/" class="rec-card cornered">
-          <span class="rec-emoji">👥</span>
+          <span class="rec-emoji"><i class="ico ico-users" aria-hidden="true"></i></span>
           <span class="rec-name">Pokemon Team Picker</span>
           <span class="rec-desc">Hand-build a six-Pokemon squad with matchup matrix</span>
         </a>
         <a href="pokemon-shiny-odds/" class="rec-card cornered">
-          <span class="rec-emoji">✨</span>
+          <span class="rec-emoji"><i class="ico ico-sparkles" aria-hidden="true"></i></span>
           <span class="rec-name">Pokemon Shiny Odds</span>
           <span class="rec-desc">Every shiny rate, from 1/8192 to stacked 1/512</span>
         </a>
@@ -439,8 +473,8 @@
     </div>
   </div>
 
-  <script src="data.js?v=20260802q"></script>
-  <script src="nav.js?v=20260802q"></script>
-  <script src="app.js?v=20260802q"></script>
+  <script src="data.js?v=20261022d"></script>
+  <script src="nav.js?v=20261022d"></script>
+  <script src="app.js?v=20261022d"></script>
 </body>
 </html>

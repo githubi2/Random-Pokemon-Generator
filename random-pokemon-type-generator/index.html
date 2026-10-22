@@ -46,7 +46,7 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <link rel="stylesheet" href="../styles.css?v=20260910a" />
+  <link rel="stylesheet" href="../styles.css?v=20261022k" />
 
   <style>
     /* page-scoped layout for the type wheel tool */
@@ -54,28 +54,28 @@
     .tw-rotor { position: absolute; inset: 0; transition: transform 4.2s cubic-bezier(0.15, 0.85, 0.25, 1); will-change: transform; }
     .tw-rotor svg { width: 100%; height: 100%; display: block; }
     .tw-pointer { position: absolute; top: -6px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 13px solid transparent; border-right: 13px solid transparent; border-top: 22px solid var(--ink); z-index: 3; filter: drop-shadow(0 2px 0 rgba(255, 255, 255, 0.85)); }
-    .tw-hub { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 92px; height: 92px; border-radius: 50%; border: 4px solid var(--ink); background: var(--poke-red); color: #fff; font-family: inherit; font-weight: 900; font-size: 15px; letter-spacing: 0.04em; cursor: pointer; z-index: 2; box-shadow: 0 4px 0 rgba(18, 18, 18, 0.3); }
-    .tw-hub:hover { background: var(--ink); }
+    .tw-hub { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 92px; height: 92px; border-radius: 50%; border: 1px solid var(--hline, #c6e433); background: var(--hl, #e4ff4f); color: var(--ink, #12140f); font-family: inherit; font-weight: 700; font-size: 15px; letter-spacing: 0.02em; cursor: pointer; z-index: 2; box-shadow: 0 8px 22px -10px rgba(150, 180, 20, 0.65); }
+    .tw-hub:hover { background: var(--ink, #12140f); color: #fff; }
     .tw-hub:active { transform: translate(-50%, -50%) scale(0.96); }
     .tw-hub[disabled] { opacity: 0.55; cursor: default; }
     .tw-actions { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center; }
-    .tw-card { margin: 16px auto 0; max-width: 760px; background: #fff; border: 2px solid var(--ink); border-radius: var(--radius); padding: 20px; text-align: left; animation: tw-pop 0.3s ease; }
+    .tw-card { margin: 16px auto 0; max-width: 760px; background: #fff; border: 1px solid var(--line-2); border-radius: var(--radius); padding: 20px; text-align: left; animation: tw-pop 0.3s ease; }
     @keyframes tw-pop { from { opacity: 0; transform: translateY(10px) scale(0.985); } to { opacity: 1; transform: none; } }
     .tw-card-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 14px; }
-    .tw-card .type-chip { display: inline-block; padding: 5px 12px; border-radius: 6px; border: 2px solid var(--ink); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; background: var(--chip, #fff); color: var(--chip-text, #121212); }
-    .tw-rarity { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(18, 18, 18, 0.72); }
+    .tw-card .type-chip { display: inline-block; padding: 5px 12px; border-radius: 6px; border: 1px solid var(--line-2); font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.08em; background: var(--chip, #fff); color: var(--chip-text, var(--ink)); }
+    .tw-rarity { font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.08em; color: var(--text-2); }
     .tw-rows { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
     .tw-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
-    .tw-row-label { flex: 0 0 74px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(18, 18, 18, 0.72); }
+    .tw-row-label { flex: 0 0 74px; font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.08em; color: var(--text-2); }
     .tw-mults { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tw-mult { display: inline-block; padding: 3px 8px; border-radius: 5px; border: 2px solid var(--ink); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; background: var(--c, #fff); color: var(--tc, #121212); }
+    .tw-mult { display: inline-block; padding: 3px 8px; border-radius: 5px; border: 1px solid var(--line-2); font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.06em; background: var(--c, #fff); color: var(--tc, var(--ink)); }
     .tw-examples { display: flex; flex-wrap: wrap; gap: 10px; border-top: 2px solid rgba(18, 18, 18, 0.12); padding-top: 14px; }
     .tw-ex { margin: 0; width: 84px; text-align: center; }
     .tw-ex img { width: 72px; height: 72px; display: block; margin: 0 auto 4px; }
-    .tw-ex figcaption { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: rgba(18, 18, 18, 0.8); line-height: 1.35; }
-    .tw-hdot { flex: 0 0 auto; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--ink); background: var(--c, #fff); }
+    .tw-ex figcaption { font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.04em; color: var(--text-2); line-height: 1.35; }
+    .tw-hdot { flex: 0 0 auto; width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--line-2); background: var(--c, #fff); }
     .tw-hdot + .tw-hdot { margin-left: -8px; }
-    .history-item .tw-hname { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+    .history-item .tw-hname { font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.08em; }
     .tw-win path { stroke: #f6c90e; stroke-width: 3; }
   </style>
 
@@ -183,18 +183,52 @@
           <li class="nav-group">
             <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
             <ul class="nav-menu" id="tools-menu">
-              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
-              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
-              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
-              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
-              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
-              <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
-              <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
-              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
-              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
-              <li><a href="./" class="nav-link nav-link-active">Random Pokemon Type Generator</a></li>
-              <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
-              <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Generators</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">Random Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">Random Pokemon Type Generator</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Teams and Battles</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">Pokemon Champions Team Builder</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">Pokemon IV Calculator</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Games</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+                </ul>
+                <span class="nav-menu-label">Cards</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">Pokemon Card Generator</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">Pokemon Trainer Card Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Reference</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">Pokemon Release Dates</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">Favorite Pokemon of Each Type</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">Eevee Evolutions</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
           <li><a href="../blog/" class="nav-link">Blog</a></li>
@@ -234,13 +268,13 @@
         </div>
 
         <div class="tw-actions">
-          <button type="button" id="tw-spin" class="btn-slide cornered btn-primary"><span>🎡 Spin the Wheel</span></button>
-          <button type="button" id="tw-share" class="btn-slide btn-secondary"><span id="tw-share-label">📣 Share Result</span></button>
+          <button type="button" id="tw-spin" class="btn-slide cornered btn-primary"><span><i class="ico ico-ferris-wheel" aria-hidden="true"></i> Spin the Wheel</span></button>
+          <button type="button" id="tw-share" class="btn-slide btn-secondary"><span id="tw-share-label"><i class="ico ico-megaphone" aria-hidden="true"></i> Share Result</span></button>
         </div>
 
         <div class="tool-note-group">
-          <p class="tool-note">🎡 Spin — the wheel turns and the pointer picks your type</p>
-          <p class="tool-note">📣 Share Result — copies your roll plus the link</p>
+          <p class="tool-note"><i class="ico ico-ferris-wheel" aria-hidden="true"></i> Spin — the wheel turns and the pointer picks your type</p>
+          <p class="tool-note"><i class="ico ico-megaphone" aria-hidden="true"></i> Share Result — copies your roll plus the link</p>
           <p class="tool-note">🖱️ Space bar — spins the wheel too</p>
         </div>
       </div>
@@ -374,8 +408,8 @@
     </div>
   </div>
 
-  <script src="../data.js?v=20260802q"></script>
-  <script src="../nav.js?v=20260802q"></script>
-  <script src="type-generator.js?v=20260912a"></script>
+  <script src="../data.js?v=20261022d"></script>
+  <script src="../nav.js?v=20261022d"></script>
+  <script src="type-generator.js?v=20261022d"></script>
 </body>
 </html>

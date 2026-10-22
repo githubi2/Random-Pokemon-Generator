@@ -315,7 +315,7 @@
   }
 
   /* ---------------- roll ---------------- */
-  var EMPTY_DEFAULT = 'Press 🎲 Generate Shiny Pokemon to roll your first shiny.';
+  var EMPTY_DEFAULT = 'Press Generate Shiny Pokemon to roll your first shiny.';
   var EMPTY_NO_MATCH = 'No shinies match this filter combination — loosen a filter or hit ↺ Reset Filters.';
 
   function showModalCopy(text) {
@@ -407,7 +407,7 @@
     compareTrack.setAttribute('aria-hidden', 'true');
     var compareText = document.createElement('span');
     compareText.className = 'wtp-switch-label';
-    compareText.textContent = '✨ Compare regular';
+    compareText.textContent = 'Compare regular';
     compareLabel.appendChild(compareInput);
     compareLabel.appendChild(compareTrack);
     compareLabel.appendChild(compareText);
@@ -563,7 +563,7 @@
         if (img.src !== fallbackUrl) img.src = fallbackUrl;
         else img.onerror = null;
       };
-      num.textContent = '#' + pad4(p.si) + (pick.compare ? ' · REGULAR' : ' · ✨ SHINY');
+      num.textContent = '#' + pad4(p.si) + (pick.compare ? ' · REGULAR' : ' · SHINY');
       art.classList.toggle('shiny-art-active', !pick.compare);
     }
     compareInput.addEventListener('change', function () {
@@ -573,6 +573,11 @@
     });
     paintArt();
 
+    /* 点卡片看详情（避开内部开关和按钮） */
+    card.addEventListener('click', function (e) {
+      if (e.target.closest('input, label, button, a, select')) return;
+      if (window.pokeDetail) window.pokeDetail({ p: p, shiny: !pick.compare });
+    });
     return card;
   }
 
@@ -613,7 +618,7 @@
       label.className = 'history-label';
       label.textContent = displayName(first.n)
         + (entry.picks.length > 1 ? ' +' + (entry.picks.length - 1) : '')
-        + ' ✨';
+        + '';
       btn.appendChild(label);
       var thumbs = document.createElement('span');
       thumbs.className = 'history-thumbs';
@@ -672,7 +677,7 @@
     /* headline */
     var title = document.createElement('h3');
     title.className = 'mega-analysis-title';
-    title.textContent = '📊 History Analysis';
+    title.textContent = 'History Analysis';
     analysisEl.appendChild(title);
 
     var grid = document.createElement('div');
@@ -801,7 +806,7 @@
       if (!p) return;
       var types = p.t.map(function (t) { return TYPES[t] ? TYPES[t].label : t; }).join('/');
       lines.push(
-        '✨ ' + displayName(p.n) + ' (Shiny) — #' + pad4(p.si)
+        '' + displayName(p.n) + ' (Shiny) — #' + pad4(p.si)
         + ' · ' + types + ' · Gen ' + p.g + ' (' + (REGIONS[p.g] || '') + ')'
         + ' · BST ' + p.tt
         + ' · Abilities: ' + p.ab.map(displayName).join(', ')
@@ -829,7 +834,7 @@
 
   function copyResult() {
     var text = resultText();
-    if (text) copyText(text, copyBtn, '✅ Copied!');
+    if (text) copyText(text, copyBtn, 'Copied!');
   }
 
   function shareResult() {
@@ -844,7 +849,7 @@
         /* user cancelled or share failed -> fall back to copying the link */
       });
     } else {
-      copyText(url, shareBtn, '✅ Link copied!');
+      copyText(url, shareBtn, 'Link copied!');
     }
   }
 

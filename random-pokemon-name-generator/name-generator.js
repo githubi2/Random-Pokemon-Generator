@@ -967,13 +967,19 @@
       copyBtn.setAttribute('aria-label', 'Copy name ' + item.name);
       copyBtn.addEventListener('click', function () {
         copyText(item.name);
-        copyBtn.textContent = 'Copied ✓';
+        copyBtn.textContent = 'Copied';
         setTimeout(function () { copyBtn.textContent = 'Copy'; }, 1200);
       });
 
       card.appendChild(art);
       card.appendChild(body);
       card.appendChild(copyBtn);
+
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('button, a, input, label')) return;
+        if (window.pokeDetail && selected) window.pokeDetail({ p: selected, shiny: false });
+      });
+
       resultsBox.appendChild(card);
     });
   }
@@ -1000,7 +1006,7 @@
       cat.items.forEach(function (item) { names.push(item.name); });
     });
     copyText(names.join('\n'));
-    copyAllBtn.textContent = 'Copied ✓';
+    copyAllBtn.textContent = 'Copied';
     setTimeout(function () { copyAllBtn.textContent = 'Copy All Names'; }, 1200);
   });
 

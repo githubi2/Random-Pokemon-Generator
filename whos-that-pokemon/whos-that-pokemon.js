@@ -410,12 +410,12 @@
     btn.hidden = false;
     var span = btn.querySelector('span');
     if (cryPlaying) {
-      span.textContent = '🔊 Playing...';
+      span.textContent = 'Playing...';
     } else if (elite && state.gameState === 'playing') {
-      span.textContent = '🔊 Replay Cry';
+      span.textContent = 'Replay Cry';
       btn.classList.add('wtp-cry-center');
     } else {
-      span.textContent = '🔊 Play Cry';
+      span.textContent = 'Play Cry';
       btn.classList.remove('wtp-cry-center');
     }
     btn.disabled = cryPlaying;
@@ -557,7 +557,7 @@
     box.hidden = false;
     var title = $('wtp-result-title');
     var ok = state.gameState === 'correct';
-    title.textContent = ok ? '✅ Correct!' : '❌ Not quite!';
+    title.textContent = ok ? 'Correct!' : '❌ Not quite!';
     $('wtp-result-time').textContent = '⏱ ' + fmtTime(state.lastTimeTaken);
     $('wtp-result-name').textContent = "It's " + e.displayName + '!';
     var typesBox = $('wtp-result-types');
@@ -718,7 +718,7 @@
   }
   function flashLabel(btn, ok, base) {
     var span = btn.querySelector('span');
-    span.textContent = ok ? '✅ Copied!' : '🔗 Link ready';
+    span.textContent = ok ? 'Copied!' : 'Link ready';
     setTimeout(function () { span.textContent = base; }, 1800);
   }
   function shareResult() {
@@ -728,14 +728,14 @@
     var text = state.gameState === 'correct'
       ? 'I guessed ' + e.displayName + ' in ' + time + ' on Who\'s That Pokemon! Can you beat me? 🔍 ' + shareUrl()
       : 'Who\'s That Pokemon tricked me — it was ' + e.displayName + '! Name it in 3 tries: ' + shareUrl();
-    copyToClipboard(text, function (ok) { flashLabel($('wtp-share-result'), ok, '📣 Share'); });
+    copyToClipboard(text, function (ok) { flashLabel($('wtp-share-result'), ok, 'Share'); });
   }
   function shareStats() {
     var st = state.stats;
     var played = st.correctGuesses + st.incorrectGuesses;
     var pct = played ? Math.round(st.correctGuesses / played * 100) : 0;
     var text = 'I\'m ' + pct + '% accurate on Who\'s That Pokemon (' + st.correctGuesses + '/' + played + ' correct, best streak ' + st.bestStreak + '). Think you can beat me? ' + shareUrl();
-    copyToClipboard(text, function (ok) { flashLabel($('wtp-share-stats'), ok, '📣 Share My Stats'); });
+    copyToClipboard(text, function (ok) { flashLabel($('wtp-share-stats'), ok, 'Share My Stats'); });
   }
 
   /* ---------------- modals ---------------- */

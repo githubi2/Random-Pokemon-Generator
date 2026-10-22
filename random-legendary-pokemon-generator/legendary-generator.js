@@ -125,12 +125,22 @@ var TYPES = [
           '<ul class="lgx-stats">' + statCells + '</ul>' +
           '<p class="lgx-abilities">Abilities: ' + (abilities || '—') + '</p>' +
           '<div class="lgx-actions">' +
-            '<button type="button" class="chip-btn" id="lgx-shiny" aria-pressed="false">✨ Shiny form</button>' +
+            '<button type="button" class="chip-btn" id="lgx-shiny" aria-pressed="false">Shiny form</button>' +
           '</div>' +
         '</div>' +
       '</div>';
     el.hidden = false;
     $('result-bar').hidden = false;
+
+    /* 点卡片看详情（避开卡片里的按钮） */
+    var lgxCard = el.querySelector('.lgx-card');
+    if (lgxCard) {
+      lgxCard.style.cursor = 'pointer';
+      lgxCard.addEventListener('click', function (e) {
+        if (e.target.closest('button, a, input, label')) return;
+        if (window.pokeDetail) window.pokeDetail({ p: p, shiny: shinyOn });
+      });
+    }
 
     var img = $('lgx-img');
     img.onerror = function () { img.src = p.sp; };
@@ -169,7 +179,7 @@ var TYPES = [
     var btn = $('lg-roll');
     var label = btn.querySelector('span');
     var old = label.textContent;
-    label.textContent = '🎲 Rolling…';
+    label.textContent = 'Rolling…';
     btn.disabled = true;
     setTimeout(function () {
       rolling = false;
@@ -219,13 +229,13 @@ var TYPES = [
   function shareResult() {
     var label = $('lg-share-label');
     if (!lastShareText) {
-      label.textContent = '🎲 Roll first!';
-      setTimeout(function () { label.textContent = '📣 Share Result'; }, 1800);
+      label.textContent = 'Roll first!';
+      setTimeout(function () { label.textContent = 'Share Result'; }, 1800);
       return;
     }
     copyToClipboard(lastShareText, function (ok) {
-      label.textContent = ok ? '✅ Copied!' : '📝 Copy manually';
-      setTimeout(function () { label.textContent = '📣 Share Result'; }, 1800);
+      label.textContent = ok ? 'Copied!' : 'Copy manually';
+      setTimeout(function () { label.textContent = 'Share Result'; }, 1800);
     });
   }
 

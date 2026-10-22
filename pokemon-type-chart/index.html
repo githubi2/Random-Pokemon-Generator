@@ -22,14 +22,14 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pokemon Type Chart - 18-Type Weaknesses &amp; Effectiveness</title>
+  <title>Pokemon Type Chart Calculator: All 18 Types &amp; Matchups</title>
   <meta name="description" content="Pokemon Type Chart: full 18-type effectiveness grid with a dual-type damage calculator — weaknesses, resistances and immunities in one table." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Random Pokemon Generator" />
   <link rel="canonical" href="https://www.random-pokemon-generator.co/pokemon-type-chart/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Pokemon Type Chart - 18-Type Weaknesses &amp; Effectiveness" />
+  <meta property="og:title" content="Pokemon Type Chart Calculator: All 18 Types &amp; Matchups" />
   <meta property="og:description" content="Full 18-type effectiveness grid with a dual-type damage calculator — weaknesses, resistances and immunities in one table." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.random-pokemon-generator.co/pokemon-type-chart/" />
@@ -40,14 +40,14 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pokemon Type Chart - 18-Type Weaknesses &amp; Effectiveness" />
+  <meta name="twitter:title" content="Pokemon Type Chart Calculator: All 18 Types &amp; Matchups" />
   <meta name="twitter:description" content="Full 18-type effectiveness grid with a dual-type damage calculator — weaknesses, resistances and immunities in one table." />
   <meta name="twitter:image" content="https://www.random-pokemon-generator.co/pokemon-type-chart/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <link rel="stylesheet" href="../styles.css?v=20260910a" />
+  <link rel="stylesheet" href="../styles.css?v=20261022k" />
 
   <!-- Structured data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -166,18 +166,52 @@
           <li class="nav-group">
             <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
             <ul class="nav-menu" id="tools-menu">
-              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
-              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
-              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
-              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
-              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
-              <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
-              <li><a href="./" class="nav-link nav-link-active">Pokemon Type Chart</a></li>
-              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
-              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
-              <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
-              <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
-              <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Generators</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">Random Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Teams and Battles</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">Pokemon Champions Team Builder</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">Pokemon IV Calculator</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">Pokemon Type Chart</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Games</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+                </ul>
+                <span class="nav-menu-label">Cards</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">Pokemon Card Generator</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">Pokemon Trainer Card Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Reference</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">Pokemon Release Dates</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">Favorite Pokemon of Each Type</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">Eevee Evolutions</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
           <li><a href="../blog/" class="nav-link">Blog</a></li>
@@ -344,8 +378,8 @@
     </div>
   </footer>
 
-  <script src="../data.js?v=20260802q"></script>
-  <script src="../nav.js?v=20260802q"></script>
-  <script src="type-chart.js?v=20260909b"></script>
+  <script src="../data.js?v=20261022d"></script>
+  <script src="../nav.js?v=20261022d"></script>
+  <script src="type-chart.js?v=20261022d"></script>
 </body>
 </html>

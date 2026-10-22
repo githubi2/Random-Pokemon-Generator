@@ -46,7 +46,7 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <link rel="stylesheet" href="../styles.css?v=20260910a" />
+  <link rel="stylesheet" href="../styles.css?v=20261022k" />
 
   <style>
     /* Reserve the art box: the silhouette image is injected by script, so hold its final size up
@@ -163,18 +163,52 @@
           <li class="nav-group">
             <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
             <ul class="nav-menu" id="tools-menu">
-              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
-              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
-              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
-              <li><a href="./" class="nav-link nav-link-active">Who's That Pokemon</a></li>
-              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
-              <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
-              <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
-              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
-              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
-              <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
-              <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
-              <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Generators</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">Random Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Teams and Battles</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">Pokemon Champions Team Builder</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">Pokemon IV Calculator</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Games</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">Who's That Pokemon</a></li>
+                </ul>
+                <span class="nav-menu-label">Cards</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">Pokemon Card Generator</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">Pokemon Trainer Card Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Reference</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">Pokemon Release Dates</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">Favorite Pokemon of Each Type</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">Eevee Evolutions</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
           <li><a href="../blog/" class="nav-link">Blog</a></li>
@@ -197,18 +231,18 @@
     <!-- Game -->
     <section id="game" class="container" aria-label="Who's that Pokemon guessing game">
       <div class="panel cornered">
-        <p class="tool-hint">How to play — the game deals a random Pokemon and hides it (silhouette / pixel art / cry). Type your guess and hit Guess! (3 tries). Wrong guesses reveal hints: type, generation, first letter. 💡</p>
+        <p class="tool-hint">How to play — the game deals a random Pokemon and hides it (silhouette / pixel art / cry). Type your guess and hit Guess! (3 tries). Wrong guesses reveal hints: type, generation, first letter. <i class="ico ico-lightbulb" aria-hidden="true"></i></p>
 
         <!-- Tab switcher: Play / Settings / Stats -->
         <div class="btn-row" id="wtp-tabs" role="tablist" aria-label="Game panels">
-          <button type="button" class="btn-slide cornered btn-secondary wtp-tab wtp-tab-active" id="tab-play" role="tab" aria-selected="true" aria-controls="panel-play" data-panel="play"><span><span class="wtp-tab-ico">🎮</span> Play</span></button>
-          <button type="button" class="btn-slide cornered btn-secondary wtp-tab" id="tab-settings" role="tab" aria-selected="false" aria-controls="panel-settings" data-panel="settings"><span><span class="wtp-tab-ico">⚙️</span> Settings</span></button>
-          <button type="button" class="btn-slide cornered btn-secondary wtp-tab" id="tab-stats" role="tab" aria-selected="false" aria-controls="panel-stats" data-panel="stats"><span><span class="wtp-tab-ico">📊</span> Stats</span></button>
+          <button type="button" class="btn-slide cornered btn-secondary wtp-tab wtp-tab-active" id="tab-play" role="tab" aria-selected="true" aria-controls="panel-play" data-panel="play"><span><span class="wtp-tab-ico"><i class="ico ico-gamepad-2" aria-hidden="true"></i></span> Play</span></button>
+          <button type="button" class="btn-slide cornered btn-secondary wtp-tab" id="tab-settings" role="tab" aria-selected="false" aria-controls="panel-settings" data-panel="settings"><span><span class="wtp-tab-ico"><i class="ico ico-settings" aria-hidden="true"></i></span> Settings</span></button>
+          <button type="button" class="btn-slide cornered btn-secondary wtp-tab" id="tab-stats" role="tab" aria-selected="false" aria-controls="panel-stats" data-panel="stats"><span><span class="wtp-tab-ico"><i class="ico ico-chart-column" aria-hidden="true"></i></span> Stats</span></button>
         </div>
         <div class="tool-note-group">
-          <p class="tool-note">🎮 Play — the guessing round: hidden Pokemon, 3 tries, hints</p>
-          <p class="tool-note">⚙️ Settings — difficulty, generation filter, sound toggle</p>
-          <p class="tool-note">📊 Stats — accuracy, times, streaks; saved automatically</p>
+          <p class="tool-note"><i class="ico ico-gamepad-2" aria-hidden="true"></i> Play — the guessing round: hidden Pokemon, 3 tries, hints</p>
+          <p class="tool-note"><i class="ico ico-settings" aria-hidden="true"></i> Settings — difficulty, generation filter, sound toggle</p>
+          <p class="tool-note"><i class="ico ico-chart-column" aria-hidden="true"></i> Stats — accuracy, times, streaks; saved automatically</p>
         </div>
 
         <!-- Play panel -->
@@ -219,17 +253,17 @@
               <div class="wtp-art" id="wtp-art">
                 <img id="wtp-img" width="475" height="475" alt="Who's that Pokemon?" />
                 <div class="wtp-art-elite" id="wtp-elite" hidden>
-                  <div class="wtp-elite-icon" aria-hidden="true">🔊</div>
+                  <div class="wtp-elite-icon" aria-hidden="true"><i class="ico ico-volume-2" aria-hidden="true"></i></div>
                   <p>Listen to the cry!</p>
                 </div>
                 <div class="wtp-loader" id="wtp-loader" hidden>Loading…</div>
               </div>
-              <button type="button" class="btn-slide cornered btn-secondary wtp-cry" id="wtp-cry" hidden><span>🔊 Play Cry</span></button>
+              <button type="button" class="btn-slide cornered btn-secondary wtp-cry" id="wtp-cry" hidden><span><i class="ico ico-volume-2" aria-hidden="true"></i> Play Cry</span></button>
             </div>
 
             <p class="wtp-wrong" id="wtp-wrong" hidden></p>
             <div class="wtp-hints" id="wtp-hints" hidden>
-              <span class="wtp-hint-label">💡 Hints:</span>
+              <span class="wtp-hint-label"><i class="ico ico-lightbulb" aria-hidden="true"></i> Hints:</span>
               <span id="wtp-hint-type"></span>
               <span id="wtp-hint-gen" class="wtp-hint-sep"></span>
             </div>
@@ -258,7 +292,7 @@
               <p class="wtp-result-desc" id="wtp-result-desc" hidden></p>
               <div class="wtp-result-actions">
                 <button type="button" id="wtp-next" class="btn-slide cornered btn-primary"><span>Next Pokemon</span></button>
-                <button type="button" id="wtp-share-result" class="btn-slide cornered btn-secondary"><span>📣 Share</span></button>
+                <button type="button" id="wtp-share-result" class="btn-slide cornered btn-secondary"><span><i class="ico ico-megaphone" aria-hidden="true"></i> Share</span></button>
               </div>
             </div>
           </div>
@@ -301,7 +335,7 @@
               <div class="wtp-stat"><span class="wtp-stat-num" id="st-best">0</span><span class="wtp-stat-label">Best Streak</span></div>
             </div>
             <div class="wtp-stats-actions">
-              <button type="button" id="wtp-share-stats" class="btn-slide cornered btn-secondary"><span>📣 Share My Stats</span></button>
+              <button type="button" id="wtp-share-stats" class="btn-slide cornered btn-secondary"><span><i class="ico ico-megaphone" aria-hidden="true"></i> Share My Stats</span></button>
               <button type="button" id="wtp-reset-stats" class="btn-slide cornered btn-secondary"><span>🔄 Reset Stats</span></button>
             </div>
           </div>
@@ -497,9 +531,9 @@
     </div>
   </footer>
 
-  <script src="../data.js?v=20260802q"></script>
-  <script src="../crymap.js?v=20260802q"></script>
-  <script src="../nav.js?v=20260802q"></script>
-  <script src="whos-that-pokemon.js?v=20260802q"></script>
+  <script src="../data.js?v=20261022d"></script>
+  <script src="../crymap.js?v=20261022d"></script>
+  <script src="../nav.js?v=20261022d"></script>
+  <script src="whos-that-pokemon.js?v=20261022d"></script>
 </body>
 </html>

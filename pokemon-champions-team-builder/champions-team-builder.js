@@ -953,7 +953,7 @@
     else if (kind === 'json') text = buildTeamJSON();
     else text = 'I built a Pokemon Champions team on Random Pokemon Generator — ' + (state.name || 'My team') + '! Pick yours: ' + buildShareUrl();
     copyToClipboard(text, function (ok) {
-      if (ok) flashStatus('✅ Copied!');
+      if (ok) flashStatus('Copied!');
     });
   }
   function flashStatus(msg) {

@@ -46,7 +46,7 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <link rel="stylesheet" href="../styles.css?v=20260910a" />
+  <link rel="stylesheet" href="../styles.css?v=20261022k" />
 
   <!-- Structured data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -150,18 +150,52 @@
           <li class="nav-group">
             <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
             <ul class="nav-menu" id="tools-menu">
-              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
-              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
-              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
-              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
-              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
-              <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
-              <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
-              <li><a href="./" class="nav-link nav-link-active">Random Mega Pokemon Generator</a></li>
-              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
-              <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
-              <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
-              <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Generators</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">Random Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">Random Mega Pokemon Generator</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Teams and Battles</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">Pokemon Champions Team Builder</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">Pokemon IV Calculator</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Games</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+                </ul>
+                <span class="nav-menu-label">Cards</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">Pokemon Card Generator</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">Pokemon Trainer Card Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Reference</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">Pokemon Release Dates</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">Favorite Pokemon of Each Type</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">Eevee Evolutions</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
           <li><a href="../blog/" class="nav-link">Blog</a></li>
@@ -184,10 +218,10 @@
     <!-- Tool -->
     <section class="container tool-panel" id="mega-tool" aria-label="Random mega pokemon generator tool">
       <div class="panel cornered">
-        <p class="tool-hint">How it works — narrow the mega pool with the generation, region, type, rarity, habitat, color and Min BST filters, pick how many megas each roll deals (1–6), then hit 🎲 Generate Mega Pokemon. Flip No repeats to deal the pool like a deck: every mega appears once before anything repeats. ↺ Reset Filters clears every filter at once. The ⚙️ Filters bar collapses the whole filter panel when you just want to roll.</p>
+        <p class="tool-hint">How it works — narrow the mega pool with the generation, region, type, rarity, habitat, color and Min BST filters, pick how many megas each roll deals (1–6), then hit <i class="ico ico-dice-5" aria-hidden="true"></i> Generate Mega Pokemon. Flip No repeats to deal the pool like a deck: every mega appears once before anything repeats. ↺ Reset Filters clears every filter at once. The <i class="ico ico-settings" aria-hidden="true"></i> Filters bar collapses the whole filter panel when you just want to roll.</p>
 
         <div class="mega-filters-bar">
-          <button type="button" class="mega-filters-toggle" id="mega-filters-toggle" aria-expanded="true" aria-controls="mega-filters">⚙️ Filters <span class="mega-filters-caret" id="mega-filters-caret" aria-hidden="true">▾</span></button>
+          <button type="button" class="mega-filters-toggle" id="mega-filters-toggle" aria-expanded="true" aria-controls="mega-filters"><i class="ico ico-settings" aria-hidden="true"></i> Filters <span class="mega-filters-caret" id="mega-filters-caret" aria-hidden="true">▾</span></button>
           <p class="tool-note mega-filters-summary" id="mega-filters-summary" hidden></p>
         </div>
 
@@ -251,20 +285,20 @@
         </div>
 
         <div class="actions">
-          <button type="button" id="mega-generate-btn" class="btn-slide cornered btn-primary"><span>🎲 Generate Mega Pokemon</span></button>
-          <button type="button" id="mega-copy-btn" class="btn-slide btn-secondary" disabled><span>📋 Copy Result</span></button>
+          <button type="button" id="mega-generate-btn" class="btn-slide cornered btn-primary"><span><i class="ico ico-dice-5" aria-hidden="true"></i> Generate Mega Pokemon</span></button>
+          <button type="button" id="mega-copy-btn" class="btn-slide btn-secondary" disabled><span><i class="ico ico-clipboard" aria-hidden="true"></i> Copy Result</span></button>
           <button type="button" id="mega-reset-btn" class="btn-slide btn-ghost"><span>↺ Reset Filters</span></button>
         </div>
         <div class="tool-note-group">
-          <p class="tool-note">🎲 Generate Mega Pokemon — rolls 1–6 random Mega Evolutions from the active pool, never a duplicate inside the same roll</p>
-          <p class="tool-note">📋 Copy Result — copies the current mega's name, types, stats and a link to share</p>
-          <p class="tool-note">✨ Shiny — the toggle on the card swaps between regular and shiny artwork</p>
+          <p class="tool-note"><i class="ico ico-dice-5" aria-hidden="true"></i> Generate Mega Pokemon — rolls 1–6 random Mega Evolutions from the active pool, never a duplicate inside the same roll</p>
+          <p class="tool-note"><i class="ico ico-clipboard" aria-hidden="true"></i> Copy Result — copies the current mega's name, types, stats and a link to share</p>
+          <p class="tool-note"><i class="ico ico-sparkles" aria-hidden="true"></i> Shiny — the toggle on the card swaps between regular and shiny artwork</p>
         </div>
         <p class="pool-count" id="mega-pool-count"></p>
       </div>
 
       <div class="mega-stage" id="mega-stage" aria-live="polite">
-        <div class="mega-empty cornered-dashed" id="mega-empty">Press 🎲 Generate Mega Pokemon to roll your first Mega Evolution.</div>
+        <div class="mega-empty cornered-dashed" id="mega-empty">Press <i class="ico ico-dice-5" aria-hidden="true"></i> Generate Mega Pokemon to roll your first Mega Evolution.</div>
         <div class="mega-cards" id="mega-cards"></div>
       </div>
 
@@ -277,7 +311,7 @@
         </div>
         <div class="tool-note-group">
           <p class="tool-note">Click any roll to reload that exact Mega Evolution; Clear empties the history</p>
-          <p class="tool-note">📊 History Analysis — live stats across every roll below: pool coverage, type spread, average stats and your luckiest pulls</p>
+          <p class="tool-note"><i class="ico ico-chart-column" aria-hidden="true"></i> History Analysis — live stats across every roll below: pool coverage, type spread, average stats and your luckiest pulls</p>
         </div>
         <ol class="history-list" id="mega-history-list"></ol>
         <div class="mega-analysis" id="mega-analysis" aria-label="Roll history analysis"></div>
@@ -412,8 +446,8 @@
     </div>
   </div>
 
-  <script src="../data.js?v=20260802q"></script>
-  <script src="../nav.js?v=20260802q"></script>
-  <script src="mega-generator.js?v=20260902a"></script>
+  <script src="../data.js?v=20261022d"></script>
+  <script src="../nav.js?v=20261022d"></script>
+  <script src="mega-generator.js?v=20261022d"></script>
 </body>
 </html>

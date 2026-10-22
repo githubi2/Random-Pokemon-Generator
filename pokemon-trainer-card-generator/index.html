@@ -46,7 +46,7 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <link rel="stylesheet" href="../styles.css?v=20260910a" />
+  <link rel="stylesheet" href="../styles.css?v=20261022k" />
 
   <style>
     /* ============ Pokemon Trainer Card Generator — page-specific ============ */
@@ -55,7 +55,7 @@
     .tg-preview { position: sticky; top: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
     .tg-preview canvas { width: 100%; height: auto; display: block; background: #fff; border-radius: 14px; }
     .tg-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; width: 100%; }
-    .tg-upload { border: 2px dashed var(--muted-text, #9a9a9a); border-radius: 12px; padding: 14px 12px; text-align: center; cursor: pointer; background: var(--page, #fff7e0); }
+    .tg-upload { border: 2px dashed var(--muted-text, var(--text-3)); border-radius: 12px; padding: 14px 12px; text-align: center; cursor: pointer; background: var(--page, #fff7e0); }
     .tg-upload:hover, .tg-upload.dragover { border-color: var(--poke-red, #e3350d); background: #fff2c9; }
     .tg-upload input[type="file"] { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
     .tg-upload .tg-upload-title { font-weight: 900; margin: 0 0 4px; }
@@ -187,18 +187,52 @@
           <li class="nav-group">
             <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
             <ul class="nav-menu" id="tools-menu">
-              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
-              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
-              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
-              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
-              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
-              <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
-              <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
-              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
-              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
-              <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
-              <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
-              <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Generators</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">Random Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Teams and Battles</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">Pokemon Champions Team Builder</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">Pokemon IV Calculator</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Games</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+                </ul>
+                <span class="nav-menu-label">Cards</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">Pokemon Card Generator</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">Pokemon Trainer Card Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Reference</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">Pokemon Release Dates</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">Favorite Pokemon of Each Type</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">Eevee Evolutions</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
           <li><a href="../blog/" class="nav-link">Blog</a></li>
@@ -223,7 +257,7 @@
       <div class="panel cornered tg-layout">
         <!-- ============ Form ============ -->
         <div class="tg-form">
-          <p class="tool-hint">The card on the right starts as a random sample: random trainer name, random partner Pokemon, random badge count and background. Edit anything below and the preview redraws as you go. Hit 🎲 New Sample Card whenever you want a fresh random card.</p>
+          <p class="tool-hint">The card on the right starts as a random sample: random trainer name, random partner Pokemon, random badge count and background. Edit anything below and the preview redraws as you go. Hit <i class="ico ico-dice-5" aria-hidden="true"></i> New Sample Card whenever you want a fresh random card.</p>
 
           <fieldset>
             <legend>1. Style &amp; background</legend>
@@ -234,10 +268,10 @@
             </div>
             <p class="tool-note">Background</p>
             <div class="btn-row" id="tg-bg-chips" role="group" aria-label="Trainer card background">
-              <button type="button" class="chip-btn" data-value="ocean" aria-pressed="true">🌊 Ocean</button>
-              <button type="button" class="chip-btn" data-value="meadow" aria-pressed="false">🌿 Meadow</button>
-              <button type="button" class="chip-btn" data-value="cinder" aria-pressed="false">🔥 Cinder</button>
-              <button type="button" class="chip-btn" data-value="night" aria-pressed="false">🌙 Night</button>
+              <button type="button" class="chip-btn" data-value="ocean" aria-pressed="true"><i class="ico ico-waves" aria-hidden="true"></i> Ocean</button>
+              <button type="button" class="chip-btn" data-value="meadow" aria-pressed="false"><i class="ico ico-leaf" aria-hidden="true"></i> Meadow</button>
+              <button type="button" class="chip-btn" data-value="cinder" aria-pressed="false"><i class="ico ico-flame" aria-hidden="true"></i> Cinder</button>
+              <button type="button" class="chip-btn" data-value="night" aria-pressed="false"><i class="ico ico-moon" aria-hidden="true"></i> Night</button>
             </div>
             <p class="tool-note" id="tg-style-note"></p>
           </fieldset>
@@ -256,7 +290,7 @@
             </div>
             <p class="tool-note" style="margin-top:12px">Portrait</p>
             <div class="tg-upload" id="tg-upload" role="button" tabindex="0" aria-label="Upload a portrait for your trainer card">
-              <p class="tg-upload-title">📷 Upload a portrait</p>
+              <p class="tg-upload-title"><i class="ico ico-camera" aria-hidden="true"></i> Upload a portrait</p>
               <p class="tg-upload-note">PNG / JPEG · cropped automatically · skip to keep the silhouette avatar</p>
               <input type="file" id="tg-file" accept="image/png,image/jpeg,image/webp" />
             </div>
@@ -293,9 +327,9 @@
         <div class="tg-preview">
           <canvas id="tg-canvas" width="900" height="720" aria-label="Live Pokemon trainer card preview" role="img"></canvas>
           <div class="tg-actions">
-            <button type="button" id="tg-rand" class="btn-slide cornered btn-primary"><span>🎲 New Sample Card</span></button>
-            <button type="button" id="tg-download" class="btn-slide btn-secondary"><span>⬇ Download PNG</span></button>
-            <button type="button" id="tg-copy" class="btn-slide btn-ghost"><span>📋 Copy Card Text</span></button>
+            <button type="button" id="tg-rand" class="btn-slide cornered btn-primary"><span><i class="ico ico-dice-5" aria-hidden="true"></i> New Sample Card</span></button>
+            <button type="button" id="tg-download" class="btn-slide btn-secondary"><span><i class="ico ico-download" aria-hidden="true"></i> Download PNG</span></button>
+            <button type="button" id="tg-copy" class="btn-slide btn-ghost"><span><i class="ico ico-clipboard" aria-hidden="true"></i> Copy Card Text</span></button>
           </div>
           <p class="tool-note">Exports at 900 x 720 — crisp for Discord, forum signatures, stream overlays or printing.</p>
           <p class="tool-note" id="tg-saved-note"></p>
@@ -413,8 +447,8 @@
     </div>
   </div>
 
-  <script src="../data.js?v=20260802q"></script>
-  <script src="../nav.js?v=20260802q"></script>
-  <script src="trainer-generator.js?v=20260909a"></script>
+  <script src="../data.js?v=20261022d"></script>
+  <script src="../nav.js?v=20261022d"></script>
+  <script src="trainer-generator.js?v=20261022d"></script>
 </body>
 </html>

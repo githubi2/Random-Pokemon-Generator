@@ -46,7 +46,7 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <link rel="stylesheet" href="../styles.css?v=20260910a" />
+  <link rel="stylesheet" href="../styles.css?v=20261022k" />
 
   <!-- Structured data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -150,18 +150,52 @@
           <li class="nav-group">
             <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
             <ul class="nav-menu" id="tools-menu">
-              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
-              <li><a href="./" class="nav-link nav-link-active">Pokemon Smash or Pass</a></li>
-              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
-              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
-              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
-              <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
-              <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
-              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
-              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
-              <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
-              <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
-              <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Generators</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">Random Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Teams and Battles</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">Pokemon Champions Team Builder</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">Pokemon IV Calculator</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Games</span>
+                <ul class="nav-menu-list">
+                  <li><a href="./" class="nav-link nav-link-active">Pokemon Smash or Pass</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+                </ul>
+                <span class="nav-menu-label">Cards</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">Pokemon Card Generator</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">Pokemon Trainer Card Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Reference</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">Pokemon Release Dates</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">Favorite Pokemon of Each Type</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">Eevee Evolutions</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
           <li><a href="../blog/" class="nav-link">Blog</a></li>
@@ -178,13 +212,13 @@
     <section class="hero container" aria-labelledby="page-title">
       <p class="eyebrow">Gen 1–9 · Instant Verdicts · Made for Sharing</p>
       <h1 id="page-title">Pokemon Smash or Pass</h1>
-      <p class="lede">A random Pokémon appears. One verdict: 💖 smash or 🚫 pass. The game rolls every Gen 1–9 Pokémon until your smash list says it all — then share the score.</p>
+      <p class="lede">A random Pokémon appears. One verdict: <i class="ico ico-heart" aria-hidden="true"></i> smash or <i class="ico ico-ban" aria-hidden="true"></i> pass. The game rolls every Gen 1–9 Pokémon until your smash list says it all — then share the score.</p>
     </section>
 
     <!-- Game -->
     <section id="game" class="container" aria-label="Smash or pass game">
       <div class="panel cornered">
-        <p class="tool-hint">How to play — 🎲 start rolls a random Pokémon, then judge it: 💖 smash or 🚫 pass. Every verdict is saved — watch your smash rate, streak and history grow. No rerolls, no repeats until you've seen the whole pool.</p>
+        <p class="tool-hint">How to play — <i class="ico ico-dice-5" aria-hidden="true"></i> start rolls a random Pokémon, then judge it: <i class="ico ico-heart" aria-hidden="true"></i> smash or <i class="ico ico-ban" aria-hidden="true"></i> pass. Every verdict is saved — watch your smash rate, streak and history grow. No rerolls, no repeats until you've seen the whole pool.</p>
         <fieldset>
           <legend>Display Mode</legend>
           <div class="radio-row" role="radiogroup" aria-label="Display order">
@@ -237,14 +271,14 @@
           </label>
         </fieldset>
         <div class="actions">
-          <button type="button" id="start-btn" class="btn-slide cornered btn-primary"><span>🎲 Start</span></button>
-          <button type="button" id="share-btn" class="btn-slide btn-secondary"><span id="share-label">📣 Share My Verdicts</span></button>
+          <button type="button" id="start-btn" class="btn-slide cornered btn-primary"><span><i class="ico ico-dice-5" aria-hidden="true"></i> Start</span></button>
+          <button type="button" id="share-btn" class="btn-slide btn-secondary"><span id="share-label"><i class="ico ico-megaphone" aria-hidden="true"></i> Share My Verdicts</span></button>
         </div>
         <div class="tool-note-group">
-          <p class="tool-note">🎲 Start — begins the game: rolls the first Pokémon and starts your run</p>
+          <p class="tool-note"><i class="ico ico-dice-5" aria-hidden="true"></i> Start — begins the game: rolls the first Pokémon and starts your run</p>
           <p class="tool-note">👆 Swipe the card left to Pass or right to Smash — or use the buttons / S and P keys</p>
-          <p class="tool-note">💖 Smash / 🚫 Pass — judge the Pokémon; the next one appears instantly</p>
-          <p class="tool-note">📣 Share My Verdicts — copies your smash rate + verdict summary to share</p>
+          <p class="tool-note"><i class="ico ico-heart" aria-hidden="true"></i> Smash / <i class="ico ico-ban" aria-hidden="true"></i> Pass — judge the Pokémon; the next one appears instantly</p>
+          <p class="tool-note"><i class="ico ico-megaphone" aria-hidden="true"></i> Share My Verdicts — copies your smash rate + verdict summary to share</p>
         </div>
       </div>
 
@@ -266,15 +300,15 @@
           </div>
         </div>
         <div class="smash-verdicts" id="smash-verdicts" hidden>
-          <button type="button" class="btn-slide cornered btn-secondary" id="pass-btn"><span>🚫 Pass</span></button>
-          <button type="button" class="btn-slide cornered btn-primary" id="smash-btn"><span>💖 Smash</span></button>
+          <button type="button" class="btn-slide cornered btn-secondary" id="pass-btn"><span><i class="ico ico-ban" aria-hidden="true"></i> Pass</span></button>
+          <button type="button" class="btn-slide cornered btn-primary" id="smash-btn"><span><i class="ico ico-heart" aria-hidden="true"></i> Smash</span></button>
         </div>
-        <div class="smash-empty cornered-dashed" id="smash-empty">Press 🎲 Start to judge your first Pokémon.</div>
+        <div class="smash-empty cornered-dashed" id="smash-empty">Press <i class="ico ico-dice-5" aria-hidden="true"></i> Start to judge your first Pokémon.</div>
         <div class="smash-stats" id="smash-stats" hidden>
-          <span class="stat-smash" id="stat-smash">💖 0</span>
-          <span class="stat-pass" id="stat-pass">🚫 0</span>
+          <span class="stat-smash" id="stat-smash"><i class="ico ico-heart" aria-hidden="true"></i> 0</span>
+          <span class="stat-pass" id="stat-pass"><i class="ico ico-ban" aria-hidden="true"></i> 0</span>
           <span class="stat-rate" id="stat-rate">0% smash rate</span>
-          <span class="stat-streak" id="stat-streak">🔥 streak 0</span>
+          <span class="stat-streak" id="stat-streak"><i class="ico ico-flame" aria-hidden="true"></i> streak 0</span>
         </div>
       </div>
 
@@ -282,12 +316,12 @@
         <div class="history-head">
           <h2 class="history-title">Verdict History</h2>
           <div class="history-actions">
-            <button type="button" id="history-cards-btn" class="btn-text">📜 Cards</button>
+            <button type="button" id="history-cards-btn" class="btn-text"><i class="ico ico-scroll-text" aria-hidden="true"></i> Cards</button>
             <button type="button" id="history-clear" class="btn-text">Clear</button>
           </div>
         </div>
         <div class="tool-note-group">
-          <p class="tool-note">📜 Cards — opens a card grid of every verdict; click any card for its full dex details</p>
+          <p class="tool-note"><i class="ico ico-scroll-text" aria-hidden="true"></i> Cards — opens a card grid of every verdict; click any card for its full dex details</p>
           <p class="tool-note">Clear — deletes all verdicts and restores the full Pokémon pool</p>
         </div>
         <ol class="history-list" id="history-list"></ol>
@@ -319,7 +353,7 @@
           </article>
           <article>
             <h3>Play it in three taps</h3>
-            <p>Hit Start to roll the first Pokémon. Read its name, type tags, and Gen badge, then tap 💖 Smash or 🚫 Pass — or press S and P on your keyboard to play faster. The next Pokémon appears instantly, and the counter keeps your smash rate, current streak, and a rolling history of every verdict. No account, no install, no limit.</p>
+            <p>Hit Start to roll the first Pokémon. Read its name, type tags, and Gen badge, then tap <i class="ico ico-heart" aria-hidden="true"></i> Smash or <i class="ico ico-ban" aria-hidden="true"></i> Pass — or press S and P on your keyboard to play faster. The next Pokémon appears instantly, and the counter keeps your smash rate, current streak, and a rolling history of every verdict. No account, no install, no limit.</p>
           </article>
           <article>
             <h3>Take the all-Pokémon challenge</h3>
@@ -441,8 +475,8 @@
     </div>
   </footer>
 
-  <script src="../data.js?v=20260802q"></script>
-  <script src="../nav.js?v=20260802q"></script>
-  <script src="smash-or-pass.js?v=20260802q"></script>
+  <script src="../data.js?v=20261022d"></script>
+  <script src="../nav.js?v=20261022d"></script>
+  <script src="smash-or-pass.js?v=20261022d"></script>
 </body>
 </html>

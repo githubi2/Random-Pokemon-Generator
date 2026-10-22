@@ -46,7 +46,7 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <link rel="stylesheet" href="../styles.css?v=20260910a" />
+  <link rel="stylesheet" href="../styles.css?v=20261022k" />
 
   <!-- Structured data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -150,18 +150,52 @@
           <li class="nav-group">
             <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
             <ul class="nav-menu" id="tools-menu">
-              <li><a href="./" class="nav-link nav-link-active">Nuzlocke Team Builder</a></li>
-              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
-              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
-              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
-              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
-              <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
-              <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
-              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
-              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
-              <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
-              <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
-              <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Generators</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">Random Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Teams and Battles</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">Pokemon Champions Team Builder</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">Nuzlocke Team Builder</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">Pokemon IV Calculator</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Games</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+                </ul>
+                <span class="nav-menu-label">Cards</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">Pokemon Card Generator</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">Pokemon Trainer Card Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Reference</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">Pokemon Release Dates</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">Favorite Pokemon of Each Type</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">Eevee Evolutions</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
           <li><a href="../blog/" class="nav-link">Blog</a></li>
@@ -184,13 +218,13 @@
     <!-- Generator -->
     <section id="generator" class="container" aria-label="Nuzlocke generator">
       <form class="panel cornered" id="nuz-form" action="#generator" method="get">
-        <p class="tool-hint">How to play — pick a mode: 🎲 roll your starter team (6), 👣 roll one encounter per route, 💀 bring back a fallen teammate. Lock your region, set the rules, then roll.</p>
+        <p class="tool-hint">How to play — pick a mode: <i class="ico ico-dice-5" aria-hidden="true"></i> roll your starter team (6), <i class="ico ico-footprints" aria-hidden="true"></i> roll one encounter per route, <i class="ico ico-skull" aria-hidden="true"></i> bring back a fallen teammate. Lock your region, set the rules, then roll.</p>
         <fieldset>
           <legend>Mode</legend>
           <div class="btn-row" id="mode-buttons" role="group" aria-label="Nuzlocke mode">
-            <button type="button" class="chip-btn" data-mode="team" aria-pressed="true">🎲 Starter Team (6)</button>
-            <button type="button" class="chip-btn" data-mode="encounter" aria-pressed="false">👣 First Encounter (1)</button>
-            <button type="button" class="chip-btn" data-mode="death" aria-pressed="false">💀 Death Replacement (1)</button>
+            <button type="button" class="chip-btn" data-mode="team" aria-pressed="true"><i class="ico ico-dice-5" aria-hidden="true"></i> Starter Team (6)</button>
+            <button type="button" class="chip-btn" data-mode="encounter" aria-pressed="false"><i class="ico ico-footprints" aria-hidden="true"></i> First Encounter (1)</button>
+            <button type="button" class="chip-btn" data-mode="death" aria-pressed="false"><i class="ico ico-skull" aria-hidden="true"></i> Death Replacement (1)</button>
           </div>
         </fieldset>
 
@@ -221,29 +255,29 @@
         <fieldset>
           <legend>Nuzlocke rules</legend>
           <div class="btn-row" id="rule-buttons" role="group" aria-label="Nuzlocke rule toggles">
-            <button type="button" class="chip-btn" data-rule="noLeg" aria-pressed="true">🚫 No Legendaries</button>
-            <button type="button" class="chip-btn" data-rule="noMyth" aria-pressed="true">🚫 No Mythicals</button>
-            <button type="button" class="chip-btn" data-rule="initialOnly" aria-pressed="false">🌱 Unevolved Only</button>
+            <button type="button" class="chip-btn" data-rule="noLeg" aria-pressed="true"><i class="ico ico-ban" aria-hidden="true"></i> No Legendaries</button>
+            <button type="button" class="chip-btn" data-rule="noMyth" aria-pressed="true"><i class="ico ico-ban" aria-hidden="true"></i> No Mythicals</button>
+            <button type="button" class="chip-btn" data-rule="initialOnly" aria-pressed="false"><i class="ico ico-sprout" aria-hidden="true"></i> Unevolved Only</button>
           </div>
         </fieldset>
 
         <div class="actions">
           <button type="button" id="roll-btn" class="btn-slide cornered btn-primary">
-            <span id="roll-label">🎲 Roll Nuzlocke Encounter</span>
+            <span id="roll-label"><i class="ico ico-dice-5" aria-hidden="true"></i> Roll Nuzlocke Encounter</span>
           </button>
           <button type="button" id="copy-btn" class="btn-slide btn-secondary">
-            <span id="copy-label">🔗 Copy Share Link</span>
+            <span id="copy-label"><i class="ico ico-link" aria-hidden="true"></i> Copy Share Link</span>
           </button>
           <button type="button" id="export-btn" class="btn-slide btn-secondary">
-            <span id="export-label">📤 Export to Showdown</span>
+            <span id="export-label"><i class="ico ico-upload" aria-hidden="true"></i> Export to Showdown</span>
           </button>
           <button type="button" id="reset-btn" class="btn-text">Reset All</button>
           <span class="pool-count" id="pool-count" aria-live="polite">1,025 in pool</span>
         </div>
         <div class="tool-note-group">
-          <p class="tool-note">🎲 Roll — deals your Pokémon for the selected mode (starter team / first encounter / death replacement)</p>
-          <p class="tool-note">🔗 Copy Share Link — copies a link that opens this exact team for friends</p>
-          <p class="tool-note">📤 Export to Showdown — copies the squad in Pokémon Showdown format, ready to paste</p>
+          <p class="tool-note"><i class="ico ico-dice-5" aria-hidden="true"></i> Roll — deals your Pokémon for the selected mode (starter team / first encounter / death replacement)</p>
+          <p class="tool-note"><i class="ico ico-link" aria-hidden="true"></i> Copy Share Link — copies a link that opens this exact team for friends</p>
+          <p class="tool-note"><i class="ico ico-upload" aria-hidden="true"></i> Export to Showdown — copies the squad in Pokémon Showdown format, ready to paste</p>
           <p class="tool-note">Reset All — clears the team and returns every setting to defaults</p>
         </div>
       </form>
@@ -251,20 +285,20 @@
       <div class="results" aria-live="polite">
         <div class="manual-add cornered">
           <button type="button" id="manual-btn" class="btn-slide btn-secondary">
-            <span>➕ Add Pokémon manually</span>
+            <span><i class="ico ico-plus" aria-hidden="true"></i> Add Pokémon manually</span>
           </button>
-          <p class="tool-note">➕ Add Pokémon manually — search any of the 1,025 Pokémon and add a catch you found by hand</p>
+          <p class="tool-note"><i class="ico ico-plus" aria-hidden="true"></i> Add Pokémon manually — search any of the 1,025 Pokémon and add a catch you found by hand</p>
         </div>
-        <p class="results-hint">💡 Nuzlocke rule of thumb: one catch per route. Use First Encounter mode when you enter a new area.</p>
-        <p class="tool-note">💀 Mark as fallen on a card to move it to the graveyard — ↩ revives it back, ✕ removes it entirely</p>
-        <p class="results-empty cornered-dashed" id="results-empty">Press 🎲 Roll to get your Nuzlocke pick — it stays put until you roll again.</p>
+        <p class="results-hint"><i class="ico ico-lightbulb" aria-hidden="true"></i> Nuzlocke rule of thumb: one catch per route. Use First Encounter mode when you enter a new area.</p>
+        <p class="tool-note"><i class="ico ico-skull" aria-hidden="true"></i> Mark as fallen on a card to move it to the graveyard — ↩ revives it back, ✕ removes it entirely</p>
+        <p class="results-empty cornered-dashed" id="results-empty">Press <i class="ico ico-dice-5" aria-hidden="true"></i> Roll to get your Nuzlocke pick — it stays put until you roll again.</p>
         <ul class="results-grid" id="results-grid"></ul>
         <p class="results-meta" id="results-meta"></p>
       </div>
 
       <section class="analysis cornered" id="analysis-panel" aria-labelledby="analysis-title" hidden>
         <div class="analysis-head">
-          <h2 class="analysis-title" id="analysis-title">📊 Nuzlocke Squad Report</h2>
+          <h2 class="analysis-title" id="analysis-title"><i class="ico ico-chart-column" aria-hidden="true"></i> Nuzlocke Squad Report</h2>
           <span class="grade-badge" id="analysis-grade">–</span>
         </div>
         <p class="analysis-summary" id="analysis-summary"></p>
@@ -279,17 +313,17 @@
           <h2 class="history-title">Roll History</h2>
           <button type="button" id="history-clear" class="btn-text">Clear History</button>
         </div>
-        <p class="history-hint">💡 Hover a Pokémon to preview · Click the row to reload that roll · Share each roll with its own link</p>
+        <p class="history-hint"><i class="ico ico-lightbulb" aria-hidden="true"></i> Hover a Pokémon to preview · Click the row to reload that roll · Share each roll with its own link</p>
         <ol class="history-list" id="history-list"></ol>
       </div>
 
       <div class="history cornered" id="graveyard-panel" hidden>
         <div class="history-head">
-          <h2 class="history-title">💀 Fallen Team (Graveyard)</h2>
+          <h2 class="history-title"><i class="ico ico-skull" aria-hidden="true"></i> Fallen Team (Graveyard)</h2>
           <button type="button" id="graveyard-clear" class="btn-text">Clear Graveyard</button>
         </div>
         <p class="tool-note">Clear Graveyard — permanently removes all fallen Pokémon from the record</p>
-        <p class="history-hint">💡 Fallen Pokémon rest here — clicking ↩ revives one back into your team (undo a mistaken fallen mark)</p>
+        <p class="history-hint"><i class="ico ico-lightbulb" aria-hidden="true"></i> Fallen Pokémon rest here — clicking ↩ revives one back into your team (undo a mistaken fallen mark)</p>
         <ol class="history-list" id="graveyard-list"></ol>
       </div>
     </section>
@@ -466,7 +500,7 @@
       </div>
       <p class="confirm-text" id="remove-modal-text"></p>
       <div class="confirm-actions">
-        <button type="button" class="btn-slide cornered btn-primary" id="rm-fallen"><span>💀 Mark as fallen</span></button>
+        <button type="button" class="btn-slide cornered btn-primary" id="rm-fallen"><span><i class="ico ico-skull" aria-hidden="true"></i> Mark as fallen</span></button>
         <button type="button" class="btn-slide cornered btn-secondary" id="rm-only"><span>✕ Remove only</span></button>
         <button type="button" class="btn-text" id="rm-cancel">Cancel</button>
       </div>
@@ -479,7 +513,7 @@
       <div class="modal-head">
         <div>
           <p class="modal-meta">Add to your Nuzlocke team</p>
-          <h3 id="add-modal-title">➕ Add Pokémon</h3>
+          <h3 id="add-modal-title"><i class="ico ico-plus" aria-hidden="true"></i> Add Pokémon</h3>
         </div>
         <button type="button" class="add-close" id="add-modal-close" aria-label="Close">✕</button>
       </div>
@@ -492,8 +526,8 @@
     </div>
   </div>
 
-  <script src="../data.js?v=20260802q"></script>
-  <script src="../nav.js?v=20260802q"></script>
-  <script src="nuzlocke.js?v=20260802q"></script>
+  <script src="../data.js?v=20261022d"></script>
+  <script src="../nav.js?v=20261022d"></script>
+  <script src="nuzlocke.js?v=20261022d"></script>
 </body>
 </html>

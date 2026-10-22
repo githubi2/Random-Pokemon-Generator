@@ -336,7 +336,7 @@
       }
       /* type pill */
       ctx.font = 'bold 20px Arial, sans-serif';
-      var label = t.label.toUpperCase();
+      var label = t.label;
       var lw = ctx.measureText(label).width;
       var pw = lw + 34, ph = 36;
       var px = x + (w - pw) / 2, py = y + 12;

@@ -46,7 +46,7 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <link rel="stylesheet" href="../styles.css?v=20260910a" />
+  <link rel="stylesheet" href="../styles.css?v=20261022k" />
 
   <!-- Structured data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -150,18 +150,52 @@
           <li class="nav-group">
             <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
             <ul class="nav-menu" id="tools-menu">
-              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
-              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
-              <li><a href="./" class="nav-link nav-link-active">Pokemon Wheel Spinner</a></li>
-              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
-              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
-              <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
-              <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
-              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
-              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
-              <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
-              <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
-              <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Generators</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">Random Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Teams and Battles</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">Pokemon Champions Team Builder</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">Pokemon IV Calculator</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Games</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">Pokemon Wheel Spinner</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+                </ul>
+                <span class="nav-menu-label">Cards</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">Pokemon Card Generator</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">Pokemon Trainer Card Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Reference</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">Pokemon Release Dates</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">Favorite Pokemon of Each Type</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">Eevee Evolutions</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
           <li><a href="../blog/" class="nav-link">Blog</a></li>
@@ -184,7 +218,7 @@
     <!-- Wheel game -->
     <section id="game" class="container" aria-label="Pokemon wheel game">
       <div class="panel cornered">
-        <p class="tool-hint">How to play — 🎡 spin the deck: cards cascade past the gold frame and the one that lands inside is your Pokémon. Filter by generation or type, then take the result — no rerolls, the spin is the rule.</p>
+        <p class="tool-hint">How to play — <i class="ico ico-ferris-wheel" aria-hidden="true"></i> spin the deck: cards cascade past the gold frame and the one that lands inside is your Pokémon. Filter by generation or type, then take the result — no rerolls, the spin is the rule.</p>
         <fieldset>
           <legend>Generation</legend>
           <div class="btn-row" id="gen-buttons" role="group" aria-label="Filter by generation"><button type="button" class="chip-btn" aria-pressed="false">Gen 1</button><button type="button" class="chip-btn" aria-pressed="false">Gen 2</button><button type="button" class="chip-btn" aria-pressed="false">Gen 3</button><button type="button" class="chip-btn" aria-pressed="false">Gen 4</button><button type="button" class="chip-btn" aria-pressed="false">Gen 5</button><button type="button" class="chip-btn" aria-pressed="false">Gen 6</button><button type="button" class="chip-btn" aria-pressed="false">Gen 7</button><button type="button" class="chip-btn" aria-pressed="false">Gen 8</button><button type="button" class="chip-btn" aria-pressed="false">Gen 9</button></div>
@@ -212,8 +246,8 @@
         <fieldset>
           <legend>Rarity</legend>
           <div class="btn-row" id="rare-buttons" role="group" aria-label="Rarity toggles">
-            <button type="button" class="chip-btn" id="noleg-chip" aria-pressed="false">🚫 No Legendaries</button>
-            <button type="button" class="chip-btn" id="nomyth-chip" aria-pressed="false">🚫 No Mythicals</button>
+            <button type="button" class="chip-btn" id="noleg-chip" aria-pressed="false"><i class="ico ico-ban" aria-hidden="true"></i> No Legendaries</button>
+            <button type="button" class="chip-btn" id="nomyth-chip" aria-pressed="false"><i class="ico ico-ban" aria-hidden="true"></i> No Mythicals</button>
           </div>
         </fieldset>
       </div>
@@ -221,20 +255,20 @@
       <div class="wheel-wrap">
         <div class="draw-view" id="wheel" role="img" aria-label="Pokemon draw deck"></div>
         <div class="wheel-controls">
-          <button type="button" id="spin-btn" class="btn-slide cornered btn-primary"><span>🎡 Spin</span></button>
-          <button type="button" id="wheel-share-btn" class="btn-slide btn-secondary"><span id="wheel-share-label">📣 Share Result</span></button>
+          <button type="button" id="spin-btn" class="btn-slide cornered btn-primary"><span><i class="ico ico-ferris-wheel" aria-hidden="true"></i> Spin</span></button>
+          <button type="button" id="wheel-share-btn" class="btn-slide btn-secondary"><span id="wheel-share-label"><i class="ico ico-megaphone" aria-hidden="true"></i> Share Result</span></button>
         </div>
         <div class="tool-note-group">
-          <p class="tool-note">🎡 Spin — rolls the deck: cards cascade past the gold frame, the one landing inside is your Pokémon</p>
-          <p class="tool-note">📣 Share Result — copies the winning Pokémon + link to share</p>
-          <p class="tool-note">🗑️ Clear Records — wipes your draw history and accumulated results</p>
+          <p class="tool-note"><i class="ico ico-ferris-wheel" aria-hidden="true"></i> Spin — rolls the deck: cards cascade past the gold frame, the one landing inside is your Pokémon</p>
+          <p class="tool-note"><i class="ico ico-megaphone" aria-hidden="true"></i> Share Result — copies the winning Pokémon + link to share</p>
+          <p class="tool-note"><i class="ico ico-trash-2" aria-hidden="true"></i> Clear Records — wipes your draw history and accumulated results</p>
         </div>
       </div>
 
       <div class="smash-stage" aria-live="polite">
         <div class="result-bar" id="result-bar" hidden>
           <span class="result-bar-label">Your draw</span>
-          <button type="button" class="result-clear" id="result-clear">🗑️ <span>Clear records</span></button>
+          <button type="button" class="result-clear" id="result-clear"><i class="ico ico-trash-2" aria-hidden="true"></i> <span>Clear records</span></button>
         </div>
         <p class="tool-note" id="result-tip" hidden>Click the result card for its full dex details</p>
         <div class="result-wrap" id="result-card" hidden></div>
@@ -242,7 +276,7 @@
 
       <section class="analysis cornered" id="analysis-panel" aria-labelledby="analysis-title" hidden>
         <div class="analysis-head">
-          <h2 class="analysis-title" id="analysis-title">📊 Draw Tactical Report</h2>
+          <h2 class="analysis-title" id="analysis-title"><i class="ico ico-chart-column" aria-hidden="true"></i> Draw Tactical Report</h2>
           <span class="grade-badge" id="analysis-grade">–</span>
         </div>
         <p class="analysis-summary" id="analysis-summary"></p>
@@ -423,8 +457,8 @@
     </div>
   </footer>
 
-  <script src="../data.js?v=20260802q"></script>
-  <script src="../nav.js?v=20260802q"></script>
-  <script src="pokemon-wheel.js?v=20260802q"></script>
+  <script src="../data.js?v=20261022d"></script>
+  <script src="../nav.js?v=20261022d"></script>
+  <script src="pokemon-wheel.js?v=20261022d"></script>
 </body>
 </html>

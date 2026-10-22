@@ -388,7 +388,7 @@
     shinyTrack.setAttribute('aria-hidden', 'true');
     var shinyText = document.createElement('span');
     shinyText.className = 'wtp-switch-label';
-    shinyText.textContent = '✨ Shiny';
+    shinyText.textContent = 'Shiny';
     shinyLabel.appendChild(shinyInput);
     shinyLabel.appendChild(shinyTrack);
     shinyLabel.appendChild(shinyText);
@@ -542,7 +542,7 @@
         if (img.src !== fallbackUrl) img.src = fallbackUrl;
         else img.onerror = null;
       };
-      num.textContent = '#' + pad4(p.si) + (pick.shiny ? ' · ✨ SHINY' : '');
+      num.textContent = '#' + pad4(p.si) + (pick.shiny ? ' · SHINY' : '');
     }
     shinyInput.addEventListener('change', function () {
       pick.shiny = shinyInput.checked;
@@ -559,6 +559,11 @@
     });
     paintArt();
 
+    /* 点卡片看详情（避开内部开关和按钮） */
+    card.addEventListener('click', function (e) {
+      if (e.target.closest('input, label, button, a, select')) return;
+      if (window.pokeDetail) window.pokeDetail({ p: p, shiny: !!shinyInput.checked });
+    });
     return card;
   }
 
@@ -597,7 +602,7 @@
       label.className = 'history-label';
       label.textContent = megaDisplay(first)
         + (entry.picks.length > 1 ? ' +' + (entry.picks.length - 1) : '')
-        + (anyShiny ? ' ✨' : '');
+        + (anyShiny ? '' : '');
       btn.appendChild(label);
       var thumbs = document.createElement('span');
       thumbs.className = 'history-thumbs';
@@ -655,7 +660,7 @@
     /* headline */
     var title = document.createElement('h3');
     title.className = 'mega-analysis-title';
-    title.textContent = '📊 History Analysis';
+    title.textContent = 'History Analysis';
     analysisEl.appendChild(title);
 
     var grid = document.createElement('div');
@@ -790,7 +795,7 @@
       navigator.clipboard.writeText(text).then(function () {
         var span = copyBtn.querySelector('span');
         var old = span.textContent;
-        span.textContent = '✅ Copied!';
+        span.textContent = 'Copied!';
         setTimeout(function () { span.textContent = old; }, 1600);
       }, fallback);
     } else {

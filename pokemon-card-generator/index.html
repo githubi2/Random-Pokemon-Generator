@@ -46,7 +46,7 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <link rel="stylesheet" href="../styles.css?v=20260910a" />
+  <link rel="stylesheet" href="../styles.css?v=20261022k" />
 
   <style>
     /* ============ Pokemon Card Generator — page-specific ============ */
@@ -55,8 +55,8 @@
     .cg-preview { position: sticky; top: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
     .cg-preview canvas { width: 100%; height: auto; display: block; background: #fff; border-radius: 14px; }
     .cg-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; width: 100%; }
-    .cg-upload { border: 2px dashed var(--muted-text, #9a9a9a); border-radius: 12px; padding: 18px 14px; text-align: center; cursor: pointer; background: var(--page, #fff7e0); transition: border-color 0.15s ease, background 0.15s ease; }
-    .cg-upload:hover, .cg-upload.dragover { border-color: var(--poke-red, #e3350d); background: #fff2c9; }
+    .cg-upload { border: 2px dashed var(--muted-text, var(--text-3)); border-radius: 12px; padding: 18px 14px; text-align: center; cursor: pointer; background: var(--page, #fff7e0); transition: border-color 0.15s ease, background 0.15s ease; }
+    .cg-upload:hover, .cg-upload.dragover { border-color: var(--hl-deep, #c6e433); background: var(--surface-2, #f5f2ea); }
     .cg-upload input[type="file"] { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
     .cg-upload .cg-upload-title { font-weight: 900; margin: 0 0 6px; }
     .cg-upload .cg-upload-note { font-size: 13px; margin: 0; color: var(--muted-text, #6b6b6b); }
@@ -205,18 +205,52 @@
           <li class="nav-group">
             <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
             <ul class="nav-menu" id="tools-menu">
-              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
-              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
-              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
-              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
-              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
-              <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
-              <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
-              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
-              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
-              <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
-              <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
-              <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Generators</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">Random Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Teams and Battles</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">Pokemon Champions Team Builder</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">Pokemon IV Calculator</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Games</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+                </ul>
+                <span class="nav-menu-label">Cards</span>
+                <ul class="nav-menu-list">
+                  <li><a href="./" class="nav-link nav-link-active">Pokemon Card Generator</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">Pokemon Trainer Card Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Reference</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">Pokemon Release Dates</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">Favorite Pokemon of Each Type</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">Eevee Evolutions</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
           <li><a href="../blog/" class="nav-link">Blog</a></li>
@@ -241,7 +275,7 @@
       <div class="panel cornered cg-layout">
         <!-- ============ Form ============ -->
         <div class="cg-form">
-          <p class="tool-hint">Pick a template, a rarity and a card type, then fill the fields. Upload a photo (click the dashed box or drop one on it) or hit 🎲 Random Pokemon to fill the art window for you. The preview redraws as you type; when it looks right, download it as PNG.</p>
+          <p class="tool-hint">Pick a template, a rarity and a card type, then fill the fields. Upload a photo (click the dashed box or drop one on it) or hit <i class="ico ico-dice-5" aria-hidden="true"></i> Random Pokemon to fill the art window for you. The preview redraws as you type; when it looks right, download it as PNG.</p>
 
           <fieldset>
             <legend>1. Template</legend>
@@ -277,12 +311,12 @@
           <fieldset>
             <legend>4. Card art</legend>
             <div class="cg-upload" id="cg-upload" role="button" tabindex="0" aria-label="Upload an image for your Pokemon card">
-              <p class="cg-upload-title">📷 Click here or drop an image</p>
+              <p class="cg-upload-title"><i class="ico ico-camera" aria-hidden="true"></i> Click here or drop an image</p>
               <p class="cg-upload-note">PNG / JPEG / WebP · cropped automatically to the art window</p>
               <input type="file" id="cg-file" accept="image/png,image/jpeg,image/webp,image/gif" />
             </div>
             <div class="btn-row cg-swap">
-              <button type="button" class="btn-slide btn-secondary" id="cg-rand-art"><span>🎲 Random Pokemon</span></button>
+              <button type="button" class="btn-slide btn-secondary" id="cg-rand-art"><span><i class="ico ico-dice-5" aria-hidden="true"></i> Random Pokemon</span></button>
             </div>
             <p class="tool-note" id="cg-art-note"></p>
           </fieldset>
@@ -365,7 +399,7 @@
           <div id="cg-trainer-banner" hidden>
             <fieldset>
               <legend>Trainer cards</legend>
-              <p class="tool-note">Trainer cards live on their own page — name plate, badge row and partner Pokemon instead of HP and attacks. Use the <a href="../pokemon-trainer-card-generator/" style="display:inline-block;margin-top:8px;font-weight:800;color:var(--poke-red,#e3350d);text-decoration:underline">Pokemon Trainer Card Generator</a> instead.</p>
+              <p class="tool-note">Trainer cards live on their own page — name plate, badge row and partner Pokemon instead of HP and attacks. Use the <a href="../pokemon-trainer-card-generator/" style="display:inline-block;margin-top:8px;font-weight:600;color:inherit;text-decoration:underline;text-underline-offset:3px">Pokemon Trainer Card Generator</a> instead.</p>
             </fieldset>
           </div>
         </div>
@@ -374,8 +408,8 @@
         <div class="cg-preview">
           <canvas id="cg-canvas" width="630" height="880" aria-label="Live Pokemon card preview" role="img"></canvas>
           <div class="cg-actions">
-            <button type="button" id="cg-download" class="btn-slide cornered btn-primary"><span>⬇ Download PNG</span></button>
-            <button type="button" id="cg-copy" class="btn-slide btn-secondary"><span>📋 Copy Card Text</span></button>
+            <button type="button" id="cg-download" class="btn-slide cornered btn-primary"><span><i class="ico ico-download" aria-hidden="true"></i> Download PNG</span></button>
+            <button type="button" id="cg-copy" class="btn-slide btn-secondary"><span><i class="ico ico-clipboard" aria-hidden="true"></i> Copy Card Text</span></button>
           </div>
           <p class="tool-note">Printed at the standard trading-card ratio (63 x 88 mm) — upload the PNG to a print service or print at home on card stock.</p>
           <p class="tool-note" id="cg-saved-note"></p>
@@ -507,8 +541,8 @@
     </div>
   </div>
 
-  <script src="../data.js?v=20260802q"></script>
-  <script src="../nav.js?v=20260802q"></script>
-  <script src="card-generator.js?v=20260909a"></script>
+  <script src="../data.js?v=20261022d"></script>
+  <script src="../nav.js?v=20261022d"></script>
+  <script src="card-generator.js?v=20261022d"></script>
 </body>
 </html>

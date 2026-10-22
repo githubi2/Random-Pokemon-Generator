@@ -47,7 +47,7 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <link rel="stylesheet" href="../styles.css?v=20260910a" />
+  <link rel="stylesheet" href="../styles.css?v=20261022k" />
 
   <!-- Structured data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -161,18 +161,52 @@
           <li class="nav-group">
             <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
             <ul class="nav-menu" id="tools-menu">
-              <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
-              <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
-              <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
-              <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
-              <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
-              <li><a href="./" class="nav-link nav-link-active">Random Pokemon Picker</a></li>
-              <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
-              <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
-              <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
-              <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
-              <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
-              <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Generators</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">Random Pokemon Generator</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">Random Pokemon Picker</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Teams and Battles</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">Pokemon Champions Team Builder</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">Pokemon IV Calculator</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Games</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+                </ul>
+                <span class="nav-menu-label">Cards</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">Pokemon Card Generator</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">Pokemon Trainer Card Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Reference</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">Pokemon Release Dates</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">Favorite Pokemon of Each Type</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">Eevee Evolutions</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
           <li><a href="../blog/" class="nav-link">Blog</a></li>
@@ -236,31 +270,52 @@
           </fieldset>
           <fieldset>
             <legend>Sound</legend>
-            <div class="btn-row" id="cry-buttons" role="group" aria-label="Pokemon cries toggle"><button type="button" class="chip-btn" data-v="on" aria-pressed="true">🔊 Cries</button><button type="button" class="chip-btn" data-v="off" aria-pressed="false">🔇 Muted</button></div>
+            <div class="btn-row" id="cry-buttons" role="group" aria-label="Pokemon cries toggle"><button type="button" class="chip-btn" data-v="on" aria-pressed="true"><i class="ico ico-volume-2" aria-hidden="true"></i> Cries</button><button type="button" class="chip-btn" data-v="off" aria-pressed="false"><i class="ico ico-volume-x" aria-hidden="true"></i> Muted</button></div>
           </fieldset>
         </div>
 
         <div class="actions">
           <button type="button" id="pick-btn" class="btn-slide cornered btn-primary">
-            <span>🎲 Pick Random Pokémon</span>
+            <span><i class="ico ico-dice-5" aria-hidden="true"></i> Pick Random Pokémon</span>
           </button>
           <button type="button" id="copy-btn" class="btn-slide btn-secondary">
-            <span id="copy-label">📋 Copy Pick Link</span>
+            <span id="copy-label"><i class="ico ico-clipboard" aria-hidden="true"></i> Copy Pick Link</span>
           </button>
           <button type="button" id="reset-btn" class="btn-text">Reset All</button>
           <span class="pool-count" id="pool-count" aria-live="polite">1,025 in pool</span>
         </div>
         <div class="tool-note-group">
-          <p class="tool-note">🎲 Pick Random Pokémon — draws from the current pool (1 by default, adjust with the slider)</p>
-          <p class="tool-note">📋 Copy Pick Link — copies a link that opens your exact filters and picks for friends</p>
-          <p class="tool-note">🔊 Cries — the Pokemon's cry plays when its card appears; click any card to hear it again</p>
+          <p class="tool-note"><i class="ico ico-dice-5" aria-hidden="true"></i> Pick Random Pokémon — draws from the current pool (1 by default, adjust with the slider)</p>
+          <p class="tool-note"><i class="ico ico-clipboard" aria-hidden="true"></i> Copy Pick Link — copies a link that opens your exact filters and picks for friends</p>
+          <p class="tool-note"><i class="ico ico-volume-2" aria-hidden="true"></i> Cries — the Pokemon's cry plays when its card appears; click any card to hear it again</p>
         </div>
       </form>
 
       <div class="results" aria-live="polite">
-        <p class="results-empty cornered-dashed" id="results-empty">Press 🎲 Pick Random Pokémon to draw — every eligible Pokemon is in the pool.</p>
+        <p class="results-empty cornered-dashed" id="results-empty">Press <i class="ico ico-dice-5" aria-hidden="true"></i> Pick Random Pokémon to draw — every eligible Pokemon is in the pool.</p>
         <ul class="results-grid" id="results-grid"></ul>
         <p class="results-meta" id="results-meta"></p>
+
+        <div class="modal-overlay" id="pk-modal" hidden>
+          <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="pk-modal-name" id="pk-modal-card">
+            <div class="modal-head">
+              <div>
+                <p class="modal-meta" id="pk-modal-meta"></p>
+                <h3 id="pk-modal-name"></h3>
+                <div class="chip-row" id="pk-modal-types"></div>
+              </div>
+              <span class="modal-art"><span class="dex-aura" aria-hidden="true"></span><img id="pk-modal-img" width="475" height="475" alt="" /></span>
+            </div>
+            <h4 class="modal-section">Base stats · total <strong id="pk-modal-bst"></strong></h4>
+            <dl class="stats" id="pk-modal-stats"></dl>
+            <h4 class="modal-section">Abilities</h4>
+            <ul class="ability-list" id="pk-modal-abilities"></ul>
+            <div class="modal-actions">
+              <button type="button" class="btn-slide btn-secondary" id="pk-modal-cry"><span>Play cry</span></button>
+              <button type="button" class="btn-slide btn-secondary modal-close" id="pk-modal-close"><span>Close (ESC)</span></button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -359,9 +414,9 @@
     </div>
   </footer>
 
-  <script src="../data.js?v=20260802q"></script>
-  <script src="../crymap.js?v=20260802q"></script>
-  <script src="../nav.js?v=20260802q"></script>
-  <script src="picker.js?v=20261005a"></script>
+  <script src="../data.js?v=20261022d"></script>
+  <script src="../crymap.js?v=20261022d"></script>
+  <script src="../nav.js?v=20261022d"></script>
+  <script src="picker.js?v=20261022d"></script>
 </body>
 </html>

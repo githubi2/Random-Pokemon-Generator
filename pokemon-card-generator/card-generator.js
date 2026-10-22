@@ -36,6 +36,17 @@
   var canvas = $('cg-canvas');
   var ctx = canvas.getContext('2d');
 
+  /* 卡面上的宝可梦：点一下看详情 */
+  canvas.addEventListener('click', function () {
+    var ph = state.photo;
+    if (!ph || ph.kind !== 'poke' || !window.pokeDetail) return;
+    var p = null;
+    for (var i = 0; i < POKEMON.length; i++) {
+      if (POKEMON[i].i === ph.id || POKEMON[i].si === ph.id) { p = POKEMON[i]; break; }
+    }
+    if (p) window.pokeDetail({ p: p, shiny: false });
+  });
+
   /* ---------------- state ---------------- */
   var defaultState = {
     template: 'classic', rarity: 'common', cardType: 'pokemon',

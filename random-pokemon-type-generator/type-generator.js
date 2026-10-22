@@ -98,7 +98,7 @@ var TYPE_CHART = {
         ' L' + p0[0].toFixed(2) + ' ' + p0[1].toFixed(2) +
         ' A' + R_OUT + ' ' + R_OUT + ' 0 0 1 ' + p1[0].toFixed(2) + ' ' + p1[1].toFixed(2) + ' Z');
       path.setAttribute('fill', t.color);
-      path.setAttribute('stroke', '#ffffff');
+      path.setAttribute('stroke', '#fbfaf7');
       path.setAttribute('stroke-width', '1.6');
       g.appendChild(path);
 
@@ -111,24 +111,24 @@ var TYPE_CHART = {
       text.setAttribute('transform',
         'rotate(' + (flip ? mid + 90 : mid - 90) + ' ' + pos[0].toFixed(2) + ' ' + pos[1].toFixed(2) + ')');
       text.setAttribute('text-anchor', flip ? 'start' : 'end');
-      text.setAttribute('font-size', '10.5');
+      text.setAttribute('font-size', '12');
       text.setAttribute('font-weight', '800');
       text.setAttribute('font-family', 'ui-monospace, Menlo, Consolas, monospace');
       text.setAttribute('letter-spacing', '0.05em');
-      text.setAttribute('fill', t.light ? '#ffffff' : '#121212');
-      text.textContent = String(t.label).toUpperCase();
+      text.setAttribute('fill', '#121212');
+      text.textContent = String(t.label);
       g.appendChild(text);
       svg.appendChild(g);
     }
 
     var ring = document.createElementNS(ns, 'circle');
     ring.setAttribute('cx', CX); ring.setAttribute('cy', CY); ring.setAttribute('r', R_OUT);
-    ring.setAttribute('fill', 'none'); ring.setAttribute('stroke', '#121212'); ring.setAttribute('stroke-width', '5');
+    ring.setAttribute('fill', 'none'); ring.setAttribute('stroke', '#d8d2c2'); ring.setAttribute('stroke-width', '2');
     svg.appendChild(ring);
 
     var disc = document.createElementNS(ns, 'circle');
     disc.setAttribute('cx', CX); disc.setAttribute('cy', CY); disc.setAttribute('r', '64');
-    disc.setAttribute('fill', '#ffffff'); disc.setAttribute('stroke', '#121212'); disc.setAttribute('stroke-width', '4');
+    disc.setAttribute('fill', '#ffffff'); disc.setAttribute('stroke', '#e9e5d9'); disc.setAttribute('stroke-width', '2');
     svg.appendChild(disc);
 
     rotor.innerHTML = '';
@@ -187,14 +187,14 @@ var TYPE_CHART = {
   function chipHtml(slug) {
     var t = TYPE_MAP[slug];
     if (!t) return '';
-    return '<span class="type-chip" style="--chip:' + t.color + ';--chip-text:' + (t.light ? '#ffffff' : '#121212') + '">' + t.label + '</span>';
+    return '<span class="type-chip" style="--chip:' + t.color + ';--chip-text:' + '#121212' + '">' + t.label + '</span>';
   }
 
   function multChipHtml(slug, mult) {
     var t = TYPE_MAP[slug];
     var label = t ? t.label : slug;
     var num = mult === 0.5 ? '0.5' : (mult === 0.25 ? '0.25' : String(mult));
-    return '<span class="tw-mult" style="--c:' + t.color + ';--tc:' + (t.light ? '#ffffff' : '#121212') + '">' + label + ' ×' + num + '</span>';
+    return '<span class="tw-mult" style="--c:' + t.color + ';--tc:' + '#121212' + '">' + label + ' ×' + num + '</span>';
   }
 
   function matchupRows(t1, t2) {
@@ -284,7 +284,7 @@ var TYPE_CHART = {
     else if (members.length === 1) short = ' — only ' + displayName(members[0].n) + ' carries it';
     else short = ' — ' + members.length + ' Pokemon share it';
     lastShareText = (t2 === null)
-      ? 'The type wheel landed on ' + label1.toUpperCase() + '! Roll your own random Pokemon type: ' + location.origin + location.pathname
+      ? 'The type wheel landed on ' + label1 + '! Roll your own random Pokemon type: ' + location.origin + location.pathname
       : 'Random type roll: ' + label1 + ' / ' + label2 + short + '. Roll yours: ' + location.origin + location.pathname;
   }
 
@@ -348,13 +348,13 @@ var TYPE_CHART = {
   function shareResult() {
     var label = $('tw-share-label');
     if (!lastShareText) {
-      label.textContent = '🎡 Spin first!';
-      setTimeout(function () { label.textContent = '📣 Share Result'; }, 1800);
+      label.textContent = 'Spin first!';
+      setTimeout(function () { label.textContent = 'Share Result'; }, 1800);
       return;
     }
     copyToClipboard(lastShareText, function (ok) {
-      label.textContent = ok ? '✅ Copied!' : '📝 Copy manually';
-      setTimeout(function () { label.textContent = '📣 Share Result'; }, 1800);
+      label.textContent = ok ? 'Copied!' : 'Copy manually';
+      setTimeout(function () { label.textContent = 'Share Result'; }, 1800);
     });
   }
 

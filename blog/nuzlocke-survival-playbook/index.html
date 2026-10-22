@@ -46,7 +46,7 @@
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
   <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
-  <link rel="stylesheet" href="../../styles.css?v=20260910a" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022k" />
 
   <!-- Structured data: BlogPosting -->
   <script type="application/ld+json">
@@ -160,18 +160,52 @@
           <li class="nav-group">
             <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
             <ul class="nav-menu" id="tools-menu">
-              <li><a href="../../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
-              <li><a href="../../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
-              <li><a href="../../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
-              <li><a href="../../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
-              <li><a href="../../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
-              <li><a href="../../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
-              <li><a href="../../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
-              <li><a href="../../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
-              <li><a href="../../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
-              <li><a href="../../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
-              <li><a href="../../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
-              <li><a href="../../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Generators</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../../" class="nav-link">Random Pokemon Generator</a></li>
+                  <li><a href="../../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+                  <li><a href="../../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+                  <li><a href="../../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
+                  <li><a href="../../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+                  <li><a href="../../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
+                  <li><a href="../../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Teams and Battles</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+                  <li><a href="../../pokemon-champions-team-builder/" class="nav-link">Pokemon Champions Team Builder</a></li>
+                  <li><a href="../../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+                  <li><a href="../../pokemon-iv-calculator/" class="nav-link">Pokemon IV Calculator</a></li>
+                  <li><a href="../../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+                  <li><a href="../../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Games</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+                  <li><a href="../../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+                  <li><a href="../../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+                </ul>
+                <span class="nav-menu-label">Cards</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../../pokemon-card-generator/" class="nav-link">Pokemon Card Generator</a></li>
+                  <li><a href="../../pokemon-trainer-card-generator/" class="nav-link">Pokemon Trainer Card Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Reference</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+                  <li><a href="../../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+                  <li><a href="../../pokemon-release-dates/" class="nav-link">Pokemon Release Dates</a></li>
+                  <li><a href="../../favorite-pokemon-of-each-type/" class="nav-link">Favorite Pokemon of Each Type</a></li>
+                  <li><a href="../../eevee-evolutions/" class="nav-link">Eevee Evolutions</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
           <li><a href="../" class="nav-link nav-link-active">Blog</a></li>
@@ -199,7 +233,7 @@
 
       <h2>The Coverage Curve: What Each Catch Adds</h2>
       <p>Start with the ceiling: no single Pokemon covers more than 9 of the 18 types by itself. Fighting/Ice (Crabominable) and Ice/Ground (the Mamoswine line) tie for the widest offensive reach in the entire dex, and everything below them falls off quickly. A lone random catch averages about 4 covered types — enough to matter, not enough to lean on. The interesting part starts when catches stack.</p>
-      <div class="odds-table-wrap cornered">
+            <div class="odds-table-wrap cornered">
         <table class="odds-table">
           <thead>
             <tr><th>Catches</th><th>Types covered (average)</th><th>Added by the latest catch</th></tr>
@@ -228,6 +262,7 @@
 
       <h2>The Replacement Roll</h2>
       <p>When a teammate falls, the replacement roll feels like a fresh start. The math says temper that feeling. Simulate twenty thousand squads — take five random members, add a random sixth, then measure what actually changed. On average the newcomer adds 1.03 new covered types. About one. And in 42.5% of cases it adds none at all: two replacements in five change nothing about the team's offensive shape.</p>
+      <figure class="blog-figure"><img src="fig-nuzlocke-replace.png" alt="" width="1000" height="320" loading="lazy" /></figure>
       <p>The defensive side is blunter still. In 78.5% of simulations, the new arrival is weak to a type that at least two of the existing five already share a weakness to. Random replacements do not patch holes; they tend to join the crowd around the nearest one. The distribution of what they add says the same thing: 27% of replacements contribute exactly one new type, 19% add two, and the 10.6% that add three or more are the ones worth building around when they land.</p>
       <p>None of this argues against taking the roll. It argues for aiming it. Decide which hole you need filled before you go catch the replacement, and if the roll misses, the box is one deeper and the run continues. To feel out combinations before committing a run to them, the <a href="../../nuzlocke-generator/">Nuzlocke Team Builder</a> deals squads and prints the same coverage report this math is built on.</p>
 
@@ -315,6 +350,6 @@
     </div>
   </footer>
 
-  <script src="../../nav.js?v=20260802q"></script>
+  <script src="../../nav.js?v=20261022d"></script>
 </body>
 </html>
