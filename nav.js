@@ -352,3 +352,44 @@
 
   window.pokeDetail = open;
 })();
+
+/* ---------- range sliders: paint the filled part in highlight green ---------- */
+(function () {
+  function sync(el) {
+    var min = parseFloat(el.min || 0);
+    var max = parseFloat(el.max || 100);
+    var val = parseFloat(el.value || 0);
+    var pct = max > min ? ((val - min) / (max - min)) * 100 : 0;
+    el.style.setProperty('--fill', pct + '%');
+  }
+  function bind(el) {
+    if (!el || el.dataset.rangeFill) return;
+    el.dataset.rangeFill = '1';
+    sync(el);
+    el.addEventListener('input', function () { sync(el); });
+    el.addEventListener('change', function () { sync(el); });
+  }
+  function scan(root) {
+    var list = (root || document).querySelectorAll('input[type="range"]');
+    for (var i = 0; i < list.length; i++) bind(list[i]);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () { scan(); });
+  } else {
+    scan();
+  }
+  // 动态插入的滑块（弹窗、生成器切换）也要跟上
+  if (window.MutationObserver) {
+    new MutationObserver(function (muts) {
+      for (var i = 0; i < muts.length; i++) {
+        var added = muts[i].addedNodes;
+        for (var j = 0; j < added.length; j++) {
+          var node = added[j];
+          if (node.nodeType !== 1) continue;
+          if (node.matches && node.matches('input[type="range"]')) bind(node);
+          if (node.querySelectorAll) scan(node);
+        }
+      }
+    }).observe(document.documentElement, { childList: true, subtree: true });
+  }
+})();

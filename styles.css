@@ -3123,13 +3123,17 @@ input[type="range"] {
   appearance: none;
   width: min(420px, 100%);
   height: 22px;
-  background: transparent;
+  --fill: 50%;
+  background:
+    linear-gradient(var(--hl), var(--hl)) 0 center / var(--fill) 6px no-repeat,
+    linear-gradient(var(--line), var(--line)) 0 center / 100% 6px no-repeat;
+  border-radius: 999px;
   cursor: pointer;
 }
 input[type="range"]::-webkit-slider-runnable-track {
   height: 6px;
   border-radius: 999px;
-  background: var(--line);
+  background: transparent;
 }
 input[type="range"]::-moz-range-track {
   height: 6px;
