@@ -1,0 +1,104 @@
+/* ============================================================
+   语言切换（地球按钮 + 下拉）——只挂在日语版与对应英文页
+   ============================================================ */
+.lang-switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.lang-btn:hover,
+.lang-btn:focus-visible,
+.lang-switch.open .lang-btn {
+  background: var(--surface-2);
+  color: var(--ink);
+  outline: none;
+}
+.lang-globe {
+  width: 19px;
+  height: 19px;
+  display: block;
+}
+.lang-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 132px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--sh-md);
+  z-index: 42;
+}
+.lang-switch.open .lang-menu { display: block; }
+.lang-menu a {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-2);
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+}
+.lang-menu a:hover { background: var(--surface-2); color: var(--ink); }
+.lang-menu a.lang-current {
+  background: var(--hl);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .lang-switch { margin-left: auto; }
+  .lang-btn { width: 34px; height: 34px; }
+  .lang-menu { min-width: 120px; }
+}
+
+/* 桌面端：三栏布局——logo 靠左、导航水平居中、地球按钮固定最右
+   （用 :has() 只在带切换器的页面生效；老浏览器自动退回原 flex 布局） */
+@media (min-width: 761px) {
+  .header-inner:has(.lang-switch) {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+  .header-inner:has(.lang-switch) > .logo { justify-self: start; }
+  .header-inner:has(.lang-switch) > #main-nav { justify-self: center; }
+  .header-inner:has(.lang-switch) > .lang-switch { justify-self: end; }
+
+  /* 导航居中后，Tools 面板不能再用「右对齐按钮」定位（会往左甩出半个屏幕），
+     改成以按钮为中心展开 */
+  .header-inner:has(.lang-switch) .nav-group.open .nav-menu,
+  .header-inner:has(.lang-switch) .nav-group:hover .nav-menu {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* 日文版的世代按钮：日文地名比英文宽，9 列会把按钮挤成两行。
+   只在日文页改成 5 列，英文页不受影响。 */
+@media (min-width: 900px) {
+  html[lang="ja"] #gen-buttons { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  html[lang="ja"] #gen-buttons .chip-btn { white-space: nowrap; }
+}

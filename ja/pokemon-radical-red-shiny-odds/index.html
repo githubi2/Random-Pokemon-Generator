@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ポケモン Radical Red 色違い確率まとめ</title>
+  <meta name="description" content="Radical Red の色違い確率は基本2,048分の1、ひかるおまもりで683分の1。バージョン4.1で倍になった経緯、おまもりの入手方法、デックスナビの扱い、そして自分の狩りを計算できるツールをまとめました。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/pokemon-radical-red-shiny-odds/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/pokemon-radical-red-shiny-odds/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/pokemon-radical-red-shiny-odds/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/pokemon-radical-red-shiny-odds/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ポケモン Radical Red 色違い確率まとめ" />
+  <meta property="og:description" content="基本2,048分の1、ひかるおまもりで683分の1。デックスナビの仕組みと狩りの計算まで。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/pokemon-radical-red-shiny-odds/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/pokemon-radical-red-shiny-odds/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ポケモン Radical Red 色違い確率まとめ" />
+  <meta name="twitter:description" content="基本2,048分の1、ひかるおまもりで683分の1。デックスナビの仕組みと狩りの計算まで。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/pokemon-radical-red-shiny-odds/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <style>
+    /* page-scoped: stacked input rows inside the odds calculator panel */
+    .odds-n-label + .odds-n-label { margin-top: 12px; }
+    .btn-row + .btn-row { margin-top: 8px; }
+    .odds-chain-row { margin-top: 12px; }
+  </style>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "ポケモン Radical Red の色違い確率",
+ "description": "Interactive shiny odds calculator for the Pokemon Radical Red ROM hack: the 2 in 4,096 wild rate, the Shiny Charm's four extra rolls, the DexNav search-level mechanics and the full ladder from 1 in 2,048 down to 1 in 683.",
+ "applicationCategory": "GameApplication",
+ "operatingSystem": "All",
+ "browserRequirements": "Requires JavaScript",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "url": "https://www.random-pokemon-generator.co/pokemon-radical-red-shiny-odds/"
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "色違いの出現率",
+   "item": "https://www.random-pokemon-generator.co/pokemon-shiny-odds/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "ポケモン Radical Red の色違い確率",
+   "item": "https://www.random-pokemon-generator.co/pokemon-radical-red-shiny-odds/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Radical Red の色違い確率は？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "通常の野生エンカウントが4,096分の2、つまり2,048分の1です。ひかるおまもりを持っていれば同じエンカウントが4,096分の6、683分の1になります。どちらもハックのバージョン4.1の更新履歴の数字で、以前のバージョンの倍になっています。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Radical Red でひかるおまもりはどう手に入れる？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ヤマブキジムのリーダー、ナツメからです。コミュニティのガイドでは2段階の手順で、3回勝ってから、個体値が最大のポケモンを見せるとされています。Minimal Grinding モードでは条件が変わり、色違いのポケモンなら何でもよくなります。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Radical Red でデックスナビは色違い確率を変える？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "変わります。しかもゲーム内で一番大きな要素です。種族ごとにサーチレベルがあり、255まで上がります。そのうえで同じ種族を100回まで連鎖できます。どちらも確率を下げ、連鎖は1エンカウントあたりの色違い判定の回数自体を増やします。公式の倍率は公表されておらず、コミュニティの数字も食い違っているので、目にする具体的なデックスナビの数値は、解析で確定した事実ではなく推定として扱ってください。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Radical Red の色違いふしぎなおくりものコードは何をする？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ふしぎなおくりものはバージョン4.1で追加された、色違い狙いのための配布です。2周目 でポケモンセンターのジョーイさんに話しかけると受け取れます。コードは頭文字が大文字の Shiny。1セーブにつき1回のプレゼントで、恒久的な確率変更ではありません。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Radical Red で色違いのポケモンは買える？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "買えます。タマムシのゲームコーナーです。通常のポケモンが1匹100,000ポケドル、色違いは倍の200,000ポケドル。品揃えは疑似伝説寄りで、店は物語の途中でロケット団側についた場合しか開きません。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "2,048分の1は本編より良い？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "かなり良いです。第6世代以降の本編は4,096分の1、Radical Red の土台である初代ファイアレッドは8,192分の1。つまり Radical Red の狩りは、ブーストなしでファイアレッドの4倍、ひかるおまもりを持てば12倍の速さになります。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+
+  <!-- Structured data: WebSite -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#calculator" class="nav-link">計算ツール</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../pokemon-radical-red-shiny-odds/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">ROMハック · ファイアレッドがベース · 基本確率 2,048分の1</p>
+      <h1 id="page-title">ポケモン Radical Red の色違い確率</h1>
+      <p class="lede">Radical Red は、土台になったカセットよりずっと色違い狩りに優しいROMハックです。バージョン4.1で公表されていた2つの確率がどちらも倍になり、通常の野生エンカウントは4,096分の2、つまり2,048分の1になりました。ひかるおまもりを持っていれば4,096分の6、683分の1まで上がります。下にある素のファイアレッドは8,192分の1なので、ブーストなしでも約4倍、おまもりを手に入れれば12倍の速さで狩れる計算です。ここからは、このハックが公表しているすべての確率、おまもりの入手方法、デックスナビが実際に何をしているのか、そして自分の狩りを計算するツールを紹介します。</p>
+    </section>
+
+    <!-- Calculator -->
+    <section class="container tool-panel" id="calculator" aria-label="Pokemon Radical Red Shiny Odds calculator">
+      <div class="panel cornered">
+        <p class="tool-hint">計算機は Radical Red 専用です。ひかるおまもりを持っているならオンにしてください。カードには野生1回あたりの確率、色違い1体あたりの平均エンカウント数、その回数を自分のペースで消化したときの所要時間が出ます。デックスナビの連鎖はこのモデルの外側です。ハック側が倍率を公表しておらず、コミュニティの計測も互いに食い違っているので、下のセクションでは数字をでっち上げて計算機に放り込むのではなく、仕組みのほうを説明します。</p>
+        <p class="tool-note">基本確率は4,096分の2（2,048分の1）。ひかるおまもりは抽選を4回分追加して、同じエンカウントを4,096分の6（683分の1）にします。本編のおまもりが追加するのは2回分なので、それより大きな跳ね上がり方です。どちらの数字も、ハックのバージョン4.1の更新履歴に書かれています。</p>
+
+      <fieldset>
+        <legend>狩りで有効なブースト</legend>
+        <div class="btn-row" id="odds-boost-chips" role="group" aria-label="上昇手段を選ぶ"><button type="button" class="chip-btn" aria-pressed="false" title="beat Sabrina at the Saffron Gym">ひかるおまもり</button></div>
+        <p class="tool-note" id="odds-boost-note"></p>
+      </fieldset>
+
+        <div class="odds-result-grid" aria-live="polite">
+          <div class="odds-result-card cornered">
+            <div class="odds-result-num" id="odds-fraction">2,048分の1</div>
+            <div class="odds-result-label">1回のエンカウントあたりの色違い確率</div>
+          </div>
+          <div class="odds-result-card cornered">
+            <div class="odds-result-num" id="odds-percent">0.0488%</div>
+            <div class="odds-result-label">割合で表示</div>
+          </div>
+          <div class="odds-result-card cornered">
+            <div class="odds-result-num" id="odds-expected">2,048</div>
+            <div class="odds-result-label">色違い1体あたりの平均エンカウント数</div>
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>狩りの所要時間</legend>
+          <label class="odds-n-label">予定エンカウント数： <input type="number" id="odds-n-input" min="1" max="1000000" value="1000" step="50" aria-label="予定している遭遇回数" /></label>
+          <p class="odds-n-result" id="odds-n-result"></p>
+          <label class="odds-n-label">1時間あたりのエンカウント数： <input type="number" id="odds-rate-input" min="1" max="100000" value="120" step="10" aria-label="1時間あたりの遭遇回数" /></label>
+          <p class="odds-n-result" id="odds-median"></p>
+          <p class="tool-note" id="odds-milestones"></p>
+        </fieldset>
+
+        <div class="actions">
+          <a href="../random-shiny-pokemon-generator/" class="btn-slide cornered btn-primary odds-cta"><span><i class="ico ico-sparkles" aria-hidden="true"></i> 今すぐ色違いを引いてみる — ランダム色違い生成</span></a>
+        </div>
+        <p class="tool-note">Radical Red について公表されている数字は、これで全部です。エンカウントを重ねるのが面倒なら、上の生成ツールが1クリック目で完成した色違い色のポケモンを出してくれます。</p>
+      </div>
+    </section>
+
+    <!-- Rates -->
+    <section id="rates" class="container odds" aria-labelledby="rates-title">
+      <p class="eyebrow">リファレンス</p>
+      <h2 id="rates-title">ポケモン Radical Red の色違い確率：公表されている全数値</h2>
+      <p class="odds-lede">Radical Red は色違い判定を8,192ではなく4,096で数え、しかも最初から2回分の判定があります。下の表のブーストはすべてこの基本に抽選を足していく形なので、分数がきれいに積み上がります。素のファイアレッドと現行本編の行は、規模を比べるために置いてあります。Radical Red で到達できる数字ではなく、このハックがどれだけ譲歩しているかを示すためのものです。</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>狩り</th><th>色違い判定の回数</th><th>色違い確率</th><th>確率</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>野生エンカウント（ブーストなし）</td><td>4,096分の2</td><td>2,048分の1</td><td>0.0488%</td></tr>
+            <tr><td>野生エンカウント＋ひかるおまもり</td><td>4,096分の6</td><td>683分の1</td><td>0.1465%</td></tr>
+            <tr><td>素のファイアレッド（比較用）</td><td>8,192分の1</td><td>8,192分の1</td><td>0.0122%</td></tr>
+            <tr><td>第6世代以降の本編（比較用）</td><td>4,096分の1</td><td>4,096分の1</td><td>0.0244%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tool-note">ハック自身が記録に残している数字は、この4行だけです。デックスナビは公式の倍率が存在しないため、意図的に表から外しています。実際に分かっていることはデックスナビの節を見てください。</p>
+    </section>
+
+    <!-- Mechanics -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">仕様</p>
+        <h2 id="how-title">Radical Red での色違い狩りの仕組み</h2>
+        <p class="odds-lede">4.1のパッチで色違いのルールが組み直され、おまもりの入手方法もポケモン図鑑コンプリートの定番ルートではありません。何が変わったのか、ブーストがどこから来るのか、そして狩りを丸ごと飛ばす近道を1つ紹介します。</p>
+        <div class="how-grid">
+          <article>
+            <h3>バージョン4.1で変わったこと</h3>
+            <p>古いバージョンの Radical Red は本編の数字を使っていました。野生エンカウントが4,096分の1で、そこにおまもりの4,096分の3が乗る形です。4.1でどちらも倍になり、基本が4,096分の2、おまもり込みが4,096分の6になりました。同じパッチで色違いのグラフィックもおよそ115体ぶん描き直されています。これは見た目以上に効きます。以前のハックの色違いは、暗いドットの色相がわずかに動いただけのものが多く、この修正でまともな配色になった子がかなりいます。このハックで狩りをしていて、4.1より前の記事を読んでいるなら、書いてある確率は間違いです。</p>
+          </article>
+          <article>
+            <h3>ひかるおまもりの入手方法</h3>
+            <p>ヤマブキシティのナツメが渡してくれます。彼女は5人目のジムリーダーなので、ふつうに進めていれば本編と同じくらいの時期に手に入ります。コミュニティのガイドには2段階の手順として書かれています。まず3回勝ち、次に個体値が最大のポケモンを見せる。Minimal Grinding モードでは2つ目の条件が変わり、色違いなら何でも受け取ってもらえます。このモードは個体値を上げる手段を気前よく配るので、現実的な選択肢になります。ただしこれは更新履歴ではなくコミュニティの記録なので、条件の細かい言い回しはバージョンによって変わる可能性があります。</p>
+          </article>
+          <article>
+            <h3>ゲームコーナーで色違いを買う</h3>
+            <p>タマムシのゲームコーナーではポケモンをそのまま売っていて、色違いも棚に並びます。通常の価格は1匹100,000ポケドル、色違いは倍の200,000ポケドルです。品揃えは疑似伝説に寄っていて、ここが気にする理由になります。本来なら一晩を溶かすような種族の長い狩りを、丸ごと飛ばせるわけです。ネックは入店条件で、物語の途中でロケット団側につかないと店が開きません。別の道を選んだ旅では、そもそも買いに来られません。</p>
+          </article>
+          <article>
+            <h3>無料のふしぎなおくりものコード</h3>
+            <p>バージョン4.1で、色違い狙いの人向けのふしぎなおくりものが追加されました。2周目 ではポケモンセンターでジョーイさんに話しかけると受け取れます。コードは <strong>色違い</strong> （実際の文字列は「Shiny」。Sだけ大文字で、ほかはすべて小文字です。小文字のsでは受け付けられません）。恒久的な確率変更ではなく、1回きりのプレゼントとして扱ってください。何とも重複せず、セーブデータをまたいで持ち越すこともできません。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DexNav -->
+    <section id="dexnav" class="container odds" aria-labelledby="dexnav-title">
+      <p class="eyebrow">仕様</p>
+      <h2 id="dexnav-title">デックスナビは Radical Red の色違い確率をどう変えるか</h2>
+      <p class="odds-lede">Radical Red の色違い狩りは楽だと言う人がいるなら、理由はデックスナビです。オメガルビー・アルファサファイアに入っていたのと同じ仕組みをファイアレッドのエンジンに移植したもので、種族ごとに2つのつまみがあります。</p>
+      <p>1つ目のつまみは <strong>サーチレベル</strong>です。種族ごとにカウンターがあり、その種族と出会い続けるほど上がって、上限は255。2つ目は <strong>連鎖</strong>。同じ種族と出会い続けて途切れさせなければ、連鎖が100まで積み上がります。どちらも確率を下げますが、連鎖にはもうひとつ仕事があります。ゲームが行う色違い判定の回数そのものを増やすんです。長い連鎖はほんの少しの後押しではなく、何回分もの抽選を1回のエンカウントに束ねるものだと思ってください。</p>
+      <p>ややこしくなるのは計算のほうです。Radical Red の資料にはデックスナビの公式倍率が存在せず、出回っているコミュニティの数字も大きく食い違っています。634分の1あたりという主張もあれば、ほぼ1%きっかりという主張もあり、倍半分の開きがあります。これはどちらかが雑という話ではなく、計測ツールごとに追加抽選の扱いが違うからです。実用的に言えるのは、サーチレベルをカンストさせて連鎖を100まで伸ばした状態が、このハックで得られる最良の確率だということ。そして、そこで引用される具体的な分数は、解析で確定した定数ではなく推定値として扱うべきだということです。サファリゾーンのこともここで知っておきましょう。バージョン4.1でサファリゾーンは普通のエリアとして扱われるようになり、デックスナビが中でも動くようになりました。以前は動かなかったんです。</p>
+      <p>連鎖に入る前に、実務的な注意をひとつ。連鎖はルートではなく種族を数えるので、別のポケモンと不意にエンカウントすると簡単に切れます。切れたら最初からやり直しです。混ざった群れをかき分けずに狙える種族を選んでください。</p>
+    </section>
+
+    <!-- Milestones -->
+    <section id="milestones" class="container odds" aria-labelledby="milestones-title">
+      <p class="eyebrow">実際の目安</p>
+      <h2 id="milestones-title">Radical Red の色違い狩りはどれくらいかかる？</h2>
+      <p class="odds-lede">確率はチケットの値段のようなもので、この表は実際に何枚買うことになるかの話です。各行は公表された確率をエンカウント数に変換したもの。中央値は狩りの半分が終わっている地点、99%はほとんど誰もまだ回していない地点です。</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>あなたの色違い確率</th><th>中央値（50%）</th><th>99%の人がここまでに</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2,048分の1（ふつうの野生）</td><td>1,420回のエンカウント</td><td>9,430回のエンカウント</td></tr>
+            <tr><td>683分の1（ひかるおまもりあり）</td><td>473回のエンカウント</td><td>3,142回のエンカウント</td></tr>
+            <tr><td>8,192分の1（素のファイアレッド、比較用）</td><td>5,678回のエンカウント</td><td>37,724回のエンカウント</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tool-note">エンカウントは1回ごとに独立した抽選なので、中央値を超えた狩りに「そろそろ来る」はありません。優しい683分の1でも、3,142回続けて出ないことは100回に1回起きます。上の計算機は、自分のペース（1時間あたりのエンカウント数）を時間の見積もりに変えてくれます。</p>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">ポケモン Radical Red の色違い確率についてよくある質問</h2>
+      <details class="faq-item cornered">
+        <summary>Radical Red の色違い確率は？</summary>
+        <p>通常の野生エンカウントが4,096分の2、つまり2,048分の1です。ひかるおまもりを持っていれば同じエンカウントが4,096分の6、683分の1になります。どちらもハックのバージョン4.1の更新履歴の数字で、以前のバージョンの倍になっています。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Radical Red でひかるおまもりはどう手に入れる？</summary>
+        <p>ヤマブキジムのリーダー、ナツメからです。コミュニティのガイドでは2段階の手順で、3回勝ってから、個体値が最大のポケモンを見せるとされています。Minimal Grinding モードでは条件が変わり、色違いのポケモンなら何でもよくなります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Radical Red でデックスナビは色違い確率を変える？</summary>
+        <p>変わります。しかもゲーム内で一番大きな要素です。種族ごとにサーチレベルがあり、255まで上がります。そのうえで同じ種族を100回まで連鎖できます。どちらも確率を下げ、連鎖は1エンカウントあたりの色違い判定の回数自体を増やします。公式の倍率は公表されておらず、コミュニティの数字も食い違っているので、目にする具体的なデックスナビの数値は、解析で確定した事実ではなく推定として扱ってください。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Radical Red の色違いふしぎなおくりものコードは何をする？</summary>
+        <p>ふしぎなおくりものはバージョン4.1で追加された、色違い狙いのための配布です。2周目 でポケモンセンターのジョーイさんに話しかけると受け取れます。コードは頭文字が大文字の Shiny。1セーブにつき1回のプレゼントで、恒久的な確率変更ではありません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Radical Red で色違いのポケモンは買える？</summary>
+        <p>買えます。タマムシのゲームコーナーです。通常のポケモンが1匹100,000ポケドル、色違いは倍の200,000ポケドル。品揃えは疑似伝説寄りで、店は物語の途中でロケット団側についた場合しか開きません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>2,048分の1は本編より良い？</summary>
+        <p>かなり良いです。第6世代以降の本編は4,096分の1、Radical Red の土台である初代ファイアレッドは8,192分の1。つまり Radical Red の狩りは、ブーストなしでファイアレッドの4倍、ひかるおまもりを持てば12倍の速さになります。</p>
+      </details>
+    </section>
+
+    <!-- More links -->
+    <section id="more" class="container odds" aria-label="さらに見る">
+      <div class="how-grid toolkit-grid">
+          <article>
+            <h3>公式作品と比べる</h3>
+            <p>この <a href="../pokemon-shiny-odds/">色違いの出現率</a> のページなら、全作品を横に並べて比べられます。作品を切り替えられる計算機つきです。 <a href="../pokemon-sword-shield-shiny-odds/">ソード・シールドの色違い確率</a> はダイマックスアドベンチャーのルートを扱っていて、 <a href="../pokemon-brilliant-diamond-shining-pearl-shiny-odds/">ポケモン ブリリアントダイヤモンド・シャイニングパールの色違い確率</a> は、デックスナビの連鎖に一番近い動きをするポケトレの連鎖を扱っています。</p>
+          </article>
+          <article>
+            <h3>確率を狩りに変える</h3>
+            <p>狙う相手が決まったら、 <a href="../random-pokemon-picker/">ランダム選出</a> が候補を1匹ずつ絞り込み、 <a href="../pokemon-team-picker/">パーティ編成</a> が、最後に光った1匹を軸にチームを組みます。狩りそのものを飛ばしたいなら、上の色違い生成ツールが1クリックで完成した色違いを出してくれます。</p>
+          </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">Radical Red はファン制作のパッチで、当サイトでは配布していません。確率はハック自身のバージョン4.1の更新履歴、デックスナビの挙動はコミュニティの検証にもとづいています。ポケモンおよびポケモンのキャラクター名は各権利者の商標です。</p>
+    </div>
+  </footer>
+
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="radical-red-odds.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

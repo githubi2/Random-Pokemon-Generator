@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ポケモン パーティ選出ツール｜6匹を自由に編成・相性確認</title>
+  <meta name="description" content="6匹のポケモンを図鑑から選び、タイプ相性を一覧で確認できる編成ツールです。せいかく・技・持ち物まで細かく設定でき、Pokemon Showdownへの書き出しや共有リンクにも対応しています。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/pokemon-team-picker/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/pokemon-team-picker/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/pokemon-team-picker/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/pokemon-team-picker/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ポケモン パーティ選出ツール｜6匹を自由に編成・相性確認" />
+  <meta property="og:description" content="6匹を選んで防御相性を確認し、せいかく・わざ・持ち物まで設定。書き出しも共有もすぐできます。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/pokemon-team-picker/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/pokemon-team-picker/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ポケモン パーティ選出ツール｜6匹を自由に編成・相性確認" />
+  <meta name="twitter:description" content="6匹を選んで防御相性を確認し、せいかく・わざ・持ち物まで設定。書き出しも共有もすぐできます。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/pokemon-team-picker/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "パーティ編成",
+ "description": "Pick six Pokemon, check defensive matchups, set natures moves and items, and export teams to Showdown.",
+ "applicationCategory": "GameApplication",
+ "operatingSystem": "すべて",
+ "browserRequirements": "Requires JavaScript",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "url": "https://www.random-pokemon-generator.co/pokemon-team-picker/"
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "パーティ編成",
+   "item": "https://www.random-pokemon-generator.co/pokemon-team-picker/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "ポケモンのパーティ選出ツールとは何ですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "全国図鑑を検索・絞り込みして6匹のパーティを組み、各員のせいかく・わざ・持ち物・とくせいを細かく設定できるツールです。ランダムに選ばれるのではなく、すべて自分で選ぶ手動型のパーティ編成ツールと考えてください。防御相性も一覧になるので、対戦前に弱点を把握できます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "パーティのポケモンはどう選べばいいですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "枠をクリックし、表をタイプ・世代・わざ・とくせい・メガシンカの有無で検索または絞り込みます。行をクリックすると選択中の枠に入るので、あとは編集画面でせいかく・わざ・持ち物・とくせいを決めるだけです。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "パーティをPokemon Showdownに書き出せますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。共有メニューからShowdown用のテキストをコピーできます。ポケモン名、レベル、せいかく、とくせい、持ち物、最大4つのわざが各員分そろいます。パーティ全体をJSONで書き出すことも、同じ編成を復元する共有リンクを作ることもできます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "編成したパーティは保存されますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。編集中のパーティと保存したパーティはブラウザのローカルストレージに残るので、再読み込みしても作業は消えません。削除は常に明示的で、自分で消す操作をしない限り何も失われません。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "1つのパーティに何匹まで入れられますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "6匹です。標準は6枠ですが、少ない匹数でも組めます。防御相性マトリクスは、置いたメンバーに合わせて変化します。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "第1世代から第9世代までの全種、1,025匹にリージョンフォルムや特殊な姿を加えたものです。公式アートワーク、種族値、とくせい、わざの習得データはPokeAPIから取得しています。",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "どんなポケモンが収録されていますか？"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "これはランダムなパーティ生成ツールですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "いいえ、これは手動で組む側のツールです。枠はすべて自分で選び、ページが相性の計算を引き受けます。運に任せたいときは、ランダムポケモンピッカーが選出を担当し、ヌズロックのパーティ編成ツールが縛りプレイを扱います。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "パーティビルダーとしても使えますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。同じページがパーティ編成と計画の両方を担います。6匹を手で選び、せいかく・持ち物・とくせいを詰めて、確定前に防御相性マトリクスを確認できます。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="./" class="nav-link nav-link-active">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#how" class="nav-link">しくみ</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../pokemon-team-picker/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">6枠 · 18タイプ相性マトリクス · Showdown書き出し</p>
+      <h1 id="page-title">ポケモン パーティ選出ツール</h1>
+      <p class="lede">自分で全部決めたい人向けの、手動タイプのポケモンパーティ編成ツールです。対戦用の6匹を選び、1匹ずつ調整して、バトルの前に防御相性を確認できます。</p>
+    </section>
+
+    <!-- Tool -->
+    <section class="container tool-panel" aria-label="Pokemon team picker tool">
+      <div class="tp-team-bar">
+        <button type="button" class="btn btn-secondary" id="tp-new-btn">新規作成 / 読み込み</button>
+        <label for="tp-team-name" class="tp-field-label">パーティ名</label>
+        <input type="text" id="tp-team-name" class="tp-input" value="My team" maxlength="40" />
+        <button type="button" class="btn btn-ghost" id="tp-name-clear" aria-label="チーム名をクリア" title="チーム名をクリア">✕</button>
+        <div class="tp-bar-right">
+          <span class="tp-status" id="tp-status" role="status"></span>
+          <button type="button" class="btn btn-secondary" id="tp-share-btn">シェア</button>
+          <button type="button" class="btn btn-secondary" id="tp-export-showdown">Showdown</button>
+          <button type="button" class="btn btn-secondary" id="tp-export-json">JSON</button>
+        </div>
+      </div>
+
+      <div class="tp-slots-row" id="tp-slots"><div class="tp-slot tp-slot-active" draggable="true" aria-label="スロット1（空き）" data-slot="0"><div class="tp-slot-empty">+ 枠1</div></div><div class="tp-slot" draggable="true" aria-label="スロット2（空き）" data-slot="1"><div class="tp-slot-empty">+ 枠2</div></div><div class="tp-slot" draggable="true" aria-label="スロット3（空き）" data-slot="2"><div class="tp-slot-empty">+ 枠3</div></div><div class="tp-slot" draggable="true" aria-label="スロット4（空き）" data-slot="3"><div class="tp-slot-empty">+ 枠4</div></div><div class="tp-slot" draggable="true" aria-label="スロット5（空き）" data-slot="4"><div class="tp-slot-empty">+ 枠5</div></div><div class="tp-slot" draggable="true" aria-label="スロット6（空き）" data-slot="5"><div class="tp-slot-empty">+ 枠6</div></div></div>
+
+      <div class="tp-work">
+        <!-- Filters (collapsible) -->
+        <aside class="tp-filters" aria-label="ポケモンの絞り込み">
+          <button type="button" class="tp-filters-toggle" id="tp-filters-toggle" aria-expanded="true" aria-controls="tp-filters-body">
+            <span class="tp-filters-toggle-label">絞り込み</span>
+            <span class="tp-filters-toggle-note" id="tp-filter-note-inline"></span>
+            <span class="tp-filters-caret" aria-hidden="true">▾</span>
+          </button>
+          <div class="tp-filters-body" id="tp-filters-body">
+          <p class="tp-hint">先に枠を選び、下の図鑑を絞り込んでください。ポケモンの行をクリックすると、その枠に入ります。</p>
+          <div class="tp-filters-grid">
+          <div class="tp-filter-group">
+          <p class="tp-group-title">レギュレーション</p>
+          <div class="tp-reg-wrap">
+            <select id="tp-reg-select" class="tp-select" aria-label="Filter by regulation set">
+              <option value="M-A">M-A</option>
+              <option value="M-B" selected>M-B</option>
+              <option value="all">すべて</option>
+            </select>
+          </div>
+          <p class="tp-group-title">世代</p>
+          <div class="tp-chips" id="tp-gen-chips"><button type="button" class="chip-btn type-chip" aria-pressed="false">1</button><button type="button" class="chip-btn type-chip" aria-pressed="false">2</button><button type="button" class="chip-btn type-chip" aria-pressed="false">3</button><button type="button" class="chip-btn type-chip" aria-pressed="false">4</button><button type="button" class="chip-btn type-chip" aria-pressed="false">5</button><button type="button" class="chip-btn type-chip" aria-pressed="false">6</button><button type="button" class="chip-btn type-chip" aria-pressed="false">7</button><button type="button" class="chip-btn type-chip" aria-pressed="false">8</button><button type="button" class="chip-btn type-chip" aria-pressed="false">9</button></div>
+          <p class="tp-group-title">メガシンカ</p>
+          <div class="tp-chips" id="tp-mega-chips"><button type="button" class="chip-btn type-chip tp-single-chip" aria-pressed="false">あり</button><button type="button" class="chip-btn type-chip tp-single-chip" aria-pressed="false">なし</button></div>
+          </div>
+          <div class="tp-filter-group tp-filter-group-wide">
+          <p class="tp-group-title">ポケモンのタイプ</p>
+          <div class="tp-mode-row">
+            <span class="tp-mode-label">一致</span>
+            <button type="button" class="chip-btn chip-mode tp-mode-chip" id="tp-type-mode" data-mode="or" aria-pressed="true">または</button>
+            <span class="tp-mode-sep">|</span>
+            <button type="button" class="chip-btn chip-mode tp-mode-chip" data-mode="and" aria-pressed="false">かつ</button>
+          </div>
+          <div class="tp-chips" id="tp-type-chips"><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #A8A878;">ノーマル</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #F08030;">ほのお</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #6890F0;">みず</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #F8D030;">でんき</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #78C850;">くさ</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #98D8D8;">こおり</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #C03028;">かくとう</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #A040A0;">どく</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #E0C068;">じめん</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #A890F0;">ひこう</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #F85888;">エスパー</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #A8B820;">むし</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #B8A038;">いわ</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #705898;">ゴースト</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #7038F8;">ドラゴン</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #705848;">あく</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #B8B8D0;">はがね</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #EE99AC;">フェアリー</button></div>
+          </div>
+          <div class="tp-filter-group">
+          <p class="tp-group-title">わざ</p>
+          <div class="tp-mode-row">
+            <span class="tp-mode-label">一致</span>
+            <button type="button" class="chip-btn chip-mode tp-mode-chip" id="tp-move-mode" data-mode="or" aria-pressed="true">または</button>
+            <span class="tp-mode-sep">|</span>
+            <button type="button" class="chip-btn chip-mode tp-mode-chip" data-mode="and" aria-pressed="false">かつ</button>
+          </div>
+          <select id="tp-move-filter" class="tp-select" aria-label="わざで絞り込む" multiple size="6"></select>
+          </div>
+          <div class="tp-filter-group">
+          <p class="tp-group-title">とくせい</p>
+          <select id="tp-ability-filter" class="tp-select" aria-label="とくせいで絞り込む" multiple size="6"></select>
+          </div>
+          </div>
+          <p class="tool-note" id="tp-filter-note"></p>
+          </div>
+        </aside>
+
+        <!-- Table -->
+        <section class="tp-table-wrap" aria-label="ポケモン一覧">
+          <div class="tp-table-toolbar">
+            <input type="search" id="tp-search" class="tp-input" placeholder="ポケモンを検索..." aria-label="ポケモンを検索" />
+            <div class="tp-stat-tabs" role="tablist" aria-label="表示切替：レベル50 か 種族値">
+              <button type="button" class="tp-stat-tab tp-stat-tab-active" id="tp-tab-lvl50" role="tab" aria-selected="true">Lv.50</button>
+              <button type="button" class="tp-stat-tab" id="tp-tab-base" role="tab" aria-selected="false">基本形</button>
+            </div>
+          </div>
+          <div class="tp-table-scroll">
+            <table class="tp-table" id="tp-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="tp-sortable" data-sort="dex">#</th>
+                  <th scope="col" class="tp-sortable" data-sort="name">Pokemon</th>
+                  <th scope="col" class="tp-sortable" data-sort="hp">HP</th>
+                  <th scope="col" class="tp-sortable" data-sort="atk">こうげき</th>
+                  <th scope="col" class="tp-sortable" data-sort="def">ぼうぎょ</th>
+                  <th scope="col" class="tp-sortable" data-sort="spa">とくこう</th>
+                  <th scope="col" class="tp-sortable" data-sort="spd">とくぼう</th>
+                  <th scope="col" class="tp-sortable" data-sort="spe">すばやさ</th>
+                </tr>
+              </thead>
+              <tbody id="tp-table-body"></tbody>
+            </table>
+          </div>
+          <div class="tp-pager">
+            <button type="button" class="btn btn-ghost" id="tp-page-prev" aria-label="前のページ">‹</button>
+            <span class="tp-page-info" id="tp-page-info"></span>
+            <button type="button" class="btn btn-ghost" id="tp-page-next" aria-label="次のページ">›</button>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Team defense -->
+      <aside class="tp-defense" aria-label="チームの防御相性">
+        <p class="tp-group-title">パーティの防御相性</p>
+        <div id="tp-defense-body"></div>
+      </aside>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">しくみ</p>
+        <h2 id="how-title">ポケモン パーティ選出ツールの使い方</h2>
+        <div class="how-grid">
+          <article>
+          <h3>6匹を選んでパーティを組む</h3>
+          <p>ポケモンのパーティ選出ツールは、対戦用の編成を練るための計画ツールです。枠をクリックして選択し、検索欄か左側のフィルターで全国図鑑の1,025匹を絞り込みます。一覧の各行には図鑑番号、名前、Lv.50または種族値ベースの数値が並びます。行をクリックするとそのポケモンが選択中の枠に入り、すぐに枠の編集画面が開くので、次の枠に移る前に1匹分を仕上げられます。ランダムツールがサイコロを振るのに対し、このパーティ編成ツールは選択をすべてあなたに委ねます。図鑑もフィルターも相性計算も、面倒な作業を引き受けるだけです。誰を連れていくか決められないときは、ポケモン選びのルーレットとしても使えます。納得がいくまで枠を振り直してから、残り5匹を確定していきましょう。</p>
+          <p>フィルターは組み合わせて使えます。タイプを1つ以上選んで「または」「かつ」を切り替える、世代を1つに絞る、特定のわざを覚えるポケモンだけを探す、といった使い方ができます。わざととくせいのメニューは複数選択できるので、条件をいくつも重ねられます。メガシンカのスイッチを入れると、メガシンカできる姿だけに絞り込めます。りゅうのまいを積む物理型や、受け出し用の特殊耐久を探すときに便利です。</p>
+        </article>
+
+        <article>
+          <h3>組み立ての順番 ― 実際の6匹はこう決まる</h3>
+          <p>多くのパーティは、同じところで崩れます。手順の順番です。うまくいくのは、まず図鑑全体を見て、次に役割で絞る流れです。必要だと分かっている役割を2〜3個、先に一覧から探します。高速アタッカー、物理受け、とんぼがえり持ちなどです。タイプで絞るのはその後です。タイプから入ると、紙の上では補完し合う6匹なのに、すばやさの弱点だけを共有している、という編成になりがちです。</p>
+          <p>役割の当たりがついたら、あとは枠の編集画面が地味な仕事を引き受けます。1つのわざを決める前に、せいかくが意外なほど多くの相性を左右します。そして <a href="../pokemon-nature-chart/">ポケモン性格表</a> 種族ごとに伸ばしたい数値は、この一覧を見れば一目で分かります。持ち物が残りの大半を決めます。防御マトリクスは最後に回してよいですが、飛ばさないでください。6匹が横に並んだとき何が起きるかを示す、唯一のパネルです。</p>
+          <p>形が固まったら書き出しましょう。マトリクス上で弱点が二重に重なっていないパーティは、そのまま残す価値があります。重なっているなら、役割が頭に残っているうちに組み直したほうが早いです。</p>
+        </article>
+        <article>
+          <h3>1匹ずつ調整する</h3>
+          <p>各枠には専用の編集画面があります。せいかくで1つの数値を上げて別の数値を下げ、役割に合うとくせいを選び、持ち物（たべのこし、こだわり系、きあいのタスキなど）を決め、そのポケモンが覚えるわざから最大4つを割り当てます。数値のプレビューはその場で更新されるので、Lv.50でせいかくを反映した実数値がすぐ分かります。メガシンカできるポケモンなら編集画面の横にスイッチが現れ、オンにすると姿・タイプ・とくせいがメガシンカ後のものに切り替わります。</p>
+          <p>どの個体にもニックネームを付けられ、完成した型は自分のライブラリに保存できます。ライブラリはブラウザ内に残るので、次のパーティにすぐ呼び出せます。</p>
+        </article>
+        <article>
+          <h3>バランスのよい6匹を組む</h3>
+          <p>よいパーティに必要なのは、強い6匹ではなく、互いを補完する役割です。表の並べ替え機能で高速アタッカー、耐久型、物理・特殊のアタッカーを探し、隣り合う枠に置いていきます。数値表示はLv.50の実数値と種族値を切り替えられるので、すばやさが境界線上のポケモンや、耐久型と攻撃型のどちらを採るか迷うときに役立ちます。この表は編成の設計図として使ってください。役割で並べ替え、境界線上の判断を比べ、はまったときだけ枠を確定します。</p>
+          <p>タイプのバランスも同じくらい重要です。ほのおタイプにはみずタイプを添えてじめん・いわの弱点を補い、ドラゴンやあくの高速アタッカーにはフェアリータイプを用意します。全国図鑑のすべての姿を扱えるので、リージョンフォルムや隠れとくせいで動きが変わる型も試せます。でんき無効のとくせいを持つ個体を入れれば、でんきの弱点が交代のチャンスに変わります。</p>
+          <p>縛りプレイを計画しているなら、この選出ツールはこちらのページと自然にかみ合います。 <a href="../nuzlocke-generator/">ヌズロック編成</a>ヌズロックのページでエンカウントを抽選し、ジムや四天王の手前で生き残った個体をこの選出ツールで整える、という流れです。最初から完全にランダムな出発点が欲しい場合は、まずこちらでパーティを振ってください。 <a href="../">Random Pokemon Generator</a> そのうえで生き残りをここで仕上げます。同じ系統の中から1匹を選ぶ場面 ― 定番は8種類のイーブイ進化 ― では、 <a href="../eevee-evolutions/">イーブイ進化</a> 表を見れば一発で決まります。</p>
+        </article>
+
+        <article>
+          <h3>数字で見る顔ぶれ</h3>
+          <p>このツールが参照する全国図鑑は、ほぼ半々に分かれます。1,025種のうち単タイプが499種、複合タイプが526種です。単タイプは3つの系統に偏っていて（ノーマル75種、みず74種、くさ47種）、「とりあえずみずを足す」が気楽なプレイではよく効き、編成ではほとんど効かない理由がここにあります。</p>
+          <p>意外な顔ぶれがいるのは複合タイプの側です。図鑑で最も多い組み合わせはノーマル・ひこうの27種で、どの地方にもいた序盤の鳥の系統です。2位はくさ・どくの14種、3位はむし・ひこうの13種。実際に存在する136通りの組み合わせのうち、半分以上は3種以下しかいません。すそ野は本当に薄いのです。</p>
+          <p>編成する側にとって面白いのは、総数ではなく形です。図鑑はみずとノーマルであふれ、妙にピンポイントな条件になると急に細くなります。だからティア表よりフィルターで探すほうが強いのです。欲しいのは抽象的に最強のポケモンではなく、空いた枠の形そのものです。</p>
+        </article>
+        <article>
+          <h3>書き出し・共有・保存</h3>
+          <p>パーティが固まったら、持ち出す方法は3つあります。Showdown書き出しは、そのまま貼り付けられるチームブロックをコピーします。ポケモン名、持ち物、レベル、せいかく、とくせい、そして全わざまで、Pokemon Showdownの編成画面が読む形式で並びます。JSON書き出しは自分の記録用に型のデータを丸ごと残し、共有ボタンは誰でも同じパーティを開けるリンクを作ります。パーティ名も一緒に伝わります。</p>
+          <p>パーティはブラウザに自動保存されるので、タブを閉じても調整した半日が消えることはありません。読み込み欄はShowdownのチームテキストとJSONの両方を受け付けるので、友人とのパーティ交換も手間いらずです。枠の編集画面でせいかくを決めかねたら、ポケモンせいかく一覧が種族値から1つ勧めてくれます。6匹が決まったら、 <a href="../pokemon-card-generator/">ポケモンカード作成</a> で形にしましょう。1匹ずつオリジナルのポケモンカードを作り、さらに <a href="../pokemon-trainer-card-generator/">トレーナーカード作成</a> トレーナーカードも作れます。相性と隠れた個体値にも専用のツールがあります。弱点はこちら、 <a href="../pokemon-type-chart/">タイプ相性表</a> で確認、数値の中身は <a href="../pokemon-iv-calculator/">個体値計算</a> で計算できます。</p>
+        </article>
+        <article>
+          <h3>防御相性マトリクスを確認する</h3>
+          <p>パーティ防御パネルは、攻撃側のタイプを1行、パーティの各員を1列に並べます。各マスにはダメージ倍率が入り、赤（効果はばつぐん）から緑（いまひとつ・無効）まで色分けされます。合計列はパーティ全体の弱点と耐性を数えるので、でんきやじめんの弱点が重なっていることが対戦前に見えます。1匹入れ替えてマトリクスが変わるのを眺めてみてください。多くの編成ツールが省いてしまう部分で、そして勝敗を分ける部分です。</p>
+          <p>パーティに納得できたら、共有メニューからShowdown用のテキストを書き出す、共有リンクをコピーする、JSONでダウンロードする、のいずれかを選べます。読み込みは逆方向で、Showdownのチームテキストを「新規作成 / 読み込み」に貼れば、各枠が自動で復元されます。検索、絞り込み、配置、調整、確認、書き出しという流れ全体が、表計算の何十分もかからず数分で終わります。</p>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">ポケモン パーティ選出ツール FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>ポケモンのパーティ選出ツールとは何ですか？</summary>
+        <p>全国図鑑を検索・絞り込みして6匹のパーティを組み、各員のせいかく・わざ・持ち物・とくせいを細かく設定できるツールです。ランダムに選ばれるのではなく、すべて自分で選ぶ手動型のパーティ編成ツールと考えてください。防御相性も一覧になるので、対戦前に弱点を把握できます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>パーティのポケモンはどう選べばいいですか？</summary>
+        <p>枠をクリックし、表をタイプ・世代・わざ・とくせい・メガシンカの有無で検索または絞り込みます。行をクリックすると選択中の枠に入るので、あとは編集画面でせいかく・わざ・持ち物・とくせいを決めるだけです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>パーティをPokemon Showdownに書き出せますか？</summary>
+        <p>はい。共有メニューからShowdown用のテキストをコピーできます。ポケモン名、レベル、せいかく、とくせい、持ち物、最大4つのわざが各員分そろいます。パーティ全体をJSONで書き出すことも、同じ編成を復元する共有リンクを作ることもできます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>編成したパーティは保存されますか？</summary>
+        <p>はい。編集中のパーティと保存したパーティはブラウザのローカルストレージに残るので、再読み込みしても作業は消えません。削除は常に明示的で、自分で消す操作をしない限り何も失われません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>1つのパーティに何匹まで入れられますか？</summary>
+        <p>6匹です。標準は6枠ですが、少ない匹数でも組めます。防御相性マトリクスは、置いたメンバーに合わせて変化します。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>第1世代から第9世代までの全種、1,025匹にリージョンフォルムや特殊な姿を加えたものです。公式アートワーク、種族値、とくせい、わざの習得データはPokeAPIから取得しています。</summary>
+        <p>どんなポケモンが収録されていますか？</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>これはランダムなパーティ生成ツールですか？</summary>
+        <p>いいえ、これは手動で組む側のツールです。枠はすべて自分で選び、ページが相性の計算を引き受けます。運に任せたいときは、ランダムポケモンピッカーが選出を担当し、ヌズロックのパーティ編成ツールが縛りプレイを扱います。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>パーティビルダーとしても使えますか？</summary>
+        <p>はい。同じページがパーティ編成と計画の両方を担います。6匹を手で選び、せいかく・持ち物・とくせいを詰めて、確定前に防御相性マトリクスを確認できます。</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="./">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Slot editor modal -->
+  <div class="modal-overlay" id="slot-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="slot-modal-title">
+      <h2 class="modal-title" id="slot-modal-title">枠を編集</h2>
+      <div class="modal-body">
+        <div class="slot-editor-head">
+          <img id="slot-edit-art" class="slot-edit-art" src="" alt="" width="96" height="96" />
+          <div>
+            <div class="slot-edit-name" id="slot-edit-name"></div>
+            <div class="slot-edit-types" id="slot-edit-types"></div>
+            <div class="slot-edit-bst" id="slot-edit-bst"></div>
+          </div>
+        </div>
+        <div class="slot-edit-form">
+          <label for="slot-edit-nick">ニックネーム（任意）</label>
+          <input type="text" id="slot-edit-nick" class="tp-input" maxlength="20" />
+          <label for="slot-edit-nature">性格</label>
+          <select id="slot-edit-nature" class="tp-select"></select>
+          <label for="slot-edit-ability">とくせい</label>
+          <select id="slot-edit-ability" class="tp-select"></select>
+          <label>わざ（最大4つ）</label>
+          <div id="slot-edit-moves" class="slot-edit-moves"></div>
+          <label for="slot-edit-item">持ち物</label>
+          <select id="slot-edit-item" class="tp-select"></select>
+          <div id="slot-edit-mega-wrap" hidden>
+            <label class="tp-switch-row">
+              <input type="checkbox" id="slot-edit-mega" />
+              <span>メガシンカ</span>
+            </label>
+          </div>
+          <div class="slot-edit-stats" id="slot-edit-stats"></div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="slot-edit-save">保存</button>
+        <button type="button" class="btn btn-ghost" id="slot-edit-remove">外す</button>
+        <button type="button" class="btn btn-ghost" id="slot-edit-library">マイポケモンに保存</button>
+        <button type="button" class="btn btn-ghost" id="slot-edit-cancel">キャンセル</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Share modal -->
+  <div class="modal-overlay" id="share-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="share-modal-title">
+      <h2 class="modal-title" id="share-modal-title">手動でコピー</h2>
+      <div class="modal-body">
+        <p class="tool-note">ブラウザが自動コピーをブロックしました。下のテキストは選択済みです。Ctrl+C（または長押し）でコピーしてください。</p>
+        <textarea class="share-modal-text" id="share-modal-text" readonly></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="share-modal-close">閉じる</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Import modal -->
+  <div class="modal-overlay" id="import-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="import-modal-title">
+      <h2 class="modal-title" id="import-modal-title">新規作成 / 読み込み</h2>
+      <div class="modal-body">
+        <button type="button" class="btn btn-secondary" id="import-new-btn">空のパーティから始める</button>
+        <label for="import-text">ShowdownのチームテキストまたはJSONから読み込む</label>
+        <textarea id="import-text" class="share-modal-text" placeholder="Showdown のチームや JSON をここに貼り付け..."></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="import-apply">読み込む</button>
+        <button type="button" class="btn btn-ghost" id="import-cancel">キャンセル</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../data.js?v=20261022d"></script>
+  <script src="../../moveset.js?v=20261022d"></script>
+  <script src="../../moves-data.js?v=20261022d"></script>
+  <script src="../move-names.js?v=20261022ja3"></script>
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="team-picker.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

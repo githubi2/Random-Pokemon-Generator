@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ポケモン Let's Go 色違い確率｜捕獲コンボ表と計算機</title>
+  <meta name="description" content="ポケモン Let's Go の色違い確率を、捕獲コンボ別にまとめました。基本は4,096分の1で、コンボ31以上にルアーとひかるおまもりを重ねると273分の1まで下がります。表と計算機で、いまの連鎖の確率を出せます。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/pokemon-lets-go-shiny-odds/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/pokemon-lets-go-shiny-odds/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/pokemon-lets-go-shiny-odds/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/pokemon-lets-go-shiny-odds/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ポケモン Let's Go 色違い確率｜捕獲コンボ表と計算機" />
+  <meta property="og:description" content="捕獲コンボの全段階をまとめました。基本の4,096分の1から、ルアーとひかるおまもりで273分の1の底まで。連鎖の確率は計算機で確かめられます。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/pokemon-lets-go-shiny-odds/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/pokemon-lets-go-shiny-odds/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ポケモン Let's Go 色違い確率｜捕獲コンボ表と計算機" />
+  <meta name="twitter:description" content="捕獲コンボの全段階をまとめました。基本の4,096分の1から、ルアーとひかるおまもりで273分の1の底まで。連鎖の確率は計算機で確かめられます。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/pokemon-lets-go-shiny-odds/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <style>
+    /* page-scoped: stacked input rows inside the odds calculator panel */
+    .odds-n-label + .odds-n-label { margin-top: 12px; }
+    .btn-row + .btn-row { margin-top: 8px; }
+    .odds-chain-row { margin-top: 12px; }
+  </style>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "ポケモン Let's Go の色違い確率",
+ "description": "Interactive shiny odds calculator for Pokemon Let's Go, Pikachu and Let's Go, Eevee: catch combo tiers from 11 to 31+, Lure and Shiny Charm stacking, the 1 in 273 floor and hunting notes.",
+ "applicationCategory": "GameApplication",
+ "operatingSystem": "All",
+ "browserRequirements": "Requires JavaScript",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "url": "https://www.random-pokemon-generator.co/pokemon-lets-go-shiny-odds/"
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "色違いの出現率",
+   "item": "https://www.random-pokemon-generator.co/pokemon-shiny-odds/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "ポケモン Let's Go の色違い確率",
+   "item": "https://www.random-pokemon-generator.co/pokemon-lets-go-shiny-odds/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "ポケモン Let's Go の色違い確率は？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "何もなしの出現は4,096分の1です。そこからはしごは速く動きます。コンボ31以上で341分の1、ひかるおまもりで293分の1、ルアーを足せば273分の1になり、2作品のなかで最高の確率です。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Let's Goのピカチュウの色違い確率は？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "野生ならほかの種類と同じです。ピカチュウを31匹以上連鎖し、ルアーとおまもりを効かせておけば、そのエリアの出現がすべて上がった確率を引きます。例外は最初にもらう相棒のピカチュウで、こちらは絶対に色違いになりません。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "捕獲コンボは同じ種類である必要がありますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "連鎖そのものは1種類でなければなりませんが、見返りは広い。周囲の出現すべての確率が上がり、連鎖している種類だけには限りません。ポッポを連鎖していても、本当に欲しいヒトカゲの確率はちゃんと上がります。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Let's Goでひかるおまもりはどうやって手に入れますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "カントー図鑑を完成させてください。ミュウ以外のすべての項目で、ミュウはモンスターボールPlusから来ます。図鑑が埋まったらタマムシマンションの3階で見せれば、以後はセーブデータに残ります。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "ルアーとひかるおまもりはコンボと重なりますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "重なります。コンボの段階で3回・7回・11回、おまもりで2回、ルアーで1回が加わり、31以上のコンボが15回、273分の1の底に届く仕組みです。道具は効いているだけでよく、手入れが要るのはコンボだけです。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "伝説の鳥とミュウツーは色違いを狙えますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "狙えます。フリーザー、サンダー、ファイヤー、ミュウツーはどれも色違いになり、定番は目の前でセーブして、光るまでリセットする方法です。コンボはここまで届かないので、どれも4,096分の1のリセット作業になります。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+
+  <!-- Structured data: WebSite -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#calculator" class="nav-link">計算ツール</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../pokemon-lets-go-shiny-odds/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">Let's Go ピカチュウ/イーブイ · 捕獲コンボ & ルアー · 最高確率1/273</p>
+      <h1 id="page-title">ポケモン Let's Go 色違い確率</h1>
+      <p class="lede">Let's Go ピカチュウ・イーブイは、色違い探しを目に見えるものにしました。ボールを投げる前に、色違いがそのへんを歩いているのです。捕獲コンボを31以上にすれば、周りのルートはぐっと優しいスロットマシンに変わります。コンボにルアー、ひかるおまもりまで重ねると、確率は273分の1まで下がります。以下の数値は各ツールが使っているのと同じ解析データに合わせていて、計算機もLet's Go専用です。</p>
+    </section>
+
+    <!-- Calculator -->
+    <section class="container tool-panel" id="calculator" aria-label="Pokemon Let's Go Shiny Odds calculator">
+      <div class="panel cornered">
+        <p class="tool-hint">Let's Go専用です。捕獲コンボの段階を選び、ルアーとひかるおまもりを持っているならオンにしてください。カードには、そのエリアの出現がすべて引いている確率と、狩りの平均時間が出ます。コンボは切らさないこと。別の種類を1匹捕まえても、連鎖中の相手に逃げられても、カウントはリセットされます。</p>
+        <p class="tool-note">基本は4,096分の1。コンボの段階で3回・7回・11回の抽選が加わり、ひかるおまもりで2回、ルアーで1回。すべて重ねると15回になり、273分の1に届きます。</p>
+
+      <fieldset>
+        <legend>狩りで有効なブースト</legend>
+        <div class="btn-row" id="odds-boost-chips" role="group" aria-label="上昇手段を選ぶ"><button type="button" class="chip-btn" aria-pressed="false" title="同じ種族で一度も倒れずに">捕獲コンボ11-20</button><button type="button" class="chip-btn" aria-pressed="false" title="同じ種族で一度も倒れずに">捕獲コンボ21-30</button><button type="button" class="chip-btn" aria-pressed="false" title="the cap that matters">捕獲コンボ31以上</button><button type="button" class="chip-btn" aria-pressed="false" title="complete the Kanto Pokedex">ひかるおまもり</button><button type="button" class="chip-btn" aria-pressed="false" title="timed item, keep it up">ルアー</button></div>
+        <p class="tool-note" id="odds-boost-note"></p>
+      </fieldset>
+
+        <div class="odds-result-grid" aria-live="polite">
+          <div class="odds-result-card cornered">
+            <div class="odds-result-num" id="odds-fraction">4,096分の1</div>
+            <div class="odds-result-label">1回のエンカウントあたりの色違い確率</div>
+          </div>
+          <div class="odds-result-card cornered">
+            <div class="odds-result-num" id="odds-percent">0.0244%</div>
+            <div class="odds-result-label">割合で表示</div>
+          </div>
+          <div class="odds-result-card cornered">
+            <div class="odds-result-num" id="odds-expected">4,096</div>
+            <div class="odds-result-label">色違い1体あたりの平均エンカウント数</div>
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>狩りの所要時間</legend>
+          <label class="odds-n-label">予定エンカウント数： <input type="number" id="odds-n-input" min="1" max="1000000" value="1000" step="50" aria-label="予定している遭遇回数" /></label>
+          <p class="odds-n-result" id="odds-n-result"></p>
+          <label class="odds-n-label">1時間あたりのエンカウント数： <input type="number" id="odds-rate-input" min="1" max="100000" value="60" step="10" aria-label="1時間あたりの遭遇回数" /></label>
+          <p class="odds-n-result" id="odds-median"></p>
+          <p class="tool-note" id="odds-milestones"></p>
+        </fieldset>
+
+        <div class="actions">
+          <a href="../random-shiny-pokemon-generator/" class="btn-slide cornered btn-primary odds-cta"><span><i class="ico ico-sparkles" aria-hidden="true"></i> 今すぐ色違いを引いてみる — ランダム色違い生成</span></a>
+        </div>
+        <p class="tool-note">はしごは登りきりました。連鎖なしで色違いが欲しいなら、ジェネレーターが1匹渡してくれます。別の地方が気になるなら、ハブにそこの確率がまとまっています。</p>
+      </div>
+    </section>
+
+    <!-- Rates -->
+    <section id="rates" class="container odds" aria-labelledby="rates-title">
+      <p class="eyebrow">リファレンス</p>
+      <h2 id="rates-title">ポケモン Let's Go 色違い確率：コンボ表のすべて</h2>
+      <p class="odds-lede">この作品の色違いは、ひとつの仕組みで動いています。同じ種類を続けて捕まえること。コンボが周囲の出現の色違い確率を押し上げ、ルアーとひかるおまもりが少しずつ上乗せしていきます。4つの段階で、計画できる狩りはすべて網羅できます。</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>狩り</th><th>色違い判定の回数</th><th>色違い確率</th><th>確率</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>コンボ0-10（道具なし）</td><td>1</td><td>4,096分の1</td><td>0.0244%</td></tr>
+            <tr><td>コンボ0-10 + ルアー</td><td>2</td><td>2,048分の1</td><td>0.0488%</td></tr>
+            <tr><td>コンボ0-10 + おまもり</td><td>3</td><td>1,365分の1</td><td>0.0732%</td></tr>
+            <tr><td>コンボ0-10 + ルアー + おまもり</td><td>4</td><td>1,024分の1</td><td>0.0977%</td></tr>
+            <tr><td>コンボ11-20</td><td>4</td><td>1,024分の1</td><td>0.0977%</td></tr>
+            <tr><td>コンボ11-20 + ルアー</td><td>5</td><td>819分の1</td><td>0.1221%</td></tr>
+            <tr><td>コンボ11-20 + おまもり</td><td>6</td><td>683分の1</td><td>0.1465%</td></tr>
+            <tr><td>コンボ11-20 + ルアー + おまもり</td><td>7</td><td>585分の1</td><td>0.1709%</td></tr>
+            <tr><td>コンボ21-30</td><td>8</td><td>512分の1</td><td>0.1953%</td></tr>
+            <tr><td>コンボ21-30 + ルアー</td><td>9</td><td>455分の1</td><td>0.2197%</td></tr>
+            <tr><td>コンボ21-30 + おまもり</td><td>10</td><td>410分の1</td><td>0.2441%</td></tr>
+            <tr><td>コンボ21-30 + ルアー + おまもり</td><td>11</td><td>372分の1</td><td>0.2686%</td></tr>
+            <tr><td>コンボ31以上</td><td>12</td><td>341分の1</td><td>0.2930%</td></tr>
+            <tr><td>コンボ31以上 + ルアー</td><td>13</td><td>315分の1</td><td>0.3174%</td></tr>
+            <tr><td>コンボ31以上 + おまもり</td><td>14</td><td>293分の1</td><td>0.3418%</td></tr>
+            <tr><td>コンボ31以上 + ルアー + おまもり</td><td>15</td><td>273分の1</td><td>0.3662%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tool-note">抽選回数を分数に戻してみてください。12回なら341分の1、14回なら293分の1、15回そろえば273分の1です。連鎖そのものは1種類でなければいけませんが、上がった確率は目に見える出現すべてに効きます。連鎖している種類だけではありません。</p>
+    </section>
+
+    <!-- Mechanics -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">仕様</p>
+        <h2 id="how-title">Let's Goの色違い確率は、実際どう動くのか</h2>
+        <p class="odds-lede">仕組みはひとつ、段階は3つ、小さな道具が2つ。それぞれが何をしているのか、そしてこの作品での狩りが実際どんなものかを見ていきます。</p>
+        <div class="how-grid">
+          <article>
+            <h3>捕獲コンボ、なぜ31なのか</h3>
+            <p>同じ種類を続けて捕まえるたびにコンボが伸び、段階は大きく跳ねます。11匹で抽選が3回増え、21匹で7回、31匹からはすべての出現に11回が加わります。連鎖が切れるのは捕まえたときだけ。そのへんの出現を無視して歩き去るのは自由ですが、別の種類を捕まえるか、狙っている相手に逃げられるとカウントは戻ります。コンボには静かな仕事もあります。31で捕まえたポケモンは個体値が最低4つは最高になるので、対戦勢がこの作品でも連鎖をやるのはそのためです。</p>
+          </article>
+          <article>
+            <h3>ルアーとひかるおまもり</h3>
+            <p>ルアーは抽選を1回増やし、数百歩のあいだ効きます。切れる前に張り直せば、抽選が落ちることはありません。ひかるおまもりは抽選を2回増やし、カントー図鑑の完成でもらえます。ミュウはモンスターボールPlusのおまけで手に入る子で、草むらには出ません。図鑑が求めない唯一の1匹です。2つの道具は互いにも、コンボとも独立しています。31以上のコンボに両方を重ねれば抽選は15回になり、273分の1の底に届きます。</p>
+          </article>
+          <article>
+            <h3>フィールドでの狩りと、リセット狩り</h3>
+            <p>Let's Goの色違いは実際に世界に現れ、歩き回りながら光ります。だから狩りの大半は、群れを眺める作業になります。ルートが古く感じたら、建物に入って出るだけで新しい出現に入れ替わり、コンボは減りません。伝説の鳥たちとミュウツーは別の話です。決まった巣にいてコンボが届かず、使える手は目の前でセーブしてリセットすることだけ。4,096分の1では長い夜になりますが、それより速い扉はありません。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shiny locks -->
+    <section id="locked" class="container odds" aria-labelledby="locked-title">
+      <p class="eyebrow">レア度</p>
+      <h2 id="locked-title">Let's Goで色違いにならないポケモン</h2>
+      <p class="odds-lede">鍵はひとつ、穴もひとつ。最初にもらう相棒のピカチュウかイーブイは、絶対に色違いになりません。色違い探しから完全に締め出されているのは、この1匹だけです。プレゼントのポケモンやゲーム内交換、アローラのすがたは事情が違い、コンボもルアーもおまもりも届かないので、確率は4,096分の1のまま。野生の出現にははしご全体が効きますし、伝説の鳥とミュウツーは、辛抱強くリセットする人なら色違いになってくれます。</p>
+    </section>
+
+    <!-- Milestones -->
+    <section id="milestones" class="container odds" aria-labelledby="milestones-title">
+      <p class="eyebrow">実際の目安</p>
+      <h2 id="milestones-title">カントーのコンボ狩りはどれくらいかかる？</h2>
+      <p class="odds-lede">時間が大きく変わるのはコンボの段階で、下の表を見れば1段ごとにはしごがどこまで動くか分かります。各行は代表的な確率に、中央値の狩りと99%地点を添えたものです。</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>あなたの色違い確率</th><th>中央値（50%）</th><th>99%の人がここまでに</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>4,096分の1（コンボなし）</td><td>2,839回のエンカウント</td><td>18,861回のエンカウント</td></tr>
+            <tr><td>1,024分の1（コンボ11-20＋ルアー＋おまもり）</td><td>710回のエンカウント</td><td>4,714回のエンカウント</td></tr>
+            <tr><td>512分の1（コンボ21-30）</td><td>355回のエンカウント</td><td>2,356回のエンカウント</td></tr>
+            <tr><td>341分の1（コンボ31以上）</td><td>237回のエンカウント</td><td>1,570回のエンカウント</td></tr>
+            <tr><td>273分の1（コンボ31以上＋ルアー＋おまもり）</td><td>189回のエンカウント</td><td>1,256回のエンカウント</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tool-note">連鎖を21から31まで伸ばすだけで、待ち時間はほぼ半分になります。最後の10匹を守る価値があるのはそのためです。コンボのカウンターは画面の隅に出ていますが、ゲームは二度も念を押してくれません。</p>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">ポケモン Let's Go 色違い確率のよくある質問</h2>
+      <details class="faq-item cornered">
+        <summary>ポケモン Let's Go の色違い確率は？</summary>
+        <p>何もなしの出現は4,096分の1です。そこからはしごは速く動きます。コンボ31以上で341分の1、ひかるおまもりで293分の1、ルアーを足せば273分の1になり、2作品のなかで最高の確率です。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Let's Goのピカチュウの色違い確率は？</summary>
+        <p>野生ならほかの種類と同じです。ピカチュウを31匹以上連鎖し、ルアーとおまもりを効かせておけば、そのエリアの出現がすべて上がった確率を引きます。例外は最初にもらう相棒のピカチュウで、こちらは絶対に色違いになりません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>捕獲コンボは同じ種類である必要がありますか？</summary>
+        <p>連鎖そのものは1種類でなければなりませんが、見返りは広い。周囲の出現すべての確率が上がり、連鎖している種類だけには限りません。ポッポを連鎖していても、本当に欲しいヒトカゲの確率はちゃんと上がります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Let's Goでひかるおまもりはどうやって手に入れますか？</summary>
+        <p>カントー図鑑を完成させてください。ミュウ以外のすべての項目で、ミュウはモンスターボールPlusから来ます。図鑑が埋まったらタマムシマンションの3階で見せれば、以後はセーブデータに残ります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>ルアーとひかるおまもりはコンボと重なりますか？</summary>
+        <p>重なります。コンボの段階で3回・7回・11回、おまもりで2回、ルアーで1回が加わり、31以上のコンボが15回、273分の1の底に届く仕組みです。道具は効いているだけでよく、手入れが要るのはコンボだけです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>伝説の鳥とミュウツーは色違いを狙えますか？</summary>
+        <p>狙えます。フリーザー、サンダー、ファイヤー、ミュウツーはどれも色違いになり、定番は目の前でセーブして、光るまでリセットする方法です。コンボはここまで届かないので、どれも4,096分の1のリセット作業になります。</p>
+      </details>
+    </section>
+
+    <!-- More links -->
+    <section id="more" class="container odds" aria-label="さらに見る">
+      <div class="how-grid toolkit-grid">
+          <article>
+            <h3>近くのルート</h3>
+            <p>この <a href="../pokemon-sword-shield-shiny-odds/">ソード・シールドの色違い確率</a> のページでは、シリーズが連鎖を次にどこへ持っていったのかが分かり、 <a href="../pokemon-brilliant-diamond-shining-pearl-shiny-odds/">ポケモン ブリリアントダイヤモンド &amp; シャイニングパールの色違い確率</a> のページではレーダー連鎖のリメイクを、 <a href="../pokemon-scarlet-violet-shiny-odds/">スカーレット・バイオレットの色違い確率</a> のページでは、そのあとに来たサンドイッチと大量発生の時代を扱っています。シリーズ全部を1つの表で見たいなら、 <a href="../pokemon-shiny-odds/">色違いの出現率</a> のハブ計算機が近道です。もうひとつ知っておきたいルートは <a href="../pokemon-radical-red-shiny-odds/">ポケモン Radical Red の色違い確率</a> がFireRedの改造で、基本確率の2,048分の1が、強化を何も足さない時点でこのリストの全作品を上回ります。</p>
+          </article>
+          <article>
+            <h3>相手とパーティ</h3>
+            <p>色違いを捕まえたら、 <a href="../pokemon-team-picker/">パーティ編成</a> で6匹のパーティに組み込み、 <a href="../random-pokemon-picker/">ランダム選出</a> が次の狩りの相棒をランダムで引いてくれます。連鎖なしで色違いが欲しいなら、上のジェネレーターが用意してくれます。</p>
+          </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">確率はゲーム内の仕様に関する資料をもとにまとめています。ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="letsgo-odds.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

@@ -4,17 +4,368 @@
     {
       "source": "/(.*)\\.(css|js)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
       ]
     },
     {
       "source": "/(.*)\\.(png|ico|svg|wav|webmanifest)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=2592000" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=2592000"
+        }
       ]
     }
   ],
   "redirects": [
+    {
+      "source": "/ja/about/index.html",
+      "destination": "/ja/about/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/blog/index.html",
+      "destination": "/ja/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/blog/nuzlocke-survival-playbook/index.html",
+      "destination": "/ja/blog/nuzlocke-survival-playbook/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/blog/pokemon-natures-explained/index.html",
+      "destination": "/ja/blog/pokemon-natures-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/blog/pokemon-smash-or-pass-tier-list/index.html",
+      "destination": "/ja/blog/pokemon-smash-or-pass-tier-list/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/blog/shiny-odds-explained/index.html",
+      "destination": "/ja/blog/shiny-odds-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/blog/what-is-a-nuzlocke-challenge/index.html",
+      "destination": "/ja/blog/what-is-a-nuzlocke-challenge/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/eevee-evolutions/index.html",
+      "destination": "/ja/eevee-evolutions/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/favorite-pokemon-of-each-type/index.html",
+      "destination": "/ja/favorite-pokemon-of-each-type/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/nuzlocke-generator/index.html",
+      "destination": "/ja/nuzlocke-generator/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/index.html",
+      "destination": "/ja/pokemon/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon-brilliant-diamond-shining-pearl-shiny-odds/index.html",
+      "destination": "/ja/pokemon-brilliant-diamond-shining-pearl-shiny-odds/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon-champions-team-builder/index.html",
+      "destination": "/ja/pokemon-champions-team-builder/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon-iv-calculator/index.html",
+      "destination": "/ja/pokemon-iv-calculator/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon-legends-arceus-shiny-odds/index.html",
+      "destination": "/ja/pokemon-legends-arceus-shiny-odds/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon-legends-z-a-shiny-odds/index.html",
+      "destination": "/ja/pokemon-legends-z-a-shiny-odds/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon-lets-go-shiny-odds/index.html",
+      "destination": "/ja/pokemon-lets-go-shiny-odds/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon-nature-chart/index.html",
+      "destination": "/ja/pokemon-nature-chart/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon-radical-red-shiny-odds/index.html",
+      "destination": "/ja/pokemon-radical-red-shiny-odds/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon-release-dates/index.html",
+      "destination": "/ja/pokemon-release-dates/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon-scarlet-violet-shiny-odds/index.html",
+      "destination": "/ja/pokemon-scarlet-violet-shiny-odds/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon-sword-shield-shiny-odds/index.html",
+      "destination": "/ja/pokemon-sword-shield-shiny-odds/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon-team-picker/index.html",
+      "destination": "/ja/pokemon-team-picker/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon-trainer-card-generator/index.html",
+      "destination": "/ja/pokemon-trainer-card-generator/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/arceus/index.html",
+      "destination": "/ja/pokemon/arceus/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/blastoise/index.html",
+      "destination": "/ja/pokemon/blastoise/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/bulbasaur/index.html",
+      "destination": "/ja/pokemon/bulbasaur/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/charizard/index.html",
+      "destination": "/ja/pokemon/charizard/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/charmander/index.html",
+      "destination": "/ja/pokemon/charmander/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/darkrai/index.html",
+      "destination": "/ja/pokemon/darkrai/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/dragonite/index.html",
+      "destination": "/ja/pokemon/dragonite/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/eevee/index.html",
+      "destination": "/ja/pokemon/eevee/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/espeon/index.html",
+      "destination": "/ja/pokemon/espeon/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/garchomp/index.html",
+      "destination": "/ja/pokemon/garchomp/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/gardevoir/index.html",
+      "destination": "/ja/pokemon/gardevoir/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/gengar/index.html",
+      "destination": "/ja/pokemon/gengar/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/greninja/index.html",
+      "destination": "/ja/pokemon/greninja/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/gyarados/index.html",
+      "destination": "/ja/pokemon/gyarados/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/lucario/index.html",
+      "destination": "/ja/pokemon/lucario/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/magikarp/index.html",
+      "destination": "/ja/pokemon/magikarp/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/meowth/index.html",
+      "destination": "/ja/pokemon/meowth/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/mew/index.html",
+      "destination": "/ja/pokemon/mew/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/mewtwo/index.html",
+      "destination": "/ja/pokemon/mewtwo/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/onix/index.html",
+      "destination": "/ja/pokemon/onix/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/pikachu/index.html",
+      "destination": "/ja/pokemon/pikachu/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/psyduck/index.html",
+      "destination": "/ja/pokemon/psyduck/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/raichu/index.html",
+      "destination": "/ja/pokemon/raichu/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/rayquaza/index.html",
+      "destination": "/ja/pokemon/rayquaza/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/snorlax/index.html",
+      "destination": "/ja/pokemon/snorlax/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/squirtle/index.html",
+      "destination": "/ja/pokemon/squirtle/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/sylveon/index.html",
+      "destination": "/ja/pokemon/sylveon/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/umbreon/index.html",
+      "destination": "/ja/pokemon/umbreon/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/venusaur/index.html",
+      "destination": "/ja/pokemon/venusaur/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon/zygarde/index.html",
+      "destination": "/ja/pokemon/zygarde/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/privacy-policy/index.html",
+      "destination": "/ja/privacy-policy/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/random-legendary-pokemon-generator/index.html",
+      "destination": "/ja/random-legendary-pokemon-generator/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/random-mega-pokemon-generator/index.html",
+      "destination": "/ja/random-mega-pokemon-generator/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/random-pokemon-generator-wheel/index.html",
+      "destination": "/ja/random-pokemon-generator-wheel/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/random-pokemon-name-generator/index.html",
+      "destination": "/ja/random-pokemon-name-generator/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/random-pokemon-type-generator/index.html",
+      "destination": "/ja/random-pokemon-type-generator/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/random-shiny-pokemon-generator/index.html",
+      "destination": "/ja/random-shiny-pokemon-generator/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/search/index.html",
+      "destination": "/ja/search/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/terms-of-use/index.html",
+      "destination": "/ja/terms-of-use/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/whos-that-pokemon/index.html",
+      "destination": "/ja/whos-that-pokemon/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon-smash-or-pass/index.html",
+      "destination": "/ja/pokemon-smash-or-pass/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon-shiny-odds/index.html",
+      "destination": "/ja/pokemon-shiny-odds/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon-type-chart/index.html",
+      "destination": "/ja/pokemon-type-chart/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/random-pokemon-picker/index.html",
+      "destination": "/ja/random-pokemon-picker/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pokemon-card-generator/index.html",
+      "destination": "/ja/pokemon-card-generator/",
+      "permanent": true
+    },
     {
       "source": "/pokemon-radical-red-shiny-odds/index.html",
       "destination": "/pokemon-radical-red-shiny-odds/",
@@ -120,12 +471,12 @@
       "destination": "/pokemon-trainer-card-generator/",
       "permanent": true
     },
-        {
+    {
       "source": "/random-pokemon-type-generator/index.html",
       "destination": "/random-pokemon-type-generator/",
       "permanent": true
     },
-        {
+    {
       "source": "/random-legendary-pokemon-generator/index.html",
       "destination": "/random-legendary-pokemon-generator/",
       "permanent": true

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ポケモン タイプ ランダム生成｜18タイプのルーレット抽選</title>
+  <meta name="description" content="ポケモンのタイプをルーレットで抽選。18タイプの単体と153通りの複合から選べて、結果には弱点・耐性・無効と、そのタイプを持つポケモンの例がすぐ表示されます。縛りプレイのテーマ決めにもどうぞ。" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/random-pokemon-type-generator/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/random-pokemon-type-generator/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/random-pokemon-type-generator/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/random-pokemon-type-generator/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ポケモン タイプ ランダム生成｜18タイプのルーレット抽選" />
+  <meta property="og:description" content="18タイプのルーレットを回して、ポケモンのタイプをランダムに抽選。単体と複合の2モードがあり、結果には相性とレア度、そのタイプを持つポケモンの例まで表示されます。縛りプレイのテーマ決めにもどうぞ。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/random-pokemon-type-generator/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/random-pokemon-type-generator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ポケモン タイプ ランダム生成｜18タイプのルーレット抽選" />
+  <meta name="twitter:description" content="18タイプのルーレットを回して、ポケモンのタイプをランダムに抽選。単体と複合の2モードがあり、結果には相性とレア度、そのタイプを持つポケモンの例まで表示されます。縛りプレイのテーマ決めにもどうぞ。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/random-pokemon-type-generator/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <style>
+    /* page-scoped layout for the type wheel tool */
+    .tw-stage { position: relative; margin: 26px auto 6px; width: min(340px, 86vw); aspect-ratio: 1 / 1; }
+    .tw-rotor { position: absolute; inset: 0; transition: transform 4.2s cubic-bezier(0.15, 0.85, 0.25, 1); will-change: transform; }
+    .tw-rotor svg { width: 100%; height: 100%; display: block; }
+    .tw-pointer { position: absolute; top: -6px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 13px solid transparent; border-right: 13px solid transparent; border-top: 22px solid var(--ink); z-index: 3; filter: drop-shadow(0 2px 0 rgba(255, 255, 255, 0.85)); }
+    .tw-hub { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 92px; height: 92px; border-radius: 50%; border: 1px solid var(--hline, #c6e433); background: var(--hl, #e4ff4f); color: var(--ink, #12140f); font-family: inherit; font-weight: 700; font-size: 15px; letter-spacing: 0.02em; cursor: pointer; z-index: 2; box-shadow: 0 8px 22px -10px rgba(150, 180, 20, 0.65); }
+    .tw-hub:hover { background: var(--ink, #12140f); color: #fff; }
+    .tw-hub:active { transform: translate(-50%, -50%) scale(0.96); }
+    .tw-hub[disabled] { opacity: 0.55; cursor: default; }
+    .tw-actions { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center; }
+    .tw-card { margin: 16px auto 0; max-width: 760px; background: #fff; border: 1px solid var(--line-2); border-radius: var(--radius); padding: 20px; text-align: left; animation: tw-pop 0.3s ease; }
+    @keyframes tw-pop { from { opacity: 0; transform: translateY(10px) scale(0.985); } to { opacity: 1; transform: none; } }
+    .tw-card-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .tw-card .type-chip { display: inline-block; padding: 5px 12px; border-radius: 6px; border: 1px solid var(--line-2); font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.08em; background: var(--chip, #fff); color: var(--chip-text, var(--ink)); }
+    .tw-rarity { font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.08em; color: var(--text-2); }
+    .tw-rows { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+    .tw-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
+    .tw-row-label { flex: 0 0 74px; font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.08em; color: var(--text-2); }
+    .tw-mults { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tw-mult { display: inline-block; padding: 3px 8px; border-radius: 5px; border: 1px solid var(--line-2); font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.06em; background: var(--c, #fff); color: var(--tc, var(--ink)); }
+    .tw-examples { display: flex; flex-wrap: wrap; gap: 10px; border-top: 2px solid rgba(18, 18, 18, 0.12); padding-top: 14px; }
+    .tw-ex { margin: 0; width: 84px; text-align: center; }
+    .tw-ex img { width: 72px; height: 72px; display: block; margin: 0 auto 4px; }
+    .tw-ex figcaption { font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.04em; color: var(--text-2); line-height: 1.35; }
+    .tw-hdot { flex: 0 0 auto; width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--line-2); background: var(--c, #fff); }
+    .tw-hdot + .tw-hdot { margin-left: -8px; }
+    .history-item .tw-hname { font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.08em; }
+    .tw-win path { stroke: #f6c90e; stroke-width: 3; }
+  </style>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "ランダムタイプ生成",
+ "description": "A random Pokemon type generator built around a Pokemon type wheel: all 18 types, single and dual rolls, and matchup summaries for every result.",
+ "applicationCategory": "GameApplication",
+ "url": "https://www.random-pokemon-generator.co/random-pokemon-type-generator/",
+ "operatingSystem": "All",
+ "browserRequirements": "Requires JavaScript",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ }
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "ランダムタイプ生成",
+   "item": "https://www.random-pokemon-generator.co/random-pokemon-type-generator/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "ランダムポケモンタイプジェネレーターとは？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ポケモンのタイプを無作為に引いてくれるツールです。18タイプのうち1つ、複合モードなら2つのランダムな組み合わせ。結果にはそのタイプの弱点・耐性・無効と、同じタイプを持つポケモンがいくつか表示されるので、縛りプレイにも、パーティ計画にも、お絵かきのお題にもそのまま使えます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "単体と複合の抽選はどう違いますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "単体モードは18タイプのルーレットを回し、針が止まったタイプで確定します。複合モードはまず1つ目をルーレットで決め、2つ目を引いて、ほのお／ひこうやはがね／フェアリーのような組み合わせにします。複合では同じペアを持つポケモンの数も出るので、どれくらいレアな結果かがその場で分かります。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "回せるポケモンタイプのルーレットはありますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "あります。このジェネレーターの中心がルーレットです。18タイプそれぞれに色付きの扇形があり、サイト全体と同じ配色で塗られています。回すを押すと回転し、針が止まった場所があなたのタイプ。抽選は正直なランダムで、動きの裏に振り直しは隠されていません。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "いちばんレアなタイプの組み合わせはどれくらい？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "1種だけが持つ組み合わせがあります。いわ／あくはバンギラスだけ、むし／ゴーストはヌケニンだけ、はがね／みずはエンペルトだけ、こおり／ゴーストはユキメノコだけ。数種で共有しているものもあります。結果カードにはあなたの組み合わせを持つ種族数がそのまま出るので、毎回どれくらいレアだったかが分かります。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "単タイプ縛りに使えますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "そこが一番の使いどころです。1回回して、そのタイプに旅全体を固定する。単タイプ縛り、タイプ縛りのドラフト、テーマを決めた編成づくり。もっと詰めたいなら、そのタイプをポケモンチームピッカーに持ち込んでください。ルールが必要な旅なら、ヌズロックチームビルダーが使えます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "引いたタイプは共有できますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "できます。結果をシェアを押すと、出たタイプ（または組み合わせ）とジェネレーターへのリンクを含む短い文がコピーされます。ブラウザがクリップボードを塞いでいる場合はコピー用のボックスが開くので、そこから手で取り出せます。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+
+  <!-- Structured data: WebSite -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#how" class="nav-link">しくみ</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../random-pokemon-type-generator/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">18タイプ · 単体モード &amp; 組み合わせ · 運に任せる</p>
+      <h1 id="page-title">ポケモン タイプ ランダム生成</h1>
+      <p class="lede">ランダムにポケモンのタイプを引くツールです。18タイプから1つ、あるいは153通りの組み合わせから複合タイプを抽選。結果には相性、レア度、そのタイプを持つポケモンが付いてきます。</p>
+    </section>
+
+    <!-- Type wheel game -->
+    <section id="game" class="container" aria-label="Random Pokemon type generator tool">
+      <div class="panel cornered">
+        <p class="tool-hint">使い方 ― モードを選んでから回します。単体は18分割のルーレットから1タイプを。複合はルーレットで1つ目を決め、2つ目を引いて組み合わせにします。どの結果にも相性、レア度、例が表示されます。</p>
+        <fieldset>
+          <legend>モード</legend>
+          <div class="btn-row" id="mode-buttons" role="group" aria-label="Roll mode">
+            <button type="button" class="chip-btn" data-mode="single" aria-pressed="true">単体タイプ</button>
+            <button type="button" class="chip-btn" data-mode="dual" aria-pressed="false">複合コンボ</button>
+          </div>
+        </fieldset>
+
+        <div class="tw-stage">
+          <div class="tw-rotor" id="tw-rotor" aria-hidden="true"></div>
+          <div class="tw-pointer" aria-hidden="true"></div>
+          <button type="button" id="tw-hub" class="tw-hub" aria-label="Spin the type wheel">回す</button>
+        </div>
+
+        <div class="tw-actions">
+          <button type="button" id="tw-spin" class="btn-slide cornered btn-primary"><span><i class="ico ico-ferris-wheel" aria-hidden="true"></i> ルーレットを回す</span></button>
+          <button type="button" id="tw-share" class="btn-slide btn-secondary"><span id="tw-share-label"><i class="ico ico-megaphone" aria-hidden="true"></i> 結果をシェア</span></button>
+        </div>
+
+        <div class="tool-note-group">
+          <p class="tool-note"><i class="ico ico-ferris-wheel" aria-hidden="true"></i> 回す ― ルーレットが回り、針が止まった場所があなたのタイプです</p>
+          <p class="tool-note"><i class="ico ico-megaphone" aria-hidden="true"></i> 結果をシェア ― 出たタイプとリンクをまとめてコピーします</p>
+          <p class="tool-note">🖱️ スペースキーでも回せます</p>
+        </div>
+      </div>
+
+      <div class="smash-stage" aria-live="polite">
+        <div class="result-bar" id="result-bar" hidden>
+          <span class="result-bar-label">今回の結果</span>
+        </div>
+        <div class="result-wrap" id="tw-result" hidden></div>
+      </div>
+
+      <div class="history cornered" id="history-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title">抽選履歴</h2>
+          <button type="button" id="history-clear" class="btn-text">クリア</button>
+        </div>
+        <p class="tool-note">クリア ― このセッションの結果を消します</p>
+        <ol class="history-list" id="history-list"></ol>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">しくみ</p>
+        <h2 id="how-title">ポケモン タイプルーレット：18タイプを回す</h2>
+        <div class="how-grid">
+          <article>
+            <h3>ワンクリックで、ランダムなタイプ</h3>
+            <p>タイプは、ほぼすべてのポケモンの縛りプレイで最初に決めることです。タイプが決まれば、あとは相性表が道筋を教えてくれます。このツールならその判断がワンクリック。ルーレットを回せば、ノーマルからフェアリーまで18タイプがすべて候補に入ります。新しい旅の始まりに、言い争いの決着に、選べないときのとっかかりに。抽選は毎回ちゃんとランダムで、重み付けも、結果を誘導する方法もありません。出たものを受け取る。それこそがこのツールの目的です。</p>
+          </article>
+          <article>
+            <h3>単体タイプと複合の組み合わせ</h3>
+            <p>単体モードは18タイプから1つを引きます。複合モードはペアを引く形で、18の単体と153通りの2タイプ組み合わせ、合わせて171通りの結果があります。ほのお／ひこう、みず／じめん、ドラゴン／ゴーストといった有名な組み合わせも、確率どおりの頻度で出てきます。複合の結果には実際にその組み合わせを持つポケモンの数が出るので、いわ／あくを引くのと、20種以上が共有するひこう／ノーマルを引くのでは、手触りがまったく違います。どの抽選もまっさらな状態からで、同じタイプが2回続けて出ることもあります。</p>
+          </article>
+          <article>
+            <h3>回るタイプルーレット</h3>
+            <p>18色の扇形に分かれたルーレットが、このツールの心臓部です。色はこのサイトの他のページと同じものを使っています。回すを押すと減速カーブつきで回転し、針の下に来た扇形があなたのタイプ。アニメーションの裏で振り直す仕掛けも、結果に干渉する方法もありません。中央のハブでも、ルーレット下のボタンでも回せて、スマホでもPCでも同じように動きます。当たった扇形は金色の枠で強調されるので、どこで止まったか誰にでも分かります。</p>
+          </article>
+          <article>
+            <h3>相性ボックスを読む</h3>
+            <p>結果には毎回、そのタイプ（またはペア）の弱点、耐性、無効が標準の倍率つきで表示されます。複合なら2つのタイプを合算した形になり、たとえばほのお／ひこうはいわから4倍、じめんは0倍になります。この小さなボックスが、ランダムな1回を戦略に変えてくれます。出たのは名前だけではなく、最初の戦いの前に組める守りのプロフィールなんです。18×18の表を裏付けとして持っておきたいなら、 <a href="../pokemon-type-chart/">タイプ相性表</a> を手元に置いておいてください。</p>
+          </article>
+          <article>
+            <h3>狙う価値のあるレアな組み合わせ</h3>
+            <p>ほとんど誰も持っていない組み合わせがあります。いわ／あくはバンギラスだけ、むし／ゴーストはヌケニンだけ、はがね／みずはエンペルトだけ、こおり／ゴーストはユキメノコだけ。これを引くのは、タイプ版の色違いのようなものです。この組み合わせで縛りプレイを組んでもいいし、オリジナルのポケモンを考えてもいい。ロビーの誰も持っていません。結果カードには同じ組み合わせを持つ種族数がそのまま出るので、よくある組み合わせを引いたのか、ほぼ唯一のものを引いたのかがすぐ分かります。レア狙いは回し続ける理由になります。どの抽選も独立していて、薄い組み合わせは何度引いても気持ちがいいものです。</p>
+          </article>
+          <article>
+            <h3>単タイプ縛りとチャレンジの固定</h3>
+            <p>タイプの抽選は、縛りプレイのルールとしてそのまま使えます。ルーレットが止まったタイプにパーティ全体を固定して、ゲームがどこまで曲がるか見てみる。旅のテーマとして1回回す人もいれば、ドラフト用に1回、ランダムロックの最初の1匹用に1回という遊び方もあります。ルールも一緒に欲しいなら、タイプと合わせて <a href="../nuzlocke-generator/">ヌズロック編成</a>をどうぞ。始める前に6匹を組み上げたいなら、 <a href="../pokemon-team-picker/">パーティ編成</a> が、引いたタイプを軸に性格・技・持ち物まで含めた6枠のパーティを作ってくれます。</p>
+          </article>
+          <article>
+            <h3>お絵かきのお題としてのタイプ抽選</h3>
+            <p>絵を描く人にとって、引いたタイプはお題になります。1回回せば属性が決まり、複合モードなら2回目で組み合わせが決まる。その瞬間、オリジナルポケモンの仕様書ができます。じめん／フェアリーのデザイン、こおり／ゴーストの小技、でんき／どくのマスコット。難しい組み合わせほど余地は広いです。誰も、それを唯一持つポケモンの新しい解釈を期待していませんから。結果カードの見本画像は参考にしてもいいし、ポケモンのことは忘れてタイプだけから描いてもいい。白紙を埋めるという、いちばん大変な部分がなくなるのが強みです。</p>
+          </article>
+          <article>
+            <h3>1つのタイプからパーティへ</h3>
+            <p>抽選1回で、その日の遊びが決まります。タイプを引いたら、 <a href="../">random Pokemon generator</a> を開いて、そのプールからメンバーを埋めていきましょう。パーティではなく1匹だけ欲しいなら、 <a href="../random-pokemon-picker/">ランダム選出</a> が単体で配ります。パーティができたら、 <a href="../random-pokemon-name-generator/">ランダム名前生成</a> が全員に名前を付け、 <a href="../pokemon-card-generator/">ポケモンカード作成</a> が要点をまとめてくれます。タイプ1回で、ラインアップ1つ分。このサイトのツールはすべて同じデータから引いているので、内容はどこまで行ってもずれません。</p>
+          </article>
+          <article>
+            <h3>パーティゲームとして遊ぶ</h3>
+            <p>タイプジェネレーターがいちばん楽しいのは、誰かと一緒に回すときです。全員が同じ抽選結果でパーティを組み、1戦の結果で勝者を決める。あるいは1人1回ずつ回して、出たタイプで対戦相手を決める。回すのは一瞬でルールも明快なので、配信でも通話でも、1台のスマホを回しながらでもその場で成立します。ハウスルールは自由に決めてください。このサイトが守るルールは、抽選が本当にランダムであることだけです。</p>
+          </article>
+          <article>
+            <h3>サイトのなかで回し続ける</h3>
+            <p>タイプは決まりましたか？ここから先はサイトの他のツールが引き継ぎます。ポケモンチームピッカーで編成を組み、ランダムポケモンピッカーで1匹だけ引く。その前に、このルーレットの元になっているポケモンタイプ相性表を眺めておくのもいいでしょう。図鑑の全種を見たいなら、 <a href="../pokemon/">ポケモン図鑑</a>へ。レアな側を見たいなら、 <a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a> が伝説と幻のポケモンを引いてくれます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">ランダムポケモンタイプジェネレーターのよくある質問</h2>
+      <details class="faq-item cornered">
+        <summary>ランダムポケモンタイプジェネレーターとは？</summary>
+        <p>ポケモンのタイプを無作為に引いてくれるツールです。18タイプのうち1つ、複合モードなら2つのランダムな組み合わせ。結果にはそのタイプの弱点・耐性・無効と、同じタイプを持つポケモンがいくつか表示されるので、縛りプレイにも、パーティ計画にも、お絵かきのお題にもそのまま使えます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>単体と複合の抽選はどう違いますか？</summary>
+        <p>単体モードは18タイプのルーレットを回し、針が止まったタイプで確定します。複合モードはまず1つ目をルーレットで決め、2つ目を引いて、ほのお／ひこうやはがね／フェアリーのような組み合わせにします。複合では同じペアを持つポケモンの数も出るので、どれくらいレアな結果かがその場で分かります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>回せるポケモンタイプのルーレットはありますか？</summary>
+        <p>あります。このジェネレーターの中心がルーレットです。18タイプそれぞれに色付きの扇形があり、サイト全体と同じ配色で塗られています。回すを押すと回転し、針が止まった場所があなたのタイプ。抽選は正直なランダムで、動きの裏に振り直しは隠されていません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>いちばんレアなタイプの組み合わせはどれくらい？</summary>
+        <p>1種だけが持つ組み合わせがあります。いわ／あくはバンギラスだけ、むし／ゴーストはヌケニンだけ、はがね／みずはエンペルトだけ、こおり／ゴーストはユキメノコだけ。数種で共有しているものもあります。結果カードにはあなたの組み合わせを持つ種族数がそのまま出るので、毎回どれくらいレアだったかが分かります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>単タイプ縛りに使えますか？</summary>
+        <p>そこが一番の使いどころです。1回回して、そのタイプに旅全体を固定する。単タイプ縛り、タイプ縛りのドラフト、テーマを決めた編成づくり。もっと詰めたいなら、そのタイプをポケモンチームピッカーに持ち込んでください。ルールが必要な旅なら、ヌズロックチームビルダーが使えます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>引いたタイプは共有できますか？</summary>
+        <p>できます。結果をシェアを押すと、出たタイプ（または組み合わせ）とジェネレーターへのリンクを含む短い文がコピーされます。ブラウザがクリップボードを塞いでいる場合はコピー用のボックスが開くので、そこから手で取り出せます。</p>
+      </details>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="./">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="share-modal" hidden>
+    <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="sm-title" id="share-modal-card">
+      <p class="modal-meta">このブラウザでは自動コピーがブロックされました。選択して手動でコピーしてください</p>
+      <h3 id="sm-title">シェア用のテキストをコピー</h3>
+      <textarea class="share-modal-text" id="share-modal-text" rows="6" readonly></textarea>
+      <button type="button" class="btn-slide btn-secondary modal-close" id="sm-close"><span>閉じる</span></button>
+    </div>
+  </div>
+
+  <script src="../../data.js?v=20261022d"></script>
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="type-generator.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

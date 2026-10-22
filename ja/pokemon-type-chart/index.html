@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ポケモン タイプ相性表｜18タイプの弱点・耐性を一覧で確認</title>
+  <meta name="description" content="ポケモン タイプ相性表です。18タイプの相性を1つの表にまとめ、弱点・耐性・無効をひと目で確認できます。2つのタイプを持つポケモンの複合相性も、×2や×0.5、×0のダメージ倍率でその場で計算できます。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/pokemon-type-chart/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/pokemon-type-chart/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/pokemon-type-chart/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/pokemon-type-chart/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ポケモン タイプ相性表｜18タイプの弱点・耐性を一覧で確認" />
+  <meta property="og:description" content="18タイプの相性を1つの表にまとめました。弱点・耐性・無効と、複合タイプのダメージ倍率をその場で確認できます。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/pokemon-type-chart/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/pokemon-type-chart/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ポケモン タイプ相性表｜18タイプの弱点・耐性を一覧で確認" />
+  <meta name="twitter:description" content="18タイプの相性を1つの表にまとめました。弱点・耐性・無効と、複合タイプのダメージ倍率をその場で確認できます。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/pokemon-type-chart/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "タイプ相性表",
+ "description": "18タイプのポケモンのタイプ相性がわかるインタラクティブな相性表です。複合タイプのダメージ計算ツールと、タイプ別の弱点一覧も用意しています。",
+ "applicationCategory": "GameApplication",
+ "operatingSystem": "All",
+ "browserRequirements": "JavaScript が必要です",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "url": "https://www.random-pokemon-generator.co/pokemon-type-chart/"
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "タイプ相性表",
+   "item": "https://www.random-pokemon-generator.co/pokemon-type-chart/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "ポケモンのタイプ相性表とは何ですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ポケモンのタイプ相性表とは、攻撃側のタイプと防御側のタイプをすべて組み合わせ、そこに生じるダメージ倍率を示した一覧表です。倍率は×2（効果はばつぐん）、×1（等倍）、×0.5（効果はいまひとつ）、×0（無効）の4種類だけです。ゲーム中のすべてのバトルは、このルールの上で動いています。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "ポケモンのタイプはいくつありますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ポケモンのタイプは18種類あります。ノーマル、ほのお、みず、でんき、くさ、こおり、かくとう、どく、じめん、ひこう、エスパー、むし、いわ、ゴースト、ドラゴン、あく、はがね、フェアリーです。第9世代で追加されたステラタイプはテラスタルの性質であって、相性表に並ぶ通常のタイプではありません。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "複合タイプのダメージはどう計算しますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "2つの倍率を掛け合わせます。ひこう／ドラゴンならこおりから×4（×2 × ×2）、みず／はがねならほのおから×0.25（×0.5 × ×0.5）です。どちらかに無効があれば、結果は必ず×0になります。みず／じめんにでんきわざを撃っても、みずが×2であっても×0です。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "STABとは何ですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "STAB（タイプ一致ボーナス）とは、わざのタイプが使うポケモン自身のタイプと同じとき、タイプ相性の倍率に加えてさらに×1.5がかかる仕組みです。みずタイプがなみのりを使えば、相性で×2のところにSTABが乗ります。同じタイプのわざが、多くの場合もっとも効率のよい選択になるのはそのためです。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "タイプ相性は世代ごとに変わってきたのですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。第2世代であくとはがねが追加され、ゴーストとはがねの関係が調整されました。第6世代ではフェアリーが登場し、ゴーストわざとあくわざのはがねに対する相性が等倍に変更されています。ふゆうやふしぎなまもり、ぼうおんといった特性も、特定の相性を上書きします。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "この表はどう使えばいいですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "表のマスにカーソルを合わせるかタップすると、その相性が文章で表示されます。計算機を使えば、攻撃タイプ1つに対して防御タイプを1つまたは2つ指定して確認できます。表の下にあるタイプカードを開けば、弱点・耐性・無効をまとめて見られます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "防御面で優れているのはどのタイプですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "特に優れているのははがねです。10タイプに耐え、どくを無効にし、弱点はほのお・かくとう・じめんの3つだけです。でんきやみずも、実用的な耐性をいくつか持っています。攻撃面では、じめん・かくとう・いわが最も多くのタイプに×2を取れます。対戦の構築で、この3タイプが定番の補完枠になるのはそのためです。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "相性表はどのゲームでも同じですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "第6世代以降、18タイプの相性表は変わっていません。X・Yからスカーレット・バイオレットまで、同じ表がそのまま当てはまります。ゲームごとの違いは特性や仕組みから生まれるもので、表そのものは共通です。ふゆう、ひらいしん、ぼうおん、ふしぎなまもり、ノーマルスキンなどが、特定の状況で相性を上書きします。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "第9世代のテラスタイプはどう扱われますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "テラスタイプはバトルの仕組みで、恒久的なタイプではありません。ポケモンはバトル中に1回だけテラスタルし、そのターンはテラスタイプの1つだけが適用されます。表そのものは変わりません。テラスタルは18タイプのどれが有効になるかを変えるだけなので、倍率はこの表でそのまま分かります。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#how" class="nav-link">しくみ</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../pokemon-type-chart/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">18タイプ・324通りの相性・複合タイプの計算機</p>
+      <h1 id="page-title">ポケモン タイプ相性表</h1>
+      <p class="lede">18タイプの相性を1つの表にまとめました。何が強く、何に耐えられ、何がまったく通じないのかがひと目でわかります。マスにカーソルを合わせるか、複合タイプのダメージ計算機を使うか、タイプごとのカードで弱点を確認してください。</p>
+    </section>
+
+    <!-- Chart -->
+    <section class="container" aria-label="ポケモンのタイプ相性表">
+      <div class="panel cornered tc-panel">
+        <div class="tc-scroll" aria-label="タイプ相性の一覧">
+          <table class="tc-table" id="tc-table">
+            <caption class="visually-hidden">ポケモンのタイプ相性表。行が攻撃タイプ、列が防御タイプです</caption>
+          </table>
+        </div>
+        <p class="tc-readout" id="tc-readout" aria-live="polite">マスにカーソルを合わせるかタップすると、その相性が表示されます。</p>
+      </div>
+
+      <div class="panel cornered tc-calc">
+        <h2 class="tc-calc-title">複合タイプのダメージ計算機</h2>
+        <div class="tc-calc-row">
+          <label for="tc-atk">攻撃タイプ</label>
+          <select id="tc-atk" class="tc-select"></select>
+          <label for="tc-def1">防御タイプ1</label>
+          <select id="tc-def1" class="tc-select"></select>
+          <label for="tc-def2">防御タイプ2</label>
+          <select id="tc-def2" class="tc-select"></select>
+        </div>
+        <p class="tc-result" id="tc-result" aria-live="polite"></p>
+        <p class="tool-note">攻撃タイプ1つに対して、防御タイプを1つまたは2つ指定して試せます。計算機は2つの相性を掛け合わせ、無効があれば必ずそちらが優先されます。上の表と同じ計算がそのまま働いています。</p>
+      </div>
+
+      <div class="container tc-details" id="tc-details" aria-label="タイプ別の詳細"></div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">しくみ</p>
+        <h2 id="how-title">ポケモンのタイプ相性表の仕組み</h2>
+        <div class="how-grid">
+          <article>
+            <h3>相性表は一行で読み解ける</h3>
+            <p>ポケモンのタイプ相性表は18×18の表です。左に攻撃タイプ、上に防御タイプが並び、交わったマスにダメージ倍率が入ります。値は×2（効果はばつぐん）、×1（等倍）、×0.5（効果はいまひとつ）、×0（無効）の4種類だけです。マスにカーソルを合わせるかタップすれば、その相性が表の下に文章で表示されるので、記号を読み解く必要はありません。</p>
+            <p>相性表の内部データには、等倍以外の関係だけを保存しています。そのため表は常に正確です。すべてのマスが同じルールから計算されるので、表と下の計算機の結果が食い違うことはありません。</p>
+          </article>
+          <article>
+            <h3>数字で見るタイプ相性表</h3>
+            <p>攻撃タイプとして最も強いのはどれかと尋ねれば、表ははっきりした答えを返します。かくとうとじめんが同率で首位になり、どちらも5タイプに×2を取れます。続いて、いわ・ほのお・こおりが4タイプずつです。ただし、こうした強力なタイプにも穴があります。ゴーストはかくとうを素通りし、ひこうはじめんを無視します。そしてこの2つの穴のあいだに、ゲームで最も多い防御側の組み合わせが収まっています。攻撃タイプを1つだけに頼るパーティは、どこかで必ず崩れます。</p>
+            <p>穴が見えるのは防御側の列です。こおりは耐性が最も薄く、4タイプに弱点を突かれ、耐えられるのは自分自身の1つだけです。いわとくさは5つの弱点で並んで最下位です。反対に、はがねは18タイプのうち10を受け流し、どくは完全に無効にします。ゴーストが怖いのはゴーストとあくだけで、ノーマルとかくとうは自由に受けられる相手です。</p>
+            <p>そのタイプを強いと判断する前に、両方の列を見てください。 <a href="../pokemon-team-picker/">パーティ編成</a> が6枠すべてに同じ確認を行います。5タイプに効く攻撃でも、1つの無効で止まるなら、それは補完ではなく穴です。</p>
+          </article>
+          <article>
+            <h3>タイプの弱点を数秒で確認</h3>
+            <p>表の下にある18枚のタイプカードで、このページはそのまま弱点の早見表になります。各カードには、そのタイプが何に弱く、何に耐え、何を無効にするかが並びます。はがねは10タイプに耐えてどくを無効にし、じめんはでんきを無効にし、ゴーストはノーマルに一切通じません。「このタイプに効くのは何か」という問いに、カード1枚で即座に答えられます。レイドやジム戦、対戦の前にこそ、見ておきたい情報です。</p>
+            <p>タイプカードと合わせて見たいのは、 <a href="../pokemon-nature-chart/">ポケモン性格表</a> そして <a href="../pokemon-shiny-odds/">色違いの出現率</a> のページです。よい相性を、しっかり育てた1匹に変えてくれます。性格の表で能力の配分を選び、確率のページで厳選の計画を立て、この表でチーム全員のダメージ計算を確かめられます。</p>
+          </article>
+          <article>
+            <h3>図鑑全体で数えた複合弱点</h3>
+            <p>全国図鑑のすべての姿を表に通すと、1つの数字が出ます。このデータセットの1,351種類のうち、267種類が×4を受ける複合弱点を少なくとも1つ持っています。5匹に1匹です。</p>
+            <p>こおりは、このサイトで最も多くの複合弱点の原因になっています。カイリュー系やガブリアス系からドダイトス、グライガーまで、44種類がこおりから×4を受けます。続いてじめんが40、いわが33です。</p>
+            <p>組み合わせ単位で見ると、むし／ひこうはゲームで最も狙われやすい複合タイプです。バタフリーからストライク、ビビヨンまで15種類がこの組み合わせで、そのすべてが岩わざから×4を受けます。みず／いわ、ドラゴン／じめん、みず／じめんも、それぞれ10種類以上が同じ立場にあります。</p>
+            <p>メガシンカの中には、進化のときにタイプが変わるものがあります。メガボスゴドラは岩タイプを完全に失い、表の読み方もそれに合わせて変わります。メガシンカした姿を一通り引きたいときは、 <a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a> がそうしたメガシンカをすべて取りそろえています。</p>
+          </article>
+          <article>
+            <h3>複合タイプのダメージを正確に計算</h3>
+            <p>ポケモンの多くはタイプを2つ持つので、実際に役立つのは計算機のほうです。攻撃タイプを1つ、防御タイプを1つか2つ選ぶと、それぞれの相性を掛け合わせた結果が出ます。ほのお対みず／はがねは×0.5 × ×0.5 = ×0.25、こおり対ドラゴン／ひこうは×2 × ×2 = ×4、でんき対みず／じめんは×0です。無効はほかのどのルールよりも優先されます。×4や×0.25という結果は、ほぼそのまま勝敗を決めます。わざを選ぶ前に確認する習慣をつけておきたいところです。</p>
+            <p>この穴をふさぐチームを組みたいなら、ポケモンチームピッカーが手持ち全体の防御範囲を一枚の表にしてくれます。そして、 <a href="../">Random Pokemon Generator</a> が評価・相性マトリクス・弱点の警告を添えて1匹を選んでくれます。タイプをもっと気楽に楽しみたいなら、 <a href="../favorite-pokemon-of-each-type/">タイプ別お気に入り</a> が18タイプそれぞれのお気に入りを1匹ずつ選び、1枚の画像として書き出します。</p>
+          </article>
+          <article>
+            <h3>暗記しなくても使えるようになる</h3>
+            <p>324マスを暗記している人はいませんし、覚える必要もありません。3つのルールでほぼ足ります。1つ目は、みずはほのおに強く、ほのおはくさに強く、くさはみずに強いという関係です。最初の3匹の三角形が、表全体の骨格になっています。2つ目は、じめん・かくとう・いわの3タイプが図鑑の大半に対して攻撃面で強いこと。3つ目は、変わった関係を意識して覚えておくことです。ノーマルはゴーストに通じず、でんきはじめんに通じず、フェアリーはドラゴンを一方的に受け止めます。</p>
+            <p>相性で驚くことがまだあるなら、それがこの表の役目です。10秒スクロールするほうが、1分悩むより確実です。何試合かこなせば、パターンは自然に頭に残ります。多くのプレイヤーは不完全な知識のまま遊んできました。上達するのは、意外な結果のあとに面倒がらずに表を見返す人です。</p>
+          </article>
+          <article>
+            <h3>覚えておきたい3つの相性</h3>
+            <p>解説記事は表の読み方を教えてくれますが、いくつかの相性は体で覚えるものです。次の3つは、考えなくても言えるようにしておきたいところです。</p>
+            <p>ガブリアスとこおりの関係です。ドラゴンはこおりから×2、じめんもこおりから×2を受けるので、表はその2つを掛け合わせて×4を返します。ガブリアスに向けたれいとうビームは脅しではなく、カウントダウンです。複合タイプの2つが同じ弱点を持つとき、ダメージはさらに倍になります。色違いを狙うときの確率は、ポケモン色違い確率のページにまとめています。ただし、普通のガブリアスと見分ける問題は、この表では解けません。</p>
+            <p>エアームドとじめんの関係です。はがねタイプはじめんが弱点ですが、エアームドはじめんをまったく気にしません。ひこうがじめんを無効にするからです。0に何を掛けても0です。無効は弱点をそのまま消してしまい、「何に耐えられるか」は「何が怖いか」と同じくらい大事になります。</p>
+            <p>ゴーストタイプと、ノーマル・かくとうの関係です。ゲームで最もよく使われる攻撃タイプのうち2つが、ゴーストにはまったく通じません。のしかかりやインファイトを読んだとき、ゴーストが最も安全な交代先になるのはそのためです。逃げ道もはっきりしています。あくタイプとゴーストタイプのわざなら、確実に弱点を突けます。インファイトをゴーストで受け止められたら、次に浮かぶ疑問は決まっています。このゴーストは何が怖いのか、です。</p>
+          </article>
+          <article>
+            <h3>表から実際のバトルへ</h3>
+            <p>タイプの知識は、このサイトのほかのツールすべての土台になります。ランダムな6匹のチームを作りたいなら、 <a href="../random-pokemon-picker/">ランダム選出</a>で1匹ずつ選び、次は <a href="../random-pokemon-generator-wheel/">ポケモンルーレット</a> を回して印象的な一体を選ぶのもいいですね。ルールを決めて旅を始めるなら、 <a href="../nuzlocke-generator/">ヌズロック編成</a> が便利です。そして、自分のチームが実際に何を耐えられるのか確かめたくなったら、このページに戻ってきてください。ポケモンチャンピオンズを遊ぶ人も、同じ確認をより少ない手持ちで行います。そのときは、 <a href="../pokemon-champions-team-builder/">チャンピオンズ編成</a> が、レギュレーションM-Cの採用ポケモンと相性を1つの表にまとめてくれます。気軽に遊びたいときは、 <a href="../pokemon-smash-or-pass/">Smash or Pass</a> と <a href="../whos-that-pokemon/">このポケモンだあれ？</a> といったゲームは、同じ相性の知識を手軽な遊びに変えてくれます。</p>
+            <p>1匹のポケモンを深く知りたいときは、 <a href="../pokemon-iv-calculator/">個体値計算</a> がステータスの裏にある隠し値を割り出し、 <a href="../random-pokemon-name-generator/">ランダム名前生成</a> がニックネームを付けてくれます。もっと詳しい解説や計算の話は、 <a href="../blog/">ブログ</a>にまとめてあります。どのタイプを軸にチームを組むか迷ったら、 <a href="../random-pokemon-type-generator/">ランダムタイプ生成ツール</a> がタイプのルーレットを回してくれます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">ポケモン タイプ相性表のよくある質問</h2>
+      <details class="faq-item cornered">
+        <summary>ポケモンのタイプ相性表とは何ですか？</summary>
+        <p>ポケモンのタイプ相性表とは、攻撃側のタイプと防御側のタイプをすべて組み合わせ、そこに生じるダメージ倍率を示した一覧表です。倍率は×2（効果はばつぐん）、×1（等倍）、×0.5（効果はいまひとつ）、×0（無効）の4種類だけです。ゲーム中のすべてのバトルは、このルールの上で動いています。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>ポケモンのタイプはいくつありますか？</summary>
+        <p>ポケモンのタイプは18種類あります。ノーマル、ほのお、みず、でんき、くさ、こおり、かくとう、どく、じめん、ひこう、エスパー、むし、いわ、ゴースト、ドラゴン、あく、はがね、フェアリーです。第9世代で追加されたステラタイプはテラスタルの性質であって、相性表に並ぶ通常のタイプではありません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>複合タイプのダメージはどう計算しますか？</summary>
+        <p>2つの倍率を掛け合わせます。ひこう／ドラゴンならこおりから×4（×2 × ×2）、みず／はがねならほのおから×0.25（×0.5 × ×0.5）です。どちらかに無効があれば、結果は必ず×0になります。みず／じめんにでんきわざを撃っても、みずが×2であっても×0です。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>STABとは何ですか？</summary>
+        <p>STAB（タイプ一致ボーナス）とは、わざのタイプが使うポケモン自身のタイプと同じとき、タイプ相性の倍率に加えてさらに×1.5がかかる仕組みです。みずタイプがなみのりを使えば、相性で×2のところにSTABが乗ります。同じタイプのわざが、多くの場合もっとも効率のよい選択になるのはそのためです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>タイプ相性は世代ごとに変わってきたのですか？</summary>
+        <p>はい。第2世代であくとはがねが追加され、ゴーストとはがねの関係が調整されました。第6世代ではフェアリーが登場し、ゴーストわざとあくわざのはがねに対する相性が等倍に変更されています。ふゆうやふしぎなまもり、ぼうおんといった特性も、特定の相性を上書きします。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>この表はどう使えばいいですか？</summary>
+        <p>表のマスにカーソルを合わせるかタップすると、その相性が文章で表示されます。計算機を使えば、攻撃タイプ1つに対して防御タイプを1つまたは2つ指定して確認できます。表の下にあるタイプカードを開けば、弱点・耐性・無効をまとめて見られます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>防御面で優れているのはどのタイプですか？</summary>
+        <p>特に優れているのははがねです。10タイプに耐え、どくを無効にし、弱点はほのお・かくとう・じめんの3つだけです。でんきやみずも、実用的な耐性をいくつか持っています。攻撃面では、じめん・かくとう・いわが最も多くのタイプに×2を取れます。対戦の構築で、この3タイプが定番の補完枠になるのはそのためです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>相性表はどのゲームでも同じですか？</summary>
+        <p>第6世代以降、18タイプの相性表は変わっていません。X・Yからスカーレット・バイオレットまで、同じ表がそのまま当てはまります。ゲームごとの違いは特性や仕組みから生まれるもので、表そのものは共通です。ふゆう、ひらいしん、ぼうおん、ふしぎなまもり、ノーマルスキンなどが、特定の状況で相性を上書きします。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>第9世代のテラスタイプはどう扱われますか？</summary>
+        <p>テラスタイプはバトルの仕組みで、恒久的なタイプではありません。ポケモンはバトル中に1回だけテラスタルし、そのターンはテラスタイプの1つだけが適用されます。表そのものは変わりません。テラスタルは18タイプのどれが有効になるかを変えるだけなので、倍率はこの表でそのまま分かります。</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="./">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <script src="../../data.js?v=20261022d"></script>
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="type-chart.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ポケモン 検索｜1,025種の図鑑検索</title>
+  <meta name="description" content="ポケモンの全国図鑑を名前で検索できます。第1〜9世代の1,025種から、一部の名前でもすぐ一致。タイプ・世代・種族値が並び、ワンクリックで生成ツールが開きます。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/search/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/search/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/search/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/search/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ポケモン 検索｜1,025種の図鑑検索" />
+  <meta property="og:description" content="1,025種を名前で即検索。タイプ・世代・種族値が一覧でき、ワンクリックで生成ツールに飛べます。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/search/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/search/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ポケモン 検索｜1,025種の図鑑検索" />
+  <meta name="twitter:description" content="1,025種を名前で即検索。タイプ・世代・種族値が一覧でき、ワンクリックで生成ツールに飛べます。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/search/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "ポケモン検索",
+ "description": "Search the complete 1,025-species Pokemon national dex by name and jump straight into the generator.",
+ "applicationCategory": "GameApplication",
+ "operatingSystem": "All",
+ "browserRequirements": "Requires JavaScript",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "url": "https://www.random-pokemon-generator.co/search/"
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "ポケモン検索",
+   "item": "https://www.random-pokemon-generator.co/search/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "ポケモン検索はどう動きますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ポケモン名か、その一部を入力してください。1,025種の全国図鑑から即座に絞り込み、一致したもののタイプ・世代・種族値合計を表示します。結果をクリックすると、そのポケモンがランダム生成ツールで開きます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "どんなポケモンが検索できますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "第1世代から第9世代までのすべての種、1,025匹に地域フォルムや特殊なフォルムを加えた範囲です。データは当サイトのすべてのツールと同じくPokeAPIから取得しています。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "ニックネームや特性でも検索できますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "このページは種名での検索だけに対応しています。対戦の研究をしたいときは、結果のリンクから生成ツールでポケモンを開き、詳細カードで特性・種族値・タイプ範囲・進化系統を見てください。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "一部だけの名前や、綴り間違いでも検索できますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。英語の種名の一部分ならどこでも一致し、大文字小文字は無視されます。「pika」でピカチュウとライチュウが出て、「charzard」のようなよくある綴り間違いもリザードンに解決します。部分一致が元のスラッグに対して行われるからです。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "なぜ結果は生成ツールで開くのですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "生成ツールのページには、検索では出せないものがすでに全部そろっているからです。特性、種族値、タイプ範囲、進化系統、色違いのアートワーク。結果をそこで開けば、探していたポケモンの完全なプロフィールが、余計なクリックなしで手に入ります。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "地域フォルムも検索に含まれますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。データセット内の亜種は独自の名前で検索できるので、「alolan raichu」や「galarian slowpoke」も普通に解決します。行に表示される図鑑番号が種を示し、フォルムは名前の行に出ます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "検索は即座ですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。1,025件すべてがブラウザの中にあるので、最初のキー入力で結果が出て、通信の往復はありません。同じローカルのデータがほかのツールも軽快に保ち、回線が遅いときでも、一度読み込んでしまえばオフラインでも動きます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "検索結果をブックマークできますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。URLがqパラメータにクエリを保持するので、アドレスバーからコピーすれば次に訪れたときも同じ結果が読み込まれます。ツールのページを共有するのと同じ感覚で、検索への直リンクを渡せます。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#how" class="nav-link">しくみ</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../search/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">1,025種 · すぐに結果 · ワンクリックで開く</p>
+      <h1 id="page-title">ポケモン 検索</h1>
+      <p class="lede">ポケモンの全国図鑑を名前で検索できます。結果にはタイプ・世代・種族値が並び、クリック1回で生成ツールが開いて全体像まで見られます。</p>
+    </section>
+
+    <!-- Search -->
+    <section class="container panel cornered" aria-label="Pokemon search">
+      <form class="srch-form" id="srch-form" action="../search/" method="get">
+        <input type="search" id="srch-input" class="srch-input" name="q" placeholder="Search Pokemon by name — e.g. pikachu, gardevoir…" aria-label="Search Pokemon by name" />
+        <button type="submit" class="btn-slide cornered btn-primary"><span>検索</span></button>
+      </form>
+      <p class="srch-count" id="srch-count" aria-live="polite">ポケモン名を入力すると全国図鑑を検索します。</p>
+      <div class="srch-results" id="srch-results"></div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">しくみ</p>
+        <h2 id="how-title">ポケモン検索のしくみ</h2>
+        <div class="how-grid">
+          <article>
+            <h3>入力欄ひとつで、1,025種すべて</h3>
+            <p>検索バーは、当サイトのほかのツールと同じ全国図鑑を引きます。第1世代から第9世代までの1,025種に、地域フォルムや特殊なフォルムも加わります。フルネームでも、一部だけでもかまいません。「pika」でピカチュウとライチュウがすぐ出ます。入力に合わせて結果が変わります。各行には公式アートワーク、全国図鑑番号、タイプ、世代、種族値合計が並ぶので、正体のわからないポケモンもページを離れずに特定できます。検索エンジンというより、ポケモン専用の検索窓だと思ってください。名前、部分一致、タイプに反応して、欲しい種へ一直線に飛びます。</p>
+            <p>部分一致は種のスラッグと表示名の両方に当たるので、交換や翻訳、ニックネームのない図鑑めぐりでも、検索は寛容なままです。</p>
+          </article>
+          <article>
+            <h3>検索からツールへ</h3>
+            <p>どの結果からも、ワンクリックで <a href="../">Random Pokemon Generator</a> がそのポケモンを開きます。そこには詳細カードが待っていて、種族値、特性、タイプ範囲、進化系統、色違いの姿までそろいます。そこから先は、ほかのツールまで1タップです。何に負けるかは <a href="../pokemon-type-chart/">タイプ相性表</a>で、性格は <a href="../pokemon-nature-chart/">ポケモン性格表</a>で、個体値は <a href="../pokemon-iv-calculator/">個体値計算</a>.</p>
+            <p>で調べられます。検索は、探し物の入り口でもあります。みずタイプのチームが欲しければ、生成ツールのタイプ絞り込みが <a href="../pokemon-team-picker/">パーティ編成</a> のページで使えますし、1匹だけでいいなら <a href="../random-pokemon-picker/">ランダム選出</a> が引いてくれます。</p>
+          </article>
+          <article>
+            <h3>すばやく引くために</h3>
+            <p>スマホで交換の内容を確かめるときも、PCでチームを組むときも、検索は流れを短く保ちます。入力して、読んで、開く。結果は端末の中だけで処理され、アップロードもアカウントも追跡もありません。考え方は <a href="../whos-that-pokemon/">このポケモンだあれ？</a> の当てクイズと同じです。思い浮かべているポケモンに、できるだけ少ないクリックでたどり着くこと。</p>
+            <p>検索はサイト全体の入り口です。結果からは <a href="../nuzlocke-generator/">ヌズロック編成</a>、そして <a href="../random-pokemon-generator-wheel/">ポケモンルーレット</a>へ、あるいはそのポケモンそのものの <a href="../pokemon-smash-or-pass/">Smash or Pass</a> 判定も見られます。決まったら、 <a href="../pokemon-card-generator/">ポケモンカード作成</a>でカードにして、詳しい解説記事は <a href="../blog/">ブログ</a>で読めます。サイトのツールはどれも同じ1,025種の図鑑を読んでいるので、ここで見つけたものはほかのページでも同じように引けます。検索は、一度見たページに戻る最短ルートでもあります。メニューをたどる必要も、掘り下げる手間もありません。</p>
+          </article>
+          <article>
+            <h3>プロのように検索する</h3>
+            <p>フルネームが必要なことはほとんどありません。「pie」でピカチュウが出ますし、「chomp」でガブリアスに当たります。種名の一部分ならどこでも一致するので、「charzard」のような綴り間違いでもリザードンにたどり着けます。大文字小文字は区別せず、入力のたびに検索し直すので、多くの検索はEnterを押す前に終わっています。</p>
+            <p>結果の行は、狭い場所に多くの情報を詰めています。図鑑番号、タイプ、世代、種族値合計。50文字ほどの幅で、そのポケモンが壁なのか、抜き役なのか、交代で出す駒なのかが一目でわかります。Wikiのタブを3つ開くより速い。もっと詳しく知りたい結果は、生成ツールで開くリンクから、特性・タイプ範囲・進化系統までそろった完全なカードに飛べます。データはすべて同じ出どころです。</p>
+          </article>
+          <article>
+            <h3>どこからでも検索</h3>
+            <p>検索ページはサイト全体のフッターからリンクされていて、WebSiteの構造化データによってGoogleにもサイト内検索の対象として認識されます。検索結果のページからそのまま来られるわけです。ディープリンクとしても動きます。URLに?q=名前を付けると、読み込み時にその検索を実行するので、特定の検索をブックマークしたり共有したりするのも簡単です。</p>
+            <p>1つの習慣でかなり時間が節約できます。ツールを見て回るとき、検索ページを2つ目のタブに開いたままにしておくことです。ポケモンを見つけ、生成ツールで開き、チームピッカーでその子を軸に絞り込み、タイプ相性表で相性を確かめる。図鑑はタブの間で変わらないので、検索したものがそのまま組み上げるものになります。</p>
+          </article>
+          <article>
+            <h3>検索は設計からしてプライバシーに配慮しています</h3>
+            <p>入力した内容が端末の外に出ることはありません。打った名前はURLとブラウザの中だけに残り、検索がキー入力をサーバーへ送ったり履歴を保存したりすることもありません。このページで発生する通信は、ほかのツールページと同じアートワークとアクセス解析だけなので、プライベートブラウズでも検索は内緒のままです。</p>
+          </article>
+          <article>
+            <h3>検索がやらないこと</h3>
+            <p>わざ、特性、持ちものは検索の対象外です。並び順も、名前順より賢い基準は使っていません。特定のわざを覚えるポケモンを探しているなら、パーティ編成のわざフィルターがその仕事を引き受けます。2つの候補を正面から比べたいときは、両方の名前で検索して種族値合計の行を並べて読むほうが、どんな比較ツールより早く決着することが多いです。</p>
+            <p>データベースは、このサイトのすべてのツールが使っているのと同じ1,025種のリストです。そのため1つだけ知っておくべきことがあります。検索は図鑑に入っているものしか見つけられません。地域フォルムは独自の名前で登録されているので「alolan raichu」は通りますが、ニックネームやファンメイドのフォルムは一致しません。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">ポケモン検索FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>ポケモン検索はどう動きますか？</summary>
+        <p>ポケモン名か、その一部を入力してください。1,025種の全国図鑑から即座に絞り込み、一致したもののタイプ・世代・種族値合計を表示します。結果をクリックすると、そのポケモンがランダム生成ツールで開きます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>どんなポケモンが検索できますか？</summary>
+        <p>第1世代から第9世代までのすべての種、1,025匹に地域フォルムや特殊なフォルムを加えた範囲です。データは当サイトのすべてのツールと同じくPokeAPIから取得しています。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>ニックネームや特性でも検索できますか？</summary>
+        <p>このページは種名での検索だけに対応しています。対戦の研究をしたいときは、結果のリンクから生成ツールでポケモンを開き、詳細カードで特性・種族値・タイプ範囲・進化系統を見てください。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>一部だけの名前や、綴り間違いでも検索できますか？</summary>
+        <p>はい。英語の種名の一部分ならどこでも一致し、大文字小文字は無視されます。「pika」でピカチュウとライチュウが出て、「charzard」のようなよくある綴り間違いもリザードンに解決します。部分一致が元のスラッグに対して行われるからです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>なぜ結果は生成ツールで開くのですか？</summary>
+        <p>生成ツールのページには、検索では出せないものがすでに全部そろっているからです。特性、種族値、タイプ範囲、進化系統、色違いのアートワーク。結果をそこで開けば、探していたポケモンの完全なプロフィールが、余計なクリックなしで手に入ります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>地域フォルムも検索に含まれますか？</summary>
+        <p>はい。データセット内の亜種は独自の名前で検索できるので、「alolan raichu」や「galarian slowpoke」も普通に解決します。行に表示される図鑑番号が種を示し、フォルムは名前の行に出ます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>検索は即座ですか？</summary>
+        <p>はい。1,025件すべてがブラウザの中にあるので、最初のキー入力で結果が出て、通信の往復はありません。同じローカルのデータがほかのツールも軽快に保ち、回線が遅いときでも、一度読み込んでしまえばオフラインでも動きます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>検索結果をブックマークできますか？</summary>
+        <p>はい。URLがqパラメータにクエリを保持するので、アドレスバーからコピーすれば次に訪れたときも同じ結果が読み込まれます。ツールのページを共有するのと同じ感覚で、検索への直リンクを渡せます。</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <script src="../../data.js?v=20261022d"></script>
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="search.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

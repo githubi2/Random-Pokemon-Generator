@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>色違いポケモン ランダム生成｜1クリックで厳選不要</title>
+  <meta name="description" content="色違いポケモンのランダム生成ツールです。第1〜9世代から色違いを抽選し、世代・タイプ・レア度・種族値で絞り込みも可能。通常色との比較スイッチや種族値・特性・タイプ相性も見られます。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/random-shiny-pokemon-generator/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/random-shiny-pokemon-generator/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/random-shiny-pokemon-generator/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/random-shiny-pokemon-generator/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="色違いポケモン ランダム生成｜1クリックで厳選不要" />
+  <meta property="og:description" content="クリック1回で色違いを抽選。色違いの姿と通常色を切り替えて見比べられ、種族値・特性・タイプ相性、世代・タイプ・レア度・種族値のフィルターも付いています。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/random-shiny-pokemon-generator/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/random-shiny-pokemon-generator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="色違いポケモン ランダム生成｜1クリックで厳選不要" />
+  <meta name="twitter:description" content="クリック1回で色違いを抽選。色違いの姿と通常色を切り替えて見比べられ、種族値・特性・タイプ相性、世代・タイプ・レア度・種族値のフィルターも付いています。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/random-shiny-pokemon-generator/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "ランダム色違い生成",
+ "description": "Roll random shiny Pokemon from the full Gen 1-9 pool, with generation, region, type, rarity, evolution stage, habitat, color and BST filters, shiny-vs-regular artwork compare, roll history and share links.",
+ "applicationCategory": "GameApplication",
+ "operatingSystem": "All",
+ "browserRequirements": "Requires JavaScript",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "url": "https://www.random-pokemon-generator.co/random-shiny-pokemon-generator/"
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "ランダム色違い生成",
+   "item": "https://www.random-pokemon-generator.co/random-shiny-pokemon-generator/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "色違いポケモンのランダム生成ツールとは何ですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "色違いポケモンを抽選して、色違いの姿だけを表示するツールです。色違いは現行作品では1/4096でしか出ない希少な配色で、何時間も厳選する代わりに、クリック1回で第1〜9世代の全候補から1匹引けます。タイプ、種族値、特性、タイプ相性まで表示され、スイッチひとつで色違いと通常色を見比べられるので、配色の当たり外れも判断できます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "実際の色違いポケモンの確率はどれくらいですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ゲーム内では、金・銀からブラック2・ホワイト2までが1/8192、X・Y以降が1/4096です。道具や方法で確率は上がり、ひかるおまもりで約3倍の1/1365、国際孵化で約1/683、両方を重ねると1/512に届きます。このツールはその厳選を省くもので、出てくるものはすべて色違いです。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "色違いの候補にはどんなポケモンが入っていますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "第1世代から第9世代までの全1,025種に、リージョンフォルムやメガシンカなどの派生を加えた1,351種類の色違いです。名前、画像、タイプ、特性、種族値はPokeAPIのデータを使っています。黒いリザードンや赤いギャラドスのような派手な色違いも、ゲンガーやピカチュウのような控えめな色違いも、同じ候補に入っています。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "フィルターはどう動きますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "9つのフィルターで候補を絞ります。世代、地方、タイプ、レア度、進化段階、生息地、図鑑の色、そして種族値合計の最小・最大です。自由に重ねられ、1回あたりのチップで1匹から最大6匹まで設定できます。同じ回の中で重複は出ません。「重複なし」をオンにすると山札方式になり、すべての色違いが出るまで同じものは戻ってきません。「フィルターをリセット」で全部解除できます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "抽選結果は保存されますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい、お使いのブラウザ内にローカルで保存されます。フィルター、重複なしの設定、いまの抽選、直近12回の履歴がローカルストレージに入るので、再読み込みしても同じ状態に戻り、履歴パネルから過去の色違いをクリック1回で呼び出せます。外部への送信も追跡もなく、ブラウザのデータを消せばすべて消えます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "引いた結果はどうやって共有しますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "方法は2つです。「結果をコピー」は、いまの抽選の名前・タイプ・種族値とリンクをそのままクリップボードに書き込みます。「共有」はフィルターと現在の抽選をURLに詰め込む方式で、どこで開いても同じ結果が読み込まれ、端末に共有メニューがあればそれが開きます。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#how" class="nav-link">しくみ</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../random-shiny-pokemon-generator/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">第1〜9世代 · 全ポケモン &amp; フォルム · 色違いの姿のみ</p>
+      <h1 id="page-title">色違いポケモン ランダム生成</h1>
+      <p class="lede">1/4096の厳選作業をすっ飛ばせる色違いポケモン生成ツールです。クリック1回で色違いが1匹、設定すれば6匹まとめて抽選できます。キラキラ光る色違いの姿、通常色と見比べるスイッチ、種族値・特性・タイプ相性までそろっています。</p>
+    </section>
+
+    <!-- Tool -->
+    <section class="container tool-panel" id="shiny-tool" aria-label="Random shiny pokemon generator tool">
+      <div class="panel cornered">
+        <p class="tool-hint">使い方：世代・地方・タイプ・レア度・進化段階・生息地・色・種族値合計のフィルターで色違いの候補を絞り、1回に出す数を1〜6匹から選んでから <i class="ico ico-dice-5" aria-hidden="true"></i> 「色違いポケモンを生成」を押します。「重複なし」をオンにすると、山札を配るように抽選します。どの色違いも一度ずつ出るまで、同じものは現れません。「↺ フィルターをリセット」で条件をまとめて解除できます。 <i class="ico ico-settings" aria-hidden="true"></i> 「フィルター」バーを押すと、抽選だけしたいときにフィルター一式をたためます。</p>
+
+        <div class="mega-filters-bar">
+          <button type="button" class="mega-filters-toggle" id="shiny-filters-toggle" aria-expanded="true" aria-controls="shiny-filters"><i class="ico ico-settings" aria-hidden="true"></i> 絞り込み <span class="mega-filters-caret" id="shiny-filters-caret" aria-hidden="true">▾</span></button>
+          <p class="tool-note mega-filters-summary" id="shiny-filters-summary" hidden></p>
+        </div>
+
+        <div class="mega-filters" id="shiny-filters">
+        <fieldset>
+          <legend>世代</legend>
+          <div class="btn-row" id="shiny-gen-chips" role="group" aria-label="世代で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">第1世代</button><button type="button" class="chip-btn" aria-pressed="false">第2世代</button><button type="button" class="chip-btn" aria-pressed="false">第3世代</button><button type="button" class="chip-btn" aria-pressed="false">第4世代</button><button type="button" class="chip-btn" aria-pressed="false">第5世代</button><button type="button" class="chip-btn" aria-pressed="false">第6世代</button><button type="button" class="chip-btn" aria-pressed="false">第7世代</button><button type="button" class="chip-btn" aria-pressed="false">第8世代</button><button type="button" class="chip-btn" aria-pressed="false">第9世代</button></div>
+          <p class="tool-note" id="shiny-gens-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>地方</legend>
+          <div class="btn-row" id="shiny-region-chips" role="group" aria-label="地方で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">カントー</button><button type="button" class="chip-btn" aria-pressed="false">ジョウト</button><button type="button" class="chip-btn" aria-pressed="false">ホウエン</button><button type="button" class="chip-btn" aria-pressed="false">シンオウ</button><button type="button" class="chip-btn" aria-pressed="false">イッシュ</button><button type="button" class="chip-btn" aria-pressed="false">カロス</button><button type="button" class="chip-btn" aria-pressed="false">アローラ</button><button type="button" class="chip-btn" aria-pressed="false">ガラル</button><button type="button" class="chip-btn" aria-pressed="false">パルデア</button></div>
+          <p class="tool-note" id="shiny-regions-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>タイプ（いずれか）</legend>
+          <div class="btn-row" id="shiny-type-chips" role="group" aria-label="タイプで絞り込む"><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #FF9D55; --chip-text: #121212;">ほのお</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #6890F0; --chip-text: #fff;">みず</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #78C850; --chip-text: #121212;">くさ</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #F8D030; --chip-text: #121212;">でんき</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #98D8D8; --chip-text: #121212;">こおり</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #C03028; --chip-text: #fff;">かくとう</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #A040A0; --chip-text: #fff;">どく</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #E0C068; --chip-text: #121212;">じめん</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #A890F0; --chip-text: #fff;">ひこう</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #F85888; --chip-text: #fff;">エスパー</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #A8B820; --chip-text: #121212;">むし</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #B8A038; --chip-text: #fff;">いわ</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #705898; --chip-text: #fff;">ゴースト</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #705848; --chip-text: #fff;">あく</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #7038F8; --chip-text: #fff;">ドラゴン</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #B8B8D0; --chip-text: #121212;">はがね</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #EE99AC; --chip-text: #121212;">フェアリー</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #A8A878; --chip-text: #121212;">ノーマル</button></div>
+          <p class="tool-note" id="shiny-types-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>レア度</legend>
+          <div class="btn-row" id="shiny-rarity-chips" role="group" aria-label="レア度で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">標準</button><button type="button" class="chip-btn" aria-pressed="false">伝説のポケモン</button><button type="button" class="chip-btn" aria-pressed="false">幻のポケモン</button></div>
+          <p class="tool-note" id="shiny-rarity-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>進化段階</legend>
+          <div class="btn-row" id="shiny-stage-chips" role="group" aria-label="進化段階で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">基本形</button><button type="button" class="chip-btn" aria-pressed="false">中間進化</button><button type="button" class="chip-btn" aria-pressed="false">最終進化</button></div>
+          <p class="tool-note" id="shiny-stages-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>生息地</legend>
+          <div class="btn-row" id="shiny-habitat-chips" role="group" aria-label="生息地で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">洞窟</button><button type="button" class="chip-btn" aria-pressed="false">森林</button><button type="button" class="chip-btn" aria-pressed="false">草原</button><button type="button" class="chip-btn" aria-pressed="false">山岳</button><button type="button" class="chip-btn" aria-pressed="false">レア</button><button type="button" class="chip-btn" aria-pressed="false">荒れ地</button><button type="button" class="chip-btn" aria-pressed="false">海</button><button type="button" class="chip-btn" aria-pressed="false">都市</button><button type="button" class="chip-btn" aria-pressed="false">水辺</button></div>
+          <p class="tool-note" id="shiny-habitats-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>図鑑の色</legend>
+          <div class="btn-row" id="shiny-color-chips" role="group" aria-label="図鑑の色で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">黒</button><button type="button" class="chip-btn" aria-pressed="false">青</button><button type="button" class="chip-btn" aria-pressed="false">茶</button><button type="button" class="chip-btn" aria-pressed="false">灰</button><button type="button" class="chip-btn" aria-pressed="false">緑</button><button type="button" class="chip-btn" aria-pressed="false">桃色</button><button type="button" class="chip-btn" aria-pressed="false">紫</button><button type="button" class="chip-btn" aria-pressed="false">赤</button><button type="button" class="chip-btn" aria-pressed="false">白</button><button type="button" class="chip-btn" aria-pressed="false">黄</button></div>
+          <p class="tool-note" id="shiny-colors-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>種族値合計</legend>
+          <label>最小 <input type="range" id="shiny-bst-min" min="0" max="780" value="0" step="10" aria-label="種族値合計の下限" /></label>
+          <label>最大 <input type="range" id="shiny-bst-max" min="0" max="780" value="780" step="10" aria-label="種族値合計の上限" /></label>
+          <p class="tool-note" id="shiny-bst-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>1回に出す色違いの数</legend>
+          <div class="btn-row" id="shiny-count-chips" role="group" aria-label="How many shiny Pokemon per roll"><button type="button" class="chip-btn" aria-pressed="true">1</button><button type="button" class="chip-btn" aria-pressed="false">2</button><button type="button" class="chip-btn" aria-pressed="false">3</button><button type="button" class="chip-btn" aria-pressed="false">4</button><button type="button" class="chip-btn" aria-pressed="false">5</button><button type="button" class="chip-btn" aria-pressed="false">6</button></div>
+          <p class="tool-note" id="shiny-count-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>候補が尽きるまで重複なし</legend>
+          <label class="wtp-switch">
+            <input type="checkbox" id="shiny-norepeat" />
+            <span class="wtp-switch-track" aria-hidden="true"></span>
+            <span class="wtp-switch-label" id="shiny-norepeat-label">オフ</span>
+          </label>
+        </fieldset>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="shiny-generate-btn" class="btn-slide cornered btn-primary"><span><i class="ico ico-dice-5" aria-hidden="true"></i> 色違いポケモンを生成</span></button>
+          <button type="button" id="shiny-copy-btn" class="btn-slide btn-secondary" disabled><span><i class="ico ico-clipboard" aria-hidden="true"></i> 結果をコピー</span></button>
+          <button type="button" id="shiny-share-btn" class="btn-slide btn-secondary" disabled><span><i class="ico ico-link" aria-hidden="true"></i> シェア</span></button>
+          <button type="button" id="shiny-reset-btn" class="btn-slide btn-ghost"><span>↺ フィルターをリセット</span></button>
+        </div>
+        <div class="tool-note-group">
+          <p class="tool-note"><i class="ico ico-dice-5" aria-hidden="true"></i> 色違いポケモンを生成 — 絞り込んだ候補から1〜6匹を抽選します。同じ回の中で重複は出ません</p>
+          <p class="tool-note"><i class="ico ico-clipboard" aria-hidden="true"></i> 結果をコピー — 色違いの名前・タイプ・種族値とリンクをクリップボードにコピーします</p>
+          <p class="tool-note"><i class="ico ico-link" aria-hidden="true"></i> 共有 — いまのフィルターと抽選結果をそのまま再現するリンクを作ります</p>
+          <p class="tool-note"><i class="ico ico-sparkles" aria-hidden="true"></i> 比較 — 各カードのスイッチで、色違いと通常色の姿を切り替えられます</p>
+        </div>
+        <p class="pool-count" id="shiny-pool-count"></p>
+      </div>
+
+      <div class="mega-stage" id="shiny-stage" aria-live="polite">
+        <div class="mega-empty cornered-dashed" id="shiny-empty">押す <i class="ico ico-dice-5" aria-hidden="true"></i> 「色違いポケモンを生成」を押すと、最初の色違いが出ます。</div>
+        <div class="mega-cards" id="shiny-cards"></div>
+      </div>
+
+      <div class="history cornered" id="shiny-history-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title">抽選履歴</h2>
+          <div class="history-actions">
+            <button type="button" id="shiny-history-clear" class="btn-text">クリア</button>
+          </div>
+        </div>
+        <div class="tool-note-group">
+          <p class="tool-note">過去の抽選をクリックすると、そのときの色違いをそのまま再表示します。「クリア」で履歴を消去</p>
+          <p class="tool-note"><i class="ico ico-chart-column" aria-hidden="true"></i> 履歴分析 — 下の抽選すべてをその場で集計：候補のカバー率、タイプの偏り、平均種族値、そして一番強い引き</p>
+        </div>
+        <ol class="history-list" id="shiny-history-list"></ol>
+        <div class="mega-analysis" id="shiny-analysis" aria-label="抽選履歴の分析"></div>
+      </div>
+    </section>
+
+    <!-- Shiny odds reference -->
+    <section id="odds" class="container odds" aria-labelledby="odds-title">
+      <p class="eyebrow">リファレンス</p>
+      <h2 id="odds-title">色違いの確率 &amp; 確率一覧</h2>
+      <p class="odds-lede">ゲーム内と同じ数値を1つの表にまとめました。基本の色違い確率は、金・銀からブラック2・ホワイト2までが1/8192、X・Y以降はその2倍の1/4096です。ここにひかるおまもりや孵化の工夫、サンドイッチの効果が積み重なります。ルール内で考えられる最良の組み合わせでも、下限は1/512です。この生成ツールは厳選を省くためのもので、出てくるものはすべて色違い。履歴分析パネルは、引いた回数を1/4096の確率で何回分の出会いに相当するかで換算します。計算機つきの詳しい内訳は <a href="../pokemon-shiny-odds/">色違いの出現率</a>をご覧ください。その色違い、性格はどうしますか？ <a href="../pokemon-nature-chart/">ポケモン性格表</a> が種族値から最適な性格を提案します。確率の背景をじっくり知りたいなら、ブログの <a href="../blog/shiny-odds-explained/">色違いの確率をやさしく解説</a> をお読みください。</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>方法</th><th>ゲーム</th><th>色違い確率</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>基本確率</td><td>金・銀〜ブラック2・ホワイト2（第2〜5世代）</td><td>8,192分の1</td></tr>
+            <tr><td>基本確率</td><td>X・Y以降（第6世代〜）</td><td>4,096分の1</td></tr>
+            <tr><td>ひかるおまもり</td><td>第6世代〜</td><td>1,365分の1</td></tr>
+            <tr><td>国際孵化（言語の違うソフト同士の孵化）</td><td>第6世代〜</td><td>683分の1</td></tr>
+            <tr><td>ひかるおまもり＋国際孵化</td><td>第6世代〜</td><td>512分の1</td></tr>
+            <tr><td>かがやきパワーLv.3のサンドイッチ</td><td>スカーレット・バイオレット</td><td>1,024分の1</td></tr>
+            <tr><td>大量発生で60匹以上撃破</td><td>スカーレット・バイオレット</td><td>1,365分の1</td></tr>
+            <tr><td>おまもり＋サンドイッチ＋大量発生</td><td>スカーレット・バイオレット</td><td>512分の1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tool-note">確率は平均であって保証ではありません。1/4096なら、多くの人は4000回前後で色違いに会うというだけで、ちょうど4096回目に出るわけではないのです。</p>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">しくみ</p>
+        <h2 id="how-title">色違いポケモン生成ツールの仕組み</h2>
+        <div class="how-grid">
+          <article>
+            <h3>クリック1回で色違い1匹。4096回の作業はいりません</h3>
+            <p>このツールは厳選そのものを省きます。「生成」を押すと、第1世代から第9世代までの全種族・全フォルム、つまり1,025種にリージョンフォルムやメガシンカなどの派生を加えた候補から抽選し、結果は必ず色違いの配色で、キラキラも付いてきます。事前の準備は何もいりません。クリック1回で色違い1匹が標準で、1回あたりの数を増やせば6匹まとめて引けます。同じ回の中で重複は出ません。実際には見たことのない色違いの配色を眺めるのに、これ以上手っ取り早い方法はありません。真っ黒なリザードン、赤いギャラドス、金色のデンリュウ。ソフトリセットは一度も要りません。色違いメーカーとして、あるいは色違いポケモン作成ツールとして使う人もいます。納得のいく種族と配色が出るまで回し、気に入ったものを残して、比較スイッチで通常色と並べて確かめる。そういう遊び方です。</p>
+          </article>
+          <article>
+            <h3>9つのフィルターで候補を絞る</h3>
+            <p>「世代」と「地方」の行は、抽選を特定の時代に限定します。定番ならカントー、第8世代ならガラル、最新の図鑑ならパルデアを選んでください。タイプのチップは、そのタイプを1つ以上持つポケモンだけに絞ります。「レア度」では伝説や幻を外すことも、逆にそれだけを出すこともできます。「進化段階」は候補を進化前・中間・最終形に分けるので、進化後の見栄えするポケモンだけ欲しいときに便利です。「生息地」と「図鑑の色」は、テーマを決めて遊ぶときの絞り込みに使えます。「種族値合計」の最小・最大スライダーは強さの下限と上限を決めるので、600以上にすれば主力級だけ、300〜450にすればドラフト向けのバランスになります。</p>
+            <p>フィルターは自由に組み合わせられるので、「第2世代＋みず」にすれば色違いギャラドスかオーダイルが出る機械になります。各行の下には、いまの候補に何が残っているかのメモが出ます。ドラフト形式で遊ぶときは「重複なし」をオンにしてください。山札を配るように、すべての色違いが一度ずつ出るまで同じものは現れません。</p>
+          </article>
+          <article>
+            <h3>色違いと通常色を見比べる</h3>
+            <p>抽選のたびに、名前だけでなくカードが1枚完成します。色違いの姿はタイプ色のオーラとキラキラのアニメーションつきで表示され、隣のスイッチで色違いと通常色を切り替えられます。配色が当たりか外れかを見極める一番速い方法です。大きく変わる色違いもあれば、色味がほとんど動かないものもありますから。データ欄には全国図鑑番号、タイプ、世代、レア度、進化段階、生息地、図鑑の色が並び、種族値は6項目すべてがバーで表示され、横に合計が出ます。</p>
+            <p>特性の欄にはその種族が持つ特性が並び、相性の欄は18タイプの表から弱点・耐性・無効をその場で計算します。カードには実際のゲーム内確率、現行作品なら1/4096、第2〜5世代なら1/8192も添えてあるので、引くたびにその輝きがどれだけ貴重か思い出せます。</p>
+          </article>
+          <article>
+            <h3>色違いとは何か</h3>
+            <p>色違いは金・銀で登場しました。最初に出会うのはどのプレイヤーも同じ、怒りの湖の赤いギャラドスです。色違いとは同じ種族で配色だけが違う存在で、戦闘に入ると星が散って効果音が鳴ります。種族値もわざも変わらないので、価値は希少さと自慢できることにあります。第8世代では2種類目のエフェクト、四角い光り方も追加されました。</p>
+            <p>配色の変化は派手なものから微妙なものまで様々です。リザードンはオレンジから黒へ、ギャラドスは青から赤へ、メタグロスは銀と金へ変わります。一方ゲンガーやピカチュウはほとんど色が変わらないので、厳選勢は色より先に光り方を見ます。派手さと微妙さのこの差こそ、各カードの比較スイッチがある理由です。</p>
+          </article>
+          <article>
+            <h3>色違いルーレットの遊び方</h3>
+            <p>定番は狙う相手を決める使い方です。気に入る色違いが出るまで回してから、その種族を自分のソフトで厳選しに行きます。ここで先に引いておけば、図鑑をあてもなくさまようより効率的です。配信者は予想ゲームとして使います。披露する前に、視聴者が次に出る色違いを当てる遊びです。ドラフト大会では重複なしモードが活躍します。色違いのエースを1人1匹ずつ公平に配れるからです。色違い縛りのチャレンジプレイ、つまり出会いは全部ここで引き、パーティ枠はすべて色違いという形式も、自分を追い込む厳しい縛りとして人気があります。</p>
+            <p>引いた色違いはパーティの軸にもぴったりです。結果をそのまま <a href="../pokemon-team-picker/">パーティ編成</a> に持ち込んで、弱点を補う5枠を組み立てましょう。ヌズロックのルールを丸ごと重ねたいなら、 <a href="../nuzlocke-generator/">ヌズロック編成</a> が、捕まえるポケモンはすべて色違いという「色違い縛り」の走り方を支えてくれます。</p>
+          </article>
+          <article>
+            <h3>厳選の残りを支えるツール</h3>
+            <p>色違いの厳選は1ページで終わりません。捕まえたポケモンは、そのまま <a href="../">Random Pokemon Generator</a> （タイプ・世代・レア度のフィルターはそのまま、パーティ全員に評価が付きます）に戻すこともできます。作品ごとの厳選方法をすべて分解しているポケモン色違い確率の計算機で、実際の数値を確かめるのもいいでしょう。1作品だけを追いかけていますか？ <a href="../pokemon-scarlet-violet-shiny-odds/">スカーレット・バイオレットの色違い確率</a> と <a href="../pokemon-legends-z-a-shiny-odds/">ポケモン LEGENDS Z-A の色違い確率</a> が、同じ数値を作品ごとに整理してくれます。色違いの数に仲間が欲しくなったら、 <a href="../whos-that-pokemon/">このポケモンだあれ？</a> そして <a href="../random-pokemon-generator-wheel/">ポケモンルーレット</a> は、同じ図鑑をそのままパーティゲームとして遊べるツールです。</p>
+            <p>本気の厳選リストを作るなら、まずポケモンチームピッカーで捕まえるためのパーティを組み、名前付けは <a href="../random-pokemon-name-generator/">ランダム名前生成</a> が引き受け、メガにする枠は <a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a> が担当します。コレクションを見せたいときのカードは <a href="../pokemon-card-generator/">ポケモンカード作成</a> で作り、手軽に1匹だけ選ぶときは <a href="../random-pokemon-picker/">ランダム選出</a>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">色違いポケモン生成ツール・よくある質問</h2>
+      <details class="faq-item cornered">
+        <summary>色違いポケモンのランダム生成ツールとは何ですか？</summary>
+        <p>色違いポケモンを抽選して、色違いの姿だけを表示するツールです。色違いは現行作品では1/4096でしか出ない希少な配色で、何時間も厳選する代わりに、クリック1回で第1〜9世代の全候補から1匹引けます。タイプ、種族値、特性、タイプ相性まで表示され、スイッチひとつで色違いと通常色を見比べられるので、配色の当たり外れも判断できます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>実際の色違いポケモンの確率はどれくらいですか？</summary>
+        <p>ゲーム内では、金・銀からブラック2・ホワイト2までが1/8192、X・Y以降が1/4096です。道具や方法で確率は上がり、ひかるおまもりで約3倍の1/1365、国際孵化で約1/683、両方を重ねると1/512に届きます。このツールはその厳選を省くもので、出てくるものはすべて色違いです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>色違いの候補にはどんなポケモンが入っていますか？</summary>
+        <p>第1世代から第9世代までの全1,025種に、リージョンフォルムやメガシンカなどの派生を加えた1,351種類の色違いです。名前、画像、タイプ、特性、種族値はPokeAPIのデータを使っています。黒いリザードンや赤いギャラドスのような派手な色違いも、ゲンガーやピカチュウのような控えめな色違いも、同じ候補に入っています。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>フィルターはどう動きますか？</summary>
+        <p>9つのフィルターで候補を絞ります。世代、地方、タイプ、レア度、進化段階、生息地、図鑑の色、そして種族値合計の最小・最大です。自由に重ねられ、1回あたりのチップで1匹から最大6匹まで設定できます。同じ回の中で重複は出ません。「重複なし」をオンにすると山札方式になり、すべての色違いが出るまで同じものは戻ってきません。「フィルターをリセット」で全部解除できます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>抽選結果は保存されますか？</summary>
+        <p>はい、お使いのブラウザ内にローカルで保存されます。フィルター、重複なしの設定、いまの抽選、直近12回の履歴がローカルストレージに入るので、再読み込みしても同じ状態に戻り、履歴パネルから過去の色違いをクリック1回で呼び出せます。外部への送信も追跡もなく、ブラウザのデータを消せばすべて消えます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>引いた結果はどうやって共有しますか？</summary>
+        <p>方法は2つです。「結果をコピー」は、いまの抽選の名前・タイプ・種族値とリンクをそのままクリップボードに書き込みます。「共有」はフィルターと現在の抽選をURLに詰め込む方式で、どこで開いても同じ結果が読み込まれ、端末に共有メニューがあればそれが開きます。</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Copy fallback modal -->
+  <div class="modal-overlay" id="shiny-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="shiny-modal-title">
+      <h2 class="modal-title" id="shiny-modal-title">手動でコピー</h2>
+      <div class="modal-body">
+        <p class="tool-note" id="shiny-modal-note">ブラウザが自動コピーをブロックしました。下のテキストは選択済みです。Ctrl+C（または長押し）でコピーしてください。</p>
+        <textarea class="share-modal-text" id="shiny-modal-text" readonly></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="shiny-modal-close">閉じる</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty pool notice modal -->
+  <div class="modal-overlay" id="shiny-empty-modal" hidden>
+    <div class="modal shiny-empty-modal" role="dialog" aria-modal="true" aria-labelledby="shiny-empty-modal-title">
+      <div class="shiny-empty-icon" aria-hidden="true"><i class="ico ico-sparkles" aria-hidden="true"></i></div>
+      <h2 class="modal-title" id="shiny-empty-modal-title">色違いの候補がありません</h2>
+      <div class="modal-body">
+        <p class="shiny-empty-lead">このフィルターの組み合わせに合うポケモンがありません。現在の候補は <strong>1,351匹中0匹</strong> の色違いです。</p>
+        <p class="shiny-empty-tip">レア度・生息地・色は、とくに絞り込みが強いフィルターです。どれかを緩めるか、すべてリセットして全候補から引いてみてください。</p>
+      </div>
+      <div class="modal-actions shiny-empty-actions">
+        <button type="button" class="btn btn-primary" id="shiny-empty-reset">↺ フィルターをリセット &amp; 引く</button>
+        <button type="button" class="btn btn-secondary" id="shiny-empty-close">フィルターを残す</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../data.js?v=20261022d"></script>
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="shiny-generator.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

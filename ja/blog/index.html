@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ポケモン攻略ブログ｜色違い確率と性格の話</title>
+  <meta name="description" content="色違いの確率計算から性格の選び方、ヌズロックの立ち回りまで。数字で説明するポケモン攻略ブログ。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/blog/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/blog/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/blog/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/blog/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ポケモン攻略ブログ｜色違い確率と性格の話" />
+  <meta property="og:description" content="色違いの確率計算から性格の選び方、ヌズロックの立ち回りまで。数字で説明するポケモン攻略ブログ。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/blog/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/blog/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ポケモン攻略ブログ｜色違い確率と性格の話" />
+  <meta name="twitter:description" content="色違いの確率計算から性格の選び方、ヌズロックの立ち回りまで。数字で説明するポケモン攻略ブログ。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/blog/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <!-- Structured data: Blog -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "ブログ",
+ "name": "ランダムポケモン生成 ブログ",
+ "description": "Guides from the Random Pokemon Generator team: shiny odds math, nature strategy, team-building theory and challenge-run formats.",
+ "url": "https://www.random-pokemon-generator.co/blog/",
+ "blogPost": [
+  {
+   "@type": "BlogPosting",
+   "headline": "ヌズロック生存術：エンカウントの計算",
+   "url": "https://www.random-pokemon-generator.co/blog/nuzlocke-survival-playbook/",
+   "datePublished": "2026-09-15"
+  },
+  {
+   "@type": "BlogPosting",
+   "headline": "ポケモン Smash or Pass ティア表：究極のランキング",
+   "url": "https://www.random-pokemon-generator.co/blog/pokemon-smash-or-pass-tier-list/",
+   "datePublished": "2026-09-06"
+  },
+  {
+   "@type": "BlogPosting",
+   "headline": "What Is a Nuzlocke Challenge? Rules & Beginner Tips",
+   "url": "https://www.random-pokemon-generator.co/blog/what-is-a-nuzlocke-challenge/",
+   "datePublished": "2026-09-06"
+  },
+  {
+   "@type": "BlogPosting",
+   "headline": "ポケモンの色違い確率を解説：1/8192 から 1/512 まで",
+   "url": "https://www.random-pokemon-generator.co/blog/shiny-odds-explained/",
+   "datePublished": "2026-09-06"
+  },
+  {
+   "@type": "BlogPosting",
+   "headline": "Pokemon Natures, Explained: 25 Natures & How to Use Them",
+   "url": "https://www.random-pokemon-generator.co/blog/pokemon-natures-explained/",
+   "datePublished": "2026-09-07"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "ブログ",
+   "item": "https://www.random-pokemon-generator.co/blog/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="./" class="nav-link nav-link-active">ブログ</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../blog/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">ガイド · 確率の計算 · 戦略</p>
+      <h1 id="page-title">ランダムポケモン生成 ブログ</h1>
+      <p class="lede">ツールの裏側にある仕組みを、数字のまま説明します。色違いの確率、性格、ヌズロックの立ち回り、チーム構成についてのガイドで、書いてあることはすべてゲーム内のデータと照らして確かめています。</p>
+    </section>
+
+    <!-- Post list -->
+    <section class="container blog-list" aria-labelledby="latest-title">
+      <h2 id="latest-title" class="blog-section-title">最新ガイド</h2>
+      <article class="blog-card cornered">
+        <a href="nuzlocke-survival-playbook/" class="blog-card-thumb" aria-hidden="true" tabindex="-1">
+          <img src="../../blog/nuzlocke-survival-playbook/og-image.png" alt="" width="1200" height="630" loading="lazy" />
+        </a>
+        <div class="blog-card-body">
+          <p class="blog-card-meta">2026年9月15日 · 読了9分</p>
+          <h3><a href="nuzlocke-survival-playbook/">ヌズロック生存術：エンカウントの計算</a></h3>
+          <p>1匹捕まえるたびに相性がどう変わるのか、なぜ同じルートで同じポケモンが重なるのか、ランダムな交代が実際に何をもたらすのか。1,025種を対象に計算しました。</p>
+          <a href="nuzlocke-survival-playbook/" class="blog-card-link">ガイドを読む →</a>
+        </div>
+      </article>
+      <article class="blog-card cornered">
+        <a href="pokemon-natures-explained/" class="blog-card-thumb" aria-hidden="true" tabindex="-1">
+          <img src="../../blog/pokemon-natures-explained/og-image.png" alt="" width="1200" height="630" loading="lazy" />
+        </a>
+        <div class="blog-card-body">
+          <p class="blog-card-meta">2026年9月7日 · 読了8分</p>
+          <h3><a href="pokemon-natures-explained/">ポケモンの性格を全部解説：25種類 &amp; と選び方・使い方</a></h3>
+          <p>10%の補正が実際どれくらい効くのか、使わない数値を下げるという原則をガブリアスを例に、速いアタッカーでの素早さと火力の比べ方、受け役やトリックルームで表がどう反転するのか、そして性格の間違いがミントで直せるようになった理由まで。</p>
+          <a href="pokemon-natures-explained/" class="blog-card-link">ガイドを読む →</a>
+        </div>
+      </article>
+      <article class="blog-card cornered">
+        <a href="pokemon-smash-or-pass-tier-list/" class="blog-card-thumb" aria-hidden="true" tabindex="-1">
+          <img src="../../blog/pokemon-smash-or-pass-tier-list/og-image.png" alt="" width="1200" height="630" loading="lazy" />
+        </a>
+        <div class="blog-card-body">
+          <p class="blog-card-meta">2026年9月6日 · 読了7分</p>
+          <h3><a href="pokemon-smash-or-pass-tier-list/">ポケモン Smash or Pass ティア表：究極のランキング</a></h3>
+          <p>3つの質問で分ける判定基準、SからDまでのティア表（最上位にルカリオとミミッキュ、最下位にラブカスとアンノーン）、そして誰もすぐには決められない5匹、ピカチュウ、イーブイ、サーナイト、メタモン、コイキング。まずはこの表に反論してみてください。</p>
+          <a href="pokemon-smash-or-pass-tier-list/" class="blog-card-link">ガイドを読む →</a>
+        </div>
+      </article>
+      <article class="blog-card cornered">
+        <a href="what-is-a-nuzlocke-challenge/" class="blog-card-thumb" aria-hidden="true" tabindex="-1">
+          <img src="../../blog/what-is-a-nuzlocke-challenge/og-image.png" alt="" width="1200" height="630" loading="lazy" />
+        </a>
+        <div class="blog-card-body">
+          <p class="blog-card-meta">2026年9月6日 · 読了7分</p>
+          <h3><a href="what-is-a-nuzlocke-challenge/">ヌズロックチャレンジとは？ルール &amp; と初心者向けのコツ</a></h3>
+          <p>2010年のウェブコミックが偶然生み出した、ポケモンで最も大きくなった縛りルール。3つの基本ルール（最初に出会った1匹だけ捕まえる、ひんしはロスト、全員にニックネーム）、足しておきたい追加条項、そして3人目のジムリーダーを越えるための下準備や身代わりの交代といった、初心者の習慣まで。</p>
+          <a href="what-is-a-nuzlocke-challenge/" class="blog-card-link">ガイドを読む →</a>
+        </div>
+      </article>
+      <article class="blog-card cornered">
+        <a href="shiny-odds-explained/" class="blog-card-thumb" aria-hidden="true" tabindex="-1">
+          <img src="../../blog/shiny-odds-explained/og-image.png" alt="" width="1200" height="630" loading="lazy" />
+        </a>
+        <div class="blog-card-body">
+          <p class="blog-card-meta">2026年9月6日 · 読了7分</p>
+          <h3><a href="shiny-odds-explained/">ポケモンの色違い確率を解説：1/8192 から 1/512 まで</a></h3>
+          <p>色違いの有名な数字がどこから来たのか。基本確率1/8192を生んだ16ビットの計算、第6世代の一度きりの基準変更、国際孵化の追加抽選が1/683に届く仕組み、ひかるおまもりを重ねてちょうど1/512になる理由、そして狩りを始める前に知っておきたい連続ハズレの確率まで。</p>
+          <a href="shiny-odds-explained/" class="blog-card-link">ガイドを読む →</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- What we cover -->
+    <section class="container odds" aria-labelledby="cover-title">
+      <p class="eyebrow">このブログの範囲</p>
+      <h2 id="cover-title">ここで扱うこと</h2>
+      <p class="odds-lede">ここはツール群の文章版です。ツールは答えをすぐ出します。チームを組む、確率を計算する、性格を調べる。ブログはその下にある理屈を説明するので、中身の見えない箱を信じるのではなく、自分の頭で確かめられます。</p>
+      <div class="how-grid">
+        <article>
+          <h3>確率と統計の話</h3>
+          <p>色違いの確率、捕獲の計算、抽選の分布、長い狩りの統計。答えだけでなく式も載せます。1/8192がどこから来るのか、独立した抽選に「そろそろ来る」がない理由、1,000回の狩りで累積確率をどう読むのか。「ポケモンの色違い確率を解説」では、基本確率から国際孵化＋ひかるおまもりの上限まで一通り扱っていて、 <a href="../pokemon-shiny-odds/">色違いの出現率</a> 計算機とセットで使うのがおすすめです。</p>
+        </article>
+        <article>
+          <h3>チーム構成の考え方</h3>
+          <p>性格、役割、素早さの段階、守りの補完。強いポケモン6匹を、強いチーム1つに変える考え方です。性格の仕組みを深掘りした回では（<a href="../pokemon-nature-chart/">ポケモン性格表</a> が対になるツールで、「ポケモンの性格を徹底解説」が本編のガイドです）、タイプの範囲をどう設計するかは <a href="../pokemon-team-picker/">パーティ編成</a>、そして手で組むにしてもランダム生成から始めるにしても使える、パーティ作りの理論。</p>
+        </article>
+        <article>
+          <h3>縛りプレイとその形式</h3>
+          <p>ヌズロックのルールセット、単タイプ縛り、ランダムライズ風のドラフト、ルーレットで選ぶパーティ。このサイトのツールでそのまま遊べる形です。出会いは <a href="../nuzlocke-generator/">ヌズロック編成</a>で引いて、 <a href="../random-pokemon-generator-wheel/">ポケモンルーレット</a>からドラフトし、あるいは <a href="../">Random Pokemon Generator</a> に運を任せて、その旅を勝てるものにするガイドを読んでください。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Recently added -->
+    <section class="container odds" aria-labelledby="recent-title">
+      <p class="eyebrow">ツールボックスの新顔</p>
+      <h2 id="recent-title">最近追加されたもの</h2>
+      <p class="odds-lede">ツールは増え続けています。まだ触っていないものがあれば、このブログの話を実際に試すには一番の近道です。</p>
+      <div class="how-grid">
+        <article>
+          <h3>ポケモン性格表</h3>
+          <p>新しい参照ツールは、対戦プレイヤーが1匹捕まえたあとに必ず考える問いに答えます。このポケモンにはどの性格がいいのか。ポケモン性格表は25種類すべての性格を、上がる数値と下がる数値つきで絞り込み・並べ替えできる表にまとめました。種族値を読み取って性格を提案する機能もあり、物理、特殊、受け、トリックルームのどれ向きかを、レベル50の実数値と一緒に出します。同じ考え方を記事にしたのが、「ポケモンの性格を徹底解説」です。</p>
+        </article>
+        <article>
+          <h3>色違いの出現率</h3>
+          <p>ポケモンの色違い確率のページは、半分が資料で半分が計算機です。第2世代から第9世代までの基本確率、ひかるおまもりから LEGENDS アルセウスの大量発生まであらゆる上乗せ手段、そして自分の狩り条件を分数・パーセント・想定時間に変換するパネルがあります。今週のガイド、ポケモンの色違い確率を解説はその相方です。理由はガイドで読み、数字は計算機で出してください。</p>
+        </article>
+        <article>
+          <h3>この先の予定</h3>
+          <p>次のガイドは、ツールの裏の仕組みをもう一段深く扱います。出会いの計算を軸にしたヌズロック生存術と、ポケモン チームピッカーの防御マトリクスを使ったチーム範囲の歩き方です。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- How we write -->
+    <section class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">書くときの基準</p>
+        <h2 id="how-title">このガイドの書き方</h2>
+        <div class="how-grid">
+          <article>
+            <h3>まず数字、次に物語</h3>
+            <p>記事で挙げる確率、種族値、仕様はすべて、ゲームの実際の処理と照らして確認しています。このサイトのツールを動かしているのと同じデータです。ソード・シールドの連戦ボーナスのように、コードから読むのではなくコミュニティが実測したものについては、そう書いたうえで確度のレベルを明記します。</p>
+          </article>
+          <article>
+            <h3>どのガイドにもツールが付く</h3>
+            <p>確率の話を読むのは役に立ちますが、自分で計算するほうがもっと役に立ちます。各記事には、その内容を実際に試せるツールへのリンクを置いています。色違いの計算機でも、性格の判定でも、チーム編成でも同じです。</p>
+          </article>
+          <article>
+            <h3>実際の疑問から作る</h3>
+            <p>テーマは、プレイヤーが実際に検索し、質問してくることから来ています。色違い狩りの計算、特定のポケモンに向く性格、ヌズロックの生き残り方、ドラフトやパーティゲームに生成ツールをどう使うか。たとえば <a href="../pokemon-smash-or-pass/">Smash or Pass</a> と <a href="../whos-that-pokemon/">このポケモンだあれ？</a>。ガイドにする価値のある疑問があれば、 <a href="../about/">このサイトについて &amp; お問い合わせ</a> ページから連絡してください。</p>
+          </article>
+          <article>
+            <h3>更新と訂正</h3>
+            <p>ポケモンのゲームは仕様が変わるのが早く、ガイドは戦略より先に古びます。新しい世代が仕組みを足したとき、たとえば新しい色違いの方法、変わった孵化の挙動、新しい性格アイテムが出たときは、同じ更新の中で該当記事を直し、リポジトリの変更履歴に何が動いたかを残しています。記事とゲーム内の挙動が食い違ったら、直すのは記事の側です。</p>
+            <p>ブログのトップでは、サイト自体の新着も追っています。久しぶりに来た読者が、全部読み直さずに最新のツールへ飛べるようにするためです。月ごとのまとめに、変わったページと、それを説明するガイドを並べています。</p>
+          </article>
+          <article>
+            <h3>どこから読むか</h3>
+            <p>ポケモンを始めたばかりなら、ヌズロックの記事が定番の入口です。旅を生き残る物語に変えるルールを説明し、それを管理するヌズロック編成へつないでいます。対戦を意識するなら、性格のガイドと Smash or Pass のティア表が、専門用語なしで序列を説明してくれます。色違いを狙うなら、狩りを始める前に確率の記事を1本どうぞ。方法が変わったときは、また戻ってきてください。</p>
+            <p>どのガイドも、ツールの入口で終わります。読むことと遊ぶことの距離を、できるだけ縮めておきたいからです。記事を1本選んで、そこで紹介されているツールを開けば、次のプレイは実りあるものになります。</p>
+          </article>
+        </div>
+        <div class="how-grid toolkit-grid">
+          <article>
+            <h3>ツール一式</h3>
+            <p>ガイドの外側もどうぞ。 <a href="../random-shiny-pokemon-generator/">ランダム色違い生成</a> は色違いを必要なときに引き、 <a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a> はメガシンカだけを出し、 <a href="../random-pokemon-name-generator/">ランダム名前生成</a> は捕まえた全員にオリジナルのニックネームを付けます。ツールは11個、データは1,025種で共通です。お気に入りを1匹に絞るなら <a href="../random-pokemon-picker/">ランダム選出</a>、印刷できる記念品にしたいなら <a href="../pokemon-card-generator/">ポケモンカード作成</a>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="./">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

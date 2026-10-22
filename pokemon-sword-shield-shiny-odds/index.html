@@ -27,6 +27,9 @@
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Random Pokemon Generator" />
   <link rel="canonical" href="https://www.random-pokemon-generator.co/pokemon-sword-shield-shiny-odds/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/pokemon-sword-shield-shiny-odds/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/pokemon-sword-shield-shiny-odds/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/pokemon-sword-shield-shiny-odds/" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Pokemon Sword and Shield Shiny Odds + Calculator" />
@@ -186,6 +189,7 @@
     }
   }
   </script>
+  <link rel="stylesheet" href="../lang-switch.css?v=20261022a" />
 </head>
 <body>
   <header class="site-header">
@@ -250,6 +254,13 @@
           <li><a href="#faq" class="nav-link">FAQ</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Switch language"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a class="lang-current" aria-current="true" lang="en">English</a></li>
+          <li><a href="../ja/pokemon-sword-shield-shiny-odds/" hreflang="ja" lang="ja">日本語</a></li>
+        </ul>
+      </div>
       <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
     </div>
   </header>
@@ -457,5 +468,6 @@
 
   <script src="../nav.js?v=20261022m"></script>
   <script src="swsh-odds.js?v=20261022d"></script>
+  <script src="../lang-switch.js?v=20261022a"></script>
 </body>
 </html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ヌズロック生存術：エンカウントの計算</title>
+  <meta name="description" content="ヌズロックを数字で考えるガイドです。1匹捕まえるたびタイプ範囲がどれだけ広がるのか、同じ種がなぜ重なるのか、倒れた仲間の代わりに来る1匹が何をもたらすのかを1,025種のデータで検証しました。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/blog/nuzlocke-survival-playbook/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/blog/nuzlocke-survival-playbook/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/blog/nuzlocke-survival-playbook/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/blog/nuzlocke-survival-playbook/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ヌズロック生存術：エンカウントの計算" />
+  <meta property="og:description" content="1匹捕まえるたびタイプ範囲はどれだけ広がるのか。重複が起きる理由と、代わりの1匹がもたらすものを1,025種で計算。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/blog/nuzlocke-survival-playbook/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/blog/nuzlocke-survival-playbook/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ヌズロック生存術｜エンカウントの計算ガイド" />
+  <meta name="twitter:description" content="1匹捕まえるたびタイプ範囲はどれだけ広がるのか。重複が起きる理由と、代わりの1匹がもたらすものを1,025種で計算。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/blog/nuzlocke-survival-playbook/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../../styles.css?v=20261022m" />
+
+  <!-- Structured data: BlogPosting -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BlogPosting",
+ "headline": "ヌズロック生存術：エンカウントの計算",
+ "description": "1匹捕まえるたびタイプ範囲はどれだけ広がるのか。重複が起きる理由と、代わりの1匹がもたらすものを1,025種で計算。",
+ "datePublished": "2026-09-15",
+ "dateModified": "2026-09-15",
+ "author": {
+  "@type": "Organization",
+  "name": "Random Pokemon Generator"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "Random Pokemon Generator"
+ },
+ "image": "https://www.random-pokemon-generator.co/blog/nuzlocke-survival-playbook/og-image.png",
+ "mainEntityOfPage": "https://www.random-pokemon-generator.co/blog/nuzlocke-survival-playbook/"
+}
+</script>
+
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "ヌズロックにおけるエンカウント計算とは？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "旅の確率の側面のことです。ランダムなエンカウントがパーティのタイプ範囲に何をするのか、重複はどれくらい出るのか、代わりの1匹は実際に何を足すのか。このページの数字は、当サイト全体で使っている1,025種のデータを一様に引いたシミュレーションから出ています。ルート固有のテーブルは使っていません。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "18タイプを全部カバーするには何匹必要？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "20匹でほぼコイン投げ、12匹では5回に1回ほどです。実際のプレイで狙うべきは全部そろえることではなく、最初の6匹です。ここでパーティは4タイプ前後から13前後まで伸びます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "序盤のルートで重複が多いのはなぜ？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ルートのテーブルが小さいからです。12種のテーブルなら、3匹で重複が入る確率が24%、6匹で78%。8種の序盤洞窟なら34%と92%です。6匹で0.44%という全国図鑑の数字と並べると、テーブルの大きさがどれだけ効くかわかります。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "これはゲーム内の実際の出現率ですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "いいえ、そういう意図でもありません。本編はルートごとの、大きさも重みも異なるテーブルから配ります。ここでのシミュレーションは、当サイトの全データに対する一様なランダムの形を描いたもので、作品ごとの計算に入る前の基準線だと考えてください。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "代わりの抽選を引くべきか、ボックスから選ぶべきか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "データでは、代役は平均で新しいタイプを1つほど足し、42.5%の確率で何も足しません。ボックスに今の穴を埋める答えがあるならそれを使ってください。なければ、抽選は時間以外に何も失いません。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "重複スキップのルールは旅を楽にしますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "主に新しさを取り戻すルールです。12種のルートでは6匹目が4回に3回は重複なので、だいたい同じ種の2匹目を、本当に新しい選択肢に入れ替えることになります。難易度を下げるというより、テンポの調整です。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "ブログ",
+   "item": "https://www.random-pokemon-generator.co/blog/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "ヌズロック生存術：エンカウントの計算",
+   "item": "https://www.random-pokemon-generator.co/blog/nuzlocke-survival-playbook/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../" class="logo"><img src="../../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../" class="nav-link nav-link-active">ブログ</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../../blog/nuzlocke-survival-playbook/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">ブログ · 2026年9月15日 · 読了9分</p>
+      <h1 id="page-title">ヌズロック生存術：エンカウントの計算</h1>
+      <p class="lede">ヌズロックは運との対話です。ゲームが手札を配り、あなたはその手札で組み立てるか、誰かを失うまで粘るか。この記事では、その手札にどれだけの価値があるのかを実際の数字で見ていきます。1匹捕まえるたびにタイプ範囲はどれだけ広がるのか、同じポケモンがなぜ何度も出てくるのか、倒れた仲間の代わりに来るポケモンには何が期待できるのか。</p>
+    </section>
+
+    <!-- Article -->
+    <article class="container blog-post">
+      <p>長いヌズロックを落とした人に「どう終わった?」と聞くと、たいてい「穴」の話が返ってきます。こおりに弱いのが4匹。いわで落ちるのが3匹。負けは1回の事故で決まるのではなく、数えていなかった弱点が2回目で数えられた瞬間に決まるのです。そして穴の話の残り半分はエンカウントです。ゲームが何を渡してくるかで、埋められる穴の数が変わるからです。この記事はその両方を、当サイトのツールと同じ1,025種のデータを使ったシミュレーションで測ります。</p>
+
+      <h2>エンカウントの計算が測っているもの</h2>
+      <p>まず方法から。残りの数字を信じてもらうためです。シミュレーションはデータセット全体、つまり1,025種とその別フォルムからポケモンを一様に引いて、1つのことだけを追いかけます。その1匹がパーティのタイプ範囲に何をもたらすか、です。ここでの範囲とは1つの意味しかありません。パーティのタイプ一致技が、18タイプのうち何タイプに2倍以上を通せるか。種族値や技構成、レベル帯は一切見ていませんし、ルートごとに調整された出現テーブルでもありません。これが実はとても大きな違いになります。</p>
+      <p>先に書いておくべき限界が1つあります。図鑑全体からの一様な抽選は、実際のどのルートよりもずっと優しいのです。本編は小さな地元のテーブルから配ります。そして同じ種が重なる苦しさのほとんどは、運の悪さではなく、そのテーブルの小ささから生まれます。ですから最初の数字は「最高の場合」、全国図鑑レベルの多様性が買えるものとして読んでください。重複のパートは、現実がそこに加える補正の話です。</p>
+
+      <h2>カバレッジの曲線：1匹ごとに何が増えるか</h2>
+      <p>まず上限から。1匹で18タイプのうち9つを超えてカバーできるポケモンは存在しません。かくとう/こおりのケケンカニと、こおり/じめんのマンムー系が、図鑑全体で最も広い攻撃範囲で並びます。そこから下は一気に落ちます。ランダムに1匹だけ引いた場合、カバーできるのは平均4タイプほど。意味はあるけれど、頼りにするには足りません。面白くなるのは、これが積み重なってからです。</p>
+            <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>捕獲数</th><th>カバーできるタイプ(平均)</th><th>直前の1匹で増えた数</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>4.1</td><td>—</td></tr>
+            <tr><td>2</td><td>7.0</td><td>+2.9</td></tr>
+            <tr><td>3</td><td>9.3</td><td>+2.3</td></tr>
+            <tr><td>4</td><td>11.0</td><td>+1.7</td></tr>
+            <tr><td>6</td><td>13.4</td><td>+1.1</td></tr>
+            <tr><td>9</td><td>15.4</td><td>+0.6</td></tr>
+            <tr><td>12</td><td>16.4</td><td>+0.3</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>曲線は前半に集中させるほど得をする形に曲がります。最初の3匹でタイプ表の半分(18のうち9.3)を超え、6匹目あたりで13〜14に届きます。うっかりできた穴のほとんどに名前がつく地点です。そこから先は、1匹増やしても1タイプも増えません。12匹目で平均0.3タイプほど。残った2つの空白がしぶとい理由は、知っておく価値があります。</p>
+      <p>どこが残りやすいかは、タイプ表がどう作られたかを物語っています。12匹そろえたシミュレーションでも、でんきへの打点がない確率は41%、ノーマルへの打点がない確率は35%あります。でんきに2倍を取るにはじめん技が要り、ノーマルに2倍を取るにはかくとう技が要る。そして信頼できるじめん・かくとうのタイプ一致技は、どこにでもあるわけではありません。10ルート回してもこの2つの穴が開いたままなら、それは運が悪いのではありません。表がそういう表なのです。</p>
+      <p>全部のタイプをそろえるのも、思われているよりずっと珍しいままです。12匹そろえて18タイプすべてをカバーできるのは約5回に1回(18%)。コイン投げになるのは20匹そろえてから(53%)です。序盤を過ぎてから足りない2タイプをエンカウントで追うのは、勝ち目の薄い作戦です。この曲線が言っているのは、勝負は最初の6匹で決まるということです。</p>
+      <p>同じ表をゆっくり読むならこうです。カバレッジはまとめてやってきます。平均的な1匹目で18タイプのうち4つが入り、最後の2つは十数匹かかっても現れないことがあります。序盤のほのお・みず・くさという定番の背骨は、この曲線の急な部分を意図的に買うための構成です。広く攻められる3匹で、最初のジムの前にタイプ表の半分です。</p>
+
+      <h2>重複スキップのコスト計算</h2>
+      <p>重複スキップ(すでに捕まえた種なら、そのエンカウントを飛ばしてよいというルール)は、この遊び方で最も議論になるローカルルールです。計算してみると、両方の言い分が正しいことがわかります。全国図鑑スケールでは、重複はほぼ起きません。6匹捕まえたあと、7匹目が一様ランダムで既存種と重なる確率はわずか0.44%。200回に1回です。ルートがそう動くなら、誰もこのルールを必要としません。</p>
+      <p>ところがルートは全国図鑑から配りません。小さな地元のテーブルから配ります。中盤のルートなら10〜12種、古い作品ならもっと少ないことも。12種のルートだと、最初の3匹に重複が混ざる確率がすでに24%、6匹目までに78%になります。8種のルート(序盤の小さな洞窟を思い浮かべてください)なら、3匹目で34%、6匹目で92%です。このルールが必要なのは、ルートのテーブルが小さいからで、サイコロが意地悪だからではありません。</p>
+      <p>実用的な読み方は2つ。1つ目、重複の扱いはルート1の前に決めて書き留めておくこと。痛い目を見てから決めるのでは遅いのです。この数字なら、必ず痛い目を見ます。2つ目、このルールの価値が最大になるのは、いちばん面倒に感じる場面です。小さなテーブルは本当に枯れるプールで、重複を新しい選択肢に置き換えるのは難易度設定ではなくテンポの調整です。</p>
+      <p>二次的な効果もあります。このルールは曲線を守ってくれます。エンカウント枠を食う重複は、定義上なにも新しく足しません。同じ種、同じタイプです。だから飛ばすことは、死んだ枠を新しい抽選に変えることになり、曲線が最も欲しがる序盤の急な部分にちょうど効きます。</p>
+
+      <h2>代わりの1匹を引くとき</h2>
+      <p>仲間が倒れたとき、代わりの抽選は新しいスタートのように感じます。数字はその感覚に待ったをかけます。2万パーティをシミュレーションしました。ランダムな5匹に6匹目を足し、実際に何が変わったかを測ります。新人が増やすタイプは平均1.03。およそ1つです。そして42.5%のケースでは、まったく増えません。代わりの5回に2回は、パーティの攻撃的な形を何も変えないのです。</p>
+      <figure class="blog-figure"><img src="../../../blog/nuzlocke-survival-playbook/fig-nuzlocke-replace.png" alt="" width="1000" height="320" loading="lazy" /></figure>
+      <p>守りの側はもっと露骨です。78.5%のシミュレーションで、新入りは既存の5匹のうち2匹以上がすでに共有している弱点と同じタイプに弱い。ランダムな代役は穴を埋めません。むしろ一番近い穴のまわりに合流します。何を足すかの分布も同じことを言っています。新しいタイプをちょうど1つ足すのが27%、2つが19%、3つ以上を足すのは10.6%だけで、そこに当たったときこそ、その1匹を軸に組む価値があります。</p>
+      <p>だからといって、抽選をやめろという話ではありません。狙って引けという話です。代わりを捕まえに行く前に、どの穴を埋めたいのかを決めておく。外れたらボックスが1匹深くなっただけで、旅は続きます。組み合わせを先に確かめたいなら、 <a href="../../nuzlocke-generator/">ヌズロック編成</a> がパーティを引いて、この計算の土台になっているのと同じカバレッジレポートを出してくれます。</p>
+
+      <h2>数字が支持する5つのルール</h2>
+      <p>途中で下す判断に落とし込むと、こうなります。</p>
+      <ol>
+        <li>序盤に集中させる。最初の3匹は、次の9匹を合わせたよりタイプ表を広げます。序盤のルートはパーティの埋め草ではなく土台だと考えてください。</li>
+        <li>18タイプを追わない。全部そろうのは20匹でコイン投げです。12匹目は、耐久や補助、あるいは本当に怖いタイプに使ったほうがだいたい得です。</li>
+        <li>重複のルールは早めに書き留める。よくある中盤ルートでは、重複なしで6匹そろうのは5回に1回。来る前に備えておきましょう。</li>
+        <li>代役は穴に向ける。ランダムな代わりの5回に2回はカバレッジを1つも足さず、5回に4回はすでにある共有弱点に加わります。隙間を狙って選ぶか、何も変わらなくても構わないと覚悟するかです。</li>
+        <li>共有弱点は資源として数える。平均的な6匹は、18の攻撃タイプのうち7.5で弱点の重なりを持ちます。新しい1匹は、その数字を狭めるか、増やすかのどちらかです。</li>
+      </ol>
+    </article>
+
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">ヌズロックのエンカウント計算FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>ヌズロックにおけるエンカウント計算とは？</summary>
+        <p>旅の確率の側面のことです。ランダムなエンカウントがパーティのタイプ範囲に何をするのか、重複はどれくらい出るのか、代わりの1匹は実際に何を足すのか。このページの数字は、当サイト全体で使っている1,025種のデータを一様に引いたシミュレーションから出ています。ルート固有のテーブルは使っていません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>18タイプを全部カバーするには何匹必要？</summary>
+        <p>20匹でほぼコイン投げ、12匹では5回に1回ほどです。実際のプレイで狙うべきは全部そろえることではなく、最初の6匹です。ここでパーティは4タイプ前後から13前後まで伸びます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>序盤のルートで重複が多いのはなぜ？</summary>
+        <p>ルートのテーブルが小さいからです。12種のテーブルなら、3匹で重複が入る確率が24%、6匹で78%。8種の序盤洞窟なら34%と92%です。6匹で0.44%という全国図鑑の数字と並べると、テーブルの大きさがどれだけ効くかわかります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>これはゲーム内の実際の出現率ですか？</summary>
+        <p>いいえ、そういう意図でもありません。本編はルートごとの、大きさも重みも異なるテーブルから配ります。ここでのシミュレーションは、当サイトの全データに対する一様なランダムの形を描いたもので、作品ごとの計算に入る前の基準線だと考えてください。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>代わりの抽選を引くべきか、ボックスから選ぶべきか？</summary>
+        <p>データでは、代役は平均で新しいタイプを1つほど足し、42.5%の確率で何も足しません。ボックスに今の穴を埋める答えがあるならそれを使ってください。なければ、抽選は時間以外に何も失いません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>重複スキップのルールは旅を楽にしますか？</summary>
+        <p>主に新しさを取り戻すルールです。12種のルートでは6匹目が4回に3回は重複なので、だいたい同じ種の2匹目を、本当に新しい選択肢に入れ替えることになります。難易度を下げるというより、テンポの調整です。</p>
+      </details>
+    </section>
+
+    <!-- Keep exploring -->
+    <section class="band band-yellow" aria-labelledby="explore-title">
+      <div class="container">
+        <p class="eyebrow">まだまだ見ていく</p>
+        <h2 id="explore-title">ほかのポケモンツールとガイド</h2>
+        <div class="how-grid">
+          <article>
+            <h3>エンカウントを1つずつ判断にする</h3>
+            <p>旅そのものに決めてほしいときは、 <a href="../../random-pokemon-generator-wheel/">ポケモンルーレット</a> が1回に1匹ずつ引いてくれます。残した1匹ずつに名前をつけるなら、 <a href="../../random-pokemon-name-generator/">ランダム名前生成</a> がニックネームのルールをそのまま受け持ってくれます。</p>
+          </article>
+          <article>
+            <h3>この遊び方が初めてなら</h3>
+            <p>まずは <a href="../what-is-a-nuzlocke-challenge/">ヌズロックチャレンジとは？</a> で基本ルールと、みんなが言い合う追加ルールを確認してください。そのうえで、当サイトのすべてのツールの背景にある確率と戦略の記事は <a href="../">ブログ</a> をどうぞ。</p>
+          </article>
+          <article>
+            <h3>配信や教室で一緒に遊ぶなら？</h3>
+            <p>この <a href="../../random-pokemon-picker/">ランダム選出</a> がドラフト会議の夜でも、同時視聴でも、観客と一緒に抽選にハラハラしたいどんな形式でも、1匹ずつ配ってくれます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../">ブログ</a></li>
+          <li><a href="../../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <script src="../../../nav.js?v=20261022m"></script>
+  <script src="../../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

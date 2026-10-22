@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ヌズロック生成ツール｜パーティ編成とエンカウント抽選</title>
+  <meta name="description" content="最初のパーティ、各ルートの初エンカウント、倒れた仲間の補充を、定番のヌズロックルールで抽選できるツールです。第1〜9世代から選べて、伝説と幻は禁止のまま編成できます。" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/nuzlocke-generator/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/nuzlocke-generator/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/nuzlocke-generator/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/nuzlocke-generator/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ヌズロック生成ツール｜パーティ編成とエンカウント抽選" />
+  <meta property="og:description" content="最初のパーティ、各ルートの初エンカウント、倒れた仲間の補充を、定番のヌズロックルールで抽選できるツールです。第1〜9世代から選べて、伝説と幻は禁止のまま編成できます。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/nuzlocke-generator/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/nuzlocke-generator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ヌズロック生成ツール｜パーティ編成とエンカウント抽選" />
+  <meta name="twitter:description" content="最初のパーティ、各ルートの初エンカウント、倒れた仲間の補充を、定番のヌズロックルールで抽選できるツールです。第1〜9世代から選べて、伝説と幻は禁止のまま編成できます。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/nuzlocke-generator/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Nuzlocke Generator & Team Builder",
+ "description": "Roll starter teams, first encounters, and death replacements for Pokemon Nuzlocke runs.",
+ "applicationCategory": "GameApplication",
+ "url": "https://www.random-pokemon-generator.co/nuzlocke-generator/",
+ "operatingSystem": "All",
+ "browserRequirements": "Requires JavaScript",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ }
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Nuzlocke Generator & Team Builder",
+   "item": "https://www.random-pokemon-generator.co/nuzlocke-generator/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "ヌズロックとは何ですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ヌズロックは自分で課すポケモンのチャレンジです。エリアごとに最初に出会ったポケモンだけを捕まえ、ひんしになったポケモンは永久に失う（逃がすかボックスに預ける）。捕まえたら必ずニックネームをつける。1回のエンカウントがすべて意味を持ちます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "このツールでヌズロックを始めるには？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "最初のパーティモードを選び、世代（カントーなら第1世代、パルデアなら第9世代）を指定し、伝説と幻は禁止のまま抽選ボタンを押してください。旅を始めるための6匹が出てきます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "初エンカウントモードとは何ですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "厳密なヌズロックでは、1ルートにつき捕まえられるのは1匹だけです。初エンカウントモードはクリックごとにランダムなポケモンを1匹引きます。新しいルートに入ったときに使ってください。出てきたポケモンが、そのエリアで唯一の1匹です。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "旅の途中でポケモンがひんしになったら？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ヌズロックのルールでは、ひんしになったポケモンは戻りません。倒れた仲間の補充モードに切り替えて、同じ世代のプールから1匹補充し、旅を続けます。ルールはそのまま、運だけが新しくなります。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "伝説や幻も出ますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "このツールは初期設定で伝説と幻を除外していて、多くのヌズロックのルールに合わせています。どちらのルールもオフにできますし、テーマ縛りなら幻だけを引くモードも使えます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "ヌズロックの抽選結果は共有できますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。どの抽選も、選んだモード、世代、ルール、そして出たポケモンそのものを載せたリンクとして共有できます。ヌズロックのコミュニティに投稿するか友だちに送れば、相手はその結果を見ることも、自分で引き直すこともできます。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#how" class="nav-link">しくみ</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../nuzlocke-generator/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">第1〜9世代 · ヌズロックルール · ワンクリックでエンカウント抽選</p>
+      <h1 id="page-title">ヌズロック生成ツール＆パーティ編成</h1>
+      <p class="lede">最初のパーティ、各ルートの初エンカウント、倒れた仲間の補充まで、定番のヌズロックルールのもとで抽選できます。世代を固定し、伝説を禁止したまま生き残ってください。</p>
+    </section>
+
+    <!-- Generator -->
+    <section id="generator" class="container" aria-label="ヌズロック生成ツール">
+      <form class="panel cornered" id="nuz-form" action="#generator" method="get">
+        <p class="tool-hint">遊び方 — モードを選んでください： <i class="ico ico-dice-5" aria-hidden="true"></i> 最初のパーティ（6匹）を引く、 <i class="ico ico-footprints" aria-hidden="true"></i> ルートごとにエンカウントを1匹引く、 <i class="ico ico-skull" aria-hidden="true"></i> 倒れた仲間を補充する。地域を固定し、ルールを決めてから抽選してください。</p>
+        <fieldset>
+          <legend>モード</legend>
+          <div class="btn-row" id="mode-buttons" role="group" aria-label="ヌズロックのモード">
+            <button type="button" class="chip-btn" data-mode="team" aria-pressed="true"><i class="ico ico-dice-5" aria-hidden="true"></i> 最初のパーティ（6匹）</button>
+            <button type="button" class="chip-btn" data-mode="encounter" aria-pressed="false"><i class="ico ico-footprints" aria-hidden="true"></i> 初エンカウント（1匹）</button>
+            <button type="button" class="chip-btn" data-mode="death" aria-pressed="false"><i class="ico ico-skull" aria-hidden="true"></i> 倒れた仲間の補充（1匹）</button>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>世代（あなたの地方）</legend>
+          <div class="btn-row" id="gen-buttons" role="group" aria-label="世代で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">第1世代 · カントー</button><button type="button" class="chip-btn" aria-pressed="false">第2世代 · ジョウト</button><button type="button" class="chip-btn" aria-pressed="false">第3世代 · ホウエン</button><button type="button" class="chip-btn" aria-pressed="false">第4世代 · シンオウ</button><button type="button" class="chip-btn" aria-pressed="false">第5世代 · イッシュ</button><button type="button" class="chip-btn" aria-pressed="false">第6世代 · カロス</button><button type="button" class="chip-btn" aria-pressed="false">第7世代 · アローラ</button><button type="button" class="chip-btn" aria-pressed="false">第8世代 · ガラル</button><button type="button" class="chip-btn" aria-pressed="false">第9世代 · パルデア</button></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>タイプ（いずれか）</legend>
+          <div class="btn-row" id="type-buttons" role="group" aria-label="タイプで絞り込む"><button type="button" class="chip-btn" aria-pressed="false">ほのお</button><button type="button" class="chip-btn" aria-pressed="false">みず</button><button type="button" class="chip-btn" aria-pressed="false">くさ</button><button type="button" class="chip-btn" aria-pressed="false">でんき</button><button type="button" class="chip-btn" aria-pressed="false">こおり</button><button type="button" class="chip-btn" aria-pressed="false">かくとう</button><button type="button" class="chip-btn" aria-pressed="false">どく</button><button type="button" class="chip-btn" aria-pressed="false">じめん</button><button type="button" class="chip-btn" aria-pressed="false">ひこう</button><button type="button" class="chip-btn" aria-pressed="false">エスパー</button><button type="button" class="chip-btn" aria-pressed="false">むし</button><button type="button" class="chip-btn" aria-pressed="false">いわ</button><button type="button" class="chip-btn" aria-pressed="false">ゴースト</button><button type="button" class="chip-btn" aria-pressed="false">あく</button><button type="button" class="chip-btn" aria-pressed="false">ドラゴン</button><button type="button" class="chip-btn" aria-pressed="false">はがね</button><button type="button" class="chip-btn" aria-pressed="false">フェアリー</button><button type="button" class="chip-btn" aria-pressed="false">ノーマル</button></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>生息地（暮らす場所）</legend>
+          <div class="btn-row" id="habit-buttons" role="group" aria-label="生息地で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">洞窟</button><button type="button" class="chip-btn" aria-pressed="false">森林</button><button type="button" class="chip-btn" aria-pressed="false">草原</button><button type="button" class="chip-btn" aria-pressed="false">山岳</button><button type="button" class="chip-btn" aria-pressed="false">レア</button><button type="button" class="chip-btn" aria-pressed="false">荒れ地</button><button type="button" class="chip-btn" aria-pressed="false">海</button><button type="button" class="chip-btn" aria-pressed="false">都市</button><button type="button" class="chip-btn" aria-pressed="false">水辺</button></div>
+          <p class="tool-note">生息地のデータは従来の図鑑の範囲までです。新しい種には生息地のタグがありません。</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>種族値合計</legend>
+          <div class="bst-range">
+            <label>最小 <input type="range" id="bst-min" min="0" max="780" value="0" step="10" aria-label="種族値合計の下限" /></label>
+            <label>最大 <input type="range" id="bst-max" min="0" max="780" value="780" step="10" aria-label="種族値合計の上限" /></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>ヌズロックのルール</legend>
+          <div class="btn-row" id="rule-buttons" role="group" aria-label="Nuzlocke rule toggles">
+            <button type="button" class="chip-btn" data-rule="noLeg" aria-pressed="true"><i class="ico ico-ban" aria-hidden="true"></i> 伝説を禁止</button>
+            <button type="button" class="chip-btn" data-rule="noMyth" aria-pressed="true"><i class="ico ico-ban" aria-hidden="true"></i> 幻を禁止</button>
+            <button type="button" class="chip-btn" data-rule="initialOnly" aria-pressed="false"><i class="ico ico-sprout" aria-hidden="true"></i> 進化前のみ</button>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button type="button" id="roll-btn" class="btn-slide cornered btn-primary">
+            <span id="roll-label"><i class="ico ico-dice-5" aria-hidden="true"></i> ヌズロックのエンカウントを抽選</span>
+          </button>
+          <button type="button" id="copy-btn" class="btn-slide btn-secondary">
+            <span id="copy-label"><i class="ico ico-link" aria-hidden="true"></i> シェアリンクをコピー</span>
+          </button>
+          <button type="button" id="export-btn" class="btn-slide btn-secondary">
+            <span id="export-label"><i class="ico ico-upload" aria-hidden="true"></i> Showdown形式で出力</span>
+          </button>
+          <button type="button" id="reset-btn" class="btn-text">すべてリセット</button>
+          <span class="pool-count" id="pool-count" aria-live="polite">候補は1,025体</span>
+        </div>
+        <div class="tool-note-group">
+          <p class="tool-note"><i class="ico ico-dice-5" aria-hidden="true"></i> 抽選 — 選んだモード（最初のパーティ／初エンカウント／倒れた仲間の補充）でポケモンを配ります</p>
+          <p class="tool-note"><i class="ico ico-link" aria-hidden="true"></i> シェアリンクをコピー — この編成をそのまま友だちに開いてもらえるリンクをコピーします</p>
+          <p class="tool-note"><i class="ico ico-upload" aria-hidden="true"></i> Showdown形式で出力 — Pokémon Showdownの形式でコピーするので、そのまま貼り付けられます</p>
+          <p class="tool-note">すべてリセット — 編成を消して、設定をすべて初期値に戻します</p>
+        </div>
+      </form>
+
+      <div class="results" aria-live="polite">
+        <div class="manual-add cornered">
+          <button type="button" id="manual-btn" class="btn-slide btn-secondary">
+            <span><i class="ico ico-plus" aria-hidden="true"></i> ポケモンを手動で追加</span>
+          </button>
+          <p class="tool-note"><i class="ico ico-plus" aria-hidden="true"></i> ポケモンを手動で追加 — 1,025匹から検索して、自分で捕まえた1匹を加えられます</p>
+        </div>
+        <p class="results-hint"><i class="ico ico-lightbulb" aria-hidden="true"></i> ヌズロックの基本は、1ルートにつき1匹だけ捕まえること。新しいエリアに入ったら初エンカウントモードを使ってください。</p>
+        <p class="tool-note"><i class="ico ico-skull" aria-hidden="true"></i> カードの「倒れた」を押すと墓場に移ります — ↩ で元に戻り、✕ で完全に削除します</p>
+        <p class="results-empty cornered-dashed" id="results-empty">押す <i class="ico ico-dice-5" aria-hidden="true"></i> 抽選してヌズロックの1匹を出しましょう。次に引くまで、結果はそのまま残ります。</p>
+        <ul class="results-grid" id="results-grid"></ul>
+        <p class="results-meta" id="results-meta"></p>
+      </div>
+
+      <section class="analysis cornered" id="analysis-panel" aria-labelledby="analysis-title" hidden>
+        <div class="analysis-head">
+          <h2 class="analysis-title" id="analysis-title"><i class="ico ico-chart-column" aria-hidden="true"></i> ヌズロック編成レポート</h2>
+          <span class="grade-badge" id="analysis-grade">–</span>
+        </div>
+        <p class="analysis-summary" id="analysis-summary"></p>
+        <details class="analysis-details" id="analysis-details">
+          <summary>▶ ここをタップするとレポート全体が開きます — 防御マトリクス、タイプ一致の範囲、種族値、役割 &amp; ヒント</summary>
+          <div id="analysis-body"></div>
+        </details>
+      </section>
+
+      <div class="history cornered" id="history-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title">抽選履歴</h2>
+          <button type="button" id="history-clear" class="btn-text">履歴をクリア</button>
+        </div>
+        <p class="history-hint"><i class="ico ico-lightbulb" aria-hidden="true"></i> ポケモンにカーソルを合わせるとプレビュー · 行をクリックするとその結果を再表示 · 各抽選は専用リンクで共有できます</p>
+        <ol class="history-list" id="history-list"></ol>
+      </div>
+
+      <div class="history cornered" id="graveyard-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title"><i class="ico ico-skull" aria-hidden="true"></i> 倒れたパーティ（墓場）</h2>
+          <button type="button" id="graveyard-clear" class="btn-text">墓場をクリア</button>
+        </div>
+        <p class="tool-note">墓場をクリア — 記録から倒れたポケモンをすべて完全に削除します</p>
+        <p class="history-hint"><i class="ico ico-lightbulb" aria-hidden="true"></i> 倒れたポケモンはここに眠ります — ↩ を押すとチームに戻せます（誤って倒れた扱いにした場合の取り消し）</p>
+        <ol class="history-list" id="graveyard-list"></ol>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">しくみ</p>
+        <h2 id="how-title">このツールでヌズロックを進める方法</h2>
+        <div class="how-grid">
+          <article>
+            <h3>定番のヌズロックルール</h3>
+            <p>ヌズロックには3つの核になるルールがあります。エリアごとに最初に出会ったポケモンだけを捕まえる、ひんしになったポケモンは永久に失われる、捕まえたら必ずニックネームをつける。これだけで、普通のプレイが生き残り勝負に変わります。1回のエンカウントの失敗で仲間が消えるからです。バトル中のアイテム禁止、交代禁止、ポケモンセンター以外での回復禁止など、任意のルールを足す人も多いですが、心臓部はこの初遭遇ルールにあります。このヌズロック生成ツールは、サイトのメインの <a href="../">Random Pokemon Generator</a>と同じ第1〜9世代のデータで動いています。そして捕まえたらニックネームをつける決まりなので、 <a href="../random-pokemon-name-generator/">ランダム名前生成</a> が、遊んでいる世代とタイプのプールから名前の候補を出してくれます。毎回同じ5つの名前を使い回す必要はありません。捕まえた1匹を主力にするなら、 <a href="../pokemon-nature-chart/">ポケモン性格表</a> で、どの性格がいちばんステータスを引き出せるかがわかります。</p>
+          </article>
+          <article>
+            <h3>まずは6匹の最初のパーティから</h3>
+            <p>最初のパーティモードを選び、遊ぶ作品に合った世代を指定して抽選します。その世代からランダムに6匹が出てきます。伝説と幻は初期設定で禁止なので、出てくる編成はいつでもヌズロックのルールに沿ったものです。カントーを遊ぶなら第1世代を選べば、プールは最初の151匹になります。パルデアなら第9世代を選んで、最新の顔ぶれから引けます。</p>
+          </article>
+          <article>
+            <h3>ルートごとに1匹だけ引く</h3>
+            <p>ヌズロックの核心は初エンカウントルールです。初エンカウントモードに切り替えて、新しいルートに入るたびに1回だけ引いてください。出たポケモンが、そのエリアで捕まえられる唯一の1匹です。引き直しも例外もありません。ダブりや、すでに手持ちにいるポケモンが出ても、それもチャレンジのうちです。</p>
+          </article>
+          <article>
+            <h3>倒れた仲間を補充する</h3>
+            <p>仲間がひんしになれば、その子は失われます。でも旅は終わりません。倒れた仲間の補充モードに切り替えて、同じ世代のプールから1匹だけ引いて続行します。生成ツールは同じ地方を固定したままなので、補充の1匹は必ずその作品に合ったものになります。なかには、補充を1段階前の進化形に限って難易度を上げる人もいます。</p>
+          </article>
+          <article>
+            <h3>ルールを自分の難易度に合わせる</h3>
+            <p>進化前のみをオンにすれば進化前のポケモンだけになり、難易度が上がります。逆に、伝説はありでアイテムはなし、といったKaizo系のルールにするのも手です。このツールのルール切り替えで、カジュアルからガチまで調整できます。定番なら伝説禁止のまま、強さを楽しみたいなら許可して、テーマ縛りなら幻だけを引く、といった使い方です。</p>
+          </article>
+          <article>
+            <h3>ヌズロックはどの世代でやるべき？</h3>
+            <p>世代ごとにヌズロックの体験は変わります。第1世代カントーは定番で、151匹、短いルート、そして手強い四天王。第2世代ジョウトは2つの地方をまたぎ、ジムの先頭がとにかく厳しい。第4世代シンオウは高レベルの野生とタイプの穴の埋め方が問われ、ガチルールに向きます。第5世代イッシュはストーリー後に編成を一新させられます。第9世代パルデアは最初のヌズロックにちょうどよく、広いフィールドに捕まえやすい相手がそろっています。</p>
+          </article>
+          <article>
+            <h3>組んで、出力して、すべての旅を記録する</h3>
+            <p>ランダム抽選だけでなく、ヌズロックの管理ツールとしても使えます。1,025匹から検索して、自分の手で捕まえた1匹を編成に加えられます。いまの編成はワンクリックでPokémon Showdown形式に出力でき、名前・特性・レベルがそのままシミュレータや掲示板に貼れます。仲間が倒れたら「倒れた」に印をつけてください。墓場には失ったポケモンの記録が残り、ルールが許すならワンクリックで復帰させられます。旅と旅のあいだに、手持ち全体を <a href="../pokemon-smash-or-pass/">Smash or Pass</a>で査定するのもいいですし、運に任せて最初の1匹を決めたいなら <a href="../random-pokemon-generator-wheel/">ポケモンルーレット</a> を回してみてください。記憶力を試したいときは <a href="../whos-that-pokemon/">このポケモンだあれ？</a> の当てゲームでどうぞ。</p>
+          </article>
+          <article>
+            <h3>旅の途中でも共有できる</h3>
+            <p>抽選するたびに、モード・世代・ルール・出たポケモンそのもの（色違いも含めて）を埋め込んだ共有リンクができます。ヌズロックのコミュニティやDiscord、あるいはバッジの進み具合と一緒に友だちへ送ってください。受け取った人は同じエンカウントを開くことも、あなたのルールで引き直して旅を並べて比べることもできます。</p>
+          </article>
+          <article>
+            <h3>どの世代でもヌズロックは遊べます</h3>
+            <p>ヌズロックのルールはどの地方にも合います。定番のカントーなら第1世代、現代のパルデア図鑑なら第9世代。選んだ世代に合わせて、エンカウントのプールは自動で切り替わります。まだヌズロックをやったことのない地方で旅を計画するのにも便利です。世代を固定し、伝説を禁止して、最初のパーティを引くだけ。ドラフト会やコミュニティのレース、全員が同じ世代で引くマラソンでも同じ設定が使えます。旅の途中で仲間が倒れたら、 <a href="../pokemon-team-picker/">パーティ編成</a> で同じ図鑑から補充用の編成を先に組んでおけば、次の1匹を迎える準備ができています。そして旅がチャンピオンを生んだら、 <a href="../pokemon-card-generator/">ポケモンカード作成</a> が、その1匹を自慢できるカードにしてくれます。 <a href="../pokemon-trainer-card-generator/">トレーナーカード作成</a> を開けば、おそろいのトレーナーカードも作れます。この形式がはじめてなら、まず <a href="../blog/what-is-a-nuzlocke-challenge/">ヌズロックチャレンジとは？</a> を読んでください。基本ルール、任意の追加ルール、初心者向けのコツがまとまっています。数字の裏側は <a href="../blog/nuzlocke-survival-playbook/">ヌズロック生存術：エンカウントの計算</a> が、あの抽選を支える計算をじっくり解説しています。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+<!-- Run math -->
+    <section id="run-math" class="band" aria-labelledby="run-math-title">
+      <div class="container">
+        <p class="eyebrow">抽選の数字</p>
+        <h2 id="run-math-title">ヌズロック生成ツール：抽選が実際に何をくれるのか</h2>
+        <div class="how-grid">
+          <article>
+            <h3>最初の6匹を数字で見る</h3>
+            <p>最初のパーティを引いてみると、攻撃面は感覚より上に出ます。全プールから6匹を引く試行を20,000回シミュレートしたところ、平均的な編成ではタイプ一致わざが18タイプのうち13.4タイプに2倍以上で通ります。相性表のおよそ4分の3で、10組のうち7組は13タイプ以上をカバーします。9タイプ以下にしか届かないのは3.4%だけで、そうした薄いカバレッジは最初のジムに着く前にレポートが警告してくれます。</p>
+          </article>
+          <article>
+            <h3>抽選が守っているルール</h3>
+            <p>抽選のたびに、条件で絞ったプールをシャッフルして上から取っていくので、最初のパーティは必ず6つの異なる項目になります。しかもどの項目も当選確率は同じで、人気のポケモンに有利な隠れ補正はありません。条件を変えるとプールが引き直されるだけで、当たりやすさは変わりません。カントーだけで238項目あり、進化前のみに絞ると全地方で372種（うちカントーに73種）になります。レポートのカバレッジは、あなたの6匹そのものから計算した数字で、種の平均値ではありません。</p>
+          </article>
+          <article>
+            <h3>弱点がかぶる問題</h3>
+            <p>つまずくのは防御面です。同じ20,000組のなかで、2匹が同じタイプの弱点を共有しない編成は1つもありませんでした。中央値の編成では、18の攻撃タイプのうち8つで弱点がかぶります。だから防御マトリクスは、ほぼ必ずどこかの行が赤く光ります。その赤い行こそレポートの役割で、6匹のうち2匹を同時に崩すタイプを示してくれます。ライバルが狙ってくるのは、まさにその穴です。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">ヌズロック生成ツール &amp; パーティ編成のよくある質問</h2>
+      <details class="faq-item cornered">
+        <summary>ヌズロックとは何ですか？</summary>
+        <p>ヌズロックは自分で課すポケモンのチャレンジです。エリアごとに最初に出会ったポケモンだけを捕まえ、ひんしになったポケモンは永久に失う（逃がすかボックスに預ける）。捕まえたら必ずニックネームをつける。1回のエンカウントがすべて意味を持ちます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>このツールでヌズロックを始めるには？</summary>
+        <p>最初のパーティモードを選び、世代（カントーなら第1世代、パルデアなら第9世代）を指定し、伝説と幻は禁止のまま抽選ボタンを押してください。旅を始めるための6匹が出てきます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>初エンカウントモードとは何ですか？</summary>
+        <p>厳密なヌズロックでは、1ルートにつき捕まえられるのは1匹だけです。初エンカウントモードはクリックごとにランダムなポケモンを1匹引きます。新しいルートに入ったときに使ってください。出てきたポケモンが、そのエリアで唯一の1匹です。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>旅の途中でポケモンがひんしになったら？</summary>
+        <p>ヌズロックのルールでは、ひんしになったポケモンは戻りません。倒れた仲間の補充モードに切り替えて、同じ世代のプールから1匹補充し、旅を続けます。ルールはそのまま、運だけが新しくなります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>伝説や幻も出ますか？</summary>
+        <p>このツールは初期設定で伝説と幻を除外していて、多くのヌズロックのルールに合わせています。どちらのルールもオフにできますし、テーマ縛りなら幻だけを引くモードも使えます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>ヌズロックの抽選結果は共有できますか？</summary>
+        <p>はい。どの抽選も、選んだモード、世代、ルール、そして出たポケモンそのものを載せたリンクとして共有できます。ヌズロックのコミュニティに投稿するか友だちに送れば、相手はその結果を見ることも、自分で引き直すこともできます。</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Dex details modal (home-style, with type coverage) -->
+  <div class="modal-overlay" id="modal" hidden>
+    <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="modal-name" id="modal-card">
+      <div class="modal-head">
+        <div>
+          <p class="modal-meta" id="modal-meta"></p>
+          <h3 id="modal-name"></h3>
+          <div class="chip-row" id="modal-types"></div>
+        </div>
+        <span class="modal-art"><span class="dex-aura" aria-hidden="true"></span><img id="modal-img" width="475" height="475" alt="" /></span>
+      </div>
+      <h4 class="modal-section">種族値 · 合計 <strong id="modal-bst"></strong></h4>
+      <dl class="stats" id="modal-stats"></dl>
+      <h4 class="modal-section">特性</h4>
+      <ul class="ability-list" id="modal-abilities"></ul>
+      <h4 class="modal-section">タイプのカバレッジ</h4>
+      <div class="cov-wrap" id="modal-cov"></div>
+      <h4 class="modal-section">進化系統</h4>
+      <div class="evo-chain" id="modal-evo"></div>
+      <button type="button" class="btn-slide btn-secondary modal-close" id="modal-close"><span>閉じる（ESC）</span></button>
+    </div>
+  </div>
+
+  <!-- Info notice modal -->
+  <div class="modal-overlay" id="info-modal" hidden>
+    <div class="modal cornered confirm-modal" role="alertdialog" aria-modal="true" aria-labelledby="info-modal-title" aria-describedby="info-modal-text">
+      <div class="modal-head">
+        <div>
+          <p class="modal-meta">お知らせ</p>
+          <h3 id="info-modal-title">ご確認ください</h3>
+        </div>
+        <button type="button" class="card-x-btn" id="info-modal-close" aria-label="閉じる">✕</button>
+      </div>
+      <p class="confirm-text" id="info-modal-text"></p>
+      <div class="confirm-actions">
+        <button type="button" class="btn-slide cornered btn-primary" id="info-ok"><span>OK</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Remove confirm modal -->
+  <div class="modal-overlay" id="remove-modal" hidden>
+    <div class="modal cornered confirm-modal" role="alertdialog" aria-modal="true" aria-labelledby="remove-modal-title" aria-describedby="remove-modal-text">
+      <div class="modal-head">
+        <div>
+          <p class="modal-meta">編成の編集</p>
+          <h3 id="remove-modal-title">ポケモンを外しますか？</h3>
+        </div>
+        <button type="button" class="card-x-btn" id="remove-modal-close" aria-label="閉じる">✕</button>
+      </div>
+      <p class="confirm-text" id="remove-modal-text"></p>
+      <div class="confirm-actions">
+        <button type="button" class="btn-slide cornered btn-primary" id="rm-fallen"><span><i class="ico ico-skull" aria-hidden="true"></i> 倒れた印をつける</span></button>
+        <button type="button" class="btn-slide cornered btn-secondary" id="rm-only"><span>✕ 外すだけ</span></button>
+        <button type="button" class="btn-text" id="rm-cancel">キャンセル</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Pokémon modal -->
+  <div class="modal-overlay" id="add-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="add-modal-title" id="add-modal-card">
+      <div class="modal-head">
+        <div>
+          <p class="modal-meta">ヌズロックの編成に追加</p>
+          <h3 id="add-modal-title"><i class="ico ico-plus" aria-hidden="true"></i> ポケモンを追加</h3>
+        </div>
+        <button type="button" class="add-close" id="add-modal-close" aria-label="閉じる">✕</button>
+      </div>
+      <div class="add-filters">
+        <div class="btn-row" id="add-gen-filters" role="group" aria-label="世代で絞り込む"></div>
+        <div class="btn-row" id="add-type-filters" role="group" aria-label="タイプで絞り込む"></div>
+      </div>
+      <input type="text" id="add-search" placeholder="名前か図鑑番号で検索…" autocomplete="off" aria-label="ポケモンを検索" />
+      <ul class="add-list" id="add-list"></ul>
+    </div>
+  </div>
+
+  <script src="../../data.js?v=20261022d"></script>
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="nuzlocke.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

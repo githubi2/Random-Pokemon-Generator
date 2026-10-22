@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ポケモンカード作成ツール｜写真から無料でダウンロード</title>
+  <meta name="description" content="ポケモンカードの作成ならこの無料ツールへ。写真を1枚入れて、テンプレートとレアリティを選ぶと、その場でカードが仕上がります。完成したカードはPNGで保存でき、登録は要りません。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/pokemon-card-generator/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/pokemon-card-generator/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/pokemon-card-generator/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/pokemon-card-generator/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ポケモンカード作成ツール｜写真から無料でダウンロード" />
+  <meta property="og:description" content="ポケモンカードの作成ならこの無料ツールへ。写真を1枚入れて、テンプレートとレアリティを選ぶと、その場でカードが仕上がります。完成したカードはPNGで保存でき、登録は要りません。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/pokemon-card-generator/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/pokemon-card-generator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ポケモンカード作成ツール｜写真から無料でダウンロード" />
+  <meta name="twitter:description" content="ポケモンカードの作成ならこの無料ツールへ。写真を1枚入れて、テンプレートとレアリティを選ぶと、その場でカードが仕上がります。完成したカードはPNGで保存でき、登録は要りません。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/pokemon-card-generator/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <style>
+    /* ============ Pokemon Card Generator — page-specific ============ */
+    .cg-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 24px; align-items: start; }
+    .cg-form { min-width: 0; }
+    .cg-preview { position: sticky; top: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .cg-preview canvas { width: 100%; height: auto; display: block; background: #fff; border-radius: 14px; }
+    .cg-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; width: 100%; }
+    .cg-upload { border: 2px dashed var(--muted-text, var(--text-3)); border-radius: 12px; padding: 18px 14px; text-align: center; cursor: pointer; background: var(--page, #fff7e0); transition: border-color 0.15s ease, background 0.15s ease; }
+    .cg-upload:hover, .cg-upload.dragover { border-color: var(--hl-deep, #c6e433); background: var(--surface-2, #f5f2ea); }
+    .cg-upload input[type="file"] { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
+    .cg-upload .cg-upload-title { font-weight: 900; margin: 0 0 6px; }
+    .cg-upload .cg-upload-note { font-size: 13px; margin: 0; color: var(--muted-text, #6b6b6b); }
+    .cg-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .cg-input label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .cg-input input[type="text"], .cg-input input[type="number"], .cg-input select { width: 100%; padding: 9px 10px; border: 1px solid #d6cfc0; border-radius: 8px; font-size: 14px; background: #fff; box-sizing: border-box; }
+    .cg-input input:focus, .cg-input select:focus { outline: 2px solid var(--poke-yellow, #fbd743); outline-offset: 0; }
+    .cg-hint { font-size: 12.5px; color: var(--muted-text, #6b6b6b); margin: 4px 0 0; }
+    .cg-swap { margin-top: 12px; }
+    @media (max-width: 960px) {
+      .cg-layout { grid-template-columns: 1fr; }
+      .cg-preview { position: static; order: -1; }
+      .cg-preview canvas { max-width: 320px; }
+    }
+  </style>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "ポケモンカード作成",
+ "description": "オンラインでオリジナルのポケモンカードをデザインできます。クラシック、モダン、TCG Pocket のスタイルからテンプレートを選び、自分の写真をアップロードするかランダムなポケモンを抽選して、名前、HP、タイプ、わざ、弱点、レアリティを設定します。カードはリアルタイムでプレビューでき、印刷に適した PNG としてダウンロードできます。パソコンでもスマホでも使えて、登録は不要です。",
+ "applicationCategory": "GameApplication",
+ "operatingSystem": "All",
+ "browserRequirements": "JavaScript が必要です",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "url": "https://www.random-pokemon-generator.co/ja/pokemon-card-generator/"
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "ポケモンカード作成",
+   "item": "https://www.random-pokemon-generator.co/ja/pokemon-card-generator/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "ポケモンカードジェネレーターは有料ですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "料金はかかりません。登録もアカウントも透かしもなく、テンプレートの切り替え、写真のアップロード、リアルタイムのプレビュー、PNGのダウンロードはすべてツールに含まれています。写真は端末の外に出ません。保存や共有は、ご自分で選んだときだけです。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "ポケモンカードに自分の写真を入れられますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "もちろんです。セルフィー、ペットの写真、イラスト、ロゴ、ミーム、どんな画像でもアップロードできます。エディタが自動でカード画像の枠に合わせて切り抜きます。公式イラストを使いたいときはポケモンをランダムに選ぶこともできますし、枠を空けておいてあとから埋めることもできます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "どんなカードスタイルとテンプレートがありますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "テンプレートは3種類です。黄色のベースセット風のクラシック、スカーレット・バイオレット時代の深い色の枠を持つモダン、そして丸みのあるアプリ風デザインの TCG Pocket。さらに4種類のレアリティ仕上げがあり、コモン、銀の縁のレア、虹色の縁のホロ、そしてイラストがカード全体を覆うフルアートです。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "このツールでトレーナーズカードは作れますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "いいえ、あえて分けています。トレーナーズカードは形が違うからです。上部にバッジの列と名前プレートがあり、HPとわざが入る場所には相棒のポケモンが入ります。専用のページ「ポケモントレーナーズカードジェネレーター」にまとめてあり、カードの種類の行からそのまま移動できます。向こうのページからもここへ戻れるので、揃ったセットを作るのも30分ほどで済みます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "エネルギーカードは作れますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。カードの種類でエネルギーを選ぶと、ジェネレーターはエネルギーのレイアウトに切り替わります。選んだタイプの色で塗られたカードに、中央のエネルギーシンボルと、その下のタイプラベル。自作デッキにエネルギーを揃えるなら、これがいちばん早い方法です。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "作ったポケモンカードはどうやって保存しますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "「PNGをダウンロード」を押してください。カードは630 x 880で保存され、SNSやDiscord、プリントショップでも十分な解像度です。「カード文をコピー」を押すと、カードの説明とこのページへのリンクがまとめてコピーされます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "作ったカードは印刷できますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。ダウンロードされるのは印刷向けのPNGで、トレカ標準の63 x 88 mm比率です。ご自宅で厚手の紙に印刷しても、印刷所に送ってもかまいません。個人利用、教育利用、ファン活動のためのツールで、印刷したものを販売する用途は想定していません。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "作った内容は保存されますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "自動で保存されます。保存先はお使いのブラウザの中です。テンプレート、レアリティ、カードの文章、アップロードした写真は、すべてローカルストレージに入ります。再読み込みしても、翌日また来ても、カードは離れたときのまま戻ります。どこにも送信されません。ブラウザのデータを消せば、保存も一緒に消えます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "アップロードできる画像の形式は？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "PNG、JPEG、WebP、GIFの静止画に対応しています。写真アプリ、カメラ、Google Drive、Dropbox、Pinterest、印刷物を撮った写真など、どこからでもかまいません。画像は端末上でカード画像の枠に合わせて縮小されるので、大きな写真でもきれいに収まります。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "スマートフォンでも使えますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。画面が小さいとフォームが縦に積まれ、プレビューが上に来ます。ボタンも指で押せる大きさです。スマートフォンで作り始めて、あとからパソコンで仕上げることもできます。状態はローカルストレージに入っているので、作業はそのまま続きます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "これは公式のポケモン商品ですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "いいえ。このサイトは非公式のファンプロジェクトです。Nintendo、Game Freak、Creatures Inc.、The Pokemon Company とは関係がなく、提携や承認も受けていません。ポケモンおよびポケモンのキャラクター名は、それぞれの権利者の商標です。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "作ったカードは何に使えますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "友人写真を使った誕生日プレゼント、グループチャット用のミームカード、記念日の贈り物、教室のごほうびカード、ファンが考えたオリジナルキャラ、自作デッキ用のモックアップ。どれも個人的な用途のためのものです。個人利用と教育利用が対象で、商用利用は想定していません。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="./" class="nav-link nav-link-active">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#how" class="nav-link">しくみ</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../pokemon-card-generator/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">クラシック · モダン · TCGポケットのテンプレート · 写真アップロード · PNGダウンロード</p>
+      <h1 id="page-title">ポケモンカード作成ジェネレーター</h1>
+      <p class="lede">このポケモンカードジェネレーターは、すべてブラウザの中で動きます。テンプレートを選び、好きな写真をアップロードし、名前、HP、タイプ、わざ、レアリティを設定すると、打つたびにカードが描き直されます。決まったら、できあがったPNGをダウンロードしてください。</p>
+    </section>
+
+    <!-- Tool -->
+    <section class="container tool-panel" id="card-tool" aria-label="ポケモンカード作成ツール">
+      <div class="panel cornered cg-layout">
+        <!-- ============ Form ============ -->
+        <div class="cg-form">
+          <p class="tool-hint">テンプレート、レアリティ、カードの種類を選んでから、各項目を埋めていきます。写真は点線の枠をクリックするか、画像をドロップしてください。写真を用意しないときは、 <i class="ico ico-dice-5" aria-hidden="true"></i> ランダムポケモンを選ぶと、画像の枠が公式イラストで埋まります。文字を打つたびにプレビューが描き直されるので、決まったらPNGでダウンロードしてください。</p>
+
+          <fieldset>
+            <legend>1. テンプレート</legend>
+            <div class="btn-row" id="cg-template-chips" role="group" aria-label="カードのテンプレート">
+              <button type="button" class="chip-btn" data-value="classic" aria-pressed="true">クラシック</button>
+              <button type="button" class="chip-btn" data-value="modern" aria-pressed="false">モダン</button>
+              <button type="button" class="chip-btn" data-value="pocket" aria-pressed="false">TCGポケット</button>
+            </div>
+            <p class="tool-note" id="cg-template-note"></p>
+          </fieldset>
+
+          <fieldset>
+            <legend>2. レアリティ</legend>
+            <div class="btn-row" id="cg-rarity-chips" role="group" aria-label="カードのレアリティ">
+              <button type="button" class="chip-btn" data-value="common" aria-pressed="true">ノーマル</button>
+              <button type="button" class="chip-btn" data-value="rare" aria-pressed="false">レア</button>
+              <button type="button" class="chip-btn" data-value="holo" aria-pressed="false">キラ</button>
+              <button type="button" class="chip-btn" data-value="fullart" aria-pressed="false">フルアート</button>
+            </div>
+            <p class="tool-note" id="cg-rarity-note"></p>
+          </fieldset>
+
+          <fieldset>
+            <legend>3. カードの種類</legend>
+            <div class="btn-row" id="cg-cardtype-chips" role="group" aria-label="カードのタイプ">
+              <button type="button" class="chip-btn" data-value="pokemon" aria-pressed="true">Pokemon</button>
+              <button type="button" class="chip-btn" data-value="trainer" aria-pressed="false">トレーナー</button>
+              <button type="button" class="chip-btn" data-value="energy" aria-pressed="false">エネルギー</button>
+            </div>
+            <p class="tool-note custom-note" id="cg-cardtype-note"></p>
+          </fieldset>
+
+          <fieldset>
+            <legend>4. カード画像</legend>
+            <div class="cg-upload" id="cg-upload" role="button" tabindex="0" aria-label="カードに使う画像をアップロード">
+              <p class="cg-upload-title"><i class="ico ico-camera" aria-hidden="true"></i> クリックで画像を選ぶ</p>
+              <p class="cg-upload-note">PNG / JPEG / WebP · カード画像の枠に合わせて自動で切り抜き</p>
+              <input type="file" id="cg-file" accept="image/png,image/jpeg,image/webp,image/gif" />
+            </div>
+            <div class="btn-row cg-swap">
+              <button type="button" class="btn-slide btn-secondary" id="cg-rand-art"><span><i class="ico ico-dice-5" aria-hidden="true"></i> ランダムポケモン</span></button>
+            </div>
+            <p class="tool-note" id="cg-art-note"></p>
+          </fieldset>
+
+          <div id="cg-pokemon-fields">
+            <fieldset>
+              <legend>5. カード情報</legend>
+              <div class="cg-pair">
+                <div class="cg-input">
+                  <label for="cg-name">ポケモンの名前</label>
+                  <input type="text" id="cg-name" maxlength="22" placeholder="例：リザードン" autocomplete="off" />
+                </div>
+                <div class="cg-input">
+                  <label for="cg-hp">HP</label>
+                  <input type="number" id="cg-hp" min="1" max="999" value="60" />
+                </div>
+              </div>
+              <div class="cg-pair cg-swap">
+                <div class="cg-input">
+                  <label for="cg-type">タイプ</label>
+                  <select id="cg-type"></select>
+                </div>
+                <div class="cg-input">
+                  <label for="cg-weakness">弱点</label>
+                  <select id="cg-weakness"></select>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>6. わざ</legend>
+              <div class="cg-pair">
+                <div class="cg-input">
+                  <label for="cg-atk1-name">わざ1の名前</label>
+                  <input type="text" id="cg-atk1-name" maxlength="26" placeholder="例：かえんほうしゃ" autocomplete="off" />
+                </div>
+                <div class="cg-input">
+                  <label for="cg-atk1-dmg">わざ1のダメージ</label>
+                  <input type="number" id="cg-atk1-dmg" min="0" max="999" value="40" />
+                </div>
+              </div>
+              <div class="cg-pair cg-swap">
+                <div class="cg-input">
+                  <label for="cg-atk2-name">わざ2の名前</label>
+                  <input type="text" id="cg-atk2-name" maxlength="26" placeholder="例：かえんぐるま（任意）" autocomplete="off" />
+                </div>
+                <div class="cg-input">
+                  <label for="cg-atk2-dmg">わざ2のダメージ</label>
+                  <input type="number" id="cg-atk2-dmg" min="0" max="999" value="0" />
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>7. フレーバー &amp; イラストレーター</legend>
+              <div class="cg-pair">
+                <div class="cg-input">
+                  <label for="cg-flavor">フレーバーテキスト</label>
+                  <input type="text" id="cg-flavor" maxlength="90" placeholder="図鑑風のひとこと…" autocomplete="off" />
+                </div>
+                <div class="cg-input">
+                  <label for="cg-illustrator">イラストレーター</label>
+                  <input type="text" id="cg-illustrator" maxlength="24" placeholder="名前 / タグ" autocomplete="off" />
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div id="cg-energy-fields" hidden>
+            <fieldset>
+              <legend>8. エネルギーカードの色</legend>
+              <p class="tool-note">エネルギーのタイプを選ぶと、カード全体がその色になります。</p>
+              <div class="select-row">
+                <label for="cg-energy-type">エネルギーのタイプ</label>
+                <select id="cg-energy-type"></select>
+              </div>
+            </fieldset>
+          </div>
+
+          <div id="cg-trainer-banner" hidden>
+            <fieldset>
+              <legend>トレーナーズカード</legend>
+              <p class="tool-note">トレーナーズカードは専用のページで作ります。HPとわざの代わりに、名前プレート、バッジの列、相棒のポケモンが並ぶ形です。 <a href="../pokemon-trainer-card-generator/" style="display:inline-block;margin-top:8px;font-weight:600;color:inherit;text-decoration:underline;text-underline-offset:3px">トレーナーカード作成</a> 代わりにこちらを。</p>
+            </fieldset>
+          </div>
+        </div>
+
+        <!-- ============ Preview ============ -->
+        <div class="cg-preview">
+          <canvas id="cg-canvas" width="630" height="880" aria-label="カードのプレビュー" role="img"></canvas>
+          <div class="cg-actions">
+            <button type="button" id="cg-download" class="btn-slide cornered btn-primary"><span><i class="ico ico-download" aria-hidden="true"></i> PNGをダウンロード</span></button>
+            <button type="button" id="cg-copy" class="btn-slide btn-secondary"><span><i class="ico ico-clipboard" aria-hidden="true"></i> カード文をコピー</span></button>
+          </div>
+          <p class="tool-note">トレカの標準比率（63 x 88 mm）で作られます。PNGを印刷サービスに送るか、厚手の紙に印刷してご自宅で仕上げてください。</p>
+          <p class="tool-note" id="cg-saved-note"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">しくみ</p>
+        <h2 id="how-title">ポケモンカードジェネレーターで自分だけのカードを作る方法</h2>
+        <div class="how-grid">
+          <article>
+            <h3>6つの手順でポケモンカードを作る</h3>
+            <p>手順1は、テンプレート選びから。クラシックは1999年の黄色い基本セットの雰囲気、モダンは深みのあるスカーレット &amp; バイオレット期の枠、TCGポケットはモバイルゲームの角丸スタイルです。手順2は、レアリティの仕上げ選び。ノーマル、レア、キラ、フルアートから選びます。手順3は、カードの種類。ポケモン、トレーナー、エネルギーです。手順4は、画像の設定。写真をアップロードすれば、カードが自動で枠に切り抜きます。ポケモンをランダムに選ぶと、公式イラストと一緒に名前、HP、タイプも入ります。</p>
+            <p>手順5は、カード情報の入力です。名前はHPバーの下に入り、タイプを選ぶとカードの色が決まり、弱点を選ぶと下部の小さな一覧に反映されます。わざの名前とダメージ、フレーバーの一行、イラストレーター名を入れます。手順6、プレビューはキーを打つたびに描き直されます。決まったら「PNGをダウンロード」を押すと、630 x 880、印刷サービスが求める比率で保存されます。サーバーには何も送られないので、納得がいくまで何度でも作り直せます。</p>
+          </article>
+          <article>
+            <h3>テンプレート画像ではなくカード作成ツールを使う理由</h3>
+            <p>空のテンプレート画像は、わざの文章が折り返しても、名前が長くなっても組み直されません。結局テキストボックスを1時間押し回すことになります。このツールはキーを打つたびにカードを描き直すので、レイアウトの崩れは起きません。画質も見落とせないところです。エディタから書き出したテンプレートは当たり外れがありますが、ここのダウンロードは630 x 880、63 x 88 mmの比率そのまま、キャンバスから直接の書き出しです。直しも気軽です。タイプを変えたい、レアリティを変えたい、そう思えばカードは組み直されます。塗り直しは要りません。しかも状態はブラウザの中にあるので、翌日戻ってきてもカードはそのまま残っています。</p>
+          </article>
+          <article>
+            <h3>ポケモンカードジェネレーターのテンプレート：クラシック、モダン、TCGポケット</h3>
+            <p>クラシックは、1999年のカードの温かい黄色いフレームと濃い色の名前プレートを再現したものです。モダンはタイプの色を使った濃い枠で、画像の窓が広く、数値の表示は控えめです。TCGポケットは、アプリのやわらかい角丸の枠と余白を取り入れています。どれもブラウザ上で一から描いており、公式カードのレイアウトをそのまま写したものではありません。</p>
+            <p>レアリティはその上に重なります。ノーマルは素の枠、レアは銀の縁、キラは虹色の縁、フルアートは画像がカードの端まで広がります。テンプレート3種×レアリティ4種で12通りの見た目になり、どれも2列のボタンから選べます。</p>
+          </article>
+          <article>
+            <h3>自作ポケモンカードを作る人と、その使われ方</h3>
+            <p>ポケモンファンは、夢のチームやオリジナルキャラのカードを作ります。配信者はスクリーンショットやミームを数秒でカードにして、DiscordのスレッドやTikTokに投げます。先生や保護者はクラシックのテンプレートでごほうびカードやクラス名簿を作ります。ポケモンカードに子どもの名前が入っているほうが、シール台紙より効きます。ゲームデザイナーは、最終的なアートを発注する前にカード案を形にします。できあがったカードの行き先はいろいろです。友人の顔と内輪ネタのわざが入ったカードは、机の上で何年も生き残ります。妙に具体的なパロディは、グループチャットで笑いが消えたあとも残ります。コピー機能を使えば、カードと一緒にこのページへのリンクも渡せます。記念日のカードも教室のごほうびカードも同じで、スクリーンショットより実物のほうが残ります。</p>
+          </article>
+          <article>
+            <h3>カード作りに役立つツール</h3>
+            <p>カードはたいてい、1回のプレイの締めくくりに作るものです。抽選、スクリーンショット、そして印刷できる記念品。カードの主役がまだ決まっていないときは、 <a href="../">Random Pokemon Generator</a> が全チームを抽選し、 <a href="../pokemon-team-picker/">パーティ編成</a> では、わざとせいかくまで決めた6匹のチームを組めます。カードにメガシンカを入れたいときは、 <a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a> がメガシンカだけを出します。</p>
+            <p>ひらめきが欲しいときは、 <a href="../random-pokemon-generator-wheel/">ポケモンルーレット</a> でカードの主役を引くか、 <a href="../whos-that-pokemon/">このポケモンだあれ？</a> に任せて、まずシルエットから当ててみるのも手です。チャレンジ縛りのカードなら、 <a href="../nuzlocke-generator/">ヌズロック編成</a> がルールを決め、そして <a href="../random-shiny-pokemon-generator/">ランダム色違い生成</a> が出すのは色違いだけのチーム。とにかくキラキラさせたい日にどうぞ。ミームなら、 <a href="../pokemon-smash-or-pass/">Smash or Pass</a> の判定ショットがよく合います。</p>
+            <p>フレーバーを添えたいときは、 <a href="../random-pokemon-name-generator/">ランダム名前生成</a> がオリジナルの生き物に名前をつけてくれます。ステータスに見合ったせいかくは、 <a href="../pokemon-nature-chart/">ポケモン性格表</a> が教えてくれます。もう一方のカード、トレーナーズカードは、このポケモンカードとセットになる形をポケモントレーナーズカードジェネレーターで作れます。手で選ぶなら、 <a href="../favorite-pokemon-of-each-type/">タイプ別お気に入り</a> の一覧が便利です。タイプごとにお気に入りを1匹ずつ残して、18タイプを1枚の画像にまとめて書き出せます。1クリックで済ませたい日は、 <a href="../random-pokemon-picker/">ランダム選出</a> が1,025種の中から1匹を引きます。TCGの発売日を知りたいときは、 <a href="../pokemon-release-dates/">ポケモン発売日</a> のページで今後のTCGセットを追えます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">ポケモンカードジェネレーター FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>ポケモンカードジェネレーターは有料ですか？</summary>
+        <p>料金はかかりません。登録もアカウントも透かしもなく、テンプレートの切り替え、写真のアップロード、リアルタイムのプレビュー、PNGのダウンロードはすべてツールに含まれています。写真は端末の外に出ません。保存や共有は、ご自分で選んだときだけです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>ポケモンカードに自分の写真を入れられますか？</summary>
+        <p>もちろんです。セルフィー、ペットの写真、イラスト、ロゴ、ミーム、どんな画像でもアップロードできます。エディタが自動でカード画像の枠に合わせて切り抜きます。公式イラストを使いたいときはポケモンをランダムに選ぶこともできますし、枠を空けておいてあとから埋めることもできます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>どんなカードスタイルとテンプレートがありますか？</summary>
+        <p>テンプレートは3種類。クラシックは黄色い基本セットの雰囲気、モダンは深みのあるスカーレット &amp; バイオレット期の枠。TCGポケットはアプリらしいすっきりとした角丸のスタイルです。その上にレアリティが4段階。ノーマル、銀の縁のレア、虹色の縁のキラ、そして画像がカード全体に広がるフルアートです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>このツールでトレーナーズカードは作れますか？</summary>
+        <p>いいえ、あえて分けています。トレーナーズカードは形が違うからです。上部にバッジの列と名前プレートがあり、HPとわざが入る場所には相棒のポケモンが入ります。専用のページ「ポケモントレーナーズカードジェネレーター」にまとめてあり、カードの種類の行からそのまま移動できます。向こうのページからもここへ戻れるので、揃ったセットを作るのも30分ほどで済みます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>エネルギーカードは作れますか？</summary>
+        <p>はい。カードの種類でエネルギーを選ぶと、ジェネレーターはエネルギーのレイアウトに切り替わります。選んだタイプの色で塗られたカードに、中央のエネルギーシンボルと、その下のタイプラベル。自作デッキにエネルギーを揃えるなら、これがいちばん早い方法です。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>作ったポケモンカードはどうやって保存しますか？</summary>
+        <p>「PNGをダウンロード」を押してください。カードは630 x 880で保存され、SNSやDiscord、プリントショップでも十分な解像度です。「カード文をコピー」を押すと、カードの説明とこのページへのリンクがまとめてコピーされます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>作ったカードは印刷できますか？</summary>
+        <p>はい。ダウンロードされるのは印刷向けのPNGで、トレカ標準の63 x 88 mm比率です。ご自宅で厚手の紙に印刷しても、印刷所に送ってもかまいません。個人利用、教育利用、ファン活動のためのツールで、印刷したものを販売する用途は想定していません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>作った内容は保存されますか？</summary>
+        <p>自動で保存されます。保存先はお使いのブラウザの中です。テンプレート、レアリティ、カードの文章、アップロードした写真は、すべてローカルストレージに入ります。再読み込みしても、翌日また来ても、カードは離れたときのまま戻ります。どこにも送信されません。ブラウザのデータを消せば、保存も一緒に消えます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>アップロードできる画像の形式は？</summary>
+        <p>PNG、JPEG、WebP、GIFの静止画に対応しています。写真アプリ、カメラ、Google Drive、Dropbox、Pinterest、印刷物を撮った写真など、どこからでもかまいません。画像は端末上でカード画像の枠に合わせて縮小されるので、大きな写真でもきれいに収まります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>スマートフォンでも使えますか？</summary>
+        <p>はい。画面が小さいとフォームが縦に積まれ、プレビューが上に来ます。ボタンも指で押せる大きさです。スマートフォンで作り始めて、あとからパソコンで仕上げることもできます。状態はローカルストレージに入っているので、作業はそのまま続きます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>これは公式のポケモン商品ですか？</summary>
+        <p>いいえ。このサイトは非公式のファンプロジェクトです。Nintendo、Game Freak、Creatures Inc.、The Pokemon Company とは関係がなく、提携や承認も受けていません。ポケモンおよびポケモンのキャラクター名は、それぞれの権利者の商標です。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>作ったカードは何に使えますか？</summary>
+        <p>友人写真を使った誕生日プレゼント、グループチャット用のミームカード、記念日の贈り物、教室のごほうびカード、ファンが考えたオリジナルキャラ、自作デッキ用のモックアップ。どれも個人的な用途のためのものです。個人利用と教育利用が対象で、商用利用は想定していません。</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator（非公式のファンプロジェクト）。Nintendo、Game Freak、Creatures Inc.、The Pokémon Company とは関係ありません。カードは個人利用、教育利用、ファン活動に限ります。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Copy fallback modal -->
+  <div class="modal-overlay" id="cg-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="cg-modal-title">
+      <h2 class="modal-title" id="cg-modal-title">手動でコピー</h2>
+      <div class="modal-body">
+        <p class="tool-note">ブラウザが自動コピーをブロックしました。下のテキストは選択済みです。Ctrl+C（または長押し）でコピーしてください。</p>
+        <textarea class="share-modal-text" id="cg-modal-text" readonly></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="cg-modal-close">閉じる</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../data.js?v=20261022d"></script>
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="card-generator.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

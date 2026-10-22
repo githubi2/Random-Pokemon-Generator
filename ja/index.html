@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ポケモン ランダム生成｜1,025匹から無料で抽選</title>
+  <meta name="description" content="ポケモン ランダム生成ツール。1,025匹からタイプ・世代・色違いなどで絞り込んで無料で抽選でき、パーティの相性や弱点もその場で分析します。ヌズロックやドラフトにも。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ポケモン ランダム生成｜1,025匹から無料で抽選" />
+  <meta property="og:description" content="1,025匹から無料で抽選。タイプ・世代・色違いで絞り込めるポケモン ランダム生成ツール。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ポケモン ランダム生成｜1,025匹から無料で抽選" />
+  <meta name="twitter:description" content="1,025匹から無料で抽選。タイプ・世代・色違いで絞り込めるポケモン ランダム生成ツール。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20261022m" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Random Pokemon Generator",
+ "description": "強力なフィルターでランダムなポケモンパーティを生成",
+ "applicationCategory": "GameApplication",
+ "url": "https://www.random-pokemon-generator.co/",
+ "operatingSystem": "すべて",
+ "browserRequirements": "JavaScript が必要です",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ }
+}
+</script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "ヌズロックの挑戦にも使えますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。世代、タイプ、進化段階、レア度で絞り込めば、ルールに沿ったエンカウント、倒された後の交代要員、最初の6匹のランダムパーティまで引けます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "どのポケモンが収録されていますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "第1世代から第9世代までの全種、1,025匹にリージョンフォルムや特殊なフォルムも加えて収録。公式イラスト、種族値、特性、進化データはPokeAPIから取得しています。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "引いたポケモンのパーティをそのまま共有できますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。「設定リンクをコピー」ボタンは、フィルターと今のパーティ（色違いも含む）を1つのURLにまとめます。開いた人はまったく同じポケモンを見られ、抽選履歴の各項目にも専用の共有ボタンがあります。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "引いた結果は保存されますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。生成したパーティはブラウザ内の抽選履歴に保存されます（最大20件）。ポケモンにカーソルを合わせれば詳細をプレビューでき、履歴をクリックすればそのときのパーティをそのまま復元できます。専用リンクでの共有も可能です。データはどこにも送信されず、追跡もされません。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "パーティの分析もしてくれますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。抽選のたびにチーム戦術レポートが出ます。S〜Dの評価、18タイプすべての防御チェック、タイプ一致技の攻撃範囲、平均種族値、メンバーごとの役割タグ（物理受け、タンク、スイーパーなど）、2匹が同じ弱点を持つ場合の警告リスト、それを補うヒントまで付いてきます。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="./" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="#generator" class="nav-link nav-link-active">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="./" class="nav-link nav-link-active">ポケモン ランダム生成</a></li>
+                  <li><a href="random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#how" class="nav-link">しくみ</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">第1〜9世代・1,025匹・強力なフィルター</p>
+      <h1 id="page-title">ポケモン ランダム生成ツール</h1>
+      <p class="lede">強力なフィルターでポケモンをランダム生成。引いたパーティはその場で採点されます。出てくるのはチーム評価、タイプ範囲、弱点の警告といった戦術レポート。ヌズロック、ドラフトリーグ、パーティ作りにどうぞ。</p>
+    </section>
+
+    <!-- Generator -->
+    <section id="generator" class="container" aria-label="ポケモン生成ツール">
+      <form class="panel cornered" id="generator-form" action="#generator" method="get">
+        <fieldset>
+          <legend>世代</legend>
+          <div class="btn-row" id="gen-buttons" role="group" aria-label="世代で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">第1世代</button><button type="button" class="chip-btn" aria-pressed="false">第2世代</button><button type="button" class="chip-btn" aria-pressed="false">第3世代</button><button type="button" class="chip-btn" aria-pressed="false">第4世代</button><button type="button" class="chip-btn" aria-pressed="false">第5世代</button><button type="button" class="chip-btn" aria-pressed="false">第6世代</button><button type="button" class="chip-btn" aria-pressed="false">第7世代</button><button type="button" class="chip-btn" aria-pressed="false">第8世代</button><button type="button" class="chip-btn" aria-pressed="false">第9世代</button></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>タイプ（いずれか）</legend>
+          <div class="btn-row" id="type-buttons" role="group" aria-label="タイプで絞り込む"><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#FF9D55;--chip-text:#121212">ほのお</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#6890F0;--chip-text:#fff">みず</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#78C850;--chip-text:#121212">くさ</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#F8D030;--chip-text:#121212">でんき</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#98D8D8;--chip-text:#121212">こおり</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#C03028;--chip-text:#fff">かくとう</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#A040A0;--chip-text:#fff">どく</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#E0C068;--chip-text:#121212">じめん</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#A890F0;--chip-text:#fff">ひこう</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#F85888;--chip-text:#fff">エスパー</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#A8B820;--chip-text:#121212">むし</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#B8A038;--chip-text:#fff">いわ</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#705898;--chip-text:#fff">ゴースト</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#705848;--chip-text:#fff">あく</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#7038F8;--chip-text:#fff">ドラゴン</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#B8B8D0;--chip-text:#121212">はがね</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#EE99AC;--chip-text:#121212">フェアリー</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip:#A8A878;--chip-text:#121212">ノーマル</button></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>匹数： <output id="count-output" for="count-slider">6</output></legend>
+          <input type="range" id="count-slider" min="1" max="12" value="6" step="1" aria-label="生成するポケモンの数" />
+        </fieldset>
+
+        <details class="advanced" id="advanced-details">
+          <summary>▸ 詳細フィルター（色違い・レア度・フォルム・進化段階・種族値・色）</summary>
+          <div class="advanced-grid">
+            <fieldset>
+              <legend>色違い</legend>
+              <div class="btn-row" id="shiny-buttons" role="group" aria-label="色違いモード"><button type="button" class="chip-btn" aria-pressed="true">ノーマル</button><button type="button" class="chip-btn" aria-pressed="false">色違い</button><button type="button" class="chip-btn" aria-pressed="false">ランダム</button></div>
+            </fieldset>
+
+            <fieldset>
+              <legend>レア度</legend>
+              <div class="select-row">
+                <label for="legendary-select">伝説のポケモン</label>
+                <select id="legendary-select">
+                  <option value="include">含める</option>
+                  <option value="exclude">除外</option>
+                  <option value="only">のみ</option>
+                </select>
+              </div>
+              <div class="select-row">
+                <label for="mythical-select">幻のポケモン</label>
+                <select id="mythical-select">
+                  <option value="include">含める</option>
+                  <option value="exclude">除外</option>
+                  <option value="only">のみ</option>
+                </select>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>フォルム</legend>
+              <div class="btn-row" id="form-buttons" role="group" aria-label="フォルムの絞り込み"><button type="button" class="chip-btn" aria-pressed="true">デフォルト</button><button type="button" class="chip-btn" aria-pressed="false">リージョン</button><button type="button" class="chip-btn" aria-pressed="false">すべてのフォルム</button></div>
+            </fieldset>
+
+            <fieldset>
+              <legend>進化段階</legend>
+              <div class="btn-row" id="stage-buttons" role="group" aria-label="進化段階の絞り込み"><button type="button" class="chip-btn" aria-pressed="true">すべて</button><button type="button" class="chip-btn" aria-pressed="false">初期値</button><button type="button" class="chip-btn" aria-pressed="false">中間進化</button><button type="button" class="chip-btn" aria-pressed="false">最終進化</button></div>
+            </fieldset>
+
+            <fieldset class="bst-fieldset">
+              <legend>種族値合計： <output id="bst-output">0 – 780</output></legend>
+              <div class="bst-sliders">
+                <label>最小 <input type="range" id="bst-min" min="0" max="780" value="0" step="10" aria-label="種族値合計の下限" /></label>
+                <label>最大 <input type="range" id="bst-max" min="0" max="780" value="780" step="10" aria-label="種族値合計の上限" /></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>生息地（暮らす場所）</legend>
+              <div class="btn-row" id="habit-buttons" role="group" aria-label="生息地で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">洞窟</button><button type="button" class="chip-btn" aria-pressed="false">森林</button><button type="button" class="chip-btn" aria-pressed="false">草原</button><button type="button" class="chip-btn" aria-pressed="false">山岳</button><button type="button" class="chip-btn" aria-pressed="false">レア</button><button type="button" class="chip-btn" aria-pressed="false">荒れ地</button><button type="button" class="chip-btn" aria-pressed="false">海</button><button type="button" class="chip-btn" aria-pressed="false">都市</button><button type="button" class="chip-btn" aria-pressed="false">水辺</button></div>
+              <p class="tool-note">生息地データは従来の図鑑（主に第1〜2世代）が対象です。生息地を選ぶと、その場所が設定されているポケモンだけに絞られます。</p>
+            </fieldset>
+
+            <fieldset>
+              <legend>図鑑の色</legend>
+              <div class="color-row" id="color-buttons" role="group" aria-label="図鑑の色で絞り込む"><button type="button" class="color-dot" title="赤" aria-label="赤で絞り込む" aria-pressed="false" style="background: rgb(227, 53, 13);"></button><button type="button" class="color-dot" title="青" aria-label="青で絞り込む" aria-pressed="false" style="background: rgb(42, 117, 187);"></button><button type="button" class="color-dot" title="黄" aria-label="黄で絞り込む" aria-pressed="false" style="background: rgb(255, 203, 5);"></button><button type="button" class="color-dot" title="緑" aria-label="緑で絞り込む" aria-pressed="false" style="background: rgb(79, 157, 79);"></button><button type="button" class="color-dot" title="黒" aria-label="黒で絞り込む" aria-pressed="false" style="background: rgb(18, 18, 18);"></button><button type="button" class="color-dot" title="茶" aria-label="茶で絞り込む" aria-pressed="false" style="background: rgb(139, 90, 43);"></button><button type="button" class="color-dot" title="紫" aria-label="紫で絞り込む" aria-pressed="false" style="background: rgb(142, 68, 173);"></button><button type="button" class="color-dot" title="灰" aria-label="灰で絞り込む" aria-pressed="false" style="background: rgb(154, 160, 166);"></button><button type="button" class="color-dot" title="白" aria-label="白で絞り込む" aria-pressed="false" style="background: rgb(245, 245, 245);"></button><button type="button" class="color-dot" title="桃" aria-label="桃で絞り込む" aria-pressed="false" style="background: rgb(244, 167, 195);"></button></div>
+            </fieldset>
+          </div>
+        </details>
+
+        <div class="actions">
+          <button type="button" id="generate-btn" class="btn-slide cornered btn-primary">
+            <span><i class="ico ico-dice-5" aria-hidden="true"></i> ポケモンをランダム生成</span>
+          </button>
+          <button type="button" id="copy-btn" class="btn-slide btn-secondary">
+            <span id="copy-label"><i class="ico ico-clipboard" aria-hidden="true"></i> 設定リンクをコピー</span>
+          </button>
+          <button type="button" id="reset-btn" class="btn-text">すべてリセット</button>
+          <span class="pool-count" id="pool-count" aria-live="polite">候補は1,025体</span>
+        </div>
+        <div class="tool-note-group">
+          <p class="tool-note"><i class="ico ico-dice-5" aria-hidden="true"></i> 生成 — 今のプールからランダムにパーティを引きます（既定は6匹、スライダーで変更）</p>
+          <p class="tool-note"><i class="ico ico-clipboard" aria-hidden="true"></i> 設定リンクをコピー — 今の絞り込みとパーティをそのまま開けるリンクを友達に渡せます</p>
+          <p class="tool-note">すべてリセット — フィルターを初期状態に戻します</p>
+        </div>
+      </form>
+
+      <div class="results" aria-live="polite">
+        <p class="results-hint"><i class="ico ico-lightbulb" aria-hidden="true"></i> ポケモンのカードをクリックすると、種族値や特性、そして進化の系統まで見られます。</p>
+        <p class="results-empty cornered-dashed" id="results-empty">押す <i class="ico ico-dice-5" aria-hidden="true"></i> 「ポケモンをランダム生成」でパーティを抽選。次に引くまで結果はそのまま残ります。</p>
+        <ul class="results-grid" id="results-grid"></ul>
+        <p class="results-meta" id="results-meta"></p>
+      </div>
+
+      <section class="analysis cornered" id="analysis-panel" aria-labelledby="analysis-title" hidden>
+        <div class="analysis-head">
+          <h2 class="analysis-title" id="analysis-title"><i class="ico ico-chart-column" aria-hidden="true"></i> チーム戦術レポート</h2>
+          <span class="grade-badge" id="analysis-grade">–</span>
+        </div>
+        <p class="analysis-summary" id="analysis-summary"></p>
+        <details class="analysis-details" id="analysis-details">
+          <summary>▶ タップでレポートを全部開く — 防御マトリクス・タイプ一致技の範囲・種族値・役割 & ヒント</summary>
+          <div id="analysis-body"></div>
+        </details>
+      </section>
+
+      <div class="history cornered" id="history-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title">抽選履歴</h2>
+          <button type="button" id="history-clear" class="btn-text">履歴を消す</button>
+        </div>
+        <p class="history-hint"><i class="ico ico-lightbulb" aria-hidden="true"></i> カーソルでプレビュー・クリックで種族値 & 進化データ・行をクリックするとそのパーティを復元</p>
+        <ol class="history-list" id="history-list"></ol>
+      </div>
+    </section>
+
+    <!-- Tool recommendations -->
+    <section class="container rec-section" aria-labelledby="rec-title">
+      <h2 id="rec-title" class="rec-title">こちらもおすすめ</h2>
+      <p class="rec-sub">同じ1,025匹の図鑑から使えるポケモンツールは、あとワンクリックで。</p>
+      <div class="rec-grid">
+        <a href="pokemon-type-chart/" class="rec-card cornered">
+          <span class="rec-emoji"><i class="ico ico-swords" aria-hidden="true"></i></span>
+          <span class="rec-name">タイプ相性表</span>
+          <span class="rec-desc">18タイプの相性表＋複合タイプのダメージ計算</span>
+        </a>
+        <a href="random-pokemon-type-generator/" class="rec-card cornered">
+          <span class="rec-emoji"><i class="ico ico-ferris-wheel" aria-hidden="true"></i></span>
+          <span class="rec-name">ランダムタイプ生成</span>
+          <span class="rec-desc">18タイプのホイールを回すか、2タイプの組み合わせを抽選——相性とレアな組み合わせ数も見られます</span>
+        </a>
+        <a href="pokemon-iv-calculator/" class="rec-card cornered">
+          <span class="rec-emoji"><i class="ico ico-target" aria-hidden="true"></i></span>
+          <span class="rec-name">個体値計算</span>
+          <span class="rec-desc">種族値の裏にある隠れた個体値の範囲を表示</span>
+        </a>
+        <a href="pokemon-team-picker/" class="rec-card cornered">
+          <span class="rec-emoji"><i class="ico ico-users" aria-hidden="true"></i></span>
+          <span class="rec-name">パーティ編成</span>
+          <span class="rec-desc">6匹のパーティを手動で組んで相性表をチェック</span>
+        </a>
+        <a href="pokemon-shiny-odds/" class="rec-card cornered">
+          <span class="rec-emoji"><i class="ico ico-sparkles" aria-hidden="true"></i></span>
+          <span class="rec-name">色違いの出現率</span>
+          <span class="rec-desc">1/8192から最大1/512まで、色違いの確率を全部</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">しくみ</p>
+        <h2 id="how-title">本気のプレイに応えるポケモン ランダム生成</h2>
+        <p class="how-intro">ヌズロック、ドラフトリーグ、ランダムバトル向けに作られています。このポケモン ランダム生成ツールは、ルール設定から戦術分析まで引き受けるパーティビルダーです。フィルターを決めてパーティを引けば、評価、タイプ範囲、弱点の警告、メンバーごとの役割タグがそろったレポートが返ってきます。他と違うのはこの4点です。</p>
+        <div class="how-grid">
+          <article>
+            <h3>ルールに沿って抽選</h3>
+            <p>抽選は第1〜9世代の1,025種すべてが対象で、重複はありません。ヌズロックのルールのようにフィルターを重ねられます。世代を固定する、伝説を禁止する、進化段階を限定する、色違いだけでリビング図鑑を埋める——使い方は自由です。</p>
+            <p>こんな場面でどうぞ： <a href="nuzlocke-generator/">ヌズロック攻略</a> を、3クリックで。遊んでいる地方に世代を合わせ（カントーなら第1世代、パルデアなら第9世代）、生成を押せば最初の6匹が決まります。ヌズロックの厳しいルールでは1ルートにつき1匹しか捕まえられないので、倒されたら同じフィルタープールに戻って1匹だけ引き直してください。進化段階を「初期」にすれば未進化のまま、クリア後なら「最終」でパーティを組めます。</p>
+            <p>気軽なランダムバトルなら、フィルターは外してOK。全プールから6匹引いて、出たものを受け入れましょう。友達と同時に引いて真剣勝負したいときは、種族値合計を400〜500のように決めておくとバランスが取れます。もっと速く、盛り上がる選び方がしたいなら、1匹ずつ判定していく <a href="pokemon-smash-or-pass/">Smash or Pass</a>、それとも <a href="random-pokemon-generator-wheel/">ポケモンルーレット</a> で運を委ねるのもありです。判定がひと段落したら、シルエットに隠れたポケモンの名前を当てる <a href="whos-that-pokemon/">このポケモンだあれ？</a> 当てっこゲーム。あの光る演出の裏にある実際の厳選を知りたいなら、ポケモン色違い確率のページで、基本の1/8192から最大1/512まで、計算機つきで解説しています。</p>
+          </article>
+          <article>
+            <h3>狙ったプールまで絞り込む</h3>
+            <p>10以上の条件を自由に組み合わせられます。18タイプ、9世代、種族値合計の範囲、ポケモン図鑑の色、リージョンフォルム、レア度、進化段階。プールのカウンターはその場で更新されるので、次の抽選が何匹から引けるのか常にわかります。</p>
+            <p>条件は自由に組み合わせて絞れます。カントー地方のチームにみずタイプが欲しいなら、第1世代とみずをオンにするだけ。候補はラプラスやギャラドスのあたりまで狭まります。伝説禁止のドラフトリーグなら、伝説のポケモンと幻を「除外」に切り替えれば、使えるポケモンだけが残ります。切り替えるたびにカウンターも更新されます。</p>
+            <p>対戦だけでなく、コレクション系の遊びでもフィルターが役立ちます。ポケモン図鑑の色で絞れば、色違いのリビング図鑑を色ごとに埋めていけます。レア度のプルダウンを「のみ」にすれば、幻のポケモンだけでテーマ縛りのバトルを組むことも可能です。色違いモードをランダム（各枠8%）にすれば、どのカードが光るかわからない色違い厳選風の抽選になります。逆に6匹を自分で決めたいときは、ポケモン チームピッカーで枠を手動で選んでください。組み立てている間もタイプ相性表はその場で更新されます。</p>
+          </article>
+          <article>
+            <h3>同じパーティを共有</h3>
+            <p>フィルターも、引いたパーティも、すべてURLの中にあります。このポケモン ランダム生成ツールの設定リンクをコピーすれば、友達やドラフトのライバル、配信のチャットに、色違い込みの同じ6匹がそのまま届きます。同じルールから自分用に引き直すこともできます。抽選結果は履歴に保存され、それぞれに共有リンクが付きます。</p>
+            <p>ここがソーシャルなパーティビルダーたる所以です。配信者やDiscordコミュニティは共有リンクをよく使います。配信でパーティを引いてチャットにリンクを貼れば、視聴者全員が同じフィルターで、色違い込みの同じ6匹を開けます。友達はあなたのルールで引き直して、チーム評価を見比べられます。ヌズロックのコミュニティでは、どのポケモンを捕まえたかの証拠としても機能します。どのフィルタープールで遊んでいたかまで残るからです。</p>
+            <p>抽選履歴（ブラウザ内に最大20件）があれば、どのパーティも1クリックで呼び出せます。ポケモンにカーソルを合わせて種族値を確認し、パーティをクリックすれば引いたときのまま復元。各パーティの共有ボタンからいつでも貼り直せます。</p>
+          </article>
+          <article>
+            <h3>すぐわかる戦術レポート</h3>
+            <p>パーティを引くたびに、戦術の内訳がすぐ出ます。S〜Dのチーム評価、18タイプの防御マトリクス、タイプ一致技の攻撃範囲、平均種族値、ポケモンごとの役割タグ、共通の弱点への警告と対策のヒント。このポケモン ランダム生成ツールは、選ぶだけでなく採点までします。</p>
+            <p>レポートは対戦勢の目で読みましょう。防御マトリクスは、18タイプそれぞれの攻撃に対して、パーティの何匹が弱点なのかを数えています。2匹以上そろった行は穴です。1匹の攻撃で崩されてしまいます。タイプ一致技の範囲表は、こちらの技がどの防御タイプに抜群を取れるかを示していて、グレーのチップは埋めておきたい盲点です。役割タグ（スイーパー、物理受け、タンク、速攻）を見れば偏りは一目でわかります。全員スイーパーで受けが1匹もいないなら、種族値合計の下限を上げて引き直すか、タイプフィルターで耐久型を呼び込みましょう。</p>
+            <p>引いてレポートを読む、を何度か繰り返すと、次の抽選で何を変えればいいかが見えてきます。平均すばやさが60を切るなら速いポケモンを、共通の弱点が増えてきたらゴーストかはがねを1匹足しましょう。</p>
+            <p>カードにはタイプ範囲も出ます。ポケモンをクリックすると、18タイプの相性表をもとに、何が弱点で、何に耐性があり、何が無効なのかが詳細カードに並びます。ジム用に1匹を確かめるときも、パーティの穴を1つ埋めるときも、この相性の行があれば理屈を2秒で読めます。コイン投げではなく6匹を完全に自分で決めたいなら、ポケモン チームピッカーで全枠を手動で選び、抽選する前に防御相性を確認できます。1匹だけでいいときは、 <a href="random-pokemon-picker/">ランダム選出</a> ならワンクリックで決着します。もう名前がわかっているなら、 <a href="search/">ポケモン検索</a> 同じ1,025匹の図鑑から、そのままジャンプできます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">よくある質問</h2>
+      <p class="faq-intro">
+        たとえば <strong>random pokemon generator</strong> または
+        <strong>ポケモン ランダム生成</strong>と検索してここに来たなら、まさに正解です。毎回の抽選は1,025種の全ポケモンから、そのつど独立してシャッフルして引いています。
+      </p>
+      <details class="faq-item cornered">
+        <summary>ヌズロックの挑戦にも使えますか？</summary>
+        <p>はい。世代、タイプ、進化段階、レア度で絞り込めば、ルールに沿ったエンカウント、倒された後の交代要員、最初の6匹のランダムパーティまで引けます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>どのポケモンが収録されていますか？</summary>
+        <p>第1世代から第9世代までの全種、1,025匹にリージョンフォルムや特殊なフォルムも加えて収録。公式イラスト、種族値、特性、進化データはPokeAPIから取得しています。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>引いたポケモンのパーティをそのまま共有できますか？</summary>
+        <p>はい。「設定リンクをコピー」ボタンは、フィルターと今のパーティ（色違いも含む）を1つのURLにまとめます。開いた人はまったく同じポケモンを見られ、抽選履歴の各項目にも専用の共有ボタンがあります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>引いた結果は保存されますか？</summary>
+        <p>はい。生成したパーティはブラウザ内の抽選履歴に保存されます（最大20件）。ポケモンにカーソルを合わせれば詳細をプレビューでき、履歴をクリックすればそのときのパーティをそのまま復元できます。専用リンクでの共有も可能です。データはどこにも送信されず、追跡もされません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>パーティの分析もしてくれますか？</summary>
+        <p>はい。抽選のたびにチーム戦術レポートが出ます。S〜Dの評価、18タイプすべての防御チェック、タイプ一致技の攻撃範囲、平均種族値、メンバーごとの役割タグ（物理受け、タンク、スイーパーなど）、2匹が同じ弱点を持つ場合の警告リスト、それを補うヒントまで付いてきます。</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="pokemon/">ポケモン図鑑</a></li>
+          <li><a href="blog/">ブログ</a></li>
+          <li><a href="privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+      <p class="footer-badges-title">掲載メディア</p>
+      <div class="footer-badges">
+        <a href="https://www.stork.ai/" target="_blank" rel="nofollow noopener" title="Featured on stork.ai" style="display:inline-block;text-decoration:none;"><img src="https://www.stork.ai/badge/verified-dark.svg" alt="Featured on stork.ai" width="216" height="44" loading="lazy" style="display:block;height:30px;width:auto;border:0;" /></a>
+        <a href="https://www.startupinspire.com" target="_blank" rel="nofollow noopener" style="display:inline-block;text-decoration:none;"><img src="https://www.startupinspire.com/images/badge_1.svg" alt="Featured on Startup Inspire" loading="lazy" style="display:block;height:30px;width:auto;border:0;" /></a>
+        <a href="https://productwatch.io/products/random-pokemon-generator?utm_source=badge" target="_blank" rel="nofollow noopener" style="display:inline-block;text-decoration:none;"><img src="https://productwatch.io/backend/api/v1/badge/featured?productId=8dbdecde-4fef-4744-a883-a9465e767d2f&amp;darkMode=false" alt="Featured on ProductWatch" loading="lazy" style="display:block;height:30px;width:auto;border:0;" /></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Detail modal -->
+  <div class="modal-overlay" id="modal" hidden>
+    <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="modal-name" id="modal-card">
+      <div class="modal-head">
+        <div>
+          <p class="modal-meta" id="modal-meta"></p>
+          <h3 id="modal-name"></h3>
+          <div class="chip-row" id="modal-types"></div>
+        </div>
+        <span class="modal-art"><span class="dex-aura" aria-hidden="true"></span><img id="modal-img" width="475" height="475" alt="" /></span>
+      </div>
+      <h4 class="modal-section">種族値 · 合計 <strong id="modal-bst"></strong></h4>
+      <dl class="stats" id="modal-stats"></dl>
+      <h4 class="modal-section">特性</h4>
+      <ul class="ability-list" id="modal-abilities"></ul>
+      <h4 class="modal-section">タイプ範囲</h4>
+      <div class="cov-wrap" id="modal-cov"></div>
+      <h4 class="modal-section">進化系統</h4>
+      <div class="evo-chain" id="modal-evo"></div>
+      <button type="button" class="btn-slide btn-secondary modal-close" id="modal-close"><span>閉じる（ESC）</span></button>
+    </div>
+  </div>
+
+  <script src="../data.js?v=20261022d"></script>
+  <script src="../nav.js?v=20261022m"></script>
+  <script src="names.js?v=20261022ja3"></script>
+  <script src="app.js?v=20261022ja3"></script>
+  <script src="../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

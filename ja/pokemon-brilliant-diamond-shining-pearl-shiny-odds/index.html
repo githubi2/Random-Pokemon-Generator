@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BDSP色違い確率｜ポケトレ連鎖・タマゴ計算ツール</title>
+  <meta name="description" content="ブリリアントダイヤモンド・シャイニングパールの色違い確率を解説。ポケトレの連鎖表を0から40まで、1 in 4,096から1 in 99まで、タマゴの確率とあわせて確認できます。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/pokemon-brilliant-diamond-shining-pearl-shiny-odds/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/pokemon-brilliant-diamond-shining-pearl-shiny-odds/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/pokemon-brilliant-diamond-shining-pearl-shiny-odds/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/pokemon-brilliant-diamond-shining-pearl-shiny-odds/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="BDSP色違い確率｜ポケトレ連鎖・タマゴ計算ツール" />
+  <meta property="og:description" content="ブリリアントダイヤモンド・シャイニングパールの色違い確率。ポケトレの連鎖表、タマゴの国際孵化、地下大洞窟のボーナス、そして自分の連鎖を計算できるツールです。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/pokemon-brilliant-diamond-shining-pearl-shiny-odds/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/pokemon-brilliant-diamond-shining-pearl-shiny-odds/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BDSP色違い確率｜ポケトレ連鎖・タマゴ計算ツール" />
+  <meta name="twitter:description" content="ブリリアントダイヤモンド・シャイニングパールの色違い確率。ポケトレの連鎖表、タマゴの国際孵化、地下大洞窟のボーナス、そして自分の連鎖を計算できるツールです。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/pokemon-brilliant-diamond-shining-pearl-shiny-odds/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <style>
+    /* page-scoped: stacked input rows inside the odds calculator panel */
+    .odds-n-label + .odds-n-label { margin-top: 12px; }
+    .btn-row + .btn-row { margin-top: 8px; }
+    .odds-chain-row { margin-top: 12px; }
+  </style>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Pokemon Brilliant Diamond & Shining Pearl Shiny Odds",
+ "description": "Interactive shiny odds calculator for Pokemon Brilliant Diamond and Shining Pearl: the full Poke Radar chain table from 0 to 40, egg and Masuda rates, Grand Underground Diglett bonuses and the charm's limits.",
+ "applicationCategory": "GameApplication",
+ "operatingSystem": "All",
+ "browserRequirements": "Requires JavaScript",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "url": "https://www.random-pokemon-generator.co/pokemon-brilliant-diamond-shining-pearl-shiny-odds/"
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "色違いの出現率",
+   "item": "https://www.random-pokemon-generator.co/pokemon-shiny-odds/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Pokemon Brilliant Diamond & Shining Pearl Shiny Odds",
+   "item": "https://www.random-pokemon-generator.co/pokemon-brilliant-diamond-shining-pearl-shiny-odds/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "ブリリアントダイヤモンド・シャイニングパールの色違い確率は？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "草むらと固定シンボルは1 in 4,096で、ひかるおまもりはどちらも変えません。主役の数字はポケトレです。連鎖を40まで維持すれば、光る草むら1か所あたり1 in 99。シリーズで最高のポケトレ確率です。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "ポケトレの連鎖はどう進みますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "流れはシンプルです。ポケトレを使って、揺れている草むらに入る。1回の使用で最大4か所まで出ます。エンカウントに成功するたびに連鎖が伸び、1か所あたりの確率も上がります。1回でも違うポケモンに入れば0に戻ります。しばらく草むらに入らずに50歩ほど歩くと、連鎖を残したまま草むらが引き直され、仕上がった連鎖を回すときの定番のやり方になります。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "BDSPでひかるおまもりは効きますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "タマゴにだけ効きます。リメイクの中でも特に不思議な仕様です。アイテムはあり、ポケトレ用の計算までコードに入っていますが、その値は一度も読まれません。野生、地下、ポケトレの草むらは、いずれもおまもりなしの確率で回っています。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "BDSPで伝説のポケモンを色違い狩りできますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ほとんどは可能です。やり方は昔ながらで、戦闘前にセーブし、戦闘に入り、色違いでなければリセット。ディアルガ、パルキア、ギラティナ、湖の3匹、Ramanas Park の面々がこの形です。色違いにならないのは、ふしぎなプレゼントを除けばミュウとジラーチだけです。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "BDSPのタマゴの色違い確率は？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ソード・シールドと同じ階段です。ふつうのタマゴが1 in 4,096、おまもりだけなら1 in 2,048、国際孵化で1 in 683、国際孵化＋おまもりで1 in 512。BDSPでおまもりが本当に効くのはタマゴだけなので、孵化するならポケトレは置いていきましょう。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "BDSPにはディグダのボーナスがありますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "あります。地下大洞窟にいるディグダとダグトリオがエネルギーを残していき、40ポイント集めると4分間のボーナスが発生します。その間は地下のエンカウントが倍になり、1 in 2,048になります。ひかるおまもりとは重複せず、ボーナスが回数を上書きします。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+
+  <!-- Structured data: WebSite -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#calculator" class="nav-link">計算ツール</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../pokemon-brilliant-diamond-shining-pearl-shiny-odds/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">ブリリアントダイヤモンド & シャイニングパール · レーダー連鎖 & タマゴ · 最高確率 1/99</p>
+      <h1 id="page-title">ポケモンBDSPの色違い確率</h1>
+      <p class="lede">ブリリアントダイヤモンド・シャイニングパールは、ひかるおまもりなしで発売された2作のリメイクで、その仕様もそのまま引き継いでいます。おまもりが効くのはタマゴだけで、狩りの主役は復活したポケトレです。連鎖表は1/4,096から、光る草むら1か所あたり1/99まで上がっていきます。以下の表はコミュニティのデータ解析に沿ったもので、計算ツールはシンオウ地方の4種類の狩りに対応しています。</p>
+    </section>
+
+    <!-- Calculator -->
+    <section class="container tool-panel" id="calculator" aria-label="Pokemon Brilliant Diamond &amp; Shining Pearl Shiny Odds calculator">
+      <div class="panel cornered">
+        <p class="tool-hint">ブリリアントダイヤモンド・シャイニングパール専用です。実際にやっている狩り（草むら、地下大洞窟、タマゴ、ポケトレの連鎖）を選ぶと、その方法の確率と平均的な狩りの長さが表示されます。主役はポケトレで、連鎖数を0〜40のどこかに設定すると、1か所あたりの確率がどう跳ね上がるかが見えます。</p>
+        <p class="tool-note">基本確率は1/4,096で、ひかるおまもりが効くのはタマゴだけ。野生、地下大洞窟、ポケトレの草むらではすべて無効です。ポケトレの計算は独自の表を使うので、下にまとめました。</p>
+
+      <fieldset>
+        <legend>選んだ狩り</legend>
+        <div class="btn-row" id="odds-boost-chips" role="group" aria-label="Choose your hunt type"><button type="button" class="chip-btn" aria-pressed="true">草むら</button><button type="button" class="chip-btn" aria-pressed="false">地下大洞窟</button><button type="button" class="chip-btn" aria-pressed="false">タマゴ</button><button type="button" class="chip-btn" aria-pressed="false">ポケトレ</button></div>
+        <div class="btn-row" id="odds-extra-chips" role="group" aria-label="Extra hunt options"></div>
+        <div class="odds-chain-row" id="odds-chain-row" hidden>
+          <label class="odds-n-label">ポケトレの連鎖数： <input type="number" id="odds-chain-input" min="0" max="40" value="40" step="1" aria-label="Poke Radar chain length" /></label>
+        </div>
+        <p class="tool-note" id="odds-boost-note"></p>
+      </fieldset>
+
+        <div class="odds-result-grid" aria-live="polite">
+          <div class="odds-result-card cornered">
+            <div class="odds-result-num" id="odds-fraction">4,096分の1</div>
+            <div class="odds-result-label">1回のエンカウントあたりの色違い確率</div>
+          </div>
+          <div class="odds-result-card cornered">
+            <div class="odds-result-num" id="odds-percent">0.0244%</div>
+            <div class="odds-result-label">割合で表示</div>
+          </div>
+          <div class="odds-result-card cornered">
+            <div class="odds-result-num" id="odds-expected">4,096</div>
+            <div class="odds-result-label">色違い1体あたりの平均エンカウント数</div>
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>狩りの所要時間</legend>
+          <label class="odds-n-label">予定エンカウント数： <input type="number" id="odds-n-input" min="1" max="1000000" value="1000" step="50" aria-label="予定している遭遇回数" /></label>
+          <p class="odds-n-result" id="odds-n-result"></p>
+          <label class="odds-n-label">1時間あたりのエンカウント数： <input type="number" id="odds-rate-input" min="1" max="100000" value="60" step="10" aria-label="1時間あたりの遭遇回数" /></label>
+          <p class="odds-n-result" id="odds-median"></p>
+          <p class="tool-note" id="odds-milestones"></p>
+        </fieldset>
+
+        <div class="actions">
+          <a href="../random-shiny-pokemon-generator/" class="btn-slide cornered btn-primary odds-cta"><span><i class="ico ico-sparkles" aria-hidden="true"></i> 今すぐ色違いを引いてみる — ランダム色違い生成</span></a>
+        </div>
+        <p class="tool-note">連鎖の計算はここまで。ジェネレーターは草むらをすっ飛ばして、色違いカラーのポケモンをその場で出してくれます。他の地方の同じ数字も、まとめページで確認できます。</p>
+      </div>
+    </section>
+
+    <!-- Rates -->
+    <section id="rates" class="container odds" aria-labelledby="rates-title">
+      <p class="eyebrow">リファレンス</p>
+      <h2 id="rates-title">ポケモン ブリリアントダイヤモンド・シャイニングパールの色違い確率</h2>
+      <p class="odds-lede">BDSPのリメイク仕様は3つに分かれます。野生、固定シンボル、ポケトレの草むらは、おまもりの助けなしで1/4,096。タマゴは現代の国際孵化の階段。そしてポケトレは独自の表を持っていて、きちんと連鎖を伸ばせば、DSのリメイクとは思えない確率が返ってきます。</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>狩り</th><th>色違い判定の回数</th><th>色違い確率</th><th>確率</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>野生（おまもりは無効）</td><td>1</td><td>4,096分の1</td><td>0.0244%</td></tr>
+            <tr><td>地下大洞窟のエンカウント</td><td>1</td><td>4,096分の1</td><td>0.0244%</td></tr>
+            <tr><td>地下大洞窟＋ディグダのボーナス</td><td>2</td><td>2,048分の1</td><td>0.0488%</td></tr>
+            <tr><td>固定シンボル（伝説も含む）</td><td>1</td><td>4,096分の1</td><td>0.0244%</td></tr>
+            <tr><td>タマゴ（ブーストなし）</td><td>1</td><td>4,096分の1</td><td>0.0244%</td></tr>
+            <tr><td>タマゴ＋ひかるおまもり</td><td>2</td><td>2,048分の1</td><td>0.0488%</td></tr>
+            <tr><td>タマゴ＋国際孵化</td><td>6</td><td>683分の1</td><td>0.1465%</td></tr>
+            <tr><td>タマゴ＋国際孵化＋おまもり</td><td>8</td><td>512分の1</td><td>0.1953%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tool-note">Aボタンで戦闘に入る固定シンボル（ボックスの伝説や幻も含む）は、おまもりの有無にかかわらず常に1/4,096です。救いは、シンオウ地方のほぼすべてのポケモンが色違いになり得ることで、色違いにならないのは作中で2匹だけです。</p>
+      <h3>ポケトレの連鎖表（0〜40）</h3>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>連鎖</th><th>光る草むらの確率</th><th>連鎖</th><th>光る草むらの確率</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>4,096分の1</td><td>21</td><td>1 in 1,771</td></tr>
+            <tr><td>1</td><td>1 in 3,855</td><td>22</td><td>1 in 1,724</td></tr>
+            <tr><td>2</td><td>1 in 3,640</td><td>23</td><td>1 in 1,680</td></tr>
+            <tr><td>3</td><td>1 in 3,449</td><td>24</td><td>1 in 1,638</td></tr>
+            <tr><td>4</td><td>1 in 3,277</td><td>25</td><td>1 in 1,598</td></tr>
+            <tr><td>5</td><td>1 in 3,121</td><td>26</td><td>1 in 1,560</td></tr>
+            <tr><td>6</td><td>1 in 2,979</td><td>27</td><td>1 in 1,524</td></tr>
+            <tr><td>7</td><td>1 in 2,849</td><td>28</td><td>1 in 1,489</td></tr>
+            <tr><td>8</td><td>1 in 2,731</td><td>29</td><td>1 in 1,456</td></tr>
+            <tr><td>9</td><td>1 in 2,621</td><td>30</td><td>1 in 1,310</td></tr>
+            <tr><td>10</td><td>1 in 2,521</td><td>31</td><td>1 in 1,285</td></tr>
+            <tr><td>11</td><td>1 in 2,427</td><td>32</td><td>1 in 1,260</td></tr>
+            <tr><td>12</td><td>1 in 2,341</td><td>33</td><td>1 in 1,236</td></tr>
+            <tr><td>13</td><td>1 in 2,259</td><td>34</td><td>1 in 1,213</td></tr>
+            <tr><td>14</td><td>1 in 2,185</td><td>35</td><td>1 in 1,192</td></tr>
+            <tr><td>15</td><td>1 in 2,114</td><td>36</td><td>1 in 993</td></tr>
+            <tr><td>16</td><td>2,048分の1</td><td>37</td><td>1 in 799</td></tr>
+            <tr><td>17</td><td>1 in 1,986</td><td>38</td><td>1 in 400</td></tr>
+            <tr><td>18</td><td>1 in 1,927</td><td>39</td><td>1 in 200</td></tr>
+            <tr><td>19</td><td>1 in 1,872</td><td>40</td><td>1 in 99</td></tr>
+            <tr><td>20</td><td>1 in 1,820</td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tool-note">各連鎖数での1か所あたりの確率で、データ解析そのままの数字です。上位数段の曲線が急なのは、連鎖が切れるのが小さな惨事とされる理由でもあります。36で抜けてしまうと、長く慎重に積み直さないと戻らない確率を失うことになります。</p>
+    </section>
+
+    <!-- Mechanics -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">仕様</p>
+        <h2 id="how-title">BDSPで色違い確率はどう動くか</h2>
+        <p class="odds-lede">シンオウ地方で重要なルートは3つあります。ポケトレ、タマゴ（育て屋）、そして固定シンボル狩りです。どれも現代の作品とは挙動が違います。</p>
+        <div class="how-grid">
+          <article>
+            <h3>ポケトレ：連鎖がすべて</h3>
+            <p>仕組みはDS版とほぼ同じです。背の高い草むらでポケトレを使い、揺れている草むらに入ります。1回の使用で最大4か所まで出現し、安全なのは自分のキャラクターからいちばん遠く、他の草むらから離れた1か所です。エンカウントに成功するたびに連鎖が伸び、連鎖数が1か所あたりの確率を決めます。曲線は上で急激に跳ね、連鎖20で1 in 1,820、連鎖36で1,000を切り、連鎖40で1 in 99に届きます。草むらに入らずに50歩あるくと、連鎖を保ったまま草むらの配置が引き直されるので、仕上げた連鎖はリスクを取らずに回し続けられます。コードに残った影のような仕様もひとつあります。ゲームはおまもりを反映したポケトレ確率まで計算しているのに、それを一度も使いません。</p>
+          </article>
+          <article>
+            <h3>ほぼ効かないひかるおまもり</h3>
+            <p>BDSPはダイヤモンド・パールの「おまもりなし」をそのまま受け継ぎました。アイテムは存在しますが、配線がつながっているのはタマゴだけです。草むらでも、洞窟でも、固定シンボルでも、地下大洞窟でも、ポケトレの草むらでも、おまもりは何も変えません。つまりここでの全力狩りは、2006年とまったく同じ速さです。唯一効くタマゴはソード・シールドと同じ挙動で、国際孵化で1/683、おまもりを足して1/512です。</p>
+          </article>
+          <article>
+            <h3>固定シンボル狩りは今も寛容</h3>
+            <p>BDSPが返してくれるのは希少さのほうです。作中で色違いにならないのは、ソノオタウンで配られるミュウとジラーチだけ。それ以外の見せ場はすべて昔ながらの方法で狩れます。目の前でセーブし、戦闘に入り、光らなければリセット。ディアルガ、パルキア、ギラティナ、湖の3匹、ヒードラン、そして Ramanas Park の面々も同じ方法で、イベント系の幻（ダークライ、シェイミ、アルセウス）も、対応するアイテムが手元にあれば同じように狙えます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shiny locks -->
+    <section id="locked" class="container odds" aria-labelledby="locked-title">
+      <p class="eyebrow">レア度</p>
+      <h2 id="locked-title">ブリリアントダイヤモンド・シャイニングパールで色違いにならないポケモン</h2>
+      <p class="odds-lede">短いリストです。他のソフトのセーブデータと引き換えにソノオタウンで配られるミュウとジラーチ、そしてふしぎなプレゼントで受け取るポケモン。それ以外にロックはなく、ボックスの伝説にも、Ramanas Park にも、イベントの幻にもありません。おまもりが効かないことと並べて読むと、この取引はほとんど意図的に見えます。ほぼ何も塞がれていないかわりに、ほぼ何も速くならない、というわけです。</p>
+    </section>
+
+    <!-- Milestones -->
+    <section id="milestones" class="container odds" aria-labelledby="milestones-title">
+      <p class="eyebrow">実際の目安</p>
+      <h2 id="milestones-title">シンオウの狩りはどれくらいかかる？</h2>
+      <p class="odds-lede">ポケトレの確率は1回のエンカウントではなく1か所あたりなので、素の回数だけでは連鎖狩りの速さを見誤ります。それでも各行は目安として、中央値と99%到達までの回数を各確率に添えています。</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>あなたの色違い確率</th><th>中央値（50%）</th><th>99%の人がここまでに</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1 in 4,096（野生・固定シンボル・連鎖0）</td><td>2,839回のエンカウント</td><td>18,861回のエンカウント</td></tr>
+            <tr><td>1 in 993（ポケトレ連鎖36）</td><td>688回</td><td>4,571回</td></tr>
+            <tr><td>1 in 400（ポケトレ連鎖38）</td><td>277回</td><td>1,840回</td></tr>
+            <tr><td>1 in 99（ポケトレ連鎖40）</td><td>69回</td><td>454回</td></tr>
+            <tr><td>1 in 512（国際孵化のタマゴ＋おまもり）</td><td>355回のエンカウント</td><td>2,358回</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tool-note">慣れたポケトレ使いなら、50歩リセットのあと数秒ごとに草むらのまとまりを確認するので、確率の数字が近く見えても、連鎖40のセッションのほうが普通の草むら狩りより速く進みます。上の計算ツールは、あなたのペースで同じ計算をしてくれます。</p>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">ポケモン ブリリアントダイヤモンド &amp; シャイニングパールの色違い確率FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>ブリリアントダイヤモンド・シャイニングパールの色違い確率は？</summary>
+        <p>草むらと固定シンボルは1 in 4,096で、ひかるおまもりはどちらも変えません。主役の数字はポケトレです。連鎖を40まで維持すれば、光る草むら1か所あたり1 in 99。シリーズで最高のポケトレ確率です。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>ポケトレの連鎖はどう進みますか？</summary>
+        <p>流れはシンプルです。ポケトレを使って、揺れている草むらに入る。1回の使用で最大4か所まで出ます。エンカウントに成功するたびに連鎖が伸び、1か所あたりの確率も上がります。1回でも違うポケモンに入れば0に戻ります。しばらく草むらに入らずに50歩ほど歩くと、連鎖を残したまま草むらが引き直され、仕上がった連鎖を回すときの定番のやり方になります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>BDSPでひかるおまもりは効きますか？</summary>
+        <p>タマゴにだけ効きます。リメイクの中でも特に不思議な仕様です。アイテムはあり、ポケトレ用の計算までコードに入っていますが、その値は一度も読まれません。野生、地下、ポケトレの草むらは、いずれもおまもりなしの確率で回っています。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>BDSPで伝説のポケモンを色違い狩りできますか？</summary>
+        <p>ほとんどは可能です。やり方は昔ながらで、戦闘前にセーブし、戦闘に入り、色違いでなければリセット。ディアルガ、パルキア、ギラティナ、湖の3匹、Ramanas Park の面々がこの形です。色違いにならないのは、ふしぎなプレゼントを除けばミュウとジラーチだけです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>BDSPのタマゴの色違い確率は？</summary>
+        <p>ソード・シールドと同じ階段です。ふつうのタマゴが1 in 4,096、おまもりだけなら1 in 2,048、国際孵化で1 in 683、国際孵化＋おまもりで1 in 512。BDSPでおまもりが本当に効くのはタマゴだけなので、孵化するならポケトレは置いていきましょう。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>BDSPにはディグダのボーナスがありますか？</summary>
+        <p>あります。地下大洞窟にいるディグダとダグトリオがエネルギーを残していき、40ポイント集めると4分間のボーナスが発生します。その間は地下のエンカウントが倍になり、1 in 2,048になります。ひかるおまもりとは重複せず、ボーナスが回数を上書きします。</p>
+      </details>
+    </section>
+
+    <!-- More links -->
+    <section id="more" class="container odds" aria-label="さらに見る">
+      <div class="how-grid toolkit-grid">
+          <article>
+            <h3>となりの作品と照らし合わせる</h3>
+            <p>この <a href="../pokemon-legends-arceus-shiny-odds/">ポケモン LEGENDS アルセウスの色違い確率</a> ページでは、同じ解析コミュニティがヒスイの大発生の確率をどうまとめたかが分かります。 <a href="../pokemon-sword-shield-shiny-odds/">ソード・シールドの色違い確率</a> ページは、BDSPが第8世代から受け継いだ国際孵化とレイドの数字を扱っています。そして <a href="../pokemon-legends-z-a-shiny-odds/">ポケモン LEGENDS Z-A の色違い確率</a> では、最新作が同じ積み上げの考え方をどこまで推し進めたかを見られます。 <a href="../pokemon-shiny-odds/">色違いの出現率</a> まとめページでは、全作品を1つの計算ツールで確認できます。ROMハックはこの表の外側にあり、 <a href="../pokemon-radical-red-shiny-odds/">ポケモン Radical Red の色違い確率</a> が最も分かりやすい例です。v4.1 の変更履歴で基本確率が1 in 2,048に倍増し、ここに載せた公式作品をすべて上回っています。</p>
+          </article>
+          <article>
+            <h3>狙う相手とパーティ</h3>
+            <p>連鎖を回していて、次のターゲットが欲しい。そんなときは、 <a href="../random-pokemon-picker/">ランダム選出</a> が次の狩りの相棒をランダムで選び、 <a href="../pokemon-team-picker/">パーティ編成</a> は色違いが決まったら6匹のパーティを組み上げます。もう待てないなら、上のジェネレーターが完成した色違いを配ってくれます。</p>
+          </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">確率はゲーム内の仕様に関する資料をもとにまとめています。ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="bdsp-odds.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

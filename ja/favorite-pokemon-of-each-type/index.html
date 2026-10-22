@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>タイプ別お気に入りポケモン｜18匹を選んでPNG保存</title>
+  <meta name="description" content="18タイプそれぞれのお気に入りを1匹ずつ選んで、トレーナー名入りのグリッドをPNGで保存・共有できます。登録は不要です。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/favorite-pokemon-of-each-type/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/favorite-pokemon-of-each-type/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/favorite-pokemon-of-each-type/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/favorite-pokemon-of-each-type/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="タイプ別お気に入りポケモン｜18匹を選んでPNG保存" />
+  <meta property="og:description" content="18タイプそれぞれのお気に入りを1匹ずつ選んで、トレーナー名入りのグリッドをPNGで保存・共有できます。登録は不要です。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/favorite-pokemon-of-each-type/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/favorite-pokemon-of-each-type/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="タイプ別お気に入りポケモン｜18匹を選んでPNG保存" />
+  <meta name="twitter:description" content="18タイプそれぞれのお気に入りを1匹ずつ選んで、トレーナー名入りのグリッドをPNGで保存・共有できます。登録は不要です。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/favorite-pokemon-of-each-type/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <style>
+    /* page-scoped: 18-slot grid, picker pool, trainer name row */
+    .fet-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 16px 0 4px; }
+    .fet-slot { position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 10px 8px 8px; min-height: 148px; background: #fff; border: 2px dashed rgba(18, 18, 18, 0.28); border-radius: 12px; cursor: pointer; font: inherit; color: inherit; text-align: center; }
+    .fet-slot:hover { border-color: var(--ink); }
+    .fet-slot.filled { border-style: solid; border-color: var(--ink); }
+    .fet-slot .fet-tag { font-size: 12px; font-weight: 800; letter-spacing: 0.06em;  color: var(--ink); border-radius: 999px; padding: 3px 10px; }
+    .fet-slot img { width: 76px; height: 76px; object-fit: contain; }
+    .fet-slot .fet-name { font-size: 12.5px; font-weight: 700; line-height: 1.25; }
+    .fet-slot .fet-empty { font-size: 12.5px; color: rgba(18, 18, 18, 0.5); margin-top: 20px; }
+    .fet-slot.active { outline: 3px solid var(--ink); outline-offset: 2px; }
+    .fet-name-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .fet-name-row label { font-size: 13.5px; font-weight: 700; }
+    .fet-name-row input { flex: 1 1 200px; max-width: 320px; }
+    .fet-pool { display: grid; grid-template-columns: repeat(auto-fill, minmax(98px, 1fr)); gap: 8px; max-height: 52vh; overflow: auto; padding: 4px 2px; margin-top: 10px; }
+    .fet-item { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 4px; background: #fff; border: 1px solid rgba(18, 18, 18, 0.18); border-radius: 10px; cursor: pointer; font: inherit; color: inherit; }
+    .fet-item:hover { border-color: var(--ink); }
+    .fet-item img { width: 64px; height: 64px; object-fit: contain; }
+    .fet-item .fet-item-name { font-size: 12px; font-weight: 700; line-height: 1.2; text-align: center; word-break: break-word; }
+    .fet-item.current { border: 1px solid var(--line-2); }
+    .fet-item.used { opacity: 0.55; }
+    #fet-modal .modal-title, #share-modal .modal-title { font-size: 22px; font-weight: 900; margin: 6px 0 10px; }
+    #fet-modal .tp-input { width: 100%; }
+    @media (max-width: 980px) { .fet-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+    @media (max-width: 620px) { .fet-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .fet-slot { min-height: 132px; } }
+  </style>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "タイプ別お気に入り",
+ "description": "An 18-slot grid for picking one favorite Pokemon per type, with a downloadable 1080 x 1080 PNG grid and share links.",
+ "applicationCategory": "GameApplication",
+ "operatingSystem": "All",
+ "browserRequirements": "Requires JavaScript",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "url": "https://www.random-pokemon-generator.co/favorite-pokemon-of-each-type/"
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "タイプ別お気に入り",
+   "item": "https://www.random-pokemon-generator.co/favorite-pokemon-of-each-type/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "タイプ別お気に入りポケモンリストとは何ですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "相性表のすべてのタイプについて1匹ずつ選ぶリストです。それぞれのタイプから1匹しか出せないとしたら残したい、その1匹です。18の答えはトレーナーの署名になります。ベスト10よりずっと、あなたの好みを語ってくれます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "何匹選ぶ必要がありますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "18匹、1枠に1匹です。複合タイプのポケモンは、両方のタイプでいちばん好きなら両方の答えになれます。なので完成したグリッドに同じ種が2回出ることもあります。それはルールであって、不具合ではありません。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "18タイプすべてを埋める必要はありますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "いいえ。グリッドは埋めたところまでで保存され、空の枠はタイプ名つきの破線で表示されるので、途中の表でも意図して作ったように見えます。使わないタイプで詰まったら、ランダムで埋める機能がそのタイプの候補から空きを埋めます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "選んだあとに変更できますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "いつでもできます。枠をもう一度開いて別のポケモンを選べば、前の選択は脇に退き、ほかの枠はそのままです。ダウンロードするまで確定はしません。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "タイプ別お気に入りを画像としてダウンロードするには？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "「PNGをダウンロード」を押してください。グリッドは1080 x 1080で描かれ、正方形なのでX、Instagram、Discordのスレッドに切り取られずに投稿できます。ファイルは端末内で生成され、白紙のテンプレートではなく、あなたの選択が入った状態です。アップロードはなく、アカウントも関係ありません。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "18のお気に入りを人に共有できますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "「お気に入りをコピー」を押すと、あなたの選択とトレーナー名をそのまま再現するリンクが得られます。どの端末でも開けます。友達はそれを開いてあなたのグリッドを見ることも、消して自分のリストを作ることもできます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "このツールは無料ですか？アカウントは必要ですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "無料で、アカウントも不要です。グリッド、PNGのダウンロード、共有リンクはすべてブラウザで動きます。だからこそ、リンクを送るか画像を保存するまで、選択はあなたの端末に残ります。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "これは公式のポケモンサイトですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "いいえ。これは非公式のファンプロジェクトで、任天堂、ゲームフリーク、クリーチャーズ、株式会社ポケモンとは一切関係ありません。ポケモンおよびポケモンのキャラクター名は、それぞれの権利者の商標です。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#how" class="nav-link">しくみ</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../favorite-pokemon-of-each-type/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">18タイプ · 1,025匹 · PNGグリッド · 登録不要</p>
+      <h1 id="page-title">タイプ別お気に入りポケモン</h1>
+      <p class="lede">18の枠に、それぞれ1つの問い。タイプごとにいちばん好きなポケモンはどれですか？　ほのお、みず、ゴーストなど、相性表のすべてのタイプで自分の一押しを選び、カードに入れたい場合はトレーナー名を加えて、完成したグリッドを1枚のPNGとしてダウンロードできます。アカウントもアップロードも不要。選んだ内容は、どこかへ持ち出すまでこのブラウザに残ります。</p>
+    </section>
+
+    <!-- Tool -->
+    <section class="container tool-panel" id="tool" aria-label="タイプ別お気に入りポケモン一覧ツール">
+      <div class="panel cornered">
+        <p class="tool-hint">タイプの枠をクリックし、そのタイプのお気に入りを1匹選ぶと、グリッドが数を数えます。埋めたいところだけ埋めてください。空の枠はそのままでも構いませんし、ランダムで埋めてしまうこともできます。</p>
+
+        <div class="fet-grid" id="fet-grid" role="group" aria-label="18タイプの枠"></div>
+
+        <div class="actions">
+          <button type="button" id="fet-fill" class="btn-slide cornered btn-secondary">
+            <span><i class="ico ico-dice-5" aria-hidden="true"></i> 残りをランダムで埋める</span>
+          </button>
+          <button type="button" id="fet-download" class="btn-slide cornered btn-primary">
+            <span><i class="ico ico-download" aria-hidden="true"></i> PNGをダウンロード</span>
+          </button>
+          <button type="button" id="fet-copy" class="btn-slide cornered btn-secondary">
+            <span><i class="ico ico-clipboard" aria-hidden="true"></i> お気に入りをコピー</span>
+          </button>
+          <button type="button" id="fet-reset" class="btn-text">すべてリセット</button>
+          <span class="pool-count" id="fet-count" aria-live="polite">選択 0 / 18</span>
+        </div>
+
+        <div class="fet-name-row">
+          <label for="fet-name">トレーナー名（任意 — グリッドに表示されます）</label>
+          <input type="text" id="fet-name" class="tp-input" maxlength="24" placeholder="例：赤" autocomplete="off" />
+        </div>
+
+        <div class="tool-note-group">
+          <p class="tool-note"><i class="ico ico-dice-5" aria-hidden="true"></i> 残りをランダムで埋める — 空いた枠を、そのタイプの候補からすべて埋めます。</p>
+          <p class="tool-note"><i class="ico ico-download" aria-hidden="true"></i> PNGをダウンロード — グリッド全体を1080 x 1080の1枚の画像として保存します。投稿やチャットにそのまま使えます。</p>
+          <p class="tool-note"><i class="ico ico-clipboard" aria-hidden="true"></i> お気に入りをコピー — 18の選択とトレーナー名を復元するリンクをコピーします。</p>
+        </div>
+        <p class="tool-note" id="fet-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">しくみ</p>
+        <h2 id="how-title">タイプ別のお気に入りポケモンの選び方</h2>
+        <p class="odds-lede">ルールは短いです。タイプごとに1匹、枠は18、不正解はありません。選ぶ・埋める・ダウンロードする、そしてこのリストがブラウザを出たあとどこへ行くのかまで、すべて説明します。</p>
+        <div class="how-grid">
+          <article>
+            <h3>1タイプ1匹、合計18匹</h3>
+            <p>答えがすぐ浮かぶところから始めましょう。枠をクリックします。みずでもほのおでも、自信のあるタイプで構いません。そのタイプの全リストが開き、図鑑からそのタイプを持つポケモンが、有名どころから、あなたしか覚えていないような1匹まで並びます。1匹選ぶと、そのアートワークとともに枠が確定し、ボタンの横のカウンターが残りの数を数えます。候補はタイプに忠実です。みずは192件でもっとも多く、こおりは69件でもっとも少なく、メガシンカやリージョンフォームといった別フォルムも、属するタイプのところで数えられます。</p>
+            <p>クリックした内容はすべてすぐブラウザに保存されるので、再読み込みで判断が消えることはありません。ログインも制限時間もありません。グリッドは待っていてくれますし、難しいタイプを空けたまま明日戻ってくることもできます。</p>
+          </article>
+          <article>
+            <h3>スクリーンショットよりグリッドが優れる理由</h3>
+            <p>この問いに答えるとき、よくあるのは18の名前を投稿に打ち込んで、書式が崩れないことを祈る方法です。文字リストのスクリーンショットはスマホのスレッドでぼやけ、打ち直せば誤字が紛れ込みます。そしてお気に入りリストの誤字は、まさに口論の始まりです。このページはその代わりに、すぐ投稿できるテンプレートを渡します。タイプ順に並んだ1080 x 1080のPNGで、トレーナー名を入れておけば上部に載ります。</p>
+            <p>みんながグループチャットやSNSに貼っているのと同じ形式ですが、最初から整っていて、どんな大きさでも読め、改行で枠が消えることもありません。一度ダウンロードすれば、投稿しても、印刷しても、自分の好みの記録として残しても自由です。</p>
+          </article>
+          <article>
+            <h3>複合タイプのお気に入りの扱い</h3>
+            <p>2つのタイプを持つポケモンはたくさんいて、グリッドはその事実に逆らわず組み立てられています。各枠のリストには、そのタイプを持つものがすべて並びます。1つ目のタイプでも2つ目のタイプでも同じなので、ほのおの候補にはほのお・じめんやほのお・ひこうも自然に入ります。同じポケモンが両方のタイプで本当にいちばん好きなら、両方の枠に入れてください。表としては「タイプごとに1匹」のままで、その種が属するところで答えになることは許されています。</p>
+            <p>これはサイトのほかのツールのタイプの扱いとも一致します。ランダムポケモンピッカーの「タイプ（いずれか）」フィルターも複合タイプを同じように読むので、2つのページが食い違うことはありません。</p>
+          </article>
+          <article>
+            <h3>18のお気に入りの使い道</h3>
+            <p>こうしたリストは見せるためにあります。プロフィール画像、固定投稿、Discordサーバーでのあいさつ、あるいはどのみずタイプが枠にふさわしいかをめぐる議論の一手として使えます。ダウンロード前にトレーナー名を入れておけば、カードのようにあなたの署名が入ります。</p>
+            <p>そして作り方を聞かれたら、共有リンクが相手の画面にあなたの18匹をそのまま再現します。相手はそこから始めてもいいですし、1枠だけ反論してもいいですし、全部消して自分のリストを一から作っても構いません。</p>
+          </article>
+          <article>
+            <h3>お気に入りから先へ進む</h3>
+            <p>あなたのグリッドは好みのスナップショットであり、サイトのほかのツールへの良い出発点でもあります。選んだ1匹を印刷できるカードにしたいなら <a href="../pokemon-card-generator/">ポケモンカード作成</a>。18匹を並べて、どの6匹が実際にパーティとしてまとまるかを見たいなら <a href="../pokemon-team-picker/">パーティ編成</a>で確かめましょう。運に任せて枠を決めたいときは、 <a href="../random-pokemon-picker/">ランダム選出</a> が1タップで引いてくれます。</p>
+            <p>タイプに興味があるなら、あと2ページあります。まず <a href="../pokemon-type-chart/">タイプ相性表</a> が18タイプの相性マトリクスを全部載せていて、 <a href="../pokemon/">ポケモン図鑑</a> には全種のページがあります。2匹が並んで決められないとき、最後は数値に決めてもらうのに便利です。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">タイプ別お気に入りポケモン よくある質問</h2>
+      <details class="faq-item cornered">
+        <summary>タイプ別お気に入りポケモンリストとは何ですか？</summary>
+        <p>相性表のすべてのタイプについて1匹ずつ選ぶリストです。それぞれのタイプから1匹しか出せないとしたら残したい、その1匹です。18の答えはトレーナーの署名になります。ベスト10よりずっと、あなたの好みを語ってくれます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>何匹選ぶ必要がありますか？</summary>
+        <p>18匹、1枠に1匹です。複合タイプのポケモンは、両方のタイプでいちばん好きなら両方の答えになれます。なので完成したグリッドに同じ種が2回出ることもあります。それはルールであって、不具合ではありません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>18タイプすべてを埋める必要はありますか？</summary>
+        <p>いいえ。グリッドは埋めたところまでで保存され、空の枠はタイプ名つきの破線で表示されるので、途中の表でも意図して作ったように見えます。使わないタイプで詰まったら、ランダムで埋める機能がそのタイプの候補から空きを埋めます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>選んだあとに変更できますか？</summary>
+        <p>いつでもできます。枠をもう一度開いて別のポケモンを選べば、前の選択は脇に退き、ほかの枠はそのままです。ダウンロードするまで確定はしません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>タイプ別お気に入りを画像としてダウンロードするには？</summary>
+        <p>「PNGをダウンロード」を押してください。グリッドは1080 x 1080で描かれ、正方形なのでX、Instagram、Discordのスレッドに切り取られずに投稿できます。ファイルは端末内で生成され、白紙のテンプレートではなく、あなたの選択が入った状態です。アップロードはなく、アカウントも関係ありません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>18のお気に入りを人に共有できますか？</summary>
+        <p>「お気に入りをコピー」を押すと、あなたの選択とトレーナー名をそのまま再現するリンクが得られます。どの端末でも開けます。友達はそれを開いてあなたのグリッドを見ることも、消して自分のリストを作ることもできます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>このツールは無料ですか？アカウントは必要ですか？</summary>
+        <p>無料で、アカウントも不要です。グリッド、PNGのダウンロード、共有リンクはすべてブラウザで動きます。だからこそ、リンクを送るか画像を保存するまで、選択はあなたの端末に残ります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>これは公式のポケモンサイトですか？</summary>
+        <p>いいえ。これは非公式のファンプロジェクトで、任天堂、ゲームフリーク、クリーチャーズ、株式会社ポケモンとは一切関係ありません。ポケモンおよびポケモンのキャラクター名は、それぞれの権利者の商標です。</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Slot picker modal -->
+  <div class="modal-overlay" id="fet-modal" hidden>
+    <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="fet-modal-title">
+      <p class="eyebrow">お気に入りを選ぶ</p>
+      <h2 class="modal-title" id="fet-modal-title">ポケモンを選ぶ</h2>
+      <div class="modal-body">
+        <input type="search" id="fet-search" class="tp-input" placeholder="このタイプの一覧を検索..." aria-label="タイプ別の候補を検索" autocomplete="off" />
+        <div class="fet-pool" id="fet-pool"></div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-slide btn-secondary" id="fet-clear"><span>この枠をクリア</span></button>
+        <button type="button" class="btn-slide btn-secondary" id="fet-close"><span>閉じる</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copy-manually fallback modal -->
+  <div class="modal-overlay" id="share-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="share-modal-title">
+      <h2 class="modal-title" id="share-modal-title">手動でコピー</h2>
+      <div class="modal-body">
+        <p class="tool-note">ブラウザが自動コピーをブロックしました。下のテキストは選択済みです。Ctrl+C（または長押し）でコピーしてください。</p>
+        <textarea class="share-modal-text" id="share-modal-text" readonly></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-slide btn-secondary" id="share-modal-close"><span>閉じる</span></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../data.js?v=20261022d"></script>
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="favorite-each-type.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ポケモン 個体値計算機｜0〜31の隠れ個体値を算出</title>
+  <meta name="description" content="ポケモンの個体値計算機です。種族・レベル・性格・努力値と画面の実数値を入れるだけで、各能力に隠れた個体値が0〜31のどこにあるかを範囲で算出します。パーフェクトは31です。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/pokemon-iv-calculator/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/pokemon-iv-calculator/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/pokemon-iv-calculator/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/pokemon-iv-calculator/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ポケモン 個体値計算機｜0〜31の隠れ個体値を算出" />
+  <meta property="og:description" content="種族・レベル・性格・努力値と実数値を入れると、各能力の裏にある個体値の範囲が0〜31でわかります。パーフェクトは31です。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/pokemon-iv-calculator/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/pokemon-iv-calculator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ポケモン 個体値計算機｜0〜31の隠れ個体値を算出" />
+  <meta name="twitter:description" content="種族・レベル・性格・努力値と実数値を入れると、各能力の裏にある個体値の範囲が0〜31でわかります。パーフェクトは31です。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/pokemon-iv-calculator/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "個体値計算",
+ "description": "Reverse-engineer a Pokemon's hidden individual values (IVs) from its level, nature and shown stats — supports all 1,025 species.",
+ "applicationCategory": "GameApplication",
+ "operatingSystem": "All",
+ "browserRequirements": "Requires JavaScript",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "url": "https://www.random-pokemon-generator.co/pokemon-iv-calculator/"
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "個体値計算",
+   "item": "https://www.random-pokemon-generator.co/pokemon-iv-calculator/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "ポケモンの個体値計算機とは何ですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ポケモンのレベル・性格・努力値と表示されている実数値から逆算して、隠れた個体値、つまり各能力が実際どれくらい強いかを決める0〜31の数値を明らかにするツールです。個体値チェッカーと呼ばれることもありますが、やることは同じで、見えている数値を入れて、隠れた値を出すだけです。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "個体値（IV）とは何ですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "個体値は、ポケモンを捕まえたときや孵化したときに決まる0〜31の隠し数値です。個体値31（パーフェクト）なら、レベル100でその能力に約31ポイント加わります。捕獲後にゲーム内で変えることはできないので、プレイヤーは早めに調べるのです。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "この計算機はどう使いますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ポケモン名を入力し、現在のレベルと性格を設定して、ゲームに表示されている6つの数値をそのまま入れます（ミントを使ったなら、その効果はすでに反映されています）。振った努力値があれば任意で追加してください。「個体値を計算する」を押すと、0〜31のすべての個体値を試して、当てはまる範囲を表示します。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "個体値の範囲が広く出るのはなぜですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "低いレベルでは、多くの個体値が同じ実数値を生み出します。だから範囲がいくつもの値にまたがります。レベルを上げる、努力値を振る、新しい作品ならジャッジ機能を使う、のいずれかで絞り込んでください。レベル50以上なら、たいてい1〜2通りまで絞れます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "パーフェクト個体値とは何ですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "31です。すべての能力が31のポケモンは6Vと呼ばれます。ぎんのおうかんを使えばレベル100で個体値を31まで引き上げられ、あかいいとを使った孵化なら親から5項目の個体値が受け継がれます。対戦用の孵化で使われる近道です。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "どのポケモンに対応していますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "第1世代から第9世代までの全1,025種に、リージョンフォルムや特殊なフォルムも加わります。種族値はPokeAPIのデータです。性格は本編で使われる25種類すべてに対応しています。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "ミントを使うと計算は変わりますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "変わります。ミントは性格の効果をすぐに切り替えるので、捕まえたときの性格ではなく、いま実際に働いている性格を入れてください。計算機は現在の性格設定を読み取ります。ゲームが能力の倍率をかけるときの扱いと同じです。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "計算機が「ありえない」と出たら？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "入力した数値が、その種族・レベル・性格の組み合わせでどの個体値とも一致しない、という意味です。よくある原因は3つです。種族を選び間違えている、数値をメモした後に努力値が入った、性格が違う。どれかを直して計算し直してください。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "孵化したばかりのポケモンでも個体値は調べられますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "調べられますが、低いレベルでは範囲が広く出ます。生まれたてはレベル1か5で、多くの個体値が同じ実数値になるからです。狭い範囲を信じる前に、数レベル育てるか、新しい作品ならジャッジ機能を使ってください。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#how" class="nav-link">しくみ</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../pokemon-iv-calculator/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">全1,025種 · 25性格 · Lv.1〜100</p>
+      <h1 id="page-title">ポケモン 個体値計算機</h1>
+      <p class="lede">ポケモンの個体値を逆算する計算機です。レベル・性格・努力値と、いま表示されている実数値を入れると、各能力の裏に隠れた個体値が0〜31のどの範囲にあるのかわかります。</p>
+    </section>
+
+    <!-- Calculator -->
+    <section class="container panel cornered" aria-label="Pokemon IV calculator">
+      <form class="ivc-form" id="ivc-form" action="#ivc" method="get">
+        <div class="ivc-field">
+          <label for="ivc-species">Pokemon</label>
+          <input type="text" id="ivc-species" class="ivc-input ivc-species" list="ivc-datalist" placeholder="ポケモン名を入力（例：リザードン）" autocomplete="off" />
+          <datalist id="ivc-datalist"></datalist>
+          <p class="tool-note" id="ivc-meta">ポケモン名を入力して選択してください。</p>
+        </div>
+
+        <div class="ivc-row">
+          <div class="ivc-field">
+            <label for="ivc-level">レベル（1〜100）</label>
+            <input type="number" id="ivc-level" class="ivc-input" min="1" max="100" value="50" />
+          </div>
+          <div class="ivc-field">
+            <label for="ivc-nature">性格</label>
+            <select id="ivc-nature" class="ivc-input"></select>
+          </div>
+        </div>
+
+        <div class="ivc-row">
+          <div class="ivc-field"><label for="ivc-hp">現在のHP</label><input type="number" id="ivc-hp" class="ivc-input" min="1" step="1" /></div>
+          <div class="ivc-field"><label for="ivc-atk">現在のこうげき</label><input type="number" id="ivc-atk" class="ivc-input" min="1" step="1" /></div>
+          <div class="ivc-field"><label for="ivc-def">現在のぼうぎょ</label><input type="number" id="ivc-def" class="ivc-input" min="1" step="1" /></div>
+          <div class="ivc-field"><label for="ivc-spa">現在のとくこう</label><input type="number" id="ivc-spa" class="ivc-input" min="1" step="1" /></div>
+          <div class="ivc-field"><label for="ivc-spd">現在のとくぼう</label><input type="number" id="ivc-spd" class="ivc-input" min="1" step="1" /></div>
+          <div class="ivc-field"><label for="ivc-spe">現在のすばやさ</label><input type="number" id="ivc-spe" class="ivc-input" min="1" step="1" /></div>
+        </div>
+
+        <details class="advanced" id="ivc-ev">
+          <summary>▸ 振った努力値（任意 — 未育成なら0のまま）</summary>
+          <div class="ivc-row">
+            <div class="ivc-field"><label for="ivc-ev-hp">HP 努力値</label><input type="number" id="ivc-ev-hp" class="ivc-input" min="0" max="252" step="4" value="0" /></div>
+            <div class="ivc-field"><label for="ivc-ev-atk">こうげき 努力値</label><input type="number" id="ivc-ev-atk" class="ivc-input" min="0" max="252" step="4" value="0" /></div>
+            <div class="ivc-field"><label for="ivc-ev-def">ぼうぎょ 努力値</label><input type="number" id="ivc-ev-def" class="ivc-input" min="0" max="252" step="4" value="0" /></div>
+            <div class="ivc-field"><label for="ivc-ev-spa">とくこう 努力値</label><input type="number" id="ivc-ev-spa" class="ivc-input" min="0" max="252" step="4" value="0" /></div>
+            <div class="ivc-field"><label for="ivc-ev-spd">とくぼう 努力値</label><input type="number" id="ivc-ev-spd" class="ivc-input" min="0" max="252" step="4" value="0" /></div>
+            <div class="ivc-field"><label for="ivc-ev-spe">すばやさ 努力値</label><input type="number" id="ivc-ev-spe" class="ivc-input" min="0" max="252" step="4" value="0" /></div>
+          </div>
+        </details>
+
+        <div class="actions">
+          <button type="button" id="ivc-calc-btn" class="btn-slide cornered btn-primary"><span>個体値を計算する</span></button>
+        </div>
+        <div id="ivc-out" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">しくみ</p>
+        <h2 id="how-title">ポケモン個体値計算機の仕組み</h2>
+        <div class="how-grid">
+          <article>
+            <h3>表示されている数値から隠れた値を割り出す</h3>
+            <p>ポケモンは6つの能力それぞれに、0〜31の隠れた個体値を持っています。ゲーム中に表示されることはなく、画面に出るのは種族値・個体値・努力値・レベル・性格を混ぜた計算式の結果である実数値だけです。この計算機はその式を逆からたどります。種族を選び、レベルと性格、画面に見えている6つの数値を入れると、0〜31のすべての個体値を試して、その数値を実際に生み出す値を探し出します。個体値チェッカーが内部で行っているのと同じ総当たりで、このツールは1つの数字を選ばずに、当てはまる範囲をまとめて表示します。</p>
+            <p>ゲーム側は整数で丸めるため、低いレベルでは複数の個体値が同じ実数値になることがあります。だからこの計算機は1つに決めつけず、当てはまる範囲を全部返します。レベルを上げるか努力値を振れば、同じツールでも範囲は1〜2通りまで狭まります。ゲーム内のジャッジと同じ挙動です。</p>
+          </article>
+          <article>
+            <h3>高い数値には土台がある</h3>
+            <p>レベル100なら、性格が補正なしのとき個体値1ポイントは実数値1ポイントにそのまま対応します。個体値31なら、そのポケモンは本来の上限で動いているということです。この差が、対戦での同速勝負やHPの調整ライン、耐久の分岐点を決めます。個体値0のガブリアスと31のガブリアスの違いです。トレーナーがその数値を強制的にそろえる手段が、王冠による特訓や、あかいいとを使った孵化です。この計算機は、ぎんのおうかんを使う前に、その努力が実ったかを確かめるためにあります。</p>
+            <p>第1世代から第9世代までの全1,025種に対応し、種族値はPokeAPIのデータを使っています。パルデアで初日に捕まえたポケモンも、交換で手に入れた第3世代の遺物も、同じ計算で調べられます。</p>
+          </article>
+          <article>
+            <h3>性格と努力値も反映</h3>
+            <p>性格はHP以外の2つの能力に倍率をかけます。片方に+10%、もう片方に-10%で、がんばりや・すなお・てれや・うっかりや・まじめは補正なしです。いまそのポケモンが持っている性格を入れてください。ミントは効果がすぐ反映されるので、使った後の性格で入力します。努力値は任意で、未育成なら0のまま、振ってあるなら合計を入れれば個体値の範囲が狭まります。結果の表は能力ごとに1行で、当てはまる個体値の範囲が出るので、ハズレの能力も4行ほど見れば見当がつきます。</p>
+            <p>パーティを組む予定があるなら、まず <a href="../pokemon-nature-chart/">ポケモン性格表</a> が種族ごとの最適な性格を提案し、その次にこの計算機で個体値を確かめ、最後に <a href="../pokemon-team-picker/">パーティ編成</a> が防御相性表つきで最終メンバーを組み上げます。</p>
+          </article>
+
+          <article>
+            <h3>個体値の抽選を数字で見る</h3>
+            <p>内部では、野生で出会うたびに0〜31の数字が6つ、能力ごとに1つずつ振られます。どの値も同じ確率です。1つの能力が31になる確率は1/32。6つすべてが31になるのは1/1,073,741,824です。6項目パーフェクトは10億分の1の抽選なので、完璧な個体は捕まえるものではなく、孵化させ、交換し、王冠で仕上げるものになっています。</p>
+            <p>もう一方の端も同じくらい珍しく、6つすべて0も同じ10億分の1です。そして中央は山なりの分布ではなく、平らな地面です。どの値も同じ確率なので、期待できる「平均的な個体値」はありません。少なくとも1つが31になるのは全体の約17%で、だから1項目だけパーフェクトでも珍しくはなく、6項目そろえるのは長期プロジェクトになるのです。</p>
+          </article>
+          <article>
+            <h3>野生での個体値：交換・レイド・孵化</h3>
+            <p>個体値計算機が使われる場面は3つあります。1つは交換です。色違いや「数値がいい」ポケモンを差し出されて、貴重なものを手放す前に裏を取りたいとき。そのレベルでの個体値を調べれば、範囲から交換に値するか判断できます。2つ目はレイドの捕獲です。パーフェクトなレイドボスは1本のプレイを支えてくれるので、必要な能力の31が決め手になります。3つ目は孵化です。孵化勢は親の個体値を先に確かめてから作業に入ります。ハズレの親にタマゴ1ボックスを無駄にしないためです。</p>
+            <p>3つともルールは同じです。手持ちで一番高いレベルで、できるだけ多くの努力値情報を入れて調べてください。レベル5のポケモンでは範囲がほぼ役に立たず、レベル100で努力値まで埋めれば、たいてい能力ごとに1つの値まで絞れます。</p>
+          </article>
+
+          <article>
+            <h3>個体値1ポイントの価値</h3>
+            <p>個体値は割合ではなく、実数値の計算式にそのまま足される数です。レベル100なら、個体値1ポイントはどの種族のどの能力でも実数値1ポイントに一致します。レベル50では0.5ポイントになり、丸めが入るので、実際には半分くらいの場面で差はゼロになります。</p>
+            <p>効いてくるのは境界のところです。同速勝負はいつも1ポイントで決まります。すばやさの個体値が完璧でないと、ミラー対面で勝てるはずの一戦を落とします。攻撃側なら、相手がわずかに残るダメージ計算という形で差が出ます。HPと耐久については、正直に言えば1ポイントで作戦が変わることはほとんどありません。</p>
+            <p>だから計算機の結果は、そのポケモンを何に使うのかと照らし合わせて読んでください。アタッカーはすばやさと攻撃の値で生き死にが決まり、受け役は頼りにしている耐久だけ見れば十分です。それ以上は自己満足の世界です。個体値に問題がなければ、ポケモンチームピッカーがそのポケモンをパーティに組み込み、実際に何をカバーできるか示してくれます。</p>
+          </article>
+          <article>
+            <h3>サイト全体での個体値の位置づけ</h3>
+            <p>個体値の確認は、サイトの他のツールと組み合わせると噛み合います。まず <a href="../random-pokemon-picker/">ランダム選出</a> か <a href="../">Random Pokemon Generator</a>で候補を引き、育成中は <a href="../pokemon-type-chart/">タイプ相性表</a> で相性を確かめ、技構成を決める前に性格と個体値を判断しましょう。ポケモンチャンピオンズなら、 <a href="../pokemon-champions-team-builder/">チャンピオンズ編成</a> がメンバー選出を担当します。レギュレーションM-Cから6匹を選び、持ち物とメガストーンまで設定できます。狙う価値のある捕獲なら、 <a href="../pokemon-shiny-odds/">色違いの出現率</a> が厳選の計画を立ててくれます。個体値の良い色違いこそ本命です。</p>
+            <p>おなじみのツールもすぐそばにあります。 <a href="../nuzlocke-generator/">ヌズロック編成</a> がルール準拠のパーティを抽選し、 <a href="../search/">ポケモン検索</a> は名前さえわかっていればどの種族にも連れて行ってくれます。見た目重視なら、 <a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a> がメガシンカを抽選し、 <a href="../random-shiny-pokemon-generator/">ランダム色違い生成</a> は色違いだけを出します。もっと深く知りたいときは、 <a href="../blog/">ブログ</a>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">ポケモン個体値計算機・よくある質問</h2>
+      <details class="faq-item cornered">
+        <summary>ポケモンの個体値計算機とは何ですか？</summary>
+        <p>ポケモンのレベル・性格・努力値と表示されている実数値から逆算して、隠れた個体値、つまり各能力が実際どれくらい強いかを決める0〜31の数値を明らかにするツールです。個体値チェッカーと呼ばれることもありますが、やることは同じで、見えている数値を入れて、隠れた値を出すだけです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>個体値（IV）とは何ですか？</summary>
+        <p>個体値は、ポケモンを捕まえたときや孵化したときに決まる0〜31の隠し数値です。個体値31（パーフェクト）なら、レベル100でその能力に約31ポイント加わります。捕獲後にゲーム内で変えることはできないので、プレイヤーは早めに調べるのです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>この計算機はどう使いますか？</summary>
+        <p>ポケモン名を入力し、現在のレベルと性格を設定して、ゲームに表示されている6つの数値をそのまま入れます（ミントを使ったなら、その効果はすでに反映されています）。振った努力値があれば任意で追加してください。「個体値を計算する」を押すと、0〜31のすべての個体値を試して、当てはまる範囲を表示します。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>個体値の範囲が広く出るのはなぜですか？</summary>
+        <p>低いレベルでは、多くの個体値が同じ実数値を生み出します。だから範囲がいくつもの値にまたがります。レベルを上げる、努力値を振る、新しい作品ならジャッジ機能を使う、のいずれかで絞り込んでください。レベル50以上なら、たいてい1〜2通りまで絞れます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>パーフェクト個体値とは何ですか？</summary>
+        <p>31です。すべての能力が31のポケモンは6Vと呼ばれます。ぎんのおうかんを使えばレベル100で個体値を31まで引き上げられ、あかいいとを使った孵化なら親から5項目の個体値が受け継がれます。対戦用の孵化で使われる近道です。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>どのポケモンに対応していますか？</summary>
+        <p>第1世代から第9世代までの全1,025種に、リージョンフォルムや特殊なフォルムも加わります。種族値はPokeAPIのデータです。性格は本編で使われる25種類すべてに対応しています。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>ミントを使うと計算は変わりますか？</summary>
+        <p>変わります。ミントは性格の効果をすぐに切り替えるので、捕まえたときの性格ではなく、いま実際に働いている性格を入れてください。計算機は現在の性格設定を読み取ります。ゲームが能力の倍率をかけるときの扱いと同じです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>計算機が「ありえない」と出たら？</summary>
+        <p>入力した数値が、その種族・レベル・性格の組み合わせでどの個体値とも一致しない、という意味です。よくある原因は3つです。種族を選び間違えている、数値をメモした後に努力値が入った、性格が違う。どれかを直して計算し直してください。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>孵化したばかりのポケモンでも個体値は調べられますか？</summary>
+        <p>調べられますが、低いレベルでは範囲が広く出ます。生まれたてはレベル1か5で、多くの個体値が同じ実数値になるからです。狭い範囲を信じる前に、数レベル育てるか、新しい作品ならジャッジ機能を使ってください。</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <script src="../../data.js?v=20261022d"></script>
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="iv-calculator.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

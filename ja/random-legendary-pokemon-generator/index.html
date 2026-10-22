@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>伝説ポケモン ランダム生成｜幻・準伝説・色違い対応</title>
+  <meta name="description" content="全世代から伝説ポケモンをランダムに抽選する生成ツールです。伝説・幻・準伝説に対応し、種族値・特性・図鑑番号に加えて色違いの姿も切り替えて確認できます。" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/random-legendary-pokemon-generator/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/random-legendary-pokemon-generator/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/random-legendary-pokemon-generator/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/random-legendary-pokemon-generator/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="伝説ポケモン ランダム生成｜幻・準伝説・色違い対応" />
+  <meta property="og:description" content="伝説・幻・準伝説のポケモンをランダムに1匹抽選。カードには種族値・特性・色違いの姿まで載っています。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/random-legendary-pokemon-generator/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/random-legendary-pokemon-generator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="伝説ポケモン ランダム生成｜幻・準伝説・色違い対応" />
+  <meta name="twitter:description" content="伝説・幻・準伝説のポケモンをランダムに1匹抽選。カードには種族値・特性・色違いの姿まで載っています。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/random-legendary-pokemon-generator/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <style>
+    /* page-scoped layout for the legendary generator card */
+    .lgx-card { margin: 16px auto 0; max-width: 760px; background: #fff; border: 1px solid var(--line-2); border-radius: var(--radius); padding: 20px; display: flex; flex-wrap: wrap; gap: 20px; text-align: left; animation: lgx-pop 0.3s ease; }
+    @keyframes lgx-pop { from { opacity: 0; transform: translateY(10px) scale(0.985); } to { opacity: 1; transform: none; } }
+    .lgx-art { flex: 0 0 auto; width: 236px; max-width: 100%; border: 1px solid var(--line-2); border-radius: var(--radius); background: radial-gradient(circle at 50% 42%, var(--aura, #f8f8f6) 0%, #fff 72%); display: flex; align-items: center; justify-content: center; padding: 12px; }
+    .lgx-art img { width: 200px; height: 200px; display: block; }
+    .lgx-info { flex: 1 1 300px; min-width: 250px; }
+    .lgx-meta { margin: 0 0 6px; font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.08em; color: var(--text-2); }
+    .lgx-badge { display: inline-block; background: var(--ink); color: #fff; padding: 2px 8px; border-radius: 4px; }
+    .lgx-name { font-size: 27px; font-weight: 900; letter-spacing: -0.01em; margin: 4px 0 10px; }
+    .lgx-types { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .lgx-card .type-chip { display: inline-block; padding: 5px 12px; border-radius: 6px; border: 1px solid var(--line-2); font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.08em; background: var(--chip, #fff); color: var(--chip-text, var(--ink)); }
+    .lgx-stats { list-style: none; margin: 0 0 14px; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .lgx-stats li { border: 1px solid var(--line-2); border-radius: 7px; padding: 6px 4px; text-align: center; }
+    .lgx-stats span { display: block; font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 2px; }
+    .lgx-stats b { font-size: 15px; font-weight: 900; }
+    .lgx-stats .lgx-bst { background: #fff7d6; }
+    .lgx-abilities { margin: 0 0 14px; font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.06em; color: var(--text-2); }
+    .tw-actions { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center; }
+    .lgx-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .lgx-hitem img { width: 40px; height: 40px; display: block; }
+    .lgx-hitem .lgx-hname { font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.08em; }
+    .lgx-hitem .lgx-hmeta { font-family: var(--font-body); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--text-2); margin-left: auto; }
+  </style>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "ランダム伝説生成",
+ "description": "A random legendary Pokemon generator that draws legendaries, mythicals and pseudo-legendaries from every generation, with stats, abilities and shiny forms.",
+ "applicationCategory": "GameApplication",
+ "url": "https://www.random-pokemon-generator.co/random-legendary-pokemon-generator/",
+ "operatingSystem": "All",
+ "browserRequirements": "Requires JavaScript",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ }
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "ランダム伝説生成",
+   "item": "https://www.random-pokemon-generator.co/random-legendary-pokemon-generator/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "伝説ポケモンのランダム生成ツールとは何ですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "伝説クラスのポケモン、つまり伝説・幻・準伝説のどれかをランダムに1匹引き、画像、タイプ、種族値、特性、図鑑番号までカードで表示するツールです。もう一度押せば次の1匹が来ます。色違いスイッチで希少な配色も見られ、結果はすべて共有できます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "伝説のポケモンと幻のポケモンの違いは？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "伝説のポケモンは地域の物語に結びついた強豪で、ミュウツー、ルギア、レックウザ、コライドンのように、たいてい1本につき1匹しか手に入りません。幻のポケモンはイベント限定で、ミュウ、セレビィ、ジラーチのように、もともとはストーリーではなく特別な配布で手に入る存在です。このツールは両方の候補を扱い、どの抽選にも分類を表示します。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "準伝説のポケモンとはどれですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "準伝説とは、伝説ではないのに最終進化で種族値合計600に届くポケモンで、カイリューからセグレイブまでの定番10匹です。普通のポケモンより強い一方で、伝説のルールの外にいるので、縛りプレイやドラフトでは面白い選択肢になります。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "対応している世代は？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "9世代すべてです。カントーの鳥やミュウツーから、パルデアの宝まで。サイトの全ツールを動かしているのと同じ第1〜9世代のデータから引くので、どの世代も欠けず、重み付けもありません。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "色違いの伝説の画像は見られますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。結果カードの色違いスイッチで、同じポケモンの色違いの配色に入れ替わります。見た目の切り替えであって排出率のシミュレーションではないので、実際の確率は作品と手法次第です。サイトのポケモン色違い確率ページで全数値をまとめています。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "カテゴリーを1つに絞って引けますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。引く前に候補のチップで伝説・幻・準伝説を選ぶか、「特別なポケモン全部」のままで全分類から引けます。何回か引けば、テーマ縛りや交換、お絵かき用のランダムなドラフト候補ができます。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+
+  <!-- Structured data: WebSite -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#how" class="nav-link">しくみ</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../random-legendary-pokemon-generator/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">伝説 · 幻 · 準伝説 · 色違いフォルム</p>
+      <h1 id="page-title">伝説ポケモン ランダム生成</h1>
+      <p class="lede">全世代から伝説ポケモンを抽選する生成ツールです。伝説、幻、準伝説をランダムに1匹引き、種族値・特性・色違いの姿までそろったカードで表示します。</p>
+    </section>
+
+    <!-- Legendary generator game -->
+    <section id="game" class="container" aria-label="Random legendary Pokemon generator tool">
+      <div class="panel cornered">
+        <p class="tool-hint">使い方：候補を選んで引くだけです。伝説クラスのポケモンを1匹ランダムに引き、カードで表示します。色違いに切り替えたり、もう一度引いたり、結果を共有したりできます。</p>
+        <fieldset>
+          <legend>候補</legend>
+          <div class="btn-row" id="pool-buttons" role="group" aria-label="Choose the roll pool">
+            <button type="button" class="chip-btn" data-pool="all" aria-pressed="true">特別なポケモン全部</button>
+            <button type="button" class="chip-btn" data-pool="legendary" aria-pressed="false">伝説のポケモン</button>
+            <button type="button" class="chip-btn" data-pool="mythical" aria-pressed="false">幻のポケモン</button>
+            <button type="button" class="chip-btn" data-pool="pseudo" aria-pressed="false">準伝説</button>
+          </div>
+          <p class="tool-note" id="pool-note">第1〜9世代の伝説クラス全体から抽選しています。</p>
+        </fieldset>
+
+        <div class="tw-actions">
+          <button type="button" id="lg-roll" class="btn-slide cornered btn-primary"><span><i class="ico ico-dice-5" aria-hidden="true"></i> 伝説を引く</span></button>
+          <button type="button" id="lg-share" class="btn-slide btn-secondary"><span id="lg-share-label"><i class="ico ico-megaphone" aria-hidden="true"></i> 結果をシェア</span></button>
+        </div>
+
+        <div class="tool-note-group">
+          <p class="tool-note"><i class="ico ico-dice-5" aria-hidden="true"></i> 引く — 伝説クラスのポケモンを1匹引いてカードを表示します</p>
+          <p class="tool-note"><i class="ico ico-sparkles" aria-hidden="true"></i> 色違いフォルム — 姿を希少な配色に入れ替えます</p>
+          <p class="tool-note"><i class="ico ico-megaphone" aria-hidden="true"></i> 結果を共有 — 引いた結果とリンクをコピーします</p>
+        </div>
+      </div>
+
+      <div class="smash-stage" aria-live="polite">
+        <div class="result-bar" id="result-bar" hidden>
+          <span class="result-bar-label">今回の結果</span>
+        </div>
+        <div class="result-wrap" id="lg-result" hidden></div>
+      </div>
+
+      <div class="history cornered" id="history-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title">抽選履歴</h2>
+          <button type="button" id="history-clear" class="btn-text">クリア</button>
+        </div>
+        <p class="tool-note">クリア — このセッションの抽選を消します</p>
+        <ol class="history-list" id="history-list"></ol>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">しくみ</p>
+        <h2 id="how-title">伝説ポケモン生成ツールの仕組み</h2>
+        <div class="how-grid">
+          <article>
+            <h3>どの時代からでも、伝説を1匹</h3>
+            <p>ポケモンの中には仲間ではなく、イベントそのものという存在がいます。このツールは伝説クラスのポケモンを1匹ランダムに引き、カードを一式並べます。画像、タイプ、種族値、特性、図鑑番号まで、そのまま使える形で出ます。クリック1回で1匹、もう1回押せば別の1匹。回数に制限はありません。テーマを決めたプレイのエースを選ぶのにも、絵を描くきっかけにするのにも、今日はどの伝説が来るか見るだけにも使えます。運命はTier表なんて気にしません。</p>
+          </article>
+          <article>
+            <h3>伝説・幻・準伝説</h3>
+            <p>候補は3つの層に分かれています。伝説のポケモンは、各地域のストーリーに結びついた強豪で、ミュウツー、ルギア、レックウザ、コライドンのように、たいてい1回のプレイで1匹しか出会えない、物語をまとった存在です。幻のポケモンはイベント限定で、ミュウ、セレビィ、ジラーチのように、ストーリーではなく配布で手に入る側です。準伝説は伝説ではないのに種族値合計600に届く10匹で、カイリューからセグレイブまでが該当します。どの抽選にも層の名前が付くので、どんな力のポケモンを引いたのかはすぐわかります。</p>
+          </article>
+          <article>
+            <h3>全世代を1つの候補に</h3>
+            <p>抽選元は9世代すべてです。カントーの鳥、ジョウトの獣、ホウエンの天気の三匹、シンオウの創造の竜、イッシュの三闘、カロスのオーラ、アローラの守り神、ガラルの英雄、パルデアの宝。サイト全体が同じデータで動いているので、伝説の候補はいつも完全です。図鑑にいる伝説なら、抽選に出てくる可能性があります。特定の世代が優遇されることも、飛ばされることもなく、抽選は候補全体に均等です。</p>
+          </article>
+          <article>
+            <h3>色違いの姿を見る</h3>
+            <p>どのカードにも色違いのスイッチが付いています。押せば、色違い勢が血眼になって狙う配色に入れ替わります。これは見た目のifであって排出のシミュレーションではありません。実際の色違い確率は作品と手法で変わり、 <a href="../pokemon-shiny-odds/">色違いの出現率</a> のページですべての数値を分解しています。このツールでの役割はひとつだけ、この伝説たちが最も希少な色でどれだけ変わるかを見せることです。ほとんど変わらないものもあれば、昼と夜ほど違うものもあります。</p>
+          </article>
+          <article>
+            <h3>チャレンジプレイ用の伝説</h3>
+            <p>伝説を引くのは、縛りプレイに味を足す手っ取り早い方法です。伝説だけのドラフト、ランダムなパッケージ伝説とのボス戦、運命がエースを決めるテーマ縛り。友人同士の言い争いの決着にも使えます。引いた結果が審判です。ルールの枠組みが要るなら、 <a href="../nuzlocke-generator/">ヌズロック編成</a> が規定をまとめてくれますし、 <a href="../pokemon-team-picker/">パーティ編成</a> なら引いた伝説を軸に6匹を組み上げられます。抽選1回、制約1つ、交渉ゼロです。</p>
+          </article>
+          <article>
+            <h3>お絵かきのお題にも、デザインの材料にも</h3>
+            <p>絵を描く人にとって、伝説の抽選はお題そのものです。形、配色、描き直すべきオーラ。記憶だけを頼りにランダムな伝説を描くのはそれ自体が挑戦で、地域も時代も変えた再解釈版を描くのはまた別の挑戦になります。カードの画像を参考にするのもよし、名前とタイプだけを見て完全に描き起こすのもよし。世代ごとにデザインの言葉が違うので、9世代をまたいで引くほうが1世代に絞るより練習になります。</p>
+          </article>
+          <article>
+            <h3>パーティゲームにも、配信にも</h3>
+            <p>画面と友人が数人いれば、このツールはパーティゲームになります。全員が1回ずつ引いて、どの伝説がバトルで勝つかを論議する。あるいは抽選で対戦会のチームを決める。ライブ配信にも向いています。クリック1回、結果1つ、リアクション1つ。しかもどの抽選も共有できるので、視聴者にも運命が配ったものがそのまま見えます。ハウスルールも簡単です。1人1回、引き直しなし、一番いい伝説の勝ち。</p>
+          </article>
+          <article>
+            <h3>伝説1匹からパーティへ</h3>
+            <p>伝説が1匹いるだけではリーグは勝てません。引いた結果を先に進めましょう。ポケモンチームピッカーでそのポケモンを軸にパーティを組み、名前を付けるなら <a href="../random-pokemon-name-generator/">ランダム名前生成</a>。色違いを実際に狙うなら、確率はポケモン色違い確率にまとまっていて、 <a href="../random-shiny-pokemon-generator/">ランダム色違い生成</a> は色違いばかりを引いてくれます。</p>
+          </article>
+          <article>
+            <h3>候補の作り方</h3>
+            <p>伝説の候補は、このサイトのほかのツールと同じデータから作っています。種族単位のデータで、それぞれ公式の画像つき。フォルム違いで水増しすることもありません。伝説と幻はゲームがもともと使っている図鑑のフラグから取り、準伝説の10匹はカイリューからセグレイブまでの標準的な顔ぶれです。図鑑が増えれば候補も増えます。今日の抽選も来年の抽選も、同じ育っていく山札から引くのです。</p>
+          </article>
+          <article>
+            <h3>サイト内で引き続ける</h3>
+            <p>伝説を引けましたか？流れを止めずに、 <a href="../">random Pokemon generator</a> でロスターを1クリックで埋め、単発の1匹は <a href="../random-pokemon-picker/">ランダム選出</a>から選ぶ。ルールを付けるならヌズロックチームビルダーです。タイプ相性の全文は <a href="../pokemon-type-chart/">タイプ相性表</a> が全タイプを網羅していて、 <a href="../pokemon/">ポケモン図鑑</a> には全種族がそろっています。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">伝説ポケモン生成ツール・よくある質問</h2>
+      <details class="faq-item cornered">
+        <summary>伝説ポケモンのランダム生成ツールとは何ですか？</summary>
+        <p>伝説クラスのポケモン、つまり伝説・幻・準伝説のどれかをランダムに1匹引き、画像、タイプ、種族値、特性、図鑑番号までカードで表示するツールです。もう一度押せば次の1匹が来ます。色違いスイッチで希少な配色も見られ、結果はすべて共有できます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>伝説のポケモンと幻のポケモンの違いは？</summary>
+        <p>伝説のポケモンは地域の物語に結びついた強豪で、ミュウツー、ルギア、レックウザ、コライドンのように、たいてい1本につき1匹しか手に入りません。幻のポケモンはイベント限定で、ミュウ、セレビィ、ジラーチのように、もともとはストーリーではなく特別な配布で手に入る存在です。このツールは両方の候補を扱い、どの抽選にも分類を表示します。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>準伝説のポケモンとはどれですか？</summary>
+        <p>準伝説とは、伝説ではないのに最終進化で種族値合計600に届くポケモンで、カイリューからセグレイブまでの定番10匹です。普通のポケモンより強い一方で、伝説のルールの外にいるので、縛りプレイやドラフトでは面白い選択肢になります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>対応している世代は？</summary>
+        <p>9世代すべてです。カントーの鳥やミュウツーから、パルデアの宝まで。サイトの全ツールを動かしているのと同じ第1〜9世代のデータから引くので、どの世代も欠けず、重み付けもありません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>色違いの伝説の画像は見られますか？</summary>
+        <p>はい。結果カードの色違いスイッチで、同じポケモンの色違いの配色に入れ替わります。見た目の切り替えであって排出率のシミュレーションではないので、実際の確率は作品と手法次第です。サイトのポケモン色違い確率ページで全数値をまとめています。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>カテゴリーを1つに絞って引けますか？</summary>
+        <p>はい。引く前に候補のチップで伝説・幻・準伝説を選ぶか、「特別なポケモン全部」のままで全分類から引けます。何回か引けば、テーマ縛りや交換、お絵かき用のランダムなドラフト候補ができます。</p>
+      </details>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="./">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="share-modal" hidden>
+    <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="sm-title" id="share-modal-card">
+      <p class="modal-meta">このブラウザでは自動コピーがブロックされました。選択して手動でコピーしてください</p>
+      <h3 id="sm-title">シェア用のテキストをコピー</h3>
+      <textarea class="share-modal-text" id="share-modal-text" rows="6" readonly></textarea>
+      <button type="button" class="btn-slide btn-secondary modal-close" id="sm-close"><span>閉じる</span></button>
+    </div>
+  </div>
+
+  <script src="../../data.js?v=20261022d"></script>
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="legendary-generator.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

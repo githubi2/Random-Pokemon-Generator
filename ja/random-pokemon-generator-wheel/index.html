@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ポケモンルーレット｜ランダムに1体を選ぶ抽選ツール</title>
+  <meta name="description" content="ポケモンルーレットを回して、ランダムに1体を選べます。第1〜9世代とタイプで絞り込みができ、結果はそのままシェア可能。ヌズロックの初遭遇や配信の企画にも使える、1,025体対応の抽選ホイールです。" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/random-pokemon-generator-wheel/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/random-pokemon-generator-wheel/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/random-pokemon-generator-wheel/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/random-pokemon-generator-wheel/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ポケモンルーレット｜ランダムに1体を選ぶ抽選ツール" />
+  <meta property="og:description" content="ポケモンルーレットを回して運に1体を選ばせましょう。第1〜9世代とタイプの絞り込みつきで、結果はシェアできます。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/random-pokemon-generator-wheel/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/random-pokemon-generator-wheel/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ポケモンルーレット｜ランダムに1体を選ぶ抽選ツール" />
+  <meta name="twitter:description" content="ポケモンルーレットを回して運に1体を選ばせましょう。第1〜9世代とタイプの絞り込みつきで、結果はシェアできます。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/random-pokemon-generator-wheel/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "ポケモンルーレット",
+ "description": "A Pokemon wheel spinner with generation and type filters.",
+ "applicationCategory": "GameApplication",
+ "url": "https://www.random-pokemon-generator.co/random-pokemon-generator-wheel/",
+ "operatingSystem": "All",
+ "browserRequirements": "Requires JavaScript",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ }
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "ポケモンルーレット",
+   "item": "https://www.random-pokemon-generator.co/random-pokemon-generator-wheel/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "ポケモンルーレットとは？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "選んだ絞り込みを、第1〜9世代の全ポケモンから1体に変える抽選ツールです。引き直しも考え直しもなし。スピンが落とす1つの結果が、そのままあなたの引きです。要するにポケモンのスピナーで、1タップで選出が終わります。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "ポケモンルーレットはどう動く？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "スピンを押すと、カードが金色の枠をなめらかに流れ、なかで止まった1枚があなたのポケモンです。最新の結果は画面に残り、シェア用のメッセージとしてコピーできます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "世代やタイプで限定できますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。回す前に世代やタイプのチップを押してください。ホイールは絞り込んだ候補からしか引きませんので、カントー限定、みず限定、その組み合わせなど自由に設定できます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "ヌズロックに使えますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "もちろんです。最初の遭遇、倒れたときの代わり、スターターチームの決定に使えます。ホイールのドラマがあるぶん、ヌズロックの旅はさらに楽しくなります。当サイトのヌズロック編成と組み合わせてみてください。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "配信で使えますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい、このホイールは配信用に作っています。スピンのアニメーションはライブのテンポに合う長さで、結果はどれもシェアできるので、チャットが運の判断をリアルタイムで見られます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "1,025体すべてが入っていますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ホイールは本体の生成ツールと同じデータから引いています。第1〜9世代の1,025体すべてにリージョンフォルムを加えたもので、どのカードにも公式イラストが入っています。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#how" class="nav-link">しくみ</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../random-pokemon-generator-wheel/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">回して決める · 運に任せる · 第1〜9世代</p>
+      <h1 id="page-title">ランダムポケモン抽選ルーレット</h1>
+      <p class="lede">ポケモンルーレットを回して、次の1体を運に選ばせましょう。このランダム抽選ホイールは第1〜9世代の全ポケモンが対象です。世代やタイプで絞り込めば、ヌズロックの選出にも配信の企画にも使えます。</p>
+    </section>
+
+    <!-- Wheel game -->
+    <section id="game" class="container" aria-label="Pokemon wheel game">
+      <div class="panel cornered">
+        <p class="tool-hint">遊び方 — <i class="ico ico-ferris-wheel" aria-hidden="true"></i> デッキを回します。カードが金色の枠を流れていき、枠のなかで止まった1枚があなたのポケモンです。世代やタイプで絞り込んだら、あとは結果を受け取るだけ。引き直しはできません。1回のスピンがルールです。</p>
+        <fieldset>
+          <legend>世代</legend>
+          <div class="btn-row" id="gen-buttons" role="group" aria-label="世代で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">第1世代</button><button type="button" class="chip-btn" aria-pressed="false">第2世代</button><button type="button" class="chip-btn" aria-pressed="false">第3世代</button><button type="button" class="chip-btn" aria-pressed="false">第4世代</button><button type="button" class="chip-btn" aria-pressed="false">第5世代</button><button type="button" class="chip-btn" aria-pressed="false">第6世代</button><button type="button" class="chip-btn" aria-pressed="false">第7世代</button><button type="button" class="chip-btn" aria-pressed="false">第8世代</button><button type="button" class="chip-btn" aria-pressed="false">第9世代</button></div>
+        </fieldset>
+        <fieldset>
+          <legend>タイプ</legend>
+          <div class="btn-row" id="type-buttons" role="group" aria-label="タイプで絞り込む"><button type="button" class="chip-btn" aria-pressed="false">ほのお</button><button type="button" class="chip-btn" aria-pressed="false">みず</button><button type="button" class="chip-btn" aria-pressed="false">くさ</button><button type="button" class="chip-btn" aria-pressed="false">でんき</button><button type="button" class="chip-btn" aria-pressed="false">こおり</button><button type="button" class="chip-btn" aria-pressed="false">かくとう</button><button type="button" class="chip-btn" aria-pressed="false">どく</button><button type="button" class="chip-btn" aria-pressed="false">じめん</button><button type="button" class="chip-btn" aria-pressed="false">ひこう</button><button type="button" class="chip-btn" aria-pressed="false">エスパー</button><button type="button" class="chip-btn" aria-pressed="false">むし</button><button type="button" class="chip-btn" aria-pressed="false">いわ</button><button type="button" class="chip-btn" aria-pressed="false">ゴースト</button><button type="button" class="chip-btn" aria-pressed="false">あく</button><button type="button" class="chip-btn" aria-pressed="false">ドラゴン</button><button type="button" class="chip-btn" aria-pressed="false">はがね</button><button type="button" class="chip-btn" aria-pressed="false">フェアリー</button><button type="button" class="chip-btn" aria-pressed="false">ノーマル</button></div>
+        </fieldset>
+        <fieldset>
+          <legend>生息地（暮らす場所）</legend>
+          <div class="btn-row" id="habit-buttons" role="group" aria-label="生息地で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">洞窟</button><button type="button" class="chip-btn" aria-pressed="false">森林</button><button type="button" class="chip-btn" aria-pressed="false">草原</button><button type="button" class="chip-btn" aria-pressed="false">山岳</button><button type="button" class="chip-btn" aria-pressed="false">レア</button><button type="button" class="chip-btn" aria-pressed="false">荒れ地</button><button type="button" class="chip-btn" aria-pressed="false">海</button><button type="button" class="chip-btn" aria-pressed="false">都市</button><button type="button" class="chip-btn" aria-pressed="false">水辺</button></div>
+          <p class="tool-note">生息地のデータは従来の図鑑ぶんのみです。新しい世代のポケモンには生息地のタグがありません。</p>
+        </fieldset>
+        <fieldset>
+          <legend>進化段階</legend>
+          <div class="btn-row" id="stage-buttons" role="group" aria-label="進化段階で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">初期値</button><button type="button" class="chip-btn" aria-pressed="false">中間進化</button><button type="button" class="chip-btn" aria-pressed="false">最終進化</button></div>
+        </fieldset>
+        <fieldset>
+          <legend>種族値合計</legend>
+          <div class="bst-range">
+            <label>最小 <input type="range" id="bst-min" min="0" max="780" value="0" step="10" aria-label="種族値合計の下限" /></label>
+            <label>最大 <input type="range" id="bst-max" min="0" max="780" value="780" step="10" aria-label="種族値合計の上限" /></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>レア度</legend>
+          <div class="btn-row" id="rare-buttons" role="group" aria-label="Rarity toggles">
+            <button type="button" class="chip-btn" id="noleg-chip" aria-pressed="false"><i class="ico ico-ban" aria-hidden="true"></i> 伝説を除外</button>
+            <button type="button" class="chip-btn" id="nomyth-chip" aria-pressed="false"><i class="ico ico-ban" aria-hidden="true"></i> 幻を除外</button>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="wheel-wrap">
+        <div class="draw-view" id="wheel" role="img" aria-label="Pokemon draw deck"></div>
+        <div class="wheel-controls">
+          <button type="button" id="spin-btn" class="btn-slide cornered btn-primary"><span><i class="ico ico-ferris-wheel" aria-hidden="true"></i> スピン</span></button>
+          <button type="button" id="wheel-share-btn" class="btn-slide btn-secondary"><span id="wheel-share-label"><i class="ico ico-megaphone" aria-hidden="true"></i> 結果をシェア</span></button>
+        </div>
+        <div class="tool-note-group">
+          <p class="tool-note"><i class="ico ico-ferris-wheel" aria-hidden="true"></i> スピン — デッキを回します。カードが金色の枠を流れていき、枠のなかで止まった1枚があなたのポケモンです</p>
+          <p class="tool-note"><i class="ico ico-megaphone" aria-hidden="true"></i> 結果をシェア — 当たったポケモンとリンクをまとめてコピーします</p>
+          <p class="tool-note"><i class="ico ico-trash-2" aria-hidden="true"></i> 記録をクリア — 抽選履歴と積み上がった結果を消します</p>
+        </div>
+      </div>
+
+      <div class="smash-stage" aria-live="polite">
+        <div class="result-bar" id="result-bar" hidden>
+          <span class="result-bar-label">いまの抽選結果</span>
+          <button type="button" class="result-clear" id="result-clear"><i class="ico ico-trash-2" aria-hidden="true"></i> <span>記録をクリア</span></button>
+        </div>
+        <p class="tool-note" id="result-tip" hidden>結果のカードを押すと、図鑑の詳細がすべて見られます</p>
+        <div class="result-wrap" id="result-card" hidden></div>
+      </div>
+
+      <section class="analysis cornered" id="analysis-panel" aria-labelledby="analysis-title" hidden>
+        <div class="analysis-head">
+          <h2 class="analysis-title" id="analysis-title"><i class="ico ico-chart-column" aria-hidden="true"></i> 抽選の戦術レポート</h2>
+          <span class="grade-badge" id="analysis-grade">–</span>
+        </div>
+        <p class="analysis-summary" id="analysis-summary"></p>
+        <details class="analysis-details" id="analysis-details">
+          <summary>レポートをすべて見る</summary>
+          <div id="analysis-body"></div>
+        </details>
+      </section>
+
+      <div class="history cornered" id="history-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title">スピン履歴</h2>
+          <button type="button" id="history-clear" class="btn-text">クリア</button>
+        </div>
+        <p class="tool-note">クリア — スピン履歴をすべて削除します</p>
+        <ol class="history-list" id="history-list"></ol>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">しくみ</p>
+        <h2 id="how-title">ポケモンルーレットのしくみ</h2>
+        <div class="how-grid">
+          <article>
+            <h3>回して、結果を受け取る</h3>
+            <p>ポケモンルーレットは、全ポケモンが並ぶルーレット式の抽選ツールです。カードが金色の枠を流れていき、運がどれを手にするかを決めます。このランダム抽選ホイールは1回で1つの結果。引き直しも、考え直しもありません。どのカードにも公式イラストが入っているので、出た1体をめぐって自分だけの物語を組み立てられます。ポケモン版の「名前ルーレット」としても使えますし、カードには種族値がすべて載っているので、タイプではなく数字で選ぶときの種族値ルーレットとしても、同じスピンが役に立ちます。</p>
+          </article>
+          <article>
+            <h3>遊ぶゲームに合わせて絞り込む</h3>
+            <p>回す前に、世代チップ（第1〜9世代）やタイプチップを押して候補を絞ってください。カントーだけならレトロな旅に、みずだけならテーマ縛りに。そのまま広げておけば、1,025体の全ポケモンがホイールに入ります。候補のカウンターは絞り込むたびに更新され、スピンのたびに新しいカードの列がデッキに読み込まれます。</p>
+          </article>
+          <article>
+            <h3>ヌズロックのためのホイール</h3>
+            <p>ヌズロックの人は、最初の遭遇、倒れたときの代わり、スターターチームの決定にホイールを使います。当サイトの <a href="../nuzlocke-generator/">ヌズロック編成</a> と組み合わせてください。ルールを決めたら、選出はホイールに任せるだけです。</p>
+          </article>
+          <article>
+            <h3>配信と動画のために作られています</h3>
+            <p>回るホイールは、それだけで場面になります。アニメーションはライブのテンポに合わせてあり、カードは止まって着地し、結果はどれもシェアできます。運があなたの判断をしている様子を、チャットがリアルタイムで見られるわけです。配信者はランダムバトル、チャレンジの段位決め、コミュニティの選出に使っています。</p>
+          </article>
+          <article>
+            <h3>友だちとスピン大会</h3>
+            <p>ホイールをトーナメント表に変えましょう。参加者が1回ずつ回し、種族値合計がいちばん高い人が勝ち上がります。候補が1,025体あれば、どの回も読めません。スピン履歴がそのまま対戦表の記録になります。Discordのグループでは、この方式で大会をまるごと開催しています。組み合わせはホイールが決め、自慢は参加者がする。それだけです。</p>
+          </article>
+          <article>
+            <h3>結果をパーティに取り込む</h3>
+            <p>ホイールの結果は遊びで終わりません。カードが止まったら、そのポケモンの名前を当サイトの <a href="../">Random Pokemon Generator</a> にコピーして、戦術レポートに評価させてください。5回回せば、戦闘分析つきの、運が組んだパーティが1つ完成します。</p>
+          </article>
+          <article>
+            <h3>スピンはどれもシェアできます</h3>
+            <p>スピンのあとに「結果をシェア」を押すと、『ポケモンルーレットがチームを決めました：リザードン — あなたも回してみて！』のようなメッセージとリンクをコピーします。Discordに貼るもよし、Xに投稿するもよし、配信のチャットに流すもよしです。</p>
+          </article>
+          <article>
+            <h3>データは1つ、すべてのツールに</h3>
+            <p>ホイールはサイトのほかのツールと同じ第1〜9世代のデータで動いています。1,025体にリージョンフォルムを加えた、公式イラスト・タイプタグ・種族値つきのデータです。広い意味では「ランダムポケモン抽選ホイール」という一族の一部で、編成ツールもチャレンジの旅も判定ゲームも、同じ図鑑を土台にしています。スピンでお気に入りが決まったら、 <a href="../random-pokemon-name-generator/">ランダム名前生成</a> がタイプと生息地に合った名前を付けてくれます。進化後の姿で引きたいなら、 <a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a> がメガシンカ限定で回してくれますし、 <a href="../random-shiny-pokemon-generator/">ランダム色違い生成</a> なら色違いのポケモンだけ。確率の実際の計算は <a href="../pokemon-shiny-odds/">色違いの出現率</a>.</p>
+          </article>
+          <article>
+            <h3>パーティを丸ごと回す</h3>
+            <p>1回のスピンで1体。でもホイールはチーム作りにも使えます。スターターに1回、各枠に1回ずつ回すのもいいですし、シェアボタンで、自分のホイールに出た組み合わせをそのまま友だちに送ることもできます。配信者はチーム抽選の形式を、目隠しランダムバトルに使います。チャレンジ系のコミュニティでは、参加者が自分の手持ちを回してから、出た顔ぶれで戦うホイールドラフトが定番です。スピンのたびにホイールは絞り込み済みの候補から引き直すので、第1世代のホイールからパルデアのポケモンが出ることはありませんし、みず限定ならチーム全員がテーマどおりに揃います。</p>
+          </article>
+          <article>
+            <h3>ホイールを判断の道具として使う</h3>
+            <p>バトル以外にも、ホイールは判断を助ける道具になります。どの御三家にするか決められない？ 回してください。色違い狩りの対象を決めたい？ 候補を絞って、あとはスピナーに任せましょう。配信で「ホイールが決める」コーナーをやる？ 回るホイールのドラマ、チャットからの指名、目隠しの反応、カードのゆっくりした流れ。ホイール形式がいまもTikTokやYouTubeで広がり続ける理由はそこにあります。結果はスピン履歴に残るので、あとから1回分のセッションを振り返り、コンテンツにも、ティア表にも、大会の対戦表にも変えられます。</p>
+          </article>
+          <article>
+            <h3>大きな画面でホイールを回す</h3>
+            <p>ホイールは視覚のツールです。大きなカード、大きなイラスト、そして部屋の反対側からでも見える結果。ゲーム会ならテレビにキャストし、教室なら投影し、配信しながらセカンドモニターで回すのも手です。スピンのアニメーションはライブのテンポに合う速さで、結果は端末のなかに残るので、ホストがセッション全体をあとから振り返ることもできます。</p>
+          </article>
+          <article>
+            <h3>1回のスピンから旅1本へ</h3>
+            <p>リーグの主催者は、ホイールをドラフトのエンジンとして使っています。1枠につき1回のスピンなら、ドラフトは止まらず、チャットには切り抜きが絶えません。ヌズロック編成のルールに載せれば、スピンがスターターを決め、最初の遭遇を決め、倒れたときの代わりまで決めます。ホイール1つで、旅が1本まるごと動くわけです。出た6体が決まったら、 <a href="../pokemon-team-picker/">パーティ編成</a> で、最初のバトルの前に性格・わざ・持ち物を整えましょう。    スピンのお気に入りは形に残せます。 <a href="../pokemon-card-generator/">ポケモンカード作成</a> なら印刷できるオリジナルカードにでき、 <a href="../pokemon-trainer-card-generator/">トレーナーカード作成</a> なら、手持ちに合わせたトレーナーカードが作れます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+<!-- Spin math -->
+    <section id="spin-math" class="band" aria-labelledby="spin-math-title">
+      <div class="container">
+        <p class="eyebrow">スピンの裏側の計算</p>
+        <h2 id="spin-math-title">ポケモンルーレット：1回のスピンを数字で見る</h2>
+        <div class="how-grid">
+          <article>
+            <h3>1回のスピンを数字で</h3>
+            <p>スピンのたびに、絞り込みで許された候補からデッキが読み直され、15〜30枚のカードが2〜4秒ほどで金色の枠を通り過ぎます。なかで止まったカードが結果です。重み付けも引き直しもない、一様な1回の抽選です。全ポケモンが候補なら、ある1体が当たる確率は1回あたり1,351分の1。スピンどうしは独立しているので、さっき見送った種族がまた戻ってくることもあります。</p>
+          </article>
+          <article>
+            <h3>絞り込みが確率に与えるもの</h3>
+            <p>数字を動かせるのは絞り込みだけです。候補を狭めることが、そのまま確率の変化になります。カントー限定なら238分の1。みずタイプ限定なら192分の1。カントーかつみずなら40分の1。伝説と幻を外すと1,193分の1。候補に残ったものはどれも同じ1枚ぶんのくじなので、本当に大事なスピンの前には候補カウンターを見ておく価値があります。狭い候補ほど、1体あたりの取り分は大きくなります。</p>
+          </article>
+          <article>
+            <h3>評価が実際に測っているもの</h3>
+            <p>レポートは3つの割合を計算し、重みを付けます。18タイプ全体へのタイプ一致わざの通りが35点、引いたポケモンどうしで弱点が重ならないタイプの割合が35点、そして種族値合計の平均が残りの30点です。1回の抽選では、守りの35点が自動的に満点になります。単体のカードが良い評価を取りやすいのはそのためで、1,025種のうち554種が単体でB、68種がAに届き、Sになる種はいません。Sはコレクションの評価です。補完し合う範囲を持ち、穴が重ならない複数回の抽選が必要になります。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">ポケモンルーレットに関するよくある質問</h2>
+      <details class="faq-item cornered">
+        <summary>ポケモンルーレットとは？</summary>
+        <p>選んだ絞り込みを、第1〜9世代の全ポケモンから1体に変える抽選ツールです。引き直しも考え直しもなし。スピンが落とす1つの結果が、そのままあなたの引きです。要するにポケモンのスピナーで、1タップで選出が終わります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>ポケモンルーレットはどう動く？</summary>
+        <p>スピンを押すと、カードが金色の枠をなめらかに流れ、なかで止まった1枚があなたのポケモンです。最新の結果は画面に残り、シェア用のメッセージとしてコピーできます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>世代やタイプで限定できますか？</summary>
+        <p>はい。回す前に世代やタイプのチップを押してください。ホイールは絞り込んだ候補からしか引きませんので、カントー限定、みず限定、その組み合わせなど自由に設定できます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>ヌズロックに使えますか？</summary>
+        <p>もちろんです。最初の遭遇、倒れたときの代わり、スターターチームの決定に使えます。ホイールのドラマがあるぶん、ヌズロックの旅はさらに楽しくなります。当サイトのヌズロック編成と組み合わせてみてください。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>配信で使えますか？</summary>
+        <p>はい、このホイールは配信用に作っています。スピンのアニメーションはライブのテンポに合う長さで、結果はどれもシェアできるので、チャットが運の判断をリアルタイムで見られます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>1,025体すべてが入っていますか？</summary>
+        <p>ホイールは本体の生成ツールと同じデータから引いています。第1〜9世代の1,025体すべてにリージョンフォルムを加えたもので、どのカードにも公式イラストが入っています。</p>
+      </details>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="modal" hidden>
+    <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="modal-name" id="modal-card">
+      <div class="modal-head">
+        <div>
+          <p class="modal-meta" id="modal-meta"></p>
+          <h3 id="modal-name"></h3>
+          <div class="chip-row" id="modal-types"></div>
+        </div>
+        <span class="modal-art"><span class="dex-aura" aria-hidden="true"></span><img id="modal-img" width="475" height="475" alt="" /></span>
+      </div>
+      <h4 class="modal-section">種族値 · 合計 <strong id="modal-bst"></strong></h4>
+      <dl class="stats" id="modal-stats"></dl>
+      <h4 class="modal-section">特性</h4>
+      <ul class="ability-list" id="modal-abilities"></ul>
+      <h4 class="modal-section">進化系統</h4>
+      <div class="evo-chain" id="modal-evo"></div>
+      <button type="button" class="btn-slide btn-secondary modal-close" id="modal-close"><span>閉じる（ESC）</span></button>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="share-modal" hidden>
+    <div class="modal cornered" role="dialog" aria-modal="true" aria-labelledby="sm-title" id="share-modal-card">
+      <p class="modal-meta">このブラウザでは自動コピーがブロックされました。選択して手動でコピーしてください</p>
+      <h3 id="sm-title">シェア用のテキストをコピー</h3>
+      <textarea class="share-modal-text" id="share-modal-text" rows="6" readonly></textarea>
+      <button type="button" class="btn-slide btn-secondary modal-close" id="sm-close"><span>閉じる</span></button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <script src="../../data.js?v=20261022d"></script>
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="pokemon-wheel.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

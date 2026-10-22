@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Pokemon Generator｜運営と連絡先</title>
+  <meta name="description" content="Random Pokemon Generator はファン制作の非公式ツール集です。作り方、データの出典、不具合の報告方法、新しいツールの提案先をまとめました。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/about/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/about/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/about/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/about/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Random Pokemon Generator｜運営と連絡先" />
+  <meta property="og:description" content="Random Pokemon Generator はファン制作の非公式ポケモンツール集。作り方、データの出典、不具合の報告や新ツールの提案方法をまとめました。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/about/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/about/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Random Pokemon Generator｜運営と連絡先" />
+  <meta name="twitter:description" content="Random Pokemon Generator はファン制作の非公式ポケモンツール集。作り方、データの出典、不具合の報告や新ツールの提案方法をまとめました。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/about/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Random Pokemon Generator",
+ "description": "A fan-made suite of random Pokemon tools — team generators, games, planners and odds calculators — built with vanilla JavaScript and open PokeAPI data.",
+ "applicationCategory": "GameApplication",
+ "operatingSystem": "All",
+ "browserRequirements": "Requires JavaScript",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "url": "https://www.random-pokemon-generator.co/about/"
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "About & Contact",
+   "item": "https://www.random-pokemon-generator.co/about/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Random Pokemon Generator は公式のポケモンサイトですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "いいえ。非公式のファンプロジェクトで、任天堂、ゲームフリーク、株式会社ポケモンとは提携も、承認も、後援も受けていません。ポケモンおよびキャラクター名は各権利者の商標です。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "このサイトは誰が運営していますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "個人の開発者で、長年のポケモンファンが作って維持しています。趣味のプロジェクトで、ツールはすべて素の JavaScript で手書きし、オープンソースで公開し、コミュニティからのプレイヤーの声をもとに改善しています。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "不具合や誤ったデータはどう報告すればいいですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "不具合や数字の誤りを見つけたら、公開 GitHub リポジトリ（github.com/githubi2/Random-Pokemon-Generator、フッターにもリンクがあります）で issue を立ててください。どのページで、何を期待して、実際に何が起きたかを書いてもらえれば助かります。種族値、タイプ、確率の訂正は特にありがたく、たいてい次の更新で反映されます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "新しいツールや機能を提案できますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "できます。提案は同じ GitHub の issue ページに集まり、出荷済みのツールのいくつかはプレイヤーの要望から始まりました。使い道（ヌズロックの通しプレイ、配信の1コーナー、ドラフトリーグなど）を書いてください。サイトの「ランダム系ツール」という軸で評価します。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "スマホでも使えますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "使えます。どのページもレスポンシブで、小さい画面ではハンバーガーメニューとタッチしやすい操作部品になります。ツールはすべてブラウザ内で動くので、一度読み込めばオフラインでも使えます。アプリのインストールは不要です。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "利用に料金はかかりますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "かかりません。ペイウォールも、サブスクも、有料プランもありません。オープンソースで、公開インフラ上で、趣味として運営しています。有料版を名乗るバッジやツールがあっても、それはこのサイトのものではありません。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "ツールを商用利用できますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ソースコードはリポジトリに含まれるオープンソースライセンスで公開しているので、クレジットを明記すれば個人利用も商用利用もできます。ただしポケモンの名前と画像は任天堂、ゲームフリーク、株式会社ポケモンの商標なので、そこは別途許諾が必要です。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "データは最新作に対応していますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "対応しています。データセットは第9世代までの全国図鑑を追いかけており、新しいゲームでルールが変われば仕様系のページも改訂します。古い作品の数値が必要な場合も、各ページに出典が書いてあるので、どのバージョンの話かは特定できます。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="./" class="nav-link nav-link-active">このサイトについて</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../about/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">ファン制作 · オープンソース · コミュニティ主導</p>
+      <h1 id="page-title">Random Pokemon Generator について・お問い合わせ</h1>
+      <p class="lede">Random Pokemon Generator は非公式のファンプロジェクトです。プレイヤー、配信者、ヌズロック、ドラフトリーグ向けに、ランダム系のポケモンツールを少しずつ増やしてきました。任天堂、ゲームフリーク、株式会社ポケモンとは一切関係ありません。ここではプロジェクトの中身、作り方、連絡先をまとめています。</p>
+    </section>
+
+    <!-- What this site is -->
+    <section class="band band-yellow" aria-labelledby="what-title">
+      <div class="container">
+        <p class="eyebrow">プロジェクトについて</p>
+        <h2 id="what-title">このサイトについて</h2>
+        <div class="how-grid">
+          <article>
+            <h3>ファンが、ファンのために作っています</h3>
+            <p>Random Pokemon Generator は、フィルター付きのランダムポケモン生成とチームレポートという1つのツールから始まりました。そこから少しずつ道具箱になっていきました。新しいツールや改善は、プレイヤーの要望をもとに定期的に出しています。基準は毎回同じで、読み込みが速いこと、データが正確なこと、開いて数秒で役に立つことです。</p>
+            <p>ポケモンのデータ（名前、タイプ、種族値、とくせい、画像）はオープンな PokeAPI のデータセットから取得しています。サーバーには何も保存しません。フィルター、履歴、共有リンクはすべてあなたのブラウザの中にあります。</p>
+          </article>
+          <article>
+            <h3>あらゆる「ランダム」をそろえて</h3>
+            <p>いまのツール群には、 <a href="../nuzlocke-generator/">ヌズロック編成</a>で縛りプレイの進行管理、 <a href="../pokemon-team-picker/">パーティ編成</a>でチーム編成、 <a href="../random-pokemon-generator-wheel/">ポケモンルーレット</a>で一発勝負のドラマチックな抽選がそろっています。さらに、 <a href="../pokemon-shiny-odds/">色違いの出現率</a> のような深掘りページも加わり、すべてブラウザ内で動いてアカウントは不要です。</p>
+          </article>
+          <article>
+            <h3>生成だけでなく、遊べるページも</h3>
+            <p>遊ぶためだけのページもあります。 <a href="../pokemon-smash-or-pass/">Smash or Pass</a>で図鑑全体を採点し、 <a href="../whos-that-pokemon/">このポケモンだあれ？</a>でシルエット当て、 <a href="../random-pokemon-name-generator/">ランダム名前生成</a>で最高のニックネーム探し。どのツールもブラウザ内で完結し、アカウントも登録も要りません。</p>
+          </article>
+          <article>
+            <h3>リファレンスページと計算ツール</h3>
+            <p>回す系のほかにも、参照用のページを最新に保っています。 <a href="../pokemon-type-chart/">タイプ相性表</a> は324通りの相性すべてを複合タイプの計算機で網羅し、 <a href="../pokemon-nature-chart/">ポケモン性格表</a> は25種類のせいかくをポケモン別の推奨付きで並べています。色違い確率の計算ツールはすべての狩り方を順に解説し、 <a href="../pokemon-iv-calculator/">個体値計算</a> はゲーム内で実際に見える能力値から、隠れた個体値を逆算します。</p>
+            <p>「ランダム」というテーマから外れたページも、意図的に2つあります。 <a href="../random-pokemon-picker/">ランダム選出</a> はメインのジェネレーターを1回だけ引く版、 <a href="../search/">ポケモン検索</a> は名前からポケモンを最短で引く方法です。どれも同じデータセットを読んでいるので、検索したポケモンは、回しても、調整しても、印刷しても同じポケモンです。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it's built -->
+    <section class="band" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">中身の話</p>
+        <h2 id="how-title">どう作られているか</h2>
+        <div class="how-grid">
+          <article>
+            <h3>あえて地味な技術で</h3>
+            <p>すべてのページは、素の HTML・CSS・JavaScript で手書きしています。フレームワークなし、ビルド工程なし、依存関係なしです。おかげでどの端末でも軽く、監査しやすく、保守も簡単です。プロジェクト全体がオープンソースなので、抽選がどう計算されているか誰でもそのまま読めます。</p>
+          </article>
+          <article>
+            <h3>オープンなデータと、出典の明記</h3>
+            <p>ポケモンのデータ、種族値、公式画像はコミュニティ運営の <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a> プロジェクトから取得しています。色違いの確率とゲームの仕様は、ゲーム内の資料とコミュニティの検証をもとにまとめました。確定値ではなく推定値の場合は、ページにそう書いています。</p>
+            <p>仕様系のページは、いちばん厳しく確認しています。タイプ相性表は第6世代以降の相性を使い、せいかく表は10パーセントの倍率に従い、個体値計算機はゲームと同じ式で動きます。新しい世代でルールが変わったら、影響するページを同じリリースで更新し、変更はプロジェクトのコミット履歴に残します。</p>
+          </article>
+          <article>
+            <h3>気分ではなく、検証できること</h3>
+            <p>このサイトの数字はすべてたどれます。各ツールは参照した PokeAPI の項目を示しており、サイト全体のソースコードは公開されています。数値がおかしいと思ったら、フォーラムに書くより issue を立てたほうが早く直ります。「推定」と正直に書くページのほうが、自信満々に推測するページより良いと思っています。</p>
+          </article>
+          <article>
+            <h3>データはあなたのもの</h3>
+            <p>抽選履歴、保存したチーム、設定はブラウザのローカルストレージにだけ残ります。アカウントがないので、漏れるものもありません。利用状況の集計は、自前の Cookie を使わない Plausible インスタンスと、Google Analytics 4、Microsoft Clarity から取得しています。分析をブロックしても、どのツールも同じように動きます。詳しくは <a href="../privacy-policy/">プライバシーポリシー</a>に書いてあります。利用ルールは <a href="../terms-of-use/">利用規約</a>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="band band-yellow" aria-labelledby="contact-title">
+      <div class="container">
+        <p class="eyebrow">連絡先</p>
+        <h2 id="contact-title">お問い合わせ</h2>
+        <div class="how-grid">
+          <article>
+            <h3>不具合とデータの誤り</h3>
+            <p>メンテナーにいちばん早く届くのは、公開 GitHub リポジトリの issue です。 <a href="https://github.com/githubi2/Random-Pokemon-Generator" rel="noopener noreferrer" target="_blank">github.com/githubi2/Random-Pokemon-Generator</a>。ページの URL、期待した動作、実際に起きたことを書いてください。数値の誤り、古い仕様、壊れたフィルターは優先度が高く、たいてい次の更新で直ります。</p>
+          </article>
+          <article>
+            <h3>機能やツールの提案</h3>
+            <p>アイデアも同じ issue ページで歓迎します。出荷済みのツールのいくつかは、プレイヤーの提案から生まれました。いちばん役に立つのは、シチュエーションが分かる要望です。ヌズロックのルールセット、配信の1コーナー、ドラフトリーグの形式、授業での使い方など。サイトの「ランダム系ツール」という軸に合い、オープンなデータで作れるものであれば、ロードマップに載せます。</p>
+          </article>
+          <article>
+            <h3>返信について</h3>
+            <p>本業のかたわらで続けている趣味のプロジェクトなので、返信はすぐではありません。それでも issue にはすべて目を通していますし、公開の issue トラッカーで進み具合が分かります。プライバシーに関わる質問は、プライバシーポリシーにほとんどが平易な言葉で書いてあります。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">このサイトについて &amp; お問い合わせFAQ</h2>
+      <details class="faq-item cornered">
+        <summary>Random Pokemon Generator は公式のポケモンサイトですか？</summary>
+        <p>いいえ。非公式のファンプロジェクトで、任天堂、ゲームフリーク、株式会社ポケモンとは提携も、承認も、後援も受けていません。ポケモンおよびキャラクター名は各権利者の商標です。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>このサイトは誰が運営していますか？</summary>
+        <p>個人の開発者で、長年のポケモンファンが作って維持しています。趣味のプロジェクトで、ツールはすべて素の JavaScript で手書きし、オープンソースで公開し、コミュニティからのプレイヤーの声をもとに改善しています。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>不具合や誤ったデータはどう報告すればいいですか？</summary>
+        <p>不具合や数字の誤りを見つけたら、公開 GitHub リポジトリ（github.com/githubi2/Random-Pokemon-Generator、フッターにもリンクがあります）で issue を立ててください。どのページで、何を期待して、実際に何が起きたかを書いてもらえれば助かります。種族値、タイプ、確率の訂正は特にありがたく、たいてい次の更新で反映されます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>新しいツールや機能を提案できますか？</summary>
+        <p>できます。提案は同じ GitHub の issue ページに集まり、出荷済みのツールのいくつかはプレイヤーの要望から始まりました。使い道（ヌズロックの通しプレイ、配信の1コーナー、ドラフトリーグなど）を書いてください。サイトの「ランダム系ツール」という軸で評価します。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>スマホでも使えますか？</summary>
+        <p>使えます。どのページもレスポンシブで、小さい画面ではハンバーガーメニューとタッチしやすい操作部品になります。ツールはすべてブラウザ内で動くので、一度読み込めばオフラインでも使えます。アプリのインストールは不要です。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>利用に料金はかかりますか？</summary>
+        <p>かかりません。ペイウォールも、サブスクも、有料プランもありません。オープンソースで、公開インフラ上で、趣味として運営しています。有料版を名乗るバッジやツールがあっても、それはこのサイトのものではありません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>ツールを商用利用できますか？</summary>
+        <p>ソースコードはリポジトリに含まれるオープンソースライセンスで公開しているので、クレジットを明記すれば個人利用も商用利用もできます。ただしポケモンの名前と画像は任天堂、ゲームフリーク、株式会社ポケモンの商標なので、そこは別途許諾が必要です。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>データは最新作に対応していますか？</summary>
+        <p>対応しています。データセットは第9世代までの全国図鑑を追いかけており、新しいゲームでルールが変われば仕様系のページも改訂します。古い作品の数値が必要な場合も、各ページに出典が書いてあるので、どのバージョンの話かは特定できます。</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="./">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

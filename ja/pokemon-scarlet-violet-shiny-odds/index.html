@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ポケモンSV 色違い確率まとめ｜全手法の数値と計算機</title>
+  <meta name="description" content="ポケモンSVの色違い確率を全手法でまとめました。野生、大量発生の30匹・60匹撃破、かがやきパワーのサンドイッチ、タマゴ、テラレイドまで数値を一覧化し、計算機で自分の厳選の確率も出せます。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/pokemon-scarlet-violet-shiny-odds/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/pokemon-scarlet-violet-shiny-odds/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/pokemon-scarlet-violet-shiny-odds/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/pokemon-scarlet-violet-shiny-odds/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ポケモンSV 色違い確率まとめ｜全手法の数値と計算機" />
+  <meta property="og:description" content="野生、大量発生の30匹・60匹撃破、かがやきパワーのサンドイッチ、タマゴ。スカーレット・バイオレットの色違い確率を全手法ぶんまとめ、計算機も付けています。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/pokemon-scarlet-violet-shiny-odds/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/pokemon-scarlet-violet-shiny-odds/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ポケモンSV 色違い確率まとめ｜全手法の数値と計算機" />
+  <meta name="twitter:description" content="野生、大量発生の30匹・60匹撃破、かがやきパワーのサンドイッチ、タマゴ。スカーレット・バイオレットの色違い確率を全手法ぶんまとめ、計算機も付けています。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/pokemon-scarlet-violet-shiny-odds/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <style>
+    /* page-scoped: stacked input rows inside the odds calculator panel */
+    .odds-n-label + .odds-n-label { margin-top: 12px; }
+    .btn-row + .btn-row { margin-top: 8px; }
+    .odds-chain-row { margin-top: 12px; }
+  </style>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "スカーレット・バイオレットの色違い確率",
+ "description": "Interactive shiny odds calculator for Pokemon Scarlet and Violet: wild encounter rates, Sparkling Power sandwich levels, outbreak bonuses at 30 and 60 cleared, the egg and Masuda ladder, and the fixed 1 in 4,103 Tera Raid rate.",
+ "applicationCategory": "GameApplication",
+ "operatingSystem": "All",
+ "browserRequirements": "Requires JavaScript",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "url": "https://www.random-pokemon-generator.co/pokemon-scarlet-violet-shiny-odds/"
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "色違いの出現率",
+   "item": "https://www.random-pokemon-generator.co/pokemon-shiny-odds/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "スカーレット・バイオレットの色違い確率",
+   "item": "https://www.random-pokemon-generator.co/pokemon-scarlet-violet-shiny-odds/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "スカーレット・バイオレットのタマゴの色違い確率は？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "孵化には独自の段階があります。普通のタマゴは1/4096、ひかるおまもりだけで1/2048、国際孵化なら6回抽選して1/683です。国際孵化にひかるおまもりを重ねた1/512がゲーム内最高のタマゴ確率で、サンドイッチは効きません。かがやきパワーはタマゴには何もしないのです。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "サンドイッチはタマゴやレイドに効きますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "どちらにも効きません。サンドイッチが届くのは野生の出現と大量発生だけで、レイドはあらゆる強化を無視します。何を持ち込んでもテラレイドバトルは1/4103のままです。レイドは、ほかに出現しない種族を手に入れるための場であって、確率を上げる場ではありません。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "SVで一番効率のいい色違い厳選は？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "同じ種族に対して、ひかるおまもり＋かがやきパワーLv.3のサンドイッチ＋60匹撃破の大量発生。これが1/512で、このページで現実的に組める最速の形です。国際孵化＋ひかるおまもりは同じ上限に届きますが、1回あたりのペースは遅いので、放置しながら回せる厳選に向いています。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "テラレイドバトルのほうが色違いは出やすいですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "いいえ。通常のレイドは1/4103で、野生の基本確率よりわずかに悪く、中ではひかるおまもりも効きません。レイドで色違いを狙う理由があるとすれば、イベント中のコレクレーのようにレイドでしか出ない種族がいることだけです。しかもイベントレイドは色違いを完全に無効にすることもあるので、まず一覧を確認してください。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "SVでひかるおまもりがあると色違い確率はどうなりますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "野生なら1/1365です。おまもりが基本の1/4096に2回分の抽選を足すからです。そこからさらに重なります。大量発生、サンドイッチ、国際孵化のペア、どれとでも組み合わさり、タマゴでは同じおまもりが1/512という上限の半分を担います。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "SVで色違いが出ないポケモンはどれですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ストーリーで渡されるものすべてです。災いの4伝説、ともっこ、パッケージの伝説、オーガポン、テラパゴス、藍の円盤のおやつおまもり分です。コレクレーは期間限定のイベントレイド以外では固定です。普通の出現と大量発生なら、いつでも色違いの可能性があります。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+
+  <!-- Structured data: WebSite -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#calculator" class="nav-link">計算ツール</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../pokemon-scarlet-violet-shiny-odds/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">スカーレット & バイオレット · サンドイッチ・大量発生 & タマゴ · 最高1/512</p>
+      <h1 id="page-title">ポケモンSV 色違い確率</h1>
+      <p class="lede">スカーレット・バイオレットは、シリーズの中でも色違い勢に多くの調整つまみを渡してくれた作品です。サンドイッチ、大量発生、タマゴ、レイドがそれぞれ別の抽選を持っています。ひかるおまもり、かがやきパワーLv.3のサンドイッチ、60匹撃破の大量発生がそろえば上限は1/512。逆にレイド狙いの下限は1/4103と渋いままです。以下の数値はすべて、現行パッチのコミュニティ集計表と一致しています。</p>
+    </section>
+
+    <!-- Calculator -->
+    <section class="container tool-panel" id="calculator" aria-label="Pokemon Scarlet and Violet Shiny Odds calculator">
+      <div class="panel cornered">
+        <p class="tool-hint">スカーレット・バイオレット専用です。実際に使っている強化だけをオンにしてください。ひかるおまもり、サンドイッチのかがやきパワーのレベル、大量発生の撃破数です。カードがそれを野生の出現確率と、平均的な厳選の長さに換算します。タマゴとテラレイドバトルは独自の計算なので、下のほうで別に扱っています。</p>
+        <p class="tool-note">基本は1/4096です。タマゴは計算が少し変わります。ひかるおまもりだけを持っていると抽選が1回分飛ばされるので、おまもりだけのタマゴは1/2048。野生なら同じおまもりで1/1365ですから、そこが違いです。</p>
+
+      <fieldset>
+        <legend>狩りで有効なブースト</legend>
+        <div class="btn-row" id="odds-boost-chips" role="group" aria-label="上昇手段を選ぶ"><button type="button" class="chip-btn" aria-pressed="false" title="complete the Paldea Pokedex">ひかるおまもり</button><button type="button" class="chip-btn" aria-pressed="false" title="ハーブミスティカのサンドイッチ">かがやきパワーLv.1</button><button type="button" class="chip-btn" aria-pressed="false" title="ハーブミスティカのサンドイッチ">かがやきパワーLv.2</button><button type="button" class="chip-btn" aria-pressed="false" title="ハーブミスティカのサンドイッチ">かがやきパワーLv.3</button><button type="button" class="chip-btn" aria-pressed="false" title="大量発生の進捗">大量発生：30〜59匹撃破</button><button type="button" class="chip-btn" aria-pressed="false" title="大量発生の進捗">大量発生：60匹以上撃破</button></div>
+        <p class="tool-note" id="odds-boost-note"></p>
+      </fieldset>
+
+        <div class="odds-result-grid" aria-live="polite">
+          <div class="odds-result-card cornered">
+            <div class="odds-result-num" id="odds-fraction">4,096分の1</div>
+            <div class="odds-result-label">1回のエンカウントあたりの色違い確率</div>
+          </div>
+          <div class="odds-result-card cornered">
+            <div class="odds-result-num" id="odds-percent">0.0244%</div>
+            <div class="odds-result-label">割合で表示</div>
+          </div>
+          <div class="odds-result-card cornered">
+            <div class="odds-result-num" id="odds-expected">4,096</div>
+            <div class="odds-result-label">色違い1体あたりの平均エンカウント数</div>
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>狩りの所要時間</legend>
+          <label class="odds-n-label">予定エンカウント数： <input type="number" id="odds-n-input" min="1" max="1000000" value="1000" step="50" aria-label="予定している遭遇回数" /></label>
+          <p class="odds-n-result" id="odds-n-result"></p>
+          <label class="odds-n-label">1時間あたりのエンカウント数： <input type="number" id="odds-rate-input" min="1" max="100000" value="60" step="10" aria-label="1時間あたりの遭遇回数" /></label>
+          <p class="odds-n-result" id="odds-median"></p>
+          <p class="tool-note" id="odds-milestones"></p>
+        </fieldset>
+
+        <div class="actions">
+          <a href="../random-shiny-pokemon-generator/" class="btn-slide cornered btn-primary odds-cta"><span><i class="ico ico-sparkles" aria-hidden="true"></i> 今すぐ色違いを引いてみる — ランダム色違い生成</span></a>
+        </div>
+        <p class="tool-note">確率は確認済みで、しかも重ねられます。生成ツールなら色違いのポケモンがその場で出ます。サンドイッチのタイマーも、大量発生のカウンターも不要です。昔の作品と比べたいときは、まとめページに全部そろっています。</p>
+      </div>
+    </section>
+
+    <!-- Rates -->
+    <section id="rates" class="container odds" aria-labelledby="rates-title">
+      <p class="eyebrow">リファレンス</p>
+      <h2 id="rates-title">ポケモンSVの色違い確率：手法別の一覧</h2>
+      <p class="odds-lede">野生の出現も、大量発生も、タマゴも、すべて1/4096の基本値から始まります。ただし手法ごとに抽選が上乗せされ、しかもゲームはこちらの予想どおりには足してくれません。かがやきパワーはレベルごとに1回、大量発生は30匹撃破で1段、60匹でさらに1段、ひかるおまもりは2回分です。下の表は、スクリーンショットを撮っておく価値のある一覧です。</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>狩り</th><th>色違い判定の回数</th><th>色違い確率</th><th>確率</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>野生（ブーストなし）</td><td>1</td><td>4,096分の1</td><td>0.0244%</td></tr>
+            <tr><td>野生＋かがやきパワーLv.1</td><td>2</td><td>2,048分の1</td><td>0.0488%</td></tr>
+            <tr><td>野生＋かがやきパワーLv.2</td><td>3</td><td>1,365分の1</td><td>0.0732%</td></tr>
+            <tr><td>野生＋かがやきパワーLv.3</td><td>4</td><td>1,024分の1</td><td>0.0977%</td></tr>
+            <tr><td>野生＋ひかるおまもり</td><td>3</td><td>1,365分の1</td><td>0.0732%</td></tr>
+            <tr><td>大量発生・30〜59匹撃破</td><td>2</td><td>2,048分の1</td><td>0.0488%</td></tr>
+            <tr><td>大量発生・60匹以上撃破</td><td>3</td><td>1,365分の1</td><td>0.0732%</td></tr>
+            <tr><td>大量発生60匹以上／ひかるおまもり</td><td>5</td><td>819分の1</td><td>0.1221%</td></tr>
+            <tr><td>大量発生60匹以上／ひかるおまもり／かがやきパワーLv.3</td><td>8</td><td>512分の1</td><td>0.1953%</td></tr>
+            <tr><td>テラレイドバトルでの遭遇</td><td>固定</td><td>1/4103</td><td>0.0244%</td></tr>
+            <tr><td>タマゴ（ブーストなし）</td><td>1</td><td>4,096分の1</td><td>0.0244%</td></tr>
+            <tr><td>タマゴ＋ひかるおまもり</td><td>2</td><td>2,048分の1</td><td>0.0488%</td></tr>
+            <tr><td>タマゴ＋国際孵化</td><td>6</td><td>683分の1</td><td>0.1465%</td></tr>
+            <tr><td>タマゴ＋国際孵化＋ひかるおまもり</td><td>8</td><td>512分の1</td><td>0.1953%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tool-note">レイドは1/4103で固定です。各レイドの裏にある32ビットのシードが野生よりわずかに不利で、しかもレイドの中ではひかるおまもりが効きません。この表のほかの数値はすべて、確率まとめサイトが公開しているのと同じ解析データから来ています。</p>
+    </section>
+
+    <!-- Mechanics -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">仕様</p>
+        <h2 id="how-title">強化ごとにSVの色違い確率はどう変わるか</h2>
+        <p class="odds-lede">パルデアで働いている仕組みは3つ、サンドイッチ・大量発生・孵化です。それぞれがどう振る舞うのか、そしてレイドだけがなぜその外側にあるのかを説明します。</p>
+        <div class="how-grid">
+          <article>
+            <h3>かがやきパワーのサンドイッチ</h3>
+            <p>ひでんスパイスを使ったサンドイッチは、30分間かがやきパワーを発動します。レベルごとに、サンドイッチと同じタイプの野生のポケモンに抽選が1回、2回、3回と上乗せされます。サンドイッチはタマゴには届かず、レイドの中でも効きません。実践的なレシピはこうです。狙うポケモンのタイプに合わせてサンドイッチを作り、すでに撃破数を稼いだ大量発生の場所で食べ、残り時間を見張ります。</p>
+          </article>
+          <article>
+            <h3>大量発生：30匹、そして60匹</h3>
+            <p>大量発生は、手を付け始めるまでは普通の野生と同じように湧きます。30匹倒すと抽選が1回、60匹でさらに1回追加され、大量発生だけでも1/1365、ひかるおまもりとかがやきパワーLv.3のサンドイッチが加われば1/512まで届きます。倒しても捕まえてもカウントされ、しかも数が進むのはその大量発生の種族だけです。別の場所で倒した分は反映されません。</p>
+          </article>
+          <article>
+            <h3>タマゴの段階と、レイドという例外</h3>
+            <p>孵化は独自の計算を持っています。普通のタマゴは1/4096。ひかるおまもりを足すと1/2048になります。草むらで同じおまもりがもたらす1/1365には届きません。ボーナスが有効なときはゲームが1回分の抽選を飛ばすからです。言語タグの違う2匹から生まれる国際孵化のタマゴは6回抽選して1/683、そこにひかるおまもりを足すと1/512です。テラレイドバトルはこのどれも無視します。通常のレイドは1/4103で固定で、イベントレイドでは種族ごとに色違いを封じることもあります。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shiny locks -->
+    <section id="locked" class="container odds" aria-labelledby="locked-title">
+      <p class="eyebrow">レア度</p>
+      <h2 id="locked-title">ポケモンSVで色違いが出ないポケモン</h2>
+      <p class="odds-lede">スカーレット・バイオレットは、ストーリーで手に入るもののほぼすべてを色違い固定にしています。しかもその数は過去作より多いのです。災いの4伝説（チオンジェン、パオジアン、ディンルー、イーユイ）、ともっこ、コライドンとミライドン、オーガポン、テラパゴス、タイタンとの再戦、イベントレイド以外のコレクレー、演出つきの初回遭遇、そして藍の円盤のおやつおじさんが渡す伝説すべてが対象です。狙えるのは普通の野生、つまりマップ上のすべての出現と大量発生、そしてシードが噛み合ったときのレイドの色違いだけです。</p>
+    </section>
+
+    <!-- Milestones -->
+    <section id="milestones" class="container odds" aria-labelledby="milestones-title">
+      <p class="eyebrow">実際の目安</p>
+      <h2 id="milestones-title">SVの色違い厳選にはどれくらいかかる？</h2>
+      <p class="odds-lede">確率は値段で、厳選は試行回数で払います。下の各行は、パルデアの代表的な確率を2つの回数に置き換えたものです。半分の人が終わる回数と、頑固な1%だけが超えていく回数です。</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>あなたの色違い確率</th><th>中央値（50%）</th><th>99%の人がここまでに</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>4,096分の1（ブーストなし）</td><td>2,839回のエンカウント</td><td>18,861回のエンカウント</td></tr>
+            <tr><td>1/1365（ひかるおまもり・野生）</td><td>947回</td><td>6,287回</td></tr>
+            <tr><td>1/683（ひかるおまもり＋かがやきパワーLv.3、または国際孵化のタマゴ）</td><td>474回</td><td>3,144回</td></tr>
+            <tr><td>1/512（ひかるおまもり＋サンドイッチ＋大量発生）</td><td>355回のエンカウント</td><td>2,358回</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tool-note">サンドイッチは切れ、大量発生は終わり、タマゴはまとめて孵ります。回数はそうした事情を全部無視して、純粋な抽選だけを数えたものです。自分のペースで時間を見積もりたいときは、上の計算機に1時間あたりの遭遇回数を入れてください。</p>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">ポケモンSV 色違い確率・よくある質問</h2>
+      <details class="faq-item cornered">
+        <summary>スカーレット・バイオレットのタマゴの色違い確率は？</summary>
+        <p>孵化には独自の段階があります。普通のタマゴは1/4096、ひかるおまもりだけで1/2048、国際孵化なら6回抽選して1/683です。国際孵化にひかるおまもりを重ねた1/512がゲーム内最高のタマゴ確率で、サンドイッチは効きません。かがやきパワーはタマゴには何もしないのです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>サンドイッチはタマゴやレイドに効きますか？</summary>
+        <p>どちらにも効きません。サンドイッチが届くのは野生の出現と大量発生だけで、レイドはあらゆる強化を無視します。何を持ち込んでもテラレイドバトルは1/4103のままです。レイドは、ほかに出現しない種族を手に入れるための場であって、確率を上げる場ではありません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>SVで一番効率のいい色違い厳選は？</summary>
+        <p>同じ種族に対して、ひかるおまもり＋かがやきパワーLv.3のサンドイッチ＋60匹撃破の大量発生。これが1/512で、このページで現実的に組める最速の形です。国際孵化＋ひかるおまもりは同じ上限に届きますが、1回あたりのペースは遅いので、放置しながら回せる厳選に向いています。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>テラレイドバトルのほうが色違いは出やすいですか？</summary>
+        <p>いいえ。通常のレイドは1/4103で、野生の基本確率よりわずかに悪く、中ではひかるおまもりも効きません。レイドで色違いを狙う理由があるとすれば、イベント中のコレクレーのようにレイドでしか出ない種族がいることだけです。しかもイベントレイドは色違いを完全に無効にすることもあるので、まず一覧を確認してください。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>SVでひかるおまもりがあると色違い確率はどうなりますか？</summary>
+        <p>野生なら1/1365です。おまもりが基本の1/4096に2回分の抽選を足すからです。そこからさらに重なります。大量発生、サンドイッチ、国際孵化のペア、どれとでも組み合わさり、タマゴでは同じおまもりが1/512という上限の半分を担います。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>SVで色違いが出ないポケモンはどれですか？</summary>
+        <p>ストーリーで渡されるものすべてです。災いの4伝説、ともっこ、パッケージの伝説、オーガポン、テラパゴス、藍の円盤のおやつおまもり分です。コレクレーは期間限定のイベントレイド以外では固定です。普通の出現と大量発生なら、いつでも色違いの可能性があります。</p>
+      </details>
+    </section>
+
+    <!-- More links -->
+    <section id="more" class="container odds" aria-label="さらに見る">
+      <div class="how-grid toolkit-grid">
+          <article>
+            <h3>他の作品の数値はどうなっているか</h3>
+            <p>比べてみると、 <a href="../pokemon-legends-z-a-shiny-odds/">ポケモン LEGENDS Z-A の色違い確率</a> のページでは新しい重ね掛けの段階が最高1/585で、 <a href="../pokemon-sword-shield-shiny-odds/">ソード・シールドの色違い確率</a> のページはダイマックスアドベンチャーの時代を扱っています。そして基本確率のまま粘るなら、 <a href="../pokemon-brilliant-diamond-shining-pearl-shiny-odds/">ポケモン ブリリアントダイヤモンド &amp; シャイニングパールの色違い確率</a> がすべてをポケトレの連鎖に賭けています。 <a href="../pokemon-shiny-odds/">色違いの出現率</a> のまとめページは金・銀以降の全世代を並べ、ブログの <a href="../blog/shiny-odds-explained/">色違いの確率をやさしく解説</a> では、シリーズ史の中で基本確率が一度しか動かなかった理由を解説しています。</p>
+          </article>
+          <article>
+            <h3>数値を実際に使う</h3>
+            <p>厳選には計画を添えましょう。 <a href="../pokemon-team-picker/">パーティ編成</a> が結果に合わせて6匹のパーティを組み、 <a href="../random-pokemon-picker/">ランダム選出</a> が厳選リストが長くなったときに候補を1匹まで絞り込みます。急いでいるなら、上の生成ツールが作業をすっ飛ばしてくれます。</p>
+          </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">確率はゲーム内の仕様に関する資料をもとにまとめています。ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="sv-odds.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

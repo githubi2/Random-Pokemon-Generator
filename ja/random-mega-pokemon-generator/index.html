@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>メガポケモン ランダム生成｜97体のメガシンカを抽選</title>
+  <meta name="description" content="メガシンカだけを引くランダム生成ツールです。ワンクリックで1体から6体まで抽選し、公式アートワーク、元の姿からの種族値の伸び、特性、タイプ相性まで表示。世代・タイプ・レア度で絞り込めます。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/random-mega-pokemon-generator/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/random-mega-pokemon-generator/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/random-mega-pokemon-generator/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/random-mega-pokemon-generator/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="メガポケモン ランダム生成｜97体のメガシンカを抽選" />
+  <meta property="og:description" content="ワンクリックでメガシンカを抽選。公式アートワーク、色違いの切り替え、元の姿からの種族値の伸び、特性、タイプ相性つきで、世代・タイプ・レア度で絞り込めます。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/random-mega-pokemon-generator/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/random-mega-pokemon-generator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="メガポケモン ランダム生成｜97体のメガシンカを抽選" />
+  <meta name="twitter:description" content="ワンクリックでメガシンカを抽選。公式アートワーク、色違いの切り替え、元の姿からの種族値の伸び、特性、タイプ相性つきで、世代・タイプ・レア度で絞り込めます。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/random-mega-pokemon-generator/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "ランダムメガシンカ",
+ "description": "Roll random Mega Evolution Pokemon from the full Gen 1-9 mega pool, with generation and type filters, stat gains over each base form, abilities and type coverage.",
+ "applicationCategory": "GameApplication",
+ "operatingSystem": "All",
+ "browserRequirements": "Requires JavaScript",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "url": "https://www.random-pokemon-generator.co/random-mega-pokemon-generator/"
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "ランダムメガシンカ",
+   "item": "https://www.random-pokemon-generator.co/random-mega-pokemon-generator/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "ランダムメガポケモン生成ツールとは？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "メガシンカの姿だけを引く抽選ツールです。1,025種すべてから引くのではなく、結果は必ずメガポケモン。メガリザードンX、メガゲンガー、メガレックウザ、そのほかのメガたちです。既定は1体で、チップを増やせばワンクリックで最大6体。結果はアートワーク、タイプ、種族値、特性、タイプ相性までそろったカードで返ってきます。エースをすぐ決めたいときにも、縛りプレイの配牌にも、忘れていたメガを思い出すのにも使えます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "プールにはどのメガシンカが入っていますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ゲームに登場するメガシンカはすべてです。2種類のメガを持つ種族、つまりリザードンとミュウツーのX・Yは別々の項目として数えるので、それぞれ単独で出てきます。Pokémon LEGENDS Z-Aで追加された新しいメガシンカ、メガメガニウムからメガカイリューまで含まれ、名前、アートワーク、タイプ、特性、種族値はPokeAPIから取得しています。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "フィルターと重複なしモードはどう動きますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "7つのフィルターで候補を絞ります。世代、地方、タイプ、レア度、生息地、図鑑の色、種族値の下限スライダーです。自由に重ねられ、1回あたりのチップで1体か最大6体かを選べ、1回の抽選のなかで重複は出ません。重複なしをオンにすれば、候補は山札方式で配られます。すべてのメガシンカが1回出るまで何も戻らず、ドラフトリーグやメガ限定の縛りプレイが公平に保たれます。フィルターをリセットを押せば、条件はすべて消えます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "結果カードには何が出ますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "抽選ごとに1枚のカードが返ってきます。色付きの背景に公式アートワーク、全国図鑑番号、タイプのバッジ、世代、レア度、そしてメガの元になる種族。6つの種族値はすべて棒グラフで表示され、合計は元の姿の値と並べられます。メガリザードンXなら534が634に。その下に、変身で得た特性と、弱点・耐性・無効を網羅した18タイプの判定が並びます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "色違いのメガポケモンは引けますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "引けます。どの結果カードにも色違いのスイッチがあり、アートワークが通常版と色違いで入れ替わります。メガレックウザの黒と金の姿や、メガリザードンXの青い炎がどう見えるかを、決める前に確かめられます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "抽選結果は保存されますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "保存されます。あなたのブラウザのなかにだけ。フィルター、重複なしの設定、表示中のカード、直近12回の抽選がローカルストレージに入るので、再読み込みしてもそのセッションがそのまま戻ります。履歴のパネルから過去のメガをワンクリックで呼び出せます。どこにも送信されず追跡もされず、ブラウザのデータを消せばすべて消えます。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#how" class="nav-link">しくみ</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../random-mega-pokemon-generator/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">第1〜9世代 · 全メガシンカ · 種族値 &amp; タイプ相性</p>
+      <h1 id="page-title">メガポケモン ランダム生成 ― 全メガシンカ抽選</h1>
+      <p class="lede">メガシンカだけを引くランダムメガポケモン生成ツールです。ワンクリックで1体、あるいは6体そろって抽選。公式アートワーク、元の姿からの種族値の伸び、特性、そしてタイプ相性まで付いてきます。</p>
+    </section>
+
+    <!-- Tool -->
+    <section class="container tool-panel" id="mega-tool" aria-label="Random mega pokemon generator tool">
+      <div class="panel cornered">
+        <p class="tool-hint">使い方 ― 世代・地方・タイプ・レア度・生息地・色・種族値の下限でメガの候補を絞り、1回に何体出すか（1〜6）を選んでから、 <i class="ico ico-dice-5" aria-hidden="true"></i> 「メガポケモンを生成」を押します。「重複なし」をオンにすると、山札を配るように、すべてのメガが1回ずつ出るまで同じものは現れません。↺ フィルターをリセットは全条件を一度に消します。回すだけのときに邪魔なら、 <i class="ico ico-settings" aria-hidden="true"></i> フィルターバーを押せば、パネルごと閉じられます。</p>
+
+        <div class="mega-filters-bar">
+          <button type="button" class="mega-filters-toggle" id="mega-filters-toggle" aria-expanded="true" aria-controls="mega-filters"><i class="ico ico-settings" aria-hidden="true"></i> 絞り込み <span class="mega-filters-caret" id="mega-filters-caret" aria-hidden="true">▾</span></button>
+          <p class="tool-note mega-filters-summary" id="mega-filters-summary" hidden></p>
+        </div>
+
+        <div class="mega-filters" id="mega-filters">
+        <fieldset>
+          <legend>世代</legend>
+          <div class="btn-row" id="mega-gen-chips" role="group" aria-label="世代で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">第1世代</button><button type="button" class="chip-btn" aria-pressed="false">第2世代</button><button type="button" class="chip-btn" aria-pressed="false">第3世代</button><button type="button" class="chip-btn" aria-pressed="false">第4世代</button><button type="button" class="chip-btn" aria-pressed="false">第5世代</button><button type="button" class="chip-btn" aria-pressed="false">第6世代</button><button type="button" class="chip-btn" aria-pressed="false">第7世代</button><button type="button" class="chip-btn" aria-pressed="false">第8世代</button><button type="button" class="chip-btn" aria-pressed="false">第9世代</button></div>
+          <p class="tool-note" id="mega-gens-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>地方</legend>
+          <div class="btn-row" id="mega-region-chips" role="group" aria-label="地方で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">カントー</button><button type="button" class="chip-btn" aria-pressed="false">ジョウト</button><button type="button" class="chip-btn" aria-pressed="false">ホウエン</button><button type="button" class="chip-btn" aria-pressed="false">シンオウ</button><button type="button" class="chip-btn" aria-pressed="false">イッシュ</button><button type="button" class="chip-btn" aria-pressed="false">カロス</button><button type="button" class="chip-btn" aria-pressed="false">アローラ</button><button type="button" class="chip-btn" aria-pressed="false">ガラル</button><button type="button" class="chip-btn" aria-pressed="false">パルデア</button></div>
+          <p class="tool-note" id="mega-regions-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>タイプ（いずれか）</legend>
+          <div class="btn-row" id="mega-type-chips" role="group" aria-label="タイプで絞り込む"><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #FF9D55; --chip-text: #121212;">ほのお</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #6890F0; --chip-text: #fff;">みず</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #78C850; --chip-text: #121212;">くさ</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #F8D030; --chip-text: #121212;">でんき</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #98D8D8; --chip-text: #121212;">こおり</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #C03028; --chip-text: #fff;">かくとう</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #A040A0; --chip-text: #fff;">どく</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #E0C068; --chip-text: #121212;">じめん</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #A890F0; --chip-text: #fff;">ひこう</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #F85888; --chip-text: #fff;">エスパー</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #A8B820; --chip-text: #121212;">むし</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #B8A038; --chip-text: #fff;">いわ</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #705898; --chip-text: #fff;">ゴースト</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #705848; --chip-text: #fff;">あく</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #7038F8; --chip-text: #fff;">ドラゴン</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #B8B8D0; --chip-text: #121212;">はがね</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #EE99AC; --chip-text: #121212;">フェアリー</button><button type="button" class="chip-btn type-chip" aria-pressed="false" style="--chip: #A8A878; --chip-text: #121212;">ノーマル</button></div>
+          <p class="tool-note" id="mega-types-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>レア度</legend>
+          <div class="btn-row" id="mega-rarity-chips" role="group" aria-label="レア度で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">標準</button><button type="button" class="chip-btn" aria-pressed="false">伝説のポケモン</button><button type="button" class="chip-btn" aria-pressed="false">幻のポケモン</button></div>
+          <p class="tool-note" id="mega-rarity-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>生息地</legend>
+          <div class="btn-row" id="mega-habitat-chips" role="group" aria-label="生息地で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">洞窟</button><button type="button" class="chip-btn" aria-pressed="false">森林</button><button type="button" class="chip-btn" aria-pressed="false">草原</button><button type="button" class="chip-btn" aria-pressed="false">山岳</button><button type="button" class="chip-btn" aria-pressed="false">レア</button><button type="button" class="chip-btn" aria-pressed="false">荒れ地</button><button type="button" class="chip-btn" aria-pressed="false">海</button><button type="button" class="chip-btn" aria-pressed="false">都市</button><button type="button" class="chip-btn" aria-pressed="false">水辺</button></div>
+          <p class="tool-note" id="mega-habitats-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>図鑑の色</legend>
+          <div class="btn-row" id="mega-color-chips" role="group" aria-label="図鑑の色で絞り込む"><button type="button" class="chip-btn" aria-pressed="false">黒</button><button type="button" class="chip-btn" aria-pressed="false">青</button><button type="button" class="chip-btn" aria-pressed="false">茶</button><button type="button" class="chip-btn" aria-pressed="false">灰</button><button type="button" class="chip-btn" aria-pressed="false">緑</button><button type="button" class="chip-btn" aria-pressed="false">桃色</button><button type="button" class="chip-btn" aria-pressed="false">紫</button><button type="button" class="chip-btn" aria-pressed="false">赤</button><button type="button" class="chip-btn" aria-pressed="false">白</button><button type="button" class="chip-btn" aria-pressed="false">黄</button></div>
+          <p class="tool-note" id="mega-colors-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>種族値の下限</legend>
+          <label><input type="range" id="mega-bst-min" min="0" max="780" value="0" step="10" aria-label="種族値合計の下限" /></label>
+          <p class="tool-note" id="mega-bst-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>1回に出すメガの数</legend>
+          <div class="btn-row" id="mega-count-chips" role="group" aria-label="How many Mega Pokemon per roll"><button type="button" class="chip-btn" aria-pressed="true">1</button><button type="button" class="chip-btn" aria-pressed="false">2</button><button type="button" class="chip-btn" aria-pressed="false">3</button><button type="button" class="chip-btn" aria-pressed="false">4</button><button type="button" class="chip-btn" aria-pressed="false">5</button><button type="button" class="chip-btn" aria-pressed="false">6</button></div>
+          <p class="tool-note" id="mega-count-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>候補が尽きるまで重複なし</legend>
+          <label class="wtp-switch">
+            <input type="checkbox" id="mega-norepeat" />
+            <span class="wtp-switch-track" aria-hidden="true"></span>
+            <span class="wtp-switch-label" id="mega-norepeat-label">オフ</span>
+          </label>
+        </fieldset>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="mega-generate-btn" class="btn-slide cornered btn-primary"><span><i class="ico ico-dice-5" aria-hidden="true"></i> メガポケモンを生成</span></button>
+          <button type="button" id="mega-copy-btn" class="btn-slide btn-secondary" disabled><span><i class="ico ico-clipboard" aria-hidden="true"></i> 結果をコピー</span></button>
+          <button type="button" id="mega-reset-btn" class="btn-slide btn-ghost"><span>↺ フィルターをリセット</span></button>
+        </div>
+        <div class="tool-note-group">
+          <p class="tool-note"><i class="ico ico-dice-5" aria-hidden="true"></i> メガポケモンを生成 ― いまの候補から1〜6体のメガシンカを抽選します。同じ抽選のなかで重複は出ません</p>
+          <p class="tool-note"><i class="ico ico-clipboard" aria-hidden="true"></i> 結果をコピー ― 表示中のメガの名前、タイプ、種族値と共有リンクをコピーします</p>
+          <p class="tool-note"><i class="ico ico-sparkles" aria-hidden="true"></i> 色違い ― カードのスイッチで、通常のアートワークと色違いを切り替えられます</p>
+        </div>
+        <p class="pool-count" id="mega-pool-count"></p>
+      </div>
+
+      <div class="mega-stage" id="mega-stage" aria-live="polite">
+        <div class="mega-empty cornered-dashed" id="mega-empty">押す <i class="ico ico-dice-5" aria-hidden="true"></i> 「メガポケモンを生成」を押すと、最初のメガシンカが抽選されます。</div>
+        <div class="mega-cards" id="mega-cards"></div>
+      </div>
+
+      <div class="history cornered" id="mega-history-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title">抽選履歴</h2>
+          <div class="history-actions">
+            <button type="button" id="mega-history-clear" class="btn-text">クリア</button>
+          </div>
+        </div>
+        <div class="tool-note-group">
+          <p class="tool-note">履歴のどれかを押すと、そのメガシンカをもう一度表示できます。クリアで履歴を空にします</p>
+          <p class="tool-note"><i class="ico ico-chart-column" aria-hidden="true"></i> 履歴分析 ― これまでの抽選をまとめて集計：候補の網羅率、タイプの偏り、平均種族値、いちばん運が良かった引き</p>
+        </div>
+        <ol class="history-list" id="mega-history-list"></ol>
+        <div class="mega-analysis" id="mega-analysis" aria-label="抽選履歴の分析"></div>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">しくみ</p>
+        <h2 id="how-title">ランダムメガポケモン生成ツールの仕組み</h2>
+        <div class="how-grid">
+          <article>
+            <h3>ワンクリック、メガシンカ1体</h3>
+            <p>このランダムメガポケモン生成ツールは、メガシンカだけを扱うように作られています。生成を押すと、メガシンカ以外が入っていないプールから引くので、結果は必ずメガ。メガリザードンX、メガゲンガー、メガレックウザ、メガルカリオ、そのほか全員です。準備も手順もいりません。既定ではワンクリックで1体、1回あたりのチップを増やせば6体まで一度に配れます。同じ抽選のなかで重複は出ません。既定のプールは第1世代から第9世代までなので、忘れていたメガを思い出すのにも便利です。大物の影にいたメガタブンネやメガジュペッタのような連中です。</p>
+          </article>
+          <article>
+            <h3>引く前に候補を絞る</h3>
+            <p>候補を形づくるフィルターは7つ。世代と地方の行は、元のポケモンがその時代のものに限ります。カントーで古典を、ホウエンで最大のメガ構成を、パルデアで最新の追加を。タイプのチップは各抽選に少なくとも1つ一致するタイプを要求し、レア度のチップは伝説と幻を隠すことも、それだけを出すこともできます。生息地と図鑑の色の行は、テーマを決めた旅向けにさらに絞り込みます。種族値の下限スライダーは強さの床を決めるので、600以上にすれば大物だけが出ます。どれも自由に組み合わせられ、各行の下には現在の候補が何体残っているかが表示されます。</p>
+            <p>縛りプレイなら、「重複なし」をオンにしてください。山札を配るように、すべてのメガシンカが1回ずつ出るまで同じものは現れません。ドラフト形式のリーグやメガ限定の旅に必要なのはこれで、山札が一周する前なら「引き直し」を持ち出しても話になりません。</p>
+          </article>
+          <article>
+            <h3>結果は図鑑のページとして読む</h3>
+            <p>抽選のたびに、名前だけでなくカードが1枚できあがります。タイプ色のオーラの上にアートワーク、隣に色違いのスイッチ。データ欄には全国図鑑番号、タイプのバッジ、世代、レア度が並びます。メガシンカなら元の種族名も表示され、種族値の欄では変身で何を手に入れたかが見えます。6つの種族値が棒グラフで描かれ、合計は元の姿と比べられます。メガリザードンXなら534が634に、きれいに+100です。</p>
+            <p>特性の行にはメガになって得た特性が並び、相性の行は18タイプの表から弱点・耐性・無効をその場で計算します。4倍の弱点も、ありがたい無効も、決める前に見えている。だから気軽な抽選が、そのまま使える編成の材料になります。さらに抽選履歴の下では、履歴分析がこのセッション全体を読み返します。メガのプールをどれだけ見たか、どのタイプがよく出ているか、平均の種族値、そしていちばんレアな引きです。</p>
+          </article>
+          <article>
+            <h3>メガシンカとは何か</h3>
+            <p>メガシンカは第6世代で登場した、戦闘中だけの一時的な姿の変化です。キーストーンを持つトレーナーと、対応するメガストーンを持つポケモンがそろうと発動し、戦闘が終わるまで続きます。多くのメガは種族値合計が100前後上がり、数字以上に変わることも多いです。メガリザードンXはドラゴンタイプを獲得し、メガカイロスはノーマル技をひこう技に変え、メガヤミラミは速さと引き換えに、変化技を跳ね返す壁になります。</p>
+            <p>2種類のメガを持つ種族もいて、XとYそれぞれがこのプールに独立して入っています。Pokémon LEGENDS Z-Aで仕組みが戻ってきて、新しいメガシンカの一群も追加されました。メガメガニウムからメガカイリューまで、ここに含まれています。</p>
+            <p>合計すると、プールは全世代にまたがる97体のメガシンカ。単体でいちばん伸びるのはメガフラエッテの+280で、種族値371が651になります。合計値の最高はメガミュウツーX、メガミュウツーY、メガレックウザが並ぶ780です。</p>
+          </article>
+          <article>
+            <h3>メガ抽選の遊び方</h3>
+            <p>分かりやすい使い道はエース決めです。ここで1体引くか、6体まとめて配って、その結果を軸に <a href="../pokemon-team-picker/">パーティ編成</a>で編成を組みます。メガが戦略を決め、残り5枠がその弱点を埋める形です。配信者は単発の抽選をルーレット代わりに使います。チャットが次のメガを予想し、その発表自体がコンテンツになります。ドラフト形式のリーグは、1人1体ずつ公平に配るために重複なしモードを頼りにします。</p>
+            <p>チャレンジの生成器としても使えます。メガ限定の旅、つまり遭遇もすべてここで引き、6枠すべてがメガという遊びは、自主ルールのなかでも屈指の難しさです。プールが小さいので、そのうちメガタブンネを渡されて、何とかするしかなくなります。そこに <a href="../nuzlocke-generator/">ヌズロック編成</a> を重ねれば、ルール一式そろいます。</p>
+          </article>
+          <article>
+            <h3>メガ抽選と組み合わせるもの</h3>
+            <p>メガの抽選は、たいていそれで終わりません。ここから先は、 <a href="../">Random Pokemon Generator</a> なら同じタイプ・世代・レア度の条件でパーティごと引けて、しかも毎回評価つきで返ってきます。もっと手早く決めたいなら、 <a href="../random-pokemon-generator-wheel/">ポケモンルーレット</a> が本物のルーレットを回してくれます。そして <a href="../whos-that-pokemon/">このポケモンだあれ？</a> は同じ図鑑を当てもの遊びに変えます。</p>
+            <p>本気で組むなら、ポケモンチームピッカー（6枠、技、性格、防御マトリクス）まで行きましょう。ポケモンチャンピオンズでは、 <a href="../pokemon-champions-team-builder/">チャンピオンズ編成</a> が同じ仕事を、メガストーンを含むレギュレーションM-Cの顔ぶれに対して行います。旅が縛りプレイなら、ヌズロックチームビルダーが遭遇のルールを書いてくれます。そして <a href="../pokemon-nature-chart/">ポケモン性格表</a> が性格の疑問に答え、 <a href="../pokemon-shiny-odds/">色違いの出現率</a> の計算機が、メガ狩りが色違い狙いになったときの確率を扱います。記念品が欲しくなったら、 <a href="../pokemon-card-generator/">ポケモンカード作成</a> がトレーナー版も含めてカードにしてくれます。TCGにも新しいメガが登場しています。 <a href="../pokemon-release-dates/">ポケモン発売日</a> のページに、今後の拡張パックと発売日がまとまっています。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+<!-- Mega data -->
+    <section id="mega-data" class="band" aria-labelledby="mega-data-title">
+      <div class="container">
+        <p class="eyebrow">メガのデータ</p>
+        <h2 id="mega-data-title">ランダムメガポケモン生成ツール：抽選の裏側にあるデータ</h2>
+        <div class="how-grid">
+          <article>
+            <h3>+100の法則と、2つの例外</h3>
+            <p>プールの97体のメガを見ると、ほぼ完璧に成り立つパターンがあります。95体がちょうど種族値を100ポイント上げ、その95体のどれもHPには1ポイントも振っていません。古典的なテンプレートは、どれだけ強く殴るかだけを尖らせ、どれだけ持ちこたえるかには触れないのです。型を破るのは2体だけ。メガフラエッテは280ポイント、めずらしくHPも上げます。メガジガルデはシートごと書き換わり、HP+108、とくこう+135、こうげきとぼうぎょはそれぞれ30下がります。</p>
+          </article>
+          <article>
+            <h3>100ポイントはどこへ行くか</h3>
+            <p>テンプレートどおりの95体では、予算の大半が攻撃系に落ちます。こうげきが上がるのは80体、とくこう79体、とくぼう76体、ぼうぎょ73体。読めないのがすばやさで、58体が上がり、11体が下がります。セットのなかで最もよく削られる数字です。メガデンリュウとメガガブリアスは、新しい強みの資金にするためすばやさを10ずつ落としています。結果カードの差分バーを見れば、その取引がひと目で分かります。</p>
+          </article>
+          <article>
+            <h3>タイプの入れ替えと特性の書き換え</h3>
+            <p>19体のメガは別のタイプ構成で出てきます。メガリザードンXはほのお／ドラゴンに、メガギャラドスはみず／あくに変わり、メガボスゴドラはいわを捨ててはがね単タイプで立ちます。特性の行はもっとよく変わります。テンプレートの95体のうち92体が別の特性構成になり、たいていは元の種族が持ったことのないものになります。メガフシギバナはあついしぼうを獲得し、メガゲンガーはのろわれボディをかげふみと交換し、メガクチートはちからもちにたどり着きます。この2行が、見慣れたカードでいちばん大きく変わる部分です。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">ランダムメガポケモン生成ツールのよくある質問</h2>
+      <details class="faq-item cornered">
+        <summary>ランダムメガポケモン生成ツールとは？</summary>
+        <p>メガシンカの姿だけを引く抽選ツールです。1,025種すべてから引くのではなく、結果は必ずメガポケモン。メガリザードンX、メガゲンガー、メガレックウザ、そのほかのメガたちです。既定は1体で、チップを増やせばワンクリックで最大6体。結果はアートワーク、タイプ、種族値、特性、タイプ相性までそろったカードで返ってきます。エースをすぐ決めたいときにも、縛りプレイの配牌にも、忘れていたメガを思い出すのにも使えます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>プールにはどのメガシンカが入っていますか？</summary>
+        <p>ゲームに登場するメガシンカはすべてです。2種類のメガを持つ種族、つまりリザードンとミュウツーのX・Yは別々の項目として数えるので、それぞれ単独で出てきます。Pokémon LEGENDS Z-Aで追加された新しいメガシンカ、メガメガニウムからメガカイリューまで含まれ、名前、アートワーク、タイプ、特性、種族値はPokeAPIから取得しています。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>フィルターと重複なしモードはどう動きますか？</summary>
+        <p>7つのフィルターで候補を絞ります。世代、地方、タイプ、レア度、生息地、図鑑の色、種族値の下限スライダーです。自由に重ねられ、1回あたりのチップで1体か最大6体かを選べ、1回の抽選のなかで重複は出ません。重複なしをオンにすれば、候補は山札方式で配られます。すべてのメガシンカが1回出るまで何も戻らず、ドラフトリーグやメガ限定の縛りプレイが公平に保たれます。フィルターをリセットを押せば、条件はすべて消えます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>結果カードには何が出ますか？</summary>
+        <p>抽選ごとに1枚のカードが返ってきます。色付きの背景に公式アートワーク、全国図鑑番号、タイプのバッジ、世代、レア度、そしてメガの元になる種族。6つの種族値はすべて棒グラフで表示され、合計は元の姿の値と並べられます。メガリザードンXなら534が634に。その下に、変身で得た特性と、弱点・耐性・無効を網羅した18タイプの判定が並びます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>色違いのメガポケモンは引けますか？</summary>
+        <p>引けます。どの結果カードにも色違いのスイッチがあり、アートワークが通常版と色違いで入れ替わります。メガレックウザの黒と金の姿や、メガリザードンXの青い炎がどう見えるかを、決める前に確かめられます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>抽選結果は保存されますか？</summary>
+        <p>保存されます。あなたのブラウザのなかにだけ。フィルター、重複なしの設定、表示中のカード、直近12回の抽選がローカルストレージに入るので、再読み込みしてもそのセッションがそのまま戻ります。履歴のパネルから過去のメガをワンクリックで呼び出せます。どこにも送信されず追跡もされず、ブラウザのデータを消せばすべて消えます。</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="./">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Copy fallback modal -->
+  <div class="modal-overlay" id="mega-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mega-modal-title">
+      <h2 class="modal-title" id="mega-modal-title">手動でコピー</h2>
+      <div class="modal-body">
+        <p class="tool-note">ブラウザが自動コピーをブロックしました。下のテキストは選択済みです。Ctrl+C（または長押し）でコピーしてください。</p>
+        <textarea class="share-modal-text" id="mega-modal-text" readonly></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="mega-modal-close">閉じる</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../data.js?v=20261022d"></script>
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="mega-generator.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

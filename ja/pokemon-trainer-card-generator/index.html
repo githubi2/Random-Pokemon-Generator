@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ポケモン トレーナーカード作成｜無料ツール</title>
+  <meta name="description" content="名前と相棒を入れるだけでトレーナーカードが完成。2スタイル・背景4色、PNGで保存してDiscordや配信に。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/pokemon-trainer-card-generator/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/pokemon-trainer-card-generator/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/pokemon-trainer-card-generator/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/pokemon-trainer-card-generator/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ポケモン トレーナーカード作成｜無料ツール" />
+  <meta property="og:description" content="名前と相棒を入れるだけでトレーナーカードが完成。2スタイル・背景4色、PNGで保存してDiscordや配信に。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/pokemon-trainer-card-generator/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/pokemon-trainer-card-generator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ポケモン トレーナーカード作成｜無料ツール" />
+  <meta name="twitter:description" content="名前と相棒を入れるだけでトレーナーカードが完成。2スタイル・背景4色、PNGで保存してDiscordや配信に。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/pokemon-trainer-card-generator/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <style>
+    /* ============ Pokemon Trainer Card Generator — page-specific ============ */
+    .tg-layout { display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 24px; align-items: start; }
+    .tg-form { min-width: 0; }
+    .tg-preview { position: sticky; top: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .tg-preview canvas { width: 100%; height: auto; display: block; background: #fff; border-radius: 14px; }
+    .tg-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; width: 100%; }
+    .tg-upload { border: 2px dashed var(--muted-text, var(--text-3)); border-radius: 12px; padding: 14px 12px; text-align: center; cursor: pointer; background: var(--page, #fff7e0); }
+    .tg-upload:hover, .tg-upload.dragover { border-color: var(--poke-red, #e3350d); background: #fff2c9; }
+    .tg-upload input[type="file"] { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
+    .tg-upload .tg-upload-title { font-weight: 900; margin: 0 0 4px; }
+    .tg-upload .tg-upload-note { font-size: 12.5px; margin: 0; color: var(--muted-text, #6b6b6b); }
+    .tg-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .tg-input label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .tg-input input[type="text"], .tg-input input[type="number"] { width: 100%; padding: 9px 10px; border: 1px solid #d6cfc0; border-radius: 8px; font-size: 14px; background: #fff; box-sizing: border-box; }
+    .tg-input input:focus { outline: 2px solid var(--poke-yellow, #fbd743); outline-offset: 0; }
+    .tg-partner { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .tg-partner .pnk { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .tg-partner canvas { border: 1px solid #ddd; border-radius: 10px; background: #fff; }
+    .tg-partner .btn-text { font-size: 12.5px; }
+    @media (max-width: 960px) {
+      .tg-layout { grid-template-columns: 1fr; }
+      .tg-preview { position: static; order: -1; }
+      .tg-preview canvas { max-width: 460px; }
+    }
+  </style>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "トレーナーカード作成",
+ "description": "Create custom Pokemon trainer cards online in Classic or Modern style: a name plate, badge row, three partner Pokemon and battle stats, with a live preview and a print-ready PNG download. No sign-up.",
+ "applicationCategory": "GameApplication",
+ "operatingSystem": "All",
+ "browserRequirements": "Requires JavaScript",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "url": "https://www.random-pokemon-generator.co/pokemon-trainer-card-generator/"
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "トレーナーカード作成",
+   "item": "https://www.random-pokemon-generator.co/pokemon-trainer-card-generator/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "ポケモンのトレーナーカードとは？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ポケモンのゲームから出てきたようなプロフィールカードです。名札に名前、バッジの列、ポートレートかアバター、相棒ポケモン、そして戦績の一行。かつてファンがフォーラムで交換していたもので、いまはDiscordのプロフィールや配信のオーバーレイ、記念品としても使えます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "このツールで自分のトレーナーカードを作るには？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "カードはランダムなサンプルから始まります。名前、相棒チーム、バッジ数、背景がランダムです。好きなところを編集してください。名前と肩書きを入れ、背景を選び、バッジ数を決め、相棒3匹を入れ替え(各枠の下で引き直し)、ポートレートをアップロードし、戦績を入力します。変更のたびにプレビューが描き直され、PNGをダウンロードで完成したカードを保存できます。作成と編集がひとつになったツールだと考えてください。画面のカードは、ダウンロードするまで下書きのままです。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "カードのスタイルは選べますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "2種類です。クラシックは元祖トレーナーカードの青い枠とコントラストの強い見た目、モダンは角の丸いカードに柔らかなグラデーションの枠です。4つの背景(火山・海・草原・夜)は、どちらのスタイルにもテーマの色を重ねます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "自分の写真をカードに使えますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。ポートレートをアップロードすると、トレーナーのアバター枠に合わせて切り抜かれます。写真がなくても、生成ツールがシルエットのアバターを描くので、カードは完成した見た目のままです。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "カードに出すポケモンは選べますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。カードには相棒ポケモンが3匹入り、それぞれに引き直しボタンがあります。第1〜9世代の全ポケモンからランダムに1匹を配ります。実際の手持ちが出るまで引き直してください。アートワークは公式のスプライトで、ブラウザ上で描画されます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "トレーナーカードはどうダウンロードしますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "PNGをダウンロードを押してください。カードは900 x 720で書き出され、Discord、フォーラムの署名、配信のオーバーレイ、印刷にも十分な解像度です。カードのテキストをコピーは、代わりに紹介文とこのページへのリンクをコピーします。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "任天堂や株式会社ポケモンと関係がありますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "いいえ、ありません。このトレーナーカード作成ツールはファン制作のツールで、任天堂、ゲームフリーク、クリーチャーズ、株式会社ポケモンとは一切関係がなく、ここで作ったものが許諾商品になることもありません。ポケモンの名前とキャラクターは各商標権者に帰属します。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "普通のポケモンカードも作れますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。当サイトのポケモンカード作成なら、クラシック・モダン・TCGポケットのテンプレートで、わざとHPを持つポケモンカードが作れます。エネルギーカードもあります。2つのページは互いにリンクしているので、そろいのセットをデザインできます。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#how" class="nav-link">しくみ</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../pokemon-trainer-card-generator/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">クラシック · モダン · ランダムなサンプルカード · PNGダウンロード</p>
+      <h1 id="page-title">ポケモン トレーナーカード作成</h1>
+      <p class="lede">このポケモン トレーナーカード作成ツールは、まずランダムなサンプルカードを配り、それからエディタを渡します。名札、バッジの列、3匹の相棒ポケモン、戦績まで、その場で描画されてPNGでダウンロードできます。</p>
+    </section>
+
+    <!-- Tool -->
+    <section class="container tool-panel" id="card-tool" aria-label="Pokemon trainer card generator tool">
+      <div class="panel cornered tg-layout">
+        <!-- ============ Form ============ -->
+        <div class="tg-form">
+          <p class="tool-hint">右のカードはランダムなサンプルから始まります。トレーナー名も、相棒ポケモンも、バッジの数も、背景もランダムです。下の項目を編集すれば、プレビューはその都度描き直されます。気分を変えたいときは、 <i class="ico ico-dice-5" aria-hidden="true"></i> 新しいサンプルカード を押してください。いつでも真新しいランダムカードが出ます。</p>
+
+          <fieldset>
+            <legend>1. スタイル &amp; 背景</legend>
+            <p class="tool-note">スタイル</p>
+            <div class="btn-row" id="tg-style-chips" role="group" aria-label="Trainer card style">
+              <button type="button" class="chip-btn" data-value="classic" aria-pressed="true">クラシック</button>
+              <button type="button" class="chip-btn" data-value="modern" aria-pressed="false">モダン</button>
+            </div>
+            <p class="tool-note">背景</p>
+            <div class="btn-row" id="tg-bg-chips" role="group" aria-label="Trainer card background">
+              <button type="button" class="chip-btn" data-value="ocean" aria-pressed="true"><i class="ico ico-waves" aria-hidden="true"></i> 海</button>
+              <button type="button" class="chip-btn" data-value="meadow" aria-pressed="false"><i class="ico ico-leaf" aria-hidden="true"></i> 草原</button>
+              <button type="button" class="chip-btn" data-value="cinder" aria-pressed="false"><i class="ico ico-flame" aria-hidden="true"></i> 火山</button>
+              <button type="button" class="chip-btn" data-value="night" aria-pressed="false"><i class="ico ico-moon" aria-hidden="true"></i> 夜</button>
+            </div>
+            <p class="tool-note" id="tg-style-note"></p>
+          </fieldset>
+
+          <fieldset>
+            <legend>2. トレーナー情報</legend>
+            <div class="tg-pair">
+              <div class="tg-input">
+                <label for="tg-name">トレーナー名</label>
+                <input type="text" id="tg-name" maxlength="18" autocomplete="off" />
+              </div>
+              <div class="tg-input">
+                <label for="tg-title">肩書き</label>
+                <input type="text" id="tg-title" maxlength="26" placeholder="e.g. Aspiring Champion" autocomplete="off" />
+              </div>
+            </div>
+            <p class="tool-note" style="margin-top:12px">ポートレート</p>
+            <div class="tg-upload" id="tg-upload" role="button" tabindex="0" aria-label="Upload a portrait for your trainer card">
+              <p class="tg-upload-title"><i class="ico ico-camera" aria-hidden="true"></i> ポートレートをアップロード</p>
+              <p class="tg-upload-note">PNG / JPEG · 自動で切り抜き · 飛ばせばシルエットのアバターになります</p>
+              <input type="file" id="tg-file" accept="image/png,image/jpeg,image/webp" />
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>3. 獲得したバッジ</legend>
+            <p class="tool-note" id="tg-badge-note"></p>
+            <div class="btn-row" id="tg-badge-chips" role="group" aria-label="Badge count"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>4. 相棒ポケモン(最大3匹)</legend>
+            <div class="tg-partner" id="tg-parts"></div>
+            <p class="tool-note">各枠を引き直すか、配られたランダムのままにしておけます。</p>
+          </fieldset>
+
+          <fieldset>
+            <legend>5. 戦績</legend>
+            <div class="tg-pair">
+              <div class="tg-input">
+                <label for="tg-battles">勝利数</label>
+                <input type="number" id="tg-battles" min="0" max="99999" />
+              </div>
+              <div class="tg-input">
+                <label for="tg-caught">捕まえたポケモン</label>
+                <input type="number" id="tg-caught" min="0" max="99999" />
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- ============ Preview ============ -->
+        <div class="tg-preview">
+          <canvas id="tg-canvas" width="900" height="720" aria-label="Live Pokemon trainer card preview" role="img"></canvas>
+          <div class="tg-actions">
+            <button type="button" id="tg-rand" class="btn-slide cornered btn-primary"><span><i class="ico ico-dice-5" aria-hidden="true"></i> 新しいサンプルカード</span></button>
+            <button type="button" id="tg-download" class="btn-slide btn-secondary"><span><i class="ico ico-download" aria-hidden="true"></i> PNGをダウンロード</span></button>
+            <button type="button" id="tg-copy" class="btn-slide btn-ghost"><span><i class="ico ico-clipboard" aria-hidden="true"></i> カードのテキストをコピー</span></button>
+          </div>
+          <p class="tool-note">900 x 720で書き出します。Discord、フォーラムの署名、配信のオーバーレイ、印刷でもくっきりです。</p>
+          <p class="tool-note" id="tg-saved-note"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works (SEO copy) -->
+    <section id="how" class="band band-yellow" aria-labelledby="how-title">
+      <div class="container">
+        <p class="eyebrow">しくみ</p>
+        <h2 id="how-title">ポケモン トレーナーカードの作り方</h2>
+        <div class="how-grid">
+          <article>
+            <h3>5ステップで自分のトレーナーカードを作る</h3>
+            <p>1つ目は、配られたサンプルカードを見ること。このツールは白紙のフォームではなく、完成したカードから始まります。自分で作る前に、トレーナーカードがどんなものかを見ておけるわけです。2つ目は、サンプルの上にトレーナー名と肩書きを入力し、背景を選ぶこと。3つ目はバッジの数です。始めたばかりの旅なら0個、チャンピオンなら8個そろえます。4つ目は、相棒ポケモンの枠を実際の手持ちが出るまで引き直し、カードに自分の顔を入れたいならポートレートをアップロードします。5つ目は戦績を入力して、プレビューを確認して、PNGをダウンロード。順番は自由で、どの項目もやり直せます。1回きりのフォームではなく、作り直せるビルダーだからです。</p>
+          </article>
+          <article>
+            <h3>クラシックとモダン、2つのスタイル</h3>
+            <p>クラシックは元祖トレーナーカードの雰囲気です。濃い青の枠、まっすぐな名札、ゲームのメニューのような半分で切ったアバター。モダンはもっと柔らかく、角は丸く、枠は背景色のグラデーションで、バッジの列と相棒ポケモンの間も広めです。レイアウトは共通で、上に名札、中ほどにポートレートとバッジ、下に相棒と戦績が並びます。背景はカード全体の色を変えます。海は水路、草原ははじまりの芝生、火山は火口、夜は月明かりのルートです。</p>
+          </article>
+          <article>
+            <h3>トレーナーカードに載るもの</h3>
+            <p>トレーナーカードは戦場ではなくプロフィールです。名札にはトレーナー名と肩書きが入ります。目指すチャンピオン、色違いハンター、全部つかまえる、など。バッジの列は冒険がどこまで進んだかを0個から8個で示します。相棒ポケモンはあなたを定義する3匹で、最初の1匹、先鋒、思い入れのある1匹。戦績は数字で物語を語ります。勝利数と、捕まえたポケモンの数。まとめると、セーブデータのトレーディングカード版になります。</p>
+          </article>
+          <article>
+            <h3>ランダムなサンプルカードが効く理由</h3>
+            <p>白紙のフォームは勢いを削ぎます。サンプルカードはその対策です。ランダムな名前、ランダムなチーム、ランダムなバッジ数、ランダムな背景がすぐ現れます。そこから少し編集を始めるか、遊びで「新しいサンプルカード」を押すか。どちらも、空のフォームを見つめるよりずっと短く済みます。このポケモン トレーナーカード作成ツールが読み込み時にランダムなカードを配るのは、最初に見えるものが完成したカードだからです。そこからの編集はたやすいものです。名前を入れて、相棒を入れ替えて、終わり。</p>
+          </article>
+          <article>
+            <h3>トレーナーカードはどこで使うか</h3>
+            <p>定番はいまもフォーラムの署名です。投稿の下にトレーナーカードを置き、実際に取ったバッジを見せられます。配信者はチャンネルのオーバーレイに置いたり、プレゼント企画の景品にしたりします。友達同士で1人1枚のそろいのカードを作ってDiscordで共有するのも定番です。ファンは自分で考えたキャラクター、自作のジムリーダー、ライバル、チャンピオンのカードをデザインします。ポケモンの世界に自分が存在するようにする、いちばん手早い方法です。</p>
+          </article>
+          <article>
+            <h3>トレーナーカードの先にあるもの</h3>
+            <p>このポケモン トレーナーカード作成ツールは、 <a href="../pokemon-card-generator/">ポケモンカード作成</a>と組み合わせて使えます。相棒のポケモンカードを作り、次にその子たちを率いるトレーナーのカードを作る流れです。実際のパーティ編成は <a href="../pokemon-team-picker/">パーティ編成</a> が担当し、 <a href="../random-pokemon-name-generator/">ランダム名前生成</a> がカードに載せる相棒たちの名前を考えてくれます。</p>
+            <p>カードの裏側では、サイトのほかのツールも動いています。相棒がまだ決まっていないときは、 <a href="../">Random Pokemon Generator</a> が6匹をまとめて引いてくれます。カードで見せたいなら、 <a href="../random-shiny-pokemon-generator/">ランダム色違い生成</a> が色違いだけのパーティを引きます。その色違いがどれだけ運がいいのかは、 <a href="../pokemon-shiny-odds/">色違いの出現率</a> のページでわかります。仕上げに、 <a href="../pokemon-nature-chart/">ポケモン性格表</a> で、種族値の裏側にある性格まで決めてください。</p>
+            <p>道具立ての残りはこちら。 <a href="../nuzlocke-generator/">ヌズロック編成</a> がカードの元になった旅のルールを書き、 <a href="../whos-that-pokemon/">このポケモンだあれ？</a> がカードの合間にシルエット当てを出します。相棒に迷ったら、 <a href="../random-pokemon-picker/">ランダム選出</a> が1,025種から1匹をワンクリックで引いてくれます。相性と個体値の疑問は、 <a href="../pokemon-type-chart/">タイプ相性表</a> と <a href="../pokemon-iv-calculator/">個体値計算</a> が答えてくれます。発売されたばかりの弾で組みたいなら、 <a href="../pokemon-release-dates/">ポケモン発売日</a> のページで今後のTCG弾を追えます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">ポケモン トレーナーカード作成FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>ポケモンのトレーナーカードとは？</summary>
+        <p>ポケモンのゲームから出てきたようなプロフィールカードです。名札に名前、バッジの列、ポートレートかアバター、相棒ポケモン、そして戦績の一行。かつてファンがフォーラムで交換していたもので、いまはDiscordのプロフィールや配信のオーバーレイ、記念品としても使えます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>このツールで自分のトレーナーカードを作るには？</summary>
+        <p>カードはランダムなサンプルから始まります。名前、相棒チーム、バッジ数、背景がランダムです。好きなところを編集してください。名前と肩書きを入れ、背景を選び、バッジ数を決め、相棒3匹を入れ替え(各枠の下で引き直し)、ポートレートをアップロードし、戦績を入力します。変更のたびにプレビューが描き直され、PNGをダウンロードで完成したカードを保存できます。作成と編集がひとつになったツールだと考えてください。画面のカードは、ダウンロードするまで下書きのままです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>カードのスタイルは選べますか？</summary>
+        <p>2種類です。クラシックは元祖トレーナーカードの青い枠とコントラストの強い見た目、モダンは角の丸いカードに柔らかなグラデーションの枠です。4つの背景(火山・海・草原・夜)は、どちらのスタイルにもテーマの色を重ねます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>自分の写真をカードに使えますか？</summary>
+        <p>はい。ポートレートをアップロードすると、トレーナーのアバター枠に合わせて切り抜かれます。写真がなくても、生成ツールがシルエットのアバターを描くので、カードは完成した見た目のままです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>カードに出すポケモンは選べますか？</summary>
+        <p>はい。カードには相棒ポケモンが3匹入り、それぞれに引き直しボタンがあります。第1〜9世代の全ポケモンからランダムに1匹を配ります。実際の手持ちが出るまで引き直してください。アートワークは公式のスプライトで、ブラウザ上で描画されます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>トレーナーカードはどうダウンロードしますか？</summary>
+        <p>PNGをダウンロードを押してください。カードは900 x 720で書き出され、Discord、フォーラムの署名、配信のオーバーレイ、印刷にも十分な解像度です。カードのテキストをコピーは、代わりに紹介文とこのページへのリンクをコピーします。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>任天堂や株式会社ポケモンと関係がありますか？</summary>
+        <p>いいえ、ありません。このトレーナーカード作成ツールはファン制作のツールで、任天堂、ゲームフリーク、クリーチャーズ、株式会社ポケモンとは一切関係がなく、ここで作ったものが許諾商品になることもありません。ポケモンの名前とキャラクターは各商標権者に帰属します。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>普通のポケモンカードも作れますか？</summary>
+        <p>はい。当サイトのポケモンカード作成なら、クラシック・モダン・TCGポケットのテンプレートで、わざとHPを持つポケモンカードが作れます。エネルギーカードもあります。2つのページは互いにリンクしているので、そろいのセットをデザインできます。</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator, 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。 カードは個人利用・教育目的・ファン活動の範囲でお使いください。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Copy fallback modal -->
+  <div class="modal-overlay" id="tg-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="tg-modal-title">
+      <h2 class="modal-title" id="tg-modal-title">手動でコピー</h2>
+      <div class="modal-body">
+        <p class="tool-note">ブラウザが自動コピーをブロックしました。下のテキストは選択済みです。Ctrl+C（または長押し）でコピーしてください。</p>
+        <textarea class="share-modal-text" id="tg-modal-text" readonly></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="tg-modal-close">閉じる</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../data.js?v=20261022d"></script>
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="trainer-generator.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

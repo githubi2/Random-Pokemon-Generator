@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ポケモン 色違い 確率｜作品別・手法別の数値まとめ</title>
+  <meta name="description" content="ポケモンの色違い確率を作品別・手法別にまとめました。基本の1/4096から、ひかるおまもり・国際孵化・大量発生・サンドイッチまで数値を一覧化。計算機で自分の狩りの確率と必要回数も出せます。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/pokemon-shiny-odds/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/pokemon-shiny-odds/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/pokemon-shiny-odds/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/pokemon-shiny-odds/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ポケモン 色違い 確率｜作品別・手法別の数値まとめ" />
+  <meta property="og:description" content="基本の1/8192から、ひかるおまもりや国際孵化で1/512まで。作品ごとの色違い確率と、自分の狩りを計算するツールをまとめています。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/pokemon-shiny-odds/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/pokemon-shiny-odds/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ポケモン 色違い 確率｜作品別・手法別の数値まとめ" />
+  <meta name="twitter:description" content="基本の1/8192から、ひかるおまもりや国際孵化で1/512まで。作品ごとの色違い確率と、自分の狩りを計算するツールをまとめています。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/pokemon-shiny-odds/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261022m" />
+
+  <style>
+    /* page-scoped: stacked input rows inside the odds calculator panel */
+    .odds-n-label + .odds-n-label { margin-top: 12px; }
+  </style>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "色違いの出現率",
+ "description": "インタラクティブな色違い確率の計算ツール兼リファレンスです。世代ごとの基本色違い確率、ひかるおまもりから国際孵化までのすべてのブースト方法、そして LEGENDS Z-A、LEGENDS アルセウス、Let's Go、ポケモンSV など作品別の確率表を掲載しています。",
+ "applicationCategory": "GameApplication",
+ "operatingSystem": "All",
+ "browserRequirements": "JavaScript が必要です",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "url": "https://www.random-pokemon-generator.co/pokemon-shiny-odds/"
+}
+</script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Random Pokemon Generator",
+   "item": "https://www.random-pokemon-generator.co/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "色違いの出現率",
+   "item": "https://www.random-pokemon-generator.co/pokemon-shiny-odds/"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: HowTo (calculator) -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "色違い確率の計算方法",
+ "description": "インタラクティブな計算ツールを使って、作品とブーストの組み合わせごとに正確な色違い確率を求められます。",
+ "step": [
+  {
+   "@type": "HowToStep",
+   "name": "作品を選ぶ",
+   "text": "列から作品を選んでください。第6世代以降、LEGENDS Z-A、第2〜5世代、LEGENDS アルセウス、Let's Go、ポケモンSV の中から選べます。基本確率はすぐに更新されます。"
+  },
+  {
+   "@type": "HowToStep",
+   "name": "ブーストを切り替える",
+   "text": "使っている方法をオンにしてください。ひかるおまもり、国際孵化、調査ボーナス、大量発生、連続捕獲、サンドイッチ、ルアーなどです。選んだ作品に存在するブーストだけが使えるようになります。"
+  },
+  {
+   "@type": "HowToStep",
+   "name": "確率を確認する",
+   "text": "カードには、確率が分数（1/512）、パーセント（0.195%）、色違い1匹あたりの平均遭遇数として表示され、その下に中央値と節目の数値が並びます。"
+  },
+  {
+   "@type": "HowToStep",
+   "name": "遭遇数を入力する",
+   "text": "何回遭遇する予定かを入力すると、少なくとも1匹の色違いに会える確率と、1匹も会えない確率が表示されます。"
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "色違いのポケモンが出る確率はどのくらいですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "色違いの確率は作品によって異なります。金・銀からブラック2・ホワイト2まで（第2〜5世代）の基本確率は1/8192、X・Y以降（第6世代以降）は2倍の1/4096です。ひかるおまもり、国際孵化、大量発生、捕獲コンボといった上昇手段を使うと、現行作品では最大1/512まで下がります。LEGENDS アルセウスは全部を重ねると1/128が上限です。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "基本確率での色違い狩りとは何ですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "基本確率での狩りとは、上昇手段を一切使わない狩りのことです。出会いごとにそのままの基本確率が振られ、現行作品では1/4096、第2〜5世代では1/8192になります。ひかるおまもりもサンドイッチもコンボも使わず、生の確率だけで勝負します。条件を何も足していないぶん、この方法で出した色違いは最も価値があるとされています。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "ひかるおまもりで確率はどのくらい上がりますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ひかるおまもりは確率をおよそ3倍にします。第6世代以降では1/4096が約1/1365になり、ブラック2・ホワイト2では1/8192が約1/2731になります。ほとんどの上昇手段と重ねられ、国際孵化と組み合わせると約1/512に届きます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "国際孵化とは何で、確率はどのくらいですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "国際孵化は、言語の異なるソフトで捕まえた2匹を預ける方法です。たとえば英語版のメタモンと日本語版のガブリアスの組み合わせになります。タマゴには色違い判定が追加され、第6世代以降は約1/683、第4・5世代は1/1639です。ひかるおまもりを足すと現行では約1/512になり、本編作品で広く使える最も高い数値です。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "色違いの確率は毎回独立していますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "はい。出会いは毎回独立した判定で、回数を重ねても確率が上がる仕組みや、隠れた保証はありません。1/4096では、1万回目の出会いも1回目と同じ確率です。長く出ない時期は普通にあり、基本確率のまま4,096回続けて色違いが出ない人は約36.8%います。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "1,000回出会って色違いが出ない確率は？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "1,000回分の外れ確率を掛け合わせます。現行の基本確率1/4096では、1,000回で1匹も出ない確率が約78.3%なので、その早さで成功する狩りは21.7%ほどです。最も高い1/512でも、1,000回空振りする確率は約14.2%残ります。計算機は任意の確率と回数に対応しています。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "世代によって色違いの確率は変わりますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "基本確率が変わったのはシリーズで1度だけです。第2世代から第5世代（第3世代の作品を含む）は1/8192、X・Yが2倍の1/4096にしました。以降の世代も同じ基本値を保っています。ひかるおまもりを使うと、第6世代以降は約1/1365になります。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "色違いのポケモンは何回の出会いで出ますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "現行の基本確率では、半数の人が2,839回以内に、99%の人が18,861回以内に色違いと出会います。どちらも1/4096という同じ確率の50%地点と99%地点です。出会いは毎回独立しているので、1万回目も1回目と同じ確率です。上の計算機は、確率から中間値と節目の回数、さらに所要時間の目安を出します。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "色違い固定のポケモンはどれですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "色違い固定がかかるのは、自分で探す出会いではなく、ゲーム側から渡されるポケモンです。ムービーの場面、パッケージの伝説、ゲーム内交換、もらえるポケモンが該当します。細かい範囲は作品ごとに違い、LEGENDS Z-Aは野生の出現と化石に限り、ダイマックスアドベンチャーではソード・シールドの伝説の多くを狙えます。スカーレット・バイオレットは看板の伝説を固定したままです。ゲーム側から渡されるポケモンは色違いにならないと考えておけば十分です。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "1/4096をパーセントにすると？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "1/4096は0.0244%、つまり4,096回に1回です。同じ数字を裏返すと、99.9756%の出会いは色違いではありません。だから半数の人は2,839回まで試すことになります。"
+   }
+  }
+ ]
+}
+</script>
+
+  <!-- Structured data: Organization (site-wide, R6.3) -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+</script>
+  <!-- Structured data: WebSite + SearchAction -->
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Random Pokemon Generator",
+ "url": "https://www.random-pokemon-generator.co/",
+ "potentialAction": {
+  "@type": "SearchAction",
+  "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+  "query-input": "required name=search_term_string"
+ }
+}
+</script>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#calculator" class="nav-link">計算ツール</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../pokemon-shiny-odds/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">全作品・全手法・基本1/8192から最高1/128まで</p>
+      <h1 id="page-title">ポケモン 色違い 確率 ― 全手法の数値一覧</h1>
+      <p class="lede">ポケモンの色違い確率をまとめた完全なリファレンスです。世代別の基本確率、ひかるおまもりから国際孵化までの上昇手段、LEGENDS Z-A・LEGENDS アルセウス・Let's Go・スカーレットといった作品別の内訳を掲載しています。 &amp; バイオレットも含みます。あわせて、自分の狩りに合わせて使える計算機も用意しています。</p>
+    </section>
+
+    <!-- Calculator -->
+    <section class="container tool-panel" id="calculator" aria-label="色違い確率の計算ツール">
+      <div class="panel cornered">
+        <p class="tool-hint">使い方は、作品を選び、使っている上昇手段をオンにするだけです。カードに正確な色違い確率が分数とパーセント、平均の狩り回数で表示されます。予定の出会い回数を入れると成功率が、1時間あたりの出会い回数を入れると中間値と所要時間の目安が出ます。選んだ作品にない手段は選べません。</p>
+
+        <fieldset>
+          <legend>作品</legend>
+          <div class="btn-row" id="odds-game-chips" role="group" aria-label="作品を選ぶ"><button type="button" class="chip-btn" aria-pressed="true">第6世代以降（X・Y以降）</button><button type="button" class="chip-btn" aria-pressed="false">LEGENDS Z-A</button><button type="button" class="chip-btn" aria-pressed="false">第2〜5世代（金・銀〜B2W2）</button><button type="button" class="chip-btn" aria-pressed="false">LEGENDS アルセウス</button><button type="button" class="chip-btn" aria-pressed="false">Let's Go ピカチュウ・イーブイ</button><button type="button" class="chip-btn" aria-pressed="false">スカーレット &amp; バイオレット</button></div>
+          <p class="tool-note" id="odds-game-note"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>狩りで有効なブースト</legend>
+          <div class="btn-row" id="odds-boost-chips" role="group" aria-label="上昇手段を選ぶ"><button type="button" class="chip-btn" aria-pressed="false" title="図鑑を完成させる">ひかるおまもり</button><button type="button" class="chip-btn" aria-pressed="false" title="言語の異なるタマゴ（国際孵化）">国際孵化</button></div>
+          <p class="tool-note" id="odds-boost-note"></p>
+        </fieldset>
+
+        <div class="odds-result-grid" aria-live="polite">
+          <div class="odds-result-card cornered">
+            <div class="odds-result-num" id="odds-fraction">4,096分の1</div>
+            <div class="odds-result-label">1回のエンカウントあたりの色違い確率</div>
+          </div>
+          <div class="odds-result-card cornered">
+            <div class="odds-result-num" id="odds-percent">0.0244%</div>
+            <div class="odds-result-label">割合で表示</div>
+          </div>
+          <div class="odds-result-card cornered">
+            <div class="odds-result-num" id="odds-expected">4,096</div>
+            <div class="odds-result-label">色違い1体あたりの平均エンカウント数</div>
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>狩りの所要時間</legend>
+          <label class="odds-n-label">予定エンカウント数： <input type="number" id="odds-n-input" min="1" max="1000000" value="1000" step="50" aria-label="予定している遭遇回数" /></label>
+          <p class="odds-n-result" id="odds-n-result"></p>
+          <label class="odds-n-label">1時間あたりのエンカウント数： <input type="number" id="odds-rate-input" min="1" max="100000" value="60" step="10" aria-label="1時間あたりの遭遇回数" /></label>
+          <p class="odds-n-result" id="odds-median"></p>
+          <p class="tool-note" id="odds-milestones"></p>
+        </fieldset>
+
+        <div class="actions">
+          <a href="../random-shiny-pokemon-generator/" class="btn-slide cornered btn-primary odds-cta"><span><i class="ico ico-sparkles" aria-hidden="true"></i> 今すぐ色違いを引いてみる — ランダム色違い生成</span></a>
+        </div>
+        <p class="tool-note">計算はここまでで十分です。ジェネレーターなら色違いのポケモンをすぐに引けます。4,096回の作業は要りません。</p>
+      </div>
+    </section>
+
+    <!-- Base odds by generation -->
+    <section id="base-odds" class="container odds" aria-labelledby="base-title">
+      <p class="eyebrow">リファレンス</p>
+      <h2 id="base-title">世代別の基本色違い確率</h2>
+      <p class="odds-lede">色違いのポケモンは第2世代で登場し、基本確率が変わったのはシリーズ史上1度だけです。金・銀からブラック2・ホワイト2までは1/8192でした。X・Yで2倍の1/4096になり、以降の本編作品は上昇手段を使う前の基本値としてこの数字を引き継いでいます。出会いは毎回独立した判定なので、基本確率での色違い確率が動くことはありません。</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>世代／時期</th><th>色違いの基本確率</th><th>割合で表示</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>第2〜5世代（金・銀〜ブラック2・ホワイト2）</td><td>8,192分の1</td><td>0.0122%</td></tr>
+            <tr><td>第6世代以降（X・Y以降）</td><td>4,096分の1</td><td>0.0244%</td></tr>
+            <tr><td>LEGENDS アルセウス／Let's Go／スカーレット &amp; バイオレット</td><td>4,096分の1</td><td>0.0244%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Boost methods -->
+    <section id="boosts" class="container odds" aria-labelledby="boosts-title">
+      <p class="eyebrow">上昇手段を重ねる</p>
+      <h2 id="boosts-title">色違い確率の上昇手段</h2>
+      <p class="odds-lede">上昇手段の仕組みはどれも同じです。ゲームは1回の出会いに対して色違い判定を追加で振り、その中の良い結果を採用します。判定が増えるほど確率は上がります。以下では各手法の内容と、現行作品でどこまで数値が動くかを示します。</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>方法</th><th>条件</th><th>色違い確率（第6世代以降）</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>基本確率</td><td>上昇なし</td><td>4,096分の1</td></tr>
+            <tr><td>ひかるおまもり</td><td>図鑑を完成させる</td><td>1,365分の1</td></tr>
+            <tr><td>国際孵化</td><td>言語の異なるソフト同士で2匹を預ける</td><td>683分の1</td></tr>
+            <tr><td>国際孵化＋ひかるおまもり</td><td>上記2つを併用</td><td>512分の1</td></tr>
+            <tr><td>大量発生（60匹以上撃破）</td><td>スカーレット・バイオレットの大量発生</td><td>1,365分の1</td></tr>
+            <tr><td>かがやきパワーLv.3のサンドイッチ</td><td>スカーレット・バイオレットの秘伝のスパイスレシピ</td><td>1,024分の1</td></tr>
+            <tr><td>ひかるおまもり＋サンドイッチ＋大量発生</td><td>スカーレット・バイオレットで全部を併用</td><td>512分の1</td></tr>
+            <tr><td>大量発生＋ひかるおまもり＋図鑑完成</td><td>LEGENDS アルセウスで全部を併用</td><td>1/128</td></tr>
+            <tr><td>捕獲コンボ31以上＋ひかるおまもり＋ルアー</td><td>Let's Go で全部を併用</td><td>1/273</td></tr>
+            <tr><td>ダイマックスアドベンチャー</td><td>ソード・シールド 冠の雪原</td><td>1/300（ひかるおまもりありで1/100）</td></tr>
+            <tr><td>SOS連鎖（31以上）</td><td>サン・ムーンの仲間呼び連鎖</td><td>1/315（ひかるおまもりありで1/273）</td></tr>
+            <tr><td>連続釣り（20回以上）</td><td>X・Y／ORASの連続釣り</td><td>1/100（ひかるおまもりありで1/96）</td></tr>
+            <tr><td>ポケトレ（連鎖40）</td><td>DPPt・BDSPのポケトレ連鎖</td><td>草むら1回あたり1/200（BDSPでは1/99）</td></tr>
+            <tr><td>フレンドサファリ</td><td>X・Yのフレンドサファリ</td><td>819分の1</td></tr>
+            <tr><td>群れ（1群れあたり）</td><td>X・Y／ORASの群れバトル</td><td>1/819（ひかるおまもりありで1/273）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tool-note">確率は平均であって保証ではありません。1/512の狩りでも、数千回続けて出ないことはあります。</p>
+    </section>
+
+    <!-- Shiny Charm guide -->
+    <section id="charm" class="container odds" aria-labelledby="charm-title">
+      <p class="eyebrow">上昇方法の解説</p>
+      <h2 id="charm-title">ひかるおまもりの入手方法</h2>
+      <p class="odds-lede">ひかるおまもりは、ほとんどの狩りに色違い判定を追加する重要アイテムです。初登場はブラック2・ホワイト2で、当時の1/8192を約1/2731まで引き上げました。現行作品の多くでは判定が2回増え、第6世代以降の基本値から約1/1365になります。LEGENDS アルセウスとLEGENDS Z-Aでは3回増えます。国際孵化、サンドイッチ、大量発生、連鎖と重ねられ、入手には図鑑の完成が条件です。求められる範囲は地方図鑑の完成から、LEGENDSシリーズの調査進捗まで幅があります。例外が2つあり、BDSPのポケトレで出る光る草むらには効果がなく、ブラック2・ホワイト2より前の作品には存在しません。</p>
+    </section>
+
+    <!-- Shiny locked -->
+    <section id="shiny-locked" class="container odds" aria-labelledby="locked-title">
+      <p class="eyebrow">レア度</p>
+      <h2 id="locked-title">色違い固定のポケモン</h2>
+      <p class="odds-lede">色違い固定がかかったポケモンは、何回出会ってもリセットを繰り返しても色違いになりません。対象になるのは、もらえるポケモン、ゲーム内交換、パッケージを飾る伝説、そしてムービーから始まるストーリー中の戦闘です。範囲は作品によって違います。スカーレット・バイオレットは看板の伝説をすべて固定し、ソード・シールドはダイマックスアドベンチャーで多くの伝説を狙えます。LEGENDS Z-Aでは野生の出現と化石だけが色違いになります。目安として、自分で見つけるのではなく受け取るポケモンは固定だと考えてください。</p>
+    </section>
+
+    <!-- Per-game odds -->
+    <section id="games" class="band band-yellow" aria-labelledby="games-title">
+      <div class="container">
+        <p class="eyebrow">作品別</p>
+        <h2 id="games-title">作品別の色違い確率</h2>
+        <p class="odds-lede">どの作品も基本のルールは同じで、1回の出会いに色違い判定が1回、上昇手段を使うと判定が増えます。ただ、数値は年月とともに動いてきました。作品ごとの基本確率と最大上昇時の確率を並べ、詳しい内訳は下に続けます。</p>
+        <div class="odds-table-wrap cornered">
+          <table class="odds-table">
+            <thead>
+              <tr><th>作品</th><th>色違いの基本出現率</th><th>最大上昇時の確率</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>第2〜5世代（金・銀〜ブラック2・ホワイト2）</td><td>8,192分の1</td><td>1/1024（国際孵化＋ひかるおまもり）</td></tr>
+              <tr><td>X &amp; Y、オメガルビー・アルファサファイア</td><td>4,096分の1</td><td>1/96（連続釣り＋ひかるおまもり）</td></tr>
+              <tr><td>サン・ムーン、ウルトラサン・ウルトラムーン</td><td>4,096分の1</td><td>1/273（SOS連鎖31以上＋ひかるおまもり）</td></tr>
+              <tr><td>Let's Go ピカチュウ／イーブイ</td><td>4,096分の1</td><td>1/273（コンボ31以上＋ひかるおまもり＋ルアー）</td></tr>
+              <tr><td>ソード &amp; シールド</td><td>4,096分の1</td><td>1/100（ダイマックスアドベンチャー＋ひかるおまもり）</td></tr>
+              <tr><td>ブリリアントダイヤモンド &amp; シャイニングパール</td><td>4,096分の1</td><td>1/99（ポケトレ連鎖40）</td></tr>
+              <tr><td>LEGENDS アルセウス</td><td>4,096分の1</td><td>1/128（図鑑完成＋ひかるおまもり＋大量発生）</td></tr>
+              <tr><td>スカーレット &amp; バイオレット</td><td>4,096分の1</td><td>1/512（ひかるおまもり＋かがやきパワーLv.3＋大量発生）</td></tr>
+              <tr><td>LEGENDS Z-A</td><td>4,096分の1</td><td>1/585（ひかるおまもり＋かがやきパワーLv.3）</td></tr>
+              <tr><td>ポケモンGO</td><td>1/500（多くの種）</td><td>1/20（伝説レイド）</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="how-grid">
+          <article>
+            <h3>LEGENDS Z-Aの色違い確率</h3>
+            <p>LEGENDS Z-Aも現行の1/4096を基本に据え、ひかるおまもりは通常の2回ではなく3回の判定を追加します。野生での出会いは約1/1024まで下がります。さらにかがやきパワーのドーナツが重なり、レベルに応じて判定が+1、+2、+3回増えます。ひかるおまもりとLv.3のドーナツを重ねると約1/585になり、この作品で最も高い繰り返し可能な数値です。色違いになるのは野生の出現と化石だけで、化石の復元は基本の1/4096のままです。固定シンボル、もらえるポケモン、交換、イベント戦闘は色違いになりません。これらの分数はメガディメンションのアップデートをめぐるコミュニティのデータ解析によるもので、公式の表ではありません。ドーナツの段階を含む全体の表はこちらにあります。 <a href="../pokemon-legends-z-a-shiny-odds/">ポケモン LEGENDS Z-A の色違い確率</a>.</p>
+          </article>
+          <article>
+            <h3>LEGENDS アルセウスの色違い確率</h3>
+            <p>LEGENDS アルセウスは現行と同じ1/4096から始まり、その上に図鑑の調査報酬が重なります。ある種の調査をレベル10まで上げると1/2048、調査を完璧に埋めると1/1024になります。ひかるおまもりは単体で判定を3回追加し、これらはすべて重なります。大量発生も上乗せになり、大量発生だけで約1/158、図鑑完成＋ひかるおまもり＋大量発生では1回の出現に32回の判定が入り、1/128に届きます。本編作品で最も高い数値です。より珍しい大規模大量発生は確率を下げる代わりに数を稼ぐ形で、基本は約1/315ですが、マップ全域を一度にカバーします。すべての組み合わせはこちらに表でまとめています。 <a href="../pokemon-legends-arceus-shiny-odds/">ポケモン LEGENDS アルセウスの色違い確率</a>.</p>
+          </article>
+          <article>
+            <h3>Let's Go ピカチュウ・イーブイの色違い確率</h3>
+            <p>Let's Go ピカチュウ・イーブイは捕獲コンボの仕組みで動きます。コンボ31以上で1/341、ひかるおまもりで1/293、さらにルアーを足すと1/273になり、この作品の最高値です。コンボは同じ種を続けて捕まえた数だけを数えるので、連鎖は切らないようにします。色違いはフィールドに現れるため、コンボでの狩りは忍耐とルートの組み立てが中心になります。コンボの段階ごとの数値はこちらに一覧があります。 <a href="../pokemon-lets-go-shiny-odds/">ポケモン Let's Go の色違い確率</a>.</p>
+          </article>
+          <article>
+            <h3>スカーレット &amp; バイオレットの色違い確率</h3>
+            <p>スカーレット・バイオレットは1/4096を基本に、重ねられる上昇手段を3つ用意しています。ひかるおまもり（パルデア図鑑の完成）で確率は3倍の1/1365、かがやきパワーLv.3のサンドイッチで30分間1/1024、大量発生で60匹以上倒すとその大量発生が1/1365になります。3つを重ねると1/512で、LEGENDS アルセウスを除く現行作品の上限です。サンドイッチはタマゴには効かないので、孵化狙いには国際孵化を使います。サンドイッチの時間、タマゴの段階、レイドの数値はこちらに分けてまとめています。 <a href="../pokemon-scarlet-violet-shiny-odds/">スカーレット・バイオレットの色違い確率</a>.</p>
+          </article>
+          <article>
+            <h3>ソード &amp; シールドの色違い確率</h3>
+            <p>ソード・シールドは標準の1/4096を基本に、ひかるおまもりで1/1365です。この作品は種ごとの戦闘回数も記録しており、500回戦うと判定が増え、ひかるおまもりと合わせてコミュニティ計測で約1/455になります。第8世代では輝き方が2種類になり、どこで出た色違いかで決まります。野生の色違いはほぼ毎回「四角」で、タマゴ、もらえるポケモン、固定シンボル、マックスレイドバトルでは逆になり、四角は1/16の珍しい側です。タマゴから基本確率で四角が出るのは約1/65536です。ダイマックスアドベンチャーと撃破数の段階はこちらで詳しく扱っています。 <a href="../pokemon-sword-shield-shiny-odds/">ソード・シールドの色違い確率</a>.</p>
+          </article>
+          <article>
+            <h3>ブリリアントダイヤモンド &amp; シャイニングパールの色違い確率</h3>
+            <p>ブリリアントダイヤモンド・シャイニングパールは原作に忠実で、基本は1/4096、ひかるおまもりで1/1365です。この作品を代表する方法がポケトレです。草むらでの連鎖を伸ばすと光る草むらが現れ、連鎖40の最大値では1回あたり約1/99まで上がります。Switch世代で最も高い繰り返し可能な数値ですが、連鎖は切れやすく、維持には慣れがいります。0から40までの連鎖表はこちらにまとめています。 <a href="../pokemon-brilliant-diamond-shining-pearl-shiny-odds/">ポケモン ブリリアントダイヤモンド &amp; シャイニングパールの色違い確率</a>.</p>
+          </article>
+          <article>
+            <h3>ポケモンGOの色違い確率</h3>
+            <p>ポケモンGOは独自のルールで動きます。野生の多くの種は約1/500、イワークやニューラのように常時優遇されている種は1/64に近く、伝説レイドの色違いは1/20前後です。コミュニティ・デイでは、対象の種が数時間だけ約1/25になります。おまもりのような仕組みや連鎖はなく、確率は種ごと、イベントごとに決まっています。</p>
+          </article>
+        </div>
+
+        <p class="odds-lede">ファン改変版はこの数値をそのまま使わず、独自の値に書き換えています。 <a href="../pokemon-radical-red-shiny-odds/">ポケモン Radical Red の色違い確率</a> FireRedの改造版を追ったページもあります。バージョン4.1の更新履歴では基本確率が2倍の1/2048、ひかるおまもりで1/683になり、このページの公式作品より速い設定です。デックスナビの仕組みも推測で埋めず、実際の挙動に沿って説明しています。</p>
+        <!-- Toolkit links -->
+        <div class="how-grid toolkit-grid">
+          <article>
+            <h3>確率から行動へ</h3>
+            <p>確率を知っても、それだけでは終わりません。ランダム色違いポケモンジェネレーターなら作業を飛ばして、色違いの配色のポケモンをすぐ引けます。フィルターは9種類、各カードには色違いと通常を見比べる切り替えもあります。メインの <a href="../">Random Pokemon Generator</a> タイプ・世代・レア度のフィルターで6匹のチームを引けるツールがあり、 <a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a> メガシンカだけを引くツールもあります。</p>
+          </article>
+          <article>
+            <h3>作品と計画ツール</h3>
+            <p>決まった手順で周回するなら、 <a href="../nuzlocke-generator/">ヌズロック編成</a> 出会い回数とルールを扱うページもあり、 <a href="../pokemon-team-picker/">パーティ編成</a> 6匹のチームを組み立てます。ブログの新着記事はこちらです。 <a href="../blog/shiny-odds-explained/">色違いの確率をやさしく解説</a> このページの数値の背景にある経緯を説明しています。狩りのリストが長くなったら、 <a href="../random-pokemon-picker/">ランダム選出</a> 対象を1匹ずつ絞り込みます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">ポケモン色違い確率のよくある質問</h2>
+      <details class="faq-item cornered">
+        <summary>色違いのポケモンが出る確率はどのくらいですか？</summary>
+        <p>色違いの確率は作品によって異なります。金・銀からブラック2・ホワイト2まで（第2〜5世代）の基本確率は1/8192、X・Y以降（第6世代以降）は2倍の1/4096です。ひかるおまもり、国際孵化、大量発生、捕獲コンボといった上昇手段を使うと、現行作品では最大1/512まで下がります。LEGENDS アルセウスは全部を重ねると1/128が上限です。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>基本確率での色違い狩りとは何ですか？</summary>
+        <p>基本確率での狩りとは、上昇手段を一切使わない狩りのことです。出会いごとにそのままの基本確率が振られ、現行作品では1/4096、第2〜5世代では1/8192になります。ひかるおまもりもサンドイッチもコンボも使わず、生の確率だけで勝負します。条件を何も足していないぶん、この方法で出した色違いは最も価値があるとされています。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>ひかるおまもりで確率はどのくらい上がりますか？</summary>
+        <p>ひかるおまもりは確率をおよそ3倍にします。第6世代以降では1/4096が約1/1365になり、ブラック2・ホワイト2では1/8192が約1/2731になります。ほとんどの上昇手段と重ねられ、国際孵化と組み合わせると約1/512に届きます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>国際孵化とは何で、確率はどのくらいですか？</summary>
+        <p>国際孵化は、言語の異なるソフトで捕まえた2匹を預ける方法です。たとえば英語版のメタモンと日本語版のガブリアスの組み合わせになります。タマゴには色違い判定が追加され、第6世代以降は約1/683、第4・5世代は1/1639です。ひかるおまもりを足すと現行では約1/512になり、本編作品で広く使える最も高い数値です。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>色違いの確率は毎回独立していますか？</summary>
+        <p>はい。出会いは毎回独立した判定で、回数を重ねても確率が上がる仕組みや、隠れた保証はありません。1/4096では、1万回目の出会いも1回目と同じ確率です。長く出ない時期は普通にあり、基本確率のまま4,096回続けて色違いが出ない人は約36.8%います。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>1,000回出会って色違いが出ない確率は？</summary>
+        <p>1,000回分の外れ確率を掛け合わせます。現行の基本確率1/4096では、1,000回で1匹も出ない確率が約78.3%なので、その早さで成功する狩りは21.7%ほどです。最も高い1/512でも、1,000回空振りする確率は約14.2%残ります。計算機は任意の確率と回数に対応しています。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>世代によって色違いの確率は変わりますか？</summary>
+        <p>基本確率が変わったのはシリーズで1度だけです。第2世代から第5世代（第3世代の作品を含む）は1/8192、X・Yが2倍の1/4096にしました。以降の世代も同じ基本値を保っています。ひかるおまもりを使うと、第6世代以降は約1/1365になります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>色違いのポケモンは何回の出会いで出ますか？</summary>
+        <p>現行の基本確率では、半数の人が2,839回以内に、99%の人が18,861回以内に色違いと出会います。どちらも1/4096という同じ確率の50%地点と99%地点です。出会いは毎回独立しているので、1万回目も1回目と同じ確率です。上の計算機は、確率から中間値と節目の回数、さらに所要時間の目安を出します。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>色違い固定のポケモンはどれですか？</summary>
+        <p>色違い固定がかかるのは、自分で探す出会いではなく、ゲーム側から渡されるポケモンです。ムービーの場面、パッケージの伝説、ゲーム内交換、もらえるポケモンが該当します。細かい範囲は作品ごとに違い、LEGENDS Z-Aは野生の出現と化石に限り、ダイマックスアドベンチャーではソード・シールドの伝説の多くを狙えます。スカーレット・バイオレットは看板の伝説を固定したままです。ゲーム側から渡されるポケモンは色違いにならないと考えておけば十分です。</p>
+      </details>
+          <details class="faq-item cornered">
+        <summary>1/4096をパーセントにすると？</summary>
+        <p>1/4096は0.0244%、つまり4,096回に1回です。同じ数字を裏返すと、99.9756%の出会いは色違いではありません。だから半数の人は2,839回まで試すことになります。</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="./">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">確率はゲーム内の仕様に関する資料をもとにまとめています。ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../names.js?v=20261022ja3"></script>
+  <script src="odds.js?v=20261022ja3"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

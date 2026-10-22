@@ -26,6 +26,9 @@
   <meta name="description" content="Spin the Pokemon type wheel or roll a combo — a random Pokemon type generator with all 18 types, instant matchups, rare combos and example Pokemon." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.random-pokemon-generator.co/random-pokemon-type-generator/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/random-pokemon-type-generator/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/random-pokemon-type-generator/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/random-pokemon-type-generator/" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Random Pokemon Type Generator - Spin the 18-Type Wheel" />
@@ -171,6 +174,7 @@
     }
   }
   </script>
+  <link rel="stylesheet" href="../lang-switch.css?v=20261022a" />
 </head>
 <body>
 
@@ -236,6 +240,13 @@
           <li><a href="#faq" class="nav-link">FAQ</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Switch language"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a class="lang-current" aria-current="true" lang="en">English</a></li>
+          <li><a href="../ja/random-pokemon-type-generator/" hreflang="ja" lang="ja">日本語</a></li>
+        </ul>
+      </div>
       <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
     </div>
   </header>
@@ -411,5 +422,6 @@
   <script src="../data.js?v=20261022d"></script>
   <script src="../nav.js?v=20261022m"></script>
   <script src="type-generator.js?v=20261022d"></script>
+  <script src="../lang-switch.js?v=20261022a"></script>
 </body>
 </html>
