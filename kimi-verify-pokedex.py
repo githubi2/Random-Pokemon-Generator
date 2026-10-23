@@ -78,8 +78,11 @@ for rel, label in NEW:
     for b in ['SEO-optimized']:
         if re.search(r'\b' + re.escape(b) + r'\b', text, re.I):
             errors.append('[%s] 敏感词 %s' % (label, b)); ok = False
-    ogimg = os.path.join(root, rel, 'og-image.png')
-    if not os.path.exists(ogimg): errors.append('[%s] 缺 og-image' % label); ok = False
+    m_og = re.search(r'property="og:image"\s+content="([^"]+)"', html)
+    og_rel = re.sub(r'^https?://[^/]+/', '', m_og.group(1)) if m_og else ''
+    ogimg = os.path.join(root, og_rel) if og_rel else ''
+    if not (ogimg and os.path.exists(ogimg)):
+        errors.append('[%s] 缺 og-image %s' % (label, og_rel or '(无 og:image)')); ok = False
     print('  %-14s title=%d desc=%d h1=%d words=%d faq=%d ld=%s %s' % (label, len(title), len(desc), len(h1s), words, len(faq_vis), types, 'OK' if ok else 'ISSUE'))
 
 print()
