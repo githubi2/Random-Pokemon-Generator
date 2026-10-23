@@ -2990,6 +2990,8 @@ tr.pnc-hide { display: none; }
 .rec-title { font-size: 20px; margin-bottom: 4px; }
 .rec-sub { font-size: 15px; color: var(--text-2); margin-bottom: 18px; }
 .rec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+/* 图鉴页的四卡模块：平板宽度下改两行两列，避免最后一张卡片单独掉到下一行 */
+@media (max-width: 979px) and (min-width: 561px){ .rec-grid.rec-grid-4 { grid-template-columns: repeat(2, 1fr); } }
 .rec-card { display: block; padding: 16px 18px; background: var(--surface); border: 1px solid var(--line-2); text-decoration: none; color: inherit; transition: transform .12s ease, box-shadow .12s ease; }
 .rec-card:hover { transform: translateY(-2px); box-shadow: 4px 4px 0 rgba(18,18,18,0.18); }
 .rec-emoji { font-size: 26px; line-height: 1; display: block; }
