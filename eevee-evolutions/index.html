@@ -142,9 +142,91 @@
         "@type": "Question",
         "name": "Do Eevee's evolution requirements change between games?",
         "acceptedAnswer": { "@type": "Answer", "text": "Yes, and the differences are easy to trip over. The three stone evolutions are the stable part — Water Stone, Thunder Stone and Fire Stone have worked since Generation 1. Friendship routes have loosened up: the requirement dropped from about 220 in the older games to about 160 from Sword and Shield onward, with the level-up timed for day or night, and Sylveon still wants a Fairy-type move on top. Leafeon and Glaceon used to need a level-up near a Moss Rock or Ice Rock; the newer games let you use a Leaf Stone or Ice Stone instead. Let's Go keeps only the three stone evolutions, with the partner Eevee barred from evolving at all, and Pokemon GO runs on Candy, Buddy hearts and Lure Modules." }
+      }      ,
+      {
+        "@type": "Question",
+        "name": "Can you get all eight Eevee evolutions in one game?",
+        "acceptedAnswer": { "@type": "Answer", "text": "From X and Y onward, yes — every title since then has all eight branches available, assuming you can find the stones and put in the bond time. Before that it is impossible by design: the branches simply were not in the game yet. The two real exceptions in the modern era are Brilliant Diamond and Shining Pearl, which never got Sylveon, and Let's Go, which locks the partner Eevee out of evolving entirely." }
+      }      ,
+      {
+        "@type": "Question",
+        "name": "Why does my Eevee keep evolving into Sylveon?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Because a Fairy-type move in the moveset overrides the clock. If the bond is high enough and Eevee still knows a Fairy attack, the level-up produces Sylveon whether it happens at noon or midnight — Espeon and Umbreon never get the chance. Delete the Fairy move before levelling and the day-night split goes back to working normally." }
+      }      ,
+      {
+        "@type": "Question",
+        "name": "Is Eevee evolution the same in Pokemon GO?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Not remotely. GO ignores stones and asks for Candy instead, then gates six of the eight behind a Buddy walk, a Lure Module or 70 Buddy hearts. Nicknaming an Eevee Rainer, Sparky, Pyro, Sakura, Tamao, Linnea, Rea or Kira forces the matching form once per account — after that you are back to doing it the slow way." }
       }
     ]
   }
+  </script>
+
+  <!-- Structured data: ItemList (nine forms) -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Eevee Evolutions",
+  "itemListOrder": "https://schema.org/ItemListOrderAscending",
+  "numberOfItems": 9,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Eevee",
+      "url": "https://www.random-pokemon-generator.co/pokemon/eevee/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Vaporeon",
+      "url": "https://www.random-pokemon-generator.co/eevee-evolutions/#vaporeon"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Jolteon",
+      "url": "https://www.random-pokemon-generator.co/eevee-evolutions/#jolteon"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Flareon",
+      "url": "https://www.random-pokemon-generator.co/eevee-evolutions/#flareon"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Espeon",
+      "url": "https://www.random-pokemon-generator.co/pokemon/espeon/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "Umbreon",
+      "url": "https://www.random-pokemon-generator.co/pokemon/umbreon/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "Leafeon",
+      "url": "https://www.random-pokemon-generator.co/eevee-evolutions/#leafeon"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "Glaceon",
+      "url": "https://www.random-pokemon-generator.co/eevee-evolutions/#glaceon"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "Sylveon",
+      "url": "https://www.random-pokemon-generator.co/pokemon/sylveon/"
+    }
+  ]
+}
   </script>
 
   <!-- Structured data: Organization (site-wide, R6.3) -->
@@ -172,6 +254,56 @@
   }
   </script>
   <link rel="stylesheet" href="../lang-switch.css?v=20261022a" />
+
+  <style>
+    /* Eevee evolutions — form grid (page-scoped, matches the dex-card language) */
+    .evo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 26px; }
+    @media (max-width: 860px) { .evo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
+    @media (max-width: 420px) { .evo-grid { gap: 10px; } }
+    .evo-card {
+      --aura: #a8a878;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 12px 12px 14px;
+      background:
+        radial-gradient(125% 78% at 50% 0%, color-mix(in srgb, var(--aura) 20%, transparent) 0%, transparent 66%),
+        var(--surface);
+      border: 1px solid var(--line-2);
+      border-radius: 18px;
+      box-shadow: var(--sh-sm);
+      text-align: center;
+    }
+    .evo-card[data-origin="1"] { border-color: var(--ink); border-width: 2px; padding: 11px 11px 13px; }
+    .evo-top { display: flex; justify-content: flex-start; min-height: 15px; }
+    .evo-num { font-size: 12px; font-weight: 500; letter-spacing: 0.02em; color: var(--text-3); }
+    .evo-art { position: relative; display: block; width: 128px; height: 128px; max-width: 100%; margin: 2px auto 0; }
+    .evo-aura {
+      position: absolute; inset: 0; border-radius: 50%;
+      background: radial-gradient(circle at 50% 48%,
+        color-mix(in srgb, var(--aura) 24%, transparent) 0%,
+        color-mix(in srgb, var(--aura) 11%, transparent) 55%,
+        transparent 75%);
+    }
+    .evo-art img { position: relative; width: 100%; height: 100%; object-fit: contain; }
+    .evo-name { display: block; margin-top: 8px; font-family: var(--font-display); font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+    .evo-type { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 12px; color: var(--text-2); }
+    .evo-type::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--aura); }
+    .evo-way { margin: 8px 0 0; font-size: 12.5px; line-height: 1.45; color: var(--text-2); }
+    @media (max-width: 520px) {
+      .evo-art { width: 104px; height: 104px; }
+      .evo-name { font-size: 15px; }
+      .evo-way { font-size: 12px; }
+    }
+    /* wide reference tables: keep them scrollable and stop the last column from being forced onto one line */
+    .odds-table-wrap { overflow-x: auto; }
+    .odds-table.prose-table td:last-child { white-space: normal; font-weight: 400; color: var(--text-2); }
+    /* spacing around the new reference tables */
+    #games > h3, #roles > h3, #guide > .container > h3 { margin: 40px 0 12px; }
+    #games .odds-table-wrap + h3 { margin-top: 40px; }
+    #games .odds-table-wrap + p, #roles .odds-table-wrap + p { margin-top: 20px; }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -257,6 +389,78 @@
 
     
 
+    <!-- The eight forms, at a glance (image-led like the search results that win) -->
+    <section id="forms" class="container" aria-labelledby="forms-title">
+      <p class="eyebrow">One Eevee · Eight futures</p>
+      <h2 id="forms-title">The Eight Forms at a Glance</h2>
+      <p class="odds-lede">Eevee never settles on one answer. It branches eight ways at once and whichever branch you take is permanent, so the nine cards below are the decision itself — who each form becomes, and what it costs to get there.</p>
+      <div class="evo-grid">
+        <article id="eevee" class="evo-card" data-origin="1" style="--aura: var(--type-normal)">
+          <div class="evo-top"><span class="evo-num">#0133</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/eevee.png" alt="Eevee official artwork" width="128" height="128" loading="eager" /></span>
+          <span class="evo-name">Eevee</span>
+          <span class="evo-type">Normal</span>
+          <p class="evo-way">The starting point — 325 total, and every branch below starts here.</p>
+        </article>
+        <article id="vaporeon" class="evo-card" style="--aura: var(--type-water)">
+          <div class="evo-top"><span class="evo-num">#0134</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/vaporeon.png" alt="Vaporeon official artwork" width="128" height="128" loading="lazy" /></span>
+          <span class="evo-name">Vaporeon</span>
+          <span class="evo-type">Water</span>
+          <p class="evo-way">Water Stone — instant, at any level.</p>
+        </article>
+        <article id="jolteon" class="evo-card" style="--aura: var(--type-electric)">
+          <div class="evo-top"><span class="evo-num">#0135</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/jolteon.png" alt="Jolteon official artwork" width="128" height="128" loading="lazy" /></span>
+          <span class="evo-name">Jolteon</span>
+          <span class="evo-type">Electric</span>
+          <p class="evo-way">Thunder Stone — instant, at any level.</p>
+        </article>
+        <article id="flareon" class="evo-card" style="--aura: var(--type-fire)">
+          <div class="evo-top"><span class="evo-num">#0136</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/flareon.png" alt="Flareon official artwork" width="128" height="128" loading="lazy" /></span>
+          <span class="evo-name">Flareon</span>
+          <span class="evo-type">Fire</span>
+          <p class="evo-way">Fire Stone — instant, at any level.</p>
+        </article>
+        <article id="espeon" class="evo-card" style="--aura: var(--type-psychic)">
+          <div class="evo-top"><span class="evo-num">#0196</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/espeon.png" alt="Espeon official artwork" width="128" height="128" loading="lazy" /></span>
+          <span class="evo-name">Espeon</span>
+          <span class="evo-type">Psychic</span>
+          <p class="evo-way">High friendship, then level up in the daytime.</p>
+        </article>
+        <article id="umbreon" class="evo-card" style="--aura: var(--type-dark)">
+          <div class="evo-top"><span class="evo-num">#0197</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/umbreon.png" alt="Umbreon official artwork" width="128" height="128" loading="lazy" /></span>
+          <span class="evo-name">Umbreon</span>
+          <span class="evo-type">Dark</span>
+          <p class="evo-way">High friendship, then level up at night.</p>
+        </article>
+        <article id="leafeon" class="evo-card" style="--aura: var(--type-grass)">
+          <div class="evo-top"><span class="evo-num">#0470</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/leafeon.png" alt="Leafeon official artwork" width="128" height="128" loading="lazy" /></span>
+          <span class="evo-name">Leafeon</span>
+          <span class="evo-type">Grass</span>
+          <p class="evo-way">Leaf Stone now; a Moss Rock in the older games.</p>
+        </article>
+        <article id="glaceon" class="evo-card" style="--aura: var(--type-ice)">
+          <div class="evo-top"><span class="evo-num">#0471</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/glaceon.png" alt="Glaceon official artwork" width="128" height="128" loading="lazy" /></span>
+          <span class="evo-name">Glaceon</span>
+          <span class="evo-type">Ice</span>
+          <p class="evo-way">Ice Stone now; an Ice Rock in the older games.</p>
+        </article>
+        <article id="sylveon" class="evo-card" style="--aura: var(--type-fairy)">
+          <div class="evo-top"><span class="evo-num">#0700</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/sylveon.png" alt="Sylveon official artwork" width="128" height="128" loading="lazy" /></span>
+          <span class="evo-name">Sylveon</span>
+          <span class="evo-type">Fairy</span>
+          <p class="evo-way">Friendship plus a Fairy-type move, then level up.</p>
+        </article>
+      </div>
+    </section>
+
     <!-- The chart -->
     <section id="chart" class="container odds" aria-labelledby="chart-title">
       <p class="eyebrow">Reference</p>
@@ -341,6 +545,112 @@
             <p>Sylveon is the newest branch and the pickiest one. Eevee needs high friendship and a Fairy-type move in its current moveset, then one level-up seals it. The check happens at the moment of leveling, so Sylveon is an evolution you can steer mid-run: teach the move first, keep the friendship high, and the fairy path opens on your schedule rather than the game's.</p>
           </article>
         </div>
+
+        <h3>When two conditions collide</h3>
+        <p>An Eevee can satisfy more than one branch at the same time, and the game never asks which one you meant. It works down a fixed order instead — which is how people end up with a Sylveon they were not trying for.</p>
+        <div class="odds-table-wrap cornered">
+          <table class="odds-table prose-table">
+            <thead>
+              <tr>
+                <th scope="col">What's true when it levels up</th>
+                <th scope="col">What you get</th>
+                <th scope="col">How to steer it</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>High friendship, a Fairy move, and standing at a Moss or Ice Rock</td><td>Leafeon or Glaceon</td><td>Rocks beat fairy — walk out of the area first if you want Sylveon</td></tr>
+              <tr><td>High friendship, a Fairy move, daytime</td><td>Sylveon, not Espeon</td><td>Delete the Fairy move before the level-up</td></tr>
+              <tr><td>High friendship, a Fairy move, night</td><td>Sylveon, not Umbreon</td><td>Same fix — the move decides, the clock does not</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Which game -->
+    <section id="games" class="container odds" aria-labelledby="games-title">
+      <p class="eyebrow">Game by game</p>
+      <h2 id="games-title">Every Game, and Which Forms It Gives You</h2>
+      <p class="odds-lede">All eight forms have existed since Generation 6, but the route to Leafeon and Glaceon flipped in Generation 8 — and two older titles block whole branches outright. The number column is Eevee's regional dex number in that game, which is what you want when you go looking for one. The full release calendar sits on the <a href="../pokemon-release-dates/">Pokemon Release Dates</a> page.</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table prose-table">
+          <thead>
+            <tr>
+              <th scope="col">Game</th>
+              <th scope="col">Eevee's dex #</th>
+              <th scope="col">Forms reachable</th>
+              <th scope="col">What to know</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Red / Blue / Yellow</td><td>0133</td><td>3</td><td>Vaporeon, Jolteon and Flareon only — the other five did not exist yet</td></tr>
+            <tr><td>Gold / Silver / Crystal</td><td>0180</td><td>5</td><td>Espeon and Umbreon arrive: friendship, then a level-up by day or by night</td></tr>
+            <tr><td>FireRed / LeafGreen</td><td>0133</td><td>3</td><td>No day-night clock, so the friendship pair cannot trigger at all</td></tr>
+            <tr><td>Diamond / Pearl / Platinum</td><td>0163</td><td>7</td><td>Moss Rock in Eterna Forest, Ice Rock on Route 217 — no Sylveon yet</td></tr>
+            <tr><td>HeartGold / SoulSilver</td><td>0184</td><td>5</td><td>Johto has no Moss or Ice Rock, so Leafeon and Glaceon are out</td></tr>
+            <tr><td>Black 2 / White 2</td><td>0091</td><td>7</td><td>Moss Rock in Pinwheel Forest, Ice Rock in Twist Mountain</td></tr>
+            <tr><td>X / Y</td><td>0077</td><td>8</td><td>The first game with all eight — Sylveon debuts here via Pokemon-Amie</td></tr>
+            <tr><td>Sun / Moon</td><td>0123</td><td>8</td><td>Lush Jungle for Leafeon, Mount Lanakila for Glaceon</td></tr>
+            <tr><td>Ultra Sun / Ultra Moon</td><td>0153</td><td>8</td><td>Same two locations as Sun and Moon</td></tr>
+            <tr><td>Let's Go, Pikachu / Eevee</td><td>0133</td><td>3</td><td>The partner Eevee cannot evolve at all; wild Eevee only reaches the stone trio</td></tr>
+            <tr><td>Sword / Shield</td><td>0196</td><td>8</td><td>The Leaf Stone and Ice Stone replace the rocks for good</td></tr>
+            <tr><td>The Crown Tundra (Sword/Shield DLC)</td><td>0074</td><td>8</td><td>Same rules as the base game</td></tr>
+            <tr><td>Brilliant Diamond / Shining Pearl</td><td>—</td><td>7</td><td>The rocks still work here, but Sylveon is missing from the dex</td></tr>
+            <tr><td>Legends: Arceus</td><td>0025</td><td>8</td><td>Stones and friendship both work, and the rocks are still in the map</td></tr>
+            <tr><td>Scarlet / Violet</td><td>0179</td><td>8</td><td>Stones for the five, friendship for the other three</td></tr>
+            <tr><td>Legends: Z-A</td><td>0100</td><td>8</td><td>Same stone-plus-friendship rules as Scarlet and Violet</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Friendship thresholds, by generation</h3>
+      <p>The bond requirement is the number people get wrong, because it dropped between generations. Old guides still quote 220 for every game; the modern games only ask for 160.</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table prose-table">
+          <thead>
+            <tr>
+              <th scope="col">Generation</th>
+              <th scope="col">Friendship needed</th>
+              <th scope="col">Sylveon's extra step</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>2 through 5</td><td>220</td><td>Sylveon did not exist yet</td></tr>
+            <tr><td>6 and 7</td><td>220</td><td>Two hearts of affection in Pokemon-Amie or Pokemon Refresh, plus a Fairy move</td></tr>
+            <tr><td>8 onward</td><td>160</td><td>A Fairy-type move in the moveset when the level-up lands</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Pokemon GO -->
+    <section id="go" class="band band-yellow" aria-labelledby="go-title">
+      <div class="container">
+        <p class="eyebrow">Pokemon GO</p>
+        <h2 id="go-title">Eevee Evolutions in Pokemon GO</h2>
+        <p class="odds-lede">GO throws out the stones completely. Candy pays for the evolution, and then a Buddy distance, a Lure, or a pile of hearts decides which form you actually get. The nickname trick is the fast lane — but each name works exactly once, per account, forever.</p>
+        <div class="odds-table-wrap cornered">
+          <table class="odds-table prose-table">
+            <thead>
+              <tr>
+                <th scope="col">Form</th>
+                <th scope="col">What it takes</th>
+                <th scope="col">Nickname (once only)</th>
+                <th scope="col">Watch out for</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Vaporeon</td><td>25 Eevee Candy</td><td>Rainer</td><td>Without a nickname it is a one-in-three roll with Jolteon and Flareon</td></tr>
+              <tr><td>Jolteon</td><td>25 Eevee Candy</td><td>Sparky</td><td>Same roll as Vaporeon</td></tr>
+              <tr><td>Flareon</td><td>25 Eevee Candy</td><td>Pyro</td><td>Same roll as Vaporeon</td></tr>
+              <tr><td>Espeon</td><td>Buddy it, walk 10 km, earn 2 Candy, then evolve in daylight</td><td>Sakura</td><td>The 10 km has to be finished before you press evolve</td></tr>
+              <tr><td>Umbreon</td><td>Same walk, evolved at night</td><td>Tamao</td><td>Day and night are set by your phone's clock</td></tr>
+              <tr><td>Leafeon</td><td>Evolve while standing inside a Mossy Lure's radius</td><td>Linnea</td><td>The lure has to be active and you have to be in range</td></tr>
+              <tr><td>Glaceon</td><td>Evolve while standing inside a Glacial Lure's radius</td><td>Rea</td><td>Same rule as Leafeon</td></tr>
+              <tr><td>Sylveon</td><td>Earn 70 Buddy hearts</td><td>Kira</td><td>By far the slowest of the eight</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
@@ -349,6 +659,31 @@
       <p class="eyebrow">Team fit</p>
       <h2 id="roles-title">Which Eevee Evolution Fits Your Team?</h2>
       <p>Pick by role first. Flareon attacks from the physical side, Leafeon does its damage and soaks physical hits from the Defense seat, and Jolteon turns its 130 Speed into pressure. On the special side, Espeon, Glaceon and Vaporeon carry the big numbers, while Umbreon and Sylveon absorb special attacks better than anything else in the family.</p>
+      <h3>What each form is weak to</h3>
+      <p>All eight share the same stat total, so the matchup line is where they actually separate. Two of them carry an outright immunity, and those two are the ones people reach for when a specific type is wrecking the team. The full grid lives on the <a href="../pokemon-type-chart/">Pokemon Type Chart</a>.</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table prose-table">
+          <thead>
+            <tr>
+              <th scope="col">Form</th>
+              <th scope="col">Type</th>
+              <th scope="col">Takes 2× from</th>
+              <th scope="col">Resists</th>
+              <th scope="col">Immune to</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Vaporeon</td><td>Water</td><td>Electric, Grass</td><td>Fire, Water, Ice, Steel</td><td>—</td></tr>
+            <tr><td>Jolteon</td><td>Electric</td><td>Ground</td><td>Electric, Flying, Steel</td><td>—</td></tr>
+            <tr><td>Flareon</td><td>Fire</td><td>Water, Ground, Rock</td><td>Fire, Grass, Ice, Bug, Steel, Fairy</td><td>—</td></tr>
+            <tr><td>Espeon</td><td>Psychic</td><td>Bug, Ghost, Dark</td><td>Fighting, Psychic</td><td>—</td></tr>
+            <tr><td>Umbreon</td><td>Dark</td><td>Fighting, Bug, Fairy</td><td>Ghost, Dark</td><td><strong>Psychic</strong></td></tr>
+            <tr><td>Leafeon</td><td>Grass</td><td>Fire, Ice, Poison, Flying, Bug</td><td>Water, Electric, Grass, Ground</td><td>—</td></tr>
+            <tr><td>Glaceon</td><td>Ice</td><td>Fire, Fighting, Rock, Steel</td><td>Ice</td><td>—</td></tr>
+            <tr><td>Sylveon</td><td>Fairy</td><td>Poison, Steel</td><td>Fighting, Bug, Dark</td><td><strong>Dragon</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
       <p>Then let the types patch the cover. Vaporeon's Water Absorb and Jolteon's Volt Absorb turn Water and Electric moves into free healing, and Flareon's Flash Fire eats Fire the same way — three of the eight front-load a team patch before a single stat is counted. Sylveon adds a Fairy typing outright. When the shortlist is down to two, the <a href="../pokemon-type-chart/">Pokemon Type Chart</a> usually settles it; when the plan is built, test it in the <a href="../pokemon-team-picker/">Pokemon Team Picker</a>. And if the Eevee itself has not arrived yet, the <a href="../random-pokemon-picker/">Random Pokemon Picker</a> rolls one on demand.</p>
       <p>One last dial once the form is chosen: the <a href="../pokemon-nature-chart/">Pokemon Nature Chart</a> lists the nature each evolution wants, and getting it right is free value on every stat the tables above just assigned. And for the base form on its own, the <a href="../pokemon/eevee/">Eevee</a> species page covers its stats, abilities and matchups. The <a href="../pokemon/umbreon/">Umbreon</a> page takes the family's defensive branch further, and the <a href="../pokemon/sylveon/">Sylveon</a> page does the same for the Fairy side. The <a href="../pokemon/espeon/">Espeon</a> page covers the special attacker of the eight.</p>
     </section>
@@ -403,6 +738,18 @@
       <details class="faq-item cornered">
         <summary>Do Eevee's evolution requirements change between games?</summary>
         <p>Yes, and the differences are easy to trip over. The three stone evolutions are the stable part — Water Stone, Thunder Stone and Fire Stone have worked since Generation 1. Friendship routes have loosened up: the requirement dropped from about 220 in the older games to about 160 from Sword and Shield onward, with the level-up timed for day or night, and Sylveon still wants a Fairy-type move on top. Leafeon and Glaceon used to need a level-up near a Moss Rock or Ice Rock; the newer games let you use a Leaf Stone or Ice Stone instead. Let's Go keeps only the three stone evolutions, with the partner Eevee barred from evolving at all, and Pokemon GO runs on Candy, Buddy hearts and Lure Modules.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can you get all eight Eevee evolutions in one game?</summary>
+        <p>From X and Y onward, yes — every title since then has all eight branches available, assuming you can find the stones and put in the bond time. Before that it is impossible by design: the branches simply were not in the game yet. The two real exceptions in the modern era are Brilliant Diamond and Shining Pearl, which never got Sylveon, and Let's Go, which locks the partner Eevee out of evolving entirely.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Why does my Eevee keep evolving into Sylveon?</summary>
+        <p>Because a Fairy-type move in the moveset overrides the clock. If the bond is high enough and Eevee still knows a Fairy attack, the level-up produces Sylveon whether it happens at noon or midnight — Espeon and Umbreon never get the chance. Delete the Fairy move before levelling and the day-night split goes back to working normally.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Is Eevee evolution the same in Pokemon GO?</summary>
+        <p>Not remotely. GO ignores stones and asks for Candy instead, then gates six of the eight behind a Buddy walk, a Lure Module or 70 Buddy hearts. Nicknaming an Eevee Rainer, Sparky, Pyro, Sakura, Tamao, Linnea, Rea or Kira forces the matching form once per account — after that you are back to doing it the slow way.</p>
       </details>
     </section>
   </main>

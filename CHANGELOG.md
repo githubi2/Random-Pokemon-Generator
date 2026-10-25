@@ -4,6 +4,7 @@ Site updates, newest first.
 
 ## October 2026
 
+- **10-25** — Eevee evolutions page rebuilt around artwork and data: a nine-card form grid up top, plus new tables for per-game availability, friendship thresholds, Pokemon GO conditions and type matchups. The Eevee Pokedex page gained a dex-facts table.
 - **10-20** — Wording pass on nine pages, matching the exact phrasing players search with: searcher, game picker, shiny maker, Platinum nature chart, wheel of names, smash or pass edition, 1/4096 as a percentage, Mew's alternate forms and Mewtwo's Pokedex entry.
 - **10-20** — Ten more species pages complete the wave-2 batch — Raichu, Zygarde, Espeon, Gyarados, Venusaur, Darkrai, Magikarp, Meowth, Onix and Psyduck; the hub now covers thirty species.
 - **10-20** — Five more species pages join the Pokedex — Snorlax, Sylveon, Gardevoir, Blastoise and Garchomp; the hub now covers twenty species.

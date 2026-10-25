@@ -160,6 +160,15 @@
   </script>
 
   <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+  <style>
+    /* Page-scoped: dex facts table */
+    .facts-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+    .facts-table th, .facts-table td { padding: 10px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; line-height: 1.45; }
+    .facts-table th { font-weight: 500; color: var(--text-2); width: 44%; }
+    .facts-table td { font-weight: 600; }
+    .facts-table tr:last-child th, .facts-table tr:last-child td { border-bottom: 0; }
+    @media (max-width: 480px) { .facts-table { font-size: 13.5px; } .facts-table th { width: 48%; } }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -269,6 +278,26 @@
       </div>
     </section>
 
+    <!-- Dex facts -->
+    <section class="container panel cornered" aria-label="Eevee dex facts">
+      <h2 class="rec-title">Eevee Dex Facts</h2>
+      <p class="tool-note">The numbers a dex entry carries, without the flavour text.</p>
+      <table class="facts-table">
+        <tbody>
+          <tr><th scope="row">National Dex</th><td>#0133</td></tr>
+          <tr><th scope="row">Type</th><td>Normal</td></tr>
+          <tr><th scope="row">Species</th><td>Evolution Pokemon</td></tr>
+          <tr><th scope="row">Height / Weight</th><td>0.3 m / 6.5 kg</td></tr>
+          <tr><th scope="row">Catch rate</th><td>45</td></tr>
+          <tr><th scope="row">Base friendship</th><td>50</td></tr>
+          <tr><th scope="row">Egg group</th><td>Field</td></tr>
+          <tr><th scope="row">Gender ratio</th><td>87.5% male, 12.5% female</td></tr>
+          <tr><th scope="row">Evolution branches</th><td>8 — and no form evolves further</td></tr>
+          <tr><th scope="row">Debut</th><td>Red and Blue, Generation 1</td></tr>
+        </tbody>
+      </table>
+    </section>
+
     <!-- Type matchups -->
     <section class="container panel cornered" aria-label="Eevee type matchups">
       <h2 class="rec-title">Eevee Type Matchups</h2>
@@ -324,7 +353,7 @@
         <div class="how-grid">
           <article>
             <h3>What is Eevee?</h3>
-            <p>Eevee is Pokemon number 133 in the national dex and the head of the most famous branched family in the series. Eight evolutions sit one step away: Vaporeon, Jolteon, Flareon, Espeon, Umbreon, Leafeon, Glaceon and Sylveon. Run Away and Adaptability are the standard abilities and Anticipation takes the hidden slot, and the whole family counts nine members — Eevee and its eight branches, none leading into another. Kanto is the home region, and the pick has been a fan favorite ever since.</p>
+            <p>Eevee is Pokemon number 133 in the national dex and the head of the most famous branched family in the series. Eight evolutions sit one step away, and none of them leads into another: three open off a stone, two off friendship plus the clock, and the last three each want a condition of their own. The <a href="../../eevee-evolutions/">breakdown of all eight eevee evolutions</a> spells out every trigger, what changes between games, and how the GO version differs. Run Away and Adaptability are the standard abilities and Anticipation takes the hidden slot, and the whole family counts nine members — Eevee and its eight branches, none leading into another. Kanto is the home region, and the pick has been a fan favorite ever since.</p>
             <p>The defensive card is one of the strangest profiles in the dex: one weakness, zero resists, one full immunity. Fighting doubles, Ghost does literally nothing, and everything else lands neutral. That means positioning does the work a resist list normally would: you are always either on even ground or one bad switch away from trouble. Plan the Ghost freebie in, and keep Fighting off the field.</p>
           </article>
           <article>
@@ -345,7 +374,7 @@
           <article>
             <h3>How to use Eevee in your run</h3>
             <p>Nuzlocke players live and die on matchups like this one: a single weakness is easy to cover, and easy to forget. Build the run in the <a href="../../nuzlocke-generator/">Nuzlocke Team Builder</a>, and keep the <a href="../../random-pokemon-picker/">Random Pokemon Picker</a> close for emergency encounters. On a finished team it holds a physical slot with the best Sp. Def on the roster. When two branches feel equally right, the <a href="../../random-pokemon-generator-wheel/">Pokemon Wheel Spinner</a> breaks the tie. Early routes treat it as an ordinary Normal type; the whole bet is on what it becomes.</p>
-            <p>Eight paths out of one pick — that is the whole story with Eevee, and the team is where the choice starts to matter. Not sure which sibling fits the open slot? The <a href="../../pokemon-team-picker/">Pokemon Team Picker</a> can tell you, and <a href="../../eevee-evolutions/">Eevee Evolutions</a> runs the full comparison: types, stat grids, and how each of the eight gets triggered. Sylveon answers Fighting and Dragons, Umbreon walls what the rest of the squad cannot, and Jolteon turns its 130 Speed into pressure — the chart sorts the rest in one table. Pick the role first, then let coverage patch the plan; Vaporeon's Water Absorb even turns a weakness into free healing. If an evolution turns into a shiny project, <a href="../../pokemon-shiny-odds/">Pokemon Shiny Odds</a> has the math, and the <a href="../../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a> handles the rolls. Longer guides live on the <a href="../../blog/">Blog</a>.</p>
+            <p>Eight paths out of one pick — that is the whole story with Eevee, and the team is where the choice starts to matter. Not sure which sibling fits the open slot? The <a href="../../pokemon-team-picker/">Pokemon Team Picker</a> can tell you, and Eevee Evolutions runs the full comparison: types, stat grids, and how each of the eight gets triggered. Sylveon answers Fighting and Dragons, Umbreon walls what the rest of the squad cannot, and Jolteon turns its 130 Speed into pressure — the chart sorts the rest in one table. Pick the role first, then let coverage patch the plan; Vaporeon's Water Absorb even turns a weakness into free healing. If an evolution turns into a shiny project, <a href="../../pokemon-shiny-odds/">Pokemon Shiny Odds</a> has the math, and the <a href="../../random-shiny-pokemon-generator/">Random Shiny Pokemon Generator</a> handles the rolls. Longer guides live on the <a href="../../blog/">Blog</a>.</p>
           </article>
         </div>
       </div>
