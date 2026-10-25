@@ -179,6 +179,15 @@
 </script>
 
   <link rel="stylesheet" href="../../../lang-switch.css?v=20261022a" />
+  <style>
+    /* このページ限定：図鑑データ表 */
+    .facts-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+    .facts-table th, .facts-table td { padding: 10px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; line-height: 1.5; }
+    .facts-table th { font-weight: 500; color: var(--text-2); width: 44%; }
+    .facts-table td { font-weight: 600; }
+    .facts-table tr:last-child th, .facts-table tr:last-child td { border-bottom: 0; }
+    @media (max-width: 480px) { .facts-table { font-size: 13.5px; } .facts-table th { width: 48%; } }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -288,6 +297,26 @@
       </div>
     </section>
 
+    <!-- 図鑑データ -->
+    <section class="container panel cornered" aria-label="イーブイの図鑑データ">
+      <h2 class="rec-title">イーブイの図鑑データ</h2>
+      <p class="tool-note">図鑑が持っている数字だけを、説明文ぬきで並べました。</p>
+      <table class="facts-table">
+        <tbody>
+          <tr><th scope="row">全国図鑑番号</th><td>No.0133</td></tr>
+          <tr><th scope="row">タイプ</th><td>ノーマル</td></tr>
+          <tr><th scope="row">分類</th><td>しんかポケモン</td></tr>
+          <tr><th scope="row">高さ／重さ</th><td>0.3 m / 6.5 kg</td></tr>
+          <tr><th scope="row">捕獲率</th><td>45</td></tr>
+          <tr><th scope="row">なつき度の初期値</th><td>50</td></tr>
+          <tr><th scope="row">タマゴグループ</th><td>陸上</td></tr>
+          <tr><th scope="row">性別</th><td>オス87.5% / メス12.5%</td></tr>
+          <tr><th scope="row">進化</th><td>8つの分岐（先の進化はなし）</td></tr>
+          <tr><th scope="row">初登場</th><td>赤・緑（第1世代）</td></tr>
+        </tbody>
+      </table>
+    </section>
+
     <!-- Type matchups -->
     <section class="container panel cornered" aria-label="Eevee のタイプ相性">
       <h2 class="rec-title">イーブイのタイプ相性</h2>
@@ -343,7 +372,7 @@
         <div class="how-grid">
           <article>
             <h3>イーブイとは？</h3>
-            <p>イーブイは全国図鑑で133番、シリーズでもっとも有名な分岐進化の一家の長です。1歩先に8つの進化が控えています。シャワーズ、サンダース、ブースター、エーフィ、ブラッキー、リーフィア、グレイシア、ニンフィア。特性はにげあしとてきおうりょくが通常で、隠れ特性がきけんよち。一族はイーブイと8つの分岐で9匹、どの分岐もほかの進化にはつながりません。出身はカントーで、それ以来ずっと人気の1匹です。</p>
+            <p>イーブイは全国図鑑で133番、シリーズでもっとも有名な分岐進化の一家の長です。1歩先に8つの進化が控えていて、どれも次の進化にはつながりません。シャワーズ、サンダース、ブースター、エーフィ、ブラッキー、リーフィア、グレイシア、ニンフィアの8体です。3体は石、2体はなつき度と時間帯、残り3体はそれぞれ別の条件で、進め方は<a href="../../eevee-evolutions/">8つのイーブイ進化の条件と進め方</a>にまとめています。特性はにげあしとてきおうりょくが通常で、隠れ特性がきけんよち。一族はイーブイと8つの分岐で9匹です。出身はカントーで、それ以来ずっと人気の1匹です。</p>
             <p>防御面は図鑑でもっとも変わった部類です。弱点が1つ、耐性がゼロ、無効が1つ。かくとうは2倍、ゴーストは文字どおり何も通らず、それ以外はすべて等倍です。つまり、ふつうは耐性リストが担う仕事を、立ち回りが引き受けることになります。いつも等倍の場所にいるか、1回の交代ミスで危険に近づくかのどちらかです。ゴーストで無料の交代を1回ねじ込み、かくとうは場に出さないこと。</p>
           </article>
           <article>
@@ -364,7 +393,7 @@
           <article>
             <h3>旅のなかでイーブイをどう使うか</h3>
             <p>ヌズロックを遊ぶ人は、こういう相性に生死を賭けます。弱点が1つなら対策は簡単ですが、忘れやすいのも同じです。旅は <a href="../../nuzlocke-generator/">ヌズロック編成</a>で組み立て、緊急のエンカウントに備えて <a href="../../random-pokemon-picker/">ランダム選出</a> を手元に置いておきましょう。完成した編成では、手持ちでいちばん特防の高い物理枠として立ちます。2つの分岐で迷ったら、 <a href="../../random-pokemon-generator-wheel/">ポケモンルーレット</a> が決めてくれます。序盤のルートでは、ごく普通のノーマルタイプとして扱われます。賭けはすべて、何になるかにかかっています。</p>
-            <p>8つの道が1匹から分かれる。イーブイの話はそれに尽き、チームのなかで初めてその選択が効いてきます。空いた枠にどの兄弟が合うか迷ったら、 <a href="../../pokemon-team-picker/">パーティ編成</a> が答えてくれますし、 <a href="../../eevee-evolutions/">イーブイ進化</a> が8匹すべてを比べてくれます。タイプ、種族値の表、そして8匹それぞれの進化条件まで。ニンフィアはかくとうとドラゴンに答え、ブラッキーは残りの仲間が受けられない攻撃を受け止め、サンダースは素早さ130を圧力に変えます。ほかの分岐も1つの表で並びます。先に役割を決めて、カバー範囲で計画を埋めていくのがコツです。シャワーズのちょすいなら、弱点を回復に変えられます。進化が色違い狙いになったら、 <a href="../../pokemon-shiny-odds/">色違いの出現率</a> に確率の計算があり、 <a href="../../random-shiny-pokemon-generator/">ランダム色違い生成</a> が実際の抽選を担当します。長めのガイドは <a href="../../blog/">ブログ</a>.</p>
+            <p>8つの道が1匹から分かれる。イーブイの話はそれに尽き、チームのなかで初めてその選択が効いてきます。空いた枠にどの兄弟が合うか迷ったら、 <a href="../../pokemon-team-picker/">パーティ編成</a> が答えてくれますし、 イーブイ進化のページが8匹すべてを比べてくれます。タイプ、種族値の表、そして8匹それぞれの進化条件まで。ニンフィアはかくとうとドラゴンに答え、ブラッキーは残りの仲間が受けられない攻撃を受け止め、サンダースは素早さ130を圧力に変えます。ほかの分岐も1つの表で並びます。先に役割を決めて、カバー範囲で計画を埋めていくのがコツです。シャワーズのちょすいなら、弱点を回復に変えられます。進化が色違い狙いになったら、 <a href="../../pokemon-shiny-odds/">色違いの出現率</a> に確率の計算があり、 <a href="../../random-shiny-pokemon-generator/">ランダム色違い生成</a> が実際の抽選を担当します。長めのガイドは <a href="../../blog/">ブログ</a>.</p>
           </article>
         </div>
       </div>

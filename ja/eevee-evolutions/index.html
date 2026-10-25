@@ -189,10 +189,101 @@
     "@type": "Answer",
     "text": "はい、しかも違いは引っかかりやすいところにあります。安定しているのは石の3体で、みずのいし・かみなりのいし・ほのおのいしは第1世代からずっと同じです。なつきルートは緩くなりました。必要値は古いゲームの220前後から、ソード・シールド以降は160前後へ下がり、レベルアップの時間帯は昼か夜で指定します。ニンフィアはさらにフェアリーわざが要ります。リーフィアとグレイシアは、以前は苔むした岩や凍った岩の近くでのレベルアップが必要でしたが、新しいゲームではリーフのいしやこおりのいしが使えます。Let's Goは石の3体だけを残し、相棒のイーブイはそもそも進化できません。Pokemon GOはアメ、相棒のハート、ルアーモジュールで動いています。"
    }
+  },
+  {
+   "@type": "Question",
+   "name": "1本のソフトで8種類すべてに進化させることはできますか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "現行のソフトなら可能です。石が手に入り、なつき度を積む時間さえあれば、1本のなかで8体までたどり着けます。第5世代以前のソフトは枝そのものが少ないので、そもそも8体にはなりません。確実なのはソード・シールド以降です。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "なぜイーブイがニンフィアばかりに進化するのですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "フェアリーわざが時計を上書きするからです。なつき度が足りていてフェアリーわざを覚えていると、昼でも夜でもレベルアップでニンフィアになり、エーフィやブラッキーに出番が回りません。レベルアップの前にフェアリーわざを忘れさせれば、昼夜の分岐は元どおり動きます。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Pokemon GO でも進化の方法は同じですか？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "まるで違います。GOに石はなく、代わりにアメが要ります。さらに8種のうち6種は、相棒の距離、ルアーモジュール、ハートの数といった条件で分かれます。イーブイにRainer、Sparky、Pyro、Sakura、Tamao、Linnea、Rea、Kiraのいずれかを名付けると対応する姿に固定できますが、1アカウントにつき1回だけ。以降は地道に条件を満たすことになります。"
+   }
   }
  ]
 }
 </script>
+
+  <!-- Structured data: ItemList（9つの姿） -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "イーブイの進化",
+  "itemListOrder": "https://schema.org/ItemListOrderAscending",
+  "numberOfItems": 9,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "イーブイ",
+      "url": "https://www.random-pokemon-generator.co/ja/pokemon/eevee/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "シャワーズ",
+      "url": "https://www.random-pokemon-generator.co/ja/eevee-evolutions/#vaporeon"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "サンダース",
+      "url": "https://www.random-pokemon-generator.co/ja/eevee-evolutions/#jolteon"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "ブースター",
+      "url": "https://www.random-pokemon-generator.co/ja/eevee-evolutions/#flareon"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "エーフィ",
+      "url": "https://www.random-pokemon-generator.co/ja/pokemon/espeon/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "ブラッキー",
+      "url": "https://www.random-pokemon-generator.co/ja/pokemon/umbreon/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "リーフィア",
+      "url": "https://www.random-pokemon-generator.co/ja/eevee-evolutions/#leafeon"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "グレイシア",
+      "url": "https://www.random-pokemon-generator.co/ja/eevee-evolutions/#glaceon"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "ニンフィア",
+      "url": "https://www.random-pokemon-generator.co/ja/pokemon/sylveon/"
+    }
+  ]
+}
+  </script>
 
   <!-- Structured data: Organization (site-wide, R6.3) -->
   <script type="application/ld+json">
@@ -219,7 +310,36 @@
 }
 </script>
   <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
-</head>
+  <style>
+    /* イーブイの進化：姿カード（このページ限定。dex-card と同じ設計言語） */
+    .evo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 26px; }
+    @media (max-width: 860px) { .evo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
+    @media (max-width: 420px) { .evo-grid { gap: 10px; } }
+    .evo-card {
+      --aura: #a8a878; position: relative; display: flex; flex-direction: column; height: 100%;
+      padding: 12px 12px 14px;
+      background: radial-gradient(125% 78% at 50% 0%, color-mix(in srgb, var(--aura) 20%, transparent) 0%, transparent 66%), var(--surface);
+      border: 1px solid var(--line-2); border-radius: 18px; box-shadow: var(--sh-sm); text-align: center;
+    }
+    .evo-card[data-origin="1"] { border-color: var(--ink); border-width: 2px; padding: 11px 11px 13px; }
+    .evo-top { display: flex; justify-content: flex-start; min-height: 15px; }
+    .evo-num { font-size: 12px; font-weight: 500; letter-spacing: 0.02em; color: var(--text-3); }
+    .evo-art { position: relative; display: block; width: 128px; height: 128px; max-width: 100%; margin: 2px auto 0; }
+    .evo-aura { position: absolute; inset: 0; border-radius: 50%;
+      background: radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--aura) 24%, transparent) 0%, color-mix(in srgb, var(--aura) 11%, transparent) 55%, transparent 75%); }
+    .evo-art img { position: relative; width: 100%; height: 100%; object-fit: contain; }
+    .evo-name { display: block; margin-top: 8px; font-family: var(--font-display); font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+    .evo-type { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 12px; color: var(--text-2); }
+    .evo-type::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--aura); }
+    .evo-way { margin: 8px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--text-2); }
+    @media (max-width: 520px) { .evo-art { width: 104px; height: 104px; } .evo-name { font-size: 15px; } .evo-way { font-size: 12px; } }
+    /* 幅の広い参照表：横スクロールを許可し、末列の折り返しを解放 */
+    .odds-table-wrap { overflow-x: auto; }
+    .odds-table.prose-table td:last-child { white-space: normal; font-weight: 400; color: var(--text-2); }
+    #games > h3, #roles > h3, #guide > .container > h3 { margin: 40px 0 12px; }
+    #games .odds-table-wrap + h3 { margin-top: 40px; }
+    #games .odds-table-wrap + p, #roles .odds-table-wrap + p { margin-top: 20px; }
+  </style></head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
@@ -303,6 +423,78 @@
     </section>
 
     
+
+    <!-- 8つの姿をひと目で（画像中心。検索上位と同じ見せ方） -->
+    <section id="forms" class="container" aria-labelledby="forms-title">
+      <p class="eyebrow">ひとつのイーブイ · 8つの未来</p>
+      <h2 id="forms-title">8つの姿をひと目で</h2>
+      <p class="odds-lede">イーブイは答えをひとつに絞りません。8方向へ同時に枝分かれし、選んだ枝は戻せない。だから下の9枚がそのまま判断材料になります。どの姿が何になるか、そこへ行くのに何が要るか。</p>
+      <div class="evo-grid">
+        <article id="eevee" class="evo-card" data-origin="1" style="--aura: var(--type-normal)">
+          <div class="evo-top"><span class="evo-num">#0133</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/eevee.png" alt="イーブイの公式イラスト" width="128" height="128" loading="eager" /></span>
+          <span class="evo-name">イーブイ</span>
+          <span class="evo-type">ノーマル</span>
+          <p class="evo-way">ここがすべての出発点。種族値合計325。</p>
+        </article>
+        <article id="vaporeon" class="evo-card" style="--aura: var(--type-water)">
+          <div class="evo-top"><span class="evo-num">#0134</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/vaporeon.png" alt="シャワーズの公式イラスト" width="128" height="128" loading="lazy" /></span>
+          <span class="evo-name">シャワーズ</span>
+          <span class="evo-type">みず</span>
+          <p class="evo-way">みずのいし。レベルは問わない。</p>
+        </article>
+        <article id="jolteon" class="evo-card" style="--aura: var(--type-electric)">
+          <div class="evo-top"><span class="evo-num">#0135</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/jolteon.png" alt="サンダースの公式イラスト" width="128" height="128" loading="lazy" /></span>
+          <span class="evo-name">サンダース</span>
+          <span class="evo-type">でんき</span>
+          <p class="evo-way">かみなりのいし。レベルは問わない。</p>
+        </article>
+        <article id="flareon" class="evo-card" style="--aura: var(--type-fire)">
+          <div class="evo-top"><span class="evo-num">#0136</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/flareon.png" alt="ブースターの公式イラスト" width="128" height="128" loading="lazy" /></span>
+          <span class="evo-name">ブースター</span>
+          <span class="evo-type">ほのお</span>
+          <p class="evo-way">ほのおのいし。レベルは問わない。</p>
+        </article>
+        <article id="espeon" class="evo-card" style="--aura: var(--type-psychic)">
+          <div class="evo-top"><span class="evo-num">#0196</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/espeon.png" alt="エーフィの公式イラスト" width="128" height="128" loading="lazy" /></span>
+          <span class="evo-name">エーフィ</span>
+          <span class="evo-type">エスパー</span>
+          <p class="evo-way">なつき度を上げて、昼にレベルアップ。</p>
+        </article>
+        <article id="umbreon" class="evo-card" style="--aura: var(--type-dark)">
+          <div class="evo-top"><span class="evo-num">#0197</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/umbreon.png" alt="ブラッキーの公式イラスト" width="128" height="128" loading="lazy" /></span>
+          <span class="evo-name">ブラッキー</span>
+          <span class="evo-type">あく</span>
+          <p class="evo-way">なつき度を上げて、夜にレベルアップ。</p>
+        </article>
+        <article id="leafeon" class="evo-card" style="--aura: var(--type-grass)">
+          <div class="evo-top"><span class="evo-num">#0470</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/leafeon.png" alt="リーフィアの公式イラスト" width="128" height="128" loading="lazy" /></span>
+          <span class="evo-name">リーフィア</span>
+          <span class="evo-type">くさ</span>
+          <p class="evo-way">今はリーフのいし。旧作はコケむした岩。</p>
+        </article>
+        <article id="glaceon" class="evo-card" style="--aura: var(--type-ice)">
+          <div class="evo-top"><span class="evo-num">#0471</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/glaceon.png" alt="グレイシアの公式イラスト" width="128" height="128" loading="lazy" /></span>
+          <span class="evo-name">グレイシア</span>
+          <span class="evo-type">こおり</span>
+          <p class="evo-way">今はこおりのいし。旧作はこおりの岩。</p>
+        </article>
+        <article id="sylveon" class="evo-card" style="--aura: var(--type-fairy)">
+          <div class="evo-top"><span class="evo-num">#0700</span></div>
+          <span class="evo-art"><span class="evo-aura"></span><img src="img/sylveon.png" alt="ニンフィアの公式イラスト" width="128" height="128" loading="lazy" /></span>
+          <span class="evo-name">ニンフィア</span>
+          <span class="evo-type">フェアリー</span>
+          <p class="evo-way">なつき度＋フェアリーわざでレベルアップ。</p>
+        </article>
+      </div>
+    </section>
 
     <!-- The chart -->
     <section id="chart" class="container odds" aria-labelledby="chart-title">
@@ -388,14 +580,146 @@
             <p>ニンフィアは最新の枝で、いちばん気難しい1体です。イーブイのなつき度が高く、そのとき覚えているわざにフェアリー技がある状態で、レベルアップすれば決まります。判定はレベルアップの瞬間なので、旅の途中でも操作できます。わざを先に覚えさせ、なつき度を高く保っておけば、フェアリーの道はゲームの都合ではなく自分の予定に合わせて開きます。</p>
           </article>
         </div>
+        <h3>条件がぶつかったとき</h3>
+        <p>イーブイは複数の枝の条件を同時に満たすことがあり、ゲームはどれを狙っているかを聞いてきません。決まった順番で処理されるため、狙っていないニンフィアが生まれる、という事故が起きます。</p>
+        <div class="odds-table-wrap cornered">
+          <table class="odds-table prose-table">
+            <thead>
+              <tr>
+                <th scope="col">レベルアップした瞬間の状態</th>
+                <th scope="col">出てくる姿</th>
+                <th scope="col">狙いを変える方法</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>なつき度が高く、フェアリーわざを覚えていて、コケむした岩かこおりの岩のそばにいる</td><td>リーフィアかグレイシア</td><td>岩が優先。ニンフィアが欲しいなら先にその場を離れる</td></tr>
+              <tr><td>なつき度が高く、フェアリーわざを覚えていて、昼</td><td>エーフィではなくニンフィア</td><td>レベルアップの前にフェアリーわざを忘れさせる</td></tr>
+              <tr><td>なつき度が高く、フェアリーわざを覚えていて、夜</td><td>ブラッキーではなくニンフィア</td><td>対処は同じ。決めるのは時計ではなくわざ</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
-    <!-- FAQ -->
+
+
+    <!-- ゲーム別 -->
+    <section id="games" class="container odds" aria-labelledby="games-title">
+      <p class="eyebrow">ソフトごとに</p>
+      <h2 id="games-title">ソフトごとに、どこまで進化できるか</h2>
+      <p class="odds-lede">8つの姿は第6世代からすべて存在しますが、リーフィアとグレイシアへの道は第8世代で石に切り替わり、古いソフトでは枝ごと塞がれています。番号の列はそのソフトでのイーブイの図鑑番号で、捕まえに行くときに探す数字です。発売日の一覧は<a href="../pokemon-release-dates/">ポケモン発売日カレンダー</a>にまとめています。</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table prose-table">
+          <thead>
+            <tr>
+              <th scope="col">ソフト</th>
+              <th scope="col">イーブイの図鑑番号</th>
+              <th scope="col">進化できる数</th>
+              <th scope="col">補足</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>赤・緑・青・ピカチュウ</td><td>0133</td><td>3</td><td>シャワーズ、サンダース、ブースターのみ。残り5種はまだ存在しない</td></tr>
+            <tr><td>金・銀・クリスタル</td><td>0180</td><td>5</td><td>エーフィとブラッキーが加わる。なつき度を上げて、昼か夜にレベルアップ</td></tr>
+            <tr><td>ファイアレッド・リーフグリーン</td><td>0133</td><td>3</td><td>昼夜の概念がないため、なつき度の2種は動かない</td></tr>
+            <tr><td>ダイヤモンド・パール・プラチナ</td><td>0163</td><td>7</td><td>ハクタイのもりのコケむした岩、217ばんどうろのこおりの岩。ニンフィアはまだいない</td></tr>
+            <tr><td>ハートゴールド・ソウルシルバー</td><td>0184</td><td>5</td><td>ジョウトにコケむした岩とこおりの岩がないため、リーフィアとグレイシアは不可</td></tr>
+            <tr><td>ブラック2・ホワイト2</td><td>0091</td><td>7</td><td>ヤグルマの森のコケむした岩、ネジ山のこおりの岩</td></tr>
+            <tr><td>X・Y</td><td>0077</td><td>8</td><td>8種が揃う最初のソフト。ニンフィアはここで初登場</td></tr>
+            <tr><td>サン・ムーン</td><td>0123</td><td>8</td><td>リーフィアはシェードジャングル、グレイシアはラナキラマウンテン</td></tr>
+            <tr><td>ウルトラサン・ウルトラムーン</td><td>0153</td><td>8</td><td>場所はサン・ムーンと同じ</td></tr>
+            <tr><td>Let's Go! ピカチュウ・Let's Go! イーブイ</td><td>0133</td><td>3</td><td>相棒のイーブイは進化できない。野生のイーブイも石の3種どまり</td></tr>
+            <tr><td>ソード・シールド</td><td>0196</td><td>8</td><td>リーフのいしとこおりのいしが、岩に取って代わる</td></tr>
+            <tr><td>冠の雪原（ソード・シールドの追加コンテンツ）</td><td>0074</td><td>8</td><td>本編と同じルール</td></tr>
+            <tr><td>ブリリアントダイヤモンド・シャイニングパール</td><td>—</td><td>7</td><td>岩の方式は残るが、ニンフィアは図鑑にいない</td></tr>
+            <tr><td>LEGENDS アルセウス</td><td>0025</td><td>8</td><td>石となつき度の両方が使え、岩もマップに残っている</td></tr>
+            <tr><td>スカーレット・バイオレット</td><td>0179</td><td>8</td><td>5種は石、残り3種はなつき度</td></tr>
+            <tr><td>LEGENDS Z-A</td><td>0100</td><td>8</td><td>スカーレット・バイオレットと同じ、石となつき度のルール</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>なつき度のしきい値、世代ごとに</h3>
+      <p>間違えられやすいのがこの数字です。世代の変わり目で下がっているのに、古い攻略記事はどのソフトでも220と書いたままになっています。現行のソフトが求めているのは160です。</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table prose-table">
+          <thead>
+            <tr>
+              <th scope="col">世代</th>
+              <th scope="col">必要ななつき度</th>
+              <th scope="col">ニンフィアの追加条件</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>第2〜第5世代</td><td>220</td><td>ニンフィアはまだ存在しない</td></tr>
+            <tr><td>第6・第7世代</td><td>220</td><td>ポケパルレかポケリフレでハート2つ以上、さらにフェアリーわざ</td></tr>
+            <tr><td>第8世代以降</td><td>160</td><td>レベルアップの時点でフェアリーわざを覚えていること</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Pokemon GO -->
+    <section id="go" class="band band-yellow" aria-labelledby="go-title">
+      <div class="container">
+        <p class="eyebrow">Pokemon GO</p>
+        <h2 id="go-title">Pokemon GO でのイーブイ進化</h2>
+        <p class="odds-lede">GOには石がありません。進化はアメで払い、どの姿になるかは相棒の距離、モジュール、ハートの数で決まります。いちばん速いのはニックネーム技ですが、名前ひとつにつき1回きり、アカウントで一度だけです。</p>
+        <div class="odds-table-wrap cornered">
+          <table class="odds-table prose-table">
+            <thead>
+              <tr>
+                <th scope="col">姿</th>
+                <th scope="col">必要なもの</th>
+                <th scope="col">ニックネーム（1回だけ）</th>
+                <th scope="col">注意</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>シャワーズ</td><td>イーブイのアメ25個</td><td>Rainer</td><td>ニックネームなしだとサンダース・ブースターとの3択</td></tr>
+              <tr><td>サンダース</td><td>イーブイのアメ25個</td><td>Sparky</td><td>シャワーズと同じ3択</td></tr>
+              <tr><td>ブースター</td><td>イーブイのアメ25個</td><td>Pyro</td><td>シャワーズと同じ3択</td></tr>
+              <tr><td>エーフィ</td><td>相棒にして10km歩き、アメ2個を受け取ってから昼に進化</td><td>Sakura</td><td>10kmを歩き終える前に進化させない</td></tr>
+              <tr><td>ブラッキー</td><td>同じく10km歩いて、夜に進化</td><td>Tamao</td><td>昼夜は端末の時計で決まる</td></tr>
+              <tr><td>リーフィア</td><td>コケモジュールの範囲内で進化</td><td>Linnea</td><td>モジュールが起動中で、自分が範囲内にいること</td></tr>
+              <tr><td>グレイシア</td><td>こおりモジュールの範囲内で進化</td><td>Rea</td><td>リーフィアと同じ条件</td></tr>
+              <tr><td>ニンフィア</td><td>なかよしハートを70個</td><td>Kira</td><td>8種のなかで最も時間がかかる</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->    <!-- FAQ -->
     <section id="roles" class="container odds" aria-labelledby="roles-title">
       <p class="eyebrow">パーティとの相性</p>
       <h2 id="roles-title">どのイーブイの進化が自分のパーティに合う？</h2>
       <p>まず役割で選んでください。ブースターは物理側から攻め、リーフィアは防御の席からダメージを出しつつ物理を受け止め、サンダースは素早さ130を圧力に変えます。特殊側ではエーフィ、グレイシア、シャワーズが大きな数字を持ち、ブラッキーとニンフィアは一族のなかでも特殊攻撃の受けが出色です。</p>
+      <h3>各姿の弱点</h3>
+      <p>8体は種族値合計が同じなので、差が出るのはタイプ相性の行です。完全無効を持つのは2体だけで、特定のタイプに崩されているときに選ばれるのもその2体です。18タイプの全体表は、次のタイプ相性表にまとめています。</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table prose-table">
+          <thead>
+            <tr>
+              <th scope="col">姿</th>
+              <th scope="col">タイプ</th>
+              <th scope="col">弱点（2倍）</th>
+              <th scope="col">半減</th>
+              <th scope="col">無効</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>シャワーズ</td><td>みず</td><td>でんき、くさ</td><td>ほのお、みず、こおり、はがね</td><td>—</td></tr>
+            <tr><td>サンダース</td><td>でんき</td><td>じめん</td><td>でんき、ひこう、はがね</td><td>—</td></tr>
+            <tr><td>ブースター</td><td>ほのお</td><td>みず、じめん、いわ</td><td>ほのお、くさ、こおり、むし、はがね、フェアリー</td><td>—</td></tr>
+            <tr><td>エーフィ</td><td>エスパー</td><td>むし、ゴースト、あく</td><td>かくとう、エスパー</td><td>—</td></tr>
+            <tr><td>ブラッキー</td><td>あく</td><td>かくとう、むし、フェアリー</td><td>ゴースト、あく</td><td><strong>エスパー</strong></td></tr>
+            <tr><td>リーフィア</td><td>くさ</td><td>ほのお、こおり、どく、ひこう、むし</td><td>みず、でんき、くさ、じめん</td><td>—</td></tr>
+            <tr><td>グレイシア</td><td>こおり</td><td>ほのお、かくとう、いわ、はがね</td><td>こおり</td><td>—</td></tr>
+            <tr><td>ニンフィア</td><td>フェアリー</td><td>どく、はがね</td><td>かくとう、むし、あく</td><td><strong>ドラゴン</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
       <p>次にタイプで穴を埋めます。シャワーズのちょすいとサンダースのちくでんは、みずわざとでんきわざを回復に変えます。ブースターのもらいびも、ほのおを同じように食べます。8体のうち3体が、種族値を1つ数える前にパーティの穴を埋めてくれるわけです。ニンフィアはフェアリータイプそのものを足します。候補が2体まで絞れたら、 <a href="../pokemon-type-chart/">タイプ相性表</a> がたいてい決めてくれます。形ができたら、 <a href="../pokemon-team-picker/">パーティ編成</a>で試してください。イーブイ自体がまだ来ていないなら、 <a href="../random-pokemon-picker/">ランダム選出</a> が1体、その場で引いてくれます。</p>
       <p>姿が決まったら、最後の調整が1つ。 <a href="../pokemon-nature-chart/">ポケモン性格表</a> に、各進化が求める性格が並んでいます。ここを合わせるのは、上の表で配った種族値すべてに対する無料の上乗せです。本体のデータは、 <a href="../pokemon/eevee/">イーブイ</a> のページに、種族値・特性・相性がまとまっています。 <a href="../pokemon/umbreon/">ブラッキー</a> のページは守り寄りの枝を掘り下げ、 <a href="../pokemon/sylveon/">ニンフィア</a> のページはフェアリー側を同じように扱っています。 <a href="../pokemon/espeon/">エーフィ</a> のページは8体のなかの特殊アタッカーを紹介しています。</p>
     </section>
@@ -450,6 +774,18 @@
       <details class="faq-item cornered">
         <summary>イーブイの進化条件はゲームごとに変わる？</summary>
         <p>はい、しかも違いは引っかかりやすいところにあります。安定しているのは石の3体で、みずのいし・かみなりのいし・ほのおのいしは第1世代からずっと同じです。なつきルートは緩くなりました。必要値は古いゲームの220前後から、ソード・シールド以降は160前後へ下がり、レベルアップの時間帯は昼か夜で指定します。ニンフィアはさらにフェアリーわざが要ります。リーフィアとグレイシアは、以前は苔むした岩や凍った岩の近くでのレベルアップが必要でしたが、新しいゲームではリーフのいしやこおりのいしが使えます。Let's Goは石の3体だけを残し、相棒のイーブイはそもそも進化できません。Pokemon GOはアメ、相棒のハート、ルアーモジュールで動いています。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>1本のソフトで8種類すべてに進化させることはできますか？</summary>
+        <p>現行のソフトなら可能です。石が手に入り、なつき度を積む時間さえあれば、1本のなかで8体までたどり着けます。第5世代以前のソフトは枝そのものが少ないので、そもそも8体にはなりません。確実なのはソード・シールド以降です。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>なぜイーブイがニンフィアばかりに進化するのですか？</summary>
+        <p>フェアリーわざが時計を上書きするからです。なつき度が足りていてフェアリーわざを覚えていると、昼でも夜でもレベルアップでニンフィアになり、エーフィやブラッキーに出番が回りません。レベルアップの前にフェアリーわざを忘れさせれば、昼夜の分岐は元どおり動きます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Pokemon GO でも進化の方法は同じですか？</summary>
+        <p>まるで違います。GOに石はなく、代わりにアメが要ります。さらに8種のうち6種は、相棒の距離、ルアーモジュール、ハートの数といった条件で分かれます。イーブイにRainer、Sparky、Pyro、Sakura、Tamao、Linnea、Rea、Kiraのいずれかを名付けると対応する姿に固定できますが、1アカウントにつき1回だけ。以降は地道に条件を満たすことになります。</p>
       </details>
     </section>
   </main>
