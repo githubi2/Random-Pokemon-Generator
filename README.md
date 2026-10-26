@@ -307,7 +307,7 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 
 ## Roadmap
 
-The Pokedex grows in waves. Ten species pages plus the hub are live: Bulbasaur, Charizard, Pikachu, Charmander, Squirtle, Eevee, Gengar, Mewtwo, Lucario and Greninja. Later waves follow the same pattern, and data corrections reported through issues land in the wave after they are verified.
+The Pokedex grows in waves. Species pages go live a few at a time, and the hub lists every one that is up. Later waves follow the same pattern, and data corrections reported through issues land in the wave after they are verified.
 
 ## License
 
