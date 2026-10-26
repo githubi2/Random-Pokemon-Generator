@@ -142,6 +142,39 @@
 }
 </script>
   <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "ガイドはどのくらいの頻度で更新されますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "各記事の冒頭に「最後に確認した日」を出しています。新しい作品やカードセットが出るたびに、確率の表と発売日カレンダーは見直します。変化がなかった項目は元の日付のまま残します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "どの作品を扱っていますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "第1〜9世代の本編に加えて、ツールが対応しているSwitch世代の作品です。Let's Go、LEGENDS アルセウス、ブリリアントダイヤモンド・シャイニングパール、LEGENDS Z-A が対象です。ポケモンGOはルールが別なので扱っていません。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "表や数字をほかの場所で使ってもいいですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "リンクを貼っていただければ使えます。数字はツールと同じデータから都度計算しているので常に最新ですが、コピーした表はそうなりません。"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -363,6 +396,24 @@
         </div>
       </div>
     </section>
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">ポケモン攻略ガイドのよくある質問</h2>
+      <details class="faq-item cornered">
+        <summary>ガイドはどのくらいの頻度で更新されますか？</summary>
+        <p>各記事の冒頭に「最後に確認した日」を出しています。新しい作品やカードセットが出るたびに、確率の表と発売日カレンダーは見直します。変化がなかった項目は元の日付のまま残します。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>どの作品を扱っていますか？</summary>
+        <p>第1〜9世代の本編に加えて、ツールが対応しているSwitch世代の作品です。Let's Go、LEGENDS アルセウス、ブリリアントダイヤモンド・シャイニングパール、LEGENDS Z-A が対象です。ポケモンGOはルールが別なので扱っていません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>表や数字をほかの場所で使ってもいいですか？</summary>
+        <p>リンクを貼っていただければ使えます。数字はツールと同じデータから都度計算しているので常に最新ですが、コピーした表はそうなりません。</p>
+      </details>
+    </section>
+
   </main>
 
   <footer class="site-footer">

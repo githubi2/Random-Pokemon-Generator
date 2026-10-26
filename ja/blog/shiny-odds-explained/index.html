@@ -117,6 +117,55 @@
 }
 </script>
   <link rel="stylesheet" href="../../../lang-switch.css?v=20261022a" />
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "色違いの確率を％で表すとどのくらいですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "1/4,096 は 0.0244％です。ひかるおまもりを付けると 0.0733％（1/1,365）、国際孵化なら 0.1464％（1/683）、そこにおまもりが重なると 0.1953％（1/512）まで上がります。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "色違いは何回やれば出ますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "確率は1回ごとの話で、回数を重ねても保証はありません。1/4,096 なら「1匹以上出る確率が50％」になるのが 2,840 回、90％なら 9,430 回です。1/512 ならそれぞれ 355 回と 1,178 回になります。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "続けるほど確率は上がりますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "通常の野生遭遇とタマゴは毎回独立なので、300回目でも 1/4,096 のままです。回数を引き継ぐのは連鎖系だけです。ポケトレ、Let's Go の連続捕獲、大量発生の討伐数にはカウンターが積み上がりますが、普通の狩りにはありません。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "国際孵化は手間をかける価値がありますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "孵化するつもりなら価値があります。基礎確率がおよそ6倍（1/4,096 から 1/683）になり、タマゴは1個ごとに引き直しです。約473個で50％に届きます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "この確率はポケモンGOにも当てはまりますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "当てはまりません。ここに書いたのは本編シリーズの数字です。ポケモンGOは種族ごと・イベントごとに独自の確率で動いていて、この数字はそのまま持ち込めません。"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -249,6 +298,32 @@
       <p>長い狩りに出る前に、ひとつだけ注意を。ここで燃え尽きる人が多いのです。これは1回あたりの確率であって、タイマーではありません。長年この話を続けている <a href="https://www.smogon.com/" target="_blank" rel="noopener">Smogon フォーラム</a> も、初めて狩る人に同じことを言い続けています。1/512でも、1,000個続けて何も出ない確率は14.2%あります。何かが「そろそろ来る」わけではありません。判定は毎回まっさらから始まるので、平均を基準に計画して、出ない時期に意味を読まないことです。</p>
       <p>自分の条件——作品、ひかるおまもり、国際孵化、大量発生のレベル——で計算したいなら、色違いの出現率の計算ツールがその計算をそのままやってくれます。実際の条件を選ぶだけで、確率、平均の狩り回数、そして計画しているセッション中に1匹以上出る確率まで返ってきます。上の計算と同じものを、一般的な表ではなくあなたの狩りに当てはめただけです。すべての確率の元になっている図鑑データは、 <a href="https://pokemondb.net/pokedex/national" target="_blank" rel="noopener">PokemonDBの全国図鑑</a> が、狩る人がいちばん引用する資料です。</p>
     </article>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">色違い確率のよくある質問</h2>
+      <details class="faq-item cornered">
+        <summary>色違いの確率を％で表すとどのくらいですか？</summary>
+        <p>1/4,096 は 0.0244％です。ひかるおまもりを付けると 0.0733％（1/1,365）、国際孵化なら 0.1464％（1/683）、そこにおまもりが重なると 0.1953％（1/512）まで上がります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>色違いは何回やれば出ますか？</summary>
+        <p>確率は1回ごとの話で、回数を重ねても保証はありません。1/4,096 なら「1匹以上出る確率が50％」になるのが 2,840 回、90％なら 9,430 回です。1/512 ならそれぞれ 355 回と 1,178 回になります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>続けるほど確率は上がりますか？</summary>
+        <p>通常の野生遭遇とタマゴは毎回独立なので、300回目でも 1/4,096 のままです。回数を引き継ぐのは連鎖系だけです。ポケトレ、Let's Go の連続捕獲、大量発生の討伐数にはカウンターが積み上がりますが、普通の狩りにはありません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>国際孵化は手間をかける価値がありますか？</summary>
+        <p>孵化するつもりなら価値があります。基礎確率がおよそ6倍（1/4,096 から 1/683）になり、タマゴは1個ごとに引き直しです。約473個で50％に届きます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>この確率はポケモンGOにも当てはまりますか？</summary>
+        <p>当てはまりません。ここに書いたのは本編シリーズの数字です。ポケモンGOは種族ごと・イベントごとに独自の確率で動いていて、この数字はそのまま持ち込めません。</p>
+      </details>
+    </section>
 
     <!-- Keep exploring -->
     <section class="band band-yellow" aria-labelledby="explore-title">

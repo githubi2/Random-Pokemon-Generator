@@ -117,6 +117,55 @@
 }
 </script>
   <link rel="stylesheet" href="../../../lang-switch.css?v=20261022a" />
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "ストーリー攻略でも性格は気にすべきですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ほぼ気にしなくて大丈夫です。性格の補正は1つの能力を約10％動かすだけで、レベル50なら15〜20ポイント程度。ストーリーの勝敗を決める差ではありません。対人戦や、どうしても勝てない終盤のボスで初めて意識すれば十分です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "捕まえた後に性格は変えられますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "変えられます。ソード・シールド以降は「ミント」で補正だけを好きな性格に書き換えられます。おだやかミントを使えば、性格がおだやかでなくても能力の動きはおだやかと同じになります。スカーレット・バイオレットではゲーム内の通常通貨でも買えます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "攻撃・特攻・素早さが上がる性格はどれですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "いじっぱり（攻撃↑特攻↓）、ようき（素早さ↑特攻↓）、ひかえめ（特攻↑攻撃↓）、おくびょう（素早さ↑攻撃↓）の4つでほぼ足ります。遅いポケモンは いじっぱり か ひかえめ、先手を取りたいなら ようき か おくびょう を選びます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "捕まえたとき性格はランダムですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ランダムです。野生もタマゴも25種類から等確率で決まるので、欲しい性格はほとんど出ません。確実にコントロールするなら孵化です。親に「かわらずのいし」を持たせると、その親の性格がタマゴに引き継がれます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "効果がない性格はありますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "5種類あります。がんばりや、すなお、まじめ、てれや、きまぐれ です。どれも同じ能力を上げて同じ能力を下げるので、差し引きゼロになります。悪いわけではありませんが、10％分を丸ごと捨てている状態です。"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -225,6 +274,32 @@
       <p>欲しかったポケモンを、間違った性格で引いてしまったら。ソード・シールド以降は、やり直さなくて大丈夫です。ミントを使えば、能力の補正を好きな性格のものに書き換えられます。ようきミントを使えば、ステータス画面の表示は元の性格のままでも、動きはようきそのものになります。ソード・シールドではバトルタワーで50BP、スカーレット・バイオレットではBPショップやテラレイドの報酬で手に入ります。どちらにしても、性格の間違いは取り返しのつく問題で、失ったポケモンではありません。ミントは最近の作品でも数少ない、本当に遊びやすい追加要素のひとつで、 <a href="https://www.pokemon.com/us/" target="_blank" rel="noopener">Pokemon.com</a> で、自分のソフトがどこまで対応しているか分からないときに公式の情報を確認できます。</p>
       <p>流れは単純です。捕まえるか孵化する、性格を見る。違っていたら、そのまま使う（下がる数値が無害なら）、狩りをやり直す、ミントを買う。どれを選ぶにしても、表が頭の中ではなく目の前にあれば判断はずっと楽になります。ポケモン性格表のツールは、まさにそのために作りました。ポケモンを選び、おすすめの性格を見て、レベル50の実数値を確かめられます。実際の型を検算したいなら、 <a href="https://play.pokemonshowdown.com/" target="_blank" rel="noopener">Pokemon Showdown</a>、そして <a href="https://www.serebii.net/games/natures.shtml" target="_blank" rel="noopener">Serebiiの性格一覧</a> 、加えて <a href="https://www.pikalytics.com/" target="_blank" rel="noopener">Pikalytics</a> を見てください。環境がどんな性格を選んでいるか、実際の使用データで分かります。</p>
     </article>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">ポケモンの性格のよくある質問</h2>
+      <details class="faq-item cornered">
+        <summary>ストーリー攻略でも性格は気にすべきですか？</summary>
+        <p>ほぼ気にしなくて大丈夫です。性格の補正は1つの能力を約10％動かすだけで、レベル50なら15〜20ポイント程度。ストーリーの勝敗を決める差ではありません。対人戦や、どうしても勝てない終盤のボスで初めて意識すれば十分です。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>捕まえた後に性格は変えられますか？</summary>
+        <p>変えられます。ソード・シールド以降は「ミント」で補正だけを好きな性格に書き換えられます。おだやかミントを使えば、性格がおだやかでなくても能力の動きはおだやかと同じになります。スカーレット・バイオレットではゲーム内の通常通貨でも買えます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>攻撃・特攻・素早さが上がる性格はどれですか？</summary>
+        <p>いじっぱり（攻撃↑特攻↓）、ようき（素早さ↑特攻↓）、ひかえめ（特攻↑攻撃↓）、おくびょう（素早さ↑攻撃↓）の4つでほぼ足ります。遅いポケモンは いじっぱり か ひかえめ、先手を取りたいなら ようき か おくびょう を選びます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>捕まえたとき性格はランダムですか？</summary>
+        <p>ランダムです。野生もタマゴも25種類から等確率で決まるので、欲しい性格はほとんど出ません。確実にコントロールするなら孵化です。親に「かわらずのいし」を持たせると、その親の性格がタマゴに引き継がれます。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>効果がない性格はありますか？</summary>
+        <p>5種類あります。がんばりや、すなお、まじめ、てれや、きまぐれ です。どれも同じ能力を上げて同じ能力を下げるので、差し引きゼロになります。悪いわけではありませんが、10％分を丸ごと捨てている状態です。</p>
+      </details>
+    </section>
 
     <!-- Keep exploring -->
     <section class="band band-yellow" aria-labelledby="explore-title">

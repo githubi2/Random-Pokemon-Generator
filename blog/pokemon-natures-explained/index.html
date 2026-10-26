@@ -95,6 +95,55 @@
   }
   </script>
   <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does nature matter in a normal playthrough?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Barely. A nature moves one stat about 10%, which at level 50 is roughly 15 to 20 points. That flips close battles, and it will not decide a story run. Leave it alone until you are fighting other players or a late-game boss you keep losing to."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I change a Pokemon's nature after catching it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, since Sword and Shield. Mints bought with BP rewrite the stat effect to any nature, so a Jolly Mint makes a Pokemon behave exactly like a Jolly one. From Scarlet and Violet onward they are sold for ordinary in-game money too."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which nature boosts Attack, Special Attack or Speed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Adamant is +Attack and -Sp. Atk, Jolly is +Speed and -Sp. Atk. Modest is +Sp. Atk and -Attack, Timid is +Speed and -Attack. Those four cover nearly every attacker: take Adamant or Modest when the Pokemon is slow, Jolly or Timid when it has to move first."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are natures random when you catch a Pokemon?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Every wild encounter and every egg rolls one of the 25 natures at random, which is why most catches have the wrong one. Breeding is the reliable way to control it: give a parent an Everstone and the egg inherits that parent's nature."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which natures do nothing at all?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Five of them: Hardy, Docile, Serious, Bashful and Quirky. Each raises and lowers the same stat, so the net effect is zero. They are not bad, they are just a wasted 10%."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -203,6 +252,32 @@
       <p>Caught the perfect Pokémon with the wrong nature? Since Sword and Shield, you don't have to start over. Mints rewrite the stat effect to match any nature you want. A Jolly Mint makes the Pokémon behave exactly as if it were Jolly, even though the summary screen still shows the original nature. Sword and Shield sold them for 50 BP at the Battle Tower, and Scarlet and Violet mints come from the Battle Point shop and Tera Raid rewards — either way, a wrong nature is a fixable problem, not a lost Pokémon. The mint system is one of the few genuinely player-friendly additions in recent games, and <a href="https://www.pokemon.com/us/" target="_blank" rel="noopener">Pokemon.com</a> is the place to check the official game details if you are unsure what your copy supports.</p>
       <p>So the loop is simple: catch or breed the Pokémon, check the nature, and if it's wrong either use it as-is (if the drop is harmless), reroll the hunt, or buy the mint. Every one of those decisions gets a lot easier when the whole chart is in front of you instead of in your head. The interactive Pokemon Nature Chart tool is built for exactly that — pick a species, see the recommended nature, and check the real stat numbers on a level-50 spread. If you want to double-check a set in practice, battle-test it on <a href="https://play.pokemonshowdown.com/" target="_blank" rel="noopener">Pokemon Showdown</a>, and <a href="https://www.serebii.net/games/natures.shtml" target="_blank" rel="noopener">Serebii's nature reference</a> plus <a href="https://www.pikalytics.com/" target="_blank" rel="noopener">Pikalytics</a> are where the meta actually shows its nature choices in real usage data.</p>
     </article>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Pokemon Natures FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>Does nature matter in a normal playthrough?</summary>
+        <p>Barely. A nature moves one stat about 10%, which at level 50 is roughly 15 to 20 points. That flips close battles, and it will not decide a story run. Leave it alone until you are fighting other players or a late-game boss you keep losing to.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I change a Pokemon's nature after catching it?</summary>
+        <p>Yes, since Sword and Shield. Mints bought with BP rewrite the stat effect to any nature, so a Jolly Mint makes a Pokemon behave exactly like a Jolly one. From Scarlet and Violet onward they are sold for ordinary in-game money too.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Which nature boosts Attack, Special Attack or Speed?</summary>
+        <p>Adamant is +Attack and -Sp. Atk, Jolly is +Speed and -Sp. Atk. Modest is +Sp. Atk and -Attack, Timid is +Speed and -Attack. Those four cover nearly every attacker: take Adamant or Modest when the Pokemon is slow, Jolly or Timid when it has to move first.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Are natures random when you catch a Pokemon?</summary>
+        <p>Yes. Every wild encounter and every egg rolls one of the 25 natures at random, which is why most catches have the wrong one. Breeding is the reliable way to control it: give a parent an Everstone and the egg inherits that parent's nature.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Which natures do nothing at all?</summary>
+        <p>Five of them: Hardy, Docile, Serious, Bashful and Quirky. Each raises and lowers the same stat, so the net effect is zero. They are not bad, they are just a wasted 10%.</p>
+      </details>
+    </section>
 
     <!-- Keep exploring -->
     <section class="band band-yellow" aria-labelledby="explore-title">

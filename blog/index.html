@@ -131,6 +131,39 @@
   }
   </script>
   <link rel="stylesheet" href="../lang-switch.css?v=20261022a" />
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How often are these guides updated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Each post carries the date it was last rechecked at the top. Rate tables and release calendars get another pass whenever a new game or TCG set ships, and anything that has not moved keeps its original date."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which games do these guides cover?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The mainline games from Gen 1 to Gen 9, plus the Switch-era titles the tools support: Let's Go, Legends: Arceus, Brilliant Diamond and Shining Pearl, and Legends: Z-A. Pokemon GO follows its own rules and is not covered here."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I reuse these tables and numbers elsewhere?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, with a link back. The numbers are recomputed from the same data that powers the tools, so they stay current - a copied table will not."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -352,6 +385,24 @@
         </div>
       </div>
     </section>
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Pokemon Guides FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>How often are these guides updated?</summary>
+        <p>Each post carries the date it was last rechecked at the top. Rate tables and release calendars get another pass whenever a new game or TCG set ships, and anything that has not moved keeps its original date.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Which games do these guides cover?</summary>
+        <p>The mainline games from Gen 1 to Gen 9, plus the Switch-era titles the tools support: Let's Go, Legends: Arceus, Brilliant Diamond and Shining Pearl, and Legends: Z-A. Pokemon GO follows its own rules and is not covered here.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I reuse these tables and numbers elsewhere?</summary>
+        <p>Yes, with a link back. The numbers are recomputed from the same data that powers the tools, so they stay current - a copied table will not.</p>
+      </details>
+    </section>
+
   </main>
 
   <footer class="site-footer">

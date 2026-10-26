@@ -95,6 +95,55 @@
   }
   </script>
   <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "When do the Nuzlocke rules start?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The moment you can catch Pokemon. Your starter arrives before that, so either count it as your first catch on the starting route or declare it exempt - decide before you begin, because the answer changes how hard the first two gyms are."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if my whole team faints?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The run is over. Most players restart from the beginning; some allow one whiteout retry that continues from the last Pokemon Center. That is a house rule rather than part of the format, so write it down before you start."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Pokemon Centers and healing items?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The rules ban reviving fainted Pokemon, not healing the ones still standing. Potions, berries, status heals and free Pokemon Center visits are all fine under the core three."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do gift Pokemon and the starter count as catches?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not under the core rules - they only cover Pokemon caught with a ball. Gifts such as the Eevee or the fossils are usually allowed as a separate clause, so decide where they sit before the first gym and keep it consistent."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which game is best for a first Nuzlocke?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The one you know best. Knowing every route encounter in advance is worth more than any difficulty difference between games. FireRed and Emerald are the usual starting points because the routes are short and the gym order is forgiving."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -209,6 +258,32 @@
       <h2>Start a Run With a Random Team</h2>
       <p>To feel the format's core skill without the 40-hour commitment, the Nuzlocke Team Builder deals you a random squad from the full dex — lock the team, forbid yourself rerolls, and you'll be practicing exactly what a real run demands: building around what you're given instead of what you wanted. You can even simulate whole challenge battles on <a href="https://play.pokemonshowdown.com/" target="_blank" rel="noopener">Pokemon Showdown</a> before committing to a cartridge file. For the real thing, game choice matters — <a href="https://www.pokemon.com/us/" target="_blank" rel="noopener">Pokemon.com</a> keeps the official game library for reference. FireRed and HeartGold are the classic beginner picks: small regional rosters, heavily documented boss fights, few nasty surprises. Skip Sword and Shield for a first attempt — the forced Exp Share smooths away the difficulty curve the challenge is supposed to create. Then nickname everything, and try not to get attached.</p>
     </article>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Nuzlocke Challenge FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>When do the Nuzlocke rules start?</summary>
+        <p>The moment you can catch Pokemon. Your starter arrives before that, so either count it as your first catch on the starting route or declare it exempt - decide before you begin, because the answer changes how hard the first two gyms are.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What happens if my whole team faints?</summary>
+        <p>The run is over. Most players restart from the beginning; some allow one whiteout retry that continues from the last Pokemon Center. That is a house rule rather than part of the format, so write it down before you start.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I use Pokemon Centers and healing items?</summary>
+        <p>Yes. The rules ban reviving fainted Pokemon, not healing the ones still standing. Potions, berries, status heals and free Pokemon Center visits are all fine under the core three.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Do gift Pokemon and the starter count as catches?</summary>
+        <p>Not under the core rules - they only cover Pokemon caught with a ball. Gifts such as the Eevee or the fossils are usually allowed as a separate clause, so decide where they sit before the first gym and keep it consistent.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Which game is best for a first Nuzlocke?</summary>
+        <p>The one you know best. Knowing every route encounter in advance is worth more than any difficulty difference between games. FireRed and Emerald are the usual starting points because the routes are short and the gym order is forgiving.</p>
+      </details>
+    </section>
 
     <!-- Keep exploring -->
     <section class="band band-yellow" aria-labelledby="explore-title">

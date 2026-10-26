@@ -95,6 +95,55 @@
   }
   </script>
   <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are shiny odds as a percentage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "1/4,096 works out at 0.0244%, and the Shiny Charm alone takes that to 0.0733% (1/1,365). Breeding with the Masuda Method reaches 0.1464% (1/683), and 0.1953% (1/512) once a charm is stacked on top."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many encounters does a shiny actually take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Odds are per encounter, not a promise. At 1/4,096 you need 2,840 tries for a 50% chance of at least one shiny, and 9,430 for a 90% chance. At 1/512 those numbers fall to 355 and 1,178."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do the odds improve the longer I hunt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not on their own. Wild encounters and eggs are independent rolls, so encounter 300 is still 1/4,096. Only chained methods carry progress between attempts: the Poke Radar, the Let's Go catch combo and mass outbreaks all track a counter that the plain hunt does not."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the Masuda Method worth the setup?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If you are hatching anyway, yes. It multiplies the base rate about six times (1/4,096 to 1/683) and every egg is a fresh roll, so roughly 473 eggs gets you to a 50% chance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do these rates apply in Pokemon GO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Everything here is mainline data: the 1/4,096 baseline, the charm bonus and the breeding maths. Pokemon GO sets its own rates per species and event, and none of these numbers carry over."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -227,6 +276,32 @@
       <p>One caution before a long hunt, because this is where hunters burn out: these are per-encounter rates, not timers, as the long-running <a href="https://www.smogon.com/" target="_blank" rel="noopener">Smogon forums</a> keep reminding first-time hunters. Even at 1/512 there's a 14.2% chance of a completely empty 1,000-egg stretch. Nothing is "due." Each roll starts fresh, so plan around the average and don't read meaning into a dry spell.</p>
       <p>For your own setup — game, charm, Masuda, outbreak level — the Pokemon Shiny Odds calculator does this arithmetic directly: pick the conditions you actually have and it returns the rate, the average hunt length, and the chance of at least one shiny inside the session you're planning. Same math as above, just pointed at your hunt instead of the generic tables. For the dex data behind every rate, <a href="https://pokemondb.net/pokedex/national" target="_blank" rel="noopener">PokemonDB's national dex</a> is the reference hunters cite most.</p>
     </article>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Pokemon Shiny Odds FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>What are shiny odds as a percentage?</summary>
+        <p>1/4,096 works out at 0.0244%, and the Shiny Charm alone takes that to 0.0733% (1/1,365). Breeding with the Masuda Method reaches 0.1464% (1/683), and 0.1953% (1/512) once a charm is stacked on top.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>How many encounters does a shiny actually take?</summary>
+        <p>Odds are per encounter, not a promise. At 1/4,096 you need 2,840 tries for a 50% chance of at least one shiny, and 9,430 for a 90% chance. At 1/512 those numbers fall to 355 and 1,178.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Do the odds improve the longer I hunt?</summary>
+        <p>Not on their own. Wild encounters and eggs are independent rolls, so encounter 300 is still 1/4,096. Only chained methods carry progress between attempts: the Poke Radar, the Let's Go catch combo and mass outbreaks all track a counter that the plain hunt does not.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Is the Masuda Method worth the setup?</summary>
+        <p>If you are hatching anyway, yes. It multiplies the base rate about six times (1/4,096 to 1/683) and every egg is a fresh roll, so roughly 473 eggs gets you to a 50% chance.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Do these rates apply in Pokemon GO?</summary>
+        <p>No. Everything here is mainline data: the 1/4,096 baseline, the charm bonus and the breeding maths. Pokemon GO sets its own rates per species and event, and none of these numbers carry over.</p>
+      </details>
+    </section>
 
     <!-- Keep exploring -->
     <section class="band band-yellow" aria-labelledby="explore-title">
