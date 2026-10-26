@@ -24,6 +24,7 @@ A full suite of random Pokémon tools built with vanilla HTML/CSS/JS — zero de
 | ⚔️ Type Chart | [/pokemon-type-chart/](https://www.random-pokemon-generator.co/pokemon-type-chart/) | 18-type effectiveness grid + dual-type damage calculator, per-type weaknesses at a glance |
 | 🎯 IV Calculator | [/pokemon-iv-calculator/](https://www.random-pokemon-generator.co/pokemon-iv-calculator/) | Reverse-engineer hidden IVs (0-31) from level, nature, EVs and shown stats — all 1,025 species |
 | 📅 Release Dates | [/pokemon-release-dates/](https://www.random-pokemon-generator.co/pokemon-release-dates/) | Every Pokemon TCG release date — the next set, the 2025-2026 set list in order, and a month-by-month calendar |
+| 🎮 PokeBonk Game | [/pokebonk-game/](https://www.random-pokemon-generator.co/pokebonk-game/) | Play the free 3D PokeBonk survivor in your browser — starters, three modes, controls, and what to do when the game won't load |
 | ⭐ Favorite by Type | [/favorite-pokemon-of-each-type/](https://www.random-pokemon-generator.co/favorite-pokemon-of-each-type/) | One favorite per type on an 18-slot grid — export all eighteen picks as a single downloadable PNG |
 | 🏆 Champions Builder | [/pokemon-champions-team-builder/](https://www.random-pokemon-generator.co/pokemon-champions-team-builder/) | Regulation M-C roster team builder — legal names, Mega stones, singles/doubles picks, Showdown export |
 | 📖 Pokemon Pokedex | [/pokemon/](https://www.random-pokemon-generator.co/pokemon/) | Growing encyclopedia of Pokemon stats, matchups, abilities & evolution lines (Gen 1-9) |

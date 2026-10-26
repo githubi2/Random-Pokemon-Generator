@@ -572,6 +572,11 @@
       "permanent": true
     },
     {
+      "source": "/pokebonk-game/index.html",
+      "destination": "/pokebonk-game/",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true

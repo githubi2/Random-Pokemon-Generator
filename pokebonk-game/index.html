@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PokeBonk Game: Free 3D Pokemon Survivor You Can Play Now</title>
+  <meta name="description" content="Play the PokeBonk game in your browser — no download, no account: 151 Kanto Pokemon, Classic, Survival and co-op, plus which starter to pick first." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/pokebonk-game/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/pokebonk-game/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/pokebonk-game/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/pokebonk-game/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PokeBonk Game: Free 3D Pokemon Survivor You Can Play Now" />
+  <meta property="og:description" content="Where to play the PokeBonk game, which starter to pick, the default keys, what changes between Classic, Survival and co-op — checked in a guest run on October 26, 2026." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/pokebonk-game/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/pokebonk-game/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PokeBonk Game: Free 3D Pokemon Survivor You Can Play Now" />
+  <meta name="twitter:description" content="Where to play the PokeBonk game, which starter to pick, the default keys and what changes between Classic, Survival and co-op." />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/pokebonk-game/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css?v=20261023a" />
+  <link rel="stylesheet" href="../lang-switch.css?v=20261022a" />
+
+  <style>
+    /* page-scoped: the play window + fact strip. Everything else uses styles.css */
+    .pbg-stage { position: relative; margin: 0; }
+    .pbg-stage img { display: block; width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--sh-md); }
+    .pbg-play {
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+      display: inline-flex; align-items: center; justify-content: center; gap: 13px;
+      white-space: nowrap; text-decoration: none; z-index: 2;
+      padding: 18px 38px 18px 28px; border-radius: 999px;
+      background: linear-gradient(180deg, #eeff77, #e4ff4f 58%, #d5f53c);
+      border: 1px solid var(--hl-deep); color: var(--ink);
+      font-family: var(--font-display); font-size: 20px; font-weight: 700; line-height: 1; letter-spacing: -0.01em;
+      box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.96), 0 24px 46px -16px rgba(0, 0, 0, 0.62), inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .pbg-play:hover, .pbg-play:focus-visible {
+      background: linear-gradient(180deg, #f4ff9c, #eeff77 58%, #dffa52);
+      transform: translate(-50%, -50%) scale(1.04);
+    }
+    .pbg-ico {
+      flex: 0 0 30px; width: 30px; height: 30px; border-radius: 50%;
+      background: var(--ink); position: relative;
+    }
+    .pbg-ico::after {
+      content: ""; position: absolute; left: 11px; top: 8px;
+      width: 0; height: 0; border-left: 11px solid var(--hl);
+      border-top: 7px solid transparent; border-bottom: 7px solid transparent;
+    }
+    @media (max-width: 560px) {
+      .pbg-play { gap: 9px; padding: 12px 22px 12px 16px; font-size: 15px; box-shadow: 0 0 0 4px rgba(255,255,255,.96), 0 14px 26px -10px rgba(0,0,0,.55), inset 0 -2px 0 rgba(0,0,0,.12); }
+      .pbg-ico { flex-basis: 22px; width: 22px; height: 22px; }
+      .pbg-ico::after { left: 8px; top: 5px; border-left: 8px solid var(--hl); border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+    }
+    .pbg-sub { margin: 14px 0 0; text-align: center; font-size: 14px; line-height: 1.5; color: var(--text-2); }
+    /* 首屏收紧：让播放按钮落在笔记本首屏内（1366x768 / 1280x800 / 1440x900 实测都在内） */
+    .hero { padding-top: 18px; padding-bottom: 10px; }
+    .pbg-lede { margin: 20px 0 0; }
+    @media (min-width: 561px) {
+      .pbg-stage img { aspect-ratio: 1.9 / 1; object-fit: cover; object-position: center 42%; }
+    }
+    .pbg-list { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .pbg-list li { position: relative; padding-left: 18px; font-size: 14.5px; line-height: 1.6; color: var(--text-2); }
+    .pbg-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--hl-deep); }
+    .pbg-list b { color: var(--ink); }
+    .pbg-fig { margin: 28px 0 20px; }
+    .pbg-fig img { display: block; width: 100%; height: auto; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--sh-sm); }
+    .pbg-fig figcaption { margin-top: 10px; padding: 10px 14px; border-radius: var(--radius-sm); background: var(--surface-2); border: 1px solid var(--line); font-size: 13px; line-height: 1.55; color: var(--text-2); }
+    .pbg-fig figcaption b { color: var(--ink); }
+    .pbg-facts {
+      list-style: none; margin: 26px 0 0; padding: 0;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+    }
+    .pbg-facts li {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm);
+      padding: 14px 16px; box-shadow: var(--sh-sm);
+    }
+    .pbg-facts b { display: block; font-family: var(--font-display); font-size: 26px; line-height: 1.1; letter-spacing: -0.02em; }
+    .pbg-facts span { display: block; margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--text-2); }
+    @media (min-width: 620px) { .pbg-facts { grid-template-columns: repeat(4, 1fr); } }
+  </style>
+
+  <!-- Structured data: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "PokeBonk Game: Free 3D Pokemon Survivor You Can Play Now",
+    "description": "Play the PokeBonk game in your browser — no download, no account: 151 Kanto Pokemon, Classic, Survival and co-op, plus which starter to pick first.",
+    "url": "https://www.random-pokemon-generator.co/pokebonk-game/",
+    "image": "https://www.random-pokemon-generator.co/pokebonk-game/og-image.png",
+    "inLanguage": "en",
+    "datePublished": "2026-10-26",
+    "dateModified": "2026-10-26"
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Random Pokemon Generator",
+        "item": "https://www.random-pokemon-generator.co/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "PokeBonk Game",
+        "item": "https://www.random-pokemon-generator.co/pokebonk-game/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "logo": "https://www.random-pokemon-generator.co/logo.png"
+  }
+  </script>
+
+  <!-- Structured data: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Random Pokemon Generator",
+    "url": "https://www.random-pokemon-generator.co/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where do I play the PokeBonk game?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On pokebonk.com, in any modern browser. It is not on Steam, not in an app store, and not playable inside another site — the developer blocks framing, so fan pages that look like they host it are showing you an empty frame."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is PokeBonk free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The site's own legal notice lists no ads, no purchases and no donations, and guest play asks for nothing but a click. There is no paid tier to find behind the menus."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need an account to play PokeBonk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Guest progress is saved on the server and tied to your device, so one browser keeps one save. An account is only needed for the seasonal leaderboard and for carrying progress to another device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which starter should I choose in PokeBonk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bulbasaur, for a first run. Synthesis heals you as you fight, which covers the mistakes you are going to make anyway. Charmander and Squirtle both get their damage bonus under 40% HP, so they reward players who already know how to stay alive at low health."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Classic and Survival?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Classic has zones, a guardian at the end of each one, and a shrine that finishes the run. Survival is one map with no end and its own leaderboard, scored on KOs and seconds survived. Classic is the mode where you can measure progress; Survival is the one you play once you have stopped needing to."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I play PokeBonk on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The build detects touch and puts a stick and an ultimate button on screen. Hold the phone sideways — the layout is built for that — and a Bluetooth controller makes it considerably easier."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is PokeBonk multiplayer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Partly. Co-op takes two to four trainers into Classic mode through a room link, and it is tagged BETA. It does not pause when you open a menu, and a downed player is revived by a teammate standing over them and holding the revive key."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is PokeBonk an official Pokemon game?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It is an unofficial fan project by a solo developer called Charcher, and the site says so in its legal notice. It carries no ads or purchases, and the sprite work is credited to PMD SpriteCollab under a non-commercial licence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the PokeBonk on Google Play the same game?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. PokeBonk: Monster Roguelite is a separate mobile roguelite that shares the name. It is not the browser survivor, it does not use the Kanto roster, and it has nothing to do with pokebonk.com."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="Main navigation" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Generator</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">Tools ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Generators</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">Random Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">Random Pokemon Picker</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">Random Mega Pokemon Generator</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">Random Legendary Pokemon Generator</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">Random Shiny Pokemon Generator</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">Random Pokemon Type Generator</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">Random Pokemon Name Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Teams and Battles</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">Pokemon Team Picker</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">Pokemon Champions Team Builder</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">Nuzlocke Team Builder</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">Pokemon IV Calculator</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">Pokemon Nature Chart</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">Pokemon Type Chart</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Games</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">Pokemon Smash or Pass</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">Pokemon Wheel Spinner</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">Who's That Pokemon</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">PokeBonk Game</a></li>
+                </ul>
+                <span class="nav-menu-label">Cards</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">Pokemon Card Generator</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">Pokemon Trainer Card Generator</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">Reference</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">Pokemon Pokedex</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">Pokemon Shiny Odds</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">Pokemon Release Dates</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">Favorite Pokemon of Each Type</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">Eevee Evolutions</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">Blog</a></li>
+          <li><a href="#start" class="nav-link">How to start</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Switch language"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../ja/pokebonk-game/" hreflang="ja" lang="ja">日本語</a></li>
+          <li><a class="lang-current" aria-current="true" lang="en">English</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">Unofficial guide · Guest run played October 26, 2026 · v0.8.55</p>
+      <h1 id="page-title">PokeBonk Game: The Free 3D Pokemon Survivor in Your Browser</h1>
+    </section>
+
+    <!-- Play window -->
+    <section class="container" id="play" aria-label="Play the PokeBonk game">
+      <div class="pbg-stage">
+        <img src="img/pokebonk-partner-select.webp" width="1280" height="800" alt="Partner select screen in PokeBonk showing the Bulbasaur, Charmander and Squirtle cards with their passives and starting attacks" fetchpriority="high" />
+        <a class="pbg-play" href="https://pokebonk.com/?lang=en" target="_blank" rel="noopener" aria-label="Play PokeBonk — opens pokebonk.com in a new tab">
+          <span class="pbg-ico" aria-hidden="true"></span>
+          <span class="pbg-txt">Play PokeBonk &mdash; free, no download</span>
+        </a>
+      </div>
+      <p class="pbg-sub">Opens pokebonk.com in a new tab &middot; no account, no email. The game only runs there &mdash; other sites&rsquo; embeds stay blank.</p>
+
+      <p class="odds-lede pbg-lede">PokeBonk drops you into a 3D Kanto with one partner and a field full of wild Pokemon. Your partner throws the attacks; you decide where to stand. Everything on this page came out of a guest run we did today &mdash; the starter cards, the mode list, the stats on the Squirtle screen, and the three places the game will catch you out in your first ten minutes.</p>
+
+      <ul class="pbg-facts">
+        <li><b>151</b><span>Kanto Pokemon in the Pokedex, which is where the count started and stopped</span></li>
+        <li><b>79</b><span>Partners you can add to your League, one per run family</span></li>
+        <li><b>3</b><span>Modes: Classic, Survival, and a co-op beta for two to four trainers</span></li>
+        <li><b>4</b><span>Regions in Season 2, each at Normal, Hard or Nightmare</span></li>
+      </ul>
+
+    </section>
+
+    <!-- What it is -->
+    <section class="container odds" id="what" aria-labelledby="what-title">
+      <p class="eyebrow">The short version</p>
+      <h2 id="what-title">What is the PokeBonk game?</h2>
+      <p class="odds-lede">PokeBonk is a browser game that hands you one partner Pokemon and a horde that never thins out. You do not pick attacks. Your starter fires at whatever gets close, and your job is spacing: walk the ring, keep the crowd in front of you, scoop up what they drop, and take a card each time the experience bar fills.</p>
+      <p class="odds-lede">It belongs to the survivors genre — the loop Vampire Survivors made standard, with the camera behind your Pokemon instead of above it. Megabonk proved in 2025 that the formula survives the move to 3D, and PokeBonk applies the same template to Pallet Town and the 151 species that shipped with Red and Blue.</p>
+      <p class="odds-lede">Charcher, a solo developer, built it. The legal notice on the site says the project is unofficial and non-commercial — no ads, no purchases, no donations — and credits the sprite work to PMD SpriteCollab under a non-commercial licence. Worth reading before you go hunting for the shop that sells extra lives, because there isn't one.</p>
+      <p class="odds-lede">The menu we landed in showed 151 Pokedex entries, 79 slots in the League, 228 achievements, four regions, and a build number in the corner: v0.8.55.</p>
+    </section>
+
+    <!-- Five steps -->
+    <section id="start" class="band band-yellow" aria-labelledby="start-title">
+      <div class="container">
+        <p class="eyebrow">First run</p>
+        <h2 id="start-title">Your first PokeBonk run, in five steps</h2>
+        <div class="how-grid">
+          <article>
+            <h3>1. Enter as a guest</h3>
+            <p>The welcome panel has three ways in. Guest wants nothing: no email, no password, no waiting for a mail. The panel says your progress is saved on the server and tied to the device you are on, and you can turn the guest into a named account later if the game sticks. Guests do not appear on the seasonal leaderboard — that is the one thing you give up.</p>
+          </article>
+          <article>
+            <h3>2. Pick a partner</h3>
+            <p>Three cards, each printed with a passive and a starting attack. The label above them reads like a promise and a warning at once: this is the first member of your League, the other two join later, and you complete their challenge and catch them in a run to get them. Then a second dialog asks if you are sure, because you cannot change it afterwards.</p>
+          </article>
+          <article>
+            <h3>3. Choose a mode</h3>
+            <p>Play opens Classic. Survival sits directly underneath it, and co-op sits under that with a BETA tag and a note about two to four trainers. First run, take Classic: it has an end, which makes it the only mode where you can tell whether you are improving.</p>
+          </article>
+          <article>
+            <h3>4. Move, dodge, collect</h3>
+            <p>Arrow keys or WASD, one hand on the mouse for the camera. Wild Pokemon drop experience where they fall, so the crowd that chases you is also the shop you are walking through. Standing still is how runs end.</p>
+          </article>
+          <article>
+            <h3>5. Take a card</h3>
+            <p>Every level offers three: a new move, a stronger version of a move you already carry, or a vitamin that lifts a stat. You get one. Stacking a single move up to its late tiers beats spreading picks, and the passive on your starter is usually the hint about which one to stack.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Starters -->
+    <section class="container odds" id="starters" aria-labelledby="starters-title">
+      <p class="eyebrow">Partner select</p>
+      <h2 id="starters-title">Which starter to pick in PokeBonk</h2>
+      <p class="odds-lede">The three cards, transcribed from the partner screen in our run. Passives are the reason to pick; the starting attack just decides what your first two minutes look like.</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>Partner</th><th>Role</th><th>Passive</th><th>Starting attack</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Bulbasaur #001</td><td>Healer</td><td>Synthesis: +1.5 regen and +25% healing. Grass attacks heal 0.4% of HP per hit, up to five times a second.</td><td>Vine Whip</td></tr>
+            <tr><td>Charmander #004</td><td>Fiery Assault</td><td>Sea of Flames: +10% Fire damage, and +40% damage while you are under 40% HP.</td><td>Ember</td></tr>
+            <tr><td>Squirtle #007</td><td>Defender</td><td>Torrent Shell: +15 armor and +20 shield, and +40% damage while you are under 40% HP.</td><td>Water Gun</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="odds-lede" style="margin-top:22px">Take Bulbasaur to learn on. The healing passive forgives the two mistakes every new player makes — standing in the wave, and picking damage cards that do not fit. Charmander and Squirtle both pay out under 40% HP, which is a promise that the fun starts when you are nearly dead; that is a fine second run and a miserable first one.</p>
+
+      <figure class="pbg-fig">
+        <img src="img/pokebonk-confirm-partner.webp" width="1280" height="800" alt="PokeBonk confirmation dialog asking whether to lock in Squirtle as the starting partner" />
+        <figcaption>What you get after tapping a starter: a second dialog that spells out the choice is permanent. Same session, October 26, 2026.</figcaption>
+      </figure>
+
+      <p class="odds-lede">Squirtle's League card, opened in the same session, listed base stats of 44 HP, 48 Attack, 65 Defense, 50 Sp. Atk, 64 Sp. Def and 43 Speed, with evolution at level 24 and a second stage at 44. Armor and shield scale with Defense, so the Defender title is not decoration.</p>
+
+      <figure class="pbg-fig">
+        <img src="img/pokebonk-league-card.webp" width="1280" height="800" alt="Squirtle's League card in PokeBonk showing base stats, in-run stats, the Torrent Shell passive and the three ultimate stages" />
+        <figcaption>Squirtle's League card: base stats on the left, what they become in a run on the right, and the ultimate on <b>R</b> — Shell Whirlpool, then Tidal Wave, then Hydro Cannon. 1 of 79 slots filled.</figcaption>
+      </figure>
+
+    </section>
+
+    <!-- Modes -->
+    <section class="container odds" id="modes" aria-labelledby="modes-title">
+      <p class="eyebrow">Three ways in</p>
+      <h2 id="modes-title">Classic, Survival and co-op</h2>
+      <div class="how-grid">
+        <article>
+          <h3>Classic</h3>
+          <p>The main mode. You clear zones, fight the guardian that closes each one, and finish at the shrine at the end of the region. Season 2 runs four: Viridian Forest, Rocky Desert, Storm Coast and Celestial Glacier. Each region is offered at Normal, Hard and Nightmare — the same map with meaner numbers and a shrine further away, so Nightmare is the same fight you already know, run longer.</p>
+        </article>
+        <article>
+          <h3>Survival</h3>
+          <p>One map, no finish line, a leaderboard of its own. Points come from KOs and from seconds survived, with milestones, Alphas and legendaries added on top. It is the mode to open once you stop caring about the shrine and start caring about how long the crowd takes to swallow you.</p>
+        </article>
+        <article>
+          <h3>Co-op</h3>
+          <p>Two to four trainers, Classic only, joined through a room link the host shares. It carries a BETA tag and one rule worth reading before you open a menu mid-fight: co-op does not pause. A downed teammate comes back when someone stands next to them and holds the revive key.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Controls -->
+    <section class="container odds" id="controls" aria-labelledby="controls-title">
+      <p class="eyebrow">Keyboard, gamepad, phone</p>
+      <h2 id="controls-title">PokeBonk controls</h2>
+      <p class="odds-lede">The defaults. Settings has a Keys tab that rebinds all of it, controller support works in runs and in every menu, and the phone build switches to touch controls with a button for the ultimate.</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>Input</th><th>Action</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>W A S D / arrow keys</td><td>Move</td></tr>
+            <tr><td>Mouse</td><td>Swing the camera</td></tr>
+            <tr><td>Space</td><td>Jump</td></tr>
+            <tr><td>Shift</td><td>Slide</td></tr>
+            <tr><td>E</td><td>Interact — pickup, chest, throw a Poke Ball</td></tr>
+            <tr><td>R</td><td>Ultimate, once the meter is full</td></tr>
+            <tr><td>Mouse wheel</td><td>Zoom the camera</td></tr>
+            <tr><td>Esc</td><td>Pause menu</td></tr>
+            <tr><td>Gamepad</td><td>Supported — Y fires the ultimate</td></tr>
+            <tr><td>Phone</td><td>On-screen stick, tap the ultimate button</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="odds-lede" style="margin-top:22px">Two things the game tells you itself and nobody reads in time. The ultimate does not auto-fire: a banner appears when the meter is full and waits for you. And a menu does not mean a break — Classic pauses, co-op does not.</p>
+    </section>
+
+    <!-- Between runs -->
+    <section class="container odds" id="progression" aria-labelledby="progression-title">
+      <p class="eyebrow">Between runs</p>
+      <h2 id="progression-title">What you keep when a run ends</h2>
+      <p class="odds-lede">A run ends and everything on the character screen goes with it, except the things designed not to. Stardust is the currency that survives; the Lab is where it goes. Items are discovered and paid for with Stardust, then show up in your Poke Balls and in Meowth's shop, which is how a bad run still moves the next one forward.</p>
+      <p class="odds-lede">Vitamins work the same way in miniature: you start with room for a set number at a time and gain a slot with each level, so the ceiling on a run is really a ceiling on how many stat cards you can carry. The League holds 79 partners, achievements run to 228, and the season has its own leaderboard with badges, frames and Stardust for the top of it. Season 2 was live on the day we played.</p>
+      <p class="odds-lede">The catch, and it is a fair one: guests sit outside all of that ranking. If the leaderboard is the reason you are playing, make the account before the first good run, not after.</p>
+    </section>
+
+    <!-- Troubleshooting -->
+    <section class="container odds" id="load" aria-labelledby="load-title">
+      <p class="eyebrow">When nothing happens</p>
+      <h2 id="load-title">If the PokeBonk game won't load</h2>
+      <div class="how-grid">
+        <article>
+          <h3>You clicked play on another site and got an empty box</h3>
+          <p>That is not your browser. The game refuses to be framed by any other domain, so the box stays blank while the page around it looks fine. Open <a href="https://pokebonk.com/?lang=en" target="_blank" rel="noopener">pokebonk.com</a> directly — the game is there, the frame is the thing that is broken.</p>
+        </article>
+        <article>
+          <h3>The page loads but the game never starts</h3>
+          <p>Most often a content blocker or a work or school filter: the build pulls its models and scripts from the same domain, and one blocked request keeps the loading screen up. Try a private window with extensions off, then a different network.</p>
+        </article>
+        <article>
+          <h3>The keys do nothing</h3>
+          <p>Click once inside the game first. The canvas only takes the keyboard after it has focus, and a tab opened in the background does not have it.</p>
+        </article>
+        <article>
+          <h3>Phone controls feel wrong</h3>
+          <p>Turn the phone sideways. The touch layout is built for a phone held long edge up, and the ultimate button lands where your right thumb already is. Bluetooth controllers work here too, same as on desktop.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Disambiguation -->
+    <section class="container odds" id="which" aria-labelledby="which-title">
+      <p class="eyebrow">Same name, different things</p>
+      <h2 id="which-title">Which PokeBonk is which</h2>
+      <p class="odds-lede">Four things turn up for this name. Only the first is the game above.</p>
+      <ul class="pbg-list">
+        <li><b>pokebonk.com</b> &mdash; the 3D survivor by Charcher: 151 Kanto Pokemon, free in a browser, no download.</li>
+        <li><b>PokeBonk: Monster Roguelite</b> on Google Play &mdash; an unrelated mobile roguelite. Same name, no Kanto roster, no browser build.</li>
+        <li><b>Pokemon Bank</b> &mdash; Nintendo's retired 3DS storage app. Looks similar typed fast, nothing else in common.</li>
+        <li><b>Megabonk</b> &mdash; the 2025 survivors hit that proved the genre survives 3D. No connection beyond the formula.</li>
+      </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">PokeBonk game FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>Where do I play the PokeBonk game?</summary>
+        <p>On pokebonk.com, in any modern browser. It is not on Steam, not in an app store, and not playable inside another site — the developer blocks framing, so fan pages that look like they host it are showing you an empty frame.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Is PokeBonk free?</summary>
+        <p>Yes. The site's own legal notice lists no ads, no purchases and no donations, and guest play asks for nothing but a click. There is no paid tier to find behind the menus.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Do I need an account to play PokeBonk?</summary>
+        <p>No. Guest progress is saved on the server and tied to your device, so one browser keeps one save. An account is only needed for the seasonal leaderboard and for carrying progress to another device.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Which starter should I choose in PokeBonk?</summary>
+        <p>Bulbasaur, for a first run. Synthesis heals you as you fight, which covers the mistakes you are going to make anyway. Charmander and Squirtle both get their damage bonus under 40% HP, so they reward players who already know how to stay alive at low health.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>What is the difference between Classic and Survival?</summary>
+        <p>Classic has zones, a guardian at the end of each one, and a shrine that finishes the run. Survival is one map with no end and its own leaderboard, scored on KOs and seconds survived. Classic is the mode where you can measure progress; Survival is the one you play once you have stopped needing to.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Can I play PokeBonk on my phone?</summary>
+        <p>Yes. The build detects touch and puts a stick and an ultimate button on screen. Hold the phone sideways — the layout is built for that — and a Bluetooth controller makes it considerably easier.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Is PokeBonk multiplayer?</summary>
+        <p>Partly. Co-op takes two to four trainers into Classic mode through a room link, and it is tagged BETA. It does not pause when you open a menu, and a downed player is revived by a teammate standing over them and holding the revive key.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Is PokeBonk an official Pokemon game?</summary>
+        <p>No. It is an unofficial fan project by a solo developer called Charcher, and the site says so in its legal notice. It carries no ads or purchases, and the sprite work is credited to PMD SpriteCollab under a non-commercial licence.</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Is the PokeBonk on Google Play the same game?</summary>
+        <p>No. PokeBonk: Monster Roguelite is a separate mobile roguelite that shares the name. It is not the browser survivor, it does not use the Kanto roster, and it has nothing to do with pokebonk.com.</p>
+      </details>
+    </section>
+
+    <!-- Related -->
+    <section class="container odds" id="more" aria-labelledby="more-title">
+      <p class="eyebrow">More on this site</p>
+      <h2 id="more-title">Other Pokemon games to try next</h2>
+      <div class="how-grid">
+        <article>
+          <h3><a href="../pokemon-smash-or-pass/">Pokemon Smash or Pass</a></h3>
+          <p>One Pokemon at a time, one verdict from you, and a score at the end. The fastest way to find out how much of the Pokedex you actually like.</p>
+        </article>
+        <article>
+          <h3><a href="../whos-that-pokemon/">Who's That Pokemon</a></h3>
+          <p>The silhouette game, with hints if you need them and a streak counter if you don't. Tests the same 151 names PokeBonk puts on the field.</p>
+        </article>
+        <article>
+          <h3><a href="../pokemon/">Pokemon Pokedex</a></h3>
+          <p>All 1,025 species with stats, types and abilities. Use it when a run throws a Pokemon at you that you cannot name.</p>
+        </article>
+        <article>
+          <h3><a href="../pokemon-type-chart/">Pokemon Type Chart</a></h3>
+          <p>Every matchup in one grid, with the multipliers spelled out. Handy for figuring out which move card to stack when your partner's type is not carrying.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">Who's That Pokemon</a></li>
+          <li><a href="../pokebonk-game/">PokeBonk Game</a></li>
+          <li><a href="../pokemon-team-picker/">Pokemon Team Picker</a></li>
+          <li><a href="../pokemon-type-chart/">Pokemon Type Chart</a></li>
+          <li><a href="../pokemon-shiny-odds/">Pokemon Shiny Odds</a></li>
+          <li><a href="../random-mega-pokemon-generator/">Random Mega Pokemon Generator</a></li>
+          <li><a href="../random-pokemon-type-generator/">Random Pokemon Type Generator</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">Random Legendary Pokemon Generator</a></li>
+          <li><a href="../pokemon/">Pokemon Pokedex</a></li>
+          <li><a href="../blog/">Blog</a></li>
+          <li><a href="../privacy-policy/">Privacy Policy</a></li>
+          <li><a href="../about/">About &amp; Contact</a></li>
+          <li><a href="../terms-of-use/">Terms of Use</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator, an unofficial fan project. Not affiliated with Nintendo, Game Freak, Creatures Inc., or The Pokémon Company.</p>
+      <p class="footer-note">Not affiliated with PokeBonk or its developer. PokeBonk details on this page were checked in the game on October 26, 2026 (v0.8.55); the game itself is free to play at pokebonk.com. Pokémon and Pokémon character names are trademarks of their respective owners. Data and images sourced from <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <script src="../nav.js?v=20261022m"></script>
+  <script src="../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

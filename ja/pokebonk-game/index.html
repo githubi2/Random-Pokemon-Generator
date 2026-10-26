@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PokeBonk（ポケボンク）ゲーム完全ガイド｜無料・登録不要の3Dサバイバー</title>
+  <meta name="description" content="ポケモン版サバイバー「PokeBonk」を日本語で解説。無料・登録なしで今すぐ遊べる場所、フシギダネ／ヒトカゲ／ゼニガメの選び方、3つのモードの違い、初期設定のキー操作、読み込めないときの対処まで。2026年10月に実機で確認。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/pokebonk-game/" />
+  <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/pokebonk-game/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/pokebonk-game/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/pokebonk-game/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PokeBonk（ポケボンク）ゲーム完全ガイド｜無料・登録不要の3Dサバイバー" />
+  <meta property="og:description" content="ポケモン版サバイバー「PokeBonk」を日本語で解説。無料・登録なしで今すぐ遊べる場所、フシギダネ／ヒトカゲ／ゼニガメの選び方、3つのモードの違い、初期設定のキー操作、読み込めないときの対処まで。2026年10月に実機で確認。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/pokebonk-game/" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/pokebonk-game/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PokeBonk（ポケボンク）ゲーム完全ガイド｜無料・登録不要の3Dサバイバー" />
+  <meta name="twitter:description" content="ポケモン版サバイバー「PokeBonk」を日本語で解説。無料・登録なしで今すぐ遊べる場所、フシギダネ／ヒトカゲ／ゼニガメの選び方、3つのモードの違い、初期設定のキー操作、読み込めないときの対処まで。2026年10月に実機で確認。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/pokebonk-game/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261023a" />
+
+  <style>
+    /* page-scoped: the play window + fact strip. Everything else uses styles.css */
+    .pbg-stage { position: relative; margin: 0; }
+    .pbg-stage img { display: block; width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--sh-md); }
+    .pbg-play {
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+      display: inline-flex; align-items: center; justify-content: center; gap: 13px;
+      white-space: nowrap; text-decoration: none; z-index: 2;
+      padding: 18px 38px 18px 28px; border-radius: 999px;
+      background: linear-gradient(180deg, #eeff77, #e4ff4f 58%, #d5f53c);
+      border: 1px solid var(--hl-deep); color: var(--ink);
+      font-family: var(--font-display); font-size: 20px; font-weight: 700; line-height: 1; letter-spacing: -0.01em;
+      box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.96), 0 24px 46px -16px rgba(0, 0, 0, 0.62), inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .pbg-play:hover, .pbg-play:focus-visible {
+      background: linear-gradient(180deg, #f4ff9c, #eeff77 58%, #dffa52);
+      transform: translate(-50%, -50%) scale(1.04);
+    }
+    .pbg-ico {
+      flex: 0 0 30px; width: 30px; height: 30px; border-radius: 50%;
+      background: var(--ink); position: relative;
+    }
+    .pbg-ico::after {
+      content: ""; position: absolute; left: 11px; top: 8px;
+      width: 0; height: 0; border-left: 11px solid var(--hl);
+      border-top: 7px solid transparent; border-bottom: 7px solid transparent;
+    }
+    @media (max-width: 560px) {
+      .pbg-play { gap: 9px; padding: 12px 22px 12px 16px; font-size: 15px; box-shadow: 0 0 0 4px rgba(255,255,255,.96), 0 14px 26px -10px rgba(0,0,0,.55), inset 0 -2px 0 rgba(0,0,0,.12); }
+      .pbg-ico { flex-basis: 22px; width: 22px; height: 22px; }
+      .pbg-ico::after { left: 8px; top: 5px; border-left: 8px solid var(--hl); border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+    }
+    .pbg-sub { margin: 14px 0 0; text-align: center; font-size: 14px; line-height: 1.5; color: var(--text-2); }
+    /* 首屏收紧：让播放按钮落在笔记本首屏内（1366x768 / 1280x800 / 1440x900 实测都在内） */
+    .hero { padding-top: 18px; padding-bottom: 10px; }
+    .pbg-lede { margin: 20px 0 0; }
+    @media (min-width: 561px) {
+      .pbg-stage img { aspect-ratio: 1.9 / 1; object-fit: cover; object-position: center 42%; }
+    }
+    .pbg-list { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .pbg-list li { position: relative; padding-left: 18px; font-size: 14.5px; line-height: 1.6; color: var(--text-2); }
+    .pbg-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--hl-deep); }
+    .pbg-list b { color: var(--ink); }
+    .pbg-fig { margin: 28px 0 20px; }
+    .pbg-fig img { display: block; width: 100%; height: auto; border-radius: var(--radius-sm); border: 1px solid var(--line); box-shadow: var(--sh-sm); }
+    .pbg-fig figcaption { margin-top: 10px; padding: 10px 14px; border-radius: var(--radius-sm); background: var(--surface-2); border: 1px solid var(--line); font-size: 13px; line-height: 1.55; color: var(--text-2); }
+    .pbg-fig figcaption b { color: var(--ink); }
+    .pbg-facts {
+      list-style: none; margin: 26px 0 0; padding: 0;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+    }
+    .pbg-facts li {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm);
+      padding: 14px 16px; box-shadow: var(--sh-sm);
+    }
+    .pbg-facts b { display: block; font-family: var(--font-display); font-size: 26px; line-height: 1.1; letter-spacing: -0.02em; }
+    .pbg-facts span { display: block; margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--text-2); }
+    @media (min-width: 620px) { .pbg-facts { grid-template-columns: repeat(4, 1fr); } }
+  </style>
+
+  <!-- Structured data: WebPage -->
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "PokeBonk（ポケボンク）ゲーム完全ガイド｜無料・登録不要の3Dサバイバー",
+  "description": "ポケモン版サバイバー「PokeBonk」を日本語で解説。無料・登録なしで今すぐ遊べる場所、フシギダネ／ヒトカゲ／ゼニガメの選び方、3つのモードの違い、初期設定のキー操作、読み込めないときの対処まで。2026年10月に実機で確認。",
+  "url": "https://www.random-pokemon-generator.co/ja/pokebonk-game/",
+  "image": "https://www.random-pokemon-generator.co/pokebonk-game/og-image.png",
+  "inLanguage": "ja-JP",
+  "datePublished": "2026-10-26",
+  "dateModified": "2026-10-26"
+}
+  </script>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Random Pokemon Generator",
+      "item": "https://www.random-pokemon-generator.co/ja/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "PokeBonk ゲーム",
+      "item": "https://www.random-pokemon-generator.co/ja/pokebonk-game/"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Random Pokemon Generator",
+  "url": "https://www.random-pokemon-generator.co/",
+  "logo": "https://www.random-pokemon-generator.co/logo.png"
+}
+  </script>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Random Pokemon Generator",
+  "url": "https://www.random-pokemon-generator.co/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.random-pokemon-generator.co/search/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "PokeBonk ゲームはどこで遊べますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "pokebonk.com です。最近のブラウザならどれでも動きます。Steam にもアプリストアにもなく、他のサイトの中でも遊べません。開発者がフレーム内表示を止めているので、置いてあるように見えるファンページは、実際には空の枠を見せているだけです。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "PokeBonk は無料ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "無料です。サイトの法的表記に広告・課金・寄付なしと書かれていて、ゲストプレイはクリック以外に何も求めません。メニューの奥に有料プランが隠れている、ということもありません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "遊ぶのにアカウントは必要ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不要です。ゲストの進行状況はサーバーに保存され、端末に紐づくので、1つのブラウザに1つのセーブが残ります。アカウントが要るのは、シーズンランキングに参加するときと、別の端末に進行状況を持っていくときだけです。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "最初の相棒はどれを選ぶべきですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "初回はフシギダネです。Synthesis は戦いながら回復するので、これから必ずやるミスを埋めてくれます。ヒトカゲとゼニガメはどちらもHP40%以下で火力が伸びるため、低HPで生き残る術をすでに知っている人向けの性能です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "クラシックとサバイバルの違いは何ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "クラシックはエリア制で、各エリアの最後に守護者がいて、祠に着けばラン終了です。サバイバルはマップ1つ、終わりはなく、撃破数と生存秒数で競う専用ランキングがあります。上達を測れるのがクラシック、測る必要がなくなった人が遊ぶのがサバイバルです。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "スマホでも遊べますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "遊べます。タッチ操作を検出すると、画面にスティックとアルティメット用ボタンが出ます。端末は横向きで持ってください。レイアウトはその前提で作られています。Bluetooth のコントローラーを使うと、かなり楽になります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "マルチプレイはできますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "一部だけです。協力プレイは2〜4人でクラシックに入れます。参加はホストが共有するルームリンクからで、BETA の札が付いています。メニューを開いても止まりませんし、倒れたプレイヤーは、仲間が隣に立って蘇生キーを押し続けると復帰します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "PokeBonk は公式のポケモンゲームですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "違います。Charcher という1人の開発者による非公式のファンプロジェクトで、サイトの法的表記にもそう書かれています。広告も課金もなく、ドット絵は PMD SpriteCollab から非商用ライセンスで借りているとクレジットされています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Google Play にある PokeBonk と同じゲームですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "違います。PokeBonk: Monster Roguelite は名前が同じだけの別のスマホ向けローグライトです。ブラウザのサバイバーではなく、カントーの151匹は出てこず、pokebonk.com とは何の関係もありません。"
+      }
+    }
+  ]
+}
+  </script>
+<!-- Structured data: BreadcrumbList -->
+<!-- Structured data: Organization -->
+<!-- Structured data: WebSite -->
+<!-- Structured data: FAQPage -->
+<style>
+    /* 日本語は字形が大きいので、見出しは少し小さく、文節で折り返す */
+    .hero h1 { font-size: clamp(28px, 4.4vw, 50px); line-height: 1.28; word-break: auto-phrase; line-break: strict; }
+    .eyebrow, .pbg-sub { word-break: auto-phrase; }
+  </style>
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="../pokemon-iv-calculator/" class="nav-link">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">PokeBonk ゲーム</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#how" class="nav-link">しくみ</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../pokebonk-game/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+<main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">非公式ガイド · 2026年10月26日にゲストで実機プレイ · v0.8.55</p>
+      <h1 id="page-title">PokeBonk（ポケボンク）ゲーム：ブラウザで遊べる無料の3Dポケモンサバイバー</h1>
+    </section>
+
+    <!-- Play window -->
+    <section class="container" id="play" aria-label="PokeBonk ゲームを遊ぶ">
+      <div class="pbg-stage">
+        <img src="../../pokebonk-game/img/pokebonk-partner-select.webp" width="1280" height="800" alt="PokeBonk のパートナー選択画面。フシギダネ・ヒトカゲ・ゼニガメのカードがパッシブと初期技とともに並んでいる" fetchpriority="high" />
+        <a class="pbg-play" href="https://pokebonk.com/?lang=en" target="_blank" rel="noopener" aria-label="PokeBonk を遊ぶ — pokebonk.com が新しいタブで開きます">
+          <span class="pbg-ico" aria-hidden="true"></span>
+          <span class="pbg-txt">PokeBonk を無料で遊ぶ — ダウンロード不要</span>
+        </a>
+      </div>
+      <p class="pbg-sub">新しいタブで pokebonk.com が開きます · アカウント登録もメールアドレスも不要。ゲームが動くのはこのサイトだけです — 他のサイトの埋め込みは白い枠のままになります。</p>
+
+      <p class="odds-lede pbg-lede">PokeBonk は、相棒のポケモン1匹と、減ることのない群れを渡されるブラウザゲームです。技を選ぶことはできません。相棒が近づいた相手に勝手に攻撃するので、あなたの仕事は立ち位置になります。円を描くように動き、群れを正面に保ち、落ちたものを拾い、経験値バーが伸びるたびにカードを1枚選ぶ。それだけです。</p>
+
+      <ul class="pbg-facts">
+        <li><b>151</b><span>図鑑に登録されているカントー地方のポケモン数。ここで数え始めて、ここで止まっています</span></li>
+        <li><b>79</b><span>リーグに加えられる相棒の枠。ランごとに1匹ずつ増えていきます</span></li>
+        <li><b>3</b><span>モードはクラシック、サバイバル、そして2〜4人用の協力プレイ（ベータ）</span></li>
+        <li><b>4</b><span>シーズン2の地域数。それぞれノーマル・ハード・ナイトメアの3段階</span></li>
+      </ul>
+
+    </section>
+
+    <!-- What it is -->
+    <section class="container odds" id="what" aria-labelledby="what-title">
+      <p class="eyebrow">ざっくり言うと</p>
+      <h2 id="what-title">PokeBonk ゲームとは？</h2>
+      <p class="odds-lede">PokeBonk は、相棒のポケモン1匹と、減ることのない群れを渡されるブラウザゲームです。攻撃を選ぶことはできません。相棒が近づいた相手に勝手に撃ち、あなたの仕事は立ち位置になります。輪を描いて歩き、群れを正面に保ち、落ちたものを拾い、経験値バーがいっぱいになるたびにカードを1枚取る。やることはそれだけです。</p>
+      <p class="odds-lede">ジャンルはサバイバーズ系です。Vampire Survivors が定番にしたあのループを、カメラを真上ではなくポケモンの後ろに置いて作っています。2025年に Megabonk が「この型は3Dにしても成立する」と証明していて、PokeBonk は同じ型をマサラタウンと、赤・緑からいた151匹に当てはめたものです。</p>
+      <p class="odds-lede">作ったのは Charcher という1人の開発者です。サイトの法的表記には、非公式かつ非商用であること、広告も課金も寄付もないことが書かれていて、ドット絵は PMD SpriteCollab から非商用ライセンスで借りているとクレジットされています。残機を売っている店を探しに行く前に読んでおくといいでしょう。そんな店はありません。</p>
+      <p class="odds-lede">実際に着いたメニューには、図鑑151件、リーグの枠79、実績228、地域4つ、そして画面の隅にビルド番号 v0.8.55 が表示されていました。</p>
+    </section>
+
+    <!-- Five steps -->
+    <section id="start" class="band band-yellow" aria-labelledby="start-title">
+      <div class="container">
+        <p class="eyebrow">初回プレイ</p>
+        <h2 id="start-title">最初の1ランは、5つの手順で</h2>
+        <div class="how-grid">
+          <article>
+            <h3>1. ゲストで入る</h3>
+            <p>最初のパネルには入り方が3つあります。ゲストは何も要求しません。メールもパスワードも、確認メールを待つ時間もいりません。進行状況はサーバーに保存され、いま使っている端末に紐づくと書かれています。続ける気になったら、後からゲストを名前付きのアカウントに変えられます。ゲストがシーズンランキングに載らないことだけが、唯一の制限です。</p>
+          </article>
+          <article>
+            <h3>2. 相棒を選ぶ</h3>
+            <p>カードは3枚。それぞれにパッシブと初期技が印刷されています。上に書かれた説明は、約束と警告を同時に伝えてきます。この1匹はリーグの最初のメンバーで、残り2匹は後から加わる。挑戦をクリアしてランの中で捕まえれば手に入る、と。そのあと「本当にいいですか」ともう一度聞かれます。後から変えられないからです。</p>
+          </article>
+          <article>
+            <h3>3. モードを選ぶ</h3>
+            <p>「プレイ」を押すとクラシックが開きます。そのすぐ下がサバイバル、さらに下が協力プレイで、こちらには BETA の札と「2〜4人のトレーナー」という注記が付いています。最初はクラシックを選んでください。終わりがあるので、上手くなっているかを判断できるのはこのモードだけです。</p>
+          </article>
+          <article>
+            <h3>4. 動いて、かわして、拾う</h3>
+            <p>移動は矢印キーか WASD、カメラはマウスで片手操作。野生のポケモンは倒れた場所に経験値を落とすので、追ってくる群れはそのまま歩いて通る店でもあります。立ち止まった瞬間が、ランの終わりどきです。</p>
+          </article>
+          <article>
+            <h3>5. カードを1枚取る</h3>
+            <p>レベルが上がるたびに3枚から1枚選びます。新しい技、すでに持っている技の上位版、能力値を上げるビタミンのどれかです。選べるのは1枚だけ。1つの技を後半の段階まで積み上げたほうが、あちこちに散らすより強くなります。どれを積むべきかは、だいたい相棒のパッシブが教えてくれます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Starters -->
+    <section class="container odds" id="starters" aria-labelledby="starters-title">
+      <p class="eyebrow">パートナー選択</p>
+      <h2 id="starters-title">PokeBonk で最初に選ぶべき相棒</h2>
+      <p class="odds-lede">3枚のカードは、実際のプレイでパートナー画面からそのまま書き写したものです。選ぶ理由になるのはパッシブで、初期技は最初の2分がどんな感じになるかしか決めません。</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>相棒</th><th>役割</th><th>パッシブ</th><th>初期技</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>フシギダネ #001</td><td>ヒーラー</td><td>Synthesis（光合成）：毎秒+1.5の回復と+25%の治療量。くさ技が当たるたびに最大HPの0.4%を回復し、1秒に5回まで</td><td>つるのムチ</td></tr>
+            <tr><td>ヒトカゲ #004</td><td>火力型</td><td>Sea of Flames（炎の海）：ほのお技のダメージ+10%。HPが40%を切っているとさらに+40%</td><td>ひのこ</td></tr>
+            <tr><td>ゼニガメ #007</td><td>守備型</td><td>Torrent Shell（激流の甲羅）：装甲+15、シールド+20。HPが40%を切っているとダメージ+40%</td><td>みずでっぽう</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="odds-lede" style="margin-top:22px">覚えるつもりならフシギダネです。回復のパッシブは、新規プレイヤーが必ずやる2つのミスを許してくれます。群れの中に立ってしまうこと、そして噛み合わないダメージカードを取ってしまうこと。ヒトカゲとゼニガメはどちらもHP40%以下で火力が伸びるので、「楽しいのは死にかけてから」という約束になります。2回目ならいい選択で、1回目にはつらい選択です。</p>
+
+      <figure class="pbg-fig">
+        <img src="../../pokebonk-game/img/pokebonk-confirm-partner.webp" width="1280" height="800" alt="PokeBonk でゼニガメを初期パートナーに決定していいか確認するダイアログ" />
+        <figcaption>相棒をタップした直後に出る画面。この選択は取り消せない、と改めて確認されます。同じ日の同じプレイセッション、2026年10月26日。</figcaption>
+      </figure>
+
+      <p class="odds-lede">同じセッションで開いたゼニガメのリーグカードには、基礎ステータスとして HP44、こうげき48、ぼうぎょ65、とくこう50、とくぼう64、すばやさ43 が載っていて、レベル24で進化、44でさらに進化すると書かれていました。装甲とシールドはぼうぎょに連動して伸びるので、「守備型」という肩書きは飾りではありません。</p>
+
+      <figure class="pbg-fig">
+        <img src="../../pokebonk-game/img/pokebonk-league-card.webp" width="1280" height="800" alt="PokeBonk のゼニガメのリーグカード。基礎ステータス、ラン中のステータス、Torrent Shell のパッシブ、3段階のアルティメットが表示されている" />
+        <figcaption>ゼニガメのリーグカード。左が基礎ステータス、右がラン中にどこまで伸びるか、そして <b>R</b> のアルティメットは Shell Whirlpool → Tidal Wave → Hydro Cannon の3段階。79枠のうち1枠が埋まった状態です。</figcaption>
+      </figure>
+
+    </section>
+
+    <!-- Modes -->
+    <section class="container odds" id="modes" aria-labelledby="modes-title">
+      <p class="eyebrow">3つの入口</p>
+      <h2 id="modes-title">クラシック、サバイバル、協力プレイ</h2>
+      <div class="how-grid">
+        <article>
+          <h3>クラシック</h3>
+          <p>メインのモードです。エリアを片づけ、各エリアを締めくくる守護者と戦い、地域の最後にある祠で終わります。シーズン2の地域は4つ。トキワのもり、岩の砂漠、嵐の海岸、天の氷河です。どの地域もノーマル・ハード・ナイトメアの3段階で用意されていて、同じマップのまま数値が厳しくなり、祠が遠くなります。ナイトメアは、知っている戦いをそのまま長くやるだけ、というわけです。</p>
+        </article>
+        <article>
+          <h3>サバイバル</h3>
+          <p>マップは1つ、ゴールはなく、専用のランキングがあります。ポイントは撃破数と生き延びた秒数で、そこにマイルストーン、アルファ、伝説のポケモンが上乗せされます。祠が気にならなくなって、群れに飲み込まれるまでの時間のほうが気になり始めたら開くモードです。</p>
+        </article>
+        <article>
+          <h3>協力プレイ</h3>
+          <p>2〜4人のトレーナーで、クラシック限定。ホストが共有するルームリンクから参加します。BETA の札が付いていて、戦闘中にメニューを開く前に読んでおくべきルールが1つあります。協力プレイはポーズしません。倒れた仲間は、誰かが隣に立って蘇生キーを押し続けると戻ってきます。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Controls -->
+    <section class="container odds" id="controls" aria-labelledby="controls-title">
+      <p class="eyebrow">キーボード・ゲームパッド・スマホ</p>
+      <h2 id="controls-title">PokeBonk の操作</h2>
+      <p class="odds-lede">以下は初期設定です。設定画面の「キー」タブですべて割り当て直せますし、コントローラーはラン中もメニューでも使えます。スマホ版はタッチ操作に切り替わり、アルティメット用のボタンが画面に出ます。</p>
+      <div class="odds-table-wrap cornered">
+        <table class="odds-table">
+          <thead>
+            <tr><th>入力</th><th>動作</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>W A S D ／ 矢印キー</td><td>移動</td></tr>
+            <tr><td>マウス</td><td>カメラを振る</td></tr>
+            <tr><td>スペース</td><td>ジャンプ</td></tr>
+            <tr><td>Shift</td><td>スライディング</td></tr>
+            <tr><td>E</td><td>調べる — 拾う、宝箱、モンスターボールを投げる</td></tr>
+            <tr><td>R</td><td>アルティメット（ゲージが溜まってから）</td></tr>
+            <tr><td>マウスホイール</td><td>カメラのズーム</td></tr>
+            <tr><td>Esc</td><td>ポーズメニュー</td></tr>
+            <tr><td>ゲームパッド</td><td>対応。アルティメットは Y</td></tr>
+            <tr><td>スマホ</td><td>画面上のスティック、アルティメットはボタンをタップ</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="odds-lede" style="margin-top:22px">ゲーム自身が伝えてくるのに、誰も間に合わずに読まないことが2つあります。アルティメットは自動で発動しません。ゲージが溜まるとバナーが出て、あなたが押すのを待ちます。そして、メニューを開いても休憩にはなりません。クラシックは止まりますが、協力プレイは止まりません。</p>
+    </section>
+
+    <!-- Between runs -->
+    <section class="container odds" id="progression" aria-labelledby="progression-title">
+      <p class="eyebrow">ランとランのあいだ</p>
+      <h2 id="progression-title">1ランが終わったときに残るもの</h2>
+      <p class="odds-lede">ランが終わると、キャラクター画面のものは持ち越されません。残るように作られたものだけが残ります。生き残る通貨はスターダストで、行き先はラボです。アイテムはスターダストで見つけて買い取り、それがモンスターボールやニャースの店に並びます。だから、失敗したランでも次のランを前に進められます。</p>
+      <p class="odds-lede">ビタミンも同じ仕組みの縮小版です。最初は同時に持てる枠が決まっていて、レベルが上がるごとに1枠増えます。つまりランの上限は、能力値カードを何枚持てるかという上限でもあります。リーグは79匹、実績は228、シーズンにはバッジ・フレーム・スターダストがもらえるランキングがあります。私たちが遊んだ日にはシーズン2が開催中でした。</p>
+      <p class="odds-lede">ただし、ゲストはそのランキングの外にいます。これは妥当な線だと思います。ランキングのために遊んでいるなら、最初の良いランが終わる前にアカウントを作っておいてください。後からでは遅いので。</p>
+    </section>
+
+    <!-- Troubleshooting -->
+    <section class="container odds" id="load" aria-labelledby="load-title">
+      <p class="eyebrow">何も起きないとき</p>
+      <h2 id="load-title">PokeBonk ゲームが読み込まれないとき</h2>
+      <div class="how-grid">
+        <article>
+          <h3>他のサイトで「プレイ」を押したら白い枠だった</h3>
+          <p>ブラウザのせいではありません。このゲームは他のドメインのフレーム内に表示されることを拒否するので、枠だけが白いまま、周りのページは普通に見えます。<a href="https://pokebonk.com/?lang=en" target="_blank" rel="noopener">pokebonk.com</a> を直接開いてください。ゲームはそこにあります。壊れているのは枠のほうです。</p>
+        </article>
+        <article>
+          <h3>ページは開くが、ゲームが始まらない</h3>
+          <p>たいていは広告ブロッカーか、職場・学校のフィルターです。モデルもスクリプトも同じドメインから読み込むので、1つ止められるだけで読み込み画面のまま止まります。拡張機能を切ったシークレットウィンドウで試し、それでもだめなら別の回線で試してください。</p>
+        </article>
+        <article>
+          <h3>キーが効かない</h3>
+          <p>まずゲームの中を1回クリックしてください。キャンバスはフォーカスを得てからでないとキーボードを受け取りませんし、バックグラウンドで開いたタブはフォーカスを持っていません。</p>
+        </article>
+        <article>
+          <h3>スマホの操作がしっくりこない</h3>
+          <p>端末を横向きにしてください。タッチ用のレイアウトは横長で持つ前提で作られていて、アルティメットのボタンは右の親指がもともとある場所に来ます。Bluetooth のコントローラーも使えます。デスクトップと同じです。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Disambiguation -->
+    <section class="container odds" id="which" aria-labelledby="which-title">
+      <p class="eyebrow">同じ名前の別物</p>
+      <h2 id="which-title">どれがどれ？ PokeBonk の名前の重なり</h2>
+      <p class="odds-lede">この名前で出てくるものは4つあります。上のゲームなのは、最初の1つだけです。</p>
+      <ul class="pbg-list">
+        <li><b>pokebonk.com</b> &mdash; Charcher による3Dサバイバー。カントーの151匹、ブラウザで無料、ダウンロード不要。</li>
+        <li><b>PokeBonk: Monster Roguelite</b>（Google Play） &mdash; 名前だけ同じの別物のスマホ向けローグライト。カントーの面子はおらず、ブラウザ版でもありません。</li>
+        <li><b>ポケモンバンク</b> &mdash; 任天堂の3DS向け預かりサービス（すでに終了）。速く打つと字面が似ているだけで、共通点はありません。</li>
+        <li><b>Megabonk</b> &mdash; 2025年のヒット作。この型が3Dでも成立することを示したゲームで、つながりはループの型だけです。</li>
+      </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container faq" aria-labelledby="faq-title">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title">PokeBonk ゲームのよくある質問</h2>
+      <details class="faq-item cornered">
+        <summary>PokeBonk ゲームはどこで遊べますか？</summary>
+        <p>pokebonk.com です。最近のブラウザならどれでも動きます。Steam にもアプリストアにもなく、他のサイトの中でも遊べません。開発者がフレーム内表示を止めているので、置いてあるように見えるファンページは、実際には空の枠を見せているだけです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>PokeBonk は無料ですか？</summary>
+        <p>無料です。サイトの法的表記に広告・課金・寄付なしと書かれていて、ゲストプレイはクリック以外に何も求めません。メニューの奥に有料プランが隠れている、ということもありません。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>遊ぶのにアカウントは必要ですか？</summary>
+        <p>不要です。ゲストの進行状況はサーバーに保存され、端末に紐づくので、1つのブラウザに1つのセーブが残ります。アカウントが要るのは、シーズンランキングに参加するときと、別の端末に進行状況を持っていくときだけです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>最初の相棒はどれを選ぶべきですか？</summary>
+        <p>初回はフシギダネです。Synthesis は戦いながら回復するので、これから必ずやるミスを埋めてくれます。ヒトカゲとゼニガメはどちらもHP40%以下で火力が伸びるため、低HPで生き残る術をすでに知っている人向けの性能です。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>クラシックとサバイバルの違いは何ですか？</summary>
+        <p>クラシックはエリア制で、各エリアの最後に守護者がいて、祠に着けばラン終了です。サバイバルはマップ1つ、終わりはなく、撃破数と生存秒数で競う専用ランキングがあります。上達を測れるのがクラシック、測る必要がなくなった人が遊ぶのがサバイバルです。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>スマホでも遊べますか？</summary>
+        <p>遊べます。タッチ操作を検出すると、画面にスティックとアルティメット用ボタンが出ます。端末は横向きで持ってください。レイアウトはその前提で作られています。Bluetooth のコントローラーを使うと、かなり楽になります。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>マルチプレイはできますか？</summary>
+        <p>一部だけです。協力プレイは2〜4人でクラシックに入れます。参加はホストが共有するルームリンクからで、BETA の札が付いています。メニューを開いても止まりませんし、倒れたプレイヤーは、仲間が隣に立って蘇生キーを押し続けると復帰します。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>PokeBonk は公式のポケモンゲームですか？</summary>
+        <p>違います。Charcher という1人の開発者による非公式のファンプロジェクトで、サイトの法的表記にもそう書かれています。広告も課金もなく、ドット絵は PMD SpriteCollab から非商用ライセンスで借りているとクレジットされています。</p>
+      </details>
+      <details class="faq-item cornered">
+        <summary>Google Play にある PokeBonk と同じゲームですか？</summary>
+        <p>違います。PokeBonk: Monster Roguelite は名前が同じだけの別のスマホ向けローグライトです。ブラウザのサバイバーではなく、カントーの151匹は出てこず、pokebonk.com とは何の関係もありません。</p>
+      </details>
+    </section>
+
+    <!-- Related -->
+    <section class="container odds" id="more" aria-labelledby="more-title">
+      <p class="eyebrow">このサイトの他のページ</p>
+      <h2 id="more-title">次に遊ぶなら、こちらのポケモンゲーム</h2>
+      <div class="how-grid">
+        <article>
+          <h3><a href="../pokemon-smash-or-pass/">スマッシュ・オア・パス</a></h3>
+          <p>1匹ずつ見て、あなたが判定を出し、最後にスコアが出るゲーム。図鑑のどこまでが本当に好きなのかを、一番速く知る方法です。</p>
+        </article>
+        <article>
+          <h3><a href="../whos-that-pokemon/">このポケモンだあれ？</a></h3>
+          <p>シルエット当てクイズ。必要ならヒントが出て、いらなければ連続正解数が伸びます。PokeBonk が戦場に出すのと同じ151の名前を試せます。</p>
+        </article>
+        <article>
+          <h3><a href="../pokemon/">ポケモン図鑑</a></h3>
+          <p>全1,025種のステータス・タイプ・特性。ラン中に名前の分からないポケモンが出てきたときに。</p>
+        </article>
+        <article>
+          <h3><a href="../pokemon-type-chart/">タイプ相性表</a></h3>
+          <p>すべての相性を1つの表にまとめ、倍率まで書いてあります。相棒のタイプが刺さらないときに、どの技カードを積むか判断するのに便利です。</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="./">PokeBonk ゲーム</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <script src="../../nav.js?v=20261022m"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+</body>
+</html>

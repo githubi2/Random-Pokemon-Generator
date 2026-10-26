@@ -1261,4 +1261,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/whos-that-pokemon/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/whos-that-pokemon/" />
   </url>
+  <url>
+    <loc>https://www.random-pokemon-generator.co/pokebonk-game/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/pokebonk-game/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/pokebonk-game/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/pokebonk-game/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
