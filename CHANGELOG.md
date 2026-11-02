@@ -2,6 +2,11 @@
 
 Site updates, newest first.
 
+## November 2026
+
+- **11-02** — Smash or Pass shares the actual verdict list now. The Share button copies a link that reopens your smash and pass cards, your smash rate and your streak on the receiver's screen; Verdict History exports the same list as a CSV file. The Japanese page has both.
+- **11-02** — Titles, descriptions and H1s rewritten on six pages, English and Japanese: the shiny odds calculator, the guide behind it, Legends: Z-A, the type generator, Smash or Pass and the homepage.
+
 ## October 2026
 
 - **10-25** — Eevee evolutions page rebuilt around artwork and data: a nine-card form grid up top, plus new tables for per-game availability, friendship thresholds, Pokemon GO conditions and type matchups. The Eevee Pokedex page gained a dex-facts table.

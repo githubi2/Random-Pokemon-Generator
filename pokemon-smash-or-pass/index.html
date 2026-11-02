@@ -22,8 +22,8 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pokemon Smash or Pass – Play the Free Game</title>
-  <meta name="description" content="Play the Pokemon smash or pass game: judge all 1,025 Pokémon, build your verdict list, and share how picky you are. Filter by type, Gen or region — no sign-up." />
+  <title>Pokemon Smash or Pass — Rate All 1,025 (Free)</title>
+  <meta name="description" content="Play Pokemon Smash or Pass free: judge all 1,025, see your smash rate, and send a link that reopens your exact verdict list. CSV download too." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.random-pokemon-generator.co/pokemon-smash-or-pass/" />
   <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/pokemon-smash-or-pass/" />
@@ -31,8 +31,8 @@
   <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/pokemon-smash-or-pass/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Pokemon Smash or Pass – Play the Free Game" />
-  <meta property="og:description" content="Judge random Pokemon one by one, build your smash list, and share how picky you are." />
+  <meta property="og:title" content="Pokemon Smash or Pass — Rate All 1,025 (Free)" />
+  <meta property="og:description" content="Play Pokemon Smash or Pass free: judge all 1,025, see your smash rate, and send a link that reopens your exact verdict list. CSV download too." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.random-pokemon-generator.co/pokemon-smash-or-pass/" />
   <meta property="og:site_name" content="Random Pokemon Generator" />
@@ -42,8 +42,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pokemon Smash or Pass – Play the Free Game" />
-  <meta name="twitter:description" content="Judge random Pokemon, build your smash list, and share your verdicts." />
+  <meta name="twitter:title" content="Pokemon Smash or Pass — Rate All 1,025 (Free)" />
+  <meta name="twitter:description" content="Play Pokemon Smash or Pass free: judge all 1,025, see your smash rate, and send a link that reopens your exact verdict list. CSV download too." />
   <meta name="twitter:image" content="https://www.random-pokemon-generator.co/pokemon-smash-or-pass/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
@@ -57,7 +57,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Pokemon Smash or Pass",
-    "description": "Play the Pokemon smash or pass game: judge random Pokemon and share your verdicts.",
+    "description": "Play the Pokemon smash or pass game: judge 1,025 Pokemon, then share a link that reopens your exact smash and pass list.",
     "applicationCategory": "GameApplication",
     "url": "https://www.random-pokemon-generator.co/pokemon-smash-or-pass/",
     "operatingSystem": "All",
@@ -87,7 +87,7 @@
       {
         "@type": "Question",
         "name": "What is Pokemon smash or pass?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Smash or pass is a viral game where a random Pokemon appears and you decide: smash (you would take it) or pass (you would not). This generator turns it into a one-click game across all 1,025 Pokemon from Gen 1-9, tracking your verdicts, streak, and smash rate as you go. Once you have judged a batch, it shows your final smash score and lets you share the verdict list with friends." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Smash or pass is a viral game where a random Pokemon appears and you decide: smash (you would take it) or pass (you would not). This generator turns it into a one-click game across all 1,025 Pokemon from Gen 1-9, tracking your verdicts, streak, and smash rate as you go. Once you have judged a batch, it shows your final smash score and packs the whole verdict list into one link." }
       },
       {
         "@type": "Question",
@@ -107,7 +107,7 @@
       {
         "@type": "Question",
         "name": "Can I share my results?",
-        "acceptedAnswer": { "@type": "Answer", "text": "One tap. The Share button copies a verdict summary like 'I smashed 23/30 Pokemon on Random Pokemon Generator — how picky are you?' with the link, ready for Reddit, Discord, or social media." }
+        "acceptedAnswer": { "@type": "Answer", "text": "One tap. The Share button copies a link that carries your whole verdict list, so whoever opens it sees your smash and pass cards with your smash rate and streak on top — no account, nothing to install. In the Verdict History panel, CSV downloads the same list as a spreadsheet." }
       },
       {
         "@type": "Question",
@@ -290,7 +290,7 @@
           <p class="tool-note"><i class="ico ico-dice-5" aria-hidden="true"></i> Start — begins the game: rolls the first Pokémon and starts your run</p>
           <p class="tool-note">👆 Swipe the card left to Pass or right to Smash — or use the buttons / S and P keys</p>
           <p class="tool-note"><i class="ico ico-heart" aria-hidden="true"></i> Smash / <i class="ico ico-ban" aria-hidden="true"></i> Pass — judge the Pokémon; the next one appears instantly</p>
-          <p class="tool-note"><i class="ico ico-megaphone" aria-hidden="true"></i> Share My Verdicts — copies your smash rate + verdict summary to share</p>
+          <p class="tool-note"><i class="ico ico-megaphone" aria-hidden="true"></i> Share My Verdicts — copies your summary plus a link that reopens this exact verdict list</p>
         </div>
       </div>
 
@@ -329,14 +329,32 @@
           <h2 class="history-title">Verdict History</h2>
           <div class="history-actions">
             <button type="button" id="history-cards-btn" class="btn-text"><i class="ico ico-scroll-text" aria-hidden="true"></i> Cards</button>
+            <button type="button" id="history-csv" class="btn-text">CSV</button>
             <button type="button" id="history-clear" class="btn-text">Clear</button>
           </div>
         </div>
         <div class="tool-note-group">
           <p class="tool-note"><i class="ico ico-scroll-text" aria-hidden="true"></i> Cards — opens a card grid of every verdict; click any card for its full dex details</p>
+          <p class="tool-note">CSV — downloads the same list as a spreadsheet, one row per Pokémon with its verdict</p>
           <p class="tool-note">Clear — deletes all verdicts and restores the full Pokémon pool</p>
         </div>
         <ol class="history-list" id="history-list"></ol>
+      </div>
+
+      <div class="history cornered" id="shared-panel" hidden>
+        <div class="history-head">
+          <h2 class="history-title">Shared Verdict List</h2>
+          <div class="history-actions">
+            <button type="button" id="shared-csv" class="btn-text">Download CSV</button>
+            <button type="button" id="shared-play" class="btn-text">Play My Own</button>
+          </div>
+        </div>
+        <div class="tool-note-group">
+          <p class="tool-note" id="shared-meta"></p>
+          <p class="tool-note" id="shared-cut" hidden></p>
+          <p class="tool-note">Read-only: these are someone else's verdicts. Your own list stays untouched, and Start or Play My Own switches back to your run.</p>
+        </div>
+        <div class="verdict-cards" id="shared-cards"></div>
       </div>
 
       <div class="modal-overlay" id="history-modal" hidden>
@@ -392,11 +410,11 @@
           <article>
             <h3>The full-dex verdict run</h3>
             <p>There is a completionist way to play: judge every species in the dex, one verdict at a time. That is 1,025 decisions. At a steady three seconds per verdict, the full run takes about an hour of pure tapping, spread over as many sessions as your attention span allows.</p>
-            <p>The stats are worth watching on a long run. A list that trends one direction is a mood; a list that swings back and forth through the middle of the dex is a taste. And when you finish, the share card is a ranking with exactly one author.</p>
+            <p>The stats are worth watching on a long run. A list that trends one direction is a mood; a list that swings back and forth through the middle of the dex is a taste. And when you finish, the shared list is a ranking with exactly one author.</p>
           </article>
           <article>
             <h3>Share your verdict score</h3>
-            <p>When your session ends, hit Share My Verdicts. The generator copies a summary like 'I smashed 23/30 Pokémon on Random Pokemon Generator — how picky are you?' with a link your friends can open and play themselves. Post it in Discord, Reddit, or as a comment on a TikTok.</p>
+            <p>When your session ends, hit Share My Verdicts. You get a line like 'I smashed 23/30 Pokémon on Random Pokemon Generator — how picky are you?' followed by a link, and the link is the good part: whoever opens it lands on your list, every smash and pass laid out as cards with your smash rate and streak on top. They can scroll your verdicts, open any card for that Pokémon's dex details, or hit Start to judge their own. Post it in Discord, Reddit, or a TikTok comment. If you want the raw list instead of a link, CSV in the Verdict History panel gives you one row per Pokémon.</p>
           </article>
           <article>
             <h3>House rules keep it fresh</h3>
@@ -412,7 +430,7 @@
       <h2 id="faq-title">Pokemon Smash or Pass FAQ</h2>
       <details class="faq-item cornered">
         <summary>What is Pokemon smash or pass?</summary>
-        <p>Smash or pass is a viral game where a random Pokemon appears and you decide: smash (you would take it) or pass (you would not). This generator turns it into a one-click game across all 1,025 Pokemon from Gen 1-9, tracking your verdicts, streak, and smash rate as you go. Once you have judged a batch, it shows your final smash score and lets you share the verdict list with friends.</p>
+        <p>Smash or pass is a viral game where a random Pokemon appears and you decide: smash (you would take it) or pass (you would not). This generator turns it into a one-click game across all 1,025 Pokemon from Gen 1-9, tracking your verdicts, streak, and smash rate as you go. Once you have judged a batch, it shows your final smash score and packs the whole verdict list into one link.</p>
       </details>
       <details class="faq-item cornered">
         <summary>How do I play the smash or pass game?</summary>
@@ -428,7 +446,7 @@
       </details>
       <details class="faq-item cornered">
         <summary>Can I share my results?</summary>
-        <p>One tap. The Share button copies a verdict summary like 'I smashed 23/30 Pokemon on Random Pokemon Generator — how picky are you?' with the link, ready for Reddit, Discord, or social media.</p>
+        <p>One tap. The Share button copies a link that carries your whole verdict list, so whoever opens it sees your smash and pass cards with your smash rate and streak on top — no account, nothing to install. In the Verdict History panel, CSV downloads the same list as a spreadsheet.</p>
       </details>
       <details class="faq-item cornered">
         <summary>Do shinies appear?</summary>
@@ -494,7 +512,7 @@
 
   <script src="../data.js?v=20261022d"></script>
   <script src="../nav.js?v=20261022m"></script>
-  <script src="smash-or-pass.js?v=20261022d"></script>
+  <script src="smash-or-pass.js?v=20261102a"></script>
   <script src="../lang-switch.js?v=20261022a"></script>
 </body>
 </html>

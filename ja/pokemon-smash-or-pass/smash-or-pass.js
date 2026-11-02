@@ -94,6 +94,22 @@
   var LS_RESULTS = 'rpg:smash-results';
   var current = null;
   var running = false;
+  var params = new URLSearchParams(location.search);
+
+  /* ---------------- verdict share links ----------------
+     Scheme v1:  ?list=<token>-<token>-...
+       token = base36 species id + one verdict letter
+               s = smash, p = pass; uppercase S / P = that roll was shiny
+               e.g. 1ts-19p-19S  →  #25 smash, #55 pass, #55 shiny smash
+       &c=<smash>,<pass>  — only added when the list had to be cut for
+               length; it carries the run's true totals so the shared page
+               still reports the real smash rate.
+     Runs longer than SHARE_CAP keep their newest verdicts in the link.
+     A shared link is read-only: opening one never touches the visitor's
+     own saved verdicts (localStorage). */
+  var SHARE_CAP = 300;
+  var sharedMode = false;
+  var sharedCounts = null; /* { smash, pass, total } when the link was cut */
 
   /* ---------------- DOM refs ---------------- */
   function $(id) { return document.getElementById(id); }
@@ -435,13 +451,14 @@
   }
 
   function persist() {
+    if (sharedMode) return; /* a shared list is never written to our storage */
     try { localStorage.setItem(LS_RESULTS, JSON.stringify(results)); }
     catch (e) { /* private mode — ignore */ }
   }
 
   function renderHistory() {
     historyList.innerHTML = '';
-    historyPanel.hidden = results.length === 0;
+    historyPanel.hidden = sharedMode || results.length === 0;
     results.slice().reverse().forEach(function (r) {
       var p = BY_ID[r.i];
       if (!p) return;
@@ -473,6 +490,7 @@
 
   function judge(verdict) {
     if (!current || swipe.lock) return;
+    if (sharedMode) exitSharedMode(); /* 他人のリストで判定したら自分のプレイに戻す */
     results.push({ i: current.p.i, verdict: verdict, shiny: current.shiny });
     persist();
     current = nextPokemon();
@@ -549,20 +567,144 @@
     var rate = results.length ? Math.round((smash / results.length) * 100) : 0;
     var label = rate >= 80 ? 'ポケモン大好き認定' : rate >= 50 ? '正直、好みは平均的' : rate >= 20 ? 'かなりのこだわり派' : 'ポケモン嫌い認定';
     return {
-      text: 'ランダムポケモン生成で' + smash + '/' + results.length + '匹をスマッシュ（' + rate + '%）—' + label + '。好みにうるさい？' + location.origin + location.pathname,
+      text: 'ランダムポケモン生成で' + smash + '/' + results.length + '匹をスマッシュ（' + rate + '%）—' + label + '。好みにうるさい？',
       label: label
     };
   }
 
+  /* ---------------- 共有リンクのエンコード / デコード ----------------
+     形式 v1:  ?list=<token>-<token>-...
+       token = 図鑑番号相当のID（36進数）+ 判定1文字
+               s = アリ(smash), p = ナシ(pass)。大文字 S / P は色違いで出た回
+               例: 1ts-19p-19S → #25 アリ、#55 ナシ、#55 色違いアリ
+       &c=<smash>,<pass>  長すぎて一部を削ったときだけ付く。
+               元の集計（アリ数・ナシ数）を引き継ぐので、共有先でも正しいアリ率が出る。
+     SHARE_CAP を超える長い記録は、新しい判定から順にリンクへ入る。
+     共有リンクは読み取り専用: 開いた人の localStorage には一切書き込まない。 */
+  function encodeVerdict(r) {
+    return r.i.toString(36) + (r.verdict === 'smash' ? (r.shiny ? 'S' : 's') : (r.shiny ? 'P' : 'p'));
+  }
+
+  function buildShareUrl() {
+    var keep = results;
+    var cut = false;
+    if (keep.length > SHARE_CAP) { keep = keep.slice(keep.length - SHARE_CAP); cut = true; }
+    var url = location.origin + location.pathname + '?list=' + keep.map(encodeVerdict).join('-');
+    if (cut) {
+      var smash = 0;
+      results.forEach(function (r) { if (r.verdict === 'smash') smash++; });
+      url += '&c=' + smash + ',' + (results.length - smash);
+    }
+    return url;
+  }
+
+  function readSharedList() {
+    var raw = params.get('list');
+    if (!raw) return null;
+    var byId = {}, order = [];
+    raw.split('-').forEach(function (tok) {
+      var m = /^([0-9a-z]+)([spSP])$/.exec(tok);
+      if (!m) return;
+      var p = BY_ID[parseInt(m[1], 36)];
+      if (!p) return;
+      if (!byId[p.i]) order.push(p.i);
+      byId[p.i] = {
+        i: p.i,
+        verdict: m[2].toLowerCase() === 's' ? 'smash' : 'pass',
+        shiny: m[2] === m[2].toUpperCase()
+      };
+    });
+    return order.map(function (id) { return byId[id]; });
+  }
+
+  function readSharedCounts() {
+    var raw = params.get('c');
+    if (!raw) return null;
+    var parts = raw.split(',');
+    var smash = parseInt(parts[0], 10);
+    var pass = parseInt(parts[1], 10);
+    if (!isFinite(smash) || !isFinite(pass) || smash < 0 || pass < 0) return null;
+    return { smash: smash, pass: pass, total: smash + pass };
+  }
+
+  /* ---------------- CSV 書き出し（名前 + 判定） ---------------- */
+  function csvCell(v) { return '"' + String(v).replace(/"/g, '""') + '"'; }
+
+  function downloadCsv() {
+    if (!results.length) return;
+    var rows = ['"ポケモン","判定","色違い"'];
+    results.slice().reverse().forEach(function (r) {
+      var p = BY_ID[r.i];
+      if (!p) return;
+      rows.push(csvCell(displayName(p.n)) + ',' + csvCell(r.verdict === 'smash' ? 'Smash' : 'Pass') + ',' + csvCell(r.shiny ? 'はい' : 'いいえ'));
+    });
+    var blob = new Blob(['\ufeff' + rows.join('\r\n') + '\r\n'], { type: 'text/csv;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'pokemon-smash-or-pass-verdicts.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+  }
+
+  /* ---------------- 共有リストの読み取り専用ビュー ---------------- */
+  function countVerdicts(list) {
+    var smash = 0;
+    list.forEach(function (r) { if (r.verdict === 'smash') smash++; });
+    return { smash: smash, pass: list.length - smash, total: list.length };
+  }
+
+  function enterSharedMode(list, counts) {
+    sharedMode = true;
+    sharedCounts = counts;
+    results = list;
+    var st = counts && counts.total ? counts : countVerdicts(list);
+    var rate = st.total ? Math.round((st.smash / st.total) * 100) : 0;
+    $('shared-meta').textContent = '共有リスト · ' + st.total + '匹 · アリ ' + st.smash + ' / ナシ ' + st.pass + ' · アリ率 ' + rate + '%';
+    if (st.total > list.length) {
+      $('shared-cut').hidden = false;
+      $('shared-cut').textContent = 'このリンクには直近 ' + list.length + '匹分（全体 ' + st.total + '匹）の判定が入っています。上の数字は全体の集計です。全件はCSVで受け取れます。';
+    }
+    var grid = $('shared-cards');
+    grid.innerHTML = '';
+    list.slice().reverse().forEach(function (r) { grid.appendChild(makeVerdictCard(r)); });
+    historyPanel.hidden = true;
+    $('shared-panel').hidden = false;
+    updateStats();
+  }
+
+  function loadOwnResults() {
+    try { return JSON.parse(localStorage.getItem(LS_RESULTS) || '[]'); }
+    catch (e) { return []; }
+  }
+
+  function exitSharedMode() {
+    sharedMode = false;
+    sharedCounts = null;
+    $('shared-panel').hidden = true;
+    results = loadOwnResults();
+    updateStats();
+    renderHistory();
+  }
+
   function shareVerdicts() {
     var label = $('share-label');
+    if (sharedMode) {
+      copyToClipboard(location.href, function (ok) {
+        label.textContent = ok ? 'コピーしました' : '準備完了';
+        setTimeout(function () { label.textContent = '判定をシェア'; }, 1800);
+      });
+      return;
+    }
     if (!results.length) {
       label.textContent = 'まずは判定してみましょう！';
       setTimeout(function () { label.textContent = '判定をシェア'; }, 1800);
       return;
     }
     var s = verdictSummary();
-    copyToClipboard(s.text, function (ok) {
+    copyToClipboard(s.text + ' ' + buildShareUrl(), function (ok) {
       label.textContent = ok ? 'コピーしました' : '準備完了';
       setTimeout(function () { label.textContent = '判定をシェア'; }, 1800);
     });
@@ -765,43 +907,47 @@
   /* ---------------- verdict cards modal ---------------- */
   var hmModal = $('history-modal');
 
+  function makeVerdictCard(r) {
+    var p = BY_ID[r.i];
+    var card = document.createElement('div');
+    card.className = 'v-card';
+    card.style.cursor = 'pointer';
+    card.title = 'クリックで詳細表示';
+    card.addEventListener('click', function () { openModal(p); });
+    var v = document.createElement('span');
+    v.className = 'v-verdict ' + r.verdict;
+    v.textContent = r.verdict === 'smash' ? 'Smash' : 'Pass';
+    card.appendChild(v);
+    var img = document.createElement('img');
+    img.src = r.shiny ? p.sps : p.sp;
+    img.alt = displayName(p.n);
+    img.width = 72;
+    img.height = 72;
+    img.loading = 'lazy';
+    img.onerror = function () {
+      var fb = img.src.replace('/other/official-artwork', '');
+      if (fb !== img.src) img.src = fb; else img.onerror = null;
+    };
+    card.appendChild(img);
+    var nm = document.createElement('span');
+    nm.className = 'v-name';
+    nm.textContent = displayName(p.n);
+    card.appendChild(nm);
+    var bst = document.createElement('span');
+    bst.className = 'v-bst';
+    bst.textContent = '種族値' + p.tt;
+    card.appendChild(bst);
+    return card;
+  }
+
   function openVerdictCards() {
     if (!results.length) return;
     var grid = $('hm-cards');
     grid.innerHTML = '';
     $('hm-meta').textContent = results.length + '件の判定 — カードをクリックすると詳細が見られます';
     results.slice().reverse().forEach(function (r) {
-      var p = BY_ID[r.i];
-      if (!p) return;
-      var card = document.createElement('div');
-      card.className = 'v-card';
-      card.style.cursor = 'pointer';
-      card.title = 'クリックで詳細表示';
-      card.addEventListener('click', function () { openModal(p); });
-      var v = document.createElement('span');
-      v.className = 'v-verdict ' + r.verdict;
-      v.textContent = r.verdict === 'smash' ? 'Smash' : 'Pass';
-      card.appendChild(v);
-      var img = document.createElement('img');
-      img.src = r.shiny ? p.sps : p.sp;
-      img.alt = displayName(p.n);
-      img.width = 72;
-      img.height = 72;
-      img.loading = 'lazy';
-      img.onerror = function () {
-        var fb = img.src.replace('/other/official-artwork', '');
-        if (fb !== img.src) img.src = fb; else img.onerror = null;
-      };
-      card.appendChild(img);
-      var nm = document.createElement('span');
-      nm.className = 'v-name';
-      nm.textContent = displayName(p.n);
-      card.appendChild(nm);
-      var bst = document.createElement('span');
-      bst.className = 'v-bst';
-      bst.textContent = '種族値' + p.tt;
-      card.appendChild(bst);
-      grid.appendChild(card);
+      if (!BY_ID[r.i]) return;
+      grid.appendChild(makeVerdictCard(r));
     });
     hmModal.hidden = false;
     document.body.style.overflow = 'hidden';
@@ -821,7 +967,10 @@
   });
 
   /* ---------------- events ---------------- */
-  $('start-btn').addEventListener('click', startGame);
+  $('start-btn').addEventListener('click', function () {
+    if (sharedMode) exitSharedMode(); /* スタートは常に自分のプレイ */
+    startGame();
+  });
   $('smash-btn').addEventListener('click', function () { judge('smash'); });
   $('pass-btn').addEventListener('click', function () { judge('pass'); });
   $('share-btn').addEventListener('click', shareVerdicts);
@@ -851,6 +1000,13 @@
     updateStats();
     renderHistory();
   });
+  $('history-csv').addEventListener('click', downloadCsv);
+  $('shared-csv').addEventListener('click', downloadCsv);
+  $('shared-play').addEventListener('click', function () {
+    exitSharedMode();
+    startGame();
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
 
   document.addEventListener('keydown', function (e) {
     if (!running || !current) return;
@@ -861,9 +1017,14 @@
 
   /* ---------------- init ---------------- */
   renderSettings();
-  /* restore persisted verdicts (survive refresh) */
-  try { results = JSON.parse(localStorage.getItem(LS_RESULTS) || '[]'); }
-  catch (e) { results = []; }
-  updateStats();
-  renderHistory();
+  var sharedList = readSharedList();
+  if (sharedList && sharedList.length) {
+    /* ?list=… → 送り主の判定リストを読み取り専用で表示 */
+    enterSharedMode(sharedList, readSharedCounts());
+  } else {
+    /* 通常アクセス / 再読み込み — このブラウザの判定を復元 */
+    results = loadOwnResults();
+    updateStats();
+    renderHistory();
+  }
 })();

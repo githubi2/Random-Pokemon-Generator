@@ -93,6 +93,22 @@
   var LS_RESULTS = 'rpg:smash-results';
   var current = null;
   var running = false;
+  var params = new URLSearchParams(location.search);
+
+  /* ---------------- verdict share links ----------------
+     Scheme v1:  ?list=<token>-<token>-...
+       token = base36 species id + one verdict letter
+               s = smash, p = pass; uppercase S / P = that roll was shiny
+               e.g. 1ts-19p-19S  →  #25 smash, #55 pass, #55 shiny smash
+       &c=<smash>,<pass>  — only added when the list had to be cut for
+               length; it carries the run's true totals so the shared page
+               still reports the real smash rate.
+     Runs longer than SHARE_CAP keep their newest verdicts in the link.
+     A shared link is read-only: opening one never touches the visitor's
+     own saved verdicts (localStorage). */
+  var SHARE_CAP = 300;
+  var sharedMode = false;
+  var sharedCounts = null; /* { smash, pass, total } when the link was cut */
 
   /* ---------------- DOM refs ---------------- */
   function $(id) { return document.getElementById(id); }
@@ -434,13 +450,14 @@
   }
 
   function persist() {
+    if (sharedMode) return; /* a shared list is never written to our storage */
     try { localStorage.setItem(LS_RESULTS, JSON.stringify(results)); }
     catch (e) { /* private mode — ignore */ }
   }
 
   function renderHistory() {
     historyList.innerHTML = '';
-    historyPanel.hidden = results.length === 0;
+    historyPanel.hidden = sharedMode || results.length === 0;
     results.slice().reverse().forEach(function (r) {
       var p = BY_ID[r.i];
       if (!p) return;
@@ -472,6 +489,7 @@
 
   function judge(verdict) {
     if (!current || swipe.lock) return;
+    if (sharedMode) exitSharedMode(); /* judging someone else's list switches back to your own run */
     results.push({ i: current.p.i, verdict: verdict, shiny: current.shiny });
     persist();
     current = nextPokemon();
@@ -548,20 +566,136 @@
     var rate = results.length ? Math.round((smash / results.length) * 100) : 0;
     var label = rate >= 80 ? 'Certified Pokémon lover' : rate >= 50 ? 'Balanced taste, honestly' : rate >= 20 ? 'Seriously picky' : 'Certified Pokémon hater';
     return {
-      text: 'I smashed ' + smash + '/' + results.length + ' Pokémon (' + rate + '%) on Random Pokemon Generator — ' + label + '. How picky are you? ' + location.origin + location.pathname,
+      text: 'I smashed ' + smash + '/' + results.length + ' Pokémon (' + rate + '%) on Random Pokemon Generator — ' + label + '. How picky are you?',
       label: label
     };
   }
 
+  /* ---------------- share link encode / decode ---------------- */
+  function encodeVerdict(r) {
+    return r.i.toString(36) + (r.verdict === 'smash' ? (r.shiny ? 'S' : 's') : (r.shiny ? 'P' : 'p'));
+  }
+
+  function buildShareUrl() {
+    var keep = results;
+    var cut = false;
+    if (keep.length > SHARE_CAP) { keep = keep.slice(keep.length - SHARE_CAP); cut = true; }
+    var url = location.origin + location.pathname + '?list=' + keep.map(encodeVerdict).join('-');
+    if (cut) {
+      var smash = 0;
+      results.forEach(function (r) { if (r.verdict === 'smash') smash++; });
+      url += '&c=' + smash + ',' + (results.length - smash);
+    }
+    return url;
+  }
+
+  function readSharedList() {
+    var raw = params.get('list');
+    if (!raw) return null;
+    var byId = {}, order = [];
+    raw.split('-').forEach(function (tok) {
+      var m = /^([0-9a-z]+)([spSP])$/.exec(tok);
+      if (!m) return;
+      var p = BY_ID[parseInt(m[1], 36)];
+      if (!p) return;
+      if (!byId[p.i]) order.push(p.i);
+      byId[p.i] = {
+        i: p.i,
+        verdict: m[2].toLowerCase() === 's' ? 'smash' : 'pass',
+        shiny: m[2] === m[2].toUpperCase()
+      };
+    });
+    return order.map(function (id) { return byId[id]; });
+  }
+
+  function readSharedCounts() {
+    var raw = params.get('c');
+    if (!raw) return null;
+    var parts = raw.split(',');
+    var smash = parseInt(parts[0], 10);
+    var pass = parseInt(parts[1], 10);
+    if (!isFinite(smash) || !isFinite(pass) || smash < 0 || pass < 0) return null;
+    return { smash: smash, pass: pass, total: smash + pass };
+  }
+
+  /* ---------------- CSV export (name + verdict) ---------------- */
+  function csvCell(v) { return '"' + String(v).replace(/"/g, '""') + '"'; }
+
+  function downloadCsv() {
+    if (!results.length) return;
+    var rows = ['"Pokemon","Verdict","Shiny"'];
+    results.slice().reverse().forEach(function (r) {
+      var p = BY_ID[r.i];
+      if (!p) return;
+      rows.push(csvCell(displayName(p.n)) + ',' + csvCell(r.verdict === 'smash' ? 'Smash' : 'Pass') + ',' + csvCell(r.shiny ? 'Yes' : 'No'));
+    });
+    var blob = new Blob(['\ufeff' + rows.join('\r\n') + '\r\n'], { type: 'text/csv;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'pokemon-smash-or-pass-verdicts.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+  }
+
+  /* ---------------- read-only view of a shared list ---------------- */
+  function countVerdicts(list) {
+    var smash = 0;
+    list.forEach(function (r) { if (r.verdict === 'smash') smash++; });
+    return { smash: smash, pass: list.length - smash, total: list.length };
+  }
+
+  function enterSharedMode(list, counts) {
+    sharedMode = true;
+    sharedCounts = counts;
+    results = list;
+    var st = counts && counts.total ? counts : countVerdicts(list);
+    var rate = st.total ? Math.round((st.smash / st.total) * 100) : 0;
+    $('shared-meta').textContent = 'Shared list · ' + st.total + ' verdicts · ' + st.smash + ' smash / ' + st.pass + ' pass · ' + rate + '% smash rate';
+    if (st.total > list.length) {
+      $('shared-cut').hidden = false;
+      $('shared-cut').textContent = 'This link carries the newest ' + list.length + ' of the ' + st.total + ' verdicts. The numbers above are the full run — ask for the CSV if you want every row.';
+    }
+    var grid = $('shared-cards');
+    grid.innerHTML = '';
+    list.slice().reverse().forEach(function (r) { grid.appendChild(makeVerdictCard(r)); });
+    historyPanel.hidden = true;
+    $('shared-panel').hidden = false;
+    updateStats();
+  }
+
+  function loadOwnResults() {
+    try { return JSON.parse(localStorage.getItem(LS_RESULTS) || '[]'); }
+    catch (e) { return []; }
+  }
+
+  function exitSharedMode() {
+    sharedMode = false;
+    sharedCounts = null;
+    $('shared-panel').hidden = true;
+    results = loadOwnResults();
+    updateStats();
+    renderHistory();
+  }
+
   function shareVerdicts() {
     var label = $('share-label');
+    if (sharedMode) {
+      copyToClipboard(location.href, function (ok) {
+        label.textContent = ok ? 'Copied!' : 'Link ready';
+        setTimeout(function () { label.textContent = 'Share My Verdicts'; }, 1800);
+      });
+      return;
+    }
     if (!results.length) {
       label.textContent = 'Judge some first!';
       setTimeout(function () { label.textContent = 'Share My Verdicts'; }, 1800);
       return;
     }
     var s = verdictSummary();
-    copyToClipboard(s.text, function (ok) {
+    copyToClipboard(s.text + ' ' + buildShareUrl(), function (ok) {
       label.textContent = ok ? 'Copied!' : 'Link ready';
       setTimeout(function () { label.textContent = 'Share My Verdicts'; }, 1800);
     });
@@ -764,43 +898,47 @@
   /* ---------------- verdict cards modal ---------------- */
   var hmModal = $('history-modal');
 
+  function makeVerdictCard(r) {
+    var p = BY_ID[r.i];
+    var card = document.createElement('div');
+    card.className = 'v-card';
+    card.style.cursor = 'pointer';
+    card.title = 'Click for full details';
+    card.addEventListener('click', function () { openModal(p); });
+    var v = document.createElement('span');
+    v.className = 'v-verdict ' + r.verdict;
+    v.textContent = r.verdict === 'smash' ? 'Smash' : 'Pass';
+    card.appendChild(v);
+    var img = document.createElement('img');
+    img.src = r.shiny ? p.sps : p.sp;
+    img.alt = displayName(p.n);
+    img.width = 72;
+    img.height = 72;
+    img.loading = 'lazy';
+    img.onerror = function () {
+      var fb = img.src.replace('/other/official-artwork', '');
+      if (fb !== img.src) img.src = fb; else img.onerror = null;
+    };
+    card.appendChild(img);
+    var nm = document.createElement('span');
+    nm.className = 'v-name';
+    nm.textContent = displayName(p.n);
+    card.appendChild(nm);
+    var bst = document.createElement('span');
+    bst.className = 'v-bst';
+    bst.textContent = 'BST ' + p.tt;
+    card.appendChild(bst);
+    return card;
+  }
+
   function openVerdictCards() {
     if (!results.length) return;
     var grid = $('hm-cards');
     grid.innerHTML = '';
     $('hm-meta').textContent = results.length + ' verdicts — click a card for full details';
     results.slice().reverse().forEach(function (r) {
-      var p = BY_ID[r.i];
-      if (!p) return;
-      var card = document.createElement('div');
-      card.className = 'v-card';
-      card.style.cursor = 'pointer';
-      card.title = 'Click for full details';
-      card.addEventListener('click', function () { openModal(p); });
-      var v = document.createElement('span');
-      v.className = 'v-verdict ' + r.verdict;
-      v.textContent = r.verdict === 'smash' ? 'Smash' : 'Pass';
-      card.appendChild(v);
-      var img = document.createElement('img');
-      img.src = r.shiny ? p.sps : p.sp;
-      img.alt = displayName(p.n);
-      img.width = 72;
-      img.height = 72;
-      img.loading = 'lazy';
-      img.onerror = function () {
-        var fb = img.src.replace('/other/official-artwork', '');
-        if (fb !== img.src) img.src = fb; else img.onerror = null;
-      };
-      card.appendChild(img);
-      var nm = document.createElement('span');
-      nm.className = 'v-name';
-      nm.textContent = displayName(p.n);
-      card.appendChild(nm);
-      var bst = document.createElement('span');
-      bst.className = 'v-bst';
-      bst.textContent = 'BST ' + p.tt;
-      card.appendChild(bst);
-      grid.appendChild(card);
+      if (!BY_ID[r.i]) return;
+      grid.appendChild(makeVerdictCard(r));
     });
     hmModal.hidden = false;
     document.body.style.overflow = 'hidden';
@@ -820,7 +958,10 @@
   });
 
   /* ---------------- events ---------------- */
-  $('start-btn').addEventListener('click', startGame);
+  $('start-btn').addEventListener('click', function () {
+    if (sharedMode) exitSharedMode(); /* Start always means "play my own run" */
+    startGame();
+  });
   $('smash-btn').addEventListener('click', function () { judge('smash'); });
   $('pass-btn').addEventListener('click', function () { judge('pass'); });
   $('share-btn').addEventListener('click', shareVerdicts);
@@ -850,6 +991,13 @@
     updateStats();
     renderHistory();
   });
+  $('history-csv').addEventListener('click', downloadCsv);
+  $('shared-csv').addEventListener('click', downloadCsv);
+  $('shared-play').addEventListener('click', function () {
+    exitSharedMode();
+    startGame();
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
 
   document.addEventListener('keydown', function (e) {
     if (!running || !current) return;
@@ -860,9 +1008,14 @@
 
   /* ---------------- init ---------------- */
   renderSettings();
-  /* restore persisted verdicts (survive refresh) */
-  try { results = JSON.parse(localStorage.getItem(LS_RESULTS) || '[]'); }
-  catch (e) { results = []; }
-  updateStats();
-  renderHistory();
+  var sharedList = readSharedList();
+  if (sharedList && sharedList.length) {
+    /* ?list=… → read-only view of the sender's verdicts */
+    enterSharedMode(sharedList, readSharedCounts());
+  } else {
+    /* plain visit / refresh — restore this browser's own verdicts */
+    results = loadOwnResults();
+    updateStats();
+    renderHistory();
+  }
 })();
