@@ -21,7 +21,7 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ポケモン 色違い確率 計算機｜作品別 1/4096〜1/512</title>
+  <title>ポケモン 色違い確率 計算機｜作品別レート一覧</title>
   <meta name="description" content="全作品の色違い確率を1ページにまとめました。基本は1/4096、国際孵化やひかるおまもりを重ねた確率、出現までの回数計算まで。作品別の表で一覧でき、自分の狩りは計算機ですぐ試せます。1/512までの上げ方も同じページで分かります。" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Random Pokemon Generator" />
@@ -31,7 +31,7 @@
   <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/pokemon-shiny-odds/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="ポケモン 色違い確率 計算機｜作品別 1/4096〜1/512" />
+  <meta property="og:title" content="ポケモン 色違い確率 計算機｜作品別レート一覧" />
   <meta property="og:description" content="全作品の色違い確率を1ページにまとめました。基本は1/4096、国際孵化やひかるおまもりを重ねた確率、出現までの回数計算まで。作品別の表で一覧でき、自分の狩りは計算機ですぐ試せます。1/512までの上げ方も同じページで分かります。" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/pokemon-shiny-odds/" />
@@ -43,7 +43,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ポケモン 色違い確率 計算機｜作品別 1/4096〜1/512" />
+  <meta name="twitter:title" content="ポケモン 色違い確率 計算機｜作品別レート一覧" />
   <meta name="twitter:description" content="全作品の色違い確率を1ページにまとめました。基本は1/4096、国際孵化やひかるおまもりを重ねた確率、出現までの回数計算まで。作品別の表で一覧でき、自分の狩りは計算機ですぐ試せます。1/512までの上げ方も同じページで分かります。" />
   <meta name="twitter:image" content="https://www.random-pokemon-generator.co/ja/pokemon-shiny-odds/og-image.png" />
 
@@ -55,6 +55,46 @@
   <style>
     /* page-scoped: stacked input rows inside the odds calculator panel */
     .odds-n-label + .odds-n-label { margin-top: 12px; }
+
+    /* page-scoped: quick per-game rate strip that sits above the calculator */
+    .game-rates { margin-bottom: 20px; }
+    .game-rates-lead {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin: 0 0 9px;
+    }
+    .game-rates-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .game-rates-list a {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 7px;
+      padding: 8px 13px;
+      border: 1px solid var(--line-2);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.2;
+      text-decoration: none;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .game-rates-list a:hover { background: var(--surface-2); border-color: var(--ink); }
+    .game-rates-list b { font-weight: 700; }
+    @media (max-width: 760px) {
+      .game-rates-list { gap: 7px; }
+      .game-rates-list a { padding: 9px 12px; font-size: 12.5px; }
+    }
   </style>
 
   <!-- Structured data: SoftwareApplication -->
@@ -326,7 +366,21 @@
     <section class="hero container" aria-labelledby="page-title">
       <p class="eyebrow">全作品・全手法・基本1/8192から最高1/128まで</p>
       <h1 id="page-title">ポケモン 色違い確率 計算機</h1>
-      <p class="lede">ポケモンの色違い確率をまとめた完全なリファレンスです。世代別の基本確率、ひかるおまもりから国際孵化までの上昇手段、LEGENDS Z-A・LEGENDS アルセウス・Let's Go・スカーレットといった作品別の内訳を掲載しています。 &amp; バイオレットも含みます。あわせて、自分の狩りに合わせて使える計算機も用意しています。</p>
+      <p class="lede">作品を選び、使っている上昇手段をオンにすると、その狩りの正確な色違い確率が出ます。全作品の数字は下の表にまとめてあり、基本の1/4,096から重ねたときの1/512まで一覧できます。</p>
+    </section>
+
+    <!-- 作品ごとの最高確率：計算機の前に数字だけ見たい人のため -->
+    <section class="container game-rates" aria-label="作品ごとの最高色違い確率">
+      <p class="game-rates-lead">作品ごとの最高確率</p>
+      <ul class="game-rates-list">
+        <li><a href="../pokemon-scarlet-violet-shiny-odds/">スカーレット・バイオレット <b>1/512</b></a></li>
+        <li><a href="../pokemon-legends-z-a-shiny-odds/">LEGENDS Z-A <b>1/585</b></a></li>
+        <li><a href="../pokemon-legends-arceus-shiny-odds/">LEGENDS アルセウス <b>1/128</b></a></li>
+        <li><a href="../pokemon-sword-shield-shiny-odds/">ソード・シールド <b>1/100</b></a></li>
+        <li><a href="../pokemon-brilliant-diamond-shining-pearl-shiny-odds/">BDSP <b>1/99</b></a></li>
+        <li><a href="../pokemon-lets-go-shiny-odds/">Let's Go <b>1/273</b></a></li>
+        <li><a href="#base-odds">第2〜5世代 <b>1/1,024</b></a></li>
+      </ul>
     </section>
 
     <!-- Calculator -->
@@ -370,10 +424,7 @@
           <p class="tool-note" id="odds-milestones"></p>
         </fieldset>
 
-        <div class="actions">
-          <a href="../random-shiny-pokemon-generator/" class="btn-slide cornered btn-primary odds-cta"><span><i class="ico ico-sparkles" aria-hidden="true"></i> 今すぐ色違いを引いてみる — ランダム色違い生成</span></a>
-        </div>
-        <p class="tool-note">計算はここまでで十分です。ジェネレーターなら色違いのポケモンをすぐに引けます。4,096回の作業は要りません。</p>
+        <p class="tool-note">計算より先に色違いが欲しいときは、<a href="../random-shiny-pokemon-generator/">ランダム色違い生成</a>でその場で引けます。</p>
       </div>
     </section>
 

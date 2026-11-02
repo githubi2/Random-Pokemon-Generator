@@ -22,8 +22,8 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Random Pokemon Type Generator — 18-Type Wheel &amp; Combos</title>
-  <meta name="description" content="Spin an 18-type Pokemon wheel or roll a dual-type combo. Instant matchups, rare combos, and example species — free type roulette, no sign-up." />
+  <title>Random Pokemon Type Generator — Monotype &amp; Dual-Type Challenge</title>
+  <meta name="description" content="Spin a random Pokemon type for monotype runs or roll a dual-type combo — 18 types, 153 pairings, instant matchups. A challenge tool, not a type chart." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.random-pokemon-generator.co/random-pokemon-type-generator/" />
   <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/random-pokemon-type-generator/" />
@@ -31,8 +31,8 @@
   <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/random-pokemon-type-generator/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Random Pokemon Type Generator — 18-Type Wheel &amp; Combos" />
-  <meta property="og:description" content="Spin an 18-type Pokemon wheel or roll a dual-type combo. Instant matchups, rare combos, and example species — free type roulette, no sign-up." />
+  <meta property="og:title" content="Random Pokemon Type Generator — Monotype &amp; Dual-Type Challenge" />
+  <meta property="og:description" content="Spin a random Pokemon type for monotype runs or roll a dual-type combo — 18 types, 153 pairings, instant matchups. A challenge tool, not a type chart." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.random-pokemon-generator.co/random-pokemon-type-generator/" />
   <meta property="og:site_name" content="Random Pokemon Generator" />
@@ -42,8 +42,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Random Pokemon Type Generator — 18-Type Wheel &amp; Combos" />
-  <meta name="twitter:description" content="Spin an 18-type Pokemon wheel or roll a dual-type combo. Instant matchups, rare combos, and example species — free type roulette, no sign-up." />
+  <meta name="twitter:title" content="Random Pokemon Type Generator — Monotype &amp; Dual-Type Challenge" />
+  <meta name="twitter:description" content="Spin a random Pokemon type for monotype runs or roll a dual-type combo — 18 types, 153 pairings, instant matchups. A challenge tool, not a type chart." />
   <meta name="twitter:image" content="https://www.random-pokemon-generator.co/random-pokemon-type-generator/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
@@ -80,6 +80,10 @@
     .tw-hdot + .tw-hdot { margin-left: -8px; }
     .history-item .tw-hname { font-family: var(--font-body); font-size: 12px; font-weight: 700;  letter-spacing: 0.08em; }
     .tw-win path { stroke: #f6c90e; stroke-width: 3; }
+
+    /* page-scoped: four keyword sections inside the how-it-works band */
+    .type-group + .type-group { margin-top: 46px; }
+    .type-group-lede { margin-top: 12px; max-width: 760px; }
   </style>
 
   <!-- Structured data: SoftwareApplication -->
@@ -115,6 +119,11 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this the same as a Pokemon type chart?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. A type chart is the full 18-by-18 grid of attacking and defending types, a table you read from. This generator rolls one type or one pairing and then reports that result's matchups, so it decides for you instead of listing everything. The complete grid lives on the Pokemon Type Chart page." }
+      },
       {
         "@type": "Question",
         "name": "What is a random Pokemon type generator?",
@@ -312,48 +321,70 @@
     <section id="how" class="band band-yellow" aria-labelledby="how-title">
       <div class="container">
         <p class="eyebrow">How it works</p>
-        <h2 id="how-title">Pokemon Type Wheel: Spin All 18 Types</h2>
-        <div class="how-grid">
-          <article>
-            <h3>One click, a random type</h3>
-            <p>Type is the first decision in almost every Pokemon challenge: pick the type, and everything else follows from the matchup chart. This generator makes that decision in one click — spin the wheel and all 18 types are in play, from Normal to Fairy. Use it to start a new run, to settle an argument, or to give yourself a starting point when you cannot choose. The roll is genuinely random every time; there is no weighting and no way to steer it. Take what the wheel gives you — that is the point.</p>
-          </article>
-          <article>
-            <h3>Single types and dual combinations</h3>
-            <p>Single mode rolls one of the 18 types. Dual mode rolls a pairing: 18 singles plus 153 two-type combinations make 171 possible outcomes, and the famous pairs — Fire/Flying, Water/Ground, Dragon/Ghost — come up exactly as often as the math says. Dual rolls show you how many Pokemon actually carry the combination, so landing on Rock/Dark feels very different from Flying/Normal, which more than twenty species share. Every roll is a clean slate: the same type can come up twice in a row.</p>
-          </article>
-          <article>
-            <h3>The spinning type wheel</h3>
-            <p>The Pokemon type wheel is the heart of the tool: 18 colored segments, one per type, using the same colors as the rest of this site. Press Spin and it rotates with a real deceleration curve — the segment under the pointer is your type. There is no re-spin hiding behind the animation and no way to influence the outcome. Both the center hub and the button below the wheel trigger the spin, so it plays the same on a phone and on a desktop, and the winning segment gets a gold outline so everyone can see where it stopped.</p>
-          </article>
-          <article>
-            <h3>Read the matchup box</h3>
-            <p>Every roll reports what the type or pair is weak to, what it resists, and what it is immune to, using standard multipliers. A dual roll combines both halves — Fire/Flying, for example, takes quadruple damage from Rock, while Ground drops to zero. That little box turns a random pick into a strategy: a roll is not just a name, it is a full defensive profile you can plan around before the first battle. Keep the <a href="../pokemon-type-chart/">Pokemon Type Chart</a> nearby if you want the complete 18-by-18 picture behind it.</p>
-          </article>
-          <article>
-            <h3>Rare combinations worth hunting</h3>
-            <p>Some pairs are nearly untouched: Rock/Dark belongs to Tyranitar alone, Bug/Ghost only to Shedinja, Steel/Water just Empoleon, and Ice/Ghost fits only Froslass. Rolling into one of these is the type equivalent of a shiny — you can build a run or a fakemon around it, and nobody else in the lobby has it. The result card counts exactly how many species share your combination, so you always know whether you rolled something common or almost unique. Rare hunts are a good excuse to keep spinning: every roll is independent, and the thin combinations stay satisfying.</p>
-          </article>
-          <article>
-            <h3>Monotype runs and challenge locks</h3>
-            <p>A type roll is a ready-made rule for a challenge run: lock your whole team to whatever the wheel lands on and see how far the game bends. Players spin once for a run theme, once for a draft, or once for a starter type in a random-locke. If the run needs rules, pair the type with the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a>; if you want to plan the full squad before you start, the <a href="../pokemon-team-picker/">Pokemon Team Picker</a> builds six-slot teams with natures, moves and items around the type you rolled.</p>
-          </article>
-          <article>
-            <h3>Type rolls as art prompts</h3>
-            <p>For artists, a rolled type is a prompt: one spin gives you the element, and in dual mode a second gives you the combination — suddenly you have a fakemon brief. A Ground/Fairy design, an Ice/Ghost gimmick, an Electric/Poison mascot: the harder the pairing, the more room there is, because nobody is expecting an original take on the one Pokemon that carries it. The example sprites on the result card work as reference points, or you can ignore the Pokemon entirely and design from the type alone. It removes the blank page, which is the only hard part.</p>
-          </article>
-          <article>
-            <h3>From one type to a full team</h3>
-            <p>A single roll can drive an entire session. Spin a type, then open the <a href="../">random Pokemon generator</a> to fill a roster from the pool. Need one Pokemon instead of a team? The <a href="../random-pokemon-picker/">Random Pokemon Picker</a> deals singles. Once the team exists, the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> names every member and the <a href="../pokemon-card-generator/">Pokemon Card Generator</a> prints the highlights. One type roll, one full lineup — and everything stays consistent because every tool on this site draws from the same dataset.</p>
-          </article>
-          <article>
-            <h3>Play it as a party game</h3>
-            <p>The most fun way to use a type generator is with other people: everyone takes the same spin and builds a team around what it landed on, best battle round decides the winner. Or spin once per player and let the types decide who faces whom. Because the spin is short and the rules are obvious, it works live — on a stream, in a voice call, or around a table with one phone passed around. Set your own house rules; the only rule this site enforces is the truth of the spin.</p>
-          </article>
-          <article>
-            <h3>Keep rolling across the site</h3>
-            <p>Rolled your type? The rest of the suite takes over from here: build the squad with the Pokemon Team Picker, or grab a single pick from the Random Pokemon Picker. Before all that, study the full Pokemon Type Chart this wheel is built from — and browse every species in the <a href="../pokemon/">Pokemon Pokedex</a>. For the rare side of the dex, the <a href="../random-legendary-pokemon-generator/">Random Legendary Pokemon Generator</a> rolls legends and mythicals.</p>
-          </article>
+
+        <div class="type-group">
+          <h2 id="how-title">Pokemon Type Wheel: Spin All 18 Types</h2>
+          <div class="how-grid">
+            <article>
+              <h3>One click, a random type</h3>
+              <p>Type is the first decision in almost every Pokemon challenge: pick the type, and everything else follows from the matchup chart. This generator makes that decision in one click — spin the wheel and all 18 types are in play, from Normal to Fairy. Use it to start a new run, to settle an argument, or to give yourself a starting point when you cannot choose. The roll is genuinely random every time; there is no weighting and no way to steer it. Take what the wheel gives you — that is the point.</p>
+            </article>
+            <article>
+              <h3>The spinning type wheel</h3>
+              <p>The Pokemon type wheel is the heart of the tool: 18 colored segments, one per type, using the same colors as the rest of this site. Press Spin and it rotates with a real deceleration curve — the segment under the pointer is your type. There is no re-spin hiding behind the animation and no way to influence the outcome. Both the center hub and the button below the wheel trigger the spin, so it plays the same on a phone and on a desktop, and the winning segment gets a gold outline so everyone can see where it stopped.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="type-group">
+          <h2 id="dual-title">Random Pokemon Dual-Type Roll</h2>
+          <div class="how-grid">
+            <article>
+              <h3>Single types and dual combinations</h3>
+              <p>Single mode rolls one of the 18 types. Dual mode rolls a pairing: 18 singles plus 153 two-type combinations make 171 possible outcomes, and the famous pairs — Fire/Flying, Water/Ground, Dragon/Ghost — come up exactly as often as the math says. Dual rolls show you how many Pokemon actually carry the combination, so landing on Rock/Dark feels very different from Flying/Normal, which more than twenty species share. Every roll is a clean slate: the same type can come up twice in a row.</p>
+            </article>
+            <article>
+              <h3>Read the matchup box</h3>
+              <p>Every roll reports what the type or pair is weak to, what it resists, and what it is immune to, using standard multipliers. A dual roll combines both halves — Fire/Flying, for example, takes quadruple damage from Rock, while Ground drops to zero. That little box turns a random pick into a strategy: a roll is not just a name, it is a full defensive profile you can plan around before the first battle.</p>
+            </article>
+            <article>
+              <h3>Rare combinations worth hunting</h3>
+              <p>Some pairs are nearly untouched: Rock/Dark belongs to Tyranitar alone, Bug/Ghost only to Shedinja, Steel/Water just Empoleon, and Ice/Ghost fits only Froslass. Rolling into one of these is the type equivalent of a shiny — you can build a run or a fakemon around it, and nobody else in the lobby has it. The result card counts exactly how many species share your combination, so you always know whether you rolled something common or almost unique. Rare hunts are a good excuse to keep spinning: every roll is independent, and the thin combinations stay satisfying.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="type-group">
+          <h2 id="challenge-title">How to Use It in a Monotype Challenge</h2>
+          <div class="how-grid">
+            <article>
+              <h3>Lock a whole run to one type</h3>
+              <p>A type roll is a ready-made rule for a challenge run: lock your whole team to whatever the wheel lands on and see how far the game bends. Players spin once for a run theme, once for a draft, or once for a starter type in a random-locke. If the run needs rules, pair the type with the <a href="../nuzlocke-generator/">Nuzlocke Team Builder</a>; if you want to plan the full squad before you start, the <a href="../pokemon-team-picker/">Pokemon Team Picker</a> builds six-slot teams with natures, moves and items around the type you rolled.</p>
+            </article>
+            <article>
+              <h3>From one type to a full team</h3>
+              <p>A single roll can drive an entire session. Spin a type, then open the <a href="../">random Pokemon generator</a> to fill a roster from the pool. Need one Pokemon instead of a team? The <a href="../random-pokemon-picker/">Random Pokemon Picker</a> deals singles. Once the team exists, the <a href="../random-pokemon-name-generator/">Random Pokemon Name Generator</a> names every member and the <a href="../pokemon-card-generator/">Pokemon Card Generator</a> prints the highlights. One type roll, one full lineup — and everything stays consistent because every tool on this site draws from the same dataset.</p>
+            </article>
+            <article>
+              <h3>Play it as a party game</h3>
+              <p>The most fun way to use a type generator is with other people: everyone takes the same spin and builds a team around what it landed on, best battle round decides the winner. Or spin once per player and let the types decide who faces whom. Because the spin is short and the rules are obvious, it works live — on a stream, in a voice call, or around a table with one phone passed around. Set your own house rules; the only rule this site enforces is the truth of the spin.</p>
+            </article>
+            <article>
+              <h3>Type rolls as art prompts</h3>
+              <p>For artists, a rolled type is a prompt: one spin gives you the element, and in dual mode a second gives you the combination — suddenly you have a fakemon brief. A Ground/Fairy design, an Ice/Ghost gimmick, an Electric/Poison mascot: the harder the pairing, the more room there is, because nobody is expecting an original take on the one Pokemon that carries it. The example sprites on the result card work as reference points, or you can ignore the Pokemon entirely and design from the type alone. It removes the blank page, which is the only hard part.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="type-group">
+          <h2 id="vs-chart-title">This Wheel Is Not a Pokemon Type Chart</h2>
+          <p class="type-group-lede">A type chart is a lookup table — attacking types down one side, defending types across the top, multipliers in the cells. Nothing here replaces it. This page picks the type for you first and then shows how that type or pairing defends, so it is a challenge tool, not a reference grid. When you need the full 18-by-18 picture, open the <a href="../pokemon-type-chart/">Pokemon Type Chart</a>; when you want the type decided before you plan anything, spin the wheel.</p>
+          <div class="how-grid">
+            <article>
+              <h3>Keep rolling across the site</h3>
+              <p>Rolled your type? The rest of the suite takes over from here: build the squad with the Pokemon Team Picker, or grab a single pick from the Random Pokemon Picker. Before all that, study the full Pokemon Type Chart this wheel is built from — and browse every species in the <a href="../pokemon/">Pokemon Pokedex</a>. For the rare side of the dex, the <a href="../random-legendary-pokemon-generator/">Random Legendary Pokemon Generator</a> rolls legends and mythicals.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -362,6 +393,10 @@
     <section id="faq" class="container faq" aria-labelledby="faq-title">
       <p class="eyebrow">FAQ</p>
       <h2 id="faq-title">Random Pokemon Type Generator FAQ</h2>
+      <details class="faq-item cornered">
+        <summary>Is this the same as a Pokemon type chart?</summary>
+        <p>No. A type chart is the full 18-by-18 grid of attacking and defending types, a table you read from. This generator rolls one type or one pairing and then reports that result's matchups, so it decides for you instead of listing everything. The complete grid lives on the Pokemon Type Chart page.</p>
+      </details>
       <details class="faq-item cornered">
         <summary>What is a random Pokemon type generator?</summary>
         <p>It is a tool that rolls a random Pokemon type for you — one of the 18 types, or in dual mode a random pairing of two. Every result shows the type's weaknesses, resistances, immunities and a handful of Pokemon that share it, so the roll is immediately usable in a challenge, a team plan or a fan-art prompt.</p>
