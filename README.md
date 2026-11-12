@@ -309,6 +309,8 @@ Data sourced from [PokeAPI](https://pokeapi.co/) (sprites via official artwork C
 
 The Pokedex grows in waves. Species pages go live a few at a time, and the hub lists every one that is up. Later waves follow the same pattern, and data corrections reported through issues land in the wave after they are verified.
 
+The current wave adds [Tyranitar](https://www.random-pokemon-generator.co/pokemon/tyranitar/), [Metagross](https://www.random-pokemon-generator.co/pokemon/metagross/), [Togepi](https://www.random-pokemon-generator.co/pokemon/togepi/) and [Ceruledge](https://www.random-pokemon-generator.co/pokemon/ceruledge/), each with a Japanese version under `/ja/pokemon/`. All four follow the same layout as the earlier species pages: two data cards where a form exists, the full 18-type matchup grid, and a FAQ that answers what the search queries actually ask.
+
 ## License
 
 Open source — see repository for details.
