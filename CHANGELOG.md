@@ -4,6 +4,7 @@ Site updates, newest first.
 
 ## November 2026
 
+- **11-12** — Minior joins the Pokedex in English and Japanese. Both forms sit on the page side by side — Meteor at 440 and the exposed core at 500 — with five weaknesses, the Ground immunity, the half-HP Shields Down switch and the 2026 meteor shower dates taken from the official Pokemon GO announcement. The hub now covers thirty-one species.
 - **11-02** — Smash or Pass shares the actual verdict list now. The Share button copies a link that reopens your smash and pass cards, your smash rate and your streak on the receiver's screen; Verdict History exports the same list as a CSV file. The Japanese page has both.
 - **11-02** — Titles, descriptions and H1s rewritten on six pages, English and Japanese: the shiny odds calculator, the guide behind it, Legends: Z-A, the type generator, Smash or Pass and the homepage.
 
