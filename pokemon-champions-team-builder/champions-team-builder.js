@@ -948,12 +948,15 @@
     }
   }
   function shareMenu(kind) {
-    var text;
-    if (kind === 'showdown') text = buildShowdown();
-    else if (kind === 'json') text = buildTeamJSON();
-    else text = 'I built a Pokemon Champions team on Random Pokemon Generator — ' + (state.name || 'My team') + '! Pick yours: ' + buildShareUrl();
-    copyToClipboard(text, function (ok) {
-      if (ok) flashStatus('Copied!');
+    if (kind === 'showdown' || kind === 'json') {
+      copyToClipboard(kind === 'showdown' ? buildShowdown() : buildTeamJSON(), function (ok) {
+        if (ok) flashStatus('Copied!');
+      });
+      return;
+    }
+    RPShare.open({
+      text: 'I built a Pokemon Champions team on Random Pokemon Generator — ' + (state.name || 'My team') + '! Pick yours:',
+      url: buildShareUrl()
     });
   }
   function flashStatus(msg) {

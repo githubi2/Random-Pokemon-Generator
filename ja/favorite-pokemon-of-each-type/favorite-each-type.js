@@ -480,15 +480,9 @@
       status.textContent = '先にお気に入りを1匹選んでください。';
       return;
     }
-    var url = buildShareUrl();
-    copyToClipboard(url, function (ok) {
-      if (ok) {
-        status.textContent = 'リンクをコピーしました — トレーナー名を含め、18タイプすべての選択が復元されます。';
-        track('fet_copy', { picks: filledCount() });
-      } else {
-        status.textContent = '';
-        showShareModal(url);
-      }
+    RPShare.open({
+      text: '18タイプのお気に入りを選びました。あなたは？',
+      url: buildShareUrl()
     });
   }
   $('share-modal-close').addEventListener('click', function () { $('share-modal').hidden = true; });

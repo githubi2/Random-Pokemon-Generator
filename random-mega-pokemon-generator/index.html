@@ -302,11 +302,13 @@
         <div class="actions">
           <button type="button" id="mega-generate-btn" class="btn-slide cornered btn-primary"><span><i class="ico ico-dice-5" aria-hidden="true"></i> Generate Mega Pokemon</span></button>
           <button type="button" id="mega-copy-btn" class="btn-slide btn-secondary" disabled><span><i class="ico ico-clipboard" aria-hidden="true"></i> Copy Result</span></button>
+          <button type="button" id="mega-share-btn" class="btn-slide btn-secondary" disabled><span><i class="ico ico-megaphone" aria-hidden="true"></i> Share</span></button>
           <button type="button" id="mega-reset-btn" class="btn-slide btn-ghost"><span>↺ Reset Filters</span></button>
         </div>
         <div class="tool-note-group">
           <p class="tool-note"><i class="ico ico-dice-5" aria-hidden="true"></i> Generate Mega Pokemon — rolls 1–6 random Mega Evolutions from the active pool, never a duplicate inside the same roll</p>
           <p class="tool-note"><i class="ico ico-clipboard" aria-hidden="true"></i> Copy Result — copies the current mega's name, types, stats and a link to share</p>
+          <p class="tool-note"><i class="ico ico-megaphone" aria-hidden="true"></i> Share — posts the roll to X, Reddit or WhatsApp, or copies the link</p>
           <p class="tool-note"><i class="ico ico-sparkles" aria-hidden="true"></i> Shiny — the toggle on the card swaps between regular and shiny artwork</p>
         </div>
         <p class="pool-count" id="mega-pool-count"></p>
@@ -468,6 +470,7 @@
   <script src="../data.js?v=20261022d"></script>
   <script src="../nav.js?v=20261022m"></script>
   <script src="mega-generator.js?v=20261022d"></script>
+  <script src="../share.js?v=20261113a"></script>
   <script src="../lang-switch.js?v=20261022a"></script>
 </body>
 </html>

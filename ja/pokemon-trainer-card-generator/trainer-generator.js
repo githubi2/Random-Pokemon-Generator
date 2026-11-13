@@ -462,6 +462,13 @@
     if (dl) dl.addEventListener('click', download);
     var cp = $('tg-copy');
     if (cp) cp.addEventListener('click', copyText);
+    var sh = $('tg-share');
+    if (sh) sh.addEventListener('click', function () {
+      RPShare.open({
+        text: 'ポケモントレーナーカードを作りました — あなたも作ってみて:',
+        url: location.href
+      });
+    });
     var close = $('tg-modal-close');
     if (close) close.addEventListener('click', function () { $('tg-modal').hidden = true; });
     document.addEventListener('keydown', function (e) {

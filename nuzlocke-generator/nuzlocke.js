@@ -1355,10 +1355,9 @@
   });
 
   $('copy-btn').addEventListener('click', function () {
-    var label = $('copy-label');
-    copyToClipboard(buildShareUrl(), function (ok) {
-      label.textContent = ok ? 'Copied!' : 'Link ready';
-      setTimeout(function () { label.textContent = 'Copy Share Link'; }, 1800);
+    RPShare.open({
+      text: 'My Nuzlocke run setup — build your own:',
+      url: buildShareUrl()
     });
   });
 

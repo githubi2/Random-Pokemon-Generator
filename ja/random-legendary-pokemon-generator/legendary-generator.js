@@ -230,13 +230,10 @@ var TYPES = [
     var label = $('lg-share-label');
     if (!lastShareText) {
       label.textContent = 'まず抽選して！';
-      setTimeout(function () { label.textContent = '結果をシェア'; }, 1800);
+      setTimeout(function () { label.textContent = 'シェア'; }, 1800);
       return;
     }
-    copyToClipboard(lastShareText, function (ok) {
-      label.textContent = ok ? 'コピーしました' : '手動でコピー';
-      setTimeout(function () { label.textContent = '結果をシェア'; }, 1800);
-    });
+    RPShare.open({ text: lastShareText, url: location.origin + location.pathname + (current ? '?p=' + current.i : '') });
   }
 
   /* ---------- events ---------- */
@@ -290,4 +287,13 @@ var TYPES = [
   /* ---------- init ---------- */
   updatePoolNote();
   void current;
+
+  (function () {
+    var m = /[?&]p=(\d+)/.exec(location.search);
+    if (!m) return;
+    var id = Number(m[1]);
+    for (var i = 0; i < DATA.length; i++) {
+      if (DATA[i].i === id) { render(DATA[i]); return; }
+    }
+  })();
 }());

@@ -439,10 +439,9 @@
       share.setAttribute('aria-label', 'Copy share link for squad ' + num);
       share.addEventListener('click', function () {
         hideTip();
-        var url = buildShareUrl(entry.f || filters, entryRolls(entry));
-        copyToClipboard(url, function (ok) {
-          share.textContent = ok ? 'Copied' : 'Link ready';
-          setTimeout(function () { share.textContent = 'Share'; }, 1800);
+        RPShare.open({
+          text: 'My random Pokemon squad — roll your own:',
+          url: buildShareUrl(entry.f || filters, entryRolls(entry))
         });
       });
 
@@ -1168,11 +1167,9 @@
   $('generate-btn').addEventListener('click', roll);
 
   $('copy-btn').addEventListener('click', function () {
-    var url = buildShareUrl(filters, currentRolls);
-    var label = $('copy-label');
-    copyToClipboard(url, function (ok) {
-      label.textContent = ok ? 'Copied!' : 'Link ready';
-      setTimeout(function () { label.textContent = 'Copy Config Link'; }, 1800);
+    RPShare.open({
+      text: 'My random Pokemon squad — roll your own:',
+      url: buildShareUrl(filters, currentRolls)
     });
   });
 

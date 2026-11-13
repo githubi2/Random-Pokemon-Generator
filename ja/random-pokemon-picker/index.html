@@ -137,7 +137,7 @@
    "name": "選んだポケモンはどう共有しますか？",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "「リンクをコピー」を押すと、出たポケモンと、その結果を生んだ条件を埋め込んだURLができます。色違いも含まれます。そのURLをどこで開いても同じ結果が表示され、同じ条件のまま次の抽選もできます。"
+    "text": "「シェア」を押すと、出たポケモンと、その結果を生んだ条件を埋め込んだリンクができます。色違いも含まれます。X・Reddit・WhatsApp・Telegramにそのまま投稿でき、そのリンクをどこで開いても同じ結果が表示され、同じ条件のまま次の抽選もできます。"
    }
   },
   {
@@ -330,14 +330,14 @@
             <span><i class="ico ico-dice-5" aria-hidden="true"></i> ポケモンを選ぶ</span>
           </button>
           <button type="button" id="copy-btn" class="btn-slide btn-secondary">
-            <span id="copy-label"><i class="ico ico-clipboard" aria-hidden="true"></i> リンクをコピー</span>
+            <span id="copy-label"><i class="ico ico-megaphone" aria-hidden="true"></i> シェア</span>
           </button>
           <button type="button" id="reset-btn" class="btn-text">すべてリセット</button>
           <span class="pool-count" id="pool-count" aria-live="polite">候補は1,025体</span>
         </div>
         <div class="tool-note-group">
           <p class="tool-note"><i class="ico ico-dice-5" aria-hidden="true"></i> ポケモンを選ぶ — いまの対象から抽選します（既定は1匹、スライダーで変更）</p>
-          <p class="tool-note"><i class="ico ico-clipboard" aria-hidden="true"></i> リンクをコピー — いまの条件と抽選結果をそのまま開けるURLを作ります</p>
+          <p class="tool-note"><i class="ico ico-megaphone" aria-hidden="true"></i> シェア — いまの条件と抽選結果をX・Reddit・WhatsAppに投稿、またはリンクをコピー</p>
           <p class="tool-note"><i class="ico ico-volume-2" aria-hidden="true"></i> 鳴き声 — カードが出た瞬間に鳴き声が鳴り、カードを押すと何度でも聞けます</p>
         </div>
       </form>
@@ -388,7 +388,7 @@
           </article>
           <article>
             <h3>出た結果をそのまま共有</h3>
-            <p>抽選結果はそのまま再現できます。「リンクをコピー」を押すと、いまの条件と実際に出たポケモン（色違いも含む）を埋め込んだURLができます。友達や配信チャット、Discordに送れば、全員が同じ結果を開き、同じ条件のまま振り直しもできます。抽選をみんなで共有する最短の方法です。</p>
+            <p>抽選結果はそのまま再現できます。「シェア」を押すと、いまの条件と実際に出たポケモン（色違いも含む）を埋め込んだリンクができます。友達や配信チャット、Discordに送れば、全員が同じ結果を開き、同じ条件のまま振り直しもできます。抽選をみんなで共有する最短の方法です。</p>
             <p>1匹決まったら、あとは仕上げです。名前を <a href="../random-pokemon-name-generator/">ランダム名前生成</a>で決めて、性格は <a href="../pokemon-nature-chart/">ポケモン性格表</a>で確認。カードにしたいなら <a href="../pokemon-card-generator/">ポケモンカード作成</a> で作れます。トレーナー用の <a href="../pokemon-trainer-card-generator/">トレーナーカード作成</a> カードも揃います。抽選がイーブイだったなら、 <a href="../eevee-evolutions/">イーブイ進化</a> で8通りの進化先を比べられます。この1匹を軸にパーティを組みたいなら、 <a href="../pokemon-team-picker/">パーティ編成</a> で6枠すべてを自分で決められます。</p>
           </article>
           <article>
@@ -427,7 +427,7 @@
       </details>
       <details class="faq-item cornered">
         <summary>選んだポケモンはどう共有しますか？</summary>
-        <p>「リンクをコピー」を押すと、出たポケモンと、その結果を生んだ条件を埋め込んだURLができます。色違いも含まれます。そのURLをどこで開いても同じ結果が表示され、同じ条件のまま次の抽選もできます。</p>
+        <p>「シェア」を押すと、出たポケモンと、その結果を生んだ条件を埋め込んだリンクができます。色違いも含まれます。X・Reddit・WhatsApp・Telegramにそのまま投稿でき、そのリンクをどこで開いても同じ結果が表示され、同じ条件のまま次の抽選もできます。</p>
       </details>
       <details class="faq-item cornered">
         <summary>どのポケモンが対象ですか？</summary>
@@ -471,6 +471,7 @@
   <script src="../../nav.js?v=20261022m"></script>
   <script src="../names.js?v=20261022ja3"></script>
   <script src="picker.js?v=20261022ja3"></script>
+  <script src="../../share.js?v=20261113a"></script>
   <script src="../../lang-switch.js?v=20261022a"></script>
 </body>
 </html>

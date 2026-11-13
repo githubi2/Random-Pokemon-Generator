@@ -998,6 +998,21 @@
     resultsHead.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   });
 
+  var shareBtn = $('ng-share');
+  if (shareBtn) shareBtn.addEventListener('click', function () {
+    var first = [], total = 0;
+    lastBatch.forEach(function (cat) {
+      cat.items.forEach(function (item) {
+        total++;
+        if (first.length < 2) first.push(item.name);
+      });
+    });
+    var text = total
+      ? 'I rolled Pokemon names — ' + first.join(', ') + (total > first.length ? ' and ' + (total - first.length) + ' more' : '') + '. Make your own:'
+      : 'Random Pokemon Name Generator — roll your own:';
+    RPShare.open({ text: text, url: location.href });
+  });
+
   copyAllBtn.addEventListener('click', function () {
     if (!lastBatch.length) return;
     var names = [];

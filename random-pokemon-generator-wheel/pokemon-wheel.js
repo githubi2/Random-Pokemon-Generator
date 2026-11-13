@@ -916,13 +916,12 @@
     var label = $('wheel-share-label');
     if (!lastResult) {
       label.textContent = 'Spin first!';
-      setTimeout(function () { label.textContent = 'Share Result'; }, 1800);
+      setTimeout(function () { label.textContent = 'Share'; }, 1800);
       return;
     }
-    var text = 'The Pokémon wheel decided: ' + displayName(lastResult.n) + '! Spin yours: ' + location.origin + location.pathname;
-    copyToClipboard(text, function (ok) {
-      label.textContent = ok ? 'Copied!' : 'Link ready';
-      setTimeout(function () { label.textContent = 'Share Result'; }, 1800);
+    RPShare.open({
+      text: 'The Pokémon wheel decided: ' + displayName(lastResult.n) + '! Spin yours:',
+      url: location.origin + location.pathname + '?p=' + lastResult.i
     });
   }
 
@@ -973,4 +972,16 @@
     if (p) appendResultCard(p, false);
   });
   updateAnalysis();
+
+  /* 分享链接里带了 ?p=<id> — 把同一只重新摆出来 */
+  var urlP = Number((location.search.match(/[?&]p=(\d+)/) || [])[1] || 0);
+  if (urlP && !lastResult) {
+    for (var up = 0; up < POKEMON.length; up++) {
+      if (POKEMON[up].i === urlP) {
+        lastResult = POKEMON[up];
+        showResult(POKEMON[up]);
+        break;
+      }
+    }
+  }
 })();

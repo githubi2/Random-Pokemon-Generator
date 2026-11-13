@@ -726,16 +726,18 @@
     if (!e || state.gameState === 'playing' || state.gameState === 'setup') return;
     var time = fmtTime(state.lastTimeTaken);
     var text = state.gameState === 'correct'
-      ? 'I guessed ' + e.displayName + ' in ' + time + ' on Who\'s That Pokemon! Can you beat me? 🔍 ' + shareUrl()
-      : 'Who\'s That Pokemon tricked me — it was ' + e.displayName + '! Name it in 3 tries: ' + shareUrl();
-    copyToClipboard(text, function (ok) { flashLabel($('wtp-share-result'), ok, 'Share'); });
+      ? 'I guessed ' + e.displayName + ' in ' + time + ' on Who\'s That Pokemon! Can you beat me? 🔍'
+      : 'Who\'s That Pokemon tricked me — it was ' + e.displayName + '! Name it in 3 tries:';
+    RPShare.open({ text: text, url: shareUrl() });
+    flashLabel($('wtp-share-result'), true, 'Share');
   }
   function shareStats() {
     var st = state.stats;
     var played = st.correctGuesses + st.incorrectGuesses;
     var pct = played ? Math.round(st.correctGuesses / played * 100) : 0;
-    var text = 'I\'m ' + pct + '% accurate on Who\'s That Pokemon (' + st.correctGuesses + '/' + played + ' correct, best streak ' + st.bestStreak + '). Think you can beat me? ' + shareUrl();
-    copyToClipboard(text, function (ok) { flashLabel($('wtp-share-stats'), ok, 'Share My Stats'); });
+    var text = 'I\'m ' + pct + '% accurate on Who\'s That Pokemon (' + st.correctGuesses + '/' + played + ' correct, best streak ' + st.bestStreak + '). Think you can beat me?';
+    RPShare.open({ text: text, url: shareUrl() });
+    flashLabel($('wtp-share-stats'), true, 'Share My Stats');
   }
 
   /* ---------------- modals ---------------- */

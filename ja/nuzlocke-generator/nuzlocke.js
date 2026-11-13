@@ -1355,10 +1355,9 @@
   });
 
   $('copy-btn').addEventListener('click', function () {
-    var label = $('copy-label');
-    copyToClipboard(buildShareUrl(), function (ok) {
-      label.textContent = ok ? 'コピーしました' : '準備完了';
-      setTimeout(function () { label.textContent = 'シェアリンクをコピー'; }, 1800);
+    RPShare.open({
+      text: 'ヌズロックの編成です。あなたも組んでみて:',
+      url: buildShareUrl()
     });
   });
 

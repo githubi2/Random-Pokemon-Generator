@@ -233,6 +233,7 @@ var TYPE_CHART = {
   }
 
   var lastShareText = '';
+  var lastShareUrl = '';
   var history = [];
 
   function renderCard(t1, t2) {
@@ -284,8 +285,9 @@ var TYPE_CHART = {
     else if (members.length === 1) short = ' — only ' + displayName(members[0].n) + ' carries it';
     else short = ' — ' + members.length + ' Pokemon share it';
     lastShareText = (t2 === null)
-      ? 'The type wheel landed on ' + label1 + '! Roll your own random Pokemon type: ' + location.origin + location.pathname
-      : 'Random type roll: ' + label1 + ' / ' + label2 + short + '. Roll yours: ' + location.origin + location.pathname;
+      ? 'The type wheel landed on ' + label1 + '! Roll your own random Pokemon type:'
+      : 'Random type roll: ' + label1 + ' / ' + label2 + short + '. Roll yours:';
+    lastShareUrl = location.origin + location.pathname + '?t=' + t1 + (t2 === null ? '' : '-' + t2);
   }
 
   function pushHistory(t1, t2) {
@@ -349,13 +351,10 @@ var TYPE_CHART = {
     var label = $('tw-share-label');
     if (!lastShareText) {
       label.textContent = 'Spin first!';
-      setTimeout(function () { label.textContent = 'Share Result'; }, 1800);
+      setTimeout(function () { label.textContent = 'Share'; }, 1800);
       return;
     }
-    copyToClipboard(lastShareText, function (ok) {
-      label.textContent = ok ? 'Copied!' : 'Copy manually';
-      setTimeout(function () { label.textContent = 'Share Result'; }, 1800);
-    });
+    RPShare.open({ text: lastShareText, url: lastShareUrl || location.href });
   }
 
   /* ---------- events ---------- */
@@ -425,4 +424,15 @@ var TYPE_CHART = {
 
   /* ---------- init ---------- */
   buildWheel();
+
+  /* 分享链接里带了 ?t=fire 或 ?t=fire-flying — 把同一组重新摆出来 */
+  (function () {
+    var m = /[?&]t=([a-z]+)(?:-([a-z]+))?/.exec(location.search);
+    if (!m) return;
+    var a = m[1], b = m[2] || null;
+    if (!TYPE_MAP[a]) return;
+    if (b && !TYPE_MAP[b]) b = null;
+    renderCard(a, b);
+    pushHistory(a, b);
+  })();
 }());

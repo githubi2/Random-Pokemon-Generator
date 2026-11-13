@@ -77,6 +77,7 @@ var TYPES = [
   var current = null;
   var shinyOn = false;
   var lastShareText = '';
+  var lastShareUrl = '';
   var history = [];
   var rolling = false;
 
@@ -150,7 +151,8 @@ var TYPES = [
       img.src = shinyOn ? p.sps : p.sp;
     });
 
-    lastShareText = 'My random legendary: ' + name + ' (' + cat + ', #' + pad4(p.si) + ')! Roll yours: ' + location.origin + location.pathname;
+    lastShareText = 'My random legendary: ' + name + ' (' + cat + ', #' + pad4(p.si) + ')! Roll yours:';
+    lastShareUrl = location.origin + location.pathname + '?p=' + p.i;
     pushHistory(p, cat);
   }
 
@@ -230,13 +232,10 @@ var TYPES = [
     var label = $('lg-share-label');
     if (!lastShareText) {
       label.textContent = 'Roll first!';
-      setTimeout(function () { label.textContent = 'Share Result'; }, 1800);
+      setTimeout(function () { label.textContent = 'Share'; }, 1800);
       return;
     }
-    copyToClipboard(lastShareText, function (ok) {
-      label.textContent = ok ? 'Copied!' : 'Copy manually';
-      setTimeout(function () { label.textContent = 'Share Result'; }, 1800);
-    });
+    RPShare.open({ text: lastShareText, url: lastShareUrl || location.href });
   }
 
   /* ---------- events ---------- */
@@ -290,4 +289,14 @@ var TYPES = [
   /* ---------- init ---------- */
   updatePoolNote();
   void current;
+
+  /* 分享链接里带了 ?p=<id> — 把同一只重新摆出来 */
+  (function () {
+    var m = /[?&]p=(\d+)/.exec(location.search);
+    if (!m) return;
+    var id = Number(m[1]);
+    for (var i = 0; i < DATA.length; i++) {
+      if (DATA[i].i === id) { render(DATA[i]); return; }
+    }
+  })();
 }());

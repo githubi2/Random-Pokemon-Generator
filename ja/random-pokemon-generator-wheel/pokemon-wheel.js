@@ -916,14 +916,11 @@
     var label = $('wheel-share-label');
     if (!lastResult) {
       label.textContent = 'まず回してください';
-      setTimeout(function () { label.textContent = '結果をシェア'; }, 1800);
+      setTimeout(function () { label.textContent = 'シェア'; }, 1800);
       return;
     }
     var text = 'ポケモンルーレットの結果は' + displayName(lastResult.n) + '！あなたも回してみましょう：' + location.origin + location.pathname;
-    copyToClipboard(text, function (ok) {
-      label.textContent = ok ? 'コピーしました' : 'リンク準備完了';
-      setTimeout(function () { label.textContent = '結果をシェア'; }, 1800);
-    });
+    RPShare.open({ text: text, url: location.origin + location.pathname + '?p=' + lastResult.i });
   }
 
   /* ---------------- events ---------------- */
@@ -973,4 +970,16 @@
     if (p) appendResultCard(p, false);
   });
   updateAnalysis();
+
+  /* 共有リンクに ?p=<id> が付いていたら、同じ1匹を出す */
+  var urlP = Number((location.search.match(/[?&]p=(\d+)/) || [])[1] || 0);
+  if (urlP && !lastResult) {
+    for (var up = 0; up < POKEMON.length; up++) {
+      if (POKEMON[up].i === urlP) {
+        lastResult = POKEMON[up];
+        showResult(POKEMON[up]);
+        break;
+      }
+    }
+  }
 })();

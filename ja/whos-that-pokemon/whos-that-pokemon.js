@@ -728,14 +728,16 @@
     var text = state.gameState === 'correct'
       ? 'このポケモンだあれ？で ' + time + ' で当たり（' + e.displayName + '）。あなたに勝てる？ 🔍 ' + shareUrl()
       : 'このポケモンだあれ？でだまされました — 正解は ' + e.displayName + ' でした！3回以内に当ててみて：' + shareUrl();
-    copyToClipboard(text, function (ok) { flashLabel($('wtp-share-result'), ok, 'Share'); });
+    RPShare.open({ text: text, url: shareUrl() });
+    flashLabel($('wtp-share-result'), true, 'シェア');
   }
   function shareStats() {
     var st = state.stats;
     var played = st.correctGuesses + st.incorrectGuesses;
     var pct = played ? Math.round(st.correctGuesses / played * 100) : 0;
     var text = '「このポケモンだあれ？」正答率 ' + pct + '%（' + st.correctGuesses + '/' + played + ' 正解、最高連続 ' + st.bestStreak + '）。あなたに勝てる？ ' + shareUrl();
-    copyToClipboard(text, function (ok) { flashLabel($('wtp-share-stats'), ok, '成績をシェア'); });
+    RPShare.open({ text: text, url: shareUrl() });
+    flashLabel($('wtp-share-stats'), true, '成績をシェア');
   }
 
   /* ---------------- modals ---------------- */

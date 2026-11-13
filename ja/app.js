@@ -440,10 +440,9 @@
       share.setAttribute('aria-label', '共有リンクをコピー：パーティ' + num);
       share.addEventListener('click', function () {
         hideTip();
-        var url = buildShareUrl(entry.f || filters, entryRolls(entry));
-        copyToClipboard(url, function (ok) {
-          share.textContent = ok ? 'Copied' : '準備完了';
-          setTimeout(function () { share.textContent = 'Share'; }, 1800);
+        RPShare.open({
+          text: 'ランダムポケモンで組んだパーティです。あなたも引いてみて:',
+          url: buildShareUrl(entry.f || filters, entryRolls(entry))
         });
       });
 
@@ -1169,11 +1168,9 @@
   $('generate-btn').addEventListener('click', roll);
 
   $('copy-btn').addEventListener('click', function () {
-    var url = buildShareUrl(filters, currentRolls);
-    var label = $('copy-label');
-    copyToClipboard(url, function (ok) {
-      label.textContent = ok ? 'コピーしました' : '準備完了';
-      setTimeout(function () { label.textContent = '設定リンクをコピー'; }, 1800);
+    RPShare.open({
+      text: 'ランダムポケモンで組んだパーティです。あなたも引いてみて:',
+      url: buildShareUrl(filters, currentRolls)
     });
   });
 

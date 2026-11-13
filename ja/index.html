@@ -115,7 +115,7 @@
    "name": "引いたポケモンのパーティをそのまま共有できますか？",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "はい。「設定リンクをコピー」ボタンは、フィルターと今のパーティ（色違いも含む）を1つのURLにまとめます。開いた人はまったく同じポケモンを見られ、抽選履歴の各項目にも専用の共有ボタンがあります。"
+    "text": "はい。「シェア」ボタンは、フィルターと今のパーティ（色違いも含む）を1つのリンクにまとめます。X・Reddit・WhatsApp・Telegramにそのまま投稿することも、リンクだけコピーしてチャットに貼ることもできます。開いた人はまったく同じポケモンを見られ、抽選履歴の各項目にも専用の共有ボタンがあります。"
    }
   },
   {
@@ -329,14 +329,14 @@
             <span><i class="ico ico-dice-5" aria-hidden="true"></i> ポケモンをランダム生成</span>
           </button>
           <button type="button" id="copy-btn" class="btn-slide btn-secondary">
-            <span id="copy-label"><i class="ico ico-clipboard" aria-hidden="true"></i> 設定リンクをコピー</span>
+            <span id="copy-label"><i class="ico ico-megaphone" aria-hidden="true"></i> シェア</span>
           </button>
           <button type="button" id="reset-btn" class="btn-text">すべてリセット</button>
           <span class="pool-count" id="pool-count" aria-live="polite">候補は1,025体</span>
         </div>
         <div class="tool-note-group">
           <p class="tool-note"><i class="ico ico-dice-5" aria-hidden="true"></i> 生成 — 今のプールからランダムにパーティを引きます（既定は6匹、スライダーで変更）</p>
-          <p class="tool-note"><i class="ico ico-clipboard" aria-hidden="true"></i> 設定リンクをコピー — 今の絞り込みとパーティをそのまま開けるリンクを友達に渡せます</p>
+          <p class="tool-note"><i class="ico ico-megaphone" aria-hidden="true"></i> シェア — いまの絞り込みとパーティをX・Reddit・WhatsAppに投稿、またはリンクをコピー</p>
           <p class="tool-note">すべてリセット — フィルターを初期状態に戻します</p>
         </div>
       </form>
@@ -424,7 +424,7 @@
           </article>
           <article>
             <h3>同じパーティを共有</h3>
-            <p>フィルターも、引いたパーティも、すべてURLの中にあります。このポケモン ランダム生成ツールの設定リンクをコピーすれば、友達やドラフトのライバル、配信のチャットに、色違い込みの同じ6匹がそのまま届きます。同じルールから自分用に引き直すこともできます。抽選結果は履歴に保存され、それぞれに共有リンクが付きます。</p>
+            <p>フィルターも、引いたパーティも、すべてURLの中にあります。このポケモン ランダム生成ツールのシェアボタンを押せば、XやReddit、WhatsApp、配信のチャット、ドラフトのライバルに、色違い込みの同じ6匹がそのまま届きます。同じルールから自分用に引き直すこともできます。抽選結果は履歴に保存され、それぞれに共有リンクが付きます。</p>
             <p>ここがソーシャルなパーティビルダーたる所以です。配信者やDiscordコミュニティは共有リンクをよく使います。配信でパーティを引いてチャットにリンクを貼れば、視聴者全員が同じフィルターで、色違い込みの同じ6匹を開けます。友達はあなたのルールで引き直して、チーム評価を見比べられます。ヌズロックのコミュニティでは、どのポケモンを捕まえたかの証拠としても機能します。どのフィルタープールで遊んでいたかまで残るからです。</p>
             <p>抽選履歴（ブラウザ内に最大20件）があれば、どのパーティも1クリックで呼び出せます。ポケモンにカーソルを合わせて種族値を確認し、パーティをクリックすれば引いたときのまま復元。各パーティの共有ボタンからいつでも貼り直せます。</p>
           </article>
@@ -465,7 +465,7 @@
       </details>
       <details class="faq-item cornered">
         <summary>引いたポケモンのパーティをそのまま共有できますか？</summary>
-        <p>はい。「設定リンクをコピー」ボタンは、フィルターと今のパーティ（色違いも含む）を1つのURLにまとめます。開いた人はまったく同じポケモンを見られ、抽選履歴の各項目にも専用の共有ボタンがあります。</p>
+        <p>はい。「シェア」ボタンは、フィルターと今のパーティ（色違いも含む）を1つのリンクにまとめます。X・Reddit・WhatsApp・Telegramにそのまま投稿することも、リンクだけコピーしてチャットに貼ることもできます。開いた人はまったく同じポケモンを見られ、抽選履歴の各項目にも専用の共有ボタンがあります。</p>
       </details>
       <details class="faq-item cornered">
         <summary>引いた結果は保存されますか？</summary>
@@ -532,6 +532,7 @@
   <script src="../nav.js?v=20261022m"></script>
   <script src="names.js?v=20261022ja3"></script>
   <script src="app.js?v=20261022ja3"></script>
+  <script src="../share.js?v=20261113a"></script>
   <script src="../lang-switch.js?v=20261022a"></script>
 </body>
 </html>

@@ -844,13 +844,7 @@
     var text = current.length > 1
       ? 'I rolled ' + current.length + ' shiny Pokemon — ' + displayName(first.n) + ' and more!'
       : 'I rolled a shiny ' + displayName(first.n) + '!';
-    if (navigator.share) {
-      navigator.share({ title: 'Random Shiny Pokemon Generator', text: text, url: url }).then(null, function () {
-        /* user cancelled or share failed -> fall back to copying the link */
-      });
-    } else {
-      copyText(url, shareBtn, 'Link copied!');
-    }
+    RPShare.open({ text: text + ' Roll yours:', url: url });
   }
 
   /* restore filters + current roll from a share link */

@@ -233,6 +233,7 @@ var TYPE_CHART = {
   }
 
   var lastShareText = '';
+  var lastShareUrl = '';
   var history = [];
 
   function renderCard(t1, t2) {
@@ -285,7 +286,8 @@ var TYPE_CHART = {
     else short = ' — ' + members.length + '匹が該当します';
     lastShareText = (t2 === null)
       ? 'タイプルーレットの結果は' + label1 + '！あなたもランダムなタイプを引いてみましょう：' + location.origin + location.pathname
-      : 'ランダムタイプ抽選：' + label1 + ' / ' + label2 + short + '. Roll yours: ' + location.origin + location.pathname;
+      : 'ランダムタイプ抽選：' + label1 + ' / ' + label2 + short + '。あなたも引いてみましょう：' + location.origin + location.pathname;
+    lastShareUrl = location.origin + location.pathname + '?t=' + t1 + (t2 === null ? '' : '-' + t2);
   }
 
   function pushHistory(t1, t2) {
@@ -349,13 +351,10 @@ var TYPE_CHART = {
     var label = $('tw-share-label');
     if (!lastShareText) {
       label.textContent = 'まず回してください';
-      setTimeout(function () { label.textContent = '結果をシェア'; }, 1800);
+      setTimeout(function () { label.textContent = 'シェア'; }, 1800);
       return;
     }
-    copyToClipboard(lastShareText, function (ok) {
-      label.textContent = ok ? 'コピーしました' : '手動でコピー';
-      setTimeout(function () { label.textContent = '結果をシェア'; }, 1800);
-    });
+    RPShare.open({ text: lastShareText, url: lastShareUrl || location.href });
   }
 
   /* ---------- events ---------- */
@@ -425,4 +424,14 @@ var TYPE_CHART = {
 
   /* ---------- init ---------- */
   buildWheel();
+
+  (function () {
+    var m = /[?&]t=([a-z]+)(?:-([a-z]+))?/.exec(location.search);
+    if (!m) return;
+    var a = m[1], b = m[2] || null;
+    if (!TYPE_MAP[a]) return;
+    if (b && !TYPE_MAP[b]) b = null;
+    renderCard(a, b);
+    pushHistory(a, b);
+  })();
 }());

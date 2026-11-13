@@ -480,15 +480,10 @@
       status.textContent = 'Pick at least one favorite first.';
       return;
     }
-    var url = buildShareUrl();
-    copyToClipboard(url, function (ok) {
-      if (ok) {
-        status.textContent = 'Link copied \u2014 it restores all 18 picks, trainer name included.';
-        track('fet_copy', { picks: filledCount() });
-      } else {
-        status.textContent = '';
-        showShareModal(url);
-      }
+    track('fet_share', { picks: filledCount() });
+    RPShare.open({
+      text: 'My favorites for all 18 types — what are yours?',
+      url: buildShareUrl()
     });
   }
   $('share-modal-close').addEventListener('click', function () { $('share-modal').hidden = true; });

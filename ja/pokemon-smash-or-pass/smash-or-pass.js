@@ -692,9 +692,9 @@
   function shareVerdicts() {
     var label = $('share-label');
     if (sharedMode) {
-      copyToClipboard(location.href, function (ok) {
-        label.textContent = ok ? 'コピーしました' : '準備完了';
-        setTimeout(function () { label.textContent = '判定をシェア'; }, 1800);
+      RPShare.open({
+        text: 'スマッシュ・オア・パスの判定リストです。あなたの判定は？',
+        url: location.href
       });
       return;
     }
@@ -704,10 +704,7 @@
       return;
     }
     var s = verdictSummary();
-    copyToClipboard(s.text + ' ' + buildShareUrl(), function (ok) {
-      label.textContent = ok ? 'コピーしました' : '準備完了';
-      setTimeout(function () { label.textContent = '判定をシェア'; }, 1800);
-    });
+    RPShare.open({ text: s.text + ' ' + buildShareUrl(), url: buildShareUrl() });
   }
 
   function copyToClipboard(text, done) {

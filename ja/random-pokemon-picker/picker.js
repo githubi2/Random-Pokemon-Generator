@@ -385,10 +385,9 @@
 
     $('pick-btn').addEventListener('click', doPick);
     $('copy-btn').addEventListener('click', function () {
-      copyToClipboard(buildShareUrl(filters, picks), function (ok) {
-        var label = $('copy-label');
-        label.textContent = ok ? 'リンクをコピーしました' : '準備完了';
-        setTimeout(function () { label.textContent = 'リンクをコピー'; }, 1800);
+      RPShare.open({
+        text: 'ランダムポケモンの抽選結果です。同じ結果を開けます:',
+        url: buildShareUrl(filters, picks)
       });
     });
     $('reset-btn').addEventListener('click', function () {

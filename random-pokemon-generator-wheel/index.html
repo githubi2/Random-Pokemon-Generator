@@ -271,11 +271,11 @@
         <div class="draw-view" id="wheel" role="img" aria-label="Pokemon draw deck"></div>
         <div class="wheel-controls">
           <button type="button" id="spin-btn" class="btn-slide cornered btn-primary"><span><i class="ico ico-ferris-wheel" aria-hidden="true"></i> Spin</span></button>
-          <button type="button" id="wheel-share-btn" class="btn-slide btn-secondary"><span id="wheel-share-label"><i class="ico ico-megaphone" aria-hidden="true"></i> Share Result</span></button>
+          <button type="button" id="wheel-share-btn" class="btn-slide btn-secondary"><span id="wheel-share-label"><i class="ico ico-megaphone" aria-hidden="true"></i> Share</span></button>
         </div>
         <div class="tool-note-group">
           <p class="tool-note"><i class="ico ico-ferris-wheel" aria-hidden="true"></i> Spin — rolls the deck: cards cascade past the gold frame, the one landing inside is your Pokémon</p>
-          <p class="tool-note"><i class="ico ico-megaphone" aria-hidden="true"></i> Share Result — copies the winning Pokémon + link to share</p>
+          <p class="tool-note"><i class="ico ico-megaphone" aria-hidden="true"></i> Share — posts the winning Pokémon to X, Reddit or WhatsApp, or copies the link</p>
           <p class="tool-note"><i class="ico ico-trash-2" aria-hidden="true"></i> Clear Records — wipes your draw history and accumulated results</p>
         </div>
       </div>
@@ -343,7 +343,7 @@
           </article>
           <article>
             <h3>Every spin is shareable</h3>
-            <p>Hit Share Result after a spin and the generator copies a message like 'The Pokémon wheel decided my team: Charizard — spin yours!' with the link. Drop it in Discord, tweet it, or paste it in a stream chat.</p>
+            <p>Hit Share after a spin and the panel already holds the message — 'The Pokémon wheel decided: Charizard! Spin yours:' — with a link that reopens the same Pokémon. One click sends it to X, Facebook, Reddit, WhatsApp or Telegram; if you would rather post it yourself, Copy takes the whole thing to a Discord channel or stream chat.</p>
           </article>
           <article>
             <h3>One dataset, every tool</h3>
@@ -479,6 +479,7 @@
   <script src="../data.js?v=20261022d"></script>
   <script src="../nav.js?v=20261022m"></script>
   <script src="pokemon-wheel.js?v=20261022d"></script>
+  <script src="../share.js?v=20261113a"></script>
   <script src="../lang-switch.js?v=20261022a"></script>
 </body>
 </html>

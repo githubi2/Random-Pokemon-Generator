@@ -650,6 +650,13 @@
     if (dl) dl.addEventListener('click', download);
     var cp = $('cg-copy');
     if (cp) cp.addEventListener('click', copyText);
+    var sh = $('cg-share');
+    if (sh) sh.addEventListener('click', function () {
+      RPShare.open({
+        text: 'I made a Pokemon card in the card maker — make yours:',
+        url: location.href
+      });
+    });
     var close = $('cg-modal-close');
     if (close) close.addEventListener('click', function () { $('cg-modal').hidden = true; });
     document.addEventListener('keydown', function (e) {

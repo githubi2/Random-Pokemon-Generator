@@ -384,10 +384,9 @@
 
     $('pick-btn').addEventListener('click', doPick);
     $('copy-btn').addEventListener('click', function () {
-      copyToClipboard(buildShareUrl(filters, picks), function (ok) {
-        var label = $('copy-label');
-        label.textContent = ok ? 'Link copied' : 'Link ready';
-        setTimeout(function () { label.textContent = 'Copy Pick Link'; }, 1800);
+      RPShare.open({
+        text: 'My random Pokemon picks — reroll this exact draw:',
+        url: buildShareUrl(filters, picks)
       });
     });
     $('reset-btn').addEventListener('click', function () {

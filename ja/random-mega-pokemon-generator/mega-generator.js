@@ -124,7 +124,7 @@
   var rarityNote = $('mega-rarity-note'), habitatsNote = $('mega-habitats-note'), colorsNote = $('mega-colors-note');
   var bstNote = $('mega-bst-note'), countNote = $('mega-count-note'), poolCountEl = $('mega-pool-count');
   var noRepeatEl = $('mega-norepeat'), noRepeatLabel = $('mega-norepeat-label');
-  var generateBtn = $('mega-generate-btn'), copyBtn = $('mega-copy-btn'), resetBtn = $('mega-reset-btn');
+  var generateBtn = $('mega-generate-btn'), copyBtn = $('mega-copy-btn'), shareBtn = $('mega-share-btn'), resetBtn = $('mega-reset-btn');
   var emptyEl = $('mega-empty'), cardsEl = $('mega-cards');
   var historyPanel = $('mega-history-panel'), historyList = $('mega-history-list');
   var analysisEl = $('mega-analysis');
@@ -572,6 +572,7 @@
     if (!current.length) {
       emptyEl.hidden = false;
       copyBtn.disabled = true;
+      if (shareBtn) shareBtn.disabled = true;
       return;
     }
     cardsEl.classList.toggle('mega-cards-multi', current.length > 1);
@@ -581,6 +582,7 @@
     });
     emptyEl.hidden = true;
     copyBtn.disabled = false;
+    if (shareBtn) shareBtn.disabled = false;
   }
 
   /* ---------------- history ---------------- */
@@ -864,7 +866,19 @@
 
   /* ---------------- events ---------------- */
   generateBtn.addEventListener('click', roll);
+  function shareMega() {
+    if (!current.length) return;
+    var p = BY_ID[current[0].i];
+    if (!p) return;
+    var types = p.t.map(function (t) { return TYPES[t] ? TYPES[t].label : t; }).join('/');
+    var name = megaDisplay(p) + (current[0].shiny ? ' (色違い)' : '');
+    var text = current.length > 1
+      ? 'メガポケモンを' + current.length + '匹引きました — まずは ' + name + ' (' + types + ', 合計種族値 ' + p.tt + ')！あなたも引いてみて:'
+       : name + ' (' + types + ', 合計種族値 ' + p.tt + ') を引きました！あなたも引いてみて:';
+    RPShare.open({ text: text, url: location.href });
+  }
   copyBtn.addEventListener('click', copyResult);
+  if (shareBtn) shareBtn.addEventListener('click', shareMega);
   bstEl.addEventListener('input', function () {
     settings.bstMin = Number(bstEl.value) || 0;
     afterFilterChange();

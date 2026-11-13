@@ -908,12 +908,15 @@
     }
   }
   function shareMenu(kind) {
-    var text;
-    if (kind === 'showdown') text = buildShowdown();
-    else if (kind === 'json') text = buildTeamJSON();
-    else text = 'ランダムポケモンジェネレーターでパーティを組みました —' + (state.name || 'マイチーム') + '！あなたもどうぞ:' + buildShareUrl();
-    copyToClipboard(text, function (ok) {
-      if (ok) flashStatus('コピーしました');
+    if (kind === 'showdown' || kind === 'json') {
+      copyToClipboard(kind === 'showdown' ? buildShowdown() : buildTeamJSON(), function (ok) {
+        if (ok) flashStatus('Copied!');
+      });
+      return;
+    }
+    RPShare.open({
+      text: 'ランダムポケモンジェネレーターでパーティを組みました — ' + (state.name || 'マイチーム') + '！あなたもどうぞ:',
+      url: buildShareUrl()
     });
   }
   function flashStatus(msg) {

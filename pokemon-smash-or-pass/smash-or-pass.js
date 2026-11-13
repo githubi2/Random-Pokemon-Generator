@@ -683,9 +683,9 @@
   function shareVerdicts() {
     var label = $('share-label');
     if (sharedMode) {
-      copyToClipboard(location.href, function (ok) {
-        label.textContent = ok ? 'Copied!' : 'Link ready';
-        setTimeout(function () { label.textContent = 'Share My Verdicts'; }, 1800);
+      RPShare.open({
+        text: 'My Smash or Pass verdicts — see what I kept:',
+        url: location.href
       });
       return;
     }
@@ -695,10 +695,7 @@
       return;
     }
     var s = verdictSummary();
-    copyToClipboard(s.text + ' ' + buildShareUrl(), function (ok) {
-      label.textContent = ok ? 'Copied!' : 'Link ready';
-      setTimeout(function () { label.textContent = 'Share My Verdicts'; }, 1800);
-    });
+    RPShare.open({ text: s.text, url: buildShareUrl() });
   }
 
   function copyToClipboard(text, done) {

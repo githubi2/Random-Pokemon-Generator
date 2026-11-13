@@ -844,13 +844,7 @@
     var text = current.length > 1
       ? '色違いを' + current.length + '匹ゲット —' + displayName(first.n) + 'など！'
       : '色違いの' + displayName(first.n) + '!';
-    if (navigator.share) {
-      navigator.share({ title: 'ランダム色違いポケモンジェネレーター', text: text, url: url }).then(null, function () {
-        /* user cancelled or share failed -> fall back to copying the link */
-      });
-    } else {
-      copyText(url, shareBtn, 'リンクをコピーしました');
-    }
+    RPShare.open({ text: text + ' あなたも引いてみて:', url: url });
   }
 
   /* restore filters + current roll from a share link */
