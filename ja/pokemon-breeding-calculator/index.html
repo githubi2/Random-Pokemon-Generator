@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E20HLY28BV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E20HLY28BV');
+  </script>
+  <!-- Plausible Analytics (self-hosted, cookie-free, first-party) -->
+  <script async src="https://yixiu.us/js/script.js" data-domain="random-pokemon-generator.co"></script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ypg857ir5i");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ポケモン 卵相性チェッカー｜預かり屋の組み合わせと孵化歩数を判定</title>
+  <meta name="description" content="ポケモンの卵が生まれる組み合わせかを無料で判定。タマゴグループの一致、オス・メスの組み合わせ、タマゴ未発見、メタモンの特例、孵化歩数までその場で確認できます。" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Random Pokemon Generator" />
+    <link rel="alternate" hreflang="ja" href="https://www.random-pokemon-generator.co/ja/pokemon-breeding-calculator/" />
+  <link rel="alternate" hreflang="en" href="https://www.random-pokemon-generator.co/pokemon-breeding-calculator/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.random-pokemon-generator.co/pokemon-breeding-calculator/" />
+  <link rel="canonical" href="https://www.random-pokemon-generator.co/ja/pokemon-breeding-calculator/" />
+
+<!-- Open Graph -->
+  <meta property="og:title" content="ポケモン 卵相性チェッカー｜預かり屋の組み合わせと孵化歩数を判定" />
+  <meta property="og:description" content="ポケモンの卵が生まれる組み合わせかを無料で判定。タマゴグループの一致、オス・メスの組み合わせ、タマゴ未発見、メタモンの特例、孵化歩数までその場で確認できます。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.random-pokemon-generator.co/ja/pokemon-breeding-calculator/" />
+  <meta property="og:site_name" content="Random Pokemon Generator" />
+  <meta property="og:image" content="https://www.random-pokemon-generator.co/ja/pokemon-breeding-calculator/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ポケモン 卵相性チェッカー｜預かり屋の組み合わせと孵化歩数を判定" />
+  <meta name="twitter:description" content="ポケモンの卵が生まれる組み合わせかを無料で判定。タマゴグループの一致、オス・メスの組み合わせ、タマゴ未発見、メタモンの特例、孵化歩数までその場で確認できます。" />
+  <meta name="twitter:image" content="https://www.random-pokemon-generator.co/pokemon-breeding-calculator/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-64.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../styles.css?v=20261113a" />
+  <link rel="stylesheet" href="../../lang-switch.css?v=20261022a" />
+
+  <!-- Structured data: SoftwareApplication -->
+  <style>
+    .bc-tool { display: grid; gap: 16px; }
+    .bc-row { display: grid; gap: 14px; grid-template-columns: 1fr; }
+    @media (min-width: 720px) { .bc-row { grid-template-columns: 1fr 1fr; } }
+    .bc-field { display: grid; gap: 6px; font-size: 13px; font-weight: 600; color: var(--text-2); }
+    .bc-combo { position: relative; }
+    .bc-trigger { display: flex; align-items: center; gap: 10px; width: 100%; box-sizing: border-box;
+      min-height: 46px; padding: 7px 12px; border: 1px solid var(--line-2); border-radius: 10px;
+      background: var(--surface); font-family: var(--font-body); font-size: 14px; color: var(--ink);
+      cursor: pointer; text-align: left; }
+    .bc-trigger:hover { border-color: var(--hl-deep); }
+    .bc-trigger:focus-visible { outline: none; border-color: var(--hl-deep); box-shadow: 0 0 0 3px rgba(198, 228, 51, 0.30); }
+    .bc-sprite { width: 32px; height: 32px; flex: 0 0 32px; object-fit: contain; }
+    .bc-name { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+    .bc-dex { flex: 0 0 auto; font-size: 12.5px; color: var(--text-2); font-variant-numeric: tabular-nums; }
+    .bc-caret { width: 17px; height: 17px; flex: 0 0 17px; fill: none; stroke: var(--text-2); stroke-width: 2;
+      stroke-linecap: round; stroke-linejoin: round; transition: transform .16s ease; }
+    .bc-combo[data-open="1"] .bc-caret { transform: rotate(180deg); }
+    .bc-pop { position: absolute; z-index: 40; left: 0; right: 0; top: calc(100% + 6px); background: var(--surface);
+      border: 1px solid var(--line-2); border-radius: 12px; box-shadow: 0 18px 40px rgba(20, 22, 15, 0.16); }
+    .bc-pop[hidden] { display: none; }
+    .bc-pop[data-side="up"] { top: auto; bottom: calc(100% + 6px); }
+    .bc-search { width: 100%; box-sizing: border-box; border: 0; border-bottom: 1px solid var(--line);
+      border-radius: 12px 12px 0 0; padding: 11px 13px; font-family: var(--font-body); font-size: 14px;
+      color: var(--ink); background: var(--surface); }
+    .bc-search:focus { outline: none; }
+    .bc-list { list-style: none; margin: 0; padding: 6px; max-height: 290px; overflow-y: auto; overscroll-behavior: contain; }
+    .bc-list[hidden] { display: none; }
+    .bc-opt { display: flex; align-items: center; gap: 10px; padding: 5px 8px; border-radius: 8px;
+      font-size: 14px; color: var(--ink); cursor: pointer; }
+    .bc-opt img { width: 28px; height: 28px; flex: 0 0 28px; object-fit: contain; }
+    .bc-opt-n { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .bc-opt-d { flex: 0 0 auto; font-size: 12px; color: var(--text-2); font-variant-numeric: tabular-nums; }
+    .bc-opt[aria-selected="true"] .bc-opt-n { font-weight: 700; }
+    .bc-opt[aria-selected="true"] .bc-opt-d::after { content: " ✓"; color: var(--ink); }
+    .bc-opt.is-active { background: var(--hl); }
+    .bc-opt:hover { background: var(--surface-2); }
+    .bc-more { padding: 8px 10px 6px; font-size: 12.5px; color: var(--text-2); }
+    .bc-empty { margin: 0; padding: 14px 14px 16px; font-size: 13.5px; color: var(--text-2); }
+    .bc-list::-webkit-scrollbar { width: 10px; }
+    .bc-list::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 999px; border: 3px solid var(--surface); }
+    .bc-actions { margin-top: 2px; }
+    .bc-out { display: grid; gap: 14px; }
+    .bc-verdict { border: 1px solid var(--line-2); border-left: 5px solid #2e7d32; background: var(--surface-2); padding: 14px 16px; border-radius: 12px; }
+    .bc-verdict.no { border-left-color: #b3261e; }
+    .bc-verdict b { display: block; font-size: 17px; margin-bottom: 4px; }
+    .bc-verdict p { margin: 0; color: var(--text-2); font-size: 14.5px; line-height: 1.6; }
+    .bc-cards { display: grid; gap: 12px; grid-template-columns: 1fr; }
+    @media (min-width: 720px) { .bc-cards { grid-template-columns: 1fr 1fr; } }
+    .bc-card { border: 1px solid var(--line-2); border-radius: 12px; padding: 12px 14px; background: var(--surface); }
+    .bc-card h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; font-size: 15px; }
+    .bc-card h3 img { width: 36px; height: 36px; object-fit: contain; }
+    .bc-card dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; margin: 0; font-size: 13.5px; }
+    .bc-card dt { color: var(--text-2); }
+    .bc-card dd { margin: 0; font-weight: 600; }
+    .bc-partners { font-size: 13.5px; color: var(--text-2); }
+    .bc-partners b { color: var(--ink); }
+    .bc-table-wrap { overflow-x: auto; margin: 18px 0; }
+    .bc-table th[scope="row"] { white-space: nowrap; }
+    .bc-table td.num { font-variant-numeric: tabular-nums; }
+    .bc-table tbody tr:nth-child(even) { background: var(--surface-2); }
+    .bc-rules { display: grid; gap: 10px; margin-top: 18px; }
+    .bc-rule { border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; background: var(--surface); }
+    .bc-rule b { display: block; font-size: 14px; margin-bottom: 3px; }
+    .bc-rule span { font-size: 13.5px; color: var(--text-2); }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "ポケモン 卵相性チェッカー",
+  "url": "https://www.random-pokemon-generator.co/ja/pokemon-breeding-calculator/",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "JPY"
+  },
+  "description": "ポケモンの卵が生まれる組み合わせかを無料で判定。タマゴグループの一致、オス・メスの組み合わせ、タマゴ未発見、メタモンの特例、孵化歩数までその場で確認できます。",
+  "isAccessibleForFree": true,
+  "inLanguage": "ja"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "この2匹で卵は生まれますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "できません。両親に共通のタマゴグループが1つ以上あり、オスとメスになれて、どちらもタマゴ未発見でないことが条件です。メタモンだけは例外で、タマゴ未発見以外の何とでも組めます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "共通のタマゴグループはどう調べますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "上の計算機に2匹を入れて、タマゴグループの行を見てください。フシギダネは怪獣と植物なので、怪獣か植物のどちらかに入っている相手、つまりヒトカゲからナゾノクサまで組めます。1つ重なれば十分です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "伝説のポケモンが卵を作れないのはなぜ？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "伝説と幻はタマゴ未発見グループで、ベビィとほとんどの化石も同じです。タマゴ未発見は「何と組んでも卵が生まれない」という意味です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "メタモン同士で卵は生まれますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "いいえ、メタモン同士では卵が生まれません。メタモンは他のポケモンと組むためのポケモンで、相性の合う相手と預けると、生まれる卵はその相手の種族になります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "オス同士で卵は生まれますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "いいえ。オスになれる1匹とメスになれる1匹が必要なので、コイルのような性別のないポケモンはメタモン経由でしか卵を作れません。イーブイのようにどちらにもなれる種族は、いま持っている1匹ではなく「なれる性別」で判定します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "歩数は何を意味しますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "種族ごとに孵化カウンタがあり、255をかけると必要な歩数になります。フシギダネのような20サイクルの卵は約5,100歩、ミニリュウのような40サイクルは約10,200歩です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ほのおのからだを持つポケモンがいると孵化は早くなる？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。ほのおのからだ・マグマのよろい・じょうききかんのどれかと一緒に歩くと歩数が半分になります。だからブリーダーはファイアローやヒノヤコマを連れ歩きます。半減は1回だけで、2匹いても変わりません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "親は同じ種族じゃないとダメですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "同じ種族の卵を孵したいなら、その必要があります。別種の組み合わせでも卵は生まれ、孵るのはメスの親の種族です（片方がメタモンならメタモンでないほう）。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "親から何が受け継がれますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "性格はかたいいし、個体値5つはあかいいと、タマゴわざは古い作品では父親から、ソード・シールド以降はどちらの親からでも引き継がれます。ボールは母親のものが受け継がれます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "スカーレット・バイオレットでも同じですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "タマゴグループと性別のルールは第2世代から変わっていません。作品ごとに違うのは、親をどこに預けるか、ピクニックが必要か、たまごパワーの仕組みです。このツールの相性判定はどの作品でもそのまま通用します。"
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://www.random-pokemon-generator.co/ja/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "ポケモン 卵相性チェッカー",
+      "item": "https://www.random-pokemon-generator.co/ja/pokemon-breeding-calculator/"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Random Pokemon Generator",
+  "url": "https://www.random-pokemon-generator.co/",
+  "logo": "https://www.random-pokemon-generator.co/favicon-64.png"
+}
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="logo"><img src="../../favicon.svg" class="logo-icon" alt="" width="22" height="22" /> Random Pokemon Generator</a>
+      <nav aria-label="メインナビゲーション" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">生成ツール</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-link nav-drop" id="tools-toggle" aria-expanded="false" aria-haspopup="true">ツール ▾</button>
+            <ul class="nav-menu" id="tools-menu">
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">生成ツール</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../" class="nav-link">ポケモン ランダム生成</a></li>
+                  <li><a href="../random-pokemon-picker/" class="nav-link">ランダム選出</a></li>
+                  <li><a href="../random-mega-pokemon-generator/" class="nav-link">ランダムメガシンカ</a></li>
+                  <li><a href="../random-legendary-pokemon-generator/" class="nav-link">ランダム伝説生成</a></li>
+                  <li><a href="../random-shiny-pokemon-generator/" class="nav-link">ランダム色違い生成</a></li>
+                  <li><a href="../random-pokemon-type-generator/" class="nav-link">ランダムタイプ生成</a></li>
+                  <li><a href="../random-pokemon-name-generator/" class="nav-link">ランダム名前生成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">パーティと対戦</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-team-picker/" class="nav-link">パーティ編成</a></li>
+                  <li><a href="../pokemon-champions-team-builder/" class="nav-link">チャンピオンズ編成</a></li>
+                  <li><a href="../nuzlocke-generator/" class="nav-link">ヌズロック編成</a></li>
+                  <li><a href="./" class="nav-link nav-link-active">個体値計算</a></li>
+                  <li><a href="../pokemon-nature-chart/" class="nav-link">ポケモン性格表</a></li>
+                  <li><a href="../pokemon-breeding-calculator/" class="nav-link nav-link-active">卵相性チェック</a></li>
+                  <li><a href="../pokemon-type-chart/" class="nav-link">タイプ相性表</a></li><li><a href="../pokemon-type-coverage-calculator/" class="nav-link">タイプ相性チェック</a></li><li><a href="../pokemon-go-cp-calculator/" class="nav-link">GO CP計算</a></li><li><a href="../pokemon-breeding-calculator/" class="nav-link">卵相性チェック</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">ゲーム</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-smash-or-pass/" class="nav-link">スマッシュ・オア・パス</a></li>
+                  <li><a href="../random-pokemon-generator-wheel/" class="nav-link">ポケモンルーレット</a></li>
+                  <li><a href="../whos-that-pokemon/" class="nav-link">このポケモンだあれ？</a></li>
+                  <li><a href="../pokebonk-game/" class="nav-link">PokeBonk ゲーム</a></li>
+                </ul>
+                <span class="nav-menu-label">カード</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon-card-generator/" class="nav-link">ポケモンカード作成</a></li>
+                  <li><a href="../pokemon-trainer-card-generator/" class="nav-link">トレーナーカード作成</a></li>
+                </ul>
+              </li>
+              <li class="nav-menu-col">
+                <span class="nav-menu-label">リファレンス</span>
+                <ul class="nav-menu-list">
+                  <li><a href="../pokemon/" class="nav-link">ポケモン図鑑</a></li>
+                  <li><a href="../pokemon-shiny-odds/" class="nav-link">色違いの出現率</a></li>
+                  <li><a href="../pokemon-release-dates/" class="nav-link">ポケモン発売日</a></li>
+                  <li><a href="../favorite-pokemon-of-each-type/" class="nav-link">タイプ別お気に入り</a></li>
+                  <li><a href="../eevee-evolutions/" class="nav-link">イーブイ進化</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="../blog/" class="nav-link">ブログ</a></li>
+          <li><a href="#how" class="nav-link">しくみ</a></li>
+          <li><a href="#faq" class="nav-link">よくある質問</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="言語を切り替え"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg></button>
+        <ul class="lang-menu">
+          <li><a href="../../pokemon-breeding-calculator/" hreflang="en" lang="en">English</a></li>
+          <li><a class="lang-current" aria-current="true" lang="ja">日本語</a></li>
+        </ul>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="ナビゲーションメニューを開閉">☰</button>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero container" aria-labelledby="page-title">
+      <p class="eyebrow">1,025種・15タマゴグループ・孵化歩数</p>
+      <h1 id="page-title">ポケモン 卵相性チェッカー</h1>
+      <p class="lede">2匹を選ぶだけで、卵が生まれる組み合わせかどうか、共通のタマゴグループ、それぞれの性別の割合、孵化に必要な歩数が分かります。ダウンロードも登録も不要です。</p>
+    </section>
+
+    <section class="container" aria-label="Pokemon Breeding Calculator tool">
+      <div class="panel cornered bc-tool">
+        <p class="tool-hint">親を左右に1匹ずつ選んで、「互換性をチェック」を押してください。タマゴ未発見の種族や性別のないポケモンは結果に名前が出るので、なぜ失敗したのかが分かります。</p>
+        <div class="bc-row">
+          <div class="bc-field">
+            <span id="bc-a-label">親1</span>
+            <div class="bc-combo" id="bc-a" data-open="0">
+              <button type="button" class="bc-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="bc-a-label bc-a-name">
+                <img class="bc-sprite" alt="" width="32" height="32" decoding="async">
+                <span class="bc-name" id="bc-a-name">&nbsp;</span>
+                <span class="bc-dex"></span>
+                <svg class="bc-caret" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5 10 12.5 15 7.5"/></svg>
+              </button>
+              <div class="bc-pop" hidden>
+                <input type="search" class="bc-search" placeholder="Search 1,025 Pokemon" autocomplete="off" spellcheck="false" aria-label="Parent 1 search">
+                <ul class="bc-list" role="listbox" aria-label="Parent 1"></ul>
+                <p class="bc-empty" hidden>その検索に一致するポケモンはありません。</p>
+              </div>
+            </div>
+          </div>
+          <div class="bc-field">
+            <span id="bc-b-label">親2</span>
+            <div class="bc-combo" id="bc-b" data-open="0">
+              <button type="button" class="bc-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="bc-b-label bc-b-name">
+                <img class="bc-sprite" alt="" width="32" height="32" decoding="async">
+                <span class="bc-name" id="bc-b-name">&nbsp;</span>
+                <span class="bc-dex"></span>
+                <svg class="bc-caret" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5 10 12.5 15 7.5"/></svg>
+              </button>
+              <div class="bc-pop" hidden>
+                <input type="search" class="bc-search" placeholder="Search 1,025 Pokemon" autocomplete="off" spellcheck="false" aria-label="Parent 2 search">
+                <ul class="bc-list" role="listbox" aria-label="Parent 2"></ul>
+                <p class="bc-empty" hidden>その検索に一致するポケモンはありません。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-row bc-actions">
+          <button type="button" class="btn-slide cornered btn-primary" id="bc-check"><span>互換性をチェック</span></button>
+          <button type="button" class="btn-slide btn-secondary" id="bc-share"><span>結果リンクをコピー</span></button>
+        </div>
+        <div id="bc-out" class="bc-out" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="container bc-prose" aria-labelledby="how">
+      <h2 id="how">相性はどう判定するか</h2>
+      <p>判定は3つの質問に集約できます。どれもゲームが実際に使っているデータです。両親のタマゴグループ、なれる性別、そしてその種族がそもそも卵を作れるかどうか。推測や独自ルールはありません。</p>
+      <p>タマゴグループは、孵化システムの土台になっている分類で、各種族は1つか2つを持っています。共通のグループが1つあれば条件は満たします。フシギダネ（怪獣・植物）とヒトカゲ（怪獣・ドラゴン）は見た目がまるで違いますが、怪獣で重なるので卵が生まれます。リストが1つも重ならなければ、画面上どれだけ相性が良さそうでも卵はできません。</p>
+      <p>2つ目の関門は性別です。種族ごとに「なれる性別」が決まっていて、いつもオス、いつもメス、どちらにもなれる、性別なし、の4通りがあります。この計算機は、いま持っている1匹ではなく「なれる性別」を比べます。 <em>できる</em> だから、手元にオスのイーブイしかいなくても判定は通ります。性別のないポケモンは判定に失敗し、メタモン経由でしか卵を作れません。</p>
+      <p>3つ目の関門が、いちばん引っかかりやすいタマゴ未発見です。伝説、幻、ベビィ、そしてほとんどの化石がここに入り、どの組み合わせでも卵は生まれません。結果カードはこれを名指しで出すので、相手を選び間違えたのかどうかを迷わずに済みます。</p>
+      <div class="bc-rules">
+        <div class="bc-rule"><b>同じタマゴグループ</b><span>共通のタマゴグループが1つ以上あること。2つ重なっても、条件は1つと同じです。</span></div>
+        <div class="bc-rule"><b>反対の性別が可能である。</b><span>片方がオスになれて、もう片方がメスになれること。</span></div>
+        <div class="bc-rule"><b>タマゴ未発見ではない。</b><span>伝説・幻・ベビィ・ほとんどの化石は卵を作りません。</span></div>
+        <div class="bc-rule"><b>メタモンは性別を無効にする。</b><span>メタモンはタマゴ未発見以外のすべてと組めて、生まれる卵は相手の種族になります。</span></div>
+      </div>
+    </section>
+
+    <section class="container bc-prose" aria-labelledby="groups">
+      <h2 id="groups">15のタマゴグループと、そこにいるポケモン</h2>
+      <p>この数は全国図鑑の1,025種すべてを数えたものです。2つのグループを持つ種は両方に数えるので、合計は1,025を超えます。最後の列が時短になります。各グループにどんなポケモンがいるかが分かるので、1組ずつ確かめるより速いです。</p>
+      <div class="bc-table-wrap">
+        <table class="bc-table">
+          <thead><tr><th scope="col">タマゴグループ</th><th scope="col">種族</th><th scope="col">例</th><th scope="col">何をカバーしているか</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">モンスター</th><td class="num">81</td><td>フシギダネ、ラルトス、キバゴ</td><td>耐久性のあるスターター、化石、恐竜型の系統。</td></tr>
+            <tr><th scope="row">水1</th><td class="num">114</td><td>ゼニガメ、ラプラス、ケロマツ</td><td>陸上または水面近くに巣を作る水ポケモン。</td></tr>
+            <tr><th scope="row">むし</th><td class="num">91</td><td>キャタピー、ストライク、ゾロアーク</td><td>ほとんどすべてのむしタイプと、いくつかの奇妙な隣人。</td></tr>
+            <tr><th scope="row">ひこう</th><td class="num">73</td><td>ポッポ、ズバット、スバメ</td><td>鳥類とその巣作りの習性を共有するファミリー。</td></tr>
+            <tr><th scope="row">フィールド</th><td class="num">278</td><td>イーブイ、ガーディ、ポチエナ</td><td>最大のグループ：哺乳類とほとんどの四足ポケモン。</td></tr>
+            <tr><th scope="row">フェアリー</th><td class="num">66</td><td>ピッピ、プリン、マリルリ</td><td>小さくて柔らかいポケモンと、その生息地を共有するもの。</td></tr>
+            <tr><th scope="row">くさ</th><td class="num">89</td><td>ナゾノクサ、マダツボミ、タマゲタケ</td><td>植物と菌類、スターターからキノコまで。</td></tr>
+            <tr><th scope="row">人間のような</th><td class="num">70</td><td>マチス、ラルトス、ルカリオ</td><td>人型のポケモン：直立して二足歩行。</td></tr>
+            <tr><th scope="row">水 3</th><td class="num">37</td><td>ケイコウオ、シェルダー、コイキング</td><td>貝類、クラゲ、そして装甲の海の生物。</td></tr>
+            <tr><th scope="row">鉱物</th><td class="num">84</td><td>イシツブテ、ダンバル、ロトム</td><td>洞窟に住む岩と鋼の体。</td></tr>
+            <tr><th scope="row">無形</th><td class="num">63</td><td>ゴース、ドガース、ヨマワル</td><td>形のない塊と幽霊。</td></tr>
+            <tr><th scope="row">水 2</th><td class="num">34</td><td>コイキング、ホエルコ、フィネオ</td><td>魚とそのそばを泳ぐポケモン。</td></tr>
+            <tr><th scope="row">メタモン</th><td class="num">1</td><td>メタモン</td><td>メタモンだけ。</td></tr>
+            <tr><th scope="row">ドラゴン</th><td class="num">72</td><td>ミニリュウ、リザード、バゴン</td><td>ドラゴン系と、その近くにいるトカゲ型のなかまたちです。</td></tr>
+            <tr><th scope="row">タマゴ未発見</th><td class="num">151</td><td>ミュウツー、フリーザー、ニドリーナ</td><td>伝説・幻・ベビィ・ほとんどの化石。ここに入ると卵は作りません。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>実戦でいちばん重要なのが陸上で、278種、図鑑の4分の1を占めます。孵化計画がイーブイやピカチュウから始まることが多いのはそのためです。2番目に多いのがタマゴ未発見の151種で、こちらは丸ごと「卵を作れないポケモン」のリストです。</p>
+    </section>
+
+    <section class="container bc-prose" aria-labelledby="steps">
+      <h2 id="steps">孵化歩数は何を意味するか</h2>
+      <p>種族ごとに孵化カウンタが決まっていて、卵はその数だけ255歩のサイクルを回します。フシギダネは20なので約5,100歩、ミニリュウは40なので約10,200歩です。ゲームが使う数字はこれだけで、親や預かり屋、孵化した卵の数によって変わることはありません。</p>
+      <p>短縮できるのは特性だけです。ほのおのからだ、マグマのよろい、じょうききかんのどれかがパーティにいると、歩数が半分になります。ファイアローやヒノヤコマがよく使われるのは、移動もできるからです。半減は重ねがけできないので、2匹いても1匹と同じです。</p>
+      <p>計算機は両親の歩数をそのまま出すので、孵化を決める前にどれだけ時間がかかるか分かります。特定の性格や隠れ特性を狙うなら、この歩数に「何個卵を割るか」をかけたものが、その計画の実時間になります。</p>
+    </section>
+
+    <section class="container bc-prose" aria-labelledby="passes">
+      <h2 id="passes">実際に親から受け継がれるもの</h2>
+      <p>相性が決めるのは「卵が出るかどうか」だけです。中身は別のルールで決まるので、始める前に知っておくと、10個で済む話が100個になるのを避けられます。</p>
+      <p>性格はどちらかの親にかたいいしを持たせれば引き継がれるので、1個で欲しい性格を固定できます。6つの個体値のうち5つは、片方にあかいいとを持たせると、両親が持つ12個の中からランダムに引き継がれます。だからブリーダーは片側だけでなく両方の個体値を高くします。タマゴわざは古い作品では父親から、ソード・シールド以降はどちらの親からでも引き継がれ、ボールは母親のものが卵に入ります。</p>
+      <p>ここまでのどれも相性の答えは変えませんが、卵相性だけで相手を決めなくていい理由でもあります。色違いの確率を知りたいなら、 <a href="../pokemon-shiny-odds/">ポケモンの色違いの確率</a> のページで国際孵化と、ひかるおまもりがどう重なるかを説明しています。 <a href="../pokemon-iv-calculator/">ポケモンIV計算機</a> は受け継がれる5つのIVが実際にどれほどの価値があるかを説明している。</p>
+      <p>ペアが決まったら、その周りにパーティを作りたい場合、 <a href="../pokemon-team-picker/">ポケモンパーティピッカー</a> と <a href="../random-pokemon-picker/">ランダムポケモンピッカー</a> も同じ1,025種から作っていて、 <a href="../pokemon/">ポケモン図鑑</a> は、全ての種族値が必要な場合に備えて、種族ごとにページがある。</p>
+    </section>
+
+    <section class="container bc-prose" aria-labelledby="faq-h">
+      <p>カートリッジではなくGOレイドチームのために孵化する？その <a href="../pokemon-go-cp-calculator/">ポケモンGO CP計算機</a> は、孵化した種族がレベル40と50でどのようになるかを示す。</p>
+      <p>単体のポケモンではなくチームのために孵化する？その <a href="../pokemon-type-coverage-calculator/">タイプ相性計算機</a> では、孵ったポケモンが18タイプのどれに2倍で通るかを確かめられます。</p>
+      <h2 id="faq-h">ポケモン 卵相性チェッカーのよくある質問</h2>
+          <details class="faq-item">
+            <summary>この2匹で卵は生まれますか？</summary>
+            <p>できません。両親に共通のタマゴグループが1つ以上あり、オスとメスになれて、どちらもタマゴ未発見でないことが条件です。メタモンだけは例外で、タマゴ未発見以外の何とでも組めます。</p>
+          </details>
+          <details class="faq-item">
+            <summary>共通のタマゴグループはどう調べますか？</summary>
+            <p>上の計算機に2匹を入れて、タマゴグループの行を見てください。フシギダネは怪獣と植物なので、怪獣か植物のどちらかに入っている相手、つまりヒトカゲからナゾノクサまで組めます。1つ重なれば十分です。</p>
+          </details>
+          <details class="faq-item">
+            <summary>伝説のポケモンが卵を作れないのはなぜ？</summary>
+            <p>伝説と幻はタマゴ未発見グループで、ベビィとほとんどの化石も同じです。タマゴ未発見は「何と組んでも卵が生まれない」という意味です。</p>
+          </details>
+          <details class="faq-item">
+            <summary>メタモン同士で卵は生まれますか？</summary>
+            <p>いいえ、メタモン同士では卵が生まれません。メタモンは他のポケモンと組むためのポケモンで、相性の合う相手と預けると、生まれる卵はその相手の種族になります。</p>
+          </details>
+          <details class="faq-item">
+            <summary>オス同士で卵は生まれますか？</summary>
+            <p>いいえ。オスになれる1匹とメスになれる1匹が必要なので、コイルのような性別のないポケモンはメタモン経由でしか卵を作れません。イーブイのようにどちらにもなれる種族は、いま持っている1匹ではなく「なれる性別」で判定します。</p>
+          </details>
+          <details class="faq-item">
+            <summary>歩数は何を意味しますか？</summary>
+            <p>種族ごとに孵化カウンタがあり、255をかけると必要な歩数になります。フシギダネのような20サイクルの卵は約5,100歩、ミニリュウのような40サイクルは約10,200歩です。</p>
+          </details>
+          <details class="faq-item">
+            <summary>ほのおのからだを持つポケモンがいると孵化は早くなる？</summary>
+            <p>はい。ほのおのからだ・マグマのよろい・じょうききかんのどれかと一緒に歩くと歩数が半分になります。だからブリーダーはファイアローやヒノヤコマを連れ歩きます。半減は1回だけで、2匹いても変わりません。</p>
+          </details>
+          <details class="faq-item">
+            <summary>親は同じ種族じゃないとダメですか？</summary>
+            <p>同じ種族の卵を孵したいなら、その必要があります。別種の組み合わせでも卵は生まれ、孵るのはメスの親の種族です（片方がメタモンならメタモンでないほう）。</p>
+          </details>
+          <details class="faq-item">
+            <summary>親から何が受け継がれますか？</summary>
+            <p>性格はかたいいし、個体値5つはあかいいと、タマゴわざは古い作品では父親から、ソード・シールド以降はどちらの親からでも引き継がれます。ボールは母親のものが受け継がれます。</p>
+          </details>
+          <details class="faq-item">
+            <summary>スカーレット・バイオレットでも同じですか？</summary>
+            <p>タマゴグループと性別のルールは第2世代から変わっていません。作品ごとに違うのは、親をどこに預けるか、ピクニックが必要か、たまごパワーの仕組みです。このツールの相性判定はどの作品でもそのまま通用します。</p>
+          </details>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+          <li><a href="../whos-that-pokemon/">このポケモンだあれ？</a></li>
+          <li><a href="../pokebonk-game/">PokeBonk ゲーム</a></li>
+          <li><a href="../pokemon-team-picker/">パーティ編成</a></li>
+          <li><a href="../pokemon-type-chart/">タイプ相性表</a></li><li><a href="../pokemon-type-coverage-calculator/">タイプ相性チェック</a></li><li><a href="../pokemon-go-cp-calculator/">GO CP計算</a></li><li><a href="../pokemon-breeding-calculator/">卵相性チェック</a></li>
+          <li><a href="../pokemon-shiny-odds/">色違いの出現率</a></li>
+          <li><a href="../random-mega-pokemon-generator/">ランダムメガシンカ</a></li>
+          <li><a href="../random-pokemon-type-generator/">ランダムタイプ生成</a></li>
+          <li><a href="../random-legendary-pokemon-generator/">ランダム伝説生成</a></li>
+          <li><a href="../pokemon/">ポケモン図鑑</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+          <li><a href="../privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="../about/">このサイトについて &amp; お問い合わせ</a></li>
+          <li><a href="../terms-of-use/">利用規約</a></li>
+        </ul>
+      <p class="footer-note">© 2026 Random Pokemon Generator — 非公式のファンメイドサイトです。Nintendo・Game Freak・Creatures Inc.・The Pokémon Company とは一切関係ありません。</p>
+      <p class="footer-note">ポケモンおよびポケモンのキャラクター名は各権利者の商標です。データと画像の出典は <a href="https://pokeapi.co/" rel="noopener noreferrer" target="_blank">PokeAPI</a>.</p>
+    </div>
+  </footer>
+
+  <script src="../data.js?v=20261022d"></script>
+  <script src="../crymap.js?v=20261022d"></script>
+  <script src="../nav.js?v=20261022m"></script>
+  <script src="picker.js?v=20261022d"></script>
+  <script src="../../lang-switch.js?v=20261022a"></script>
+
+  <script type="application/json" id="bc-data">[{"i":1,"n":"フシギダネ","g":["Monster","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":2,"n":"フシギソウ","g":["Monster","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":1},{"i":3,"n":"フシギバナ","g":["Monster","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":2},{"i":4,"n":"ヒトカゲ","g":["Monster","Dragon"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":5,"n":"リザード","g":["Monster","Dragon"],"gr":1,"hc":20,"l":0,"m":0,"e":4},{"i":6,"n":"リザードン","g":["Monster","Dragon"],"gr":1,"hc":20,"l":0,"m":0,"e":5},{"i":7,"n":"ゼニガメ","g":["Monster","Water 1"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":8,"n":"カメール","g":["Monster","Water 1"],"gr":1,"hc":20,"l":0,"m":0,"e":7},{"i":9,"n":"カメックス","g":["Monster","Water 1"],"gr":1,"hc":20,"l":0,"m":0,"e":8},{"i":10,"n":"キャタピー","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":11,"n":"トランセル","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":10},{"i":12,"n":"バタフリー","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":11},{"i":13,"n":"ビードル","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":14,"n":"コクーン","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":13},{"i":15,"n":"スピアー","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":14},{"i":16,"n":"ポッポ","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":17,"n":"ピジョン","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":16},{"i":18,"n":"ピジョット","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":17},{"i":19,"n":"コラッタ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":20,"n":"ラッタ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":19},{"i":21,"n":"オニスズメ","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":22,"n":"オニドリル","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":21},{"i":23,"n":"アーボ","g":["Field","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":24,"n":"アーボック","g":["Field","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":23},{"i":25,"n":"ピカチュウ","g":["Field","Fairy"],"gr":4,"hc":10,"l":0,"m":0,"e":172},{"i":26,"n":"ライチュウ","g":["Field","Fairy"],"gr":4,"hc":10,"l":0,"m":0,"e":25},{"i":27,"n":"サンド","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":28,"n":"サンドパン","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":27},{"i":29,"n":"ニドラン♀","g":["Monster","Field"],"gr":8,"hc":20,"l":0,"m":0,"e":0},{"i":30,"n":"ニドリーナ","g":["Undiscovered"],"gr":8,"hc":20,"l":0,"m":0,"e":29},{"i":31,"n":"ニドクイン","g":["Undiscovered"],"gr":8,"hc":20,"l":0,"m":0,"e":30},{"i":32,"n":"ニドラン♂","g":["Monster","Field"],"gr":0,"hc":20,"l":0,"m":0,"e":0},{"i":33,"n":"ニドリーノ","g":["Monster","Field"],"gr":0,"hc":20,"l":0,"m":0,"e":32},{"i":34,"n":"ニドキング","g":["Monster","Field"],"gr":0,"hc":20,"l":0,"m":0,"e":33},{"i":35,"n":"ピッピ","g":["Fairy"],"gr":6,"hc":10,"l":0,"m":0,"e":173},{"i":36,"n":"ピクシー","g":["Fairy"],"gr":6,"hc":10,"l":0,"m":0,"e":35},{"i":37,"n":"ロコン","g":["Field"],"gr":6,"hc":20,"l":0,"m":0,"e":0},{"i":38,"n":"キュウコン","g":["Field"],"gr":6,"hc":20,"l":0,"m":0,"e":37},{"i":39,"n":"プリン","g":["Fairy"],"gr":6,"hc":10,"l":0,"m":0,"e":174},{"i":40,"n":"プクリン","g":["Fairy"],"gr":6,"hc":10,"l":0,"m":0,"e":39},{"i":41,"n":"ズバット","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":42,"n":"ゴルバット","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":41},{"i":43,"n":"ナゾノクサ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":44,"n":"クサイハナ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":43},{"i":45,"n":"ラフレシア","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":44},{"i":46,"n":"パラス","g":["Bug","Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":47,"n":"パラセクト","g":["Bug","Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":46},{"i":48,"n":"コンパン","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":49,"n":"モルフォン","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":48},{"i":50,"n":"ディグダ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":51,"n":"ダグトリオ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":50},{"i":52,"n":"ニャース","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":53,"n":"ペルシアン","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":52},{"i":54,"n":"コダック","g":["Water 1","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":55,"n":"ゴルダック","g":["Water 1","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":54},{"i":56,"n":"マンキー","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":57,"n":"オコリザル","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":56},{"i":58,"n":"ガーディ","g":["Field"],"gr":2,"hc":20,"l":0,"m":0,"e":0},{"i":59,"n":"ウインディ","g":["Field"],"gr":2,"hc":20,"l":0,"m":0,"e":58},{"i":60,"n":"ニョロモ","g":["Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":61,"n":"ニョロゾ","g":["Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":60},{"i":62,"n":"ニョロボン","g":["Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":61},{"i":63,"n":"ケーシィ","g":["Human-Like"],"gr":2,"hc":20,"l":0,"m":0,"e":0},{"i":64,"n":"ユンゲラー","g":["Human-Like"],"gr":2,"hc":20,"l":0,"m":0,"e":63},{"i":65,"n":"フーディン","g":["Human-Like"],"gr":2,"hc":20,"l":0,"m":0,"e":64},{"i":66,"n":"ワンリキー","g":["Human-Like"],"gr":2,"hc":20,"l":0,"m":0,"e":0},{"i":67,"n":"ゴーリキー","g":["Human-Like"],"gr":2,"hc":20,"l":0,"m":0,"e":66},{"i":68,"n":"カイリキー","g":["Human-Like"],"gr":2,"hc":20,"l":0,"m":0,"e":67},{"i":69,"n":"マダツボミ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":70,"n":"ウツドン","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":69},{"i":71,"n":"ウツボット","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":70},{"i":72,"n":"メノクラゲ","g":["Water 3"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":73,"n":"ドククラゲ","g":["Water 3"],"gr":4,"hc":20,"l":0,"m":0,"e":72},{"i":74,"n":"イシツブテ","g":["Mineral"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":75,"n":"ゴローン","g":["Mineral"],"gr":4,"hc":15,"l":0,"m":0,"e":74},{"i":76,"n":"ゴローニャ","g":["Mineral"],"gr":4,"hc":15,"l":0,"m":0,"e":75},{"i":77,"n":"ポニータ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":78,"n":"ギャロップ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":77},{"i":79,"n":"ヤドン","g":["Monster","Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":80,"n":"ヤドラン","g":["Monster","Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":79},{"i":81,"n":"コイル","g":["Mineral"],"gr":-1,"hc":20,"l":0,"m":0,"e":0},{"i":82,"n":"レアコイル","g":["Mineral"],"gr":-1,"hc":20,"l":0,"m":0,"e":81},{"i":83,"n":"カモネギ","g":["Flying","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":84,"n":"ドードー","g":["Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":85,"n":"ドードリオ","g":["Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":84},{"i":86,"n":"パウワウ","g":["Water 1","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":87,"n":"ジュゴン","g":["Water 1","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":86},{"i":88,"n":"ベトベター","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":89,"n":"ベトベトン","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":88},{"i":90,"n":"シェルダー","g":["Water 3"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":91,"n":"パルシェン","g":["Water 3"],"gr":4,"hc":20,"l":0,"m":0,"e":90},{"i":92,"n":"ゴース","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":93,"n":"ゴースト","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":92},{"i":94,"n":"ゲンガー","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":93},{"i":95,"n":"イワーク","g":["Mineral"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":96,"n":"スリープ","g":["Human-Like"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":97,"n":"スリーパー","g":["Human-Like"],"gr":4,"hc":20,"l":0,"m":0,"e":96},{"i":98,"n":"クラブ","g":["Water 3"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":99,"n":"キングラー","g":["Water 3"],"gr":4,"hc":20,"l":0,"m":0,"e":98},{"i":100,"n":"ビリリダマ","g":["Mineral"],"gr":-1,"hc":20,"l":0,"m":0,"e":0},{"i":101,"n":"マルマイン","g":["Mineral"],"gr":-1,"hc":20,"l":0,"m":0,"e":100},{"i":102,"n":"タマタマ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":103,"n":"ナッシー","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":102},{"i":104,"n":"カラカラ","g":["Monster"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":105,"n":"ガラガラ","g":["Monster"],"gr":4,"hc":20,"l":0,"m":0,"e":104},{"i":106,"n":"サワムラー","g":["Human-Like"],"gr":0,"hc":25,"l":0,"m":0,"e":236},{"i":107,"n":"エビワラー","g":["Human-Like"],"gr":0,"hc":25,"l":0,"m":0,"e":236},{"i":108,"n":"ベロリンガ","g":["Monster"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":109,"n":"ドガース","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":110,"n":"マタドガス","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":109},{"i":111,"n":"サイホーン","g":["Monster","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":112,"n":"サイドン","g":["Monster","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":111},{"i":113,"n":"ラッキー","g":["Fairy"],"gr":8,"hc":40,"l":0,"m":0,"e":440},{"i":114,"n":"モンジャラ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":115,"n":"ガルーラ","g":["Monster"],"gr":8,"hc":20,"l":0,"m":0,"e":0},{"i":116,"n":"タッツー","g":["Water 1","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":117,"n":"シードラ","g":["Water 1","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":116},{"i":118,"n":"トサキント","g":["Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":119,"n":"アズマオウ","g":["Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":118},{"i":120,"n":"ヒトデマン","g":["Water 3"],"gr":-1,"hc":20,"l":0,"m":0,"e":0},{"i":121,"n":"スターミー","g":["Water 3"],"gr":-1,"hc":20,"l":0,"m":0,"e":120},{"i":122,"n":"バリヤード","g":["Human-Like"],"gr":4,"hc":25,"l":0,"m":0,"e":439},{"i":123,"n":"ストライク","g":["Bug"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":124,"n":"ルージュラ","g":["Human-Like"],"gr":8,"hc":25,"l":0,"m":0,"e":238},{"i":125,"n":"エレブー","g":["Human-Like"],"gr":2,"hc":25,"l":0,"m":0,"e":239},{"i":126,"n":"ブーバー","g":["Human-Like"],"gr":2,"hc":25,"l":0,"m":0,"e":240},{"i":127,"n":"カイロス","g":["Bug"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":128,"n":"ケンタロス","g":["Field"],"gr":0,"hc":20,"l":0,"m":0,"e":0},{"i":129,"n":"コイキング","g":["Water 2","Dragon"],"gr":4,"hc":5,"l":0,"m":0,"e":0},{"i":130,"n":"ギャラドス","g":["Water 2","Dragon"],"gr":4,"hc":5,"l":0,"m":0,"e":129},{"i":131,"n":"ラプラス","g":["Monster","Water 1"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":132,"n":"メタモン","g":["メタモン"],"gr":-1,"hc":20,"l":0,"m":0,"e":0},{"i":133,"n":"イーブイ","g":["Field"],"gr":1,"hc":35,"l":0,"m":0,"e":0},{"i":134,"n":"シャワーズ","g":["Field"],"gr":1,"hc":35,"l":0,"m":0,"e":133},{"i":135,"n":"サンダース","g":["Field"],"gr":1,"hc":35,"l":0,"m":0,"e":133},{"i":136,"n":"ブースター","g":["Field"],"gr":1,"hc":35,"l":0,"m":0,"e":133},{"i":137,"n":"ポリゴン","g":["Mineral"],"gr":-1,"hc":20,"l":0,"m":0,"e":0},{"i":138,"n":"オムナイト","g":["Water 1","Water 3"],"gr":1,"hc":30,"l":0,"m":0,"e":0},{"i":139,"n":"オムスター","g":["Water 1","Water 3"],"gr":1,"hc":30,"l":0,"m":0,"e":138},{"i":140,"n":"カブト","g":["Water 1","Water 3"],"gr":1,"hc":30,"l":0,"m":0,"e":0},{"i":141,"n":"カブトプス","g":["Water 1","Water 3"],"gr":1,"hc":30,"l":0,"m":0,"e":140},{"i":142,"n":"プテラ","g":["Flying"],"gr":1,"hc":35,"l":0,"m":0,"e":0},{"i":143,"n":"カビゴン","g":["Monster"],"gr":1,"hc":40,"l":0,"m":0,"e":446},{"i":144,"n":"フリーザー","g":["Undiscovered"],"gr":-1,"hc":80,"l":1,"m":0,"e":0},{"i":145,"n":"サンダー","g":["Undiscovered"],"gr":-1,"hc":80,"l":1,"m":0,"e":0},{"i":146,"n":"ファイヤー","g":["Undiscovered"],"gr":-1,"hc":80,"l":1,"m":0,"e":0},{"i":147,"n":"ミニリュウ","g":["Water 1","Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":148,"n":"ハクリュー","g":["Water 1","Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":147},{"i":149,"n":"カイリュー","g":["Water 1","Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":148},{"i":150,"n":"ミュウツー","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":151,"n":"ミュウ","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":0},{"i":152,"n":"チコリータ","g":["Monster","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":153,"n":"ベイリーフ","g":["Monster","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":152},{"i":154,"n":"メガニウム","g":["Monster","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":153},{"i":155,"n":"ヒノアラシ","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":156,"n":"マグマラシ","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":155},{"i":157,"n":"バクフーン","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":156},{"i":158,"n":"ワニノコ","g":["Monster","Water 1"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":159,"n":"アリゲイツ","g":["Monster","Water 1"],"gr":1,"hc":20,"l":0,"m":0,"e":158},{"i":160,"n":"オーダイル","g":["Monster","Water 1"],"gr":1,"hc":20,"l":0,"m":0,"e":159},{"i":161,"n":"オタチ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":162,"n":"オオタチ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":161},{"i":163,"n":"ホーホー","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":164,"n":"ヨルノズク","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":163},{"i":165,"n":"レディバ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":166,"n":"レディアン","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":165},{"i":167,"n":"イトマル","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":168,"n":"アリアドス","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":167},{"i":169,"n":"クロバット","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":42},{"i":170,"n":"チョンチー","g":["Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":171,"n":"ランターン","g":["Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":170},{"i":172,"n":"ピチュー","g":["Undiscovered"],"gr":4,"hc":10,"l":0,"m":0,"e":0},{"i":173,"n":"ピィ","g":["Undiscovered"],"gr":6,"hc":10,"l":0,"m":0,"e":0},{"i":174,"n":"ププリン","g":["Undiscovered"],"gr":6,"hc":10,"l":0,"m":0,"e":0},{"i":175,"n":"トゲピー","g":["Undiscovered"],"gr":1,"hc":10,"l":0,"m":0,"e":0},{"i":176,"n":"トゲチック","g":["Flying","Fairy"],"gr":1,"hc":10,"l":0,"m":0,"e":175},{"i":177,"n":"ネイティ","g":["Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":178,"n":"ネイティオ","g":["Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":177},{"i":179,"n":"メリープ","g":["Monster","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":180,"n":"モココ","g":["Monster","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":179},{"i":181,"n":"デンリュウ","g":["Monster","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":180},{"i":182,"n":"キレイハナ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":44},{"i":183,"n":"マリル","g":["Water 1","Fairy"],"gr":4,"hc":10,"l":0,"m":0,"e":298},{"i":184,"n":"マリルリ","g":["Water 1","Fairy"],"gr":4,"hc":10,"l":0,"m":0,"e":183},{"i":185,"n":"ウソッキー","g":["Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":438},{"i":186,"n":"ニョロトノ","g":["Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":61},{"i":187,"n":"ハネッコ","g":["Fairy","Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":188,"n":"ポポッコ","g":["Fairy","Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":187},{"i":189,"n":"ワタッコ","g":["Fairy","Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":188},{"i":190,"n":"エイパム","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":191,"n":"ヒマナッツ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":192,"n":"キマワリ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":191},{"i":193,"n":"ヤンヤンマ","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":194,"n":"ウパー","g":["Water 1","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":195,"n":"ヌオー","g":["Water 1","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":194},{"i":196,"n":"エーフィ","g":["Field"],"gr":1,"hc":35,"l":0,"m":0,"e":133},{"i":197,"n":"ブラッキー","g":["Field"],"gr":1,"hc":35,"l":0,"m":0,"e":133},{"i":198,"n":"ヤミカラス","g":["Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":199,"n":"ヤドキング","g":["Monster","Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":79},{"i":200,"n":"ムウマ","g":["Amorphous"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":201,"n":"アンノーン","g":["Undiscovered"],"gr":-1,"hc":40,"l":0,"m":0,"e":0},{"i":202,"n":"ソーナンス","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":360},{"i":203,"n":"キリンリキ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":204,"n":"クヌギダマ","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":205,"n":"フォレトス","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":204},{"i":206,"n":"ノコッチ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":207,"n":"グライガー","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":208,"n":"ハガネール","g":["Mineral"],"gr":4,"hc":25,"l":0,"m":0,"e":95},{"i":209,"n":"ブルー","g":["Field","Fairy"],"gr":6,"hc":20,"l":0,"m":0,"e":0},{"i":210,"n":"グランブル","g":["Field","Fairy"],"gr":6,"hc":20,"l":0,"m":0,"e":209},{"i":211,"n":"ハリーセン","g":["Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":212,"n":"ハッサム","g":["Bug"],"gr":4,"hc":25,"l":0,"m":0,"e":123},{"i":213,"n":"ツボツボ","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":214,"n":"ヘラクロス","g":["Bug"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":215,"n":"ニューラ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":216,"n":"ヒメグマ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":217,"n":"リングマ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":216},{"i":218,"n":"マグマッグ","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":219,"n":"マグカルゴ","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":218},{"i":220,"n":"ウリムー","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":221,"n":"イノムー","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":220},{"i":222,"n":"サニーゴ","g":["Water 1","Water 3"],"gr":6,"hc":20,"l":0,"m":0,"e":0},{"i":223,"n":"テッポウオ","g":["Water 1","Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":224,"n":"オクタン","g":["Water 1","Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":223},{"i":225,"n":"デリバード","g":["Water 1","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":226,"n":"マンタイン","g":["Water 1"],"gr":4,"hc":25,"l":0,"m":0,"e":458},{"i":227,"n":"エアームド","g":["Flying"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":228,"n":"デルビル","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":229,"n":"ヘルガー","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":228},{"i":230,"n":"キングドラ","g":["Water 1","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":117},{"i":231,"n":"ゴマゾウ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":232,"n":"ドンファン","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":231},{"i":233,"n":"ポリゴン２","g":["Mineral"],"gr":-1,"hc":20,"l":0,"m":0,"e":137},{"i":234,"n":"オドシシ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":235,"n":"ドーブル","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":236,"n":"バルキー","g":["Undiscovered"],"gr":0,"hc":25,"l":0,"m":0,"e":0},{"i":237,"n":"カポエラー","g":["Human-Like"],"gr":0,"hc":25,"l":0,"m":0,"e":236},{"i":238,"n":"ムチュール","g":["Undiscovered"],"gr":8,"hc":25,"l":0,"m":0,"e":0},{"i":239,"n":"エレキッド","g":["Undiscovered"],"gr":2,"hc":25,"l":0,"m":0,"e":0},{"i":240,"n":"ブビィ","g":["Undiscovered"],"gr":2,"hc":25,"l":0,"m":0,"e":0},{"i":241,"n":"ミルタンク","g":["Field"],"gr":8,"hc":20,"l":0,"m":0,"e":0},{"i":242,"n":"ハピナス","g":["Fairy"],"gr":8,"hc":40,"l":0,"m":0,"e":113},{"i":243,"n":"ライコウ","g":["Undiscovered"],"gr":-1,"hc":80,"l":1,"m":0,"e":0},{"i":244,"n":"エンテイ","g":["Undiscovered"],"gr":-1,"hc":80,"l":1,"m":0,"e":0},{"i":245,"n":"スイクン","g":["Undiscovered"],"gr":-1,"hc":80,"l":1,"m":0,"e":0},{"i":246,"n":"ヨーギラス","g":["Monster"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":247,"n":"サナギラス","g":["Monster"],"gr":4,"hc":40,"l":0,"m":0,"e":246},{"i":248,"n":"バンギラス","g":["Monster"],"gr":4,"hc":40,"l":0,"m":0,"e":247},{"i":249,"n":"ルギア","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":250,"n":"ホウオウ","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":251,"n":"セレビィ","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":0},{"i":252,"n":"キモリ","g":["Monster","Dragon"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":253,"n":"ジュプトル","g":["Monster","Dragon"],"gr":1,"hc":20,"l":0,"m":0,"e":252},{"i":254,"n":"ジュカイン","g":["Monster","Dragon"],"gr":1,"hc":20,"l":0,"m":0,"e":253},{"i":255,"n":"アチャモ","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":256,"n":"ワカシャモ","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":255},{"i":257,"n":"バシャーモ","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":256},{"i":258,"n":"ミズゴロウ","g":["Monster","Water 1"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":259,"n":"ヌマクロー","g":["Monster","Water 1"],"gr":1,"hc":20,"l":0,"m":0,"e":258},{"i":260,"n":"ラグラージ","g":["Monster","Water 1"],"gr":1,"hc":20,"l":0,"m":0,"e":259},{"i":261,"n":"ポチエナ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":262,"n":"グラエナ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":261},{"i":263,"n":"ジグザグマ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":264,"n":"マッスグマ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":263},{"i":265,"n":"ケムッソ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":266,"n":"カラサリス","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":265},{"i":267,"n":"アゲハント","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":266},{"i":268,"n":"マユルド","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":265},{"i":269,"n":"ドクケイル","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":268},{"i":270,"n":"ハスボー","g":["Water 1","Grass"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":271,"n":"ハスブレロ","g":["Water 1","Grass"],"gr":4,"hc":15,"l":0,"m":0,"e":270},{"i":272,"n":"ルンパッパ","g":["Water 1","Grass"],"gr":4,"hc":15,"l":0,"m":0,"e":271},{"i":273,"n":"タネボー","g":["Field","Grass"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":274,"n":"コノハナ","g":["Field","Grass"],"gr":4,"hc":15,"l":0,"m":0,"e":273},{"i":275,"n":"ダーテング","g":["Field","Grass"],"gr":4,"hc":15,"l":0,"m":0,"e":274},{"i":276,"n":"スバメ","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":277,"n":"オオスバメ","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":276},{"i":278,"n":"キャモメ","g":["Water 1","Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":279,"n":"ペリッパー","g":["Water 1","Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":278},{"i":280,"n":"ラルトス","g":["Human-Like","Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":281,"n":"キルリア","g":["Human-Like","Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":280},{"i":282,"n":"サーナイト","g":["Human-Like","Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":281},{"i":283,"n":"アメタマ","g":["Water 1","Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":284,"n":"アメモース","g":["Water 1","Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":283},{"i":285,"n":"キノココ","g":["Fairy","Grass"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":286,"n":"キノガッサ","g":["Fairy","Grass"],"gr":4,"hc":15,"l":0,"m":0,"e":285},{"i":287,"n":"ナマケロ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":288,"n":"ヤルキモノ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":287},{"i":289,"n":"ケッキング","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":288},{"i":290,"n":"ツチニン","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":291,"n":"テッカニン","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":290},{"i":292,"n":"ヌケニン","g":["Mineral"],"gr":-1,"hc":15,"l":0,"m":0,"e":290},{"i":293,"n":"ゴニョニョ","g":["Monster","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":294,"n":"ドゴーム","g":["Monster","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":293},{"i":295,"n":"バクオング","g":["Monster","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":294},{"i":296,"n":"マクノシタ","g":["Human-Like"],"gr":2,"hc":20,"l":0,"m":0,"e":0},{"i":297,"n":"ハリテヤマ","g":["Human-Like"],"gr":2,"hc":20,"l":0,"m":0,"e":296},{"i":298,"n":"ルリリ","g":["Undiscovered"],"gr":6,"hc":10,"l":0,"m":0,"e":0},{"i":299,"n":"ノズパス","g":["Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":300,"n":"エネコ","g":["Field","Fairy"],"gr":6,"hc":15,"l":0,"m":0,"e":0},{"i":301,"n":"エネコロロ","g":["Field","Fairy"],"gr":6,"hc":15,"l":0,"m":0,"e":300},{"i":302,"n":"ヤミラミ","g":["Human-Like"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":303,"n":"クチート","g":["Field","Fairy"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":304,"n":"ココドラ","g":["Monster"],"gr":4,"hc":35,"l":0,"m":0,"e":0},{"i":305,"n":"コドラ","g":["Monster"],"gr":4,"hc":35,"l":0,"m":0,"e":304},{"i":306,"n":"ボスゴドラ","g":["Monster"],"gr":4,"hc":35,"l":0,"m":0,"e":305},{"i":307,"n":"アサナン","g":["Human-Like"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":308,"n":"チャーレム","g":["Human-Like"],"gr":4,"hc":20,"l":0,"m":0,"e":307},{"i":309,"n":"ラクライ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":310,"n":"ライボルト","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":309},{"i":311,"n":"プラスル","g":["Fairy"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":312,"n":"マイナン","g":["Fairy"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":313,"n":"バルビート","g":["Bug","Human-Like"],"gr":0,"hc":15,"l":0,"m":0,"e":0},{"i":314,"n":"イルミーゼ","g":["Bug","Human-Like"],"gr":8,"hc":15,"l":0,"m":0,"e":0},{"i":315,"n":"ロゼリア","g":["Fairy","Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":406},{"i":316,"n":"ゴクリン","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":317,"n":"マルノーム","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":316},{"i":318,"n":"キバニア","g":["Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":319,"n":"サメハダー","g":["Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":318},{"i":320,"n":"ホエルコ","g":["Field","Water 2"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":321,"n":"ホエルオー","g":["Field","Water 2"],"gr":4,"hc":40,"l":0,"m":0,"e":320},{"i":322,"n":"ドンメル","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":323,"n":"バクーダ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":322},{"i":324,"n":"コータス","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":325,"n":"バネブー","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":326,"n":"ブーピッグ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":325},{"i":327,"n":"パッチール","g":["Field","Human-Like"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":328,"n":"ナックラー","g":["Bug","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":329,"n":"ビブラーバ","g":["Bug","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":328},{"i":330,"n":"フライゴン","g":["Bug","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":329},{"i":331,"n":"サボネア","g":["Grass","Human-Like"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":332,"n":"ノクタス","g":["Grass","Human-Like"],"gr":4,"hc":20,"l":0,"m":0,"e":331},{"i":333,"n":"チルット","g":["Flying","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":334,"n":"チルタリス","g":["Flying","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":333},{"i":335,"n":"ザングース","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":336,"n":"ハブネーク","g":["Field","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":337,"n":"ルナトーン","g":["Mineral"],"gr":-1,"hc":25,"l":0,"m":0,"e":0},{"i":338,"n":"ソルロック","g":["Mineral"],"gr":-1,"hc":25,"l":0,"m":0,"e":0},{"i":339,"n":"ドジョッチ","g":["Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":340,"n":"ナマズン","g":["Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":339},{"i":341,"n":"ヘイガニ","g":["Water 1","Water 3"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":342,"n":"シザリガー","g":["Water 1","Water 3"],"gr":4,"hc":15,"l":0,"m":0,"e":341},{"i":343,"n":"ヤジロン","g":["Mineral"],"gr":-1,"hc":20,"l":0,"m":0,"e":0},{"i":344,"n":"ネンドール","g":["Mineral"],"gr":-1,"hc":20,"l":0,"m":0,"e":343},{"i":345,"n":"リリーラ","g":["Water 3"],"gr":1,"hc":30,"l":0,"m":0,"e":0},{"i":346,"n":"ユレイドル","g":["Water 3"],"gr":1,"hc":30,"l":0,"m":0,"e":345},{"i":347,"n":"アノプス","g":["Water 3"],"gr":1,"hc":30,"l":0,"m":0,"e":0},{"i":348,"n":"アーマルド","g":["Water 3"],"gr":1,"hc":30,"l":0,"m":0,"e":347},{"i":349,"n":"ヒンバス","g":["Water 1","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":350,"n":"ミロカロス","g":["Water 1","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":349},{"i":351,"n":"ポワルン","g":["Fairy","Amorphous"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":352,"n":"カクレオン","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":353,"n":"カゲボウズ","g":["Amorphous"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":354,"n":"ジュペッタ","g":["Amorphous"],"gr":4,"hc":25,"l":0,"m":0,"e":353},{"i":355,"n":"ヨマワル","g":["Amorphous"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":356,"n":"サマヨール","g":["Amorphous"],"gr":4,"hc":25,"l":0,"m":0,"e":355},{"i":357,"n":"トロピウス","g":["Monster","Grass"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":358,"n":"チリーン","g":["Amorphous"],"gr":4,"hc":25,"l":0,"m":0,"e":433},{"i":359,"n":"アブソル","g":["Field"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":360,"n":"ソーナノ","g":["Undiscovered"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":361,"n":"ユキワラシ","g":["Fairy","Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":362,"n":"オニゴーリ","g":["Fairy","Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":361},{"i":363,"n":"タマザラシ","g":["Water 1","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":364,"n":"トドグラー","g":["Water 1","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":363},{"i":365,"n":"トドゼルガ","g":["Water 1","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":364},{"i":366,"n":"パールル","g":["Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":367,"n":"ハンテール","g":["Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":366},{"i":368,"n":"サクラビス","g":["Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":366},{"i":369,"n":"ジーランス","g":["Water 1","Water 2"],"gr":1,"hc":40,"l":0,"m":0,"e":0},{"i":370,"n":"ラブカス","g":["Water 2"],"gr":6,"hc":20,"l":0,"m":0,"e":0},{"i":371,"n":"タツベイ","g":["Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":372,"n":"コモルー","g":["Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":371},{"i":373,"n":"ボーマンダ","g":["Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":372},{"i":374,"n":"ダンバル","g":["Mineral"],"gr":-1,"hc":40,"l":0,"m":0,"e":0},{"i":375,"n":"メタング","g":["Mineral"],"gr":-1,"hc":40,"l":0,"m":0,"e":374},{"i":376,"n":"メタグロス","g":["Mineral"],"gr":-1,"hc":40,"l":0,"m":0,"e":375},{"i":377,"n":"レジロック","g":["Undiscovered"],"gr":-1,"hc":80,"l":1,"m":0,"e":0},{"i":378,"n":"レジアイス","g":["Undiscovered"],"gr":-1,"hc":80,"l":1,"m":0,"e":0},{"i":379,"n":"レジスチル","g":["Undiscovered"],"gr":-1,"hc":80,"l":1,"m":0,"e":0},{"i":380,"n":"ラティアス","g":["Undiscovered"],"gr":8,"hc":120,"l":1,"m":0,"e":0},{"i":381,"n":"ラティオス","g":["Undiscovered"],"gr":0,"hc":120,"l":1,"m":0,"e":0},{"i":382,"n":"カイオーガ","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":383,"n":"グラードン","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":384,"n":"レックウザ","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":385,"n":"ジラーチ","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":0},{"i":386,"n":"デオキシス","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":0},{"i":387,"n":"ナエトル","g":["Monster","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":388,"n":"ハヤシガメ","g":["Monster","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":387},{"i":389,"n":"ドダイトス","g":["Monster","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":388},{"i":390,"n":"ヒコザル","g":["Field","Human-Like"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":391,"n":"モウカザル","g":["Field","Human-Like"],"gr":1,"hc":20,"l":0,"m":0,"e":390},{"i":392,"n":"ゴウカザル","g":["Field","Human-Like"],"gr":1,"hc":20,"l":0,"m":0,"e":391},{"i":393,"n":"ポッチャマ","g":["Water 1","Field"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":394,"n":"ポッタイシ","g":["Water 1","Field"],"gr":1,"hc":20,"l":0,"m":0,"e":393},{"i":395,"n":"エンペルト","g":["Water 1","Field"],"gr":1,"hc":20,"l":0,"m":0,"e":394},{"i":396,"n":"ムックル","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":397,"n":"ムクバード","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":396},{"i":398,"n":"ムクホーク","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":397},{"i":399,"n":"ビッパ","g":["Water 1","Field"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":400,"n":"ビーダル","g":["Water 1","Field"],"gr":4,"hc":15,"l":0,"m":0,"e":399},{"i":401,"n":"コロボーシ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":402,"n":"コロトック","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":401},{"i":403,"n":"コリンク","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":404,"n":"ルクシオ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":403},{"i":405,"n":"レントラー","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":404},{"i":406,"n":"スボミー","g":["Undiscovered"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":407,"n":"ロズレイド","g":["Fairy","Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":315},{"i":408,"n":"ズガイドス","g":["Monster"],"gr":1,"hc":30,"l":0,"m":0,"e":0},{"i":409,"n":"ラムパルド","g":["Monster"],"gr":1,"hc":30,"l":0,"m":0,"e":408},{"i":410,"n":"タテトプス","g":["Monster"],"gr":1,"hc":30,"l":0,"m":0,"e":0},{"i":411,"n":"トリデプス","g":["Monster"],"gr":1,"hc":30,"l":0,"m":0,"e":410},{"i":412,"n":"ミノムッチ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":413,"n":"ミノマダム","g":["Bug"],"gr":8,"hc":15,"l":0,"m":0,"e":412},{"i":414,"n":"ガーメイル","g":["Bug"],"gr":0,"hc":15,"l":0,"m":0,"e":412},{"i":415,"n":"ミツハニー","g":["Bug"],"gr":1,"hc":15,"l":0,"m":0,"e":0},{"i":416,"n":"ビークイン","g":["Bug"],"gr":8,"hc":15,"l":0,"m":0,"e":415},{"i":417,"n":"パチリス","g":["Field","Fairy"],"gr":4,"hc":10,"l":0,"m":0,"e":0},{"i":418,"n":"ブイゼル","g":["Water 1","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":419,"n":"フローゼル","g":["Water 1","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":418},{"i":420,"n":"チェリンボ","g":["Fairy","Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":421,"n":"チェリム","g":["Fairy","Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":420},{"i":422,"n":"カラナクシ","g":["Water 1","Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":423,"n":"トリトドン","g":["Water 1","Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":422},{"i":424,"n":"エテボース","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":190},{"i":425,"n":"フワンテ","g":["Amorphous"],"gr":4,"hc":30,"l":0,"m":0,"e":0},{"i":426,"n":"フワライド","g":["Amorphous"],"gr":4,"hc":30,"l":0,"m":0,"e":425},{"i":427,"n":"ミミロル","g":["Field","Human-Like"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":428,"n":"ミミロップ","g":["Field","Human-Like"],"gr":4,"hc":20,"l":0,"m":0,"e":427},{"i":429,"n":"ムウマージ","g":["Amorphous"],"gr":4,"hc":25,"l":0,"m":0,"e":200},{"i":430,"n":"ドンカラス","g":["Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":198},{"i":431,"n":"ニャルマー","g":["Field"],"gr":6,"hc":20,"l":0,"m":0,"e":0},{"i":432,"n":"ブニャット","g":["Field"],"gr":6,"hc":20,"l":0,"m":0,"e":431},{"i":433,"n":"リーシャン","g":["Undiscovered"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":434,"n":"スカンプー","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":435,"n":"スカタンク","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":434},{"i":436,"n":"ドーミラー","g":["Mineral"],"gr":-1,"hc":20,"l":0,"m":0,"e":0},{"i":437,"n":"ドータクン","g":["Mineral"],"gr":-1,"hc":20,"l":0,"m":0,"e":436},{"i":438,"n":"ウソハチ","g":["Undiscovered"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":439,"n":"マネネ","g":["Undiscovered"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":440,"n":"ピンプク","g":["Undiscovered"],"gr":8,"hc":40,"l":0,"m":0,"e":0},{"i":441,"n":"ペラップ","g":["Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":442,"n":"ミカルゲ","g":["Amorphous"],"gr":4,"hc":30,"l":0,"m":0,"e":0},{"i":443,"n":"フカマル","g":["Monster","Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":444,"n":"ガバイト","g":["Monster","Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":443},{"i":445,"n":"ガブリアス","g":["Monster","Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":444},{"i":446,"n":"ゴンベ","g":["Undiscovered"],"gr":1,"hc":40,"l":0,"m":0,"e":0},{"i":447,"n":"リオル","g":["Undiscovered"],"gr":1,"hc":25,"l":0,"m":0,"e":0},{"i":448,"n":"ルカリオ","g":["Field","Human-Like"],"gr":1,"hc":25,"l":0,"m":0,"e":447},{"i":449,"n":"ヒポポタス","g":["Field"],"gr":4,"hc":30,"l":0,"m":0,"e":0},{"i":450,"n":"カバルドン","g":["Field"],"gr":4,"hc":30,"l":0,"m":0,"e":449},{"i":451,"n":"スコルピ","g":["Bug","Water 3"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":452,"n":"ドラピオン","g":["Bug","Water 3"],"gr":4,"hc":20,"l":0,"m":0,"e":451},{"i":453,"n":"グレッグル","g":["Human-Like"],"gr":4,"hc":10,"l":0,"m":0,"e":0},{"i":454,"n":"ドクロッグ","g":["Human-Like"],"gr":4,"hc":20,"l":0,"m":0,"e":453},{"i":455,"n":"マスキッパ","g":["Grass"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":456,"n":"ケイコウオ","g":["Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":457,"n":"ネオラント","g":["Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":456},{"i":458,"n":"タマンタ","g":["Undiscovered"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":459,"n":"ユキカブリ","g":["Monster","Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":460,"n":"ユキノオー","g":["Monster","Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":459},{"i":461,"n":"マニューラ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":215},{"i":462,"n":"ジバコイル","g":["Mineral"],"gr":-1,"hc":20,"l":0,"m":0,"e":82},{"i":463,"n":"ベロベルト","g":["Monster"],"gr":4,"hc":20,"l":0,"m":0,"e":108},{"i":464,"n":"ドサイドン","g":["Monster","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":112},{"i":465,"n":"モジャンボ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":114},{"i":466,"n":"エレキブル","g":["Human-Like"],"gr":2,"hc":25,"l":0,"m":0,"e":125},{"i":467,"n":"ブーバーン","g":["Human-Like"],"gr":2,"hc":25,"l":0,"m":0,"e":126},{"i":468,"n":"トゲキッス","g":["Flying","Fairy"],"gr":1,"hc":10,"l":0,"m":0,"e":176},{"i":469,"n":"メガヤンマ","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":193},{"i":470,"n":"リーフィア","g":["Field"],"gr":1,"hc":35,"l":0,"m":0,"e":133},{"i":471,"n":"グレイシア","g":["Field"],"gr":1,"hc":35,"l":0,"m":0,"e":133},{"i":472,"n":"グライオン","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":207},{"i":473,"n":"マンムー","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":221},{"i":474,"n":"ポリゴンＺ","g":["Mineral"],"gr":-1,"hc":20,"l":0,"m":0,"e":233},{"i":475,"n":"エルレイド","g":["Human-Like","Amorphous"],"gr":0,"hc":20,"l":0,"m":0,"e":281},{"i":476,"n":"ダイノーズ","g":["Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":299},{"i":477,"n":"ヨノワール","g":["Amorphous"],"gr":4,"hc":25,"l":0,"m":0,"e":356},{"i":478,"n":"ユキメノコ","g":["Fairy","Mineral"],"gr":8,"hc":20,"l":0,"m":0,"e":361},{"i":479,"n":"ロトム","g":["Amorphous"],"gr":-1,"hc":20,"l":0,"m":0,"e":0},{"i":480,"n":"ユクシー","g":["Undiscovered"],"gr":-1,"hc":80,"l":1,"m":0,"e":0},{"i":481,"n":"エムリット","g":["Undiscovered"],"gr":-1,"hc":80,"l":1,"m":0,"e":0},{"i":482,"n":"アグノム","g":["Undiscovered"],"gr":-1,"hc":80,"l":1,"m":0,"e":0},{"i":483,"n":"ディアルガ","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":484,"n":"パルキア","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":485,"n":"ヒードラン","g":["Undiscovered"],"gr":4,"hc":10,"l":1,"m":0,"e":0},{"i":486,"n":"レジギガス","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":487,"n":"ギラティナ","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":488,"n":"クレセリア","g":["Undiscovered"],"gr":8,"hc":120,"l":1,"m":0,"e":0},{"i":489,"n":"フィオネ","g":["Water 1","Fairy"],"gr":-1,"hc":40,"l":0,"m":1,"e":0},{"i":490,"n":"マナフィ","g":["Water 1","Fairy"],"gr":-1,"hc":10,"l":0,"m":1,"e":0},{"i":491,"n":"ダークライ","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":0},{"i":492,"n":"シェイミ","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":0},{"i":493,"n":"アルセウス","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":0},{"i":494,"n":"ビクティニ","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":0},{"i":495,"n":"ツタージャ","g":["Field","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":496,"n":"ジャノビー","g":["Field","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":495},{"i":497,"n":"ジャローダ","g":["Field","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":496},{"i":498,"n":"ポカブ","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":499,"n":"チャオブー","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":498},{"i":500,"n":"エンブオー","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":499},{"i":501,"n":"ミジュマル","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":502,"n":"フタチマル","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":501},{"i":503,"n":"ダイケンキ","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":502},{"i":504,"n":"ミネズミ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":505,"n":"ミルホッグ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":504},{"i":506,"n":"ヨーテリー","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":507,"n":"ハーデリア","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":506},{"i":508,"n":"ムーランド","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":507},{"i":509,"n":"チョロネコ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":510,"n":"レパルダス","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":509},{"i":511,"n":"ヤナップ","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":512,"n":"ヤナッキー","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":511},{"i":513,"n":"バオップ","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":514,"n":"バオッキー","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":513},{"i":515,"n":"ヒヤップ","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":516,"n":"ヒヤッキー","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":515},{"i":517,"n":"ムンナ","g":["Field"],"gr":4,"hc":10,"l":0,"m":0,"e":0},{"i":518,"n":"ムシャーナ","g":["Field"],"gr":4,"hc":10,"l":0,"m":0,"e":517},{"i":519,"n":"マメパト","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":520,"n":"ハトーボー","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":519},{"i":521,"n":"ケンホロウ","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":520},{"i":522,"n":"シママ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":523,"n":"ゼブライカ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":522},{"i":524,"n":"ダンゴロ","g":["Mineral"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":525,"n":"ガントル","g":["Mineral"],"gr":4,"hc":15,"l":0,"m":0,"e":524},{"i":526,"n":"ギガイアス","g":["Mineral"],"gr":4,"hc":15,"l":0,"m":0,"e":525},{"i":527,"n":"コロモリ","g":["Flying","Field"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":528,"n":"ココロモリ","g":["Flying","Field"],"gr":4,"hc":15,"l":0,"m":0,"e":527},{"i":529,"n":"モグリュー","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":530,"n":"ドリュウズ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":529},{"i":531,"n":"タブンネ","g":["Fairy"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":532,"n":"ドッコラー","g":["Human-Like"],"gr":2,"hc":20,"l":0,"m":0,"e":0},{"i":533,"n":"ドテッコツ","g":["Human-Like"],"gr":2,"hc":20,"l":0,"m":0,"e":532},{"i":534,"n":"ローブシン","g":["Human-Like"],"gr":2,"hc":20,"l":0,"m":0,"e":533},{"i":535,"n":"オタマロ","g":["Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":536,"n":"ガマガル","g":["Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":535},{"i":537,"n":"ガマゲロゲ","g":["Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":536},{"i":538,"n":"ナゲキ","g":["Human-Like"],"gr":0,"hc":20,"l":0,"m":0,"e":0},{"i":539,"n":"ダゲキ","g":["Human-Like"],"gr":0,"hc":20,"l":0,"m":0,"e":0},{"i":540,"n":"クルミル","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":541,"n":"クルマユ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":540},{"i":542,"n":"ハハコモリ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":541},{"i":543,"n":"フシデ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":544,"n":"ホイーガ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":543},{"i":545,"n":"ペンドラー","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":544},{"i":546,"n":"モンメン","g":["Fairy","Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":547,"n":"エルフーン","g":["Fairy","Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":546},{"i":548,"n":"チュリネ","g":["Grass"],"gr":8,"hc":20,"l":0,"m":0,"e":0},{"i":549,"n":"ドレディア","g":["Grass"],"gr":8,"hc":20,"l":0,"m":0,"e":548},{"i":550,"n":"バスラオ","g":["Water 2"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":551,"n":"メグロコ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":552,"n":"ワルビル","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":551},{"i":553,"n":"ワルビアル","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":552},{"i":554,"n":"ダルマッカ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":555,"n":"ヒヒダルマ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":554},{"i":556,"n":"マラカッチ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":557,"n":"イシズマイ","g":["Bug","Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":558,"n":"イワパレス","g":["Bug","Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":557},{"i":559,"n":"ズルッグ","g":["Field","Dragon"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":560,"n":"ズルズキン","g":["Field","Dragon"],"gr":4,"hc":15,"l":0,"m":0,"e":559},{"i":561,"n":"シンボラー","g":["Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":562,"n":"デスマス","g":["Mineral","Amorphous"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":563,"n":"デスカーン","g":["Mineral","Amorphous"],"gr":4,"hc":25,"l":0,"m":0,"e":562},{"i":564,"n":"プロトーガ","g":["Water 1","Water 3"],"gr":1,"hc":30,"l":0,"m":0,"e":0},{"i":565,"n":"アバゴーラ","g":["Water 1","Water 3"],"gr":1,"hc":30,"l":0,"m":0,"e":564},{"i":566,"n":"アーケン","g":["Flying","Water 3"],"gr":1,"hc":30,"l":0,"m":0,"e":0},{"i":567,"n":"アーケオス","g":["Flying","Water 3"],"gr":1,"hc":30,"l":0,"m":0,"e":566},{"i":568,"n":"ヤブクロン","g":["Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":569,"n":"ダストダス","g":["Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":568},{"i":570,"n":"ゾロア","g":["Field"],"gr":1,"hc":25,"l":0,"m":0,"e":0},{"i":571,"n":"ゾロアーク","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":570},{"i":572,"n":"チラーミィ","g":["Field"],"gr":6,"hc":15,"l":0,"m":0,"e":0},{"i":573,"n":"チラチーノ","g":["Field"],"gr":6,"hc":15,"l":0,"m":0,"e":572},{"i":574,"n":"ゴチム","g":["Human-Like"],"gr":6,"hc":20,"l":0,"m":0,"e":0},{"i":575,"n":"ゴチミル","g":["Human-Like"],"gr":6,"hc":20,"l":0,"m":0,"e":574},{"i":576,"n":"ゴチルゼル","g":["Human-Like"],"gr":6,"hc":20,"l":0,"m":0,"e":575},{"i":577,"n":"ユニラン","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":578,"n":"ダブラン","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":577},{"i":579,"n":"ランクルス","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":578},{"i":580,"n":"コアルヒー","g":["Water 1","Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":581,"n":"スワンナ","g":["Water 1","Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":580},{"i":582,"n":"バニプッチ","g":["Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":583,"n":"バニリッチ","g":["Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":582},{"i":584,"n":"バイバニラ","g":["Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":583},{"i":585,"n":"シキジカ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":586,"n":"メブキジカ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":585},{"i":587,"n":"エモンガ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":588,"n":"カブルモ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":589,"n":"シュバルゴ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":588},{"i":590,"n":"タマゲタケ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":591,"n":"モロバレル","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":590},{"i":592,"n":"プルリル","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":593,"n":"ブルンゲル","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":592},{"i":594,"n":"ママンボウ","g":["Water 1","Water 2"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":595,"n":"バチュル","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":596,"n":"デンチュラ","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":595},{"i":597,"n":"テッシード","g":["Grass","Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":598,"n":"ナットレイ","g":["Grass","Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":597},{"i":599,"n":"ギアル","g":["Mineral"],"gr":-1,"hc":20,"l":0,"m":0,"e":0},{"i":600,"n":"ギギアル","g":["Mineral"],"gr":-1,"hc":20,"l":0,"m":0,"e":599},{"i":601,"n":"ギギギアル","g":["Mineral"],"gr":-1,"hc":20,"l":0,"m":0,"e":600},{"i":602,"n":"シビシラス","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":603,"n":"シビビール","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":602},{"i":604,"n":"シビルドン","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":603},{"i":605,"n":"リグレー","g":["Human-Like"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":606,"n":"オーベム","g":["Human-Like"],"gr":4,"hc":20,"l":0,"m":0,"e":605},{"i":607,"n":"ヒトモシ","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":608,"n":"ランプラー","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":607},{"i":609,"n":"シャンデラ","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":608},{"i":610,"n":"キバゴ","g":["Monster","Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":611,"n":"オノンド","g":["Monster","Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":610},{"i":612,"n":"オノノクス","g":["Monster","Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":611},{"i":613,"n":"クマシュン","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":614,"n":"ツンベアー","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":613},{"i":615,"n":"フリージオ","g":["Mineral"],"gr":-1,"hc":25,"l":0,"m":0,"e":0},{"i":616,"n":"チョボマキ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":617,"n":"アギルダー","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":616},{"i":618,"n":"マッギョ","g":["Water 1","Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":619,"n":"コジョフー","g":["Field","Human-Like"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":620,"n":"コジョンド","g":["Field","Human-Like"],"gr":4,"hc":25,"l":0,"m":0,"e":619},{"i":621,"n":"クリムガン","g":["Monster","Dragon"],"gr":4,"hc":30,"l":0,"m":0,"e":0},{"i":622,"n":"ゴビット","g":["Mineral"],"gr":-1,"hc":25,"l":0,"m":0,"e":0},{"i":623,"n":"ゴルーグ","g":["Mineral"],"gr":-1,"hc":25,"l":0,"m":0,"e":622},{"i":624,"n":"コマタナ","g":["Human-Like"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":625,"n":"キリキザン","g":["Human-Like"],"gr":4,"hc":20,"l":0,"m":0,"e":624},{"i":626,"n":"バッフロン","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":627,"n":"ワシボン","g":["Flying"],"gr":0,"hc":20,"l":0,"m":0,"e":0},{"i":628,"n":"ウォーグル","g":["Flying"],"gr":0,"hc":20,"l":0,"m":0,"e":627},{"i":629,"n":"バルチャイ","g":["Flying"],"gr":8,"hc":20,"l":0,"m":0,"e":0},{"i":630,"n":"バルジーナ","g":["Flying"],"gr":8,"hc":20,"l":0,"m":0,"e":629},{"i":631,"n":"クイタラン","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":632,"n":"アイアント","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":633,"n":"モノズ","g":["Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":634,"n":"ジヘッド","g":["Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":633},{"i":635,"n":"サザンドラ","g":["Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":634},{"i":636,"n":"メラルバ","g":["Bug"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":637,"n":"ウルガモス","g":["Bug"],"gr":4,"hc":40,"l":0,"m":0,"e":636},{"i":638,"n":"コバルオン","g":["Undiscovered"],"gr":-1,"hc":80,"l":1,"m":0,"e":0},{"i":639,"n":"テラキオン","g":["Undiscovered"],"gr":-1,"hc":80,"l":1,"m":0,"e":0},{"i":640,"n":"ビリジオン","g":["Undiscovered"],"gr":-1,"hc":80,"l":1,"m":0,"e":0},{"i":641,"n":"トルネロス","g":["Undiscovered"],"gr":0,"hc":120,"l":1,"m":0,"e":0},{"i":642,"n":"ボルトロス","g":["Undiscovered"],"gr":0,"hc":120,"l":1,"m":0,"e":0},{"i":643,"n":"レシラム","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":644,"n":"ゼクロム","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":645,"n":"ランドロス","g":["Undiscovered"],"gr":0,"hc":120,"l":1,"m":0,"e":0},{"i":646,"n":"キュレム","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":647,"n":"ケルディオ","g":["Undiscovered"],"gr":-1,"hc":80,"l":0,"m":1,"e":0},{"i":648,"n":"メロエッタ","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":0},{"i":649,"n":"ゲノセクト","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":0},{"i":650,"n":"ハリマロン","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":651,"n":"ハリボーグ","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":650},{"i":652,"n":"ブリガロン","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":651},{"i":653,"n":"フォッコ","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":654,"n":"テールナー","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":653},{"i":655,"n":"マフォクシー","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":654},{"i":656,"n":"ケロマツ","g":["Water 1"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":657,"n":"ゲコガシラ","g":["Water 1"],"gr":1,"hc":20,"l":0,"m":0,"e":656},{"i":658,"n":"ゲッコウガ","g":["Water 1"],"gr":1,"hc":20,"l":0,"m":0,"e":657},{"i":659,"n":"ホルビー","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":660,"n":"ホルード","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":659},{"i":661,"n":"ヤヤコマ","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":662,"n":"ヒノヤコマ","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":661},{"i":663,"n":"ファイアロー","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":662},{"i":664,"n":"コフキムシ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":665,"n":"コフーライ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":664},{"i":666,"n":"ビビヨン","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":665},{"i":667,"n":"シシコ","g":["Field"],"gr":7,"hc":20,"l":0,"m":0,"e":0},{"i":668,"n":"カエンジシ","g":["Field"],"gr":7,"hc":20,"l":0,"m":0,"e":667},{"i":669,"n":"フラベベ","g":["Fairy"],"gr":8,"hc":20,"l":0,"m":0,"e":0},{"i":670,"n":"フラエッテ","g":["Fairy"],"gr":8,"hc":20,"l":0,"m":0,"e":669},{"i":671,"n":"フラージェス","g":["Fairy"],"gr":8,"hc":20,"l":0,"m":0,"e":670},{"i":672,"n":"メェークル","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":673,"n":"ゴーゴート","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":672},{"i":674,"n":"ヤンチャム","g":["Field","Human-Like"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":675,"n":"ゴロンダ","g":["Field","Human-Like"],"gr":4,"hc":25,"l":0,"m":0,"e":674},{"i":676,"n":"トリミアン","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":677,"n":"ニャスパー","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":678,"n":"ニャオニクス","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":677},{"i":679,"n":"ヒトツキ","g":["Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":680,"n":"ニダンギル","g":["Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":679},{"i":681,"n":"ギルガルド","g":["Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":680},{"i":682,"n":"シュシュプ","g":["Fairy"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":683,"n":"フレフワン","g":["Fairy"],"gr":4,"hc":20,"l":0,"m":0,"e":682},{"i":684,"n":"ペロッパフ","g":["Fairy"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":685,"n":"ペロリーム","g":["Fairy"],"gr":4,"hc":20,"l":0,"m":0,"e":684},{"i":686,"n":"マーイーカ","g":["Water 1","Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":687,"n":"カラマネロ","g":["Water 1","Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":686},{"i":688,"n":"カメテテ","g":["Water 3"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":689,"n":"ガメノデス","g":["Water 3"],"gr":4,"hc":20,"l":0,"m":0,"e":688},{"i":690,"n":"クズモー","g":["Water 1","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":691,"n":"ドラミドロ","g":["Water 1","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":690},{"i":692,"n":"ウデッポウ","g":["Water 1","Water 3"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":693,"n":"ブロスター","g":["Water 1","Water 3"],"gr":4,"hc":15,"l":0,"m":0,"e":692},{"i":694,"n":"エリキテル","g":["Monster","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":695,"n":"エレザード","g":["Monster","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":694},{"i":696,"n":"チゴラス","g":["Monster","Dragon"],"gr":1,"hc":30,"l":0,"m":0,"e":0},{"i":697,"n":"ガチゴラス","g":["Monster","Dragon"],"gr":1,"hc":30,"l":0,"m":0,"e":696},{"i":698,"n":"アマルス","g":["Monster"],"gr":1,"hc":30,"l":0,"m":0,"e":0},{"i":699,"n":"アマルルガ","g":["Monster"],"gr":1,"hc":30,"l":0,"m":0,"e":698},{"i":700,"n":"ニンフィア","g":["Field"],"gr":1,"hc":35,"l":0,"m":0,"e":133},{"i":701,"n":"ルチャブル","g":["Flying","Human-Like"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":702,"n":"デデンネ","g":["Field","Fairy"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":703,"n":"メレシー","g":["Fairy","Mineral"],"gr":-1,"hc":25,"l":0,"m":0,"e":0},{"i":704,"n":"ヌメラ","g":["Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":705,"n":"ヌメイル","g":["Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":704},{"i":706,"n":"ヌメルゴン","g":["Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":705},{"i":707,"n":"クレッフィ","g":["Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":708,"n":"ボクレー","g":["Grass","Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":709,"n":"オーロット","g":["Grass","Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":708},{"i":710,"n":"バケッチャ","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":711,"n":"パンプジン","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":710},{"i":712,"n":"カチコール","g":["Monster","Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":713,"n":"クレベース","g":["Monster","Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":712},{"i":714,"n":"オンバット","g":["Flying","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":715,"n":"オンバーン","g":["Flying","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":714},{"i":716,"n":"ゼルネアス","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":717,"n":"イベルタル","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":718,"n":"ジガルデ","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":719,"n":"ディアンシー","g":["Undiscovered"],"gr":-1,"hc":25,"l":0,"m":1,"e":0},{"i":720,"n":"フーパ","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":0},{"i":721,"n":"ボルケニオン","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":0},{"i":722,"n":"モクロー","g":["Flying"],"gr":1,"hc":15,"l":0,"m":0,"e":0},{"i":723,"n":"フクスロー","g":["Flying"],"gr":1,"hc":15,"l":0,"m":0,"e":722},{"i":724,"n":"ジュナイパー","g":["Flying"],"gr":1,"hc":15,"l":0,"m":0,"e":723},{"i":725,"n":"ニャビー","g":["Field"],"gr":1,"hc":15,"l":0,"m":0,"e":0},{"i":726,"n":"ニャヒート","g":["Field"],"gr":1,"hc":15,"l":0,"m":0,"e":725},{"i":727,"n":"ガオガエン","g":["Field"],"gr":1,"hc":15,"l":0,"m":0,"e":726},{"i":728,"n":"アシマリ","g":["Water 1","Field"],"gr":1,"hc":15,"l":0,"m":0,"e":0},{"i":729,"n":"オシャマリ","g":["Water 1","Field"],"gr":1,"hc":15,"l":0,"m":0,"e":728},{"i":730,"n":"アシレーヌ","g":["Water 1","Field"],"gr":1,"hc":15,"l":0,"m":0,"e":729},{"i":731,"n":"ツツケラ","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":732,"n":"ケララッパ","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":731},{"i":733,"n":"ドデカバシ","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":732},{"i":734,"n":"ヤングース","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":735,"n":"デカグース","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":734},{"i":736,"n":"アゴジムシ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":737,"n":"デンヂムシ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":736},{"i":738,"n":"クワガノン","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":737},{"i":739,"n":"マケンカニ","g":["Water 3"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":740,"n":"ケケンカニ","g":["Water 3"],"gr":4,"hc":20,"l":0,"m":0,"e":739},{"i":741,"n":"オドリドリ","g":["Flying"],"gr":6,"hc":20,"l":0,"m":0,"e":0},{"i":742,"n":"アブリー","g":["Bug","Fairy"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":743,"n":"アブリボン","g":["Bug","Fairy"],"gr":4,"hc":20,"l":0,"m":0,"e":742},{"i":744,"n":"イワンコ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":745,"n":"ルガルガン","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":744},{"i":746,"n":"ヨワシ","g":["Water 2"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":747,"n":"ヒドイデ","g":["Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":748,"n":"ドヒドイデ","g":["Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":747},{"i":749,"n":"ドロバンコ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":750,"n":"バンバドロ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":749},{"i":751,"n":"シズクモ","g":["Water 1","Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":752,"n":"オニシズクモ","g":["Water 1","Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":751},{"i":753,"n":"カリキリ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":754,"n":"ラランテス","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":753},{"i":755,"n":"ネマシュ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":756,"n":"マシェード","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":755},{"i":757,"n":"ヤトウモリ","g":["Monster","Dragon"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":758,"n":"エンニュート","g":["Monster","Dragon"],"gr":8,"hc":20,"l":0,"m":0,"e":757},{"i":759,"n":"ヌイコグマ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":760,"n":"キテルグマ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":759},{"i":761,"n":"アマカジ","g":["Grass"],"gr":8,"hc":20,"l":0,"m":0,"e":0},{"i":762,"n":"アママイコ","g":["Grass"],"gr":8,"hc":20,"l":0,"m":0,"e":761},{"i":763,"n":"アマージョ","g":["Grass"],"gr":8,"hc":20,"l":0,"m":0,"e":762},{"i":764,"n":"キュワワー","g":["Grass"],"gr":6,"hc":20,"l":0,"m":0,"e":0},{"i":765,"n":"ヤレユータン","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":766,"n":"ナゲツケサル","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":767,"n":"コソクムシ","g":["Bug","Water 3"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":768,"n":"グソクムシャ","g":["Bug","Water 3"],"gr":4,"hc":20,"l":0,"m":0,"e":767},{"i":769,"n":"スナバァ","g":["Amorphous"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":770,"n":"シロデスナ","g":["Amorphous"],"gr":4,"hc":15,"l":0,"m":0,"e":769},{"i":771,"n":"ナマコブシ","g":["Water 1"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":772,"n":"タイプ：ヌル","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":773,"n":"シルヴァディ","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":772},{"i":774,"n":"メテノ","g":["Mineral"],"gr":-1,"hc":25,"l":0,"m":0,"e":0},{"i":775,"n":"ネッコアラ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":776,"n":"バクガメス","g":["Monster","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":777,"n":"トゲデマル","g":["Field","Fairy"],"gr":4,"hc":10,"l":0,"m":0,"e":0},{"i":778,"n":"ミミッキュ","g":["Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":779,"n":"ハギギシリ","g":["Water 2"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":780,"n":"ジジーロン","g":["Monster","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":781,"n":"ダダリン","g":["Mineral"],"gr":-1,"hc":25,"l":0,"m":0,"e":0},{"i":782,"n":"ジャラコ","g":["Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":783,"n":"ジャランゴ","g":["Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":782},{"i":784,"n":"ジャラランガ","g":["Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":783},{"i":785,"n":"カプ・コケコ","g":["Undiscovered"],"gr":-1,"hc":15,"l":1,"m":0,"e":0},{"i":786,"n":"カプ・テテフ","g":["Undiscovered"],"gr":-1,"hc":15,"l":1,"m":0,"e":0},{"i":787,"n":"カプ・ブルル","g":["Undiscovered"],"gr":-1,"hc":15,"l":1,"m":0,"e":0},{"i":788,"n":"カプ・レヒレ","g":["Undiscovered"],"gr":-1,"hc":15,"l":1,"m":0,"e":0},{"i":789,"n":"コスモッグ","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":790,"n":"コスモウム","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":789},{"i":791,"n":"ソルガレオ","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":790},{"i":792,"n":"ルナアーラ","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":790},{"i":793,"n":"ウツロイド","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":0,"e":0},{"i":794,"n":"マッシブーン","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":0,"e":0},{"i":795,"n":"フェローチェ","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":0,"e":0},{"i":796,"n":"デンジュモク","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":0,"e":0},{"i":797,"n":"テッカグヤ","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":0,"e":0},{"i":798,"n":"カミツルギ","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":0,"e":0},{"i":799,"n":"アクジキング","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":0,"e":0},{"i":800,"n":"ネクロズマ","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":801,"n":"マギアナ","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":0},{"i":802,"n":"マーシャドー","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":0},{"i":803,"n":"ベベノム","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":0,"e":0},{"i":804,"n":"アーゴヨン","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":0,"e":803},{"i":805,"n":"ツンデツンデ","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":0,"e":0},{"i":806,"n":"ズガドーン","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":0,"e":0},{"i":807,"n":"ゼラオラ","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":0},{"i":808,"n":"メルタン","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":0},{"i":809,"n":"メルメタル","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":808},{"i":810,"n":"サルノリ","g":["Field","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":811,"n":"バチンキー","g":["Field","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":810},{"i":812,"n":"ゴリランダー","g":["Field","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":811},{"i":813,"n":"ヒバニー","g":["Field","Human-Like"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":814,"n":"ラビフット","g":["Field","Human-Like"],"gr":1,"hc":20,"l":0,"m":0,"e":813},{"i":815,"n":"エースバーン","g":["Field","Human-Like"],"gr":1,"hc":20,"l":0,"m":0,"e":814},{"i":816,"n":"メッソン","g":["Water 1","Field"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":817,"n":"ジメレオン","g":["Water 1","Field"],"gr":1,"hc":20,"l":0,"m":0,"e":816},{"i":818,"n":"インテレオン","g":["Water 1","Field"],"gr":1,"hc":20,"l":0,"m":0,"e":817},{"i":819,"n":"ホシガリス","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":820,"n":"ヨクバリス","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":819},{"i":821,"n":"ココガラ","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":822,"n":"アオガラス","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":821},{"i":823,"n":"アーマーガア","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":822},{"i":824,"n":"サッチムシ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":825,"n":"レドームシ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":824},{"i":826,"n":"イオルブ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":825},{"i":827,"n":"クスネ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":828,"n":"フォクスライ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":827},{"i":829,"n":"ヒメンカ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":830,"n":"ワタシラガ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":829},{"i":831,"n":"ウールー","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":832,"n":"バイウールー","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":831},{"i":833,"n":"カムカメ","g":["Monster","Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":834,"n":"カジリガメ","g":["Monster","Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":833},{"i":835,"n":"ワンパチ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":836,"n":"パルスワン","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":835},{"i":837,"n":"タンドン","g":["Mineral"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":838,"n":"トロッゴン","g":["Mineral"],"gr":4,"hc":15,"l":0,"m":0,"e":837},{"i":839,"n":"セキタンザン","g":["Mineral"],"gr":4,"hc":15,"l":0,"m":0,"e":838},{"i":840,"n":"カジッチュ","g":["Grass","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":841,"n":"アップリュー","g":["Grass","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":840},{"i":842,"n":"タルップル","g":["Grass","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":840},{"i":843,"n":"スナヘビ","g":["Field","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":844,"n":"サダイジャ","g":["Field","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":843},{"i":845,"n":"ウッウ","g":["Water 1","Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":846,"n":"サシカマス","g":["Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":847,"n":"カマスジョー","g":["Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":846},{"i":848,"n":"エレズン","g":["Undiscovered"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":849,"n":"ストリンダー","g":["Human-Like"],"gr":4,"hc":25,"l":0,"m":0,"e":848},{"i":850,"n":"ヤクデ","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":851,"n":"マルヤクデ","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":850},{"i":852,"n":"タタッコ","g":["Water 1","Human-Like"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":853,"n":"オトスパス","g":["Water 1","Human-Like"],"gr":4,"hc":25,"l":0,"m":0,"e":852},{"i":854,"n":"ヤバチャ","g":["Mineral","Amorphous"],"gr":-1,"hc":20,"l":0,"m":0,"e":0},{"i":855,"n":"ポットデス","g":["Mineral","Amorphous"],"gr":-1,"hc":20,"l":0,"m":0,"e":854},{"i":856,"n":"ミブリム","g":["Fairy"],"gr":8,"hc":20,"l":0,"m":0,"e":0},{"i":857,"n":"テブリム","g":["Fairy"],"gr":8,"hc":20,"l":0,"m":0,"e":856},{"i":858,"n":"ブリムオン","g":["Fairy"],"gr":8,"hc":20,"l":0,"m":0,"e":857},{"i":859,"n":"ベロバー","g":["Fairy","Human-Like"],"gr":0,"hc":20,"l":0,"m":0,"e":0},{"i":860,"n":"ギモー","g":["Fairy","Human-Like"],"gr":0,"hc":20,"l":0,"m":0,"e":859},{"i":861,"n":"オーロンゲ","g":["Fairy","Human-Like"],"gr":0,"hc":20,"l":0,"m":0,"e":860},{"i":862,"n":"タチフサグマ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":264},{"i":863,"n":"ニャイキング","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":52},{"i":864,"n":"サニゴーン","g":["Water 1","Water 3"],"gr":6,"hc":20,"l":0,"m":0,"e":222},{"i":865,"n":"ネギガナイト","g":["Flying","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":83},{"i":866,"n":"バリコオル","g":["Human-Like"],"gr":4,"hc":25,"l":0,"m":0,"e":122},{"i":867,"n":"デスバーン","g":["Mineral","Amorphous"],"gr":4,"hc":25,"l":0,"m":0,"e":562},{"i":868,"n":"マホミル","g":["Fairy","Amorphous"],"gr":8,"hc":20,"l":0,"m":0,"e":0},{"i":869,"n":"マホイップ","g":["Fairy","Amorphous"],"gr":8,"hc":20,"l":0,"m":0,"e":868},{"i":870,"n":"タイレーツ","g":["Fairy","Mineral"],"gr":-1,"hc":25,"l":0,"m":0,"e":0},{"i":871,"n":"バチンウニ","g":["Water 1","Amorphous"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":872,"n":"ユキハミ","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":873,"n":"モスノウ","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":872},{"i":874,"n":"イシヘンジン","g":["Mineral"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":875,"n":"コオリッポ","g":["Water 1","Field"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":876,"n":"イエッサン","g":["Fairy"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":877,"n":"モルペコ","g":["Field","Fairy"],"gr":4,"hc":10,"l":0,"m":0,"e":0},{"i":878,"n":"ゾウドウ","g":["Field","Mineral"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":879,"n":"ダイオウドウ","g":["Field","Mineral"],"gr":4,"hc":25,"l":0,"m":0,"e":878},{"i":880,"n":"パッチラゴン","g":["Undiscovered"],"gr":-1,"hc":35,"l":0,"m":0,"e":0},{"i":881,"n":"パッチルドン","g":["Undiscovered"],"gr":-1,"hc":35,"l":0,"m":0,"e":0},{"i":882,"n":"ウオノラゴン","g":["Undiscovered"],"gr":-1,"hc":35,"l":0,"m":0,"e":0},{"i":883,"n":"ウオチルドン","g":["Undiscovered"],"gr":-1,"hc":35,"l":0,"m":0,"e":0},{"i":884,"n":"ジュラルドン","g":["Mineral","Dragon"],"gr":4,"hc":30,"l":0,"m":0,"e":0},{"i":885,"n":"ドラメシヤ","g":["Amorphous","Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":886,"n":"ドロンチ","g":["Amorphous","Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":885},{"i":887,"n":"ドラパルト","g":["Amorphous","Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":886},{"i":888,"n":"ザシアン","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":889,"n":"ザマゼンタ","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":890,"n":"ムゲンダイナ","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":891,"n":"ダクマ","g":["Undiscovered"],"gr":1,"hc":120,"l":1,"m":0,"e":0},{"i":892,"n":"ウーラオス","g":["Undiscovered"],"gr":1,"hc":120,"l":1,"m":0,"e":891},{"i":893,"n":"ザルード","g":["Undiscovered"],"gr":-1,"hc":120,"l":0,"m":1,"e":0},{"i":894,"n":"レジエレキ","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":895,"n":"レジドラゴ","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":896,"n":"ブリザポス","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":897,"n":"レイスポス","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":898,"n":"バドレックス","g":["Undiscovered"],"gr":-1,"hc":120,"l":1,"m":0,"e":0},{"i":899,"n":"アヤシシ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":234},{"i":900,"n":"バサギリ","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":123},{"i":901,"n":"ガチグマ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":217},{"i":902,"n":"イダイトウ","g":["Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":550},{"i":903,"n":"オオニューラ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":215},{"i":904,"n":"ハリーマン","g":["Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":211},{"i":905,"n":"ラブトロス","g":["Undiscovered"],"gr":8,"hc":20,"l":1,"m":0,"e":0},{"i":906,"n":"ニャオハ","g":["Field","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":907,"n":"ニャローテ","g":["Field","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":906},{"i":908,"n":"マスカーニャ","g":["Field","Grass"],"gr":1,"hc":20,"l":0,"m":0,"e":907},{"i":909,"n":"ホゲータ","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":910,"n":"アチゲータ","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":909},{"i":911,"n":"ラウドボーン","g":["Field"],"gr":1,"hc":20,"l":0,"m":0,"e":910},{"i":912,"n":"クワッス","g":["Water 1","Flying"],"gr":1,"hc":20,"l":0,"m":0,"e":0},{"i":913,"n":"ウェルカモ","g":["Water 1","Flying"],"gr":1,"hc":20,"l":0,"m":0,"e":912},{"i":914,"n":"ウェーニバル","g":["Water 1","Flying"],"gr":1,"hc":20,"l":0,"m":0,"e":913},{"i":915,"n":"グルトン","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":916,"n":"パフュートン","g":["Field"],"gr":0,"hc":15,"l":0,"m":0,"e":915},{"i":917,"n":"タマンチュラ","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":918,"n":"ワナイダー","g":["Bug"],"gr":4,"hc":15,"l":0,"m":0,"e":917},{"i":919,"n":"マメバッタ","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":920,"n":"エクスレッグ","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":919},{"i":921,"n":"パモ","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":922,"n":"パモット","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":921},{"i":923,"n":"パーモット","g":["Field"],"gr":4,"hc":15,"l":0,"m":0,"e":922},{"i":924,"n":"ワッカネズミ","g":["Field","Fairy"],"gr":-1,"hc":10,"l":0,"m":0,"e":0},{"i":925,"n":"イッカネズミ","g":["Field","Fairy"],"gr":-1,"hc":10,"l":0,"m":0,"e":924},{"i":926,"n":"パピモッチ","g":["Field","Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":927,"n":"バウッツェル","g":["Field","Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":926},{"i":928,"n":"ミニーブ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":929,"n":"オリーニョ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":928},{"i":930,"n":"オリーヴァ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":929},{"i":931,"n":"イキリンコ","g":["Flying"],"gr":4,"hc":15,"l":0,"m":0,"e":0},{"i":932,"n":"コジオ","g":["Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":933,"n":"ジオヅム","g":["Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":932},{"i":934,"n":"キョジオーン","g":["Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":933},{"i":935,"n":"カルボウ","g":["Human-Like"],"gr":4,"hc":35,"l":0,"m":0,"e":0},{"i":936,"n":"グレンアルマ","g":["Human-Like"],"gr":4,"hc":35,"l":0,"m":0,"e":935},{"i":937,"n":"ソウブレイズ","g":["Human-Like"],"gr":4,"hc":35,"l":0,"m":0,"e":935},{"i":938,"n":"ズピカ","g":["Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":939,"n":"ハラバリー","g":["Water 1"],"gr":4,"hc":20,"l":0,"m":0,"e":938},{"i":940,"n":"カイデン","g":["Water 1","Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":941,"n":"タイカイデン","g":["Water 1","Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":940},{"i":942,"n":"オラチフ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":943,"n":"マフィティフ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":942},{"i":944,"n":"シルシュルー","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":945,"n":"タギングル","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":944},{"i":946,"n":"アノクサ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":947,"n":"アノホラグサ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":946},{"i":948,"n":"ノノクラゲ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":949,"n":"リククラゲ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":948},{"i":950,"n":"ガケガニ","g":["Water 3"],"gr":4,"hc":35,"l":0,"m":0,"e":0},{"i":951,"n":"カプサイジ","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":952,"n":"スコヴィラン","g":["Grass"],"gr":4,"hc":20,"l":0,"m":0,"e":951},{"i":953,"n":"シガロコ","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":954,"n":"ベラカス","g":["Bug"],"gr":4,"hc":20,"l":0,"m":0,"e":953},{"i":955,"n":"ヒラヒナ","g":["Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":956,"n":"クエスパトラ","g":["Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":955},{"i":957,"n":"カヌチャン","g":["Fairy"],"gr":8,"hc":20,"l":0,"m":0,"e":0},{"i":958,"n":"ナカヌチャン","g":["Fairy"],"gr":8,"hc":20,"l":0,"m":0,"e":957},{"i":959,"n":"デカヌチャン","g":["Fairy"],"gr":8,"hc":20,"l":0,"m":0,"e":958},{"i":960,"n":"ウミディグダ","g":["Water 3"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":961,"n":"ウミトリオ","g":["Water 3"],"gr":4,"hc":20,"l":0,"m":0,"e":960},{"i":962,"n":"オトシドリ","g":["Flying"],"gr":4,"hc":35,"l":0,"m":0,"e":0},{"i":963,"n":"ナミイルカ","g":["Field","Water 2"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":964,"n":"イルカマン","g":["Field","Water 2"],"gr":4,"hc":40,"l":0,"m":0,"e":963},{"i":965,"n":"ブロロン","g":["Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":966,"n":"ブロロローム","g":["Mineral"],"gr":4,"hc":20,"l":0,"m":0,"e":965},{"i":967,"n":"モトトカゲ","g":["Field"],"gr":4,"hc":30,"l":0,"m":0,"e":0},{"i":968,"n":"ミミズズ","g":["Field"],"gr":4,"hc":35,"l":0,"m":0,"e":0},{"i":969,"n":"キラーメ","g":["Mineral"],"gr":4,"hc":30,"l":0,"m":0,"e":0},{"i":970,"n":"キラフロル","g":["Mineral"],"gr":4,"hc":30,"l":0,"m":0,"e":969},{"i":971,"n":"ボチ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":972,"n":"ハカドッグ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":971},{"i":973,"n":"カラミンゴ","g":["Flying"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":974,"n":"アルクジラ","g":["Field"],"gr":4,"hc":25,"l":0,"m":0,"e":0},{"i":975,"n":"ハルクジラ","g":["Field"],"gr":4,"hc":25,"l":0,"m":0,"e":974},{"i":976,"n":"ミガルーサ","g":["Water 2"],"gr":4,"hc":20,"l":0,"m":0,"e":0},{"i":977,"n":"ヘイラッシャ","g":["Water 2"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":978,"n":"シャリタツ","g":["Water 2"],"gr":4,"hc":35,"l":0,"m":0,"e":0},{"i":979,"n":"コノヨザル","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":57},{"i":980,"n":"ドオー","g":["Water 1","Field"],"gr":4,"hc":20,"l":0,"m":0,"e":194},{"i":981,"n":"リキキリン","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":203},{"i":982,"n":"ノココッチ","g":["Field"],"gr":4,"hc":20,"l":0,"m":0,"e":206},{"i":983,"n":"ドドゲザン","g":["Human-Like"],"gr":4,"hc":20,"l":0,"m":0,"e":625},{"i":984,"n":"イダイナキバ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":985,"n":"サケブシッポ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":986,"n":"アラブルタケ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":987,"n":"ハバタクカミ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":988,"n":"チヲハウハネ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":989,"n":"スナノケガワ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":990,"n":"テツノワダチ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":991,"n":"テツノツツミ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":992,"n":"テツノカイナ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":993,"n":"テツノコウベ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":994,"n":"テツノドクガ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":995,"n":"テツノイバラ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":996,"n":"セビエ","g":["Mineral","Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":0},{"i":997,"n":"セゴール","g":["Mineral","Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":996},{"i":998,"n":"セグレイブ","g":["Mineral","Dragon"],"gr":4,"hc":40,"l":0,"m":0,"e":997},{"i":999,"n":"コレクレー","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":1000,"n":"サーフゴー","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":999},{"i":1001,"n":"チオンジェン","g":["Undiscovered"],"gr":-1,"hc":50,"l":1,"m":0,"e":0},{"i":1002,"n":"パオジアン","g":["Undiscovered"],"gr":-1,"hc":50,"l":1,"m":0,"e":0},{"i":1003,"n":"ディンルー","g":["Undiscovered"],"gr":-1,"hc":50,"l":1,"m":0,"e":0},{"i":1004,"n":"イーユイ","g":["Undiscovered"],"gr":-1,"hc":50,"l":1,"m":0,"e":0},{"i":1005,"n":"トドロクツキ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":1006,"n":"テツノブジン","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":1007,"n":"コライドン","g":["Undiscovered"],"gr":-1,"hc":50,"l":1,"m":0,"e":0},{"i":1008,"n":"ミライドン","g":["Undiscovered"],"gr":-1,"hc":50,"l":1,"m":0,"e":0},{"i":1009,"n":"ウネルミナモ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":1010,"n":"テツノイサハ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":1011,"n":"カミッチュ","g":["Grass","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":840},{"i":1012,"n":"チャデス","g":["Mineral","Amorphous"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":1013,"n":"ヤバソチャ","g":["Mineral","Amorphous"],"gr":-1,"hc":50,"l":0,"m":0,"e":1012},{"i":1014,"n":"イイネイヌ","g":["Undiscovered"],"gr":0,"hc":50,"l":1,"m":0,"e":0},{"i":1015,"n":"マシマシラ","g":["Undiscovered"],"gr":0,"hc":50,"l":1,"m":0,"e":0},{"i":1016,"n":"キチキギス","g":["Undiscovered"],"gr":0,"hc":50,"l":1,"m":0,"e":0},{"i":1017,"n":"オーガポン","g":["Undiscovered"],"gr":8,"hc":50,"l":1,"m":0,"e":0},{"i":1018,"n":"ブリジュラス","g":["Mineral","Dragon"],"gr":4,"hc":30,"l":0,"m":0,"e":884},{"i":1019,"n":"カミツオロチ","g":["Grass","Dragon"],"gr":4,"hc":20,"l":0,"m":0,"e":1011},{"i":1020,"n":"ウガツホムラ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":1021,"n":"タケルライコ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":1022,"n":"テツノイワオ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":1023,"n":"テツノカシラ","g":["Undiscovered"],"gr":-1,"hc":50,"l":0,"m":0,"e":0},{"i":1024,"n":"テラパゴス","g":["Undiscovered"],"gr":4,"hc":5,"l":1,"m":0,"e":0},{"i":1025,"n":"モモワロウ","g":["Undiscovered"],"gr":-1,"hc":20,"l":0,"m":1,"e":0}]</script>
+  <script>
+  (function () {
+    var DATA = JSON.parse(document.getElementById('bc-data').textContent);
+    var byName = {}, byDex = {};
+    DATA.forEach(function (p) { byName[p.n.toLowerCase()] = p; byDex[p.i] = p; });
+    var out = document.getElementById('bc-out');
+    var SPRITE = '../../assets/sprites/';
+    var picks = {}, ready = false;
+
+    function dexNo(i) { var t = String(i); while (t.length < 4) t = '0' + t; return '#' + t; }
+
+    function makePicker(key) {
+      var root = document.getElementById('bc-' + key);
+      var trigger = root.querySelector('.bc-trigger');
+      var img = trigger.querySelector('.bc-sprite');
+      var nameEl = trigger.querySelector('.bc-name');
+      var dexEl = trigger.querySelector('.bc-dex');
+      var pop = root.querySelector('.bc-pop');
+      var search = root.querySelector('.bc-search');
+      var list = root.querySelector('.bc-list');
+      var empty = root.querySelector('.bc-empty');
+      var active = -1, rows = [], total = 0, MAX = 80;
+      var api = { value: '' };
+
+      function draw(q) {
+        q = (q || '').trim().toLowerCase();
+        var pool = q ? DATA.filter(function (p) { return p.n.toLowerCase().indexOf(q) >= 0; }) : DATA.slice();
+        if (q) pool.sort(function (x, y) {
+          var ax = x.n.toLowerCase().indexOf(q) === 0 ? 0 : 1, ay = y.n.toLowerCase().indexOf(q) === 0 ? 0 : 1;
+          return ax !== ay ? ax - ay : x.i - y.i;
+        });
+        total = pool.length;
+        var slice = pool.slice(0, MAX);
+        list.innerHTML = slice.map(function (p) {
+          var sel = p.n === api.value ? ' aria-selected="true"' : ' aria-selected="false"';
+          return '<li class="bc-opt" role="option" data-name="' + p.n + '"' + sel + '>' +
+            '<img src="' + SPRITE + p.i + '.png" alt="" width="28" height="28" loading="lazy" decoding="async">' +
+            '<span class="bc-opt-n">' + p.n + '</span><span class="bc-opt-d">' + dexNo(p.i) + '</span></li>';
+        }).join('');
+        if (total > MAX) list.innerHTML += '<li class="bc-more" role="presentation">Narrow it down &mdash; ' +
+          total.toLocaleString('en-US') + '匹が該当します。</li>';
+        rows = Array.prototype.slice.call(list.querySelectorAll('.bc-opt'));
+        list.hidden = !rows.length;
+        empty.hidden = !!rows.length;
+        active = -1;
+        for (var i = 0; i < rows.length; i++) if (rows[i].getAttribute('data-name') === api.value) { setActive(i, false); break; }
+      }
+
+      function setActive(i, scroll) {
+        if (!rows.length) return;
+        if (i < 0) i = rows.length - 1;
+        if (i > rows.length - 1) i = 0;
+        for (var k = 0; k < rows.length; k++) rows[k].classList.remove('is-active');
+        active = i;
+        rows[i].classList.add('is-active');
+        if (scroll !== false) rows[i].scrollIntoView({ block: 'nearest' });
+      }
+
+      function openPop() {
+        if (root.getAttribute('data-open') === '1') return;
+        root.setAttribute('data-open', '1');
+        pop.hidden = false;
+        trigger.setAttribute('aria-expanded', 'true');
+        var r = trigger.getBoundingClientRect();
+        var below = window.innerHeight - r.bottom, above = r.top;
+        var up = below < 360 && above > below;
+        pop.setAttribute('data-side', up ? 'up' : 'down');
+        // 行高固定 38px（图标 28 + 上下各 5），让列表高度取整行，避免最后一行被切半截
+        var room = Math.min(290, (up ? above : below) - 96);
+        var fit = Math.max(3, Math.floor((room - 12) / 38));
+        list.style.maxHeight = (fit * 38 + 12) + 'px';
+        search.value = '';
+        draw('');
+        search.focus();
+      }
+
+      function closePop() {
+        root.setAttribute('data-open', '0');
+        pop.hidden = true;
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+
+      api.set = function (name) {
+        var p = byName[String(name).toLowerCase()];
+        if (!p) return;
+        api.value = p.n;
+        nameEl.textContent = p.n;
+        dexEl.textContent = dexNo(p.i);
+        img.src = SPRITE + p.i + '.png';
+        img.alt = p.n + ' のアイコン';
+        if (ready) render();
+      };
+      api.close = closePop;
+
+      trigger.addEventListener('click', function () {
+        if (root.getAttribute('data-open') === '1') { closePop(); } else { openPop(); }
+      });
+      trigger.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPop(); }
+      });
+      search.addEventListener('input', function () { draw(search.value); });
+      search.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown') { e.preventDefault(); setActive(active + 1); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); setActive(active - 1); }
+        else if (e.key === 'Enter') { e.preventDefault(); if (active >= 0 && rows[active]) { api.set(rows[active].getAttribute('data-name')); closePop(); trigger.focus(); } }
+        else if (e.key === 'Escape') { e.preventDefault(); closePop(); trigger.focus(); }
+        else if (e.key === 'Tab') { closePop(); }
+      });
+      list.addEventListener('click', function (e) {
+        var li = e.target.closest ? e.target.closest('.bc-opt') : null;
+        if (!li) return;
+        api.set(li.getAttribute('data-name'));
+        closePop();
+        trigger.focus();
+      });
+      document.addEventListener('click', function (e) { if (!root.contains(e.target)) closePop(); });
+      window.addEventListener('scroll', function () { closePop(); }, { passive: true });
+      window.addEventListener('resize', function () { closePop(); });
+      return api;
+    }
+
+    var EGGJA = {"monster": "怪獣", "water1": "水中1", "bug": "虫", "flying": "飛行", "field": "陸上", "fairy": "妖精", "grass": "植物", "humanlike": "人型", "water3": "水中3", "mineral": "鉱物", "amorphous": "不定形", "water2": "水中2", "ditto": "メタモン", "dragon": "ドラゴン", "undiscovered": "タマゴ未発見"};
+    function genderText(gr) {
+      if (gr === -1) return '性別不明';
+      if (gr === 0) return 'オスしかいない';
+      if (gr === 8) return 'メスしかいない';
+      var female = gr / 8 * 100, male = 100 - female;
+      var pct = function (v) { return (Math.round(v * 10) / 10).toString().replace(/\.0$/, ''); };
+      return 'オス' + pct(male) + '% / メス' + pct(female) + '%';
+    }
+    function canMale(gr) { return gr !== -1 && gr !== 8; }
+    function canFemale(gr) { return gr !== -1 && gr !== 0; }
+    function steps(p) { return (p.hc * 255).toLocaleString('en-US'); }
+
+    function evaluate(a, b) {
+      var ga = a.g, gb = b.g;
+      var undiscovered = ga.indexOf('Undiscovered') >= 0 || gb.indexOf('Undiscovered') >= 0;
+      var shared = ga.filter(function (g) { return gb.indexOf(g) >= 0; });
+      var ditto = ga.indexOf('Ditto') >= 0 || gb.indexOf('Ditto') >= 0;
+      var bothDitto = ga.indexOf('Ditto') >= 0 && gb.indexOf('Ditto') >= 0;
+      var genders = (canMale(a.gr) && canFemale(b.gr)) || (canFemale(a.gr) && canMale(b.gr));
+      var EG = function (list) { return list.map(function (g) { return EGGJA[(g || '').toLowerCase()] || g; }).join(' / '); };
+      if (undiscovered) {
+        return { cls: 'no', title: 'この組み合わせでは卵が生まれません',
+          text: 'どちらかが「タマゴ未発見」グループです。伝説・幻のポケモン、ベイビィ、多くの化石ポケモンがここに入り、メタモンを挟んでも変わりません。' };
+      }
+      if (bothDitto) {
+        return { cls: 'no', title: 'メタモン同士では卵が生まれません',
+          text: 'メタモンは他のポケモンとしか卵を作りません。メタモン1匹と相手1匹を預けると、生まれる卵は相手のポケモンになります。' };
+      }
+      if (ditto) {
+        return { cls: 'yes', title: 'はい ／ メタモンがいれば成立します',
+          text: 'メタモンはタマゴ未発見以外のどのポケモンとも卵を作れます。生まれるのは相手のポケモンです。この組み合わせではタマゴグループの判定は行いません。' };
+      }
+      if (!shared.length) {
+        return { cls: 'no', title: 'いいえ ／ 共通のタマゴグループがありません',
+          text: a.n + ' は ' + EG(ga) + '、' + b.n + ' は ' + EG(gb) + '。共通点がないので、この組み合わせでは卵が生まれません。' };
+      }
+      if (!genders) {
+        return { cls: 'no', title: 'いいえ ／ オスとメスの組み合わせが作れません',
+          text: '片方がオスになれて、もう片方がメスになれる必要があります。' + a.n + ' は ' + genderText(a.gr) + '、' + b.n + ' は ' + genderText(b.gr) + '。' };
+      }
+      return { cls: 'yes', title: 'はい ／ この2匹なら卵が生まれます',
+        text: '共通のタマゴグループは ' + EG(shared) + '。片方がオス、もう片方がメスになれて、どちらもタマゴ未発見ではないので、預けると卵が生まれます。' };
+    }
+
+    function partners(p) {
+      if (p.g.indexOf('Undiscovered') >= 0 || p.g.indexOf('Ditto') >= 0) return [];
+      var pool = DATA.filter(function (q) {
+        if (q.i === p.i) return false;
+        if (q.g.indexOf('Undiscovered') >= 0 || q.g.indexOf('Ditto') >= 0) return false;
+        if (q.gr === -1) return false;
+        return q.g.some(function (g) { return p.g.indexOf(g) >= 0; });
+      });
+      var step = Math.max(1, Math.floor(pool.length / 6)), list = [];
+      for (var i = 0; i < pool.length && list.length < 6; i += step) list.push(pool[i].n);
+      return list;
+    }
+
+    function card(p) {
+      return '<div class="bc-card"><h3><img src="' + SPRITE + p.i + '.png" alt="" width="36" height="36" loading="lazy" decoding="async">' + p.n + '</h3><dl>' +
+        '<dt>タマゴグループ</dt><dd>' + p.g.map(function (g) { return EGGJA[(g || '').toLowerCase()] || g; }).join(' / ') + '</dd>' +
+        '<dt>性別</dt><dd>' + genderText(p.gr) + '</dd>' +
+        '<dt>孵化カウンタ</dt><dd>' + p.hc + ' サイクル</dd>' +
+        '<dt>孵化歩数</dt><dd>' + steps(p) + '</dd>' +
+        '</dl></div>';
+    }
+
+    function render() {
+      var a = byName[(picks.a.value || '').toLowerCase()], b = byName[(picks.b.value || '').toLowerCase()];
+      if (!a || !b) { out.innerHTML = '<p class="tool-note">ポケモンを2匹選ぶと判定します。</p>'; return; }
+      var r = evaluate(a, b);
+      var html = '<div class="bc-verdict ' + (r.cls === 'yes' ? '' : r.cls) + '"><b>' + r.title + '</b><p>' + r.text + '</p></div>';
+      html += '<div class="bc-cards">' + card(a) + card(b) + '</div>';
+      var pl = partners(a).concat(partners(b)).filter(function (v, i, s) { return s.indexOf(v) === i; }).slice(0, 8);
+      if (pl.length) html += '<p class="bc-partners"><b>ほかの組み合わせ候補：</b>' + pl.join(', ') + ' ほか、同じタマゴグループのポケモン。</p>';
+      out.innerHTML = html;
+      var url = new URL(location.href);
+      url.searchParams.set('a', a.i);
+      url.searchParams.set('b', b.i);
+      history.replaceState(null, '', url);
+    }
+
+    document.getElementById('bc-check').addEventListener('click', render);
+    picks.a = makePicker('a');
+    picks.b = makePicker('b');
+    ready = true;
+
+    document.getElementById('bc-share').addEventListener('click', function () {
+      var url = location.href;
+      var label = document.querySelector('#bc-share span');
+      var done = function () { label.textContent = 'コピーしました'; setTimeout(function () { label.textContent = '結果リンクをコピー'; }, 2200); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done, function () { window.prompt('このリンクをコピー:', url); });
+      } else { window.prompt('このリンクをコピー:', url); }
+    });
+
+    var sp = new URLSearchParams(location.search);
+    ['a', 'b'].forEach(function (k) {
+      var v = sp.get(k); if (!v) return;
+      var p = /^\d+$/.test(v) ? byDex[+v] : byName[v.replace(/-/g, ' ')];
+      if (p) picks[k].set(p.n);
+    });
+    if (!picks.a.value) picks.a.set('フシギダネ');
+    if (!picks.b.value) picks.b.set('ヒトカゲ');
+    render();
+  })();
+  </script>
+</body>
+</html>

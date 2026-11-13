@@ -301,6 +301,8 @@ for path in sorted(glob.glob(os.path.join(root, '**', 'index.html'), recursive=T
                 continue  # 合作站互链页（noindex,nofollow，不入 sitemap）：对端徽章是有意保留
             _ext9.append((rel9, src[:90]))
         elif not src.startswith('data:'):
+            if "' +" in src or '+ "' in src or "${" in src:
+                continue  # 模板拼接的动态路径（如 ' + SPRITE + p.i + '.png），由浏览器端生成，静态检查跳过
             if not os.path.exists(os.path.join(os.path.dirname(path), src)):
                 _miss9.append((rel9, src))
 if _ext9 or _miss9:

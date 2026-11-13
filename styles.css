@@ -3762,3 +3762,12 @@ select option:focus {
 .viz-stat.is-best { background: var(--hl); border-color: var(--hl); }
 .viz-stat.is-best .viz-stat-label { color: var(--ink); opacity: 0.7; }
 .ico-calendar { --ico: url(icons/calendar.svg?v=f2); }
+
+/* ---- Tool-page prose (breeding / GO CP / type coverage): 段落间距 + 表格对齐 ---- */
+.bc-prose > p { margin: 0 0 1.15em; line-height: 1.75; }
+.bc-prose > p:last-child { margin-bottom: 0; }
+.bc-prose > h2 { margin: 40px 0 12px; }
+.bc-prose > h2:first-child { margin-top: 0; }
+.bc-prose .bc-table th, .bc-prose .bc-table td { text-align: right; }
+.bc-prose .bc-table th:first-child, .bc-prose .bc-table td:first-child { text-align: left; }
+.bc-prose .bc-table thead th { white-space: nowrap; }
