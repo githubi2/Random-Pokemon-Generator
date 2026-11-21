@@ -9,7 +9,7 @@
 
   var LS_KEY = 'rpg:releasedates-got';
   var NEXT_SET_UTC = Date.UTC(2026, 10, 6);
-  var FOLLOW_UP_UTC = Date.UTC(2027, 1, 5);
+  var FOLLOW_UP_UTC = Date.UTC(2027, 1, 6);
   var DEGRADE_AT = new Date(2026, 10, 7, 0, 0, 0).getTime();
 
   function $(id) { return document.getElementById(id); }
@@ -24,16 +24,16 @@
   // -------- answer box: degrade once Delta Reign has shipped --------
   if (nowMs >= DEGRADE_AT) {
     var followDays = Math.ceil((FOLLOW_UP_UTC - nowMs) / 86400000);
-    setText('rd-hint', 'Mega Evolution\u2014Delta Reign is out now. The next set is Flowing Fists on February 5, 2027 \u2014 a Mega Lucario Z ex showcase and the English release of Japan\u2019s Aura Seeker, with prereleases from January 23 to 31.');
+    setText('rd-hint', 'Mega Evolution\u2014Delta Reign is out now. The next set is Flowing Fists on February 6, 2027 \u2014 a Mega Lucario Z ex showcase and the English release of Japan\u2019s Aura Seeker, with prereleases from January 23 to 31.');
     setText('rd-next-num', 'Flowing Fists');
     setText('rd-next-label', 'The next set');
-    setText('rd-date-num', 'Feb 5, 2027');
+    setText('rd-date-num', 'Feb 6, 2027');
     setText('rd-date-label', 'Release date');
     setText('rd-countdown', followDays > 1 ? (followDays + ' days') : (followDays === 1 ? '1 day' : 'Out now'));
     setText('rd-countdown-label', 'Flowing Fists');
     var calLink = $('rd-cal-link');
     if (calLink) {
-      calLink.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Flowing%20Fists%20releases&dates=20270205/20270206&details=Pokemon%20TCG%3A%20Flowing%20Fists%20releases%20February%205%2C%202027.%20Release%20calendar%20tracked%20at%20random-pokemon-generator.co';
+      calLink.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Flowing%20Fists%20releases&dates=20270206/20270207&details=Pokemon%20TCG%3A%20Flowing%20Fists%20releases%20February%206%2C%202027.%20Release%20calendar%20tracked%20at%20random-pokemon-generator.co';
       var lbl = calLink.querySelector('span');
       if (lbl) { lbl.textContent = ' Add Flowing Fists to your calendar'; }
     }
